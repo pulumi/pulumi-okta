@@ -385,6 +385,156 @@ func (o IdpOutput) ToIdpOutputWithContext(ctx context.Context) IdpOutput {
 	return o
 }
 
+func (o IdpOutput) AccountLinkAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.AccountLinkAction }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) AccountLinkGroupIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringArrayOutput { return v.AccountLinkGroupIncludes }).(pulumi.StringArrayOutput)
+}
+
+func (o IdpOutput) AuthorizationBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.AuthorizationBinding }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) AuthorizationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.AuthorizationUrl }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) DeprovisionedAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.DeprovisionedAction }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) GroupsAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.GroupsAction }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) GroupsAssignments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringArrayOutput { return v.GroupsAssignments }).(pulumi.StringArrayOutput)
+}
+
+func (o IdpOutput) GroupsAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.GroupsAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) GroupsFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringArrayOutput { return v.GroupsFilters }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+func (o IdpOutput) IssuerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) IssuerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.IssuerUrl }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) JwksBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.JwksBinding }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) JwksUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.JwksUrl }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) MaxClockSkew() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.IntPtrOutput { return v.MaxClockSkew }).(pulumi.IntPtrOutput)
+}
+
+// Name of the IdP
+func (o IdpOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) ProfileMaster() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.BoolPtrOutput { return v.ProfileMaster }).(pulumi.BoolPtrOutput)
+}
+
+func (o IdpOutput) ProtocolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.ProtocolType }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) ProvisioningAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign requests
+func (o IdpOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign response
+func (o IdpOutput) RequestSignatureScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign requests
+func (o IdpOutput) ResponseSignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.ResponseSignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign response
+func (o IdpOutput) ResponseSignatureScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.ResponseSignatureScope }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+func (o IdpOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) SubjectMatchAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.SubjectMatchAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) SubjectMatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.SubjectMatchType }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) SuspendedAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.SuspendedAction }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) TokenBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.TokenBinding }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) TokenUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.TokenUrl }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) UserInfoBinding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.UserInfoBinding }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) UserInfoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.UserInfoUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o IdpOutput) UserTypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringOutput { return v.UserTypeId }).(pulumi.StringOutput)
+}
+
+func (o IdpOutput) UsernameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.UsernameTemplate }).(pulumi.StringPtrOutput)
+}
+
 type IdpArrayOutput struct{ *pulumi.OutputState }
 
 func (IdpArrayOutput) ElementType() reflect.Type {

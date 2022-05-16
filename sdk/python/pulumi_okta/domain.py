@@ -192,7 +192,7 @@ class Domain(pulumi.CustomResource):
         Okta Admin Role Targets can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/domain:Domain example <domain_id>
+         $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -225,7 +225,7 @@ class Domain(pulumi.CustomResource):
         Okta Admin Role Targets can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/domain:Domain example <domain_id>
+         $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

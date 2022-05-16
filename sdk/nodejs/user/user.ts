@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  * An Okta User can be imported via the ID.
  *
  * ```sh
- *  $ pulumi import okta:user/user:User example <user id>
+ *  $ pulumi import okta:user/user:User example &#60;user id&#62;
  * ```
  */
 export class User extends pulumi.CustomResource {
@@ -264,7 +264,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * User profile property.
+     * User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -571,7 +571,7 @@ export interface UserState {
      */
     state?: pulumi.Input<string>;
     /**
-     * User profile property.
+     * User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
      */
     status?: pulumi.Input<string>;
     /**
@@ -756,7 +756,7 @@ export interface UserArgs {
      */
     state?: pulumi.Input<string>;
     /**
-     * User profile property.
+     * User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
      */
     status?: pulumi.Input<string>;
     /**

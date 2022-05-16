@@ -22,16 +22,35 @@ class GetUsersResult:
     """
     A collection of values returned by getUsers.
     """
-    def __init__(__self__, id=None, searches=None, users=None):
+    def __init__(__self__, compound_search_operator=None, group_id=None, id=None, include_groups=None, searches=None, users=None):
+        if compound_search_operator and not isinstance(compound_search_operator, str):
+            raise TypeError("Expected argument 'compound_search_operator' to be a str")
+        pulumi.set(__self__, "compound_search_operator", compound_search_operator)
+        if group_id and not isinstance(group_id, str):
+            raise TypeError("Expected argument 'group_id' to be a str")
+        pulumi.set(__self__, "group_id", group_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if include_groups and not isinstance(include_groups, bool):
+            raise TypeError("Expected argument 'include_groups' to be a bool")
+        pulumi.set(__self__, "include_groups", include_groups)
         if searches and not isinstance(searches, list):
             raise TypeError("Expected argument 'searches' to be a list")
         pulumi.set(__self__, "searches", searches)
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
         pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter(name="compoundSearchOperator")
+    def compound_search_operator(self) -> Optional[str]:
+        return pulumi.get(self, "compound_search_operator")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter
@@ -42,8 +61,13 @@ class GetUsersResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="includeGroups")
+    def include_groups(self) -> Optional[bool]:
+        return pulumi.get(self, "include_groups")
+
+    @property
     @pulumi.getter
-    def searches(self) -> Sequence['outputs.GetUsersSearchResult']:
+    def searches(self) -> Optional[Sequence['outputs.GetUsersSearchResult']]:
         return pulumi.get(self, "searches")
 
     @property
@@ -61,33 +85,53 @@ class AwaitableGetUsersResult(GetUsersResult):
         if False:
             yield self
         return GetUsersResult(
+            compound_search_operator=self.compound_search_operator,
+            group_id=self.group_id,
             id=self.id,
+            include_groups=self.include_groups,
             searches=self.searches,
             users=self.users)
 
 
-def get_users(searches: Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']]] = None,
+def get_users(compound_search_operator: Optional[str] = None,
+              group_id: Optional[str] = None,
+              include_groups: Optional[bool] = None,
+              searches: Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
     Use this data source to retrieve a list of users from Okta.
 
     ## Example Usage
+    ### Lookup Users by Search Criteria
 
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.user.get_users(searches=[okta.user.GetUsersSearchArgs(
-        comparison="sw",
-        name="profile.company",
-        value="Articulate",
+        expression="profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
     )])
+    ```
+    ### Lookup Users by Group Membership
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example_group = okta.group.Group("exampleGroup")
+    example_users = okta.user.get_users_output(group_id=example_group.id,
+        include_groups=True)
     ```
 
 
-    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria to find users. It supports the following properties.
+    :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+    :param str group_id: Id of group used to find users based on membership.
+    :param bool include_groups: Fetch each user's group memberships. Defaults to `false`, in which case the `group_memberships` user attribute will be empty.
+    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria. It supports the following properties.
     """
     __args__ = dict()
+    __args__['compoundSearchOperator'] = compound_search_operator
+    __args__['groupId'] = group_id
+    __args__['includeGroups'] = include_groups
     __args__['searches'] = searches
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -96,31 +140,48 @@ def get_users(searches: Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']
     __ret__ = pulumi.runtime.invoke('okta:user/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
+        compound_search_operator=__ret__.compound_search_operator,
+        group_id=__ret__.group_id,
         id=__ret__.id,
+        include_groups=__ret__.include_groups,
         searches=__ret__.searches,
         users=__ret__.users)
 
 
 @_utilities.lift_output_func(get_users)
-def get_users_output(searches: Optional[pulumi.Input[Sequence[pulumi.InputType['GetUsersSearchArgs']]]] = None,
+def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[str]]] = None,
+                     group_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     include_groups: Optional[pulumi.Input[Optional[bool]]] = None,
+                     searches: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to retrieve a list of users from Okta.
 
     ## Example Usage
+    ### Lookup Users by Search Criteria
 
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.user.get_users(searches=[okta.user.GetUsersSearchArgs(
-        comparison="sw",
-        name="profile.company",
-        value="Articulate",
+        expression="profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
     )])
+    ```
+    ### Lookup Users by Group Membership
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example_group = okta.group.Group("exampleGroup")
+    example_users = okta.user.get_users_output(group_id=example_group.id,
+        include_groups=True)
     ```
 
 
-    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria to find users. It supports the following properties.
+    :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+    :param str group_id: Id of group used to find users based on membership.
+    :param bool include_groups: Fetch each user's group memberships. Defaults to `false`, in which case the `group_memberships` user attribute will be empty.
+    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria. It supports the following properties.
     """
     ...

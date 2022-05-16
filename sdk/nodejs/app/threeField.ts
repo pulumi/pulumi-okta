@@ -28,21 +28,21 @@ import * as utilities from "../utilities";
  * A Three Field App can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:app/threeField:ThreeField example <app id>
+ *  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
  * ```
  *
  *  It's also possible to import app without groups or/and users. In this case ID may look like this
  *
  * ```sh
- *  $ pulumi import okta:app/threeField:ThreeField example <app id>/skip_users
+ *  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users
  * ```
  *
  * ```sh
- *  $ pulumi import okta:app/threeField:ThreeField example <app id>/skip_users/skip_groups
+ *  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users/skip_groups
  * ```
  *
  * ```sh
- *  $ pulumi import okta:app/threeField:ThreeField example <app id>/skip_groups
+ *  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_groups
  * ```
  */
 export class ThreeField extends pulumi.CustomResource {

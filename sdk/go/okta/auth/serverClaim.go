@@ -48,7 +48,7 @@ import (
 // Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
 //
 // ```sh
-//  $ pulumi import okta:auth/serverClaim:ServerClaim example <auth server id>/<claim id>
+//  $ pulumi import okta:auth/serverClaim:ServerClaim example &#60;auth server id&#62;/&#60;claim id&#62;
 // ```
 type ServerClaim struct {
 	pulumi.CustomResourceState
@@ -284,6 +284,51 @@ func (o ServerClaimOutput) ToServerClaimOutput() ServerClaimOutput {
 
 func (o ServerClaimOutput) ToServerClaimOutputWithContext(ctx context.Context) ServerClaimOutput {
 	return o
+}
+
+// Specifies whether to include claims in token, by default it is set to `true`.
+func (o ServerClaimOutput) AlwaysIncludeInToken() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerClaim) pulumi.BoolPtrOutput { return v.AlwaysIncludeInToken }).(pulumi.BoolPtrOutput)
+}
+
+// ID of the authorization server.
+func (o ServerClaimOutput) AuthServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerClaim) pulumi.StringOutput { return v.AuthServerId }).(pulumi.StringOutput)
+}
+
+// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+func (o ServerClaimOutput) ClaimType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerClaim) pulumi.StringOutput { return v.ClaimType }).(pulumi.StringOutput)
+}
+
+// Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
+func (o ServerClaimOutput) GroupFilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerClaim) pulumi.StringPtrOutput { return v.GroupFilterType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the claim.
+func (o ServerClaimOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerClaim) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of scopes the auth server claim is tied to.
+func (o ServerClaimOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerClaim) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// The status of the application. It defaults to `"ACTIVE"`.
+func (o ServerClaimOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerClaim) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The value of the claim.
+func (o ServerClaimOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerClaim) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
+// The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
+func (o ServerClaimOutput) ValueType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerClaim) pulumi.StringPtrOutput { return v.ValueType }).(pulumi.StringPtrOutput)
 }
 
 type ServerClaimArrayOutput struct{ *pulumi.OutputState }

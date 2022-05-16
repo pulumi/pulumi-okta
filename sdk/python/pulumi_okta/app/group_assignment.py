@@ -201,7 +201,7 @@ class GroupAssignment(pulumi.CustomResource):
         An application group assignment can be imported via the `app_id` and the `group_id`.
 
         ```sh
-         $ pulumi import okta:app/groupAssignment:GroupAssignment example <app_id>/<group_id>
+         $ pulumi import okta:app/groupAssignment:GroupAssignment example &#60;app_id&#62;/&#60;group_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -224,7 +224,7 @@ class GroupAssignment(pulumi.CustomResource):
         An application group assignment can be imported via the `app_id` and the `group_id`.
 
         ```sh
-         $ pulumi import okta:app/groupAssignment:GroupAssignment example <app_id>/<group_id>
+         $ pulumi import okta:app/groupAssignment:GroupAssignment example &#60;app_id&#62;/&#60;group_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

@@ -43,7 +43,7 @@ import (
 // Custom email sender can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/emailSender:EmailSender example <sender id>
+//  $ pulumi import okta:index/emailSender:EmailSender example &#60;sender id&#62;
 // ```
 type EmailSender struct {
 	pulumi.CustomResourceState
@@ -231,6 +231,31 @@ func (o EmailSenderOutput) ToEmailSenderOutput() EmailSenderOutput {
 
 func (o EmailSenderOutput) ToEmailSenderOutputWithContext(ctx context.Context) EmailSenderOutput {
 	return o
+}
+
+// TXT and CNAME records to be registered for the domain.
+func (o EmailSenderOutput) DnsRecords() EmailSenderDnsRecordArrayOutput {
+	return o.ApplyT(func(v *EmailSender) EmailSenderDnsRecordArrayOutput { return v.DnsRecords }).(EmailSenderDnsRecordArrayOutput)
+}
+
+// Email address to send from.
+func (o EmailSenderOutput) FromAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailSender) pulumi.StringOutput { return v.FromAddress }).(pulumi.StringOutput)
+}
+
+// Name of sender.
+func (o EmailSenderOutput) FromName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailSender) pulumi.StringOutput { return v.FromName }).(pulumi.StringOutput)
+}
+
+// Status of the sender (shows whether the sender is verified).
+func (o EmailSenderOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailSender) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Mail domain to send from.
+func (o EmailSenderOutput) Subdomain() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailSender) pulumi.StringOutput { return v.Subdomain }).(pulumi.StringOutput)
 }
 
 type EmailSenderArrayOutput struct{ *pulumi.OutputState }

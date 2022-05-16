@@ -52,7 +52,7 @@ import (
 // Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example <auth server id>/<policy id>/<policy rule id>
+//  $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
 // ```
 //
 // Deprecated: okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule
@@ -378,6 +378,89 @@ func (o ServerPolicyClaimOutput) ToServerPolicyClaimOutput() ServerPolicyClaimOu
 
 func (o ServerPolicyClaimOutput) ToServerPolicyClaimOutputWithContext(ctx context.Context) ServerPolicyClaimOutput {
 	return o
+}
+
+// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+func (o ServerPolicyClaimOutput) AccessTokenLifetimeMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.IntPtrOutput { return v.AccessTokenLifetimeMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Auth Server ID.
+func (o ServerPolicyClaimOutput) AuthServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringOutput { return v.AuthServerId }).(pulumi.StringOutput)
+}
+
+// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interactionCode"` (*OIE only*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
+func (o ServerPolicyClaimOutput) GrantTypeWhitelists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringArrayOutput { return v.GrantTypeWhitelists }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a set of Groups whose Users are to be excluded.
+func (o ServerPolicyClaimOutput) GroupBlacklists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringArrayOutput { return v.GroupBlacklists }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
+func (o ServerPolicyClaimOutput) GroupWhitelists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringArrayOutput { return v.GroupWhitelists }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the inline token to trigger.
+func (o ServerPolicyClaimOutput) InlineHookId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringPtrOutput { return v.InlineHookId }).(pulumi.StringPtrOutput)
+}
+
+// Auth Server Policy Rule name.
+func (o ServerPolicyClaimOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Auth Server Policy ID.
+func (o ServerPolicyClaimOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// Priority of the auth server policy rule.
+func (o ServerPolicyClaimOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
+}
+
+// Lifetime of refresh token.
+func (o ServerPolicyClaimOutput) RefreshTokenLifetimeMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.IntPtrOutput { return v.RefreshTokenLifetimeMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
+func (o ServerPolicyClaimOutput) RefreshTokenWindowMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.IntPtrOutput { return v.RefreshTokenWindowMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
+func (o ServerPolicyClaimOutput) ScopeWhitelists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringArrayOutput { return v.ScopeWhitelists }).(pulumi.StringArrayOutput)
+}
+
+// The status of the Auth Server Policy Rule.
+func (o ServerPolicyClaimOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The type of the Auth Server Policy Rule.
+func (o ServerPolicyClaimOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a set of Users to be excluded.
+func (o ServerPolicyClaimOutput) UserBlacklists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringArrayOutput { return v.UserBlacklists }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a set of Users to be included.
+func (o ServerPolicyClaimOutput) UserWhitelists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringArrayOutput { return v.UserWhitelists }).(pulumi.StringArrayOutput)
 }
 
 type ServerPolicyClaimArrayOutput struct{ *pulumi.OutputState }

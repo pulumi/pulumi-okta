@@ -13,22 +13,28 @@ namespace Pulumi.Okta.User.Inputs
     public sealed class GetUsersSearchInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Comparison to use.
+        /// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
         /// </summary>
         [Input("comparison")]
         public Input<string>? Comparison { get; set; }
 
         /// <summary>
+        /// A raw search expression string. If present it will override name/comparison/value.
+        /// </summary>
+        [Input("expression")]
+        public Input<string>? Expression { get; set; }
+
+        /// <summary>
         /// Name of property to search against.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Value to compare with.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public GetUsersSearchInputArgs()
         {

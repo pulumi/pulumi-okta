@@ -45,7 +45,7 @@ import (
 // Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
 //
 // ```sh
-//  $ pulumi import okta:auth/serverScope:ServerScope example <auth server id>/<scope id>
+//  $ pulumi import okta:auth/serverScope:ServerScope example &#60;auth server id&#62;/&#60;scope id&#62;
 // ```
 type ServerScope struct {
 	pulumi.CustomResourceState
@@ -255,6 +255,41 @@ func (o ServerScopeOutput) ToServerScopeOutput() ServerScopeOutput {
 
 func (o ServerScopeOutput) ToServerScopeOutputWithContext(ctx context.Context) ServerScopeOutput {
 	return o
+}
+
+// Auth Server ID.
+func (o ServerScopeOutput) AuthServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerScope) pulumi.StringOutput { return v.AuthServerId }).(pulumi.StringOutput)
+}
+
+// Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
+func (o ServerScopeOutput) Consent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerScope) pulumi.StringPtrOutput { return v.Consent }).(pulumi.StringPtrOutput)
+}
+
+// A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
+func (o ServerScopeOutput) Default() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerScope) pulumi.BoolPtrOutput { return v.Default }).(pulumi.BoolPtrOutput)
+}
+
+// Description of the Auth Server Scope.
+func (o ServerScopeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerScope) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the end user displayed in a consent dialog box.
+func (o ServerScopeOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerScope) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+func (o ServerScopeOutput) MetadataPublish() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerScope) pulumi.StringPtrOutput { return v.MetadataPublish }).(pulumi.StringPtrOutput)
+}
+
+// Auth Server scope name.
+func (o ServerScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 type ServerScopeArrayOutput struct{ *pulumi.OutputState }

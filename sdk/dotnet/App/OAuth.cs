@@ -86,21 +86,21 @@ namespace Pulumi.Okta.App
     /// An OIDC Application can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/oAuth:OAuth example &lt;app id&gt;
+    ///  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;
     /// ```
     /// 
     ///  It's also possible to import app without groups or/and users. In this case ID may look like this
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/oAuth:OAuth example &lt;app id&gt;/skip_users
+    ///  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;/skip_users
     /// ```
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/oAuth:OAuth example &lt;app id&gt;/skip_users/skip_groups
+    ///  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;/skip_users/skip_groups
     /// ```
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/oAuth:OAuth example &lt;app id&gt;/skip_groups
+    ///  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;/skip_groups
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/oAuth:OAuth")]
@@ -383,7 +383,7 @@ namespace Pulumi.Okta.App
         public Output<string?> TosUri { get; private set; } = null!;
 
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -767,7 +767,7 @@ namespace Pulumi.Okta.App
         public Input<string>? TosUri { get; set; }
 
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1143,7 +1143,7 @@ namespace Pulumi.Okta.App
         public Input<string>? TosUri { get; set; }
 
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -15,7 +15,7 @@ namespace Pulumi.Okta.App
     /// An application group assignment can be imported via the `app_id` and the `group_id`.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/groupAssignment:GroupAssignment example &lt;app_id&gt;/&lt;group_id&gt;
+    ///  $ pulumi import okta:app/groupAssignment:GroupAssignment example &amp;#60;app_id&amp;#62;/&amp;#60;group_id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/groupAssignment:GroupAssignment")]

@@ -58,7 +58,7 @@ namespace Pulumi.Okta.App
     /// A post logout redirect URI can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &lt;app id&gt;/&lt;uri&gt;
+    ///  $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &amp;#60;app id&amp;#62;/&amp;#60;uri&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri")]

@@ -203,6 +203,32 @@ func (o SignonPolicyOutput) ToSignonPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Policy Description
+func (o SignonPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// List of Group IDs to Include
+func (o SignonPolicyOutput) GroupsIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SignonPolicy) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+}
+
+// Policy Name
+func (o SignonPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignonPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+// priority is provided. API defaults it to the last (lowest) if not there.
+func (o SignonPolicyOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SignonPolicy) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Policy Status: ACTIVE or INACTIVE.
+func (o SignonPolicyOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicy) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
 type SignonPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (SignonPolicyArrayOutput) ElementType() reflect.Type {

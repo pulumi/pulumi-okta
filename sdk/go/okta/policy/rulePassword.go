@@ -19,7 +19,7 @@ import (
 // A Policy Rule can be imported via the Policy and Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/rulePassword:RulePassword example <policy id>/<rule id>
+//  $ pulumi import okta:policy/rulePassword:RulePassword example &#60;policy id&#62;/&#60;rule id&#62;
 // ```
 type RulePassword struct {
 	pulumi.CustomResourceState
@@ -286,6 +286,68 @@ func (o RulePasswordOutput) ToRulePasswordOutput() RulePasswordOutput {
 
 func (o RulePasswordOutput) ToRulePasswordOutputWithContext(ctx context.Context) RulePasswordOutput {
 	return o
+}
+
+// Policy Rule Name.
+func (o RulePasswordOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+func (o RulePasswordOutput) NetworkConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.NetworkConnection }).(pulumi.StringPtrOutput)
+}
+
+// The network zones to exclude. Conflicts with `networkIncludes`.
+func (o RulePasswordOutput) NetworkExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
+}
+
+// The network zones to include. Conflicts with `networkExcludes`.
+func (o RulePasswordOutput) NetworkIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
+}
+
+// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+func (o RulePasswordOutput) PasswordChange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.PasswordChange }).(pulumi.StringPtrOutput)
+}
+
+// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+func (o RulePasswordOutput) PasswordReset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.PasswordReset }).(pulumi.StringPtrOutput)
+}
+
+// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
+func (o RulePasswordOutput) PasswordUnlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.PasswordUnlock }).(pulumi.StringPtrOutput)
+}
+
+// Policy ID.
+func (o RulePasswordOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Policy ID.
+//
+// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+func (o RulePasswordOutput) Policyid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.Policyid }).(pulumi.StringPtrOutput)
+}
+
+// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+func (o RulePasswordOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+func (o RulePasswordOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Set of User IDs to Exclude
+func (o RulePasswordOutput) UsersExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
 }
 
 type RulePasswordArrayOutput struct{ *pulumi.OutputState }

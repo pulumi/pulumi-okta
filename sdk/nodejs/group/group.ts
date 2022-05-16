@@ -51,13 +51,13 @@ import * as utilities from "../utilities";
  * An Okta Group can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:group/group:Group example <group id>
+ *  $ pulumi import okta:group/group:Group example &#60;group id&#62;
  * ```
  *
  *  It's also possible to import group without users. In this case ID will look like this
  *
  * ```sh
- *  $ pulumi import okta:group/group:Group example <group id>/skip_users
+ *  $ pulumi import okta:group/group:Group example &#60;group id&#62;/skip_users
  * ```
  */
 export class Group extends pulumi.CustomResource {

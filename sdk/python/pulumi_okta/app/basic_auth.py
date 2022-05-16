@@ -713,21 +713,21 @@ class BasicAuth(pulumi.CustomResource):
         A Basic Auth App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example <app id>
+         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
         ```
 
          It's also possible to import app without groups or/and users. In this case ID may look like this
 
         ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_users
+         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users
         ```
 
         ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_users/skip_groups
+         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users/skip_groups
         ```
 
         ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_groups
+         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_groups
         ```
 
         :param str resource_name: The name of the resource.
@@ -779,21 +779,21 @@ class BasicAuth(pulumi.CustomResource):
         A Basic Auth App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example <app id>
+         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
         ```
 
          It's also possible to import app without groups or/and users. In this case ID may look like this
 
         ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_users
+         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users
         ```
 
         ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_users/skip_groups
+         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users/skip_groups
         ```
 
         ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_groups
+         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_groups
         ```
 
         :param str resource_name: The name of the resource.

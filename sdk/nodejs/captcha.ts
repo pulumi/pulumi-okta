@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * Behavior can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/captcha:Captcha example <captcha id>
+ *  $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
  * ```
  */
 export class Captcha extends pulumi.CustomResource {

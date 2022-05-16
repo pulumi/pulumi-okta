@@ -102,7 +102,7 @@ import (
 // An Okta User can be imported via the ID.
 //
 // ```sh
-//  $ pulumi import okta:user/user:User example <user id>
+//  $ pulumi import okta:user/user:User example &#60;user id&#62;
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -192,7 +192,7 @@ type User struct {
 	SecondEmail pulumi.StringPtrOutput `pulumi:"secondEmail"`
 	// User profile property.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// User profile property.
+	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// User profile property.
 	StreetAddress pulumi.StringPtrOutput `pulumi:"streetAddress"`
@@ -332,7 +332,7 @@ type userState struct {
 	SecondEmail *string `pulumi:"secondEmail"`
 	// User profile property.
 	State *string `pulumi:"state"`
-	// User profile property.
+	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
 	Status *string `pulumi:"status"`
 	// User profile property.
 	StreetAddress *string `pulumi:"streetAddress"`
@@ -432,7 +432,7 @@ type UserState struct {
 	SecondEmail pulumi.StringPtrInput
 	// User profile property.
 	State pulumi.StringPtrInput
-	// User profile property.
+	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
 	Status pulumi.StringPtrInput
 	// User profile property.
 	StreetAddress pulumi.StringPtrInput
@@ -534,7 +534,7 @@ type userArgs struct {
 	SecondEmail *string `pulumi:"secondEmail"`
 	// User profile property.
 	State *string `pulumi:"state"`
-	// User profile property.
+	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
 	Status *string `pulumi:"status"`
 	// User profile property.
 	StreetAddress *string `pulumi:"streetAddress"`
@@ -633,7 +633,7 @@ type UserArgs struct {
 	SecondEmail pulumi.StringPtrInput
 	// User profile property.
 	State pulumi.StringPtrInput
-	// User profile property.
+	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
 	Status pulumi.StringPtrInput
 	// User profile property.
 	StreetAddress pulumi.StringPtrInput
@@ -732,6 +732,232 @@ func (o UserOutput) ToUserOutput() UserOutput {
 
 func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
+}
+
+// Administrator roles assigned to User.
+// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
+//
+// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
+func (o UserOutput) AdminRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.AdminRoles }).(pulumi.StringArrayOutput)
+}
+
+// User profile property.
+func (o UserOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.City }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) CostCenter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.CostCenter }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.CountryCode }).(pulumi.StringPtrOutput)
+}
+
+// raw JSON containing all custom profile attributes.
+func (o UserOutput) CustomProfileAttributes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.CustomProfileAttributes }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) Department() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Department }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) Division() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Division }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+// User profile property.
+func (o UserOutput) EmployeeNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.EmployeeNumber }).(pulumi.StringPtrOutput)
+}
+
+// If set to `true`, the user will have to change the password at the next login. This property will be used
+// when user is being created and works only when `password` field is set. Default is `false`.
+func (o UserOutput) ExpirePasswordOnCreate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.ExpirePasswordOnCreate }).(pulumi.BoolPtrOutput)
+}
+
+// User's First Name, required by default.
+func (o UserOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// User profile property.
+//
+// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
+func (o UserOutput) GroupMemberships() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.GroupMemberships }).(pulumi.StringArrayOutput)
+}
+
+// User profile property.
+func (o UserOutput) HonorificPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.HonorificPrefix }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) HonorificSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.HonorificSuffix }).(pulumi.StringPtrOutput)
+}
+
+// User's Last Name, required by default.
+func (o UserOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.LastName }).(pulumi.StringOutput)
+}
+
+// User profile property.
+func (o UserOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Login }).(pulumi.StringOutput)
+}
+
+// User profile property.
+func (o UserOutput) Manager() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Manager }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) ManagerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.ManagerId }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) MiddleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.MiddleName }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) MobilePhone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.MobilePhone }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) NickName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.NickName }).(pulumi.StringPtrOutput)
+}
+
+// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
+// outside the provider. After successful password change this field should be removed and `password` field should be used
+// for further changes.
+func (o UserOutput) OldPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.OldPassword }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Organization }).(pulumi.StringPtrOutput)
+}
+
+// User password.
+func (o UserOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a hashed password to import into Okta.
+func (o UserOutput) PasswordHash() UserPasswordHashPtrOutput {
+	return o.ApplyT(func(v *User) UserPasswordHashPtrOutput { return v.PasswordHash }).(UserPasswordHashPtrOutput)
+}
+
+// Specifies that a Password Import Inline Hook should be triggered to handle verification
+// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+// field should not be specified when using Password Import Inline Hook.
+func (o UserOutput) PasswordInlineHook() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PasswordInlineHook }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) PostalAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PostalAddress }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) PreferredLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PreferredLanguage }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) PrimaryPhone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PrimaryPhone }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) ProfileUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.ProfileUrl }).(pulumi.StringPtrOutput)
+}
+
+// The raw status of the User in Okta - (status is mapped)
+func (o UserOutput) RawStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.RawStatus }).(pulumi.StringOutput)
+}
+
+// User password recovery answer.
+func (o UserOutput) RecoveryAnswer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.RecoveryAnswer }).(pulumi.StringPtrOutput)
+}
+
+// User password recovery question.
+func (o UserOutput) RecoveryQuestion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.RecoveryQuestion }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) SecondEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.SecondEmail }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
+func (o UserOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) StreetAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.StreetAddress }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) UserType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.UserType }).(pulumi.StringPtrOutput)
+}
+
+// User profile property.
+func (o UserOutput) ZipCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.ZipCode }).(pulumi.StringPtrOutput)
 }
 
 type UserArrayOutput struct{ *pulumi.OutputState }

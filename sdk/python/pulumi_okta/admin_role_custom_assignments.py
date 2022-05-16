@@ -145,7 +145,7 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
         Okta Custom Admin Role Assignments can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example <resource_set_id>/<custom_role_id>
+         $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &#60;resource_set_id&#62;/&#60;custom_role_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,7 +173,7 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
         Okta Custom Admin Role Assignments can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example <resource_set_id>/<custom_role_id>
+         $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &#60;resource_set_id&#62;/&#60;custom_role_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

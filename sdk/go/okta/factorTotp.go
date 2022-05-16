@@ -255,6 +255,39 @@ func (o FactorTotpOutput) ToFactorTotpOutputWithContext(ctx context.Context) Fac
 	return o
 }
 
+// - Clock drift interval. This setting allows you to build in tolerance for any
+//   drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
+func (o FactorTotpOutput) ClockDriftInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FactorTotp) pulumi.IntPtrOutput { return v.ClockDriftInterval }).(pulumi.IntPtrOutput)
+}
+
+// - HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
+//   is `"HMacSHA512"`.
+func (o FactorTotpOutput) HmacAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactorTotp) pulumi.StringPtrOutput { return v.HmacAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// The TOTP name.
+func (o FactorTotpOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FactorTotp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Length of the password. Default is `6`.
+func (o FactorTotpOutput) OtpLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FactorTotp) pulumi.IntPtrOutput { return v.OtpLength }).(pulumi.IntPtrOutput)
+}
+
+// - Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
+//   Default is `"base32"`.
+func (o FactorTotpOutput) SharedSecretEncoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactorTotp) pulumi.StringPtrOutput { return v.SharedSecretEncoding }).(pulumi.StringPtrOutput)
+}
+
+// - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+func (o FactorTotpOutput) TimeStep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FactorTotp) pulumi.IntPtrOutput { return v.TimeStep }).(pulumi.IntPtrOutput)
+}
+
 type FactorTotpArrayOutput struct{ *pulumi.OutputState }
 
 func (FactorTotpArrayOutput) ElementType() reflect.Type {

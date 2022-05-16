@@ -118,7 +118,7 @@ class Roles(pulumi.CustomResource):
         Group Role Assignment can be imported via the Okta Group ID.
 
         ```sh
-         $ pulumi import okta:group/roles:Roles example <group id>
+         $ pulumi import okta:group/roles:Roles example &#60;group id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -153,7 +153,7 @@ class Roles(pulumi.CustomResource):
         Group Role Assignment can be imported via the Okta Group ID.
 
         ```sh
-         $ pulumi import okta:group/roles:Roles example <group id>
+         $ pulumi import okta:group/roles:Roles example &#60;group id&#62;
         ```
 
         :param str resource_name: The name of the resource.

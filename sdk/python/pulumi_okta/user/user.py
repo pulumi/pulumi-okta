@@ -102,7 +102,7 @@ class UserArgs:
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
         :param pulumi.Input[str] state: User profile property.
-        :param pulumi.Input[str] status: User profile property.
+        :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
         :param pulumi.Input[str] timezone: User profile property.
         :param pulumi.Input[str] title: User profile property.
@@ -639,7 +639,7 @@ class UserArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         """
         return pulumi.get(self, "status")
 
@@ -800,7 +800,7 @@ class _UserState:
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
         :param pulumi.Input[str] state: User profile property.
-        :param pulumi.Input[str] status: User profile property.
+        :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
         :param pulumi.Input[str] timezone: User profile property.
         :param pulumi.Input[str] title: User profile property.
@@ -1355,7 +1355,7 @@ class _UserState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         """
         return pulumi.get(self, "status")
 
@@ -1538,7 +1538,7 @@ class User(pulumi.CustomResource):
         An Okta User can be imported via the ID.
 
         ```sh
-         $ pulumi import okta:user/user:User example <user id>
+         $ pulumi import okta:user/user:User example &#60;user id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -1586,7 +1586,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
         :param pulumi.Input[str] state: User profile property.
-        :param pulumi.Input[str] status: User profile property.
+        :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
         :param pulumi.Input[str] timezone: User profile property.
         :param pulumi.Input[str] title: User profile property.
@@ -1665,7 +1665,7 @@ class User(pulumi.CustomResource):
         An Okta User can be imported via the ID.
 
         ```sh
-         $ pulumi import okta:user/user:User example <user id>
+         $ pulumi import okta:user/user:User example &#60;user id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -1898,7 +1898,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
         :param pulumi.Input[str] state: User profile property.
-        :param pulumi.Input[str] status: User profile property.
+        :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
         :param pulumi.Input[str] timezone: User profile property.
         :param pulumi.Input[str] title: User profile property.
@@ -2261,7 +2261,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         """
         return pulumi.get(self, "status")
 

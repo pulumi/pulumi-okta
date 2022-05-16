@@ -45,7 +45,7 @@ import (
 // Individual admin role assignment can be imported by passing the group and role assignment IDs as follows
 //
 // ```sh
-//  $ pulumi import okta:group/role:Role example <group id>/<role id>
+//  $ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
 // ```
 type Role struct {
 	pulumi.CustomResourceState
@@ -273,6 +273,38 @@ func (o RoleOutput) ToRoleOutput() RoleOutput {
 
 func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return o
+}
+
+// When this setting is enabled, the admins won't receive any of the default Okta
+// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+func (o RoleOutput) DisableNotifications() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.BoolPtrOutput { return v.DisableNotifications }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of group to attach admin roles to.
+func (o RoleOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
+// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
+// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+func (o RoleOutput) RoleType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
+}
+
+// A list of app names (name represents set of app instances, like 'salesforce' or '
+// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
+// the targets of the admin role.
+// - Only supported when used with the role type `"APP_ADMIN"`.
+func (o RoleOutput) TargetAppLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringArrayOutput { return v.TargetAppLists }).(pulumi.StringArrayOutput)
+}
+
+// A list of group IDs you would like as the targets of the admin role.
+// - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+func (o RoleOutput) TargetGroupLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringArrayOutput { return v.TargetGroupLists }).(pulumi.StringArrayOutput)
 }
 
 type RoleArrayOutput struct{ *pulumi.OutputState }

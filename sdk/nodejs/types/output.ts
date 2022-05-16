@@ -169,7 +169,27 @@ export interface GetBehavioursBehavior {
     type: string;
 }
 
+export interface GetBrandsBrand {
+    customPrivacyPolicyUrl: string;
+    id: string;
+    links: string;
+    removePoweredByOkta: boolean;
+}
+
+export interface GetEmailCustomizationsEmailCustomization {
+    body: string;
+    id: string;
+    isDefault: boolean;
+    language: string;
+    links: string;
+    subject: string;
+}
+
 export interface GetGroupsGroup {
+    /**
+     * raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+     */
+    customProfileAttributes: string;
     /**
      * Group description.
      */
@@ -187,6 +207,27 @@ export interface GetGroupsGroup {
      * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
      */
     type: string;
+}
+
+export interface GetTemplatesEmailTemplate {
+    links: string;
+    name: string;
+}
+
+export interface GetThemesTheme {
+    backgroundImageUrl: string;
+    emailTemplateTouchPointVariant: string;
+    endUserDashboardTouchPointVariant: string;
+    errorPageTouchPointVariant: string;
+    faviconUrl: string;
+    id: string;
+    links: string;
+    logoUrl: string;
+    primaryColorContrastHex: string;
+    primaryColorHex: string;
+    secondaryColorContrastHex: string;
+    secondaryColorHex: string;
+    signInPageTouchPointVariant: string;
 }
 
 export interface GetTrustedOriginsTrustedOrigin {
@@ -314,7 +355,6 @@ export interface UserSchemaPropertyOneOf {
      */
     title: string;
 }
-
 export namespace app {
     export interface AutoLoginUser {
         id?: string;
@@ -380,7 +420,7 @@ export namespace app {
          */
         name: string;
         /**
-         * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+         * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
          */
         type: string;
         /**
@@ -792,32 +832,40 @@ export namespace template {
 export namespace user {
     export interface GetUserSearch {
         /**
-         * Comparison to use.
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
          */
         comparison?: string;
         /**
+         * A raw search expression string. If present it will override name/comparison/value.
+         */
+        expression?: string;
+        /**
          * Name of property to search against.
          */
-        name: string;
+        name?: string;
         /**
          * Value to compare with.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetUsersSearch {
         /**
-         * Comparison to use.
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
          */
         comparison?: string;
         /**
+         * A raw search expression string. If present it will override name/comparison/value.
+         */
+        expression?: string;
+        /**
          * Name of property to search against.
          */
-        name: string;
+        name?: string;
         /**
          * Value to compare with.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetUsersUser {

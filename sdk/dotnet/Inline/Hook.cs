@@ -51,7 +51,7 @@ namespace Pulumi.Okta.Inline
     /// An inline hook can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:inline/hook:Hook example &lt;hook id&gt;
+    ///  $ pulumi import okta:inline/hook:Hook example &amp;#60;hook id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:inline/hook:Hook")]

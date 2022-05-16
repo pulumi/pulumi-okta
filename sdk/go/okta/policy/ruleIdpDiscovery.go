@@ -86,7 +86,7 @@ import (
 // A Policy Rule can be imported via the Policy and Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example <policy id>/<rule id>
+//  $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &#60;policy id&#62;/&#60;rule id&#62;
 // ```
 type RuleIdpDiscovery struct {
 	pulumi.CustomResourceState
@@ -388,6 +388,89 @@ func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutput() RuleIdpDiscoveryOutpu
 
 func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutputWithContext(ctx context.Context) RuleIdpDiscoveryOutput {
 	return o
+}
+
+// Applications to exclude in discovery. See `appInclude` for details.
+func (o RuleIdpDiscoveryOutput) AppExcludes() RuleIdpDiscoveryAppExcludeArrayOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryAppExcludeArrayOutput { return v.AppExcludes }).(RuleIdpDiscoveryAppExcludeArrayOutput)
+}
+
+// Applications to include in discovery rule.
+func (o RuleIdpDiscoveryOutput) AppIncludes() RuleIdpDiscoveryAppIncludeArrayOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryAppIncludeArrayOutput { return v.AppIncludes }).(RuleIdpDiscoveryAppIncludeArrayOutput)
+}
+
+// The identifier for the Idp the rule should route to if all conditions are met.
+func (o RuleIdpDiscoveryOutput) IdpId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.IdpId }).(pulumi.StringPtrOutput)
+}
+
+// Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
+func (o RuleIdpDiscoveryOutput) IdpType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.IdpType }).(pulumi.StringPtrOutput)
+}
+
+// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+func (o RuleIdpDiscoveryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
+func (o RuleIdpDiscoveryOutput) NetworkConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.NetworkConnection }).(pulumi.StringPtrOutput)
+}
+
+// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to exclude.
+func (o RuleIdpDiscoveryOutput) NetworkExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
+}
+
+// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
+func (o RuleIdpDiscoveryOutput) NetworkIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
+}
+
+func (o RuleIdpDiscoveryOutput) PlatformIncludes() RuleIdpDiscoveryPlatformIncludeArrayOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryPlatformIncludeArrayOutput { return v.PlatformIncludes }).(RuleIdpDiscoveryPlatformIncludeArrayOutput)
+}
+
+// Policy ID.
+func (o RuleIdpDiscoveryOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Policy ID.
+//
+// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+func (o RuleIdpDiscoveryOutput) Policyid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.Policyid }).(pulumi.StringPtrOutput)
+}
+
+// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+func (o RuleIdpDiscoveryOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
+func (o RuleIdpDiscoveryOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
+func (o RuleIdpDiscoveryOutput) UserIdentifierAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.UserIdentifierAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a User Identifier pattern condition to match against. If `matchType` of `"EXPRESSION"` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+func (o RuleIdpDiscoveryOutput) UserIdentifierPatterns() RuleIdpDiscoveryUserIdentifierPatternArrayOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryUserIdentifierPatternArrayOutput {
+		return v.UserIdentifierPatterns
+	}).(RuleIdpDiscoveryUserIdentifierPatternArrayOutput)
+}
+
+// One of: `"IDENTIFIER"`, `"ATTRIBUTE"`
+func (o RuleIdpDiscoveryOutput) UserIdentifierType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.UserIdentifierType }).(pulumi.StringPtrOutput)
 }
 
 type RuleIdpDiscoveryArrayOutput struct{ *pulumi.OutputState }

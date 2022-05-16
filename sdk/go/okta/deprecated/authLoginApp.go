@@ -470,6 +470,165 @@ func (o AuthLoginAppOutput) ToAuthLoginAppOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Custom error page URL
+func (o AuthLoginAppOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page URL
+func (o AuthLoginAppOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self service
+func (o AuthLoginAppOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for admins.
+func (o AuthLoginAppOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app
+func (o AuthLoginAppOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Application settings in JSON format
+func (o AuthLoginAppOutput) AppSettingsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
+}
+
+// Display auto submit toolbar
+func (o AuthLoginAppOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// Application credentials scheme
+func (o AuthLoginAppOutput) CredentialsScheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.CredentialsScheme }).(pulumi.StringPtrOutput)
+}
+
+// Application notes for end users.
+func (o AuthLoginAppOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// Groups associated with the application
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o AuthLoginAppOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app
+func (o AuthLoginAppOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users
+func (o AuthLoginAppOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// Pretty name of app.
+func (o AuthLoginAppOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Local path to logo of the application.
+func (o AuthLoginAppOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// URL of the application's logo
+func (o AuthLoginAppOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// Name of the app.
+func (o AuthLoginAppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Preconfigured app name
+func (o AuthLoginAppOutput) PreconfiguredApp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.PreconfiguredApp }).(pulumi.StringPtrOutput)
+}
+
+// Allow user to reveal password
+func (o AuthLoginAppOutput) RevealPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.BoolPtrOutput { return v.RevealPassword }).(pulumi.BoolPtrOutput)
+}
+
+// Shared password, required for certain schemes.
+func (o AuthLoginAppOutput) SharedPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.SharedPassword }).(pulumi.StringPtrOutput)
+}
+
+// Shared username, required for certain schemes.
+func (o AuthLoginAppOutput) SharedUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.SharedUsername }).(pulumi.StringPtrOutput)
+}
+
+// Sign on mode of application.
+func (o AuthLoginAppOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Post login redirect URL
+func (o AuthLoginAppOutput) SignOnRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.SignOnRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Login URL
+func (o AuthLoginAppOutput) SignOnUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.SignOnUrl }).(pulumi.StringPtrOutput)
+}
+
+// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+func (o AuthLoginAppOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+func (o AuthLoginAppOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Status of application.
+func (o AuthLoginAppOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Username template
+func (o AuthLoginAppOutput) UserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update
+func (o AuthLoginAppOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
+}
+
+// Username template suffix
+func (o AuthLoginAppOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Username template type
+func (o AuthLoginAppOutput) UserNameTemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthLoginApp) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
+}
+
+// Users associated with the application
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o AuthLoginAppOutput) Users() AuthLoginAppUserArrayOutput {
+	return o.ApplyT(func(v *AuthLoginApp) AuthLoginAppUserArrayOutput { return v.Users }).(AuthLoginAppUserArrayOutput)
+}
+
 type AuthLoginAppArrayOutput struct{ *pulumi.OutputState }
 
 func (AuthLoginAppArrayOutput) ElementType() reflect.Type {

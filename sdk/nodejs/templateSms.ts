@@ -37,7 +37,7 @@ import * as utilities from "./utilities";
  * An Okta SMS Template can be imported via the template type.
  *
  * ```sh
- *  $ pulumi import okta:index/templateSms:TemplateSms example <template type>
+ *  $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
  * ```
  */
 export class TemplateSms extends pulumi.CustomResource {

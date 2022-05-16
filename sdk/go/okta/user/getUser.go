@@ -27,12 +27,7 @@ import (
 // 		_, err := user.LookupUser(ctx, &user.LookupUserArgs{
 // 			Searches: []user.GetUserSearch{
 // 				user.GetUserSearch{
-// 					Name:  "profile.firstName",
-// 					Value: "John",
-// 				},
-// 				user.GetUserSearch{
-// 					Name:  "profile.lastName",
-// 					Value: "Doe",
+// 					Expression: pulumi.StringRef("profile.firstName eq \"John\""),
 // 				},
 // 			},
 // 		}, nil)
@@ -54,6 +49,8 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
+	// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+	CompoundSearchOperator *string `pulumi:"compoundSearchOperator"`
 	// Map of search criteria. It supports the following properties.
 	Searches []GetUserSearch `pulumi:"searches"`
 	// Additional API call to collect user's groups will not be made.
@@ -69,7 +66,8 @@ type LookupUserResult struct {
 	// Administrator roles assigned to user.
 	AdminRoles []string `pulumi:"adminRoles"`
 	// user profile property.
-	City string `pulumi:"city"`
+	City                   string  `pulumi:"city"`
+	CompoundSearchOperator *string `pulumi:"compoundSearchOperator"`
 	// user profile property.
 	CostCenter string `pulumi:"costCenter"`
 	// user profile property.
@@ -159,6 +157,8 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
+	// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+	CompoundSearchOperator pulumi.StringPtrInput `pulumi:"compoundSearchOperator"`
 	// Map of search criteria. It supports the following properties.
 	Searches GetUserSearchArrayInput `pulumi:"searches"`
 	// Additional API call to collect user's groups will not be made.
@@ -196,6 +196,10 @@ func (o LookupUserResultOutput) AdminRoles() pulumi.StringArrayOutput {
 // user profile property.
 func (o LookupUserResultOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.City }).(pulumi.StringOutput)
+}
+
+func (o LookupUserResultOutput) CompoundSearchOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *string { return v.CompoundSearchOperator }).(pulumi.StringPtrOutput)
 }
 
 // user profile property.

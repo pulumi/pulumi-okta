@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  * Group schema property can be imported via the property index.
  *
  * ```sh
- *  $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example <index>
+ *  $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
  * ```
  */
 export class GroupSchemaProperty extends pulumi.CustomResource {

@@ -13,6 +13,7 @@ import (
 // Use this data source to retrieve a list of users from Okta.
 //
 // ## Example Usage
+// ### Lookup Users by Search Criteria
 //
 // ```go
 // package main
@@ -27,15 +28,37 @@ import (
 // 		_, err := user.GetUsers(ctx, &user.GetUsersArgs{
 // 			Searches: []user.GetUsersSearch{
 // 				user.GetUsersSearch{
-// 					Comparison: pulumi.StringRef("sw"),
-// 					Name:       "profile.company",
-// 					Value:      "Articulate",
+// 					Expression: pulumi.StringRef("profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"),
 // 				},
 // 			},
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Lookup Users by Group Membership
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleGroup, err := group.NewGroup(ctx, "exampleGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_ = user.GetUsersOutput(ctx, user.GetUsersOutputArgs{
+// 			GroupId:       exampleGroup.ID(),
+// 			IncludeGroups: pulumi.Bool(true),
+// 		}, nil)
 // 		return nil
 // 	})
 // }
@@ -51,15 +74,24 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getUsers.
 type GetUsersArgs struct {
-	// Map of search criteria to find users. It supports the following properties.
+	// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+	CompoundSearchOperator *string `pulumi:"compoundSearchOperator"`
+	// Id of group used to find users based on membership.
+	GroupId *string `pulumi:"groupId"`
+	// Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
+	IncludeGroups *bool `pulumi:"includeGroups"`
+	// Map of search criteria. It supports the following properties.
 	Searches []GetUsersSearch `pulumi:"searches"`
 }
 
 // A collection of values returned by getUsers.
 type GetUsersResult struct {
+	CompoundSearchOperator *string `pulumi:"compoundSearchOperator"`
+	GroupId                *string `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string           `pulumi:"id"`
-	Searches []GetUsersSearch `pulumi:"searches"`
+	Id            string           `pulumi:"id"`
+	IncludeGroups *bool            `pulumi:"includeGroups"`
+	Searches      []GetUsersSearch `pulumi:"searches"`
 	// collection of users retrieved from Okta with the following properties.
 	Users []GetUsersUser `pulumi:"users"`
 }
@@ -79,7 +111,13 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getUsers.
 type GetUsersOutputArgs struct {
-	// Map of search criteria to find users. It supports the following properties.
+	// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+	CompoundSearchOperator pulumi.StringPtrInput `pulumi:"compoundSearchOperator"`
+	// Id of group used to find users based on membership.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
+	IncludeGroups pulumi.BoolPtrInput `pulumi:"includeGroups"`
+	// Map of search criteria. It supports the following properties.
 	Searches GetUsersSearchArrayInput `pulumi:"searches"`
 }
 
@@ -102,9 +140,21 @@ func (o GetUsersResultOutput) ToGetUsersResultOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o GetUsersResultOutput) CompoundSearchOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUsersResult) *string { return v.CompoundSearchOperator }).(pulumi.StringPtrOutput)
+}
+
+func (o GetUsersResultOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUsersResult) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o GetUsersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetUsersResultOutput) IncludeGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetUsersResult) *bool { return v.IncludeGroups }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetUsersResultOutput) Searches() GetUsersSearchArrayOutput {

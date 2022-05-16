@@ -47,21 +47,21 @@ import * as utilities from "../utilities";
  * An OIDC Application can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example <app id>
+ *  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
  * ```
  *
  *  It's also possible to import app without groups or/and users. In this case ID may look like this
  *
  * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_users
+ *  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users
  * ```
  *
  * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_users/skip_groups
+ *  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users/skip_groups
  * ```
  *
  * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_groups
+ *  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_groups
  * ```
  */
 export class OAuth extends pulumi.CustomResource {
@@ -283,7 +283,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly tosUri!: pulumi.Output<string | undefined>;
     /**
-     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -640,7 +640,7 @@ export interface OAuthState {
      */
     tosUri?: pulumi.Input<string>;
     /**
-     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -851,7 +851,7 @@ export interface OAuthArgs {
      */
     tosUri?: pulumi.Input<string>;
     /**
-     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+     * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
      */
     type: pulumi.Input<string>;
     /**

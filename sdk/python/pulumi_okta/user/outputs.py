@@ -197,22 +197,44 @@ class UserPasswordHash(dict):
 @pulumi.output_type
 class GetUserSearchResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 value: str,
-                 comparison: Optional[str] = None):
+                 comparison: Optional[str] = None,
+                 expression: Optional[str] = None,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
         """
+        :param str comparison: Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+        :param str expression: A raw search expression string. If present it will override name/comparison/value.
         :param str name: Name of property to search against.
         :param str value: Value to compare with.
-        :param str comparison: Comparison to use.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def comparison(self) -> Optional[str]:
+        """
+        Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        """
+        A raw search expression string. If present it will override name/comparison/value.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Name of property to search against.
         """
@@ -220,40 +242,54 @@ class GetUserSearchResult(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         """
         Value to compare with.
         """
         return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def comparison(self) -> Optional[str]:
-        """
-        Comparison to use.
-        """
-        return pulumi.get(self, "comparison")
 
 
 @pulumi.output_type
 class GetUsersSearchResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 value: str,
-                 comparison: Optional[str] = None):
+                 comparison: Optional[str] = None,
+                 expression: Optional[str] = None,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
         """
+        :param str comparison: Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+        :param str expression: A raw search expression string. If present it will override name/comparison/value.
         :param str name: Name of property to search against.
         :param str value: Value to compare with.
-        :param str comparison: Comparison to use.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def comparison(self) -> Optional[str]:
+        """
+        Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        """
+        A raw search expression string. If present it will override name/comparison/value.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Name of property to search against.
         """
@@ -261,19 +297,11 @@ class GetUsersSearchResult(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         """
         Value to compare with.
         """
         return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def comparison(self) -> Optional[str]:
-        """
-        Comparison to use.
-        """
-        return pulumi.get(self, "comparison")
 
 
 @pulumi.output_type

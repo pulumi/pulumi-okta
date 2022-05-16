@@ -52,7 +52,7 @@ namespace Pulumi.Okta
     /// An Okta SMS Template can be imported via the template type.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/templateSms:TemplateSms example &lt;template type&gt;
+    ///  $ pulumi import okta:index/templateSms:TemplateSms example &amp;#60;template type&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/templateSms:TemplateSms")]

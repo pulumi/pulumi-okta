@@ -283,6 +283,69 @@ func (o MfaPolicyRuleOutput) ToMfaPolicyRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Applications to exclude
+func (o MfaPolicyRuleOutput) AppExcludes() MfaPolicyRuleAppExcludeArrayOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) MfaPolicyRuleAppExcludeArrayOutput { return v.AppExcludes }).(MfaPolicyRuleAppExcludeArrayOutput)
+}
+
+// Applications to include
+func (o MfaPolicyRuleOutput) AppIncludes() MfaPolicyRuleAppIncludeArrayOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) MfaPolicyRuleAppIncludeArrayOutput { return v.AppIncludes }).(MfaPolicyRuleAppIncludeArrayOutput)
+}
+
+// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
+func (o MfaPolicyRuleOutput) Enroll() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) pulumi.StringPtrOutput { return v.Enroll }).(pulumi.StringPtrOutput)
+}
+
+// Policy Rule Name
+func (o MfaPolicyRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+func (o MfaPolicyRuleOutput) NetworkConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) pulumi.StringPtrOutput { return v.NetworkConnection }).(pulumi.StringPtrOutput)
+}
+
+// The zones to exclude
+func (o MfaPolicyRuleOutput) NetworkExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
+}
+
+// The zones to include
+func (o MfaPolicyRuleOutput) NetworkIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
+}
+
+// Policy ID of the Rule
+func (o MfaPolicyRuleOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Policy ID of the Rule
+//
+// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+func (o MfaPolicyRuleOutput) Policyid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) pulumi.StringPtrOutput { return v.Policyid }).(pulumi.StringPtrOutput)
+}
+
+// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+// invalid priority is provided. API defaults it to the last (lowest) if not there.
+func (o MfaPolicyRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Policy Rule Status: ACTIVE or INACTIVE.
+func (o MfaPolicyRuleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Set of User IDs to Exclude
+func (o MfaPolicyRuleOutput) UsersExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MfaPolicyRule) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+}
+
 type MfaPolicyRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyRuleArrayOutput) ElementType() reflect.Type {

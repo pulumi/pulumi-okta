@@ -363,6 +363,113 @@ func (o BookmarkAppOutput) ToBookmarkAppOutputWithContext(ctx context.Context) B
 	return o
 }
 
+// Custom error page URL
+func (o BookmarkAppOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page URL
+func (o BookmarkAppOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self service
+func (o BookmarkAppOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for admins.
+func (o BookmarkAppOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app
+func (o BookmarkAppOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Display auto submit toolbar
+func (o BookmarkAppOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for end users.
+func (o BookmarkAppOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// Groups associated with the application
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o BookmarkAppOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app
+func (o BookmarkAppOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users
+func (o BookmarkAppOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// Pretty name of app.
+func (o BookmarkAppOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Local path to logo of the application.
+func (o BookmarkAppOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// URL of the application's logo
+func (o BookmarkAppOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// Name of the app.
+func (o BookmarkAppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o BookmarkAppOutput) RequestIntegration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.BoolPtrOutput { return v.RequestIntegration }).(pulumi.BoolPtrOutput)
+}
+
+// Sign on mode of application.
+func (o BookmarkAppOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+func (o BookmarkAppOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+func (o BookmarkAppOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Status of application.
+func (o BookmarkAppOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o BookmarkAppOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
+// Users associated with the application
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o BookmarkAppOutput) Users() BookmarkAppUserArrayOutput {
+	return o.ApplyT(func(v *BookmarkApp) BookmarkAppUserArrayOutput { return v.Users }).(BookmarkAppUserArrayOutput)
+}
+
 type BookmarkAppArrayOutput struct{ *pulumi.OutputState }
 
 func (BookmarkAppArrayOutput) ElementType() reflect.Type {

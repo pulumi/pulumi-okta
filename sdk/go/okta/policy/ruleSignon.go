@@ -119,7 +119,7 @@ import (
 // A Policy Rule can be imported via the Policy and Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/ruleSignon:RuleSignon example <policy id>/<rule id>
+//  $ pulumi import okta:policy/ruleSignon:RuleSignon example &#60;policy id&#62;/&#60;rule id&#62;
 // ```
 type RuleSignon struct {
 	pulumi.CustomResourceState
@@ -516,6 +516,130 @@ func (o RuleSignonOutput) ToRuleSignonOutput() RuleSignonOutput {
 
 func (o RuleSignonOutput) ToRuleSignonOutputWithContext(ctx context.Context) RuleSignonOutput {
 	return o
+}
+
+// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
+func (o RuleSignonOutput) Access() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.Access }).(pulumi.StringPtrOutput)
+}
+
+// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
+func (o RuleSignonOutput) Authtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.Authtype }).(pulumi.StringPtrOutput)
+}
+
+// List of behavior IDs.
+func (o RuleSignonOutput) Behaviors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringArrayOutput { return v.Behaviors }).(pulumi.StringArrayOutput)
+}
+
+// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+func (o RuleSignonOutput) FactorSequences() RuleSignonFactorSequenceArrayOutput {
+	return o.ApplyT(func(v *RuleSignon) RuleSignonFactorSequenceArrayOutput { return v.FactorSequences }).(RuleSignonFactorSequenceArrayOutput)
+}
+
+// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+func (o RuleSignonOutput) IdentityProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.IdentityProvider }).(pulumi.StringPtrOutput)
+}
+
+// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+func (o RuleSignonOutput) IdentityProviderIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringArrayOutput { return v.IdentityProviderIds }).(pulumi.StringArrayOutput)
+}
+
+// Elapsed time before the next MFA challenge.
+func (o RuleSignonOutput) MfaLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.IntPtrOutput { return v.MfaLifetime }).(pulumi.IntPtrOutput)
+}
+
+// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+func (o RuleSignonOutput) MfaPrompt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.MfaPrompt }).(pulumi.StringPtrOutput)
+}
+
+// Remember MFA device. The default `false`.
+func (o RuleSignonOutput) MfaRememberDevice() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.BoolPtrOutput { return v.MfaRememberDevice }).(pulumi.BoolPtrOutput)
+}
+
+// Require MFA. By default is `false`.
+func (o RuleSignonOutput) MfaRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.BoolPtrOutput { return v.MfaRequired }).(pulumi.BoolPtrOutput)
+}
+
+// Policy Rule Name.
+func (o RuleSignonOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+func (o RuleSignonOutput) NetworkConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.NetworkConnection }).(pulumi.StringPtrOutput)
+}
+
+// The network zones to exclude. Conflicts with `networkIncludes`.
+func (o RuleSignonOutput) NetworkExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
+}
+
+// The network zones to include. Conflicts with `networkExcludes`.
+func (o RuleSignonOutput) NetworkIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
+}
+
+// Policy ID.
+func (o RuleSignonOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Policy ID.
+//
+// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+func (o RuleSignonOutput) Policyid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.Policyid }).(pulumi.StringPtrOutput)
+}
+
+// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
+// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+func (o RuleSignonOutput) PrimaryFactor() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringOutput { return v.PrimaryFactor }).(pulumi.StringOutput)
+}
+
+// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+func (o RuleSignonOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
+// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+func (o RuleSignonOutput) RiscLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.RiscLevel }).(pulumi.StringPtrOutput)
+}
+
+// Max minutes a session can be idle.,
+func (o RuleSignonOutput) SessionIdle() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.IntPtrOutput { return v.SessionIdle }).(pulumi.IntPtrOutput)
+}
+
+// Max minutes a session is active: Disable = 0.
+func (o RuleSignonOutput) SessionLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.IntPtrOutput { return v.SessionLifetime }).(pulumi.IntPtrOutput)
+}
+
+// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
+func (o RuleSignonOutput) SessionPersistent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.BoolPtrOutput { return v.SessionPersistent }).(pulumi.BoolPtrOutput)
+}
+
+// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+func (o RuleSignonOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The list of user IDs that would be excluded when rules are processed.
+func (o RuleSignonOutput) UsersExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
 }
 
 type RuleSignonArrayOutput struct{ *pulumi.OutputState }

@@ -357,6 +357,149 @@ func (o SamlIdpOutput) ToSamlIdpOutputWithContext(ctx context.Context) SamlIdpOu
 	return o
 }
 
+func (o SamlIdpOutput) AccountLinkAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.AccountLinkAction }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) AccountLinkGroupIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringArrayOutput { return v.AccountLinkGroupIncludes }).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
+func (o SamlIdpOutput) AcsBinding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.AcsBinding }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) AcsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.AcsType }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) Audience() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringOutput { return v.Audience }).(pulumi.StringOutput)
+}
+
+func (o SamlIdpOutput) DeprovisionedAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.DeprovisionedAction }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) GroupsAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.GroupsAction }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) GroupsAssignments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringArrayOutput { return v.GroupsAssignments }).(pulumi.StringArrayOutput)
+}
+
+func (o SamlIdpOutput) GroupsAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.GroupsAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) GroupsFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringArrayOutput { return v.GroupsFilters }).(pulumi.StringArrayOutput)
+}
+
+func (o SamlIdpOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+func (o SamlIdpOutput) IssuerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) Kid() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringOutput { return v.Kid }).(pulumi.StringOutput)
+}
+
+func (o SamlIdpOutput) MaxClockSkew() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.IntPtrOutput { return v.MaxClockSkew }).(pulumi.IntPtrOutput)
+}
+
+// Name of the IdP
+func (o SamlIdpOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SamlIdpOutput) NameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.NameFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) ProfileMaster() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.BoolPtrOutput { return v.ProfileMaster }).(pulumi.BoolPtrOutput)
+}
+
+func (o SamlIdpOutput) ProvisioningAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign requests
+func (o SamlIdpOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign response
+func (o SamlIdpOutput) RequestSignatureScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign requests
+func (o SamlIdpOutput) ResponseSignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.ResponseSignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign response
+func (o SamlIdpOutput) ResponseSignatureScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.ResponseSignatureScope }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) SsoBinding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.SsoBinding }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) SsoDestination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.SsoDestination }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) SsoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringOutput { return v.SsoUrl }).(pulumi.StringOutput)
+}
+
+func (o SamlIdpOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) SubjectFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.SubjectFilter }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) SubjectFormats() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringArrayOutput { return v.SubjectFormats }).(pulumi.StringArrayOutput)
+}
+
+func (o SamlIdpOutput) SubjectMatchAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.SubjectMatchAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) SubjectMatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.SubjectMatchType }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) SuspendedAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.SuspendedAction }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlIdpOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o SamlIdpOutput) UserTypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringOutput { return v.UserTypeId }).(pulumi.StringOutput)
+}
+
+func (o SamlIdpOutput) UsernameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.UsernameTemplate }).(pulumi.StringPtrOutput)
+}
+
 type SamlIdpArrayOutput struct{ *pulumi.OutputState }
 
 func (SamlIdpArrayOutput) ElementType() reflect.Type {

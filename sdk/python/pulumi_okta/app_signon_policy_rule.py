@@ -993,7 +993,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         Okta app sign-on policy rule can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example <policy_id>/<rule_id>
+         $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -1255,7 +1255,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         Okta app sign-on policy rule can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example <policy_id>/<rule_id>
+         $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

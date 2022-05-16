@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * A role subscription can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/roleSubscription:RoleSubscription example <role_type>/<notification_type>
+ *  $ pulumi import okta:index/roleSubscription:RoleSubscription example &#60;role_type&#62;/&#60;notification_type&#62;
  * ```
  */
 export class RoleSubscription extends pulumi.CustomResource {
@@ -63,8 +63,8 @@ export class RoleSubscription extends pulumi.CustomResource {
      */
     public readonly notificationType!: pulumi.Output<string>;
     /**
-     * Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
-     * "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
+     * Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+     * `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
      */
     public readonly roleType!: pulumi.Output<string>;
     /**
@@ -114,8 +114,8 @@ export interface RoleSubscriptionState {
      */
     notificationType?: pulumi.Input<string>;
     /**
-     * Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
-     * "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
+     * Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+     * `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
      */
     roleType?: pulumi.Input<string>;
     /**
@@ -133,8 +133,8 @@ export interface RoleSubscriptionArgs {
      */
     notificationType: pulumi.Input<string>;
     /**
-     * Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
-     * "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
+     * Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+     * `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
      */
     roleType: pulumi.Input<string>;
     /**

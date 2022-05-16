@@ -1126,7 +1126,7 @@ class Saml(pulumi.CustomResource):
         An SAML IdP can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:idp/saml:Saml example <idp id>
+         $ pulumi import okta:idp/saml:Saml example &#60;idp id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -1196,7 +1196,7 @@ class Saml(pulumi.CustomResource):
         An SAML IdP can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:idp/saml:Saml example <idp id>
+         $ pulumi import okta:idp/saml:Saml example &#60;idp id&#62;
         ```
 
         :param str resource_name: The name of the resource.

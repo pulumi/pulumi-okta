@@ -235,6 +235,31 @@ func (o SecurityNotificationEmailsOutput) ToSecurityNotificationEmailsOutputWith
 	return o
 }
 
+// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+func (o SecurityNotificationEmailsOutput) ReportSuspiciousActivityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityNotificationEmails) pulumi.BoolPtrOutput { return v.ReportSuspiciousActivityEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+func (o SecurityNotificationEmailsOutput) SendEmailForFactorEnrollmentEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityNotificationEmails) pulumi.BoolPtrOutput { return v.SendEmailForFactorEnrollmentEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Notifies end users that one or more factors have been reset for their account. Default is `true`.
+func (o SecurityNotificationEmailsOutput) SendEmailForFactorResetEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityNotificationEmails) pulumi.BoolPtrOutput { return v.SendEmailForFactorResetEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Notifies end users about new sign-on activity. Default is `true`.
+func (o SecurityNotificationEmailsOutput) SendEmailForNewDeviceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityNotificationEmails) pulumi.BoolPtrOutput { return v.SendEmailForNewDeviceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Notifies end users that the password for their account has changed. Default is `true`.
+func (o SecurityNotificationEmailsOutput) SendEmailForPasswordChangedEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityNotificationEmails) pulumi.BoolPtrOutput { return v.SendEmailForPasswordChangedEnabled }).(pulumi.BoolPtrOutput)
+}
+
 type SecurityNotificationEmailsArrayOutput struct{ *pulumi.OutputState }
 
 func (SecurityNotificationEmailsArrayOutput) ElementType() reflect.Type {

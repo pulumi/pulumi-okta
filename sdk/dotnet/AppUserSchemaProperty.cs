@@ -43,7 +43,7 @@ namespace Pulumi.Okta
     /// App user schema property can be imported via the property index and app id.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &lt;app id&gt;/&lt;property name&gt;
+    ///  $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &amp;#60;app id&amp;#62;/&amp;#60;property name&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appUserSchemaProperty:AppUserSchemaProperty")]

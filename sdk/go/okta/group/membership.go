@@ -197,6 +197,16 @@ func (o MembershipOutput) ToMembershipOutputWithContext(ctx context.Context) Mem
 	return o
 }
 
+// The ID of the Okta Group.
+func (o MembershipOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// The ID of the Okta User.
+func (o MembershipOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
 type MembershipArrayOutput struct{ *pulumi.OutputState }
 
 func (MembershipArrayOutput) ElementType() reflect.Type {

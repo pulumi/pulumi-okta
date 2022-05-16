@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * An SAML IdP can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:idp/saml:Saml example <idp id>
+ *  $ pulumi import okta:idp/saml:Saml example &#60;idp id&#62;
  * ```
  */
 export class Saml extends pulumi.CustomResource {

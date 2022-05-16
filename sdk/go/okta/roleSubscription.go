@@ -45,15 +45,15 @@ import (
 // A role subscription can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/roleSubscription:RoleSubscription example <role_type>/<notification_type>
+//  $ pulumi import okta:index/roleSubscription:RoleSubscription example &#60;role_type&#62;/&#60;notification_type&#62;
 // ```
 type RoleSubscription struct {
 	pulumi.CustomResourceState
 
 	// Type of the notification. Valid values:
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
-	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
-	// "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
+	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+	// `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -96,8 +96,8 @@ func GetRoleSubscription(ctx *pulumi.Context,
 type roleSubscriptionState struct {
 	// Type of the notification. Valid values:
 	NotificationType *string `pulumi:"notificationType"`
-	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
-	// "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
+	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+	// `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
 	RoleType *string `pulumi:"roleType"`
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
 	Status *string `pulumi:"status"`
@@ -106,8 +106,8 @@ type roleSubscriptionState struct {
 type RoleSubscriptionState struct {
 	// Type of the notification. Valid values:
 	NotificationType pulumi.StringPtrInput
-	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
-	// "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
+	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+	// `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
 	RoleType pulumi.StringPtrInput
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
 	Status pulumi.StringPtrInput
@@ -120,8 +120,8 @@ func (RoleSubscriptionState) ElementType() reflect.Type {
 type roleSubscriptionArgs struct {
 	// Type of the notification. Valid values:
 	NotificationType string `pulumi:"notificationType"`
-	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
-	// "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
+	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+	// `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
 	RoleType string `pulumi:"roleType"`
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
 	Status *string `pulumi:"status"`
@@ -131,8 +131,8 @@ type roleSubscriptionArgs struct {
 type RoleSubscriptionArgs struct {
 	// Type of the notification. Valid values:
 	NotificationType pulumi.StringInput
-	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
-	// "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
+	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+	// `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
 	RoleType pulumi.StringInput
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
 	Status pulumi.StringPtrInput
@@ -223,6 +223,22 @@ func (o RoleSubscriptionOutput) ToRoleSubscriptionOutput() RoleSubscriptionOutpu
 
 func (o RoleSubscriptionOutput) ToRoleSubscriptionOutputWithContext(ctx context.Context) RoleSubscriptionOutput {
 	return o
+}
+
+// Type of the notification. Valid values:
+func (o RoleSubscriptionOutput) NotificationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleSubscription) pulumi.StringOutput { return v.NotificationType }).(pulumi.StringOutput)
+}
+
+// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+// `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
+func (o RoleSubscriptionOutput) RoleType() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleSubscription) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
+}
+
+// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
+func (o RoleSubscriptionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleSubscription) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type RoleSubscriptionArrayOutput struct{ *pulumi.OutputState }

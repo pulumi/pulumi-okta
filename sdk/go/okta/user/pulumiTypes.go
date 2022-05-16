@@ -554,12 +554,14 @@ func (o UserPasswordHashPtrOutput) WorkFactor() pulumi.IntPtrOutput {
 }
 
 type GetUserSearch struct {
-	// Comparison to use.
+	// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 	Comparison *string `pulumi:"comparison"`
+	// A raw search expression string. If present it will override name/comparison/value.
+	Expression *string `pulumi:"expression"`
 	// Name of property to search against.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Value to compare with.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // GetUserSearchInput is an input type that accepts GetUserSearchArgs and GetUserSearchOutput values.
@@ -574,12 +576,14 @@ type GetUserSearchInput interface {
 }
 
 type GetUserSearchArgs struct {
-	// Comparison to use.
+	// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 	Comparison pulumi.StringPtrInput `pulumi:"comparison"`
+	// A raw search expression string. If present it will override name/comparison/value.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
 	// Name of property to search against.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Value to compare with.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetUserSearchArgs) ElementType() reflect.Type {
@@ -633,19 +637,24 @@ func (o GetUserSearchOutput) ToGetUserSearchOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Comparison to use.
+// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 func (o GetUserSearchOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUserSearch) *string { return v.Comparison }).(pulumi.StringPtrOutput)
 }
 
+// A raw search expression string. If present it will override name/comparison/value.
+func (o GetUserSearchOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserSearch) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
 // Name of property to search against.
-func (o GetUserSearchOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserSearch) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUserSearchOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserSearch) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Value to compare with.
-func (o GetUserSearchOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserSearch) string { return v.Value }).(pulumi.StringOutput)
+func (o GetUserSearchOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserSearch) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetUserSearchArrayOutput struct{ *pulumi.OutputState }
@@ -669,12 +678,14 @@ func (o GetUserSearchArrayOutput) Index(i pulumi.IntInput) GetUserSearchOutput {
 }
 
 type GetUsersSearch struct {
-	// Comparison to use.
+	// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 	Comparison *string `pulumi:"comparison"`
+	// A raw search expression string. If present it will override name/comparison/value.
+	Expression *string `pulumi:"expression"`
 	// Name of property to search against.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Value to compare with.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // GetUsersSearchInput is an input type that accepts GetUsersSearchArgs and GetUsersSearchOutput values.
@@ -689,12 +700,14 @@ type GetUsersSearchInput interface {
 }
 
 type GetUsersSearchArgs struct {
-	// Comparison to use.
+	// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 	Comparison pulumi.StringPtrInput `pulumi:"comparison"`
+	// A raw search expression string. If present it will override name/comparison/value.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
 	// Name of property to search against.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Value to compare with.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetUsersSearchArgs) ElementType() reflect.Type {
@@ -748,19 +761,24 @@ func (o GetUsersSearchOutput) ToGetUsersSearchOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Comparison to use.
+// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 func (o GetUsersSearchOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersSearch) *string { return v.Comparison }).(pulumi.StringPtrOutput)
 }
 
+// A raw search expression string. If present it will override name/comparison/value.
+func (o GetUsersSearchOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUsersSearch) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
 // Name of property to search against.
-func (o GetUsersSearchOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUsersSearch) string { return v.Name }).(pulumi.StringOutput)
+func (o GetUsersSearchOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUsersSearch) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Value to compare with.
-func (o GetUsersSearchOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUsersSearch) string { return v.Value }).(pulumi.StringOutput)
+func (o GetUsersSearchOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUsersSearch) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetUsersSearchArrayOutput struct{ *pulumi.OutputState }

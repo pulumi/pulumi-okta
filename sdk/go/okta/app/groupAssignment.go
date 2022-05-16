@@ -16,7 +16,7 @@ import (
 // An application group assignment can be imported via the `app_id` and the `group_id`.
 //
 // ```sh
-//  $ pulumi import okta:app/groupAssignment:GroupAssignment example <app_id>/<group_id>
+//  $ pulumi import okta:app/groupAssignment:GroupAssignment example &#60;app_id&#62;/&#60;group_id&#62;
 // ```
 type GroupAssignment struct {
 	pulumi.CustomResourceState
@@ -209,6 +209,31 @@ func (o GroupAssignmentOutput) ToGroupAssignmentOutput() GroupAssignmentOutput {
 
 func (o GroupAssignmentOutput) ToGroupAssignmentOutputWithContext(ctx context.Context) GroupAssignmentOutput {
 	return o
+}
+
+// The ID of the application to assign a group to.
+func (o GroupAssignmentOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GroupAssignment) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The ID of the group to assign the app to.
+func (o GroupAssignmentOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GroupAssignment) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// Priority of group assignment.
+func (o GroupAssignmentOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupAssignment) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+func (o GroupAssignmentOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupAssignment) pulumi.StringPtrOutput { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+func (o GroupAssignmentOutput) RetainAssignment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GroupAssignment) pulumi.BoolPtrOutput { return v.RetainAssignment }).(pulumi.BoolPtrOutput)
 }
 
 type GroupAssignmentArrayOutput struct{ *pulumi.OutputState }

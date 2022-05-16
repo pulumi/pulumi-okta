@@ -348,6 +348,91 @@ func (o OrgConfigurationOutput) ToOrgConfigurationOutputWithContext(ctx context.
 	return o
 }
 
+// Primary address of org
+func (o OrgConfigurationOutput) Address1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.Address1 }).(pulumi.StringPtrOutput)
+}
+
+// Secondary address of org
+func (o OrgConfigurationOutput) Address2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.Address2 }).(pulumi.StringPtrOutput)
+}
+
+// User ID representing the billing contact
+func (o OrgConfigurationOutput) BillingContactUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.BillingContactUser }).(pulumi.StringPtrOutput)
+}
+
+// City of org
+func (o OrgConfigurationOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.City }).(pulumi.StringPtrOutput)
+}
+
+// Name of org
+func (o OrgConfigurationOutput) CompanyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringOutput { return v.CompanyName }).(pulumi.StringOutput)
+}
+
+// Country of org
+func (o OrgConfigurationOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.Country }).(pulumi.StringPtrOutput)
+}
+
+// Support link of org
+func (o OrgConfigurationOutput) EndUserSupportHelpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.EndUserSupportHelpUrl }).(pulumi.StringPtrOutput)
+}
+
+// Expiration of org
+func (o OrgConfigurationOutput) ExpiresAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringOutput { return v.ExpiresAt }).(pulumi.StringOutput)
+}
+
+// Local path to logo of the org.
+func (o OrgConfigurationOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the org's users receive Okta Communication emails
+func (o OrgConfigurationOutput) OptOutCommunicationEmails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.BoolPtrOutput { return v.OptOutCommunicationEmails }).(pulumi.BoolPtrOutput)
+}
+
+// Support help phone of org
+func (o OrgConfigurationOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.PhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+// Postal code of org
+func (o OrgConfigurationOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.PostalCode }).(pulumi.StringPtrOutput)
+}
+
+// State of org
+func (o OrgConfigurationOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Subdomain of org
+func (o OrgConfigurationOutput) Subdomain() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringOutput { return v.Subdomain }).(pulumi.StringOutput)
+}
+
+// Support help phone of org
+func (o OrgConfigurationOutput) SupportPhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.SupportPhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+// User ID representing the technical contact
+func (o OrgConfigurationOutput) TechnicalContactUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.TechnicalContactUser }).(pulumi.StringPtrOutput)
+}
+
+// The org's website
+func (o OrgConfigurationOutput) Website() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.Website }).(pulumi.StringPtrOutput)
+}
+
 type OrgConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (OrgConfigurationArrayOutput) ElementType() reflect.Type {

@@ -255,7 +255,7 @@ import (
 // A Policy Rule can be imported via the Policy and Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/ruleMfa:RuleMfa example <policy id>/<rule id>
+//  $ pulumi import okta:policy/ruleMfa:RuleMfa example &#60;policy id&#62;/&#60;rule id&#62;
 // ```
 type RuleMfa struct {
 	pulumi.CustomResourceState
@@ -522,6 +522,68 @@ func (o RuleMfaOutput) ToRuleMfaOutput() RuleMfaOutput {
 
 func (o RuleMfaOutput) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOutput {
 	return o
+}
+
+// Applications to exclude
+func (o RuleMfaOutput) AppExcludes() RuleMfaAppExcludeArrayOutput {
+	return o.ApplyT(func(v *RuleMfa) RuleMfaAppExcludeArrayOutput { return v.AppExcludes }).(RuleMfaAppExcludeArrayOutput)
+}
+
+// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+func (o RuleMfaOutput) AppIncludes() RuleMfaAppIncludeArrayOutput {
+	return o.ApplyT(func(v *RuleMfa) RuleMfaAppIncludeArrayOutput { return v.AppIncludes }).(RuleMfaAppIncludeArrayOutput)
+}
+
+// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
+func (o RuleMfaOutput) Enroll() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.Enroll }).(pulumi.StringPtrOutput)
+}
+
+// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+func (o RuleMfaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+func (o RuleMfaOutput) NetworkConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.NetworkConnection }).(pulumi.StringPtrOutput)
+}
+
+// The network zones to exclude. Conflicts with `networkIncludes`.
+func (o RuleMfaOutput) NetworkExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
+}
+
+// The network zones to include. Conflicts with `networkExcludes`.
+func (o RuleMfaOutput) NetworkIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
+}
+
+// Policy ID.
+func (o RuleMfaOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Policy ID.
+//
+// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+func (o RuleMfaOutput) Policyid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.Policyid }).(pulumi.StringPtrOutput)
+}
+
+// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+func (o RuleMfaOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+func (o RuleMfaOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Set of User IDs to Exclude
+func (o RuleMfaOutput) UsersExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
 }
 
 type RuleMfaArrayOutput struct{ *pulumi.OutputState }

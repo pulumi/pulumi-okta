@@ -2062,7 +2062,245 @@ func (o GetBehavioursBehaviorArrayOutput) Index(i pulumi.IntInput) GetBehaviours
 	}).(GetBehavioursBehaviorOutput)
 }
 
+type GetBrandsBrand struct {
+	CustomPrivacyPolicyUrl string `pulumi:"customPrivacyPolicyUrl"`
+	Id                     string `pulumi:"id"`
+	Links                  string `pulumi:"links"`
+	RemovePoweredByOkta    bool   `pulumi:"removePoweredByOkta"`
+}
+
+// GetBrandsBrandInput is an input type that accepts GetBrandsBrandArgs and GetBrandsBrandOutput values.
+// You can construct a concrete instance of `GetBrandsBrandInput` via:
+//
+//          GetBrandsBrandArgs{...}
+type GetBrandsBrandInput interface {
+	pulumi.Input
+
+	ToGetBrandsBrandOutput() GetBrandsBrandOutput
+	ToGetBrandsBrandOutputWithContext(context.Context) GetBrandsBrandOutput
+}
+
+type GetBrandsBrandArgs struct {
+	CustomPrivacyPolicyUrl pulumi.StringInput `pulumi:"customPrivacyPolicyUrl"`
+	Id                     pulumi.StringInput `pulumi:"id"`
+	Links                  pulumi.StringInput `pulumi:"links"`
+	RemovePoweredByOkta    pulumi.BoolInput   `pulumi:"removePoweredByOkta"`
+}
+
+func (GetBrandsBrandArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrandsBrand)(nil)).Elem()
+}
+
+func (i GetBrandsBrandArgs) ToGetBrandsBrandOutput() GetBrandsBrandOutput {
+	return i.ToGetBrandsBrandOutputWithContext(context.Background())
+}
+
+func (i GetBrandsBrandArgs) ToGetBrandsBrandOutputWithContext(ctx context.Context) GetBrandsBrandOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrandsBrandOutput)
+}
+
+// GetBrandsBrandArrayInput is an input type that accepts GetBrandsBrandArray and GetBrandsBrandArrayOutput values.
+// You can construct a concrete instance of `GetBrandsBrandArrayInput` via:
+//
+//          GetBrandsBrandArray{ GetBrandsBrandArgs{...} }
+type GetBrandsBrandArrayInput interface {
+	pulumi.Input
+
+	ToGetBrandsBrandArrayOutput() GetBrandsBrandArrayOutput
+	ToGetBrandsBrandArrayOutputWithContext(context.Context) GetBrandsBrandArrayOutput
+}
+
+type GetBrandsBrandArray []GetBrandsBrandInput
+
+func (GetBrandsBrandArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrandsBrand)(nil)).Elem()
+}
+
+func (i GetBrandsBrandArray) ToGetBrandsBrandArrayOutput() GetBrandsBrandArrayOutput {
+	return i.ToGetBrandsBrandArrayOutputWithContext(context.Background())
+}
+
+func (i GetBrandsBrandArray) ToGetBrandsBrandArrayOutputWithContext(ctx context.Context) GetBrandsBrandArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrandsBrandArrayOutput)
+}
+
+type GetBrandsBrandOutput struct{ *pulumi.OutputState }
+
+func (GetBrandsBrandOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrandsBrand)(nil)).Elem()
+}
+
+func (o GetBrandsBrandOutput) ToGetBrandsBrandOutput() GetBrandsBrandOutput {
+	return o
+}
+
+func (o GetBrandsBrandOutput) ToGetBrandsBrandOutputWithContext(ctx context.Context) GetBrandsBrandOutput {
+	return o
+}
+
+func (o GetBrandsBrandOutput) CustomPrivacyPolicyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrandsBrand) string { return v.CustomPrivacyPolicyUrl }).(pulumi.StringOutput)
+}
+
+func (o GetBrandsBrandOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrandsBrand) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetBrandsBrandOutput) Links() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrandsBrand) string { return v.Links }).(pulumi.StringOutput)
+}
+
+func (o GetBrandsBrandOutput) RemovePoweredByOkta() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBrandsBrand) bool { return v.RemovePoweredByOkta }).(pulumi.BoolOutput)
+}
+
+type GetBrandsBrandArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBrandsBrandArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrandsBrand)(nil)).Elem()
+}
+
+func (o GetBrandsBrandArrayOutput) ToGetBrandsBrandArrayOutput() GetBrandsBrandArrayOutput {
+	return o
+}
+
+func (o GetBrandsBrandArrayOutput) ToGetBrandsBrandArrayOutputWithContext(ctx context.Context) GetBrandsBrandArrayOutput {
+	return o
+}
+
+func (o GetBrandsBrandArrayOutput) Index(i pulumi.IntInput) GetBrandsBrandOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBrandsBrand {
+		return vs[0].([]GetBrandsBrand)[vs[1].(int)]
+	}).(GetBrandsBrandOutput)
+}
+
+type GetEmailCustomizationsEmailCustomization struct {
+	Body      string `pulumi:"body"`
+	Id        string `pulumi:"id"`
+	IsDefault bool   `pulumi:"isDefault"`
+	Language  string `pulumi:"language"`
+	Links     string `pulumi:"links"`
+	Subject   string `pulumi:"subject"`
+}
+
+// GetEmailCustomizationsEmailCustomizationInput is an input type that accepts GetEmailCustomizationsEmailCustomizationArgs and GetEmailCustomizationsEmailCustomizationOutput values.
+// You can construct a concrete instance of `GetEmailCustomizationsEmailCustomizationInput` via:
+//
+//          GetEmailCustomizationsEmailCustomizationArgs{...}
+type GetEmailCustomizationsEmailCustomizationInput interface {
+	pulumi.Input
+
+	ToGetEmailCustomizationsEmailCustomizationOutput() GetEmailCustomizationsEmailCustomizationOutput
+	ToGetEmailCustomizationsEmailCustomizationOutputWithContext(context.Context) GetEmailCustomizationsEmailCustomizationOutput
+}
+
+type GetEmailCustomizationsEmailCustomizationArgs struct {
+	Body      pulumi.StringInput `pulumi:"body"`
+	Id        pulumi.StringInput `pulumi:"id"`
+	IsDefault pulumi.BoolInput   `pulumi:"isDefault"`
+	Language  pulumi.StringInput `pulumi:"language"`
+	Links     pulumi.StringInput `pulumi:"links"`
+	Subject   pulumi.StringInput `pulumi:"subject"`
+}
+
+func (GetEmailCustomizationsEmailCustomizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEmailCustomizationsEmailCustomization)(nil)).Elem()
+}
+
+func (i GetEmailCustomizationsEmailCustomizationArgs) ToGetEmailCustomizationsEmailCustomizationOutput() GetEmailCustomizationsEmailCustomizationOutput {
+	return i.ToGetEmailCustomizationsEmailCustomizationOutputWithContext(context.Background())
+}
+
+func (i GetEmailCustomizationsEmailCustomizationArgs) ToGetEmailCustomizationsEmailCustomizationOutputWithContext(ctx context.Context) GetEmailCustomizationsEmailCustomizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEmailCustomizationsEmailCustomizationOutput)
+}
+
+// GetEmailCustomizationsEmailCustomizationArrayInput is an input type that accepts GetEmailCustomizationsEmailCustomizationArray and GetEmailCustomizationsEmailCustomizationArrayOutput values.
+// You can construct a concrete instance of `GetEmailCustomizationsEmailCustomizationArrayInput` via:
+//
+//          GetEmailCustomizationsEmailCustomizationArray{ GetEmailCustomizationsEmailCustomizationArgs{...} }
+type GetEmailCustomizationsEmailCustomizationArrayInput interface {
+	pulumi.Input
+
+	ToGetEmailCustomizationsEmailCustomizationArrayOutput() GetEmailCustomizationsEmailCustomizationArrayOutput
+	ToGetEmailCustomizationsEmailCustomizationArrayOutputWithContext(context.Context) GetEmailCustomizationsEmailCustomizationArrayOutput
+}
+
+type GetEmailCustomizationsEmailCustomizationArray []GetEmailCustomizationsEmailCustomizationInput
+
+func (GetEmailCustomizationsEmailCustomizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEmailCustomizationsEmailCustomization)(nil)).Elem()
+}
+
+func (i GetEmailCustomizationsEmailCustomizationArray) ToGetEmailCustomizationsEmailCustomizationArrayOutput() GetEmailCustomizationsEmailCustomizationArrayOutput {
+	return i.ToGetEmailCustomizationsEmailCustomizationArrayOutputWithContext(context.Background())
+}
+
+func (i GetEmailCustomizationsEmailCustomizationArray) ToGetEmailCustomizationsEmailCustomizationArrayOutputWithContext(ctx context.Context) GetEmailCustomizationsEmailCustomizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEmailCustomizationsEmailCustomizationArrayOutput)
+}
+
+type GetEmailCustomizationsEmailCustomizationOutput struct{ *pulumi.OutputState }
+
+func (GetEmailCustomizationsEmailCustomizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEmailCustomizationsEmailCustomization)(nil)).Elem()
+}
+
+func (o GetEmailCustomizationsEmailCustomizationOutput) ToGetEmailCustomizationsEmailCustomizationOutput() GetEmailCustomizationsEmailCustomizationOutput {
+	return o
+}
+
+func (o GetEmailCustomizationsEmailCustomizationOutput) ToGetEmailCustomizationsEmailCustomizationOutputWithContext(ctx context.Context) GetEmailCustomizationsEmailCustomizationOutput {
+	return o
+}
+
+func (o GetEmailCustomizationsEmailCustomizationOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) string { return v.Body }).(pulumi.StringOutput)
+}
+
+func (o GetEmailCustomizationsEmailCustomizationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetEmailCustomizationsEmailCustomizationOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) bool { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+func (o GetEmailCustomizationsEmailCustomizationOutput) Language() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) string { return v.Language }).(pulumi.StringOutput)
+}
+
+func (o GetEmailCustomizationsEmailCustomizationOutput) Links() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) string { return v.Links }).(pulumi.StringOutput)
+}
+
+func (o GetEmailCustomizationsEmailCustomizationOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) string { return v.Subject }).(pulumi.StringOutput)
+}
+
+type GetEmailCustomizationsEmailCustomizationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEmailCustomizationsEmailCustomizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEmailCustomizationsEmailCustomization)(nil)).Elem()
+}
+
+func (o GetEmailCustomizationsEmailCustomizationArrayOutput) ToGetEmailCustomizationsEmailCustomizationArrayOutput() GetEmailCustomizationsEmailCustomizationArrayOutput {
+	return o
+}
+
+func (o GetEmailCustomizationsEmailCustomizationArrayOutput) ToGetEmailCustomizationsEmailCustomizationArrayOutputWithContext(ctx context.Context) GetEmailCustomizationsEmailCustomizationArrayOutput {
+	return o
+}
+
+func (o GetEmailCustomizationsEmailCustomizationArrayOutput) Index(i pulumi.IntInput) GetEmailCustomizationsEmailCustomizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEmailCustomizationsEmailCustomization {
+		return vs[0].([]GetEmailCustomizationsEmailCustomization)[vs[1].(int)]
+	}).(GetEmailCustomizationsEmailCustomizationOutput)
+}
+
 type GetGroupsGroup struct {
+	// raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+	CustomProfileAttributes string `pulumi:"customProfileAttributes"`
 	// Group description.
 	Description string `pulumi:"description"`
 	// Group ID.
@@ -2086,6 +2324,8 @@ type GetGroupsGroupInput interface {
 }
 
 type GetGroupsGroupArgs struct {
+	// raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+	CustomProfileAttributes pulumi.StringInput `pulumi:"customProfileAttributes"`
 	// Group description.
 	Description pulumi.StringInput `pulumi:"description"`
 	// Group ID.
@@ -2148,6 +2388,11 @@ func (o GetGroupsGroupOutput) ToGetGroupsGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+func (o GetGroupsGroupOutput) CustomProfileAttributes() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.CustomProfileAttributes }).(pulumi.StringOutput)
+}
+
 // Group description.
 func (o GetGroupsGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Description }).(pulumi.StringOutput)
@@ -2187,6 +2432,272 @@ func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupsGroup {
 		return vs[0].([]GetGroupsGroup)[vs[1].(int)]
 	}).(GetGroupsGroupOutput)
+}
+
+type GetTemplatesEmailTemplate struct {
+	Links string `pulumi:"links"`
+	Name  string `pulumi:"name"`
+}
+
+// GetTemplatesEmailTemplateInput is an input type that accepts GetTemplatesEmailTemplateArgs and GetTemplatesEmailTemplateOutput values.
+// You can construct a concrete instance of `GetTemplatesEmailTemplateInput` via:
+//
+//          GetTemplatesEmailTemplateArgs{...}
+type GetTemplatesEmailTemplateInput interface {
+	pulumi.Input
+
+	ToGetTemplatesEmailTemplateOutput() GetTemplatesEmailTemplateOutput
+	ToGetTemplatesEmailTemplateOutputWithContext(context.Context) GetTemplatesEmailTemplateOutput
+}
+
+type GetTemplatesEmailTemplateArgs struct {
+	Links pulumi.StringInput `pulumi:"links"`
+	Name  pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTemplatesEmailTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTemplatesEmailTemplate)(nil)).Elem()
+}
+
+func (i GetTemplatesEmailTemplateArgs) ToGetTemplatesEmailTemplateOutput() GetTemplatesEmailTemplateOutput {
+	return i.ToGetTemplatesEmailTemplateOutputWithContext(context.Background())
+}
+
+func (i GetTemplatesEmailTemplateArgs) ToGetTemplatesEmailTemplateOutputWithContext(ctx context.Context) GetTemplatesEmailTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTemplatesEmailTemplateOutput)
+}
+
+// GetTemplatesEmailTemplateArrayInput is an input type that accepts GetTemplatesEmailTemplateArray and GetTemplatesEmailTemplateArrayOutput values.
+// You can construct a concrete instance of `GetTemplatesEmailTemplateArrayInput` via:
+//
+//          GetTemplatesEmailTemplateArray{ GetTemplatesEmailTemplateArgs{...} }
+type GetTemplatesEmailTemplateArrayInput interface {
+	pulumi.Input
+
+	ToGetTemplatesEmailTemplateArrayOutput() GetTemplatesEmailTemplateArrayOutput
+	ToGetTemplatesEmailTemplateArrayOutputWithContext(context.Context) GetTemplatesEmailTemplateArrayOutput
+}
+
+type GetTemplatesEmailTemplateArray []GetTemplatesEmailTemplateInput
+
+func (GetTemplatesEmailTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTemplatesEmailTemplate)(nil)).Elem()
+}
+
+func (i GetTemplatesEmailTemplateArray) ToGetTemplatesEmailTemplateArrayOutput() GetTemplatesEmailTemplateArrayOutput {
+	return i.ToGetTemplatesEmailTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i GetTemplatesEmailTemplateArray) ToGetTemplatesEmailTemplateArrayOutputWithContext(ctx context.Context) GetTemplatesEmailTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTemplatesEmailTemplateArrayOutput)
+}
+
+type GetTemplatesEmailTemplateOutput struct{ *pulumi.OutputState }
+
+func (GetTemplatesEmailTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTemplatesEmailTemplate)(nil)).Elem()
+}
+
+func (o GetTemplatesEmailTemplateOutput) ToGetTemplatesEmailTemplateOutput() GetTemplatesEmailTemplateOutput {
+	return o
+}
+
+func (o GetTemplatesEmailTemplateOutput) ToGetTemplatesEmailTemplateOutputWithContext(ctx context.Context) GetTemplatesEmailTemplateOutput {
+	return o
+}
+
+func (o GetTemplatesEmailTemplateOutput) Links() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplatesEmailTemplate) string { return v.Links }).(pulumi.StringOutput)
+}
+
+func (o GetTemplatesEmailTemplateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplatesEmailTemplate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTemplatesEmailTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTemplatesEmailTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTemplatesEmailTemplate)(nil)).Elem()
+}
+
+func (o GetTemplatesEmailTemplateArrayOutput) ToGetTemplatesEmailTemplateArrayOutput() GetTemplatesEmailTemplateArrayOutput {
+	return o
+}
+
+func (o GetTemplatesEmailTemplateArrayOutput) ToGetTemplatesEmailTemplateArrayOutputWithContext(ctx context.Context) GetTemplatesEmailTemplateArrayOutput {
+	return o
+}
+
+func (o GetTemplatesEmailTemplateArrayOutput) Index(i pulumi.IntInput) GetTemplatesEmailTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTemplatesEmailTemplate {
+		return vs[0].([]GetTemplatesEmailTemplate)[vs[1].(int)]
+	}).(GetTemplatesEmailTemplateOutput)
+}
+
+type GetThemesTheme struct {
+	BackgroundImageUrl                string `pulumi:"backgroundImageUrl"`
+	EmailTemplateTouchPointVariant    string `pulumi:"emailTemplateTouchPointVariant"`
+	EndUserDashboardTouchPointVariant string `pulumi:"endUserDashboardTouchPointVariant"`
+	ErrorPageTouchPointVariant        string `pulumi:"errorPageTouchPointVariant"`
+	FaviconUrl                        string `pulumi:"faviconUrl"`
+	Id                                string `pulumi:"id"`
+	Links                             string `pulumi:"links"`
+	LogoUrl                           string `pulumi:"logoUrl"`
+	PrimaryColorContrastHex           string `pulumi:"primaryColorContrastHex"`
+	PrimaryColorHex                   string `pulumi:"primaryColorHex"`
+	SecondaryColorContrastHex         string `pulumi:"secondaryColorContrastHex"`
+	SecondaryColorHex                 string `pulumi:"secondaryColorHex"`
+	SignInPageTouchPointVariant       string `pulumi:"signInPageTouchPointVariant"`
+}
+
+// GetThemesThemeInput is an input type that accepts GetThemesThemeArgs and GetThemesThemeOutput values.
+// You can construct a concrete instance of `GetThemesThemeInput` via:
+//
+//          GetThemesThemeArgs{...}
+type GetThemesThemeInput interface {
+	pulumi.Input
+
+	ToGetThemesThemeOutput() GetThemesThemeOutput
+	ToGetThemesThemeOutputWithContext(context.Context) GetThemesThemeOutput
+}
+
+type GetThemesThemeArgs struct {
+	BackgroundImageUrl                pulumi.StringInput `pulumi:"backgroundImageUrl"`
+	EmailTemplateTouchPointVariant    pulumi.StringInput `pulumi:"emailTemplateTouchPointVariant"`
+	EndUserDashboardTouchPointVariant pulumi.StringInput `pulumi:"endUserDashboardTouchPointVariant"`
+	ErrorPageTouchPointVariant        pulumi.StringInput `pulumi:"errorPageTouchPointVariant"`
+	FaviconUrl                        pulumi.StringInput `pulumi:"faviconUrl"`
+	Id                                pulumi.StringInput `pulumi:"id"`
+	Links                             pulumi.StringInput `pulumi:"links"`
+	LogoUrl                           pulumi.StringInput `pulumi:"logoUrl"`
+	PrimaryColorContrastHex           pulumi.StringInput `pulumi:"primaryColorContrastHex"`
+	PrimaryColorHex                   pulumi.StringInput `pulumi:"primaryColorHex"`
+	SecondaryColorContrastHex         pulumi.StringInput `pulumi:"secondaryColorContrastHex"`
+	SecondaryColorHex                 pulumi.StringInput `pulumi:"secondaryColorHex"`
+	SignInPageTouchPointVariant       pulumi.StringInput `pulumi:"signInPageTouchPointVariant"`
+}
+
+func (GetThemesThemeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemesTheme)(nil)).Elem()
+}
+
+func (i GetThemesThemeArgs) ToGetThemesThemeOutput() GetThemesThemeOutput {
+	return i.ToGetThemesThemeOutputWithContext(context.Background())
+}
+
+func (i GetThemesThemeArgs) ToGetThemesThemeOutputWithContext(ctx context.Context) GetThemesThemeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemesThemeOutput)
+}
+
+// GetThemesThemeArrayInput is an input type that accepts GetThemesThemeArray and GetThemesThemeArrayOutput values.
+// You can construct a concrete instance of `GetThemesThemeArrayInput` via:
+//
+//          GetThemesThemeArray{ GetThemesThemeArgs{...} }
+type GetThemesThemeArrayInput interface {
+	pulumi.Input
+
+	ToGetThemesThemeArrayOutput() GetThemesThemeArrayOutput
+	ToGetThemesThemeArrayOutputWithContext(context.Context) GetThemesThemeArrayOutput
+}
+
+type GetThemesThemeArray []GetThemesThemeInput
+
+func (GetThemesThemeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemesTheme)(nil)).Elem()
+}
+
+func (i GetThemesThemeArray) ToGetThemesThemeArrayOutput() GetThemesThemeArrayOutput {
+	return i.ToGetThemesThemeArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemesThemeArray) ToGetThemesThemeArrayOutputWithContext(ctx context.Context) GetThemesThemeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemesThemeArrayOutput)
+}
+
+type GetThemesThemeOutput struct{ *pulumi.OutputState }
+
+func (GetThemesThemeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemesTheme)(nil)).Elem()
+}
+
+func (o GetThemesThemeOutput) ToGetThemesThemeOutput() GetThemesThemeOutput {
+	return o
+}
+
+func (o GetThemesThemeOutput) ToGetThemesThemeOutputWithContext(ctx context.Context) GetThemesThemeOutput {
+	return o
+}
+
+func (o GetThemesThemeOutput) BackgroundImageUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.BackgroundImageUrl }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) EmailTemplateTouchPointVariant() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.EmailTemplateTouchPointVariant }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) EndUserDashboardTouchPointVariant() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.EndUserDashboardTouchPointVariant }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) ErrorPageTouchPointVariant() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.ErrorPageTouchPointVariant }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) FaviconUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.FaviconUrl }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) Links() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.Links }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) PrimaryColorContrastHex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.PrimaryColorContrastHex }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) PrimaryColorHex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.PrimaryColorHex }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) SecondaryColorContrastHex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.SecondaryColorContrastHex }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) SecondaryColorHex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.SecondaryColorHex }).(pulumi.StringOutput)
+}
+
+func (o GetThemesThemeOutput) SignInPageTouchPointVariant() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemesTheme) string { return v.SignInPageTouchPointVariant }).(pulumi.StringOutput)
+}
+
+type GetThemesThemeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemesThemeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemesTheme)(nil)).Elem()
+}
+
+func (o GetThemesThemeArrayOutput) ToGetThemesThemeArrayOutput() GetThemesThemeArrayOutput {
+	return o
+}
+
+func (o GetThemesThemeArrayOutput) ToGetThemesThemeArrayOutputWithContext(ctx context.Context) GetThemesThemeArrayOutput {
+	return o
+}
+
+func (o GetThemesThemeArrayOutput) Index(i pulumi.IntInput) GetThemesThemeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemesTheme {
+		return vs[0].([]GetThemesTheme)[vs[1].(int)]
+	}).(GetThemesThemeOutput)
 }
 
 type GetTrustedOriginsTrustedOrigin struct {
@@ -2465,8 +2976,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthServerClaimsClaimArrayInput)(nil)).Elem(), GetAuthServerClaimsClaimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBehavioursBehaviorInput)(nil)).Elem(), GetBehavioursBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBehavioursBehaviorArrayInput)(nil)).Elem(), GetBehavioursBehaviorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBrandsBrandInput)(nil)).Elem(), GetBrandsBrandArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBrandsBrandArrayInput)(nil)).Elem(), GetBrandsBrandArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailCustomizationsEmailCustomizationInput)(nil)).Elem(), GetEmailCustomizationsEmailCustomizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailCustomizationsEmailCustomizationArrayInput)(nil)).Elem(), GetEmailCustomizationsEmailCustomizationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupInput)(nil)).Elem(), GetGroupsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupArrayInput)(nil)).Elem(), GetGroupsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesEmailTemplateInput)(nil)).Elem(), GetTemplatesEmailTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesEmailTemplateArrayInput)(nil)).Elem(), GetTemplatesEmailTemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemesThemeInput)(nil)).Elem(), GetThemesThemeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemesThemeArrayInput)(nil)).Elem(), GetThemesThemeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginsTrustedOriginInput)(nil)).Elem(), GetTrustedOriginsTrustedOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginsTrustedOriginArrayInput)(nil)).Elem(), GetTrustedOriginsTrustedOriginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSecurityQuestionsQuestionInput)(nil)).Elem(), GetUserSecurityQuestionsQuestionArgs{})
@@ -2507,8 +3026,16 @@ func init() {
 	pulumi.RegisterOutputType(GetAuthServerClaimsClaimArrayOutput{})
 	pulumi.RegisterOutputType(GetBehavioursBehaviorOutput{})
 	pulumi.RegisterOutputType(GetBehavioursBehaviorArrayOutput{})
+	pulumi.RegisterOutputType(GetBrandsBrandOutput{})
+	pulumi.RegisterOutputType(GetBrandsBrandArrayOutput{})
+	pulumi.RegisterOutputType(GetEmailCustomizationsEmailCustomizationOutput{})
+	pulumi.RegisterOutputType(GetEmailCustomizationsEmailCustomizationArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTemplatesEmailTemplateOutput{})
+	pulumi.RegisterOutputType(GetTemplatesEmailTemplateArrayOutput{})
+	pulumi.RegisterOutputType(GetThemesThemeOutput{})
+	pulumi.RegisterOutputType(GetThemesThemeArrayOutput{})
 	pulumi.RegisterOutputType(GetTrustedOriginsTrustedOriginOutput{})
 	pulumi.RegisterOutputType(GetTrustedOriginsTrustedOriginArrayOutput{})
 	pulumi.RegisterOutputType(GetUserSecurityQuestionsQuestionOutput{})

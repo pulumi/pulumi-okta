@@ -23,9 +23,7 @@ import (
 	"github.com/okta/terraform-provider-okta/okta"
 	"github.com/pulumi/pulumi-okta/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 )
 
@@ -77,24 +75,19 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod, res)
 }
 
-func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	return nil
-}
-
 // Provider returns additional overlaid schema and metadata associated with the provider.
 func Provider() tfbridge.ProviderInfo {
 	p := shimv2.NewProvider(okta.Provider())
 	prov := tfbridge.ProviderInfo{
-		P:                    p,
-		Name:                 "okta",
-		Description:          "A Pulumi package for creating and managing okta resources.",
-		Keywords:             []string{"pulumi", "okta"},
-		License:              "Apache-2.0",
-		Homepage:             "https://pulumi.io",
-		GitHubOrg:            "okta",
-		Repository:           "https://github.com/pulumi/pulumi-okta",
-		Config:               map[string]*tfbridge.SchemaInfo{},
-		PreConfigureCallback: preConfigureCallback,
+		P:           p,
+		Name:        "okta",
+		Description: "A Pulumi package for creating and managing okta resources.",
+		Keywords:    []string{"pulumi", "okta"},
+		License:     "Apache-2.0",
+		Homepage:    "https://pulumi.io",
+		GitHubOrg:   "okta",
+		Repository:  "https://github.com/pulumi/pulumi-okta",
+		Config:      map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// App Resources
 			"okta_app_auto_login": {
@@ -333,6 +326,9 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_rate_limiting":                  {Tok: makeResource(mainMod, "RateLimiting")},
 			"okta_resource_set":                   {Tok: makeResource(mainMod, "ResourceSet")},
 			"okta_policy_profile_enrollment_apps": {Tok: makeResource(mainMod, "PolicyProfileEnrollmentApps")},
+			"okta_brand":                          {Tok: makeResource(mainMod, "Brand")},
+			"okta_email_customization":            {Tok: makeResource(mainMod, "EmailCustomization")},
+			"okta_theme":                          {Tok: makeResource(mainMod, "Theme")},
 
 			// Deprecated Resources in Upstream Provider
 			"okta_idp": {
@@ -505,6 +501,14 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_network_zone":            {Tok: makeDataSource(mainMod, "getNetworkZone")},
 			"okta_role_subscription":       {Tok: makeDataSource(mainMod, "getRoleSubscription")},
 			"okta_trusted_origins":         {Tok: makeDataSource(mainMod, "getTrustedOrigins")},
+			"okta_brand":                   {Tok: makeDataSource(mainMod, "getBrand")},
+			"okta_brands":                  {Tok: makeDataSource(mainMod, "getBrands")},
+			"okta_email_customization":     {Tok: makeDataSource(mainMod, "getEmailCustomization")},
+			"okta_email_customizations":    {Tok: makeDataSource(mainMod, "getEmailCustomizations")},
+			"okta_email_template":          {Tok: makeDataSource(mainMod, "getTemplate")},
+			"okta_email_templates":         {Tok: makeDataSource(mainMod, "getTemplates")},
+			"okta_theme":                   {Tok: makeDataSource(mainMod, "getTheme")},
+			"okta_themes":                  {Tok: makeDataSource(mainMod, "getThemes")},
 
 			// Deprecated DataSources in Upstream Provider
 			"okta_default_policies": {

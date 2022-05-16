@@ -27,7 +27,11 @@ __all__ = [
     'UserSchemaPropertyOneOf',
     'GetAuthServerClaimsClaimResult',
     'GetBehavioursBehaviorResult',
+    'GetBrandsBrandResult',
+    'GetEmailCustomizationsEmailCustomizationResult',
     'GetGroupsGroupResult',
+    'GetTemplatesEmailTemplateResult',
+    'GetThemesThemeResult',
     'GetTrustedOriginsTrustedOriginResult',
     'GetUserSecurityQuestionsQuestionResult',
 ]
@@ -803,23 +807,114 @@ class GetBehavioursBehaviorResult(dict):
 
 
 @pulumi.output_type
+class GetBrandsBrandResult(dict):
+    def __init__(__self__, *,
+                 custom_privacy_policy_url: str,
+                 id: str,
+                 links: str,
+                 remove_powered_by_okta: bool):
+        pulumi.set(__self__, "custom_privacy_policy_url", custom_privacy_policy_url)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "links", links)
+        pulumi.set(__self__, "remove_powered_by_okta", remove_powered_by_okta)
+
+    @property
+    @pulumi.getter(name="customPrivacyPolicyUrl")
+    def custom_privacy_policy_url(self) -> str:
+        return pulumi.get(self, "custom_privacy_policy_url")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def links(self) -> str:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter(name="removePoweredByOkta")
+    def remove_powered_by_okta(self) -> bool:
+        return pulumi.get(self, "remove_powered_by_okta")
+
+
+@pulumi.output_type
+class GetEmailCustomizationsEmailCustomizationResult(dict):
+    def __init__(__self__, *,
+                 body: str,
+                 id: str,
+                 is_default: bool,
+                 language: str,
+                 links: str,
+                 subject: str):
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "language", language)
+        pulumi.set(__self__, "links", links)
+        pulumi.set(__self__, "subject", subject)
+
+    @property
+    @pulumi.getter
+    def body(self) -> str:
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> bool:
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter
+    def language(self) -> str:
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter
+    def links(self) -> str:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
 class GetGroupsGroupResult(dict):
     def __init__(__self__, *,
+                 custom_profile_attributes: str,
                  description: str,
                  id: str,
                  name: str,
                  type: str):
         """
+        :param str custom_profile_attributes: raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
         :param str description: Group description.
         :param str id: Group ID.
         :param str name: Group name.
         :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
                (Imported App Groups), or `BUILT_IN` (Okta System Groups).
         """
+        pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="customProfileAttributes")
+    def custom_profile_attributes(self) -> str:
+        """
+        raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+        """
+        return pulumi.get(self, "custom_profile_attributes")
 
     @property
     @pulumi.getter
@@ -853,6 +948,121 @@ class GetGroupsGroupResult(dict):
         (Imported App Groups), or `BUILT_IN` (Okta System Groups).
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetTemplatesEmailTemplateResult(dict):
+    def __init__(__self__, *,
+                 links: str,
+                 name: str):
+        pulumi.set(__self__, "links", links)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def links(self) -> str:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetThemesThemeResult(dict):
+    def __init__(__self__, *,
+                 background_image_url: str,
+                 email_template_touch_point_variant: str,
+                 end_user_dashboard_touch_point_variant: str,
+                 error_page_touch_point_variant: str,
+                 favicon_url: str,
+                 id: str,
+                 links: str,
+                 logo_url: str,
+                 primary_color_contrast_hex: str,
+                 primary_color_hex: str,
+                 secondary_color_contrast_hex: str,
+                 secondary_color_hex: str,
+                 sign_in_page_touch_point_variant: str):
+        pulumi.set(__self__, "background_image_url", background_image_url)
+        pulumi.set(__self__, "email_template_touch_point_variant", email_template_touch_point_variant)
+        pulumi.set(__self__, "end_user_dashboard_touch_point_variant", end_user_dashboard_touch_point_variant)
+        pulumi.set(__self__, "error_page_touch_point_variant", error_page_touch_point_variant)
+        pulumi.set(__self__, "favicon_url", favicon_url)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "links", links)
+        pulumi.set(__self__, "logo_url", logo_url)
+        pulumi.set(__self__, "primary_color_contrast_hex", primary_color_contrast_hex)
+        pulumi.set(__self__, "primary_color_hex", primary_color_hex)
+        pulumi.set(__self__, "secondary_color_contrast_hex", secondary_color_contrast_hex)
+        pulumi.set(__self__, "secondary_color_hex", secondary_color_hex)
+        pulumi.set(__self__, "sign_in_page_touch_point_variant", sign_in_page_touch_point_variant)
+
+    @property
+    @pulumi.getter(name="backgroundImageUrl")
+    def background_image_url(self) -> str:
+        return pulumi.get(self, "background_image_url")
+
+    @property
+    @pulumi.getter(name="emailTemplateTouchPointVariant")
+    def email_template_touch_point_variant(self) -> str:
+        return pulumi.get(self, "email_template_touch_point_variant")
+
+    @property
+    @pulumi.getter(name="endUserDashboardTouchPointVariant")
+    def end_user_dashboard_touch_point_variant(self) -> str:
+        return pulumi.get(self, "end_user_dashboard_touch_point_variant")
+
+    @property
+    @pulumi.getter(name="errorPageTouchPointVariant")
+    def error_page_touch_point_variant(self) -> str:
+        return pulumi.get(self, "error_page_touch_point_variant")
+
+    @property
+    @pulumi.getter(name="faviconUrl")
+    def favicon_url(self) -> str:
+        return pulumi.get(self, "favicon_url")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def links(self) -> str:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> str:
+        return pulumi.get(self, "logo_url")
+
+    @property
+    @pulumi.getter(name="primaryColorContrastHex")
+    def primary_color_contrast_hex(self) -> str:
+        return pulumi.get(self, "primary_color_contrast_hex")
+
+    @property
+    @pulumi.getter(name="primaryColorHex")
+    def primary_color_hex(self) -> str:
+        return pulumi.get(self, "primary_color_hex")
+
+    @property
+    @pulumi.getter(name="secondaryColorContrastHex")
+    def secondary_color_contrast_hex(self) -> str:
+        return pulumi.get(self, "secondary_color_contrast_hex")
+
+    @property
+    @pulumi.getter(name="secondaryColorHex")
+    def secondary_color_hex(self) -> str:
+        return pulumi.get(self, "secondary_color_hex")
+
+    @property
+    @pulumi.getter(name="signInPageTouchPointVariant")
+    def sign_in_page_touch_point_variant(self) -> str:
+        return pulumi.get(self, "sign_in_page_touch_point_variant")
 
 
 @pulumi.output_type

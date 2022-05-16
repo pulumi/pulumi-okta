@@ -62,7 +62,7 @@ import (
 // OAuth API scopes can be imported via the Okta Application ID.
 //
 // ```sh
-//  $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example <app id>
+//  $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62;
 // ```
 type AppOauthApiScope struct {
 	pulumi.CustomResourceState
@@ -238,6 +238,21 @@ func (o AppOauthApiScopeOutput) ToAppOauthApiScopeOutput() AppOauthApiScopeOutpu
 
 func (o AppOauthApiScopeOutput) ToAppOauthApiScopeOutputWithContext(ctx context.Context) AppOauthApiScopeOutput {
 	return o
+}
+
+// ID of the application.
+func (o AppOauthApiScopeOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppOauthApiScope) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The issuer of your Org Authorization Server, your Org URL.
+func (o AppOauthApiScopeOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppOauthApiScope) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// List of scopes for which consent is granted.
+func (o AppOauthApiScopeOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppOauthApiScope) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
 type AppOauthApiScopeArrayOutput struct{ *pulumi.OutputState }

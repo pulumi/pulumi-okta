@@ -38,7 +38,7 @@ import (
 // Okta Admin Role Targets can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/domain:Domain example <domain_id>
+//  $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
 // ```
 type Domain struct {
 	pulumi.CustomResourceState
@@ -232,6 +232,34 @@ func (o DomainOutput) ToDomainOutput() DomainOutput {
 
 func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return o
+}
+
+// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+func (o DomainOutput) CertificateSourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.CertificateSourceType }).(pulumi.StringPtrOutput)
+}
+
+// TXT and CNAME records to be registered for the Domain.
+func (o DomainOutput) DnsRecords() DomainDnsRecordArrayOutput {
+	return o.ApplyT(func(v *Domain) DomainDnsRecordArrayOutput { return v.DnsRecords }).(DomainDnsRecordArrayOutput)
+}
+
+// Custom Domain name.
+func (o DomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Status of the domain.
+func (o DomainOutput) ValidationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.ValidationStatus }).(pulumi.StringOutput)
+}
+
+// Indicates whether the domain should be verified.
+// - `DEPRECATED`: Please use `DomainVerification` resource instead.
+//
+// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
+func (o DomainOutput) Verify() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.BoolPtrOutput { return v.Verify }).(pulumi.BoolPtrOutput)
 }
 
 type DomainArrayOutput struct{ *pulumi.OutputState }

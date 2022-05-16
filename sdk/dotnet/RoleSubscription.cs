@@ -40,7 +40,7 @@ namespace Pulumi.Okta
     /// A role subscription can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/roleSubscription:RoleSubscription example &lt;role_type&gt;/&lt;notification_type&gt;
+    ///  $ pulumi import okta:index/roleSubscription:RoleSubscription example &amp;#60;role_type&amp;#62;/&amp;#60;notification_type&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/roleSubscription:RoleSubscription")]
@@ -53,8 +53,8 @@ namespace Pulumi.Okta
         public Output<string> NotificationType { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
-        /// "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
+        /// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+        /// `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
         /// </summary>
         [Output("roleType")]
         public Output<string> RoleType { get; private set; } = null!;
@@ -118,8 +118,8 @@ namespace Pulumi.Okta
         public Input<string> NotificationType { get; set; } = null!;
 
         /// <summary>
-        /// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
-        /// "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
+        /// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+        /// `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
         /// </summary>
         [Input("roleType", required: true)]
         public Input<string> RoleType { get; set; } = null!;
@@ -144,8 +144,8 @@ namespace Pulumi.Okta
         public Input<string>? NotificationType { get; set; }
 
         /// <summary>
-        /// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN",
-        /// "APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN".
+        /// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`,
+        /// `"APP_ADMIN"`, `"USER_ADMIN"`, `"MOBILE_ADMIN"`, `"READ_ONLY_ADMIN"`, `"HELP_DESK_ADMIN"`, `"API_ADMIN"`.
         /// </summary>
         [Input("roleType")]
         public Input<string>? RoleType { get; set; }

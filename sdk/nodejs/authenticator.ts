@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  * Okta authenticator can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/authenticator:Authenticator example <authenticator_id>
+ *  $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
  * ```
  */
 export class Authenticator extends pulumi.CustomResource {
@@ -62,7 +62,7 @@ export class Authenticator extends pulumi.CustomResource {
     }
 
     /**
-     * A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
+     * A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -157,7 +157,7 @@ export class Authenticator extends pulumi.CustomResource {
  */
 export interface AuthenticatorState {
     /**
-     * A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
+     * A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
      */
     key?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface AuthenticatorState {
  */
 export interface AuthenticatorArgs {
     /**
-     * A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
+     * A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
      */
     key: pulumi.Input<string>;
     /**

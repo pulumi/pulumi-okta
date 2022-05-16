@@ -44,7 +44,7 @@ namespace Pulumi.Okta.Policy
     /// A Password Policy can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:policy/password:Password example &lt;policy id&gt;
+    ///  $ pulumi import okta:policy/password:Password example &amp;#60;policy id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/password:Password")]

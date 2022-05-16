@@ -45,7 +45,7 @@ import (
 // Behavior can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/captcha:Captcha example <captcha id>
+//  $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
 // ```
 type Captcha struct {
 	pulumi.CustomResourceState
@@ -231,6 +231,26 @@ func (o CaptchaOutput) ToCaptchaOutput() CaptchaOutput {
 
 func (o CaptchaOutput) ToCaptchaOutputWithContext(ctx context.Context) CaptchaOutput {
 	return o
+}
+
+// Name of the captcha.
+func (o CaptchaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Captcha) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+func (o CaptchaOutput) SecretKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Captcha) pulumi.StringOutput { return v.SecretKey }).(pulumi.StringOutput)
+}
+
+// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+func (o CaptchaOutput) SiteKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Captcha) pulumi.StringOutput { return v.SiteKey }).(pulumi.StringOutput)
+}
+
+// Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+func (o CaptchaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Captcha) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 type CaptchaArrayOutput struct{ *pulumi.OutputState }

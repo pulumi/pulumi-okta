@@ -219,7 +219,7 @@ class Signon(pulumi.CustomResource):
         A Sign On Policy can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:policy/signon:Signon example <policy id>
+         $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -258,7 +258,7 @@ class Signon(pulumi.CustomResource):
         A Sign On Policy can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:policy/signon:Signon example <policy id>
+         $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
         ```
 
         :param str resource_name: The name of the resource.

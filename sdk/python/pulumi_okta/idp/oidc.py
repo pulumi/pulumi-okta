@@ -1200,7 +1200,7 @@ class Oidc(pulumi.CustomResource):
         An OIDC IdP can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:idp/oidc:Oidc example <idp id>
+         $ pulumi import okta:idp/oidc:Oidc example &#60;idp id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -1277,7 +1277,7 @@ class Oidc(pulumi.CustomResource):
         An OIDC IdP can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:idp/oidc:Oidc example <idp id>
+         $ pulumi import okta:idp/oidc:Oidc example &#60;idp id&#62;
         ```
 
         :param str resource_name: The name of the resource.

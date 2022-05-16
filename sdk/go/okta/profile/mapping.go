@@ -283,6 +283,51 @@ func (o MappingOutput) ToMappingOutputWithContext(ctx context.Context) MappingOu
 	return o
 }
 
+// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+func (o MappingOutput) AlwaysApply() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Mapping) pulumi.BoolPtrOutput { return v.AlwaysApply }).(pulumi.BoolPtrOutput)
+}
+
+// Tells the provider whether to attempt to delete missing mappings under profile mapping.
+func (o MappingOutput) DeleteWhenAbsent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Mapping) pulumi.BoolPtrOutput { return v.DeleteWhenAbsent }).(pulumi.BoolPtrOutput)
+}
+
+// Priority of the policy.
+func (o MappingOutput) Mappings() MappingMappingArrayOutput {
+	return o.ApplyT(func(v *Mapping) MappingMappingArrayOutput { return v.Mappings }).(MappingMappingArrayOutput)
+}
+
+// Source id of the profile mapping.
+func (o MappingOutput) SourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.SourceId }).(pulumi.StringOutput)
+}
+
+// Name of the mapping source.
+func (o MappingOutput) SourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.SourceName }).(pulumi.StringOutput)
+}
+
+// ID of the mapping source.
+func (o MappingOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
+}
+
+// ID of the mapping target.
+func (o MappingOutput) TargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
+}
+
+// Name of the mapping target.
+func (o MappingOutput) TargetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.TargetName }).(pulumi.StringOutput)
+}
+
+// ID of the mapping target.
+func (o MappingOutput) TargetType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.TargetType }).(pulumi.StringOutput)
+}
+
 type MappingArrayOutput struct{ *pulumi.OutputState }
 
 func (MappingArrayOutput) ElementType() reflect.Type {

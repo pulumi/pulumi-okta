@@ -49,13 +49,13 @@ import (
 // User schema property of default user type can be imported via the property index.
 //
 // ```sh
-//  $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example <index>
+//  $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;index&#62;
 // ```
 //
 //  User schema property of custom user type can be imported via user type id and property index
 //
 // ```sh
-//  $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example <user type id>.<index>
+//  $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;user type id&#62;.&#60;index&#62;
 // ```
 type UserSchemaProperty struct {
 	pulumi.CustomResourceState
@@ -411,6 +411,113 @@ func (o UserSchemaPropertyOutput) ToUserSchemaPropertyOutput() UserSchemaPropert
 
 func (o UserSchemaPropertyOutput) ToUserSchemaPropertyOutputWithContext(ctx context.Context) UserSchemaPropertyOutput {
 	return o
+}
+
+// Array of values that an array property's items can be set to.
+func (o UserSchemaPropertyOutput) ArrayEnums() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringArrayOutput { return v.ArrayEnums }).(pulumi.StringArrayOutput)
+}
+
+// Display name and value an enum array can be set to.
+func (o UserSchemaPropertyOutput) ArrayOneOfs() UserSchemaPropertyArrayOneOfArrayOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) UserSchemaPropertyArrayOneOfArrayOutput { return v.ArrayOneOfs }).(UserSchemaPropertyArrayOneOfArrayOutput)
+}
+
+// The type of the array elements if `type` is set to `"array"`.
+func (o UserSchemaPropertyOutput) ArrayType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.ArrayType }).(pulumi.StringPtrOutput)
+}
+
+// The description of the user schema property.
+func (o UserSchemaPropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Array of values a primitive property can be set to. See `arrayEnum` for arrays.
+func (o UserSchemaPropertyOutput) Enums() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringArrayOutput { return v.Enums }).(pulumi.StringArrayOutput)
+}
+
+// External name of the user schema property.
+func (o UserSchemaPropertyOutput) ExternalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.ExternalName }).(pulumi.StringPtrOutput)
+}
+
+// External name of the user schema property.
+func (o UserSchemaPropertyOutput) ExternalNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.ExternalNamespace }).(pulumi.StringPtrOutput)
+}
+
+// The property name.
+func (o UserSchemaPropertyOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringOutput { return v.Index }).(pulumi.StringOutput)
+}
+
+// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+func (o UserSchemaPropertyOutput) Master() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.Master }).(pulumi.StringPtrOutput)
+}
+
+// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+func (o UserSchemaPropertyOutput) MasterOverridePriorities() UserSchemaPropertyMasterOverridePriorityArrayOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) UserSchemaPropertyMasterOverridePriorityArrayOutput {
+		return v.MasterOverridePriorities
+	}).(UserSchemaPropertyMasterOverridePriorityArrayOutput)
+}
+
+// The maximum length of the user property value. Only applies to type `"string"`.
+func (o UserSchemaPropertyOutput) MaxLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.IntPtrOutput { return v.MaxLength }).(pulumi.IntPtrOutput)
+}
+
+// The minimum length of the user property value. Only applies to type `"string"`.
+func (o UserSchemaPropertyOutput) MinLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.IntPtrOutput { return v.MinLength }).(pulumi.IntPtrOutput)
+}
+
+// Array of maps containing a mapping for display name to enum value.
+func (o UserSchemaPropertyOutput) OneOfs() UserSchemaPropertyOneOfArrayOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) UserSchemaPropertyOneOfArrayOutput { return v.OneOfs }).(UserSchemaPropertyOneOfArrayOutput)
+}
+
+// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+func (o UserSchemaPropertyOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+func (o UserSchemaPropertyOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.Permissions }).(pulumi.StringPtrOutput)
+}
+
+// Whether the property is required for these users.
+func (o UserSchemaPropertyOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.BoolPtrOutput { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+// determines whether an app user attribute can be set at the Individual or Group Level.
+func (o UserSchemaPropertyOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// display name for the enum value.
+func (o UserSchemaPropertyOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
+// - Type of profile source.
+func (o UserSchemaPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+func (o UserSchemaPropertyOutput) Unique() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.Unique }).(pulumi.StringPtrOutput)
+}
+
+// User type ID
+func (o UserSchemaPropertyOutput) UserType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.UserType }).(pulumi.StringPtrOutput)
 }
 
 type UserSchemaPropertyArrayOutput struct{ *pulumi.OutputState }

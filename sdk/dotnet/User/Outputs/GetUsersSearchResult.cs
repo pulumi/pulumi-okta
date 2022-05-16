@@ -14,27 +14,34 @@ namespace Pulumi.Okta.User.Outputs
     public sealed class GetUsersSearchResult
     {
         /// <summary>
-        /// Comparison to use.
+        /// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
         /// </summary>
         public readonly string? Comparison;
         /// <summary>
+        /// A raw search expression string. If present it will override name/comparison/value.
+        /// </summary>
+        public readonly string? Expression;
+        /// <summary>
         /// Name of property to search against.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Value to compare with.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetUsersSearchResult(
             string? comparison,
 
-            string name,
+            string? expression,
 
-            string value)
+            string? name,
+
+            string? value)
         {
             Comparison = comparison;
+            Expression = expression;
             Name = name;
             Value = value;
         }

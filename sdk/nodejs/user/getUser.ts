@@ -14,18 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * // Search for a single user based on supported profile properties
+ * // Search for a single user based on a raw search expression string
  * const example = pulumi.output(okta.user.getUser({
- *     searches: [
- *         {
- *             name: "profile.firstName",
- *             value: "John",
- *         },
- *         {
- *             name: "profile.lastName",
- *             value: "Doe",
- *         },
- *     ],
+ *     searches: [{
+ *         expression: "profile.firstName eq \"John\"",
+ *     }],
  * }));
  * ```
  */
@@ -37,6 +30,7 @@ export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promis
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:user/getUser:getUser", {
+        "compoundSearchOperator": args.compoundSearchOperator,
         "searches": args.searches,
         "skipGroups": args.skipGroups,
         "skipRoles": args.skipRoles,
@@ -48,6 +42,10 @@ export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promis
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
+    /**
+     * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+     */
+    compoundSearchOperator?: string;
     /**
      * Map of search criteria. It supports the following properties.
      */
@@ -78,6 +76,7 @@ export interface GetUserResult {
      * user profile property.
      */
     readonly city: string;
+    readonly compoundSearchOperator?: string;
     /**
      * user profile property.
      */
@@ -228,6 +227,10 @@ export function getUserOutput(args?: GetUserOutputArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
+    /**
+     * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+     */
+    compoundSearchOperator?: pulumi.Input<string>;
     /**
      * Map of search criteria. It supports the following properties.
      */

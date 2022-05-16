@@ -46,7 +46,7 @@ import (
 // A Trusted Origin can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:trustedorigin/origin:Origin example <trusted origin id>
+//  $ pulumi import okta:trustedorigin/origin:Origin example &#60;trusted origin id&#62;
 // ```
 type Origin struct {
 	pulumi.CustomResourceState
@@ -229,6 +229,26 @@ func (o OriginOutput) ToOriginOutput() OriginOutput {
 
 func (o OriginOutput) ToOriginOutputWithContext(ctx context.Context) OriginOutput {
 	return o
+}
+
+// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
+func (o OriginOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Origin) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+// Unique name for this trusted origin.
+func (o OriginOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Unique origin URL for this trusted origin.
+func (o OriginOutput) Origin() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.Origin }).(pulumi.StringOutput)
+}
+
+// Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
+func (o OriginOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
 type OriginArrayOutput struct{ *pulumi.OutputState }

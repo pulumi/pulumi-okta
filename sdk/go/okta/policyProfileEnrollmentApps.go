@@ -66,7 +66,7 @@ import (
 // A Profile Enrollment Policy Apps can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example <policy id>
+//  $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &#60;policy id&#62;
 // ```
 type PolicyProfileEnrollmentApps struct {
 	pulumi.CustomResourceState
@@ -232,6 +232,21 @@ func (o PolicyProfileEnrollmentAppsOutput) ToPolicyProfileEnrollmentAppsOutput()
 
 func (o PolicyProfileEnrollmentAppsOutput) ToPolicyProfileEnrollmentAppsOutputWithContext(ctx context.Context) PolicyProfileEnrollmentAppsOutput {
 	return o
+}
+
+// List of app IDs to be added to this policy.
+func (o PolicyProfileEnrollmentAppsOutput) Apps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyProfileEnrollmentApps) pulumi.StringArrayOutput { return v.Apps }).(pulumi.StringArrayOutput)
+}
+
+// ID of the default enrollment policy.
+func (o PolicyProfileEnrollmentAppsOutput) DefaultPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyProfileEnrollmentApps) pulumi.StringOutput { return v.DefaultPolicyId }).(pulumi.StringOutput)
+}
+
+// ID of the enrollment policy.
+func (o PolicyProfileEnrollmentAppsOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyProfileEnrollmentApps) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
 type PolicyProfileEnrollmentAppsArrayOutput struct{ *pulumi.OutputState }

@@ -42,7 +42,7 @@ import (
 // A Profile Enrollment Policy can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example <policy id>
+//  $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
 // ```
 type PolicyProfileEnrollment struct {
 	pulumi.CustomResourceState
@@ -199,6 +199,16 @@ func (o PolicyProfileEnrollmentOutput) ToPolicyProfileEnrollmentOutput() PolicyP
 
 func (o PolicyProfileEnrollmentOutput) ToPolicyProfileEnrollmentOutputWithContext(ctx context.Context) PolicyProfileEnrollmentOutput {
 	return o
+}
+
+// Policy Name.
+func (o PolicyProfileEnrollmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyProfileEnrollment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Status of the policy.
+func (o PolicyProfileEnrollmentOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyProfileEnrollment) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type PolicyProfileEnrollmentArrayOutput struct{ *pulumi.OutputState }

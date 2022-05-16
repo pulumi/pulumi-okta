@@ -85,7 +85,7 @@ import (
 // Okta Link Value can be imported via Primary Name and Primary User ID.
 //
 // ```sh
-//  $ pulumi import okta:index/linkValue:LinkValue example <primary_name>/<primary_user_id>
+//  $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
 // ```
 type LinkValue struct {
 	pulumi.CustomResourceState
@@ -258,6 +258,21 @@ func (o LinkValueOutput) ToLinkValueOutput() LinkValueOutput {
 
 func (o LinkValueOutput) ToLinkValueOutputWithContext(ctx context.Context) LinkValueOutput {
 	return o
+}
+
+// Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+func (o LinkValueOutput) AssociatedUserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LinkValue) pulumi.StringArrayOutput { return v.AssociatedUserIds }).(pulumi.StringArrayOutput)
+}
+
+// Name of the `primary` relationship being assigned.
+func (o LinkValueOutput) PrimaryName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkValue) pulumi.StringOutput { return v.PrimaryName }).(pulumi.StringOutput)
+}
+
+// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+func (o LinkValueOutput) PrimaryUserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkValue) pulumi.StringOutput { return v.PrimaryUserId }).(pulumi.StringOutput)
 }
 
 type LinkValueArrayOutput struct{ *pulumi.OutputState }

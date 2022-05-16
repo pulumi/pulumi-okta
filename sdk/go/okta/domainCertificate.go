@@ -259,6 +259,31 @@ func (o DomainCertificateOutput) ToDomainCertificateOutputWithContext(ctx contex
 	return o
 }
 
+// Certificate content.
+func (o DomainCertificateOutput) Certificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainCertificate) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
+}
+
+// Certificate certificate chain.
+func (o DomainCertificateOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainCertificate) pulumi.StringOutput { return v.CertificateChain }).(pulumi.StringOutput)
+}
+
+// Domain ID.
+func (o DomainCertificateOutput) DomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainCertificate) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
+}
+
+// Certificate private key.
+func (o DomainCertificateOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainCertificate) pulumi.StringOutput { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+// Certificate type. Valid value is `"PEM"`.
+func (o DomainCertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainCertificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 type DomainCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainCertificateArrayOutput) ElementType() reflect.Type {

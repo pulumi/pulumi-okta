@@ -42,7 +42,7 @@ namespace Pulumi.Okta.TrustedOrigin
     /// A Trusted Origin can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:trustedorigin/origin:Origin example &lt;trusted origin id&gt;
+    ///  $ pulumi import okta:trustedorigin/origin:Origin example &amp;#60;trusted origin id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:trustedorigin/origin:Origin")]

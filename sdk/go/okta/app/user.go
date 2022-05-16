@@ -41,7 +41,7 @@ import (
 // An Application User can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/user:User example <app id>/<user id>
+//  $ pulumi import okta:app/user:User example &#60;app id&#62;/&#60;user id&#62;
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -252,6 +252,41 @@ func (o UserOutput) ToUserOutput() UserOutput {
 
 func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
+}
+
+// App to associate user with.
+func (o UserOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+func (o UserOutput) HasSharedUsername() pulumi.BoolOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolOutput { return v.HasSharedUsername }).(pulumi.BoolOutput)
+}
+
+// The password to use.
+func (o UserOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The JSON profile of the App User.
+func (o UserOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+func (o UserOutput) RetainAssignment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.RetainAssignment }).(pulumi.BoolPtrOutput)
+}
+
+// User to associate the application with.
+func (o UserOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
+// The username to use for the app user. In case the user is assigned to the app with
+// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+func (o UserOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type UserArrayOutput struct{ *pulumi.OutputState }

@@ -241,7 +241,7 @@ export namespace app {
          */
         name: pulumi.Input<string>;
         /**
-         * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+         * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
          */
         type: pulumi.Input<string>;
         /**
@@ -612,62 +612,78 @@ export namespace template {
 export namespace user {
     export interface GetUserSearch {
         /**
-         * Comparison to use.
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
          */
         comparison?: string;
         /**
+         * A raw search expression string. If present it will override name/comparison/value.
+         */
+        expression?: string;
+        /**
          * Name of property to search against.
          */
-        name: string;
+        name?: string;
         /**
          * Value to compare with.
          */
-        value: string;
+        value?: string;
     }
 
     export interface GetUserSearchArgs {
         /**
-         * Comparison to use.
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
          */
         comparison?: pulumi.Input<string>;
         /**
+         * A raw search expression string. If present it will override name/comparison/value.
+         */
+        expression?: pulumi.Input<string>;
+        /**
          * Name of property to search against.
          */
-        name: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         /**
          * Value to compare with.
          */
-        value: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
     }
 
     export interface GetUsersSearchArgs {
         /**
-         * Comparison to use.
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
          */
         comparison?: pulumi.Input<string>;
         /**
+         * A raw search expression string. If present it will override name/comparison/value.
+         */
+        expression?: pulumi.Input<string>;
+        /**
          * Name of property to search against.
          */
-        name: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         /**
          * Value to compare with.
          */
-        value: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
     }
 
     export interface GetUsersSearch {
         /**
-         * Comparison to use.
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
          */
         comparison?: string;
         /**
+         * A raw search expression string. If present it will override name/comparison/value.
+         */
+        expression?: string;
+        /**
          * Name of property to search against.
          */
-        name: string;
+        name?: string;
         /**
          * Value to compare with.
          */
-        value: string;
+        value?: string;
     }
 
     export interface SchemaArrayOneOf {

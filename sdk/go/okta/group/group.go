@@ -99,13 +99,13 @@ import (
 // An Okta Group can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:group/group:Group example <group id>
+//  $ pulumi import okta:group/group:Group example &#60;group id&#62;
 // ```
 //
 //  It's also possible to import group without users. In this case ID will look like this
 //
 // ```sh
-//  $ pulumi import okta:group/group:Group example <group id>/skip_users
+//  $ pulumi import okta:group/group:Group example &#60;group id&#62;/skip_users
 // ```
 type Group struct {
 	pulumi.CustomResourceState
@@ -307,6 +307,34 @@ func (o GroupOutput) ToGroupOutput() GroupOutput {
 
 func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
+}
+
+// raw JSON containing all custom profile attributes.
+func (o GroupOutput) CustomProfileAttributes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.CustomProfileAttributes }).(pulumi.StringPtrOutput)
+}
+
+// The description of the Okta Group.
+func (o GroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Okta Group.
+func (o GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
+func (o GroupOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// The users associated with the group. This can also be done per user.
+// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
+//
+// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
+func (o GroupOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
 }
 
 type GroupArrayOutput struct{ *pulumi.OutputState }

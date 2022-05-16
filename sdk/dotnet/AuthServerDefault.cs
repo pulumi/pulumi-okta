@@ -37,7 +37,7 @@ namespace Pulumi.Okta
     /// Authorization Server can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &lt;auth server name&gt;
+    ///  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &amp;#60;auth server name&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/authServerDefault:AuthServerDefault")]

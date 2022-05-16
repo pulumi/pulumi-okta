@@ -142,7 +142,7 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
         A Profile Enrollment Policy Apps can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example <policy id>
+         $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &#60;policy id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -185,7 +185,7 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
         A Profile Enrollment Policy Apps can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example <policy id>
+         $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &#60;policy id&#62;
         ```
 
         :param str resource_name: The name of the resource.

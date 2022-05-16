@@ -75,7 +75,7 @@ import (
 // Okta Network Zone can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:network/zone:Zone example <zone id>
+//  $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
 // ```
 type Zone struct {
 	pulumi.CustomResourceState
@@ -300,6 +300,47 @@ func (o ZoneOutput) ToZoneOutput() ZoneOutput {
 
 func (o ZoneOutput) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 	return o
+}
+
+// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+func (o ZoneOutput) Asns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringArrayOutput { return v.Asns }).(pulumi.StringArrayOutput)
+}
+
+// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+func (o ZoneOutput) DynamicLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringArrayOutput { return v.DynamicLocations }).(pulumi.StringArrayOutput)
+}
+
+// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+func (o ZoneOutput) DynamicProxyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.DynamicProxyType }).(pulumi.StringPtrOutput)
+}
+
+// Array of values in CIDR/range form.
+func (o ZoneOutput) Gateways() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringArrayOutput { return v.Gateways }).(pulumi.StringArrayOutput)
+}
+
+// Name of the Network Zone Resource.
+func (o ZoneOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+func (o ZoneOutput) Proxies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringArrayOutput { return v.Proxies }).(pulumi.StringArrayOutput)
+}
+
+// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+func (o ZoneOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+func (o ZoneOutput) Usage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.Usage }).(pulumi.StringPtrOutput)
 }
 
 type ZoneArrayOutput struct{ *pulumi.OutputState }

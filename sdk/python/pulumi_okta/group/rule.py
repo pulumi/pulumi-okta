@@ -26,7 +26,7 @@ class RuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
         :param pulumi.Input[str] expression_type: The expression type to use to invoke the rule. The default
                is `"urn:okta:expression:1.0"`.
-        :param pulumi.Input[str] name: The name of the Group Rule.
+        :param pulumi.Input[str] name: The name of the Group Rule (min character 1; max characters 50).
         :param pulumi.Input[bool] remove_assigned_users: This tells the provider to remove users added by this rule from the assigned
                group after destroying this resource. Default is `false`.
         :param pulumi.Input[str] status: The status of the group rule.
@@ -86,7 +86,7 @@ class RuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Group Rule.
+        The name of the Group Rule (min character 1; max characters 50).
         """
         return pulumi.get(self, "name")
 
@@ -148,7 +148,7 @@ class _RuleState:
                is `"urn:okta:expression:1.0"`.
         :param pulumi.Input[str] expression_value: The expression value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
-        :param pulumi.Input[str] name: The name of the Group Rule.
+        :param pulumi.Input[str] name: The name of the Group Rule (min character 1; max characters 50).
         :param pulumi.Input[bool] remove_assigned_users: This tells the provider to remove users added by this rule from the assigned
                group after destroying this resource. Default is `false`.
         :param pulumi.Input[str] status: The status of the group rule.
@@ -210,7 +210,7 @@ class _RuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Group Rule.
+        The name of the Group Rule (min character 1; max characters 50).
         """
         return pulumi.get(self, "name")
 
@@ -292,7 +292,7 @@ class Rule(pulumi.CustomResource):
         An Okta Group Rule can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:group/rule:Rule example <group rule id>
+         $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -301,7 +301,7 @@ class Rule(pulumi.CustomResource):
                is `"urn:okta:expression:1.0"`.
         :param pulumi.Input[str] expression_value: The expression value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
-        :param pulumi.Input[str] name: The name of the Group Rule.
+        :param pulumi.Input[str] name: The name of the Group Rule (min character 1; max characters 50).
         :param pulumi.Input[bool] remove_assigned_users: This tells the provider to remove users added by this rule from the assigned
                group after destroying this resource. Default is `false`.
         :param pulumi.Input[str] status: The status of the group rule.
@@ -336,7 +336,7 @@ class Rule(pulumi.CustomResource):
         An Okta Group Rule can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:group/rule:Rule example <group rule id>
+         $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -412,7 +412,7 @@ class Rule(pulumi.CustomResource):
                is `"urn:okta:expression:1.0"`.
         :param pulumi.Input[str] expression_value: The expression value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_assignments: The list of group ids to assign the users to.
-        :param pulumi.Input[str] name: The name of the Group Rule.
+        :param pulumi.Input[str] name: The name of the Group Rule (min character 1; max characters 50).
         :param pulumi.Input[bool] remove_assigned_users: This tells the provider to remove users added by this rule from the assigned
                group after destroying this resource. Default is `false`.
         :param pulumi.Input[str] status: The status of the group rule.
@@ -460,7 +460,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Group Rule.
+        The name of the Group Rule (min character 1; max characters 50).
         """
         return pulumi.get(self, "name")
 

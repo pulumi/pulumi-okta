@@ -359,7 +359,7 @@ namespace Pulumi.Okta
     /// Okta app sign-on policy rule can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &lt;policy_id&gt;/&lt;rule_id&gt;
+    ///  $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &amp;#60;policy_id&amp;#62;/&amp;#60;rule_id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appSignonPolicyRule:AppSignonPolicyRule")]

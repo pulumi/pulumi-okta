@@ -62,7 +62,7 @@ namespace Pulumi.Okta
     /// Security question factor for a user can be imported via the `user_id` and the `factor_id`.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &lt;user id&gt;/&lt;question factor id&gt;
+    ///  $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &amp;#60;user id&amp;#62;/&amp;#60;question factor id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/userFactorQuestion:UserFactorQuestion")]

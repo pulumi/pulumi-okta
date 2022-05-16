@@ -44,7 +44,7 @@ namespace Pulumi.Okta.Auth
     /// Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:auth/serverClaim:ServerClaim example &lt;auth server id&gt;/&lt;claim id&gt;
+    ///  $ pulumi import okta:auth/serverClaim:ServerClaim example &amp;#60;auth server id&amp;#62;/&amp;#60;claim id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:auth/serverClaim:ServerClaim")]

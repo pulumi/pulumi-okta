@@ -88,21 +88,21 @@ import (
 // An OIDC Application can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/oAuth:OAuth example <app id>
+//  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
 // ```
 //
 //  It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_users
+//  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_users/skip_groups
+//  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users/skip_groups
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_groups
+//  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_groups
 // ```
 type OAuth struct {
 	pulumi.CustomResourceState
@@ -207,7 +207,7 @@ type OAuth struct {
 	TokenEndpointAuthMethod pulumi.StringPtrOutput `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrOutput `pulumi:"tosUri"`
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
@@ -361,7 +361,7 @@ type oauthState struct {
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type *string `pulumi:"type"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
@@ -481,7 +481,7 @@ type OAuthState struct {
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
@@ -597,7 +597,7 @@ type oauthArgs struct {
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type string `pulumi:"type"`
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
@@ -710,7 +710,7 @@ type OAuthArgs struct {
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type pulumi.StringInput
 	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
@@ -814,6 +814,279 @@ func (o OAuthOutput) ToOAuthOutput() OAuthOutput {
 
 func (o OAuthOutput) ToOAuthOutputWithContext(ctx context.Context) OAuthOutput {
 	return o
+}
+
+// Custom error page URL.
+func (o OAuthOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page for this application.
+func (o OAuthOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self-service. By default, it is `false`.
+func (o OAuthOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for admins.
+func (o OAuthOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app. The value for each application link should be boolean.
+func (o OAuthOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Application settings in JSON format.
+func (o OAuthOutput) AppSettingsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
+}
+
+// Requested key rotation mode.
+func (o OAuthOutput) AutoKeyRotation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.AutoKeyRotation }).(pulumi.BoolPtrOutput)
+}
+
+// Display auto submit toolbar.
+func (o OAuthOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// OAuth client secret key, this can be set when tokenEndpointAuthMethod is client_secret_basic.
+func (o OAuthOutput) ClientBasicSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ClientBasicSecret }).(pulumi.StringPtrOutput)
+}
+
+// OAuth client ID. If set during creation, app is created with this id.
+func (o OAuthOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The client secret of the application.
+func (o OAuthOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// URI to a web page providing information about the client.
+func (o OAuthOutput) ClientUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ClientUri }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
+func (o OAuthOutput) ConsentMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ConsentMethod }).(pulumi.StringPtrOutput)
+}
+
+// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
+// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
+//
+// Deprecated: This field is being replaced by client_id. Please set that field instead.
+func (o OAuthOutput) CustomClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.CustomClientId }).(pulumi.StringPtrOutput)
+}
+
+// Application notes for end users.
+func (o OAuthOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+// `"interactionCode"` (*OIE only*).
+func (o OAuthOutput) GrantTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.GrantTypes }).(pulumi.StringArrayOutput)
+}
+
+// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
+// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o OAuthOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+func (o OAuthOutput) GroupsClaim() OAuthGroupsClaimPtrOutput {
+	return o.ApplyT(func(v *OAuth) OAuthGroupsClaimPtrOutput { return v.GroupsClaim }).(OAuthGroupsClaimPtrOutput)
+}
+
+// Do not display application icon on mobile app.
+func (o OAuthOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users.
+func (o OAuthOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+func (o OAuthOutput) ImplicitAssignment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.ImplicitAssignment }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+func (o OAuthOutput) IssuerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
+}
+
+// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+func (o OAuthOutput) Jwks() OAuthJwkArrayOutput {
+	return o.ApplyT(func(v *OAuth) OAuthJwkArrayOutput { return v.Jwks }).(OAuthJwkArrayOutput)
+}
+
+// The Application's display name.
+func (o OAuthOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+func (o OAuthOutput) LoginMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.LoginMode }).(pulumi.StringPtrOutput)
+}
+
+// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
+func (o OAuthOutput) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
+func (o OAuthOutput) LoginUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.LoginUri }).(pulumi.StringPtrOutput)
+}
+
+// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+func (o OAuthOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// URI that references a logo for the client.
+func (o OAuthOutput) LogoUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.LogoUri }).(pulumi.StringPtrOutput)
+}
+
+// Direct link of application logo.
+func (o OAuthOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// Name of the claim that will be used in the token.
+func (o OAuthOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+func (o OAuthOutput) OmitSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.OmitSecret }).(pulumi.BoolPtrOutput)
+}
+
+// URI to web page providing client policy document.
+func (o OAuthOutput) PolicyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.PolicyUri }).(pulumi.StringPtrOutput)
+}
+
+// List of URIs for redirection after logout.
+func (o OAuthOutput) PostLogoutRedirectUris() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.PostLogoutRedirectUris }).(pulumi.StringArrayOutput)
+}
+
+// Custom JSON that represents an OAuth application's profile.
+func (o OAuthOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// List of URIs for use in the redirect-based flow. This is required for all application types except service.
+func (o OAuthOutput) RedirectUris() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.RedirectUris }).(pulumi.StringArrayOutput)
+}
+
+// Grace period for token rotation. Valid values: 0 to 60 seconds.
+func (o OAuthOutput) RefreshTokenLeeway() pulumi.IntOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.IntOutput { return v.RefreshTokenLeeway }).(pulumi.IntOutput)
+}
+
+// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+func (o OAuthOutput) RefreshTokenRotation() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.RefreshTokenRotation }).(pulumi.StringOutput)
+}
+
+// List of OAuth 2.0 response type strings.
+func (o OAuthOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.ResponseTypes }).(pulumi.StringArrayOutput)
+}
+
+// Sign-on mode of application.
+func (o OAuthOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+func (o OAuthOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+func (o OAuthOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// The status of the application, by default, it is `"ACTIVE"`.
+func (o OAuthOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
+func (o OAuthOutput) TokenEndpointAuthMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.TokenEndpointAuthMethod }).(pulumi.StringPtrOutput)
+}
+
+// URI to web page providing client tos (terms of service).
+func (o OAuthOutput) TosUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.TosUri }).(pulumi.StringPtrOutput)
+}
+
+// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+func (o OAuthOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Username template. Default: `"${source.login}"`
+func (o OAuthOutput) UserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+func (o OAuthOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
+}
+
+// Username template suffix.
+func (o OAuthOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Username template type. Default: `"BUILT_IN"`.
+func (o OAuthOutput) UserNameTemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
+}
+
+// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
+// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o OAuthOutput) Users() OAuthUserArrayOutput {
+	return o.ApplyT(func(v *OAuth) OAuthUserArrayOutput { return v.Users }).(OAuthUserArrayOutput)
+}
+
+// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+func (o OAuthOutput) WildcardRedirect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.WildcardRedirect }).(pulumi.StringPtrOutput)
 }
 
 type OAuthArrayOutput struct{ *pulumi.OutputState }

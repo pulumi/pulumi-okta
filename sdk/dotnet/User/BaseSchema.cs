@@ -42,13 +42,13 @@ namespace Pulumi.Okta.User
     /// User schema property of default user type can be imported via the property index.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:user/baseSchema:BaseSchema example &lt;property name&gt;
+    ///  $ pulumi import okta:user/baseSchema:BaseSchema example &amp;#60;property name&amp;#62;
     /// ```
     /// 
     ///  User schema property of custom user type can be imported via user type id and property index
     /// 
     /// ```sh
-    ///  $ pulumi import okta:user/baseSchema:BaseSchema example &lt;user type id&gt;.&lt;property name&gt;
+    ///  $ pulumi import okta:user/baseSchema:BaseSchema example &amp;#60;user type id&amp;#62;.&amp;#60;property name&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:user/baseSchema:BaseSchema")]

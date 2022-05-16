@@ -157,7 +157,7 @@ class AppOauthApiScope(pulumi.CustomResource):
         OAuth API scopes can be imported via the Okta Application ID.
 
         ```sh
-         $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example <app id>
+         $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -201,7 +201,7 @@ class AppOauthApiScope(pulumi.CustomResource):
         OAuth API scopes can be imported via the Okta Application ID.
 
         ```sh
-         $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example <app id>
+         $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.

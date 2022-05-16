@@ -58,7 +58,7 @@ import (
 // A redirect URI can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example <app id>/<uri>
+//  $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
 // ```
 type OAuthRedirectUri struct {
 	pulumi.CustomResourceState
@@ -221,6 +221,16 @@ func (o OAuthRedirectUriOutput) ToOAuthRedirectUriOutput() OAuthRedirectUriOutpu
 
 func (o OAuthRedirectUriOutput) ToOAuthRedirectUriOutputWithContext(ctx context.Context) OAuthRedirectUriOutput {
 	return o
+}
+
+// OAuth application ID.
+func (o OAuthRedirectUriOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuthRedirectUri) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+// Redirect URI to append to Okta OIDC application.
+func (o OAuthRedirectUriOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuthRedirectUri) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
 }
 
 type OAuthRedirectUriArrayOutput struct{ *pulumi.OutputState }

@@ -183,7 +183,7 @@ class Captcha(pulumi.CustomResource):
         Behavior can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/captcha:Captcha example <captcha id>
+         $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -221,7 +221,7 @@ class Captcha(pulumi.CustomResource):
         Behavior can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/captcha:Captcha example <captcha id>
+         $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
         ```
 
         :param str resource_name: The name of the resource.

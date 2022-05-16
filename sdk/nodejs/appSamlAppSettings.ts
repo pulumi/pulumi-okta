@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  * A settings for the SAML App can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example <app id>
+ *  $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
  * ```
  */
 export class AppSamlAppSettings extends pulumi.CustomResource {

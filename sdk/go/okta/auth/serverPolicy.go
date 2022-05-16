@@ -49,7 +49,7 @@ import (
 // Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
 //
 // ```sh
-//  $ pulumi import okta:auth/serverPolicy:ServerPolicy example <auth server id>/<policy id>
+//  $ pulumi import okta:auth/serverPolicy:ServerPolicy example &#60;auth server id&#62;/&#60;policy id&#62;
 // ```
 type ServerPolicy struct {
 	pulumi.CustomResourceState
@@ -278,6 +278,43 @@ func (o ServerPolicyOutput) ToServerPolicyOutput() ServerPolicyOutput {
 
 func (o ServerPolicyOutput) ToServerPolicyOutputWithContext(ctx context.Context) ServerPolicyOutput {
 	return o
+}
+
+// The ID of the Auth Server.
+func (o ServerPolicyOutput) AuthServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerPolicy) pulumi.StringOutput { return v.AuthServerId }).(pulumi.StringOutput)
+}
+
+// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+func (o ServerPolicyOutput) ClientWhitelists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerPolicy) pulumi.StringArrayOutput { return v.ClientWhitelists }).(pulumi.StringArrayOutput)
+}
+
+// The description of the Auth Server Policy.
+func (o ServerPolicyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerPolicy) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The name of the Auth Server Policy.
+func (o ServerPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority of the Auth Server Policy.
+func (o ServerPolicyOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v *ServerPolicy) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The status of the Auth Server Policy.
+func (o ServerPolicyOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerPolicy) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The type of the Auth Server Policy.
+//
+// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
+func (o ServerPolicyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerPolicy) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ServerPolicyArrayOutput struct{ *pulumi.OutputState }

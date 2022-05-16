@@ -197,6 +197,11 @@ func (o EmailSenderVerificationOutput) ToEmailSenderVerificationOutputWithContex
 	return o
 }
 
+// Email sender ID.
+func (o EmailSenderVerificationOutput) SenderId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailSenderVerification) pulumi.StringOutput { return v.SenderId }).(pulumi.StringOutput)
+}
+
 type EmailSenderVerificationArrayOutput struct{ *pulumi.OutputState }
 
 func (EmailSenderVerificationArrayOutput) ElementType() reflect.Type {

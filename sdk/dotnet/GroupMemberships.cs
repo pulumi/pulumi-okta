@@ -43,6 +43,14 @@ namespace Pulumi.Okta
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// an Okta Group's memberships can be imported via the Okta group ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/groupMemberships:GroupMemberships test &amp;#60;group id&amp;#62;
+    /// ```
     /// </summary>
     [OktaResourceType("okta:index/groupMemberships:GroupMemberships")]
     public partial class GroupMemberships : Pulumi.CustomResource

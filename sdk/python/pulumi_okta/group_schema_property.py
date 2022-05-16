@@ -683,7 +683,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
         Group schema property can be imported via the property index.
 
         ```sh
-         $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example <index>
+         $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -739,7 +739,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
         Group schema property can be imported via the property index.
 
         ```sh
-         $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example <index>
+         $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
         ```
 
         :param str resource_name: The name of the resource.

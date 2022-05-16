@@ -74,7 +74,7 @@ namespace Pulumi.Okta
     /// Okta Link Value can be imported via Primary Name and Primary User ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/linkValue:LinkValue example &lt;primary_name&gt;/&lt;primary_user_id&gt;
+    ///  $ pulumi import okta:index/linkValue:LinkValue example &amp;#60;primary_name&amp;#62;/&amp;#60;primary_user_id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/linkValue:LinkValue")]

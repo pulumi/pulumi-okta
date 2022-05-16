@@ -45,21 +45,21 @@ import (
 // Okta SWA App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/swa:Swa example <app id>
+//  $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
 // ```
 //
 //  It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/swa:Swa example <app id>/skip_users
+//  $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/swa:Swa example <app id>/skip_users/skip_groups
+//  $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users/skip_groups
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/swa:Swa example <app id>/skip_groups
+//  $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_groups
 // ```
 type Swa struct {
 	pulumi.CustomResourceState
@@ -527,6 +527,167 @@ func (o SwaOutput) ToSwaOutput() SwaOutput {
 
 func (o SwaOutput) ToSwaOutputWithContext(ctx context.Context) SwaOutput {
 	return o
+}
+
+// Custom error page URL.
+func (o SwaOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page for this application.
+func (o SwaOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self-service. By default, it is `false`.
+func (o SwaOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for admins.
+func (o SwaOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app. The value for each application link should be boolean.
+func (o SwaOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Display auto submit toolbar.
+func (o SwaOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// Login button field.
+func (o SwaOutput) ButtonField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.ButtonField }).(pulumi.StringPtrOutput)
+}
+
+// CSS selector for the checkbox.
+func (o SwaOutput) Checkbox() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.Checkbox }).(pulumi.StringPtrOutput)
+}
+
+// Application notes for end users.
+func (o SwaOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o SwaOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app.
+func (o SwaOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users.
+func (o SwaOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// The display name of the Application.
+func (o SwaOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+func (o SwaOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// Direct link of application logo.
+func (o SwaOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// Name assigned to the application by Okta.
+func (o SwaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Login password field.
+func (o SwaOutput) PasswordField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.PasswordField }).(pulumi.StringPtrOutput)
+}
+
+// name of application from the Okta Integration Network, if not included a custom app will be created.
+func (o SwaOutput) PreconfiguredApp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.PreconfiguredApp }).(pulumi.StringPtrOutput)
+}
+
+// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+func (o SwaOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.RedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Sign-on mode of application.
+func (o SwaOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+func (o SwaOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+func (o SwaOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Status of application. By default, it is `"ACTIVE"`.
+func (o SwaOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the sign-in page for this app.
+func (o SwaOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// A regular expression that further restricts url to the specified regular expression.
+func (o SwaOutput) UrlRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.UrlRegex }).(pulumi.StringPtrOutput)
+}
+
+// Username template. Default: `"${source.login}"`
+func (o SwaOutput) UserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+func (o SwaOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
+}
+
+// Username template suffix.
+func (o SwaOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Username template type. Default: `"BUILT_IN"`.
+func (o SwaOutput) UserNameTemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
+}
+
+// Login username field.
+func (o SwaOutput) UsernameField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.UsernameField }).(pulumi.StringPtrOutput)
+}
+
+// The users assigned to the application. See `app.User` for a more flexible approach.
+// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o SwaOutput) Users() SwaUserArrayOutput {
+	return o.ApplyT(func(v *Swa) SwaUserArrayOutput { return v.Users }).(SwaUserArrayOutput)
 }
 
 type SwaArrayOutput struct{ *pulumi.OutputState }

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * App user schema property can be imported via the property index and app id.
  *
  * ```sh
- *  $ pulumi import okta:app/userSchema:UserSchema example <app id>/<property name>
+ *  $ pulumi import okta:app/userSchema:UserSchema example &#60;app id&#62;/&#60;property name&#62;
  * ```
  */
 export class UserSchema extends pulumi.CustomResource {

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * Individual admin role assignment can be imported by passing the group and role assignment IDs as follows
  *
  * ```sh
- *  $ pulumi import okta:group/role:Role example <group id>/<role id>
+ *  $ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
  * ```
  */
 export class Role extends pulumi.CustomResource {

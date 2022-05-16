@@ -46,7 +46,7 @@ import (
 // A Sign On Policy can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/signon:Signon example <policy id>
+//  $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
 // ```
 type Signon struct {
 	pulumi.CustomResourceState
@@ -233,6 +233,31 @@ func (o SignonOutput) ToSignonOutput() SignonOutput {
 
 func (o SignonOutput) ToSignonOutputWithContext(ctx context.Context) SignonOutput {
 	return o
+}
+
+// Policy Description.
+func (o SignonOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Signon) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// List of Group IDs to Include.
+func (o SignonOutput) GroupsIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Signon) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+}
+
+// Policy Name.
+func (o SignonOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Signon) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Priority of the policy.
+func (o SignonOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Signon) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+func (o SignonOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Signon) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type SignonArrayOutput struct{ *pulumi.OutputState }

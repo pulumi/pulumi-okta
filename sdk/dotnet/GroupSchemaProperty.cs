@@ -43,7 +43,7 @@ namespace Pulumi.Okta
     /// Group schema property can be imported via the property index.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &lt;index&gt;
+    ///  $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &amp;#60;index&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/groupSchemaProperty:GroupSchemaProperty")]
