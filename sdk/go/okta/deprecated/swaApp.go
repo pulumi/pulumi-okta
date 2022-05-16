@@ -470,6 +470,165 @@ func (o SwaAppOutput) ToSwaAppOutputWithContext(ctx context.Context) SwaAppOutpu
 	return o
 }
 
+// Custom error page URL
+func (o SwaAppOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page URL
+func (o SwaAppOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self service
+func (o SwaAppOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for admins.
+func (o SwaAppOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app
+func (o SwaAppOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Display auto submit toolbar
+func (o SwaAppOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// Login button field
+func (o SwaAppOutput) ButtonField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.ButtonField }).(pulumi.StringPtrOutput)
+}
+
+// CSS selector for the checkbox
+func (o SwaAppOutput) Checkbox() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.Checkbox }).(pulumi.StringPtrOutput)
+}
+
+// Application notes for end users.
+func (o SwaAppOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// Groups associated with the application
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o SwaAppOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app
+func (o SwaAppOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users
+func (o SwaAppOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// Pretty name of app.
+func (o SwaAppOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Local path to logo of the application.
+func (o SwaAppOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// URL of the application's logo
+func (o SwaAppOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// Name of the app.
+func (o SwaAppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Login password field
+func (o SwaAppOutput) PasswordField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.PasswordField }).(pulumi.StringPtrOutput)
+}
+
+// Preconfigured app name
+func (o SwaAppOutput) PreconfiguredApp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.PreconfiguredApp }).(pulumi.StringPtrOutput)
+}
+
+// If going to the login page URL redirects to another page, then enter that URL here
+func (o SwaAppOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.RedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Sign on mode of application.
+func (o SwaAppOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+func (o SwaAppOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+func (o SwaAppOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Status of application.
+func (o SwaAppOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Login URL
+func (o SwaAppOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// A regex that further restricts URL to the specified regex
+func (o SwaAppOutput) UrlRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.UrlRegex }).(pulumi.StringPtrOutput)
+}
+
+// Username template
+func (o SwaAppOutput) UserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update
+func (o SwaAppOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
+}
+
+// Username template suffix
+func (o SwaAppOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Username template type
+func (o SwaAppOutput) UserNameTemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
+}
+
+// Login username field
+func (o SwaAppOutput) UsernameField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SwaApp) pulumi.StringPtrOutput { return v.UsernameField }).(pulumi.StringPtrOutput)
+}
+
+// Users associated with the application
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o SwaAppOutput) Users() SwaAppUserArrayOutput {
+	return o.ApplyT(func(v *SwaApp) SwaAppUserArrayOutput { return v.Users }).(SwaAppUserArrayOutput)
+}
+
 type SwaAppArrayOutput struct{ *pulumi.OutputState }
 
 func (SwaAppArrayOutput) ElementType() reflect.Type {

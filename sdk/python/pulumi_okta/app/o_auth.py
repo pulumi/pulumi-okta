@@ -66,7 +66,7 @@ class OAuthArgs:
         """
         The set of arguments for constructing a OAuth resource.
         :param pulumi.Input[str] label: The Application's display name.
-        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
@@ -241,7 +241,7 @@ class OAuthArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         """
         return pulumi.get(self, "type")
 
@@ -917,7 +917,7 @@ class _OAuthState:
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
-        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
@@ -1590,7 +1590,7 @@ class _OAuthState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         """
         return pulumi.get(self, "type")
 
@@ -1766,21 +1766,21 @@ class OAuth(pulumi.CustomResource):
         An OIDC Application can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/oAuth:OAuth example <app id>
+         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
         ```
 
          It's also possible to import app without groups or/and users. In this case ID may look like this
 
         ```sh
-         $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_users
+         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users
         ```
 
         ```sh
-         $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_users/skip_groups
+         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users/skip_groups
         ```
 
         ```sh
-         $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_groups
+         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_groups
         ```
 
         :param str resource_name: The name of the resource.
@@ -1832,7 +1832,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
-        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
@@ -1887,21 +1887,21 @@ class OAuth(pulumi.CustomResource):
         An OIDC Application can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/oAuth:OAuth example <app id>
+         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
         ```
 
          It's also possible to import app without groups or/and users. In this case ID may look like this
 
         ```sh
-         $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_users
+         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users
         ```
 
         ```sh
-         $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_users/skip_groups
+         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users/skip_groups
         ```
 
         ```sh
-         $ pulumi import okta:app/oAuth:OAuth example <app id>/skip_groups
+         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_groups
         ```
 
         :param str resource_name: The name of the resource.
@@ -2164,7 +2164,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
-        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
@@ -2601,7 +2601,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         """
         return pulumi.get(self, "type")
 

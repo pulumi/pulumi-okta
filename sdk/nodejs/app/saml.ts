@@ -152,21 +152,21 @@ import * as utilities from "../utilities";
  * A SAML App can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:app/saml:Saml example <app id>
+ *  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
  * ```
  *
  *  It's also possible to import app without groups or/and users. In this case ID may look like this
  *
  * ```sh
- *  $ pulumi import okta:app/saml:Saml example <app id>/skip_users
+ *  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users
  * ```
  *
  * ```sh
- *  $ pulumi import okta:app/saml:Saml example <app id>/skip_users/skip_groups
+ *  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users/skip_groups
  * ```
  *
  * ```sh
- *  $ pulumi import okta:app/saml:Saml example <app id>/skip_groups
+ *  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_groups
  * ```
  */
 export class Saml extends pulumi.CustomResource {
@@ -206,7 +206,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self-service. Default is: `false`.
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -242,7 +242,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly authnContextClassRef!: pulumi.Output<string | undefined>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar. Default is: `false`
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
@@ -285,15 +285,15 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app. Default is: `false`
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users. Default is: `false`
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
-     * Prompt user to re-authenticate if SP asks for it.
+     * Prompt user to re-authenticate if SP asks for it. Default is: `false`
      */
     public readonly honorForceAuthn!: pulumi.Output<boolean | undefined>;
     /**
@@ -353,7 +353,17 @@ export class Saml extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.
+     * name of application from the Okta Integration Network, if not included a custom app will be created.  
+     * If not provided the following arguments are required:
+     * - `ssoUrl`
+     * - `recipient`
+     * - `destination`
+     * - `audience`
+     * - `subjectNameIdTemplate`
+     * - `subjectNameIdFormat`
+     * - `signatureAlgorithm`
+     * - `digestAlgorithm`
+     * - `authnContextClassRef`
      */
     public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
     /**
@@ -394,11 +404,11 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly singleLogoutUrl!: pulumi.Output<string | undefined>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     * Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
      */
     public readonly skipGroups!: pulumi.Output<boolean | undefined>;
     /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     * Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
      */
     public readonly skipUsers!: pulumi.Output<boolean | undefined>;
     /**
@@ -422,7 +432,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly subjectNameIdTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template. Default is: `"${source.login}"`
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
@@ -434,7 +444,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type. Default is: `"BUILT_IN"`.
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
@@ -602,7 +612,7 @@ export interface SamlState {
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self-service. Default is: `false`.
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -638,7 +648,7 @@ export interface SamlState {
      */
     authnContextClassRef?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar. Default is: `false`
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
@@ -681,15 +691,15 @@ export interface SamlState {
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app. Default is: `false`
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users. Default is: `false`
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * Prompt user to re-authenticate if SP asks for it.
+     * Prompt user to re-authenticate if SP asks for it. Default is: `false`
      */
     honorForceAuthn?: pulumi.Input<boolean>;
     /**
@@ -749,7 +759,17 @@ export interface SamlState {
      */
     name?: pulumi.Input<string>;
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.
+     * name of application from the Okta Integration Network, if not included a custom app will be created.  
+     * If not provided the following arguments are required:
+     * - `ssoUrl`
+     * - `recipient`
+     * - `destination`
+     * - `audience`
+     * - `subjectNameIdTemplate`
+     * - `subjectNameIdFormat`
+     * - `signatureAlgorithm`
+     * - `digestAlgorithm`
+     * - `authnContextClassRef`
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
@@ -790,11 +810,11 @@ export interface SamlState {
      */
     singleLogoutUrl?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     * Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
      */
     skipGroups?: pulumi.Input<boolean>;
     /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     * Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
      */
     skipUsers?: pulumi.Input<boolean>;
     /**
@@ -818,7 +838,7 @@ export interface SamlState {
      */
     subjectNameIdTemplate?: pulumi.Input<string>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template. Default is: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
@@ -830,7 +850,7 @@ export interface SamlState {
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type. Default is: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
@@ -855,7 +875,7 @@ export interface SamlArgs {
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self-service. Default is: `false`.
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -891,7 +911,7 @@ export interface SamlArgs {
      */
     authnContextClassRef?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar. Default is: `false`
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
@@ -922,15 +942,15 @@ export interface SamlArgs {
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app. Default is: `false`
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users. Default is: `false`
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * Prompt user to re-authenticate if SP asks for it.
+     * Prompt user to re-authenticate if SP asks for it. Default is: `false`
      */
     honorForceAuthn?: pulumi.Input<boolean>;
     /**
@@ -962,7 +982,17 @@ export interface SamlArgs {
      */
     logo?: pulumi.Input<string>;
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.
+     * name of application from the Okta Integration Network, if not included a custom app will be created.  
+     * If not provided the following arguments are required:
+     * - `ssoUrl`
+     * - `recipient`
+     * - `destination`
+     * - `audience`
+     * - `subjectNameIdTemplate`
+     * - `subjectNameIdFormat`
+     * - `signatureAlgorithm`
+     * - `digestAlgorithm`
+     * - `authnContextClassRef`
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
@@ -999,11 +1029,11 @@ export interface SamlArgs {
      */
     singleLogoutUrl?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+     * Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
      */
     skipGroups?: pulumi.Input<boolean>;
     /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+     * Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
      */
     skipUsers?: pulumi.Input<boolean>;
     /**
@@ -1027,7 +1057,7 @@ export interface SamlArgs {
      */
     subjectNameIdTemplate?: pulumi.Input<string>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template. Default is: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
@@ -1039,7 +1069,7 @@ export interface SamlArgs {
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type. Default is: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**

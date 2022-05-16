@@ -230,6 +230,23 @@ func (o RateLimitingOutput) ToRateLimitingOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
+// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+func (o RateLimitingOutput) Authorize() pulumi.StringOutput {
+	return o.ApplyT(func(v *RateLimiting) pulumi.StringOutput { return v.Authorize }).(pulumi.StringOutput)
+}
+
+// Enable or disable rate limiting communications. By default, it is `true`.
+func (o RateLimitingOutput) CommunicationsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RateLimiting) pulumi.BoolPtrOutput { return v.CommunicationsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and
+// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+func (o RateLimitingOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v *RateLimiting) pulumi.StringOutput { return v.Login }).(pulumi.StringOutput)
+}
+
 type RateLimitingArrayOutput struct{ *pulumi.OutputState }
 
 func (RateLimitingArrayOutput) ElementType() reflect.Type {

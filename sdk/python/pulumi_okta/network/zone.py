@@ -338,7 +338,7 @@ class Zone(pulumi.CustomResource):
         Okta Network Zone can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:network/zone:Zone example <zone id>
+         $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -398,7 +398,7 @@ class Zone(pulumi.CustomResource):
         Okta Network Zone can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:network/zone:Zone example <zone id>
+         $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
         ```
 
         :param str resource_name: The name of the resource.

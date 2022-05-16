@@ -183,21 +183,21 @@ import (
 // A SAML App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/saml:Saml example <app id>
+//  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
 // ```
 //
 //  It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/saml:Saml example <app id>/skip_users
+//  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/saml:Saml example <app id>/skip_users/skip_groups
+//  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users/skip_groups
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/saml:Saml example <app id>/skip_groups
+//  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_groups
 // ```
 type Saml struct {
 	pulumi.CustomResourceState
@@ -206,7 +206,7 @@ type Saml struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
 	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self-service. By default, it is `false`.
+	// Enable self-service. Default is: `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
@@ -224,7 +224,7 @@ type Saml struct {
 	Audience pulumi.StringPtrOutput `pulumi:"audience"`
 	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef pulumi.StringPtrOutput `pulumi:"authnContextClassRef"`
-	// Display auto submit toolbar.
+	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// The raw signing certificate.
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
@@ -247,11 +247,11 @@ type Saml struct {
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// Do not display application icon on mobile app.
+	// Do not display application icon on mobile app. Default is: `false`
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users. Default is: `false`
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
-	// Prompt user to re-authenticate if SP asks for it.
+	// Prompt user to re-authenticate if SP asks for it. Default is: `false`
 	HonorForceAuthn pulumi.BoolPtrOutput `pulumi:"honorForceAuthn"`
 	// `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
 	HttpPostBinding pulumi.StringOutput `pulumi:"httpPostBinding"`
@@ -281,7 +281,17 @@ type Saml struct {
 	MetadataUrl pulumi.StringOutput `pulumi:"metadataUrl"`
 	// The name of the attribute statement.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// name of application from the Okta Integration Network, if not included a custom app will be created.
+	// name of application from the Okta Integration Network, if not included a custom app will be created.\
+	// If not provided the following arguments are required:
+	// - `ssoUrl`
+	// - `recipient`
+	// - `destination`
+	// - `audience`
+	// - `subjectNameIdTemplate`
+	// - `subjectNameIdFormat`
+	// - `signatureAlgorithm`
+	// - `digestAlgorithm`
+	// - `authnContextClassRef`
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
 	// The location where the app may present the SAML assertion.
 	Recipient pulumi.StringPtrOutput `pulumi:"recipient"`
@@ -302,9 +312,9 @@ type Saml struct {
 	SingleLogoutIssuer pulumi.StringPtrOutput `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl pulumi.StringPtrOutput `pulumi:"singleLogoutUrl"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
 	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
 	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrOutput `pulumi:"spIssuer"`
@@ -316,13 +326,13 @@ type Saml struct {
 	SubjectNameIdFormat pulumi.StringPtrOutput `pulumi:"subjectNameIdFormat"`
 	// Template for app user's username when a user is assigned to the app.
 	SubjectNameIdTemplate pulumi.StringPtrOutput `pulumi:"subjectNameIdTemplate"`
-	// Username template. Default: `"${source.login}"`
+	// Username template. Default is: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
 	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
-	// Username template type. Default: `"BUILT_IN"`.
+	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -367,7 +377,7 @@ type samlState struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self-service. By default, it is `false`.
+	// Enable self-service. Default is: `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
@@ -385,7 +395,7 @@ type samlState struct {
 	Audience *string `pulumi:"audience"`
 	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
-	// Display auto submit toolbar.
+	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// The raw signing certificate.
 	Certificate *string `pulumi:"certificate"`
@@ -408,11 +418,11 @@ type samlState struct {
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
-	// Do not display application icon on mobile app.
+	// Do not display application icon on mobile app. Default is: `false`
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users. Default is: `false`
 	HideWeb *bool `pulumi:"hideWeb"`
-	// Prompt user to re-authenticate if SP asks for it.
+	// Prompt user to re-authenticate if SP asks for it. Default is: `false`
 	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
 	// `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
 	HttpPostBinding *string `pulumi:"httpPostBinding"`
@@ -442,7 +452,17 @@ type samlState struct {
 	MetadataUrl *string `pulumi:"metadataUrl"`
 	// The name of the attribute statement.
 	Name *string `pulumi:"name"`
-	// name of application from the Okta Integration Network, if not included a custom app will be created.
+	// name of application from the Okta Integration Network, if not included a custom app will be created.\
+	// If not provided the following arguments are required:
+	// - `ssoUrl`
+	// - `recipient`
+	// - `destination`
+	// - `audience`
+	// - `subjectNameIdTemplate`
+	// - `subjectNameIdFormat`
+	// - `signatureAlgorithm`
+	// - `digestAlgorithm`
+	// - `authnContextClassRef`
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// The location where the app may present the SAML assertion.
 	Recipient *string `pulumi:"recipient"`
@@ -463,9 +483,9 @@ type samlState struct {
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
 	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
 	SkipUsers *bool `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
@@ -477,13 +497,13 @@ type samlState struct {
 	SubjectNameIdFormat *string `pulumi:"subjectNameIdFormat"`
 	// Template for app user's username when a user is assigned to the app.
 	SubjectNameIdTemplate *string `pulumi:"subjectNameIdTemplate"`
-	// Username template. Default: `"${source.login}"`
+	// Username template. Default is: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
 	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type. Default: `"BUILT_IN"`.
+	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -497,7 +517,7 @@ type SamlState struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
 	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self-service. By default, it is `false`.
+	// Enable self-service. Default is: `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
@@ -515,7 +535,7 @@ type SamlState struct {
 	Audience pulumi.StringPtrInput
 	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef pulumi.StringPtrInput
-	// Display auto submit toolbar.
+	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// The raw signing certificate.
 	Certificate pulumi.StringPtrInput
@@ -538,11 +558,11 @@ type SamlState struct {
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
-	// Do not display application icon on mobile app.
+	// Do not display application icon on mobile app. Default is: `false`
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users. Default is: `false`
 	HideWeb pulumi.BoolPtrInput
-	// Prompt user to re-authenticate if SP asks for it.
+	// Prompt user to re-authenticate if SP asks for it. Default is: `false`
 	HonorForceAuthn pulumi.BoolPtrInput
 	// `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
 	HttpPostBinding pulumi.StringPtrInput
@@ -572,7 +592,17 @@ type SamlState struct {
 	MetadataUrl pulumi.StringPtrInput
 	// The name of the attribute statement.
 	Name pulumi.StringPtrInput
-	// name of application from the Okta Integration Network, if not included a custom app will be created.
+	// name of application from the Okta Integration Network, if not included a custom app will be created.\
+	// If not provided the following arguments are required:
+	// - `ssoUrl`
+	// - `recipient`
+	// - `destination`
+	// - `audience`
+	// - `subjectNameIdTemplate`
+	// - `subjectNameIdFormat`
+	// - `signatureAlgorithm`
+	// - `digestAlgorithm`
+	// - `authnContextClassRef`
 	PreconfiguredApp pulumi.StringPtrInput
 	// The location where the app may present the SAML assertion.
 	Recipient pulumi.StringPtrInput
@@ -593,9 +623,9 @@ type SamlState struct {
 	SingleLogoutIssuer pulumi.StringPtrInput
 	// The location where the logout response is sent.
 	SingleLogoutUrl pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
 	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
 	SkipUsers pulumi.BoolPtrInput
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrInput
@@ -607,13 +637,13 @@ type SamlState struct {
 	SubjectNameIdFormat pulumi.StringPtrInput
 	// Template for app user's username when a user is assigned to the app.
 	SubjectNameIdTemplate pulumi.StringPtrInput
-	// Username template. Default: `"${source.login}"`
+	// Username template. Default is: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
 	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type. Default: `"BUILT_IN"`.
+	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -631,7 +661,7 @@ type samlArgs struct {
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
 	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self-service. By default, it is `false`.
+	// Enable self-service. Default is: `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
@@ -649,7 +679,7 @@ type samlArgs struct {
 	Audience *string `pulumi:"audience"`
 	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
-	// Display auto submit toolbar.
+	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState *string `pulumi:"defaultRelayState"`
@@ -666,11 +696,11 @@ type samlArgs struct {
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
-	// Do not display application icon on mobile app.
+	// Do not display application icon on mobile app. Default is: `false`
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users. Default is: `false`
 	HideWeb *bool `pulumi:"hideWeb"`
-	// Prompt user to re-authenticate if SP asks for it.
+	// Prompt user to re-authenticate if SP asks for it. Default is: `false`
 	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
@@ -686,7 +716,17 @@ type samlArgs struct {
 	Label string `pulumi:"label"`
 	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
-	// name of application from the Okta Integration Network, if not included a custom app will be created.
+	// name of application from the Okta Integration Network, if not included a custom app will be created.\
+	// If not provided the following arguments are required:
+	// - `ssoUrl`
+	// - `recipient`
+	// - `destination`
+	// - `audience`
+	// - `subjectNameIdTemplate`
+	// - `subjectNameIdFormat`
+	// - `signatureAlgorithm`
+	// - `digestAlgorithm`
+	// - `authnContextClassRef`
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// The location where the app may present the SAML assertion.
 	Recipient *string `pulumi:"recipient"`
@@ -705,9 +745,9 @@ type samlArgs struct {
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
 	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
 	SkipUsers *bool `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
@@ -719,13 +759,13 @@ type samlArgs struct {
 	SubjectNameIdFormat *string `pulumi:"subjectNameIdFormat"`
 	// Template for app user's username when a user is assigned to the app.
 	SubjectNameIdTemplate *string `pulumi:"subjectNameIdTemplate"`
-	// Username template. Default: `"${source.login}"`
+	// Username template. Default is: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
 	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
 	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type. Default: `"BUILT_IN"`.
+	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -740,7 +780,7 @@ type SamlArgs struct {
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
 	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self-service. By default, it is `false`.
+	// Enable self-service. Default is: `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
@@ -758,7 +798,7 @@ type SamlArgs struct {
 	Audience pulumi.StringPtrInput
 	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef pulumi.StringPtrInput
-	// Display auto submit toolbar.
+	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState pulumi.StringPtrInput
@@ -775,11 +815,11 @@ type SamlArgs struct {
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
-	// Do not display application icon on mobile app.
+	// Do not display application icon on mobile app. Default is: `false`
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users. Default is: `false`
 	HideWeb pulumi.BoolPtrInput
-	// Prompt user to re-authenticate if SP asks for it.
+	// Prompt user to re-authenticate if SP asks for it. Default is: `false`
 	HonorForceAuthn pulumi.BoolPtrInput
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrInput
@@ -795,7 +835,17 @@ type SamlArgs struct {
 	Label pulumi.StringInput
 	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
-	// name of application from the Okta Integration Network, if not included a custom app will be created.
+	// name of application from the Okta Integration Network, if not included a custom app will be created.\
+	// If not provided the following arguments are required:
+	// - `ssoUrl`
+	// - `recipient`
+	// - `destination`
+	// - `audience`
+	// - `subjectNameIdTemplate`
+	// - `subjectNameIdFormat`
+	// - `signatureAlgorithm`
+	// - `digestAlgorithm`
+	// - `authnContextClassRef`
 	PreconfiguredApp pulumi.StringPtrInput
 	// The location where the app may present the SAML assertion.
 	Recipient pulumi.StringPtrInput
@@ -814,9 +864,9 @@ type SamlArgs struct {
 	SingleLogoutIssuer pulumi.StringPtrInput
 	// The location where the logout response is sent.
 	SingleLogoutUrl pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+	// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
 	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+	// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
 	SkipUsers pulumi.BoolPtrInput
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrInput
@@ -828,13 +878,13 @@ type SamlArgs struct {
 	SubjectNameIdFormat pulumi.StringPtrInput
 	// Template for app user's username when a user is assigned to the app.
 	SubjectNameIdTemplate pulumi.StringPtrInput
-	// Username template. Default: `"${source.login}"`
+	// Username template. Default is: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
 	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrInput
 	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type. Default: `"BUILT_IN"`.
+	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application.
 	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
@@ -928,6 +978,323 @@ func (o SamlOutput) ToSamlOutput() SamlOutput {
 
 func (o SamlOutput) ToSamlOutputWithContext(ctx context.Context) SamlOutput {
 	return o
+}
+
+// Custom error page URL.
+func (o SamlOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page for this application.
+func (o SamlOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self-service. Default is: `false`.
+func (o SamlOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+func (o SamlOutput) AcsEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringArrayOutput { return v.AcsEndpoints }).(pulumi.StringArrayOutput)
+}
+
+// Application notes for admins.
+func (o SamlOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app. The value for each application link should be boolean.
+func (o SamlOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Application settings in JSON format.
+func (o SamlOutput) AppSettingsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the SAML assertion is digitally signed.
+func (o SamlOutput) AssertionSigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.AssertionSigned }).(pulumi.BoolPtrOutput)
+}
+
+// List of SAML Attribute statements.
+func (o SamlOutput) AttributeStatements() SamlAttributeStatementArrayOutput {
+	return o.ApplyT(func(v *Saml) SamlAttributeStatementArrayOutput { return v.AttributeStatements }).(SamlAttributeStatementArrayOutput)
+}
+
+// Audience restriction.
+func (o SamlOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// Identifies the SAML authentication context class for the assertion’s authentication statement.
+func (o SamlOutput) AuthnContextClassRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AuthnContextClassRef }).(pulumi.StringPtrOutput)
+}
+
+// Display auto submit toolbar. Default is: `false`
+func (o SamlOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// The raw signing certificate.
+func (o SamlOutput) Certificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
+}
+
+// Identifies a specific application resource in an IDP initiated SSO scenario.
+func (o SamlOutput) DefaultRelayState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.DefaultRelayState }).(pulumi.StringPtrOutput)
+}
+
+// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+func (o SamlOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+func (o SamlOutput) DigestAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.DigestAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Application notes for end users.
+func (o SamlOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// Entity ID, the ID portion of the `entityUrl`.
+func (o SamlOutput) EntityKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.EntityKey }).(pulumi.StringOutput)
+}
+
+// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
+func (o SamlOutput) EntityUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.EntityUrl }).(pulumi.StringOutput)
+}
+
+// features enabled. Notice: you can't currently configure provisioning features via the API.
+func (o SamlOutput) Features() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringArrayOutput { return v.Features }).(pulumi.StringArrayOutput)
+}
+
+// Groups associated with the application.
+// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o SamlOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app. Default is: `false`
+func (o SamlOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users. Default is: `false`
+func (o SamlOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// Prompt user to re-authenticate if SP asks for it. Default is: `false`
+func (o SamlOutput) HonorForceAuthn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.HonorForceAuthn }).(pulumi.BoolPtrOutput)
+}
+
+// `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
+func (o SamlOutput) HttpPostBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.HttpPostBinding }).(pulumi.StringOutput)
+}
+
+// `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
+func (o SamlOutput) HttpRedirectBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.HttpRedirectBinding }).(pulumi.StringOutput)
+}
+
+// SAML issuer ID.
+func (o SamlOutput) IdpIssuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.IdpIssuer }).(pulumi.StringPtrOutput)
+}
+
+// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+func (o SamlOutput) ImplicitAssignment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.ImplicitAssignment }).(pulumi.BoolPtrOutput)
+}
+
+// Saml Inline Hook associated with the application.
+func (o SamlOutput) InlineHookId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.InlineHookId }).(pulumi.StringPtrOutput)
+}
+
+// Certificate key ID.
+func (o SamlOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`.
+func (o SamlOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// Number of years the certificate is valid (2 - 10 years).
+func (o SamlOutput) KeyYearsValid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.IntPtrOutput { return v.KeyYearsValid }).(pulumi.IntPtrOutput)
+}
+
+// label of application.
+func (o SamlOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+func (o SamlOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// Direct link of application logo.
+func (o SamlOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// The raw SAML metadata in XML.
+func (o SamlOutput) Metadata() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.Metadata }).(pulumi.StringOutput)
+}
+
+// SAML xml metadata URL.
+func (o SamlOutput) MetadataUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.MetadataUrl }).(pulumi.StringOutput)
+}
+
+// The name of the attribute statement.
+func (o SamlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// name of application from the Okta Integration Network, if not included a custom app will be created.\
+// If not provided the following arguments are required:
+// - `ssoUrl`
+// - `recipient`
+// - `destination`
+// - `audience`
+// - `subjectNameIdTemplate`
+// - `subjectNameIdFormat`
+// - `signatureAlgorithm`
+// - `digestAlgorithm`
+// - `authnContextClassRef`
+func (o SamlOutput) PreconfiguredApp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.PreconfiguredApp }).(pulumi.StringPtrOutput)
+}
+
+// The location where the app may present the SAML assertion.
+func (o SamlOutput) Recipient() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.Recipient }).(pulumi.StringPtrOutput)
+}
+
+// Denotes whether the request is compressed or not.
+func (o SamlOutput) RequestCompressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.RequestCompressed }).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether the SAML auth response message is digitally signed.
+func (o SamlOutput) ResponseSigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.ResponseSigned }).(pulumi.BoolPtrOutput)
+}
+
+// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+func (o SamlOutput) SamlVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SamlVersion }).(pulumi.StringPtrOutput)
+}
+
+// Sign-on mode of application.
+func (o SamlOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Signature algorithm used ot digitally sign the assertion and response.
+func (o SamlOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+func (o SamlOutput) SingleLogoutCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SingleLogoutCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The issuer of the Service Provider that generates the Single Logout request.
+func (o SamlOutput) SingleLogoutIssuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SingleLogoutIssuer }).(pulumi.StringPtrOutput)
+}
+
+// The location where the logout response is sent.
+func (o SamlOutput) SingleLogoutUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SingleLogoutUrl }).(pulumi.StringPtrOutput)
+}
+
+// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
+func (o SamlOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
+func (o SamlOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// SAML service provider issuer.
+func (o SamlOutput) SpIssuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SpIssuer }).(pulumi.StringPtrOutput)
+}
+
+// Single Sign-on Url.
+func (o SamlOutput) SsoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SsoUrl }).(pulumi.StringPtrOutput)
+}
+
+// status of application.
+func (o SamlOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Identifies the SAML processing rules.
+func (o SamlOutput) SubjectNameIdFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SubjectNameIdFormat }).(pulumi.StringPtrOutput)
+}
+
+// Template for app user's username when a user is assigned to the app.
+func (o SamlOutput) SubjectNameIdTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SubjectNameIdTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Username template. Default is: `"${source.login}"`
+func (o SamlOutput) UserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+func (o SamlOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
+}
+
+// Username template suffix.
+func (o SamlOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Username template type. Default is: `"BUILT_IN"`.
+func (o SamlOutput) UserNameTemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
+}
+
+// Users associated with the application.
+// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o SamlOutput) Users() SamlUserArrayOutput {
+	return o.ApplyT(func(v *Saml) SamlUserArrayOutput { return v.Users }).(SamlUserArrayOutput)
 }
 
 type SamlArrayOutput struct{ *pulumi.OutputState }

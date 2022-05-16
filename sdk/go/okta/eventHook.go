@@ -56,7 +56,7 @@ import (
 // An event hook can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/eventHook:EventHook example <hook id>
+//  $ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
 // ```
 type EventHook struct {
 	pulumi.CustomResourceState
@@ -254,6 +254,35 @@ func (o EventHookOutput) ToEventHookOutput() EventHookOutput {
 
 func (o EventHookOutput) ToEventHookOutputWithContext(ctx context.Context) EventHookOutput {
 	return o
+}
+
+// Authentication required for event hook request.
+func (o EventHookOutput) Auth() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventHook) pulumi.StringMapOutput { return v.Auth }).(pulumi.StringMapOutput)
+}
+
+// Details of the endpoint the event hook will hit.
+func (o EventHookOutput) Channel() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventHook) pulumi.StringMapOutput { return v.Channel }).(pulumi.StringMapOutput)
+}
+
+// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+func (o EventHookOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventHook) pulumi.StringArrayOutput { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// Map of headers to send along in event hook request.
+func (o EventHookOutput) Headers() EventHookHeaderArrayOutput {
+	return o.ApplyT(func(v *EventHook) EventHookHeaderArrayOutput { return v.Headers }).(EventHookHeaderArrayOutput)
+}
+
+// The event hook display name.
+func (o EventHookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o EventHookOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHook) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type EventHookArrayOutput struct{ *pulumi.OutputState }

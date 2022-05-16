@@ -19,11 +19,13 @@ export * from "./authServerClaimDefault";
 export * from "./authServerDefault";
 export * from "./authenticator";
 export * from "./behaviour";
+export * from "./brand";
 export * from "./captcha";
 export * from "./captchaOrgWideSettings";
 export * from "./domain";
 export * from "./domainCertificate";
 export * from "./domainVerification";
+export * from "./emailCustomization";
 export * from "./emailSender";
 export * from "./emailSenderVerification";
 export * from "./eventHook";
@@ -37,9 +39,17 @@ export * from "./getAuthServerClaims";
 export * from "./getAuthenticator";
 export * from "./getBehaviour";
 export * from "./getBehaviours";
+export * from "./getBrand";
+export * from "./getBrands";
+export * from "./getEmailCustomization";
+export * from "./getEmailCustomizations";
 export * from "./getGroups";
 export * from "./getNetworkZone";
 export * from "./getRoleSubscription";
+export * from "./getTemplate";
+export * from "./getTemplates";
+export * from "./getTheme";
+export * from "./getThemes";
 export * from "./getTrustedOrigins";
 export * from "./getUserSecurityQuestions";
 export * from "./groupMemberships";
@@ -59,6 +69,7 @@ export * from "./resourceSet";
 export * from "./roleSubscription";
 export * from "./securityNotificationEmails";
 export * from "./templateSms";
+export * from "./theme";
 export * from "./threatInsightSettings";
 export * from "./userAdminRoles";
 export * from "./userBaseSchemaProperty";
@@ -116,11 +127,13 @@ import { AuthServerClaimDefault } from "./authServerClaimDefault";
 import { AuthServerDefault } from "./authServerDefault";
 import { Authenticator } from "./authenticator";
 import { Behaviour } from "./behaviour";
+import { Brand } from "./brand";
 import { Captcha } from "./captcha";
 import { CaptchaOrgWideSettings } from "./captchaOrgWideSettings";
 import { Domain } from "./domain";
 import { DomainCertificate } from "./domainCertificate";
 import { DomainVerification } from "./domainVerification";
+import { EmailCustomization } from "./emailCustomization";
 import { EmailSender } from "./emailSender";
 import { EmailSenderVerification } from "./emailSenderVerification";
 import { EventHook } from "./eventHook";
@@ -142,6 +155,7 @@ import { ResourceSet } from "./resourceSet";
 import { RoleSubscription } from "./roleSubscription";
 import { SecurityNotificationEmails } from "./securityNotificationEmails";
 import { TemplateSms } from "./templateSms";
+import { Theme } from "./theme";
 import { ThreatInsightSettings } from "./threatInsightSettings";
 import { UserAdminRoles } from "./userAdminRoles";
 import { UserBaseSchemaProperty } from "./userBaseSchemaProperty";
@@ -181,6 +195,8 @@ const _module = {
                 return new Authenticator(name, <any>undefined, { urn })
             case "okta:index/behaviour:Behaviour":
                 return new Behaviour(name, <any>undefined, { urn })
+            case "okta:index/brand:Brand":
+                return new Brand(name, <any>undefined, { urn })
             case "okta:index/captcha:Captcha":
                 return new Captcha(name, <any>undefined, { urn })
             case "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings":
@@ -191,6 +207,8 @@ const _module = {
                 return new DomainCertificate(name, <any>undefined, { urn })
             case "okta:index/domainVerification:DomainVerification":
                 return new DomainVerification(name, <any>undefined, { urn })
+            case "okta:index/emailCustomization:EmailCustomization":
+                return new EmailCustomization(name, <any>undefined, { urn })
             case "okta:index/emailSender:EmailSender":
                 return new EmailSender(name, <any>undefined, { urn })
             case "okta:index/emailSenderVerification:EmailSenderVerification":
@@ -233,6 +251,8 @@ const _module = {
                 return new SecurityNotificationEmails(name, <any>undefined, { urn })
             case "okta:index/templateSms:TemplateSms":
                 return new TemplateSms(name, <any>undefined, { urn })
+            case "okta:index/theme:Theme":
+                return new Theme(name, <any>undefined, { urn })
             case "okta:index/threatInsightSettings:ThreatInsightSettings":
                 return new ThreatInsightSettings(name, <any>undefined, { urn })
             case "okta:index/userAdminRoles:UserAdminRoles":
@@ -264,11 +284,13 @@ pulumi.runtime.registerResourceModule("okta", "index/authServerClaimDefault", _m
 pulumi.runtime.registerResourceModule("okta", "index/authServerDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/authenticator", _module)
 pulumi.runtime.registerResourceModule("okta", "index/behaviour", _module)
+pulumi.runtime.registerResourceModule("okta", "index/brand", _module)
 pulumi.runtime.registerResourceModule("okta", "index/captcha", _module)
 pulumi.runtime.registerResourceModule("okta", "index/captchaOrgWideSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domain", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domainCertificate", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domainVerification", _module)
+pulumi.runtime.registerResourceModule("okta", "index/emailCustomization", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailSender", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailSenderVerification", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHook", _module)
@@ -290,6 +312,7 @@ pulumi.runtime.registerResourceModule("okta", "index/resourceSet", _module)
 pulumi.runtime.registerResourceModule("okta", "index/roleSubscription", _module)
 pulumi.runtime.registerResourceModule("okta", "index/securityNotificationEmails", _module)
 pulumi.runtime.registerResourceModule("okta", "index/templateSms", _module)
+pulumi.runtime.registerResourceModule("okta", "index/theme", _module)
 pulumi.runtime.registerResourceModule("okta", "index/threatInsightSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userAdminRoles", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userBaseSchemaProperty", _module)

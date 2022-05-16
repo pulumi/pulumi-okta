@@ -48,7 +48,7 @@ import (
 // App user schema property can be imported via the property index and app id.
 //
 // ```sh
-//  $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example <app id>/<property name>
+//  $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
 // ```
 type AppUserSchemaProperty struct {
 	pulumi.CustomResourceState
@@ -407,6 +407,111 @@ func (o AppUserSchemaPropertyOutput) ToAppUserSchemaPropertyOutput() AppUserSche
 
 func (o AppUserSchemaPropertyOutput) ToAppUserSchemaPropertyOutputWithContext(ctx context.Context) AppUserSchemaPropertyOutput {
 	return o
+}
+
+// The Application's ID the user custom schema property should be assigned to.
+func (o AppUserSchemaPropertyOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+// Array of values that an array property's items can be set to.
+func (o AppUserSchemaPropertyOutput) ArrayEnums() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringArrayOutput { return v.ArrayEnums }).(pulumi.StringArrayOutput)
+}
+
+// Display name and value an enum array can be set to.
+func (o AppUserSchemaPropertyOutput) ArrayOneOfs() AppUserSchemaPropertyArrayOneOfArrayOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) AppUserSchemaPropertyArrayOneOfArrayOutput { return v.ArrayOneOfs }).(AppUserSchemaPropertyArrayOneOfArrayOutput)
+}
+
+// The type of the array elements if `type` is set to `"array"`.
+func (o AppUserSchemaPropertyOutput) ArrayType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.ArrayType }).(pulumi.StringPtrOutput)
+}
+
+// The description of the user schema property.
+func (o AppUserSchemaPropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Array of values a primitive property can be set to. See `arrayEnum` for arrays.
+func (o AppUserSchemaPropertyOutput) Enums() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringArrayOutput { return v.Enums }).(pulumi.StringArrayOutput)
+}
+
+// External name of the user schema property.
+func (o AppUserSchemaPropertyOutput) ExternalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.ExternalName }).(pulumi.StringPtrOutput)
+}
+
+// External namespace of the user schema property.
+func (o AppUserSchemaPropertyOutput) ExternalNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.ExternalNamespace }).(pulumi.StringPtrOutput)
+}
+
+// The property name.
+func (o AppUserSchemaPropertyOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.Index }).(pulumi.StringOutput)
+}
+
+// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+func (o AppUserSchemaPropertyOutput) Master() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Master }).(pulumi.StringPtrOutput)
+}
+
+// The maximum length of the user property value. Only applies to type `"string"`.
+func (o AppUserSchemaPropertyOutput) MaxLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.IntPtrOutput { return v.MaxLength }).(pulumi.IntPtrOutput)
+}
+
+// The minimum length of the user property value. Only applies to type `"string"`.
+func (o AppUserSchemaPropertyOutput) MinLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.IntPtrOutput { return v.MinLength }).(pulumi.IntPtrOutput)
+}
+
+// Array of maps containing a mapping for display name to enum value.
+func (o AppUserSchemaPropertyOutput) OneOfs() AppUserSchemaPropertyOneOfArrayOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) AppUserSchemaPropertyOneOfArrayOutput { return v.OneOfs }).(AppUserSchemaPropertyOneOfArrayOutput)
+}
+
+// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+func (o AppUserSchemaPropertyOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Permissions }).(pulumi.StringPtrOutput)
+}
+
+// Whether the property is required for this application's users.
+func (o AppUserSchemaPropertyOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.BoolPtrOutput { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+// determines whether an app user attribute can be set at the Individual or Group Level.
+func (o AppUserSchemaPropertyOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// display name for the enum value.
+func (o AppUserSchemaPropertyOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
+// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+func (o AppUserSchemaPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+func (o AppUserSchemaPropertyOutput) Union() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.BoolPtrOutput { return v.Union }).(pulumi.BoolPtrOutput)
+}
+
+// Subschema unique restriction
+func (o AppUserSchemaPropertyOutput) Unique() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Unique }).(pulumi.StringPtrOutput)
+}
+
+// Custom subschema user type
+func (o AppUserSchemaPropertyOutput) UserType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.UserType }).(pulumi.StringPtrOutput)
 }
 
 type AppUserSchemaPropertyArrayOutput struct{ *pulumi.OutputState }

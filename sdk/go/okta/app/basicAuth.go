@@ -43,21 +43,21 @@ import (
 // A Basic Auth App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>
+//  $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
 // ```
 //
 //  It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_users
+//  $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_users/skip_groups
+//  $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users/skip_groups
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/basicAuth:BasicAuth example <app id>/skip_groups
+//  $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_groups
 // ```
 type BasicAuth struct {
 	pulumi.CustomResourceState
@@ -431,6 +431,117 @@ func (o BasicAuthOutput) ToBasicAuthOutput() BasicAuthOutput {
 
 func (o BasicAuthOutput) ToBasicAuthOutputWithContext(ctx context.Context) BasicAuthOutput {
 	return o
+}
+
+// Custom error page URL.
+func (o BasicAuthOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page for this application.
+func (o BasicAuthOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self-service. By default, it is `false`.
+func (o BasicAuthOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for admins.
+func (o BasicAuthOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app. The value for each application link should be boolean.
+func (o BasicAuthOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the authenticating site for this app.
+func (o BasicAuthOutput) AuthUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.AuthUrl }).(pulumi.StringOutput)
+}
+
+// Display auto submit toolbar.
+func (o BasicAuthOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for end users.
+func (o BasicAuthOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// Groups associated with the application.
+// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o BasicAuthOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app.
+func (o BasicAuthOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users.
+func (o BasicAuthOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// The Application's display name.
+func (o BasicAuthOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+func (o BasicAuthOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// Direct link of application logo.
+func (o BasicAuthOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// Name of the app.
+func (o BasicAuthOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sign on mode of application.
+func (o BasicAuthOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+func (o BasicAuthOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+func (o BasicAuthOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+func (o BasicAuthOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the sign-in page for this app.
+func (o BasicAuthOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
+// Users associated with the application.
+// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o BasicAuthOutput) Users() BasicAuthUserArrayOutput {
+	return o.ApplyT(func(v *BasicAuth) BasicAuthUserArrayOutput { return v.Users }).(BasicAuthUserArrayOutput)
 }
 
 type BasicAuthArrayOutput struct{ *pulumi.OutputState }

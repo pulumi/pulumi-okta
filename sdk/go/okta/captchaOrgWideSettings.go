@@ -242,6 +242,16 @@ func (o CaptchaOrgWideSettingsOutput) ToCaptchaOrgWideSettingsOutputWithContext(
 	return o
 }
 
+// The ID of the CAPTCHA.
+func (o CaptchaOrgWideSettingsOutput) CaptchaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaptchaOrgWideSettings) pulumi.StringPtrOutput { return v.CaptchaId }).(pulumi.StringPtrOutput)
+}
+
+// Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+func (o CaptchaOrgWideSettingsOutput) EnabledFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CaptchaOrgWideSettings) pulumi.StringArrayOutput { return v.EnabledFors }).(pulumi.StringArrayOutput)
+}
+
 type CaptchaOrgWideSettingsArrayOutput struct{ *pulumi.OutputState }
 
 func (CaptchaOrgWideSettingsArrayOutput) ElementType() reflect.Type {

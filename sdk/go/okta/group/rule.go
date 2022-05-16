@@ -48,7 +48,7 @@ import (
 // An Okta Group Rule can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:group/rule:Rule example <group rule id>
+//  $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
 // ```
 type Rule struct {
 	pulumi.CustomResourceState
@@ -60,7 +60,7 @@ type Rule struct {
 	ExpressionValue pulumi.StringOutput `pulumi:"expressionValue"`
 	// The list of group ids to assign the users to.
 	GroupAssignments pulumi.StringArrayOutput `pulumi:"groupAssignments"`
-	// The name of the Group Rule.
+	// The name of the Group Rule (min character 1; max characters 50).
 	Name pulumi.StringOutput `pulumi:"name"`
 	// This tells the provider to remove users added by this rule from the assigned
 	// group after destroying this resource. Default is `false`.
@@ -113,7 +113,7 @@ type ruleState struct {
 	ExpressionValue *string `pulumi:"expressionValue"`
 	// The list of group ids to assign the users to.
 	GroupAssignments []string `pulumi:"groupAssignments"`
-	// The name of the Group Rule.
+	// The name of the Group Rule (min character 1; max characters 50).
 	Name *string `pulumi:"name"`
 	// This tells the provider to remove users added by this rule from the assigned
 	// group after destroying this resource. Default is `false`.
@@ -132,7 +132,7 @@ type RuleState struct {
 	ExpressionValue pulumi.StringPtrInput
 	// The list of group ids to assign the users to.
 	GroupAssignments pulumi.StringArrayInput
-	// The name of the Group Rule.
+	// The name of the Group Rule (min character 1; max characters 50).
 	Name pulumi.StringPtrInput
 	// This tells the provider to remove users added by this rule from the assigned
 	// group after destroying this resource. Default is `false`.
@@ -155,7 +155,7 @@ type ruleArgs struct {
 	ExpressionValue string `pulumi:"expressionValue"`
 	// The list of group ids to assign the users to.
 	GroupAssignments []string `pulumi:"groupAssignments"`
-	// The name of the Group Rule.
+	// The name of the Group Rule (min character 1; max characters 50).
 	Name *string `pulumi:"name"`
 	// This tells the provider to remove users added by this rule from the assigned
 	// group after destroying this resource. Default is `false`.
@@ -175,7 +175,7 @@ type RuleArgs struct {
 	ExpressionValue pulumi.StringInput
 	// The list of group ids to assign the users to.
 	GroupAssignments pulumi.StringArrayInput
-	// The name of the Group Rule.
+	// The name of the Group Rule (min character 1; max characters 50).
 	Name pulumi.StringPtrInput
 	// This tells the provider to remove users added by this rule from the assigned
 	// group after destroying this resource. Default is `false`.
@@ -271,6 +271,43 @@ func (o RuleOutput) ToRuleOutput() RuleOutput {
 
 func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
+}
+
+// The expression type to use to invoke the rule. The default
+// is `"urn:okta:expression:1.0"`.
+func (o RuleOutput) ExpressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.ExpressionType }).(pulumi.StringPtrOutput)
+}
+
+// The expression value.
+func (o RuleOutput) ExpressionValue() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.ExpressionValue }).(pulumi.StringOutput)
+}
+
+// The list of group ids to assign the users to.
+func (o RuleOutput) GroupAssignments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringArrayOutput { return v.GroupAssignments }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Group Rule (min character 1; max characters 50).
+func (o RuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// This tells the provider to remove users added by this rule from the assigned
+// group after destroying this resource. Default is `false`.
+func (o RuleOutput) RemoveAssignedUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.BoolPtrOutput { return v.RemoveAssignedUsers }).(pulumi.BoolPtrOutput)
+}
+
+// The status of the group rule.
+func (o RuleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The list of user IDs that would be excluded when rules are processed.
+func (o RuleOutput) UsersExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
 }
 
 type RuleArrayOutput struct{ *pulumi.OutputState }

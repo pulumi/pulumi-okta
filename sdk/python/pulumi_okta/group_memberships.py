@@ -118,6 +118,14 @@ class GroupMemberships(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        an Okta Group's memberships can be imported via the Okta group ID.
+
+        ```sh
+         $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: Okta group ID.
@@ -149,6 +157,14 @@ class GroupMemberships(pulumi.CustomResource):
                 okta_user["test1"]["id"],
                 okta_user["test2"]["id"],
             ])
+        ```
+
+        ## Import
+
+        an Okta Group's memberships can be imported via the Okta group ID.
+
+        ```sh
+         $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
         ```
 
         :param str resource_name: The name of the resource.

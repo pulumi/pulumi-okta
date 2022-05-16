@@ -53,7 +53,7 @@ import (
 // A Social IdP can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:idp/social:Social example <idp id>
+//  $ pulumi import okta:idp/social:Social example &#60;idp id&#62;
 // ```
 type Social struct {
 	pulumi.CustomResourceState
@@ -540,6 +540,183 @@ func (o SocialOutput) ToSocialOutput() SocialOutput {
 
 func (o SocialOutput) ToSocialOutputWithContext(ctx context.Context) SocialOutput {
 	return o
+}
+
+// Specifies the account linking action for an IdP user.
+func (o SocialOutput) AccountLinkAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.AccountLinkAction }).(pulumi.StringPtrOutput)
+}
+
+// Group memberships to determine link candidates.
+func (o SocialOutput) AccountLinkGroupIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringArrayOutput { return v.AccountLinkGroupIncludes }).(pulumi.StringArrayOutput)
+}
+
+// The Key ID that you obtained from Apple when you created the private key for the client.
+func (o SocialOutput) AppleKid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.AppleKid }).(pulumi.StringPtrOutput)
+}
+
+// The Key ID that you obtained from Apple when you created the private
+// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+func (o SocialOutput) ApplePrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ApplePrivateKey }).(pulumi.StringPtrOutput)
+}
+
+// The Team ID associated with your Apple developer account.
+func (o SocialOutput) AppleTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.AppleTeamId }).(pulumi.StringPtrOutput)
+}
+
+// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+func (o SocialOutput) AuthorizationBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.AuthorizationBinding }).(pulumi.StringOutput)
+}
+
+// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+func (o SocialOutput) AuthorizationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.AuthorizationUrl }).(pulumi.StringOutput)
+}
+
+// Unique identifier issued by AS for the Okta IdP instance.
+func (o SocialOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Client secret issued by AS for the Okta IdP instance.
+func (o SocialOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+func (o SocialOutput) DeprovisionedAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.DeprovisionedAction }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+func (o SocialOutput) GroupsAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.GroupsAction }).(pulumi.StringPtrOutput)
+}
+
+// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
+func (o SocialOutput) GroupsAssignments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringArrayOutput { return v.GroupsAssignments }).(pulumi.StringArrayOutput)
+}
+
+// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+func (o SocialOutput) GroupsAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.GroupsAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
+func (o SocialOutput) GroupsFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringArrayOutput { return v.GroupsFilters }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+func (o SocialOutput) IssuerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
+func (o SocialOutput) MatchAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.MatchAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+func (o SocialOutput) MatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.MatchType }).(pulumi.StringPtrOutput)
+}
+
+// Maximum allowable clock-skew when processing messages from the IdP.
+func (o SocialOutput) MaxClockSkew() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.IntPtrOutput { return v.MaxClockSkew }).(pulumi.IntPtrOutput)
+}
+
+// The Application's display name.
+func (o SocialOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Determines if the IdP should act as a source of truth for user profile attributes.
+func (o SocialOutput) ProfileMaster() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.BoolPtrOutput { return v.ProfileMaster }).(pulumi.BoolPtrOutput)
+}
+
+// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+func (o SocialOutput) ProtocolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ProtocolType }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning action for an IdP user during authentication.
+func (o SocialOutput) ProvisioningAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
+}
+
+// The XML digital signature algorithm used when signing an AuthnRequest message.
+func (o SocialOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+func (o SocialOutput) RequestSignatureScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
+}
+
+// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+func (o SocialOutput) ResponseSignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ResponseSignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
+func (o SocialOutput) ResponseSignatureScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ResponseSignatureScope }).(pulumi.StringPtrOutput)
+}
+
+// The scopes of the IdP.
+func (o SocialOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// Status of the IdP.
+func (o SocialOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+func (o SocialOutput) SubjectMatchAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.SubjectMatchAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+func (o SocialOutput) SubjectMatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.SubjectMatchType }).(pulumi.StringPtrOutput)
+}
+
+// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+func (o SocialOutput) SuspendedAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.SuspendedAction }).(pulumi.StringPtrOutput)
+}
+
+// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+func (o SocialOutput) TokenBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.TokenBinding }).(pulumi.StringOutput)
+}
+
+// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+func (o SocialOutput) TokenUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.TokenUrl }).(pulumi.StringOutput)
+}
+
+// The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
+func (o SocialOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Okta EL Expression to generate or transform a unique username for the IdP user.
+func (o SocialOutput) UsernameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.UsernameTemplate }).(pulumi.StringPtrOutput)
 }
 
 type SocialArrayOutput struct{ *pulumi.OutputState }

@@ -50,6 +50,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// an Okta Group's memberships can be imported via the Okta group ID.
+//
+// ```sh
+//  $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
+// ```
 type GroupMemberships struct {
 	pulumi.CustomResourceState
 
@@ -211,6 +219,16 @@ func (o GroupMembershipsOutput) ToGroupMembershipsOutput() GroupMembershipsOutpu
 
 func (o GroupMembershipsOutput) ToGroupMembershipsOutputWithContext(ctx context.Context) GroupMembershipsOutput {
 	return o
+}
+
+// Okta group ID.
+func (o GroupMembershipsOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GroupMemberships) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// The list of Okta user IDs which the group should have membership managed for.
+func (o GroupMembershipsOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupMemberships) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
 }
 
 type GroupMembershipsArrayOutput struct{ *pulumi.OutputState }

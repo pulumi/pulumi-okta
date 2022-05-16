@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * Group Role Assignment can be imported via the Okta Group ID.
  *
  * ```sh
- *  $ pulumi import okta:group/roles:Roles example <group id>
+ *  $ pulumi import okta:group/roles:Roles example &#60;group id&#62;
  * ```
  */
 export class Roles extends pulumi.CustomResource {

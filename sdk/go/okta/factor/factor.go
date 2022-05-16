@@ -202,6 +202,17 @@ func (o FactorOutput) ToFactorOutputWithContext(ctx context.Context) FactorOutpu
 	return o
 }
 
+// Whether to activate the provider, by default, it is set to `true`.
+func (o FactorOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Factor) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+// The MFA provider name.
+// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+func (o FactorOutput) ProviderId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Factor) pulumi.StringOutput { return v.ProviderId }).(pulumi.StringOutput)
+}
+
 type FactorArrayOutput struct{ *pulumi.OutputState }
 
 func (FactorArrayOutput) ElementType() reflect.Type {

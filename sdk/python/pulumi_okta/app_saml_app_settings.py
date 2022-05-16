@@ -130,7 +130,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
         A settings for the SAML App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example <app id>
+         $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -178,7 +178,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
         A settings for the SAML App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example <app id>
+         $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.

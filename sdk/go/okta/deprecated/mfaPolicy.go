@@ -318,6 +318,121 @@ func (o MfaPolicyOutput) ToMfaPolicyOutputWithContext(ctx context.Context) MfaPo
 	return o
 }
 
+// Policy Description
+func (o MfaPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o MfaPolicyOutput) Duo() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.Duo }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) ExternalIdp() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.ExternalIdp }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) FidoU2f() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.FidoU2f }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) FidoWebauthn() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.FidoWebauthn }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) GoogleOtp() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.GoogleOtp }).(pulumi.StringMapOutput)
+}
+
+// List of Group IDs to Include
+func (o MfaPolicyOutput) GroupsIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+}
+
+func (o MfaPolicyOutput) Hotp() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.Hotp }).(pulumi.StringMapOutput)
+}
+
+// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+func (o MfaPolicyOutput) IsOie() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.BoolPtrOutput { return v.IsOie }).(pulumi.BoolPtrOutput)
+}
+
+// Policy Name
+func (o MfaPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o MfaPolicyOutput) OktaCall() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.OktaCall }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) OktaEmail() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.OktaEmail }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) OktaOtp() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.OktaOtp }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) OktaPassword() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.OktaPassword }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) OktaPush() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.OktaPush }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) OktaQuestion() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.OktaQuestion }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) OktaSms() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.OktaSms }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) OktaVerify() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.OktaVerify }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) OnpremMfa() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.OnpremMfa }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) PhoneNumber() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.PhoneNumber }).(pulumi.StringMapOutput)
+}
+
+// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid
+// priority is provided. API defaults it to the last (lowest) if not there.
+func (o MfaPolicyOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+func (o MfaPolicyOutput) RsaToken() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.RsaToken }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) SecurityQuestion() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.SecurityQuestion }).(pulumi.StringMapOutput)
+}
+
+// Policy Status: ACTIVE or INACTIVE.
+func (o MfaPolicyOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o MfaPolicyOutput) SymantecVip() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.SymantecVip }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) Webauthn() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.Webauthn }).(pulumi.StringMapOutput)
+}
+
+func (o MfaPolicyOutput) YubikeyToken() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MfaPolicy) pulumi.StringMapOutput { return v.YubikeyToken }).(pulumi.StringMapOutput)
+}
+
 type MfaPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (MfaPolicyArrayOutput) ElementType() reflect.Type {

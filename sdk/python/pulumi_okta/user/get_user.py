@@ -22,13 +22,16 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, admin_roles=None, city=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, searches=None, second_email=None, skip_groups=None, skip_roles=None, state=None, status=None, street_address=None, timezone=None, title=None, user_id=None, user_type=None, zip_code=None):
+    def __init__(__self__, admin_roles=None, city=None, compound_search_operator=None, cost_center=None, country_code=None, custom_profile_attributes=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, searches=None, second_email=None, skip_groups=None, skip_roles=None, state=None, status=None, street_address=None, timezone=None, title=None, user_id=None, user_type=None, zip_code=None):
         if admin_roles and not isinstance(admin_roles, list):
             raise TypeError("Expected argument 'admin_roles' to be a list")
         pulumi.set(__self__, "admin_roles", admin_roles)
         if city and not isinstance(city, str):
             raise TypeError("Expected argument 'city' to be a str")
         pulumi.set(__self__, "city", city)
+        if compound_search_operator and not isinstance(compound_search_operator, str):
+            raise TypeError("Expected argument 'compound_search_operator' to be a str")
+        pulumi.set(__self__, "compound_search_operator", compound_search_operator)
         if cost_center and not isinstance(cost_center, str):
             raise TypeError("Expected argument 'cost_center' to be a str")
         pulumi.set(__self__, "cost_center", cost_center)
@@ -159,6 +162,11 @@ class GetUserResult:
         user profile property.
         """
         return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter(name="compoundSearchOperator")
+    def compound_search_operator(self) -> Optional[str]:
+        return pulumi.get(self, "compound_search_operator")
 
     @property
     @pulumi.getter(name="costCenter")
@@ -461,6 +469,7 @@ class AwaitableGetUserResult(GetUserResult):
         return GetUserResult(
             admin_roles=self.admin_roles,
             city=self.city,
+            compound_search_operator=self.compound_search_operator,
             cost_center=self.cost_center,
             country_code=self.country_code,
             custom_profile_attributes=self.custom_profile_attributes,
@@ -501,7 +510,8 @@ class AwaitableGetUserResult(GetUserResult):
             zip_code=self.zip_code)
 
 
-def get_user(searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]] = None,
+def get_user(compound_search_operator: Optional[str] = None,
+             searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]] = None,
              skip_groups: Optional[bool] = None,
              skip_roles: Optional[bool] = None,
              user_id: Optional[str] = None,
@@ -515,25 +525,20 @@ def get_user(searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]
     import pulumi
     import pulumi_okta as okta
 
-    example = okta.user.get_user(searches=[
-        okta.user.GetUserSearchArgs(
-            name="profile.firstName",
-            value="John",
-        ),
-        okta.user.GetUserSearchArgs(
-            name="profile.lastName",
-            value="Doe",
-        ),
-    ])
+    example = okta.user.get_user(searches=[okta.user.GetUserSearchArgs(
+        expression="profile.firstName eq \"John\"",
+    )])
     ```
 
 
+    :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
     :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
     :param bool skip_groups: Additional API call to collect user's groups will not be made.
     :param bool skip_roles: Additional API call to collect user's roles will not be made.
     :param str user_id: String representing a specific user's id value
     """
     __args__ = dict()
+    __args__['compoundSearchOperator'] = compound_search_operator
     __args__['searches'] = searches
     __args__['skipGroups'] = skip_groups
     __args__['skipRoles'] = skip_roles
@@ -547,6 +552,7 @@ def get_user(searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]
     return AwaitableGetUserResult(
         admin_roles=__ret__.admin_roles,
         city=__ret__.city,
+        compound_search_operator=__ret__.compound_search_operator,
         cost_center=__ret__.cost_center,
         country_code=__ret__.country_code,
         custom_profile_attributes=__ret__.custom_profile_attributes,
@@ -588,7 +594,8 @@ def get_user(searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]
 
 
 @_utilities.lift_output_func(get_user)
-def get_user_output(searches: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]]] = None,
+def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str]]] = None,
+                    searches: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]]] = None,
                     skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
                     skip_roles: Optional[pulumi.Input[Optional[bool]]] = None,
                     user_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -602,19 +609,13 @@ def get_user_output(searches: Optional[pulumi.Input[Optional[Sequence[pulumi.Inp
     import pulumi
     import pulumi_okta as okta
 
-    example = okta.user.get_user(searches=[
-        okta.user.GetUserSearchArgs(
-            name="profile.firstName",
-            value="John",
-        ),
-        okta.user.GetUserSearchArgs(
-            name="profile.lastName",
-            value="Doe",
-        ),
-    ])
+    example = okta.user.get_user(searches=[okta.user.GetUserSearchArgs(
+        expression="profile.firstName eq \"John\"",
+    )])
     ```
 
 
+    :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
     :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
     :param bool skip_groups: Additional API call to collect user's groups will not be made.
     :param bool skip_roles: Additional API call to collect user's roles will not be made.

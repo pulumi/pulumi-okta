@@ -195,6 +195,11 @@ func (o DomainVerificationOutput) ToDomainVerificationOutputWithContext(ctx cont
 	return o
 }
 
+// Domain ID.
+func (o DomainVerificationOutput) DomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainVerification) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
+}
+
 type DomainVerificationArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainVerificationArrayOutput) ElementType() reflect.Type {

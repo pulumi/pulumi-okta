@@ -192,7 +192,7 @@ class UserFactorQuestion(pulumi.CustomResource):
         Security question factor for a user can be imported via the `user_id` and the `factor_id`.
 
         ```sh
-         $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example <user id>/<question factor id>
+         $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -239,7 +239,7 @@ class UserFactorQuestion(pulumi.CustomResource):
         Security question factor for a user can be imported via the `user_id` and the `factor_id`.
 
         ```sh
-         $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example <user id>/<question factor id>
+         $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
         ```
 
         :param str resource_name: The name of the resource.

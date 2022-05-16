@@ -56,13 +56,13 @@ import (
 // User schema property of default user type can be imported via the property index.
 //
 // ```sh
-//  $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example <property name>
+//  $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;property name&#62;
 // ```
 //
 //  User schema property of custom user type can be imported via user type id and property index
 //
 // ```sh
-//  $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example <user type id>.<property name>
+//  $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;user type id&#62;.&#60;property name&#62;
 // ```
 type UserBaseSchemaProperty struct {
 	pulumi.CustomResourceState
@@ -288,6 +288,46 @@ func (o UserBaseSchemaPropertyOutput) ToUserBaseSchemaPropertyOutput() UserBaseS
 
 func (o UserBaseSchemaPropertyOutput) ToUserBaseSchemaPropertyOutputWithContext(ctx context.Context) UserBaseSchemaPropertyOutput {
 	return o
+}
+
+// The property name.
+func (o UserBaseSchemaPropertyOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringOutput { return v.Index }).(pulumi.StringOutput)
+}
+
+// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+func (o UserBaseSchemaPropertyOutput) Master() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringPtrOutput { return v.Master }).(pulumi.StringPtrOutput)
+}
+
+// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+func (o UserBaseSchemaPropertyOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringPtrOutput { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+func (o UserBaseSchemaPropertyOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringPtrOutput { return v.Permissions }).(pulumi.StringPtrOutput)
+}
+
+// Whether the property is required for this application's users.
+func (o UserBaseSchemaPropertyOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.BoolPtrOutput { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+// The property display name.
+func (o UserBaseSchemaPropertyOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
+// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+func (o UserBaseSchemaPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// User type ID.
+func (o UserBaseSchemaPropertyOutput) UserType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringPtrOutput { return v.UserType }).(pulumi.StringPtrOutput)
 }
 
 type UserBaseSchemaPropertyArrayOutput struct{ *pulumi.OutputState }

@@ -54,7 +54,7 @@ namespace Pulumi.Okta
     /// An event hook can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/eventHook:EventHook example &lt;hook id&gt;
+    ///  $ pulumi import okta:index/eventHook:EventHook example &amp;#60;hook id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/eventHook:EventHook")]

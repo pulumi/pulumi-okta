@@ -47,7 +47,7 @@ import (
 // Okta Custom Admin Role can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example <custom role id>
+//  $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
 // ```
 type AdminRoleCustom struct {
 	pulumi.CustomResourceState
@@ -57,11 +57,33 @@ type AdminRoleCustom struct {
 	// The name given to the new Role.
 	Label pulumi.StringOutput `pulumi:"label"`
 	// The permissions that the new Role grants. At least one
-	// permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-	// `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-	// `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-	// `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-	// `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+	// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+	// `"okta.apps.manage"`,
+	// `"okta.apps.read"`,
+	// `"okta.groups.appAssignment.manage"`,
+	// `"okta.groups.create"`,
+	// `"okta.groups.manage"`,
+	// `"okta.groups.members.manage"`,
+	// `"okta.groups.read"`,
+	// `"okta.profilesource.import.run"`,
+	// `"okta.users.appAssignment.manage"`,
+	// `"okta.users.create"`,
+	// `"okta.users.credentials.expirePassword"`,
+	// `"okta.users.credentials.manage"`,
+	// `"okta.users.credentials.resetFactors"`,
+	// `"okta.users.credentials.resetPassword"`,
+	// `"okta.users.groupMembership.manage"`,
+	// `"okta.users.lifecycle.activate"`,
+	// `"okta.users.lifecycle.clearSessions"`,
+	// `"okta.users.lifecycle.deactivate"`,
+	// `"okta.users.lifecycle.delete"`,
+	// `"okta.users.lifecycle.manage"`,
+	// `"okta.users.lifecycle.suspend"`,
+	// `"okta.users.lifecycle.unlock"`,
+	// `"okta.users.lifecycle.unsuspend"`,
+	// `"okta.users.manage"`,
+	// `"okta.users.read"`,
+	// `"okta.users.userprofile.manage"`.
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 }
 
@@ -105,11 +127,33 @@ type adminRoleCustomState struct {
 	// The name given to the new Role.
 	Label *string `pulumi:"label"`
 	// The permissions that the new Role grants. At least one
-	// permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-	// `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-	// `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-	// `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-	// `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+	// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+	// `"okta.apps.manage"`,
+	// `"okta.apps.read"`,
+	// `"okta.groups.appAssignment.manage"`,
+	// `"okta.groups.create"`,
+	// `"okta.groups.manage"`,
+	// `"okta.groups.members.manage"`,
+	// `"okta.groups.read"`,
+	// `"okta.profilesource.import.run"`,
+	// `"okta.users.appAssignment.manage"`,
+	// `"okta.users.create"`,
+	// `"okta.users.credentials.expirePassword"`,
+	// `"okta.users.credentials.manage"`,
+	// `"okta.users.credentials.resetFactors"`,
+	// `"okta.users.credentials.resetPassword"`,
+	// `"okta.users.groupMembership.manage"`,
+	// `"okta.users.lifecycle.activate"`,
+	// `"okta.users.lifecycle.clearSessions"`,
+	// `"okta.users.lifecycle.deactivate"`,
+	// `"okta.users.lifecycle.delete"`,
+	// `"okta.users.lifecycle.manage"`,
+	// `"okta.users.lifecycle.suspend"`,
+	// `"okta.users.lifecycle.unlock"`,
+	// `"okta.users.lifecycle.unsuspend"`,
+	// `"okta.users.manage"`,
+	// `"okta.users.read"`,
+	// `"okta.users.userprofile.manage"`.
 	Permissions []string `pulumi:"permissions"`
 }
 
@@ -119,11 +163,33 @@ type AdminRoleCustomState struct {
 	// The name given to the new Role.
 	Label pulumi.StringPtrInput
 	// The permissions that the new Role grants. At least one
-	// permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-	// `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-	// `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-	// `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-	// `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+	// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+	// `"okta.apps.manage"`,
+	// `"okta.apps.read"`,
+	// `"okta.groups.appAssignment.manage"`,
+	// `"okta.groups.create"`,
+	// `"okta.groups.manage"`,
+	// `"okta.groups.members.manage"`,
+	// `"okta.groups.read"`,
+	// `"okta.profilesource.import.run"`,
+	// `"okta.users.appAssignment.manage"`,
+	// `"okta.users.create"`,
+	// `"okta.users.credentials.expirePassword"`,
+	// `"okta.users.credentials.manage"`,
+	// `"okta.users.credentials.resetFactors"`,
+	// `"okta.users.credentials.resetPassword"`,
+	// `"okta.users.groupMembership.manage"`,
+	// `"okta.users.lifecycle.activate"`,
+	// `"okta.users.lifecycle.clearSessions"`,
+	// `"okta.users.lifecycle.deactivate"`,
+	// `"okta.users.lifecycle.delete"`,
+	// `"okta.users.lifecycle.manage"`,
+	// `"okta.users.lifecycle.suspend"`,
+	// `"okta.users.lifecycle.unlock"`,
+	// `"okta.users.lifecycle.unsuspend"`,
+	// `"okta.users.manage"`,
+	// `"okta.users.read"`,
+	// `"okta.users.userprofile.manage"`.
 	Permissions pulumi.StringArrayInput
 }
 
@@ -137,11 +203,33 @@ type adminRoleCustomArgs struct {
 	// The name given to the new Role.
 	Label string `pulumi:"label"`
 	// The permissions that the new Role grants. At least one
-	// permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-	// `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-	// `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-	// `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-	// `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+	// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+	// `"okta.apps.manage"`,
+	// `"okta.apps.read"`,
+	// `"okta.groups.appAssignment.manage"`,
+	// `"okta.groups.create"`,
+	// `"okta.groups.manage"`,
+	// `"okta.groups.members.manage"`,
+	// `"okta.groups.read"`,
+	// `"okta.profilesource.import.run"`,
+	// `"okta.users.appAssignment.manage"`,
+	// `"okta.users.create"`,
+	// `"okta.users.credentials.expirePassword"`,
+	// `"okta.users.credentials.manage"`,
+	// `"okta.users.credentials.resetFactors"`,
+	// `"okta.users.credentials.resetPassword"`,
+	// `"okta.users.groupMembership.manage"`,
+	// `"okta.users.lifecycle.activate"`,
+	// `"okta.users.lifecycle.clearSessions"`,
+	// `"okta.users.lifecycle.deactivate"`,
+	// `"okta.users.lifecycle.delete"`,
+	// `"okta.users.lifecycle.manage"`,
+	// `"okta.users.lifecycle.suspend"`,
+	// `"okta.users.lifecycle.unlock"`,
+	// `"okta.users.lifecycle.unsuspend"`,
+	// `"okta.users.manage"`,
+	// `"okta.users.read"`,
+	// `"okta.users.userprofile.manage"`.
 	Permissions []string `pulumi:"permissions"`
 }
 
@@ -152,11 +240,33 @@ type AdminRoleCustomArgs struct {
 	// The name given to the new Role.
 	Label pulumi.StringInput
 	// The permissions that the new Role grants. At least one
-	// permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-	// `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-	// `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-	// `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-	// `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+	// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+	// `"okta.apps.manage"`,
+	// `"okta.apps.read"`,
+	// `"okta.groups.appAssignment.manage"`,
+	// `"okta.groups.create"`,
+	// `"okta.groups.manage"`,
+	// `"okta.groups.members.manage"`,
+	// `"okta.groups.read"`,
+	// `"okta.profilesource.import.run"`,
+	// `"okta.users.appAssignment.manage"`,
+	// `"okta.users.create"`,
+	// `"okta.users.credentials.expirePassword"`,
+	// `"okta.users.credentials.manage"`,
+	// `"okta.users.credentials.resetFactors"`,
+	// `"okta.users.credentials.resetPassword"`,
+	// `"okta.users.groupMembership.manage"`,
+	// `"okta.users.lifecycle.activate"`,
+	// `"okta.users.lifecycle.clearSessions"`,
+	// `"okta.users.lifecycle.deactivate"`,
+	// `"okta.users.lifecycle.delete"`,
+	// `"okta.users.lifecycle.manage"`,
+	// `"okta.users.lifecycle.suspend"`,
+	// `"okta.users.lifecycle.unlock"`,
+	// `"okta.users.lifecycle.unsuspend"`,
+	// `"okta.users.manage"`,
+	// `"okta.users.read"`,
+	// `"okta.users.userprofile.manage"`.
 	Permissions pulumi.StringArrayInput
 }
 
@@ -245,6 +355,48 @@ func (o AdminRoleCustomOutput) ToAdminRoleCustomOutput() AdminRoleCustomOutput {
 
 func (o AdminRoleCustomOutput) ToAdminRoleCustomOutputWithContext(ctx context.Context) AdminRoleCustomOutput {
 	return o
+}
+
+// A human-readable description of the new Role.
+func (o AdminRoleCustomOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRoleCustom) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The name given to the new Role.
+func (o AdminRoleCustomOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRoleCustom) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// The permissions that the new Role grants. At least one
+// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+// `"okta.apps.manage"`,
+// `"okta.apps.read"`,
+// `"okta.groups.appAssignment.manage"`,
+// `"okta.groups.create"`,
+// `"okta.groups.manage"`,
+// `"okta.groups.members.manage"`,
+// `"okta.groups.read"`,
+// `"okta.profilesource.import.run"`,
+// `"okta.users.appAssignment.manage"`,
+// `"okta.users.create"`,
+// `"okta.users.credentials.expirePassword"`,
+// `"okta.users.credentials.manage"`,
+// `"okta.users.credentials.resetFactors"`,
+// `"okta.users.credentials.resetPassword"`,
+// `"okta.users.groupMembership.manage"`,
+// `"okta.users.lifecycle.activate"`,
+// `"okta.users.lifecycle.clearSessions"`,
+// `"okta.users.lifecycle.deactivate"`,
+// `"okta.users.lifecycle.delete"`,
+// `"okta.users.lifecycle.manage"`,
+// `"okta.users.lifecycle.suspend"`,
+// `"okta.users.lifecycle.unlock"`,
+// `"okta.users.lifecycle.unsuspend"`,
+// `"okta.users.manage"`,
+// `"okta.users.read"`,
+// `"okta.users.userprofile.manage"`.
+func (o AdminRoleCustomOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AdminRoleCustom) pulumi.StringArrayOutput { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
 type AdminRoleCustomArrayOutput struct{ *pulumi.OutputState }

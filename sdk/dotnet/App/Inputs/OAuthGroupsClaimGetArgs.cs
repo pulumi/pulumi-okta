@@ -25,7 +25,7 @@ namespace Pulumi.Okta.App.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

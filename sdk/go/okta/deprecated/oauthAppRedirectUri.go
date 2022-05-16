@@ -170,6 +170,15 @@ func (o OauthAppRedirectUriOutput) ToOauthAppRedirectUriOutputWithContext(ctx co
 	return o
 }
 
+func (o OauthAppRedirectUriOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OauthAppRedirectUri) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+// Redirect URI to append to Okta OIDC application.
+func (o OauthAppRedirectUriOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v *OauthAppRedirectUri) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+}
+
 type OauthAppRedirectUriArrayOutput struct{ *pulumi.OutputState }
 
 func (OauthAppRedirectUriArrayOutput) ElementType() reflect.Type {

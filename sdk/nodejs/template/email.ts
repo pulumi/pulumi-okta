@@ -6,6 +6,8 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * ** This resource is deprecated. Swith over to the emailCustomization resource.
+ *
  * Creates an Okta Email Template.
  *
  * This resource allows you to create and configure an Okta Email Template.
@@ -38,7 +40,7 @@ import * as utilities from "../utilities";
  * An Okta Email Template can be imported via the template type.
  *
  * ```sh
- *  $ pulumi import okta:template/email:Email example <template type>
+ *  $ pulumi import okta:template/email:Email example &#60;template type&#62;
  * ```
  */
 export class Email extends pulumi.CustomResource {

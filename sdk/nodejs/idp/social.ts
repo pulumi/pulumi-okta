@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * A Social IdP can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:idp/social:Social example <idp id>
+ *  $ pulumi import okta:idp/social:Social example &#60;idp id&#62;
  * ```
  */
 export class Social extends pulumi.CustomResource {

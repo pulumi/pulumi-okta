@@ -206,21 +206,21 @@ namespace Pulumi.Okta.App
     /// A SAML App can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/saml:Saml example &lt;app id&gt;
+    ///  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;
     /// ```
     /// 
     ///  It's also possible to import app without groups or/and users. In this case ID may look like this
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/saml:Saml example &lt;app id&gt;/skip_users
+    ///  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;/skip_users
     /// ```
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/saml:Saml example &lt;app id&gt;/skip_users/skip_groups
+    ///  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;/skip_users/skip_groups
     /// ```
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/saml:Saml example &lt;app id&gt;/skip_groups
+    ///  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;/skip_groups
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/saml:Saml")]
@@ -239,7 +239,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self-service. Default is: `false`.
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AuthnContextClassRef { get; private set; } = null!;
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar. Default is: `false`
         /// </summary>
         [Output("autoSubmitToolbar")]
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
@@ -354,19 +354,19 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app. Default is: `false`
         /// </summary>
         [Output("hideIos")]
         public Output<bool?> HideIos { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users. Default is: `false`
         /// </summary>
         [Output("hideWeb")]
         public Output<bool?> HideWeb { get; private set; } = null!;
 
         /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it.
+        /// Prompt user to re-authenticate if SP asks for it. Default is: `false`
         /// </summary>
         [Output("honorForceAuthn")]
         public Output<bool?> HonorForceAuthn { get; private set; } = null!;
@@ -456,7 +456,17 @@ namespace Pulumi.Okta.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// name of application from the Okta Integration Network, if not included a custom app will be created.
+        /// name of application from the Okta Integration Network, if not included a custom app will be created.  
+        /// If not provided the following arguments are required:
+        /// - `sso_url`
+        /// - `recipient`
+        /// - `destination`
+        /// - `audience`
+        /// - `subject_name_id_template`
+        /// - `subject_name_id_format`
+        /// - `signature_algorithm`
+        /// - `digest_algorithm`
+        /// - `authn_context_class_ref`
         /// </summary>
         [Output("preconfiguredApp")]
         public Output<string?> PreconfiguredApp { get; private set; } = null!;
@@ -517,13 +527,13 @@ namespace Pulumi.Okta.App
         public Output<string?> SingleLogoutUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        /// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
         /// </summary>
         [Output("skipGroups")]
         public Output<bool?> SkipGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
         /// </summary>
         [Output("skipUsers")]
         public Output<bool?> SkipUsers { get; private set; } = null!;
@@ -559,7 +569,7 @@ namespace Pulumi.Okta.App
         public Output<string?> SubjectNameIdTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Username template. Default: `"${source.login}"`
+        /// Username template. Default is: `"${source.login}"`
         /// </summary>
         [Output("userNameTemplate")]
         public Output<string?> UserNameTemplate { get; private set; } = null!;
@@ -577,7 +587,7 @@ namespace Pulumi.Okta.App
         public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`.
+        /// Username template type. Default is: `"BUILT_IN"`.
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
@@ -648,7 +658,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self-service. Default is: `false`.
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -714,7 +724,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthnContextClassRef { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar. Default is: `false`
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -770,19 +780,19 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app. Default is: `false`
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users. Default is: `false`
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it.
+        /// Prompt user to re-authenticate if SP asks for it. Default is: `false`
         /// </summary>
         [Input("honorForceAuthn")]
         public Input<bool>? HonorForceAuthn { get; set; }
@@ -830,7 +840,17 @@ namespace Pulumi.Okta.App
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// name of application from the Okta Integration Network, if not included a custom app will be created.
+        /// name of application from the Okta Integration Network, if not included a custom app will be created.  
+        /// If not provided the following arguments are required:
+        /// - `sso_url`
+        /// - `recipient`
+        /// - `destination`
+        /// - `audience`
+        /// - `subject_name_id_template`
+        /// - `subject_name_id_format`
+        /// - `signature_algorithm`
+        /// - `digest_algorithm`
+        /// - `authn_context_class_ref`
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
@@ -885,13 +905,13 @@ namespace Pulumi.Okta.App
         public Input<string>? SingleLogoutUrl { get; set; }
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        /// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
         /// </summary>
         [Input("skipGroups")]
         public Input<bool>? SkipGroups { get; set; }
 
         /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
         /// </summary>
         [Input("skipUsers")]
         public Input<bool>? SkipUsers { get; set; }
@@ -927,7 +947,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SubjectNameIdTemplate { get; set; }
 
         /// <summary>
-        /// Username template. Default: `"${source.login}"`
+        /// Username template. Default is: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
@@ -945,7 +965,7 @@ namespace Pulumi.Okta.App
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`.
+        /// Username template type. Default is: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
@@ -984,7 +1004,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self-service. Default is: `false`.
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -1050,7 +1070,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthnContextClassRef { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar. Default is: `false`
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -1124,19 +1144,19 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app. Default is: `false`
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users. Default is: `false`
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it.
+        /// Prompt user to re-authenticate if SP asks for it. Default is: `false`
         /// </summary>
         [Input("honorForceAuthn")]
         public Input<bool>? HonorForceAuthn { get; set; }
@@ -1226,7 +1246,17 @@ namespace Pulumi.Okta.App
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// name of application from the Okta Integration Network, if not included a custom app will be created.
+        /// name of application from the Okta Integration Network, if not included a custom app will be created.  
+        /// If not provided the following arguments are required:
+        /// - `sso_url`
+        /// - `recipient`
+        /// - `destination`
+        /// - `audience`
+        /// - `subject_name_id_template`
+        /// - `subject_name_id_format`
+        /// - `signature_algorithm`
+        /// - `digest_algorithm`
+        /// - `authn_context_class_ref`
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
@@ -1287,13 +1317,13 @@ namespace Pulumi.Okta.App
         public Input<string>? SingleLogoutUrl { get; set; }
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+        /// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
         /// </summary>
         [Input("skipGroups")]
         public Input<bool>? SkipGroups { get; set; }
 
         /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+        /// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
         /// </summary>
         [Input("skipUsers")]
         public Input<bool>? SkipUsers { get; set; }
@@ -1329,7 +1359,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SubjectNameIdTemplate { get; set; }
 
         /// <summary>
-        /// Username template. Default: `"${source.login}"`
+        /// Username template. Default is: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
@@ -1347,7 +1377,7 @@ namespace Pulumi.Okta.App
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`.
+        /// Username template type. Default is: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }

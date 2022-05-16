@@ -57,7 +57,7 @@ import (
 // An OIDC IdP can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:idp/oidc:Oidc example <idp id>
+//  $ pulumi import okta:idp/oidc:Oidc example &#60;idp id&#62;
 // ```
 type Oidc struct {
 	pulumi.CustomResourceState
@@ -571,6 +571,185 @@ func (o OidcOutput) ToOidcOutput() OidcOutput {
 
 func (o OidcOutput) ToOidcOutputWithContext(ctx context.Context) OidcOutput {
 	return o
+}
+
+// Specifies the account linking action for an IdP user.
+func (o OidcOutput) AccountLinkAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.AccountLinkAction }).(pulumi.StringPtrOutput)
+}
+
+// Group memberships to determine link candidates.
+func (o OidcOutput) AccountLinkGroupIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringArrayOutput { return v.AccountLinkGroupIncludes }).(pulumi.StringArrayOutput)
+}
+
+// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+func (o OidcOutput) AuthorizationBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.AuthorizationBinding }).(pulumi.StringOutput)
+}
+
+// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+func (o OidcOutput) AuthorizationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.AuthorizationUrl }).(pulumi.StringOutput)
+}
+
+// Unique identifier issued by AS for the Okta IdP instance.
+func (o OidcOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Client secret issued by AS for the Okta IdP instance.
+func (o OidcOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+func (o OidcOutput) DeprovisionedAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.DeprovisionedAction }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+func (o OidcOutput) GroupsAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.GroupsAction }).(pulumi.StringPtrOutput)
+}
+
+// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
+func (o OidcOutput) GroupsAssignments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringArrayOutput { return v.GroupsAssignments }).(pulumi.StringArrayOutput)
+}
+
+// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+func (o OidcOutput) GroupsAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.GroupsAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
+func (o OidcOutput) GroupsFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringArrayOutput { return v.GroupsFilters }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+func (o OidcOutput) IssuerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
+}
+
+// URI that identifies the issuer.
+func (o OidcOutput) IssuerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.IssuerUrl }).(pulumi.StringOutput)
+}
+
+// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+func (o OidcOutput) JwksBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.JwksBinding }).(pulumi.StringOutput)
+}
+
+// Endpoint where the keys signer publishes its keys in a JWK Set.
+func (o OidcOutput) JwksUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.JwksUrl }).(pulumi.StringOutput)
+}
+
+// Maximum allowable clock-skew when processing messages from the IdP.
+func (o OidcOutput) MaxClockSkew() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.IntPtrOutput { return v.MaxClockSkew }).(pulumi.IntPtrOutput)
+}
+
+// The Application's display name.
+func (o OidcOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Determines if the IdP should act as a source of truth for user profile attributes.
+func (o OidcOutput) ProfileMaster() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.BoolPtrOutput { return v.ProfileMaster }).(pulumi.BoolPtrOutput)
+}
+
+// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+func (o OidcOutput) ProtocolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.ProtocolType }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning action for an IdP user during authentication.
+func (o OidcOutput) ProvisioningAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign requests
+func (o OidcOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign response
+func (o OidcOutput) RequestSignatureScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign requests
+func (o OidcOutput) ResponseSignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.ResponseSignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign response
+func (o OidcOutput) ResponseSignatureScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.ResponseSignatureScope }).(pulumi.StringPtrOutput)
+}
+
+// The scopes of the IdP.
+func (o OidcOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// Status of the IdP.
+func (o OidcOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+func (o OidcOutput) SubjectMatchAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.SubjectMatchAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+func (o OidcOutput) SubjectMatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.SubjectMatchType }).(pulumi.StringPtrOutput)
+}
+
+// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+func (o OidcOutput) SuspendedAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.SuspendedAction }).(pulumi.StringPtrOutput)
+}
+
+// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+func (o OidcOutput) TokenBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.TokenBinding }).(pulumi.StringOutput)
+}
+
+// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+func (o OidcOutput) TokenUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.TokenUrl }).(pulumi.StringOutput)
+}
+
+// Type of OIDC IdP.
+func (o OidcOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o OidcOutput) UserInfoBinding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.UserInfoBinding }).(pulumi.StringPtrOutput)
+}
+
+// Protected resource endpoint that returns claims about the authenticated user.
+func (o OidcOutput) UserInfoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.UserInfoUrl }).(pulumi.StringPtrOutput)
+}
+
+// User type ID. Can be used as `targetId` in the `profile.Mapping` resource.
+func (o OidcOutput) UserTypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.UserTypeId }).(pulumi.StringOutput)
+}
+
+// Okta EL Expression to generate or transform a unique username for the IdP user.
+func (o OidcOutput) UsernameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.UsernameTemplate }).(pulumi.StringPtrOutput)
 }
 
 type OidcArrayOutput struct{ *pulumi.OutputState }

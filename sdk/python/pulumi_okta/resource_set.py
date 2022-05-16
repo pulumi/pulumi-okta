@@ -152,7 +152,7 @@ class ResourceSet(pulumi.CustomResource):
         Okta Resource Set can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/resourceSet:ResourceSet example <resource_set_id>
+         $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -187,7 +187,7 @@ class ResourceSet(pulumi.CustomResource):
         Okta Resource Set can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/resourceSet:ResourceSet example <resource_set_id>
+         $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

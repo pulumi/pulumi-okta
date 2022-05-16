@@ -183,7 +183,7 @@ class Origin(pulumi.CustomResource):
         A Trusted Origin can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:trustedorigin/origin:Origin example <trusted origin id>
+         $ pulumi import okta:trustedorigin/origin:Origin example &#60;trusted origin id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -220,7 +220,7 @@ class Origin(pulumi.CustomResource):
         A Trusted Origin can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:trustedorigin/origin:Origin example <trusted origin id>
+         $ pulumi import okta:trustedorigin/origin:Origin example &#60;trusted origin id&#62;
         ```
 
         :param str resource_name: The name of the resource.

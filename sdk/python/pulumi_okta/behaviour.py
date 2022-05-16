@@ -320,7 +320,7 @@ class Behaviour(pulumi.CustomResource):
         Behavior can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/behaviour:Behaviour example <behavior id>
+         $ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -379,7 +379,7 @@ class Behaviour(pulumi.CustomResource):
         Behavior can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/behaviour:Behaviour example <behavior id>
+         $ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
         ```
 
         :param str resource_name: The name of the resource.

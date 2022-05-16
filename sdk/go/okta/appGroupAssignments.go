@@ -86,7 +86,7 @@ import (
 // An application's group assignments can be imported via `app_id`.
 //
 // ```sh
-//  $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example <app_id>
+//  $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
 // ```
 type AppGroupAssignments struct {
 	pulumi.CustomResourceState
@@ -249,6 +249,16 @@ func (o AppGroupAssignmentsOutput) ToAppGroupAssignmentsOutput() AppGroupAssignm
 
 func (o AppGroupAssignmentsOutput) ToAppGroupAssignmentsOutputWithContext(ctx context.Context) AppGroupAssignmentsOutput {
 	return o
+}
+
+// The ID of the application to assign a group to.
+func (o AppGroupAssignmentsOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppGroupAssignments) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+// A group to assign the app to.
+func (o AppGroupAssignmentsOutput) Groups() AppGroupAssignmentsGroupArrayOutput {
+	return o.ApplyT(func(v *AppGroupAssignments) AppGroupAssignmentsGroupArrayOutput { return v.Groups }).(AppGroupAssignmentsGroupArrayOutput)
 }
 
 type AppGroupAssignmentsArrayOutput struct{ *pulumi.OutputState }

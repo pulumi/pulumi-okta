@@ -60,7 +60,7 @@ namespace Pulumi.Okta
     /// Behavior can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/behaviour:Behaviour example &lt;behavior id&gt;
+    ///  $ pulumi import okta:index/behaviour:Behaviour example &amp;#60;behavior id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/behaviour:Behaviour")]

@@ -55,12 +55,12 @@ import (
 // Okta authenticator can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/authenticator:Authenticator example <authenticator_id>
+//  $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
 // ```
 type Authenticator struct {
 	pulumi.CustomResourceState
 
-	// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
+	// A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Name of the authenticator.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -116,7 +116,7 @@ func GetAuthenticator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Authenticator resources.
 type authenticatorState struct {
-	// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
+	// A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
 	Key *string `pulumi:"key"`
 	// Name of the authenticator.
 	Name *string `pulumi:"name"`
@@ -141,7 +141,7 @@ type authenticatorState struct {
 }
 
 type AuthenticatorState struct {
-	// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
+	// A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
 	Key pulumi.StringPtrInput
 	// Name of the authenticator.
 	Name pulumi.StringPtrInput
@@ -170,7 +170,7 @@ func (AuthenticatorState) ElementType() reflect.Type {
 }
 
 type authenticatorArgs struct {
-	// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
+	// A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
 	Key string `pulumi:"key"`
 	// Name of the authenticator.
 	Name *string `pulumi:"name"`
@@ -190,7 +190,7 @@ type authenticatorArgs struct {
 
 // The set of arguments for constructing a Authenticator resource.
 type AuthenticatorArgs struct {
-	// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, `"webauthn"`, and `"yubikeyToken"`.
+	// A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
 	Key pulumi.StringInput
 	// Name of the authenticator.
 	Name pulumi.StringPtrInput
@@ -293,6 +293,61 @@ func (o AuthenticatorOutput) ToAuthenticatorOutput() AuthenticatorOutput {
 
 func (o AuthenticatorOutput) ToAuthenticatorOutputWithContext(ctx context.Context) AuthenticatorOutput {
 	return o
+}
+
+// A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
+func (o AuthenticatorOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// Name of the authenticator.
+func (o AuthenticatorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"securityKey"`.
+func (o AuthenticatorOutput) ProviderAuthPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.IntPtrOutput { return v.ProviderAuthPort }).(pulumi.IntPtrOutput)
+}
+
+// Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"securityKey"`.
+func (o AuthenticatorOutput) ProviderHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.StringPtrOutput { return v.ProviderHostname }).(pulumi.StringPtrOutput)
+}
+
+// App Instance ID.
+func (o AuthenticatorOutput) ProviderInstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.StringOutput { return v.ProviderInstanceId }).(pulumi.StringOutput)
+}
+
+// An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"securityKey"`.
+func (o AuthenticatorOutput) ProviderSharedSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.StringPtrOutput { return v.ProviderSharedSecret }).(pulumi.StringPtrOutput)
+}
+
+// The type of Authenticator. Values include: `"password"`, `"securityQuestion"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"securityKey"`.
+func (o AuthenticatorOutput) ProviderType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
+}
+
+// Username template expected by the provider. Used only for authenticators with type `"securityKey"`.
+func (o AuthenticatorOutput) ProviderUserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.StringPtrOutput { return v.ProviderUserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Settings for the authenticator. Settings object contains values based on Authenticator key. It is not used for authenticators with type `"securityKey"`.
+func (o AuthenticatorOutput) Settings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.StringPtrOutput { return v.Settings }).(pulumi.StringPtrOutput)
+}
+
+// Status of the authenticator. Default is `ACTIVE`.
+func (o AuthenticatorOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Type of the Authenticator.
+func (o AuthenticatorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 type AuthenticatorArrayOutput struct{ *pulumi.OutputState }

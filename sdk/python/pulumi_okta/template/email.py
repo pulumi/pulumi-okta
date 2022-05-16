@@ -132,6 +132,8 @@ class Email(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ** This resource is deprecated. Swith over to the email_customization resource.
+
         Creates an Okta Email Template.
 
         This resource allows you to create and configure an Okta Email Template.
@@ -163,7 +165,7 @@ class Email(pulumi.CustomResource):
         An Okta Email Template can be imported via the template type.
 
         ```sh
-         $ pulumi import okta:template/email:Email example <template type>
+         $ pulumi import okta:template/email:Email example &#60;template type&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -179,6 +181,8 @@ class Email(pulumi.CustomResource):
                  args: EmailArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ** This resource is deprecated. Swith over to the email_customization resource.
+
         Creates an Okta Email Template.
 
         This resource allows you to create and configure an Okta Email Template.
@@ -210,7 +214,7 @@ class Email(pulumi.CustomResource):
         An Okta Email Template can be imported via the template type.
 
         ```sh
-         $ pulumi import okta:template/email:Email example <template type>
+         $ pulumi import okta:template/email:Email example &#60;template type&#62;
         ```
 
         :param str resource_name: The name of the resource.

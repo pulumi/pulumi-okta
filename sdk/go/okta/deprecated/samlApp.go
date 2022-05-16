@@ -723,6 +723,309 @@ func (o SamlAppOutput) ToSamlAppOutputWithContext(ctx context.Context) SamlAppOu
 	return o
 }
 
+// Custom error page URL
+func (o SamlAppOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page URL
+func (o SamlAppOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self service
+func (o SamlAppOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// List of ACS endpoints for this SAML application
+func (o SamlAppOutput) AcsEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringArrayOutput { return v.AcsEndpoints }).(pulumi.StringArrayOutput)
+}
+
+// Application notes for admins.
+func (o SamlAppOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app
+func (o SamlAppOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Application settings in JSON format
+func (o SamlAppOutput) AppSettingsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the SAML assertion is digitally signed
+func (o SamlAppOutput) AssertionSigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.AssertionSigned }).(pulumi.BoolPtrOutput)
+}
+
+func (o SamlAppOutput) AttributeStatements() SamlAppAttributeStatementArrayOutput {
+	return o.ApplyT(func(v *SamlApp) SamlAppAttributeStatementArrayOutput { return v.AttributeStatements }).(SamlAppAttributeStatementArrayOutput)
+}
+
+// Audience Restriction
+func (o SamlAppOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// Identifies the SAML authentication context class for the assertion’s authentication statement
+func (o SamlAppOutput) AuthnContextClassRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.AuthnContextClassRef }).(pulumi.StringPtrOutput)
+}
+
+// Display auto submit toolbar
+func (o SamlAppOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// cert from SAML XML metadata payload
+func (o SamlAppOutput) Certificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
+}
+
+// Identifies a specific application resource in an IDP initiated SSO scenario.
+func (o SamlAppOutput) DefaultRelayState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.DefaultRelayState }).(pulumi.StringPtrOutput)
+}
+
+// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+func (o SamlAppOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+// Determines the digest algorithm used to digitally sign the SAML assertion and response
+func (o SamlAppOutput) DigestAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.DigestAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Application notes for end users.
+func (o SamlAppOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// Entity ID, the ID portion of the entity_url
+func (o SamlAppOutput) EntityKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.EntityKey }).(pulumi.StringOutput)
+}
+
+// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+func (o SamlAppOutput) EntityUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.EntityUrl }).(pulumi.StringOutput)
+}
+
+// features to enable
+func (o SamlAppOutput) Features() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringArrayOutput { return v.Features }).(pulumi.StringArrayOutput)
+}
+
+// Groups associated with the application
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o SamlAppOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app
+func (o SamlAppOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users
+func (o SamlAppOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// Prompt user to re-authenticate if SP asks for it
+func (o SamlAppOutput) HonorForceAuthn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.HonorForceAuthn }).(pulumi.BoolPtrOutput)
+}
+
+// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
+func (o SamlAppOutput) HttpPostBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.HttpPostBinding }).(pulumi.StringOutput)
+}
+
+// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
+func (o SamlAppOutput) HttpRedirectBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.HttpRedirectBinding }).(pulumi.StringOutput)
+}
+
+// SAML issuer ID
+func (o SamlAppOutput) IdpIssuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.IdpIssuer }).(pulumi.StringPtrOutput)
+}
+
+// *Early Access Property*. Enable Federation Broker Mode.
+func (o SamlAppOutput) ImplicitAssignment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.ImplicitAssignment }).(pulumi.BoolPtrOutput)
+}
+
+// Saml Inline Hook setting
+func (o SamlAppOutput) InlineHookId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.InlineHookId }).(pulumi.StringPtrOutput)
+}
+
+// Certificate ID
+func (o SamlAppOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// Certificate name. This modulates the rotation of keys. New name == new key.
+func (o SamlAppOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// Number of years the certificate is valid.
+func (o SamlAppOutput) KeyYearsValid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.IntPtrOutput { return v.KeyYearsValid }).(pulumi.IntPtrOutput)
+}
+
+// Pretty name of app.
+func (o SamlAppOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Local path to logo of the application.
+func (o SamlAppOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// URL of the application's logo
+func (o SamlAppOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// SAML xml metadata payload
+func (o SamlAppOutput) Metadata() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.Metadata }).(pulumi.StringOutput)
+}
+
+// SAML xml metadata URL
+func (o SamlAppOutput) MetadataUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.MetadataUrl }).(pulumi.StringOutput)
+}
+
+// Name of the app.
+func (o SamlAppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of preexisting SAML application. For instance 'slack'
+func (o SamlAppOutput) PreconfiguredApp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.PreconfiguredApp }).(pulumi.StringPtrOutput)
+}
+
+// The location where the app may present the SAML assertion
+func (o SamlAppOutput) Recipient() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.Recipient }).(pulumi.StringPtrOutput)
+}
+
+// Denotes whether the request is compressed or not.
+func (o SamlAppOutput) RequestCompressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.RequestCompressed }).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether the SAML auth response message is digitally signed
+func (o SamlAppOutput) ResponseSigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.ResponseSigned }).(pulumi.BoolPtrOutput)
+}
+
+// SAML version for the app's sign-on mode
+func (o SamlAppOutput) SamlVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.SamlVersion }).(pulumi.StringPtrOutput)
+}
+
+// Sign on mode of application.
+func (o SamlAppOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Signature algorithm used ot digitally sign the assertion and response
+func (o SamlAppOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.SignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+func (o SamlAppOutput) SingleLogoutCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.SingleLogoutCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The issuer of the Service Provider that generates the Single Logout request
+func (o SamlAppOutput) SingleLogoutIssuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.SingleLogoutIssuer }).(pulumi.StringPtrOutput)
+}
+
+// The location where the logout response is sent
+func (o SamlAppOutput) SingleLogoutUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.SingleLogoutUrl }).(pulumi.StringPtrOutput)
+}
+
+// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+func (o SamlAppOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+func (o SamlAppOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// SAML SP issuer ID
+func (o SamlAppOutput) SpIssuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.SpIssuer }).(pulumi.StringPtrOutput)
+}
+
+// Single Sign On URL
+func (o SamlAppOutput) SsoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.SsoUrl }).(pulumi.StringPtrOutput)
+}
+
+// Status of application.
+func (o SamlAppOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Identifies the SAML processing rules.
+func (o SamlAppOutput) SubjectNameIdFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.SubjectNameIdFormat }).(pulumi.StringPtrOutput)
+}
+
+// Template for app user's username when a user is assigned to the app
+func (o SamlAppOutput) SubjectNameIdTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.SubjectNameIdTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Username template
+func (o SamlAppOutput) UserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update
+func (o SamlAppOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
+}
+
+// Username template suffix
+func (o SamlAppOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Username template type
+func (o SamlAppOutput) UserNameTemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
+}
+
+// Users associated with the application
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o SamlAppOutput) Users() SamlAppUserArrayOutput {
+	return o.ApplyT(func(v *SamlApp) SamlAppUserArrayOutput { return v.Users }).(SamlAppUserArrayOutput)
+}
+
 type SamlAppArrayOutput struct{ *pulumi.OutputState }
 
 func (SamlAppArrayOutput) ElementType() reflect.Type {

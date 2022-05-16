@@ -22,7 +22,7 @@ import (
 // Okta Custom Admin Role Assignments can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example <resource_set_id>/<custom_role_id>
+//  $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &#60;resource_set_id&#62;/&#60;custom_role_id&#62;
 // ```
 type AdminRoleCustomAssignments struct {
 	pulumi.CustomResourceState
@@ -200,6 +200,22 @@ func (o AdminRoleCustomAssignmentsOutput) ToAdminRoleCustomAssignmentsOutput() A
 
 func (o AdminRoleCustomAssignmentsOutput) ToAdminRoleCustomAssignmentsOutputWithContext(ctx context.Context) AdminRoleCustomAssignmentsOutput {
 	return o
+}
+
+// ID of the Custom Role.
+func (o AdminRoleCustomAssignmentsOutput) CustomRoleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRoleCustomAssignments) pulumi.StringOutput { return v.CustomRoleId }).(pulumi.StringOutput)
+}
+
+// The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+// permission must be specified when creating custom role.
+func (o AdminRoleCustomAssignmentsOutput) Members() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AdminRoleCustomAssignments) pulumi.StringArrayOutput { return v.Members }).(pulumi.StringArrayOutput)
+}
+
+// ID of the target Resource Set.
+func (o AdminRoleCustomAssignmentsOutput) ResourceSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRoleCustomAssignments) pulumi.StringOutput { return v.ResourceSetId }).(pulumi.StringOutput)
 }
 
 type AdminRoleCustomAssignmentsArrayOutput struct{ *pulumi.OutputState }

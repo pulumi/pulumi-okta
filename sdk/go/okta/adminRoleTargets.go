@@ -49,7 +49,7 @@ import (
 // Okta Admin Role Targets can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example <user id>/<role type>
+//  $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &#60;user id&#62;/&#60;role type&#62;
 // ```
 type AdminRoleTargets struct {
 	pulumi.CustomResourceState
@@ -238,6 +238,31 @@ func (o AdminRoleTargetsOutput) ToAdminRoleTargetsOutput() AdminRoleTargetsOutpu
 
 func (o AdminRoleTargetsOutput) ToAdminRoleTargetsOutputWithContext(ctx context.Context) AdminRoleTargetsOutput {
 	return o
+}
+
+// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
+func (o AdminRoleTargetsOutput) Apps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringArrayOutput { return v.Apps }).(pulumi.StringArrayOutput)
+}
+
+// List of group IDs. Conflicts with `apps`.
+func (o AdminRoleTargetsOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Role ID.
+func (o AdminRoleTargetsOutput) RoleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringOutput { return v.RoleId }).(pulumi.StringOutput)
+}
+
+// Name of the role associated with the user.
+func (o AdminRoleTargetsOutput) RoleType() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
+}
+
+// ID of the user.
+func (o AdminRoleTargetsOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }
 
 type AdminRoleTargetsArrayOutput struct{ *pulumi.OutputState }

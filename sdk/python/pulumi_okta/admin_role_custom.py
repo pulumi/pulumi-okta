@@ -21,11 +21,33 @@ class AdminRoleCustomArgs:
         :param pulumi.Input[str] description: A human-readable description of the new Role.
         :param pulumi.Input[str] label: The name given to the new Role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: The permissions that the new Role grants. At least one
-               permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-               `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-               `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-               `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-               `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+               permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+               `"okta.apps.manage"`,
+               `"okta.apps.read"`,
+               `"okta.groups.appAssignment.manage"`,
+               `"okta.groups.create"`,
+               `"okta.groups.manage"`,
+               `"okta.groups.members.manage"`,
+               `"okta.groups.read"`,
+               `"okta.profilesource.import.run"`,
+               `"okta.users.appAssignment.manage"`,
+               `"okta.users.create"`,
+               `"okta.users.credentials.expirePassword"`,
+               `"okta.users.credentials.manage"`,
+               `"okta.users.credentials.resetFactors"`,
+               `"okta.users.credentials.resetPassword"`,
+               `"okta.users.groupMembership.manage"`,
+               `"okta.users.lifecycle.activate"`,
+               `"okta.users.lifecycle.clearSessions"`,
+               `"okta.users.lifecycle.deactivate"`,
+               `"okta.users.lifecycle.delete"`,
+               `"okta.users.lifecycle.manage"`,
+               `"okta.users.lifecycle.suspend"`,
+               `"okta.users.lifecycle.unlock"`,
+               `"okta.users.lifecycle.unsuspend"`,
+               `"okta.users.manage"`,
+               `"okta.users.read"`,
+               `"okta.users.userprofile.manage"`.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "label", label)
@@ -61,11 +83,33 @@ class AdminRoleCustomArgs:
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The permissions that the new Role grants. At least one
-        permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-        `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-        `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-        `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-        `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+        permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+        `"okta.apps.manage"`,
+        `"okta.apps.read"`,
+        `"okta.groups.appAssignment.manage"`,
+        `"okta.groups.create"`,
+        `"okta.groups.manage"`,
+        `"okta.groups.members.manage"`,
+        `"okta.groups.read"`,
+        `"okta.profilesource.import.run"`,
+        `"okta.users.appAssignment.manage"`,
+        `"okta.users.create"`,
+        `"okta.users.credentials.expirePassword"`,
+        `"okta.users.credentials.manage"`,
+        `"okta.users.credentials.resetFactors"`,
+        `"okta.users.credentials.resetPassword"`,
+        `"okta.users.groupMembership.manage"`,
+        `"okta.users.lifecycle.activate"`,
+        `"okta.users.lifecycle.clearSessions"`,
+        `"okta.users.lifecycle.deactivate"`,
+        `"okta.users.lifecycle.delete"`,
+        `"okta.users.lifecycle.manage"`,
+        `"okta.users.lifecycle.suspend"`,
+        `"okta.users.lifecycle.unlock"`,
+        `"okta.users.lifecycle.unsuspend"`,
+        `"okta.users.manage"`,
+        `"okta.users.read"`,
+        `"okta.users.userprofile.manage"`.
         """
         return pulumi.get(self, "permissions")
 
@@ -85,11 +129,33 @@ class _AdminRoleCustomState:
         :param pulumi.Input[str] description: A human-readable description of the new Role.
         :param pulumi.Input[str] label: The name given to the new Role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: The permissions that the new Role grants. At least one
-               permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-               `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-               `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-               `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-               `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+               permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+               `"okta.apps.manage"`,
+               `"okta.apps.read"`,
+               `"okta.groups.appAssignment.manage"`,
+               `"okta.groups.create"`,
+               `"okta.groups.manage"`,
+               `"okta.groups.members.manage"`,
+               `"okta.groups.read"`,
+               `"okta.profilesource.import.run"`,
+               `"okta.users.appAssignment.manage"`,
+               `"okta.users.create"`,
+               `"okta.users.credentials.expirePassword"`,
+               `"okta.users.credentials.manage"`,
+               `"okta.users.credentials.resetFactors"`,
+               `"okta.users.credentials.resetPassword"`,
+               `"okta.users.groupMembership.manage"`,
+               `"okta.users.lifecycle.activate"`,
+               `"okta.users.lifecycle.clearSessions"`,
+               `"okta.users.lifecycle.deactivate"`,
+               `"okta.users.lifecycle.delete"`,
+               `"okta.users.lifecycle.manage"`,
+               `"okta.users.lifecycle.suspend"`,
+               `"okta.users.lifecycle.unlock"`,
+               `"okta.users.lifecycle.unsuspend"`,
+               `"okta.users.manage"`,
+               `"okta.users.read"`,
+               `"okta.users.userprofile.manage"`.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -127,11 +193,33 @@ class _AdminRoleCustomState:
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The permissions that the new Role grants. At least one
-        permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-        `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-        `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-        `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-        `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+        permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+        `"okta.apps.manage"`,
+        `"okta.apps.read"`,
+        `"okta.groups.appAssignment.manage"`,
+        `"okta.groups.create"`,
+        `"okta.groups.manage"`,
+        `"okta.groups.members.manage"`,
+        `"okta.groups.read"`,
+        `"okta.profilesource.import.run"`,
+        `"okta.users.appAssignment.manage"`,
+        `"okta.users.create"`,
+        `"okta.users.credentials.expirePassword"`,
+        `"okta.users.credentials.manage"`,
+        `"okta.users.credentials.resetFactors"`,
+        `"okta.users.credentials.resetPassword"`,
+        `"okta.users.groupMembership.manage"`,
+        `"okta.users.lifecycle.activate"`,
+        `"okta.users.lifecycle.clearSessions"`,
+        `"okta.users.lifecycle.deactivate"`,
+        `"okta.users.lifecycle.delete"`,
+        `"okta.users.lifecycle.manage"`,
+        `"okta.users.lifecycle.suspend"`,
+        `"okta.users.lifecycle.unlock"`,
+        `"okta.users.lifecycle.unsuspend"`,
+        `"okta.users.manage"`,
+        `"okta.users.read"`,
+        `"okta.users.userprofile.manage"`.
         """
         return pulumi.get(self, "permissions")
 
@@ -171,7 +259,7 @@ class AdminRoleCustom(pulumi.CustomResource):
         Okta Custom Admin Role can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example <custom role id>
+         $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -179,11 +267,33 @@ class AdminRoleCustom(pulumi.CustomResource):
         :param pulumi.Input[str] description: A human-readable description of the new Role.
         :param pulumi.Input[str] label: The name given to the new Role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: The permissions that the new Role grants. At least one
-               permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-               `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-               `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-               `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-               `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+               permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+               `"okta.apps.manage"`,
+               `"okta.apps.read"`,
+               `"okta.groups.appAssignment.manage"`,
+               `"okta.groups.create"`,
+               `"okta.groups.manage"`,
+               `"okta.groups.members.manage"`,
+               `"okta.groups.read"`,
+               `"okta.profilesource.import.run"`,
+               `"okta.users.appAssignment.manage"`,
+               `"okta.users.create"`,
+               `"okta.users.credentials.expirePassword"`,
+               `"okta.users.credentials.manage"`,
+               `"okta.users.credentials.resetFactors"`,
+               `"okta.users.credentials.resetPassword"`,
+               `"okta.users.groupMembership.manage"`,
+               `"okta.users.lifecycle.activate"`,
+               `"okta.users.lifecycle.clearSessions"`,
+               `"okta.users.lifecycle.deactivate"`,
+               `"okta.users.lifecycle.delete"`,
+               `"okta.users.lifecycle.manage"`,
+               `"okta.users.lifecycle.suspend"`,
+               `"okta.users.lifecycle.unlock"`,
+               `"okta.users.lifecycle.unsuspend"`,
+               `"okta.users.manage"`,
+               `"okta.users.read"`,
+               `"okta.users.userprofile.manage"`.
         """
         ...
     @overload
@@ -213,7 +323,7 @@ class AdminRoleCustom(pulumi.CustomResource):
         Okta Custom Admin Role can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example <custom role id>
+         $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -276,11 +386,33 @@ class AdminRoleCustom(pulumi.CustomResource):
         :param pulumi.Input[str] description: A human-readable description of the new Role.
         :param pulumi.Input[str] label: The name given to the new Role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: The permissions that the new Role grants. At least one
-               permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-               `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-               `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-               `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-               `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+               permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+               `"okta.apps.manage"`,
+               `"okta.apps.read"`,
+               `"okta.groups.appAssignment.manage"`,
+               `"okta.groups.create"`,
+               `"okta.groups.manage"`,
+               `"okta.groups.members.manage"`,
+               `"okta.groups.read"`,
+               `"okta.profilesource.import.run"`,
+               `"okta.users.appAssignment.manage"`,
+               `"okta.users.create"`,
+               `"okta.users.credentials.expirePassword"`,
+               `"okta.users.credentials.manage"`,
+               `"okta.users.credentials.resetFactors"`,
+               `"okta.users.credentials.resetPassword"`,
+               `"okta.users.groupMembership.manage"`,
+               `"okta.users.lifecycle.activate"`,
+               `"okta.users.lifecycle.clearSessions"`,
+               `"okta.users.lifecycle.deactivate"`,
+               `"okta.users.lifecycle.delete"`,
+               `"okta.users.lifecycle.manage"`,
+               `"okta.users.lifecycle.suspend"`,
+               `"okta.users.lifecycle.unlock"`,
+               `"okta.users.lifecycle.unsuspend"`,
+               `"okta.users.manage"`,
+               `"okta.users.read"`,
+               `"okta.users.userprofile.manage"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -312,11 +444,33 @@ class AdminRoleCustom(pulumi.CustomResource):
     def permissions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The permissions that the new Role grants. At least one
-        permission must be specified when creating custom role. Valid values:`"okta.users.manage"`,
-        `"okta.users.create"`,`"okta.users.read"`,`"okta.users.credentials.manage"`,`"okta.users.userprofile.manage"`,
-        `"okta.users.lifecycle.manage"`,`"okta.users.groupMembership.manage"`,`"okta.users.appAssignment.manage"`,
-        `"okta.groups.manage"`,`"okta.groups.create"`,`"okta.groups.members.manage"`,`"okta.groups.read"`,
-        `"okta.groups.appAssignment.manage"`,`"okta.apps.read"`,`"okta.apps.manage"`,`"okta.apps.assignment.manage"`.
+        permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+        `"okta.apps.manage"`,
+        `"okta.apps.read"`,
+        `"okta.groups.appAssignment.manage"`,
+        `"okta.groups.create"`,
+        `"okta.groups.manage"`,
+        `"okta.groups.members.manage"`,
+        `"okta.groups.read"`,
+        `"okta.profilesource.import.run"`,
+        `"okta.users.appAssignment.manage"`,
+        `"okta.users.create"`,
+        `"okta.users.credentials.expirePassword"`,
+        `"okta.users.credentials.manage"`,
+        `"okta.users.credentials.resetFactors"`,
+        `"okta.users.credentials.resetPassword"`,
+        `"okta.users.groupMembership.manage"`,
+        `"okta.users.lifecycle.activate"`,
+        `"okta.users.lifecycle.clearSessions"`,
+        `"okta.users.lifecycle.deactivate"`,
+        `"okta.users.lifecycle.delete"`,
+        `"okta.users.lifecycle.manage"`,
+        `"okta.users.lifecycle.suspend"`,
+        `"okta.users.lifecycle.unlock"`,
+        `"okta.users.lifecycle.unsuspend"`,
+        `"okta.users.manage"`,
+        `"okta.users.read"`,
+        `"okta.users.userprofile.manage"`.
         """
         return pulumi.get(self, "permissions")
 

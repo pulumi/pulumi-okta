@@ -44,7 +44,7 @@ import (
 // A User Type can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:user/userType:UserType example <user type id>
+//  $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
 // ```
 type UserType struct {
 	pulumi.CustomResourceState
@@ -217,6 +217,21 @@ func (o UserTypeOutput) ToUserTypeOutput() UserTypeOutput {
 
 func (o UserTypeOutput) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
 	return o
+}
+
+// Description of the User Type.
+func (o UserTypeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserType) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Display Name of the User Type.
+func (o UserTypeOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserType) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Name of the User Type.
+func (o UserTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 type UserTypeArrayOutput struct{ *pulumi.OutputState }

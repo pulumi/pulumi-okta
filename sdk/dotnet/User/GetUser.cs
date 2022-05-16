@@ -32,13 +32,7 @@ namespace Pulumi.Okta.User
         ///             {
         ///                 new Okta.User.Inputs.GetUserSearchArgs
         ///                 {
-        ///                     Name = "profile.firstName",
-        ///                     Value = "John",
-        ///                 },
-        ///                 new Okta.User.Inputs.GetUserSearchArgs
-        ///                 {
-        ///                     Name = "profile.lastName",
-        ///                     Value = "Doe",
+        ///                     Expression = "profile.firstName eq \"John\"",
         ///                 },
         ///             },
         ///         }));
@@ -73,13 +67,7 @@ namespace Pulumi.Okta.User
         ///             {
         ///                 new Okta.User.Inputs.GetUserSearchArgs
         ///                 {
-        ///                     Name = "profile.firstName",
-        ///                     Value = "John",
-        ///                 },
-        ///                 new Okta.User.Inputs.GetUserSearchArgs
-        ///                 {
-        ///                     Name = "profile.lastName",
-        ///                     Value = "Doe",
+        ///                     Expression = "profile.firstName eq \"John\"",
         ///                 },
         ///             },
         ///         }));
@@ -97,6 +85,12 @@ namespace Pulumi.Okta.User
 
     public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+        /// </summary>
+        [Input("compoundSearchOperator")]
+        public string? CompoundSearchOperator { get; set; }
+
         [Input("searches")]
         private List<Inputs.GetUserSearchArgs>? _searches;
 
@@ -134,6 +128,12 @@ namespace Pulumi.Okta.User
 
     public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+        /// </summary>
+        [Input("compoundSearchOperator")]
+        public Input<string>? CompoundSearchOperator { get; set; }
+
         [Input("searches")]
         private InputList<Inputs.GetUserSearchInputArgs>? _searches;
 
@@ -181,6 +181,7 @@ namespace Pulumi.Okta.User
         /// user profile property.
         /// </summary>
         public readonly string City;
+        public readonly string? CompoundSearchOperator;
         /// <summary>
         /// user profile property.
         /// </summary>
@@ -328,6 +329,8 @@ namespace Pulumi.Okta.User
 
             string city,
 
+            string? compoundSearchOperator,
+
             string costCenter,
 
             string countryCode,
@@ -406,6 +409,7 @@ namespace Pulumi.Okta.User
         {
             AdminRoles = adminRoles;
             City = city;
+            CompoundSearchOperator = compoundSearchOperator;
             CostCenter = costCenter;
             CountryCode = countryCode;
             CustomProfileAttributes = customProfileAttributes;

@@ -246,6 +246,21 @@ func (o ThreatInsightSettingsOutput) ToThreatInsightSettingsOutputWithContext(ct
 	return o
 }
 
+// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
+// are `"none"`, `"audit"`, or `"block"`. A value of `"none"` indicates that ThreatInsight is disabled. A value of `"audit"`
+// indicates that Okta logs suspicious requests in the System Log. A value of `"block"` indicates that Okta logs suspicious
+// requests in the System Log and blocks the requests.
+func (o ThreatInsightSettingsOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatInsightSettings) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
+}
+
+// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
+// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
+// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+func (o ThreatInsightSettingsOutput) NetworkExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ThreatInsightSettings) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
+}
+
 type ThreatInsightSettingsArrayOutput struct{ *pulumi.OutputState }
 
 func (ThreatInsightSettingsArrayOutput) ElementType() reflect.Type {

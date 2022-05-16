@@ -47,7 +47,7 @@ import (
 // A Password Policy can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/password:Password example <policy id>
+//  $ pulumi import okta:policy/password:Password example &#60;policy id&#62;
 // ```
 type Password struct {
 	pulumi.CustomResourceState
@@ -484,6 +484,156 @@ func (o PasswordOutput) ToPasswordOutput() PasswordOutput {
 
 func (o PasswordOutput) ToPasswordOutputWithContext(ctx context.Context) PasswordOutput {
 	return o
+}
+
+// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
+func (o PasswordOutput) AuthProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.StringPtrOutput { return v.AuthProvider }).(pulumi.StringPtrOutput)
+}
+
+// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+func (o PasswordOutput) CallRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.StringPtrOutput { return v.CallRecovery }).(pulumi.StringPtrOutput)
+}
+
+// Policy Description.
+func (o PasswordOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Enable or disable email password recovery: ACTIVE or INACTIVE.
+func (o PasswordOutput) EmailRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.StringPtrOutput { return v.EmailRecovery }).(pulumi.StringPtrOutput)
+}
+
+// List of Group IDs to Include.
+func (o PasswordOutput) GroupsIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Password) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+}
+
+// Policy Name.
+func (o PasswordOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Password) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of minutes before a locked account is unlocked: 0 = no limit.
+func (o PasswordOutput) PasswordAutoUnlockMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.PasswordAutoUnlockMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Check Passwords Against Common Password Dictionary.
+func (o PasswordOutput) PasswordDictionaryLookup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.BoolPtrOutput { return v.PasswordDictionaryLookup }).(pulumi.BoolPtrOutput)
+}
+
+// User firstName attribute must be excluded from the password.
+func (o PasswordOutput) PasswordExcludeFirstName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.BoolPtrOutput { return v.PasswordExcludeFirstName }).(pulumi.BoolPtrOutput)
+}
+
+// User lastName attribute must be excluded from the password.
+func (o PasswordOutput) PasswordExcludeLastName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.BoolPtrOutput { return v.PasswordExcludeLastName }).(pulumi.BoolPtrOutput)
+}
+
+// If the username must be excluded from the password.
+func (o PasswordOutput) PasswordExcludeUsername() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.BoolPtrOutput { return v.PasswordExcludeUsername }).(pulumi.BoolPtrOutput)
+}
+
+// Length in days a user will be warned before password expiry: 0 = no warning.
+func (o PasswordOutput) PasswordExpireWarnDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.PasswordExpireWarnDays }).(pulumi.IntPtrOutput)
+}
+
+// Number of distinct passwords that must be created before they can be reused: 0 = none.
+func (o PasswordOutput) PasswordHistoryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.PasswordHistoryCount }).(pulumi.IntPtrOutput)
+}
+
+// Notification channels to use to notify a user when their account has been locked.
+func (o PasswordOutput) PasswordLockoutNotificationChannels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Password) pulumi.StringArrayOutput { return v.PasswordLockoutNotificationChannels }).(pulumi.StringArrayOutput)
+}
+
+// Length in days a password is valid before expiry: 0 = no limit.,
+func (o PasswordOutput) PasswordMaxAgeDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.PasswordMaxAgeDays }).(pulumi.IntPtrOutput)
+}
+
+// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+func (o PasswordOutput) PasswordMaxLockoutAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.PasswordMaxLockoutAttempts }).(pulumi.IntPtrOutput)
+}
+
+// Minimum time interval in minutes between password changes: 0 = no limit.
+func (o PasswordOutput) PasswordMinAgeMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.PasswordMinAgeMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Minimum password length. Default is 8.
+func (o PasswordOutput) PasswordMinLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.PasswordMinLength }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of lower case characters in a password.
+func (o PasswordOutput) PasswordMinLowercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.PasswordMinLowercase }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of numbers in a password.
+func (o PasswordOutput) PasswordMinNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.PasswordMinNumber }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of symbols in a password.
+func (o PasswordOutput) PasswordMinSymbol() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.PasswordMinSymbol }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of upper case characters in a password.
+func (o PasswordOutput) PasswordMinUppercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.PasswordMinUppercase }).(pulumi.IntPtrOutput)
+}
+
+// If a user should be informed when their account is locked.
+func (o PasswordOutput) PasswordShowLockoutFailures() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.BoolPtrOutput { return v.PasswordShowLockoutFailures }).(pulumi.BoolPtrOutput)
+}
+
+// Priority of the policy.
+func (o PasswordOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Min length of the password recovery question answer.
+func (o PasswordOutput) QuestionMinLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.QuestionMinLength }).(pulumi.IntPtrOutput)
+}
+
+// Enable or disable security question password recovery: ACTIVE or INACTIVE.
+func (o PasswordOutput) QuestionRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.StringPtrOutput { return v.QuestionRecovery }).(pulumi.StringPtrOutput)
+}
+
+// Lifetime in minutes of the recovery email token.
+func (o PasswordOutput) RecoveryEmailToken() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.IntPtrOutput { return v.RecoveryEmailToken }).(pulumi.IntPtrOutput)
+}
+
+// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
+func (o PasswordOutput) SkipUnlock() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.BoolPtrOutput { return v.SkipUnlock }).(pulumi.BoolPtrOutput)
+}
+
+// Enable or disable SMS password recovery: ACTIVE or INACTIVE.
+func (o PasswordOutput) SmsRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.StringPtrOutput { return v.SmsRecovery }).(pulumi.StringPtrOutput)
+}
+
+// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+func (o PasswordOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Password) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type PasswordArrayOutput struct{ *pulumi.OutputState }

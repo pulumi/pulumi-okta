@@ -70,7 +70,7 @@ import (
 // Security question factor for a user can be imported via the `user_id` and the `factor_id`.
 //
 // ```sh
-//  $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example <user id>/<question factor id>
+//  $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
 // ```
 type UserFactorQuestion struct {
 	pulumi.CustomResourceState
@@ -258,6 +258,31 @@ func (o UserFactorQuestionOutput) ToUserFactorQuestionOutput() UserFactorQuestio
 
 func (o UserFactorQuestionOutput) ToUserFactorQuestionOutputWithContext(ctx context.Context) UserFactorQuestionOutput {
 	return o
+}
+
+// Security question answer. Note here that answer won't be set during the resource import.
+func (o UserFactorQuestionOutput) Answer() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserFactorQuestion) pulumi.StringOutput { return v.Answer }).(pulumi.StringOutput)
+}
+
+// Security question unique key.
+func (o UserFactorQuestionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserFactorQuestion) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// The status of the security question factor.
+func (o UserFactorQuestionOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserFactorQuestion) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Display text for security question.
+func (o UserFactorQuestionOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserFactorQuestion) pulumi.StringOutput { return v.Text }).(pulumi.StringOutput)
+}
+
+// ID of the user. Resource will be recreated when `userId` changes.
+func (o UserFactorQuestionOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserFactorQuestion) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }
 
 type UserFactorQuestionArrayOutput struct{ *pulumi.OutputState }

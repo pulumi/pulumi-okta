@@ -126,7 +126,7 @@ namespace Pulumi.Okta.Policy
     /// A Policy Rule can be imported via the Policy and Rule ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:policy/ruleSignon:RuleSignon example &lt;policy id&gt;/&lt;rule id&gt;
+    ///  $ pulumi import okta:policy/ruleSignon:RuleSignon example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/ruleSignon:RuleSignon")]

@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  * Okta Admin Role Targets can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example <user id>/<role type>
+ *  $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &#60;user id&#62;/&#60;role type&#62;
  * ```
  */
 export class AdminRoleTargets extends pulumi.CustomResource {

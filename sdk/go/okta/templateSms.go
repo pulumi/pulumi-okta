@@ -56,7 +56,7 @@ import (
 // An Okta SMS Template can be imported via the template type.
 //
 // ```sh
-//  $ pulumi import okta:index/templateSms:TemplateSms example <template type>
+//  $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
 // ```
 type TemplateSms struct {
 	pulumi.CustomResourceState
@@ -229,6 +229,21 @@ func (o TemplateSmsOutput) ToTemplateSmsOutput() TemplateSmsOutput {
 
 func (o TemplateSmsOutput) ToTemplateSmsOutputWithContext(ctx context.Context) TemplateSmsOutput {
 	return o
+}
+
+// The SMS message.
+func (o TemplateSmsOutput) Template() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSms) pulumi.StringOutput { return v.Template }).(pulumi.StringOutput)
+}
+
+// Set of translations for a particular template.
+func (o TemplateSmsOutput) Translations() TemplateSmsTranslationArrayOutput {
+	return o.ApplyT(func(v *TemplateSms) TemplateSmsTranslationArrayOutput { return v.Translations }).(TemplateSmsTranslationArrayOutput)
+}
+
+// SMS template type
+func (o TemplateSmsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSms) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 type TemplateSmsArrayOutput struct{ *pulumi.OutputState }

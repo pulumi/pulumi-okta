@@ -22,7 +22,7 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`.
+        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         /// </summary>
         public readonly string Type;
         /// <summary>

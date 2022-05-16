@@ -377,6 +377,157 @@ func (o SocialIdpOutput) ToSocialIdpOutputWithContext(ctx context.Context) Socia
 	return o
 }
 
+func (o SocialIdpOutput) AccountLinkAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.AccountLinkAction }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) AccountLinkGroupIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringArrayOutput { return v.AccountLinkGroupIncludes }).(pulumi.StringArrayOutput)
+}
+
+// The Key ID that you obtained from Apple when you created the private key for the client
+func (o SocialIdpOutput) AppleKid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.AppleKid }).(pulumi.StringPtrOutput)
+}
+
+// The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+func (o SocialIdpOutput) ApplePrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.ApplePrivateKey }).(pulumi.StringPtrOutput)
+}
+
+// The Team ID associated with your Apple developer account
+func (o SocialIdpOutput) AppleTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.AppleTeamId }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) AuthorizationBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringOutput { return v.AuthorizationBinding }).(pulumi.StringOutput)
+}
+
+func (o SocialIdpOutput) AuthorizationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringOutput { return v.AuthorizationUrl }).(pulumi.StringOutput)
+}
+
+func (o SocialIdpOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) DeprovisionedAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.DeprovisionedAction }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) GroupsAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.GroupsAction }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) GroupsAssignments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringArrayOutput { return v.GroupsAssignments }).(pulumi.StringArrayOutput)
+}
+
+func (o SocialIdpOutput) GroupsAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.GroupsAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) GroupsFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringArrayOutput { return v.GroupsFilters }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+func (o SocialIdpOutput) IssuerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
+func (o SocialIdpOutput) MatchAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.MatchAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
+func (o SocialIdpOutput) MatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.MatchType }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) MaxClockSkew() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.IntPtrOutput { return v.MaxClockSkew }).(pulumi.IntPtrOutput)
+}
+
+// Name of the IdP
+func (o SocialIdpOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SocialIdpOutput) ProfileMaster() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.BoolPtrOutput { return v.ProfileMaster }).(pulumi.BoolPtrOutput)
+}
+
+func (o SocialIdpOutput) ProtocolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.ProtocolType }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) ProvisioningAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign requests
+func (o SocialIdpOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign response
+func (o SocialIdpOutput) RequestSignatureScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign requests
+func (o SocialIdpOutput) ResponseSignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.ResponseSignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// algorithm to use to sign response
+func (o SocialIdpOutput) ResponseSignatureScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.ResponseSignatureScope }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+func (o SocialIdpOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) SubjectMatchAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.SubjectMatchAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) SubjectMatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.SubjectMatchType }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) SuspendedAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.SuspendedAction }).(pulumi.StringPtrOutput)
+}
+
+func (o SocialIdpOutput) TokenBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringOutput { return v.TokenBinding }).(pulumi.StringOutput)
+}
+
+func (o SocialIdpOutput) TokenUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringOutput { return v.TokenUrl }).(pulumi.StringOutput)
+}
+
+func (o SocialIdpOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o SocialIdpOutput) UsernameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.UsernameTemplate }).(pulumi.StringPtrOutput)
+}
+
 type SocialIdpArrayOutput struct{ *pulumi.OutputState }
 
 func (SocialIdpArrayOutput) ElementType() reflect.Type {

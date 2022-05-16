@@ -38,7 +38,7 @@ namespace Pulumi.Okta
     /// Custom email sender can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/emailSender:EmailSender example &lt;sender id&gt;
+    ///  $ pulumi import okta:index/emailSender:EmailSender example &amp;#60;sender id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/emailSender:EmailSender")]

@@ -198,6 +198,21 @@ func (o OrgSupportOutput) ToOrgSupportOutputWithContext(ctx context.Context) Org
 	return o
 }
 
+// Expiration of Okta Support
+func (o OrgSupportOutput) Expiration() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrgSupport) pulumi.StringOutput { return v.Expiration }).(pulumi.StringOutput)
+}
+
+// Number of days the support should be extended by in addition to the standard eight hours.
+func (o OrgSupportOutput) ExtendBy() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OrgSupport) pulumi.IntPtrOutput { return v.ExtendBy }).(pulumi.IntPtrOutput)
+}
+
+// Status of Okta Support
+func (o OrgSupportOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrgSupport) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
 type OrgSupportArrayOutput struct{ *pulumi.OutputState }
 
 func (OrgSupportArrayOutput) ElementType() reflect.Type {

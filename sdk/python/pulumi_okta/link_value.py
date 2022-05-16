@@ -174,7 +174,7 @@ class LinkValue(pulumi.CustomResource):
         Okta Link Value can be imported via Primary Name and Primary User ID.
 
         ```sh
-         $ pulumi import okta:index/linkValue:LinkValue example <primary_name>/<primary_user_id>
+         $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -234,7 +234,7 @@ class LinkValue(pulumi.CustomResource):
         Okta Link Value can be imported via Primary Name and Primary User ID.
 
         ```sh
-         $ pulumi import okta:index/linkValue:LinkValue example <primary_name>/<primary_user_id>
+         $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

@@ -48,7 +48,7 @@ import (
 // Authorization Server can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:auth/server:Server example <auth server id>
+//  $ pulumi import okta:auth/server:Server example &#60;auth server id&#62;
 // ```
 type Server struct {
 	pulumi.CustomResourceState
@@ -272,6 +272,56 @@ func (o ServerOutput) ToServerOutput() ServerOutput {
 
 func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return o
+}
+
+// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+func (o ServerOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.Audiences }).(pulumi.StringArrayOutput)
+}
+
+// The timestamp when the authorization server started to use the `kid` for signing tokens.
+func (o ServerOutput) CredentialsLastRotated() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.CredentialsLastRotated }).(pulumi.StringOutput)
+}
+
+// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
+func (o ServerOutput) CredentialsNextRotation() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.CredentialsNextRotation }).(pulumi.StringOutput)
+}
+
+// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+func (o ServerOutput) CredentialsRotationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.CredentialsRotationMode }).(pulumi.StringPtrOutput)
+}
+
+// The description of the authorization server.
+func (o ServerOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
+func (o ServerOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+func (o ServerOutput) IssuerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
+func (o ServerOutput) Kid() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Kid }).(pulumi.StringOutput)
+}
+
+// The name of the authorization server.
+func (o ServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the auth server. It defaults to `"ACTIVE"`
+func (o ServerOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type ServerArrayOutput struct{ *pulumi.OutputState }

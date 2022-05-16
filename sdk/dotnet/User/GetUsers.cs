@@ -17,6 +17,7 @@ namespace Pulumi.Okta.User
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
+        /// ### Lookup Users by Search Criteria
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -32,9 +33,7 @@ namespace Pulumi.Okta.User
         ///             {
         ///                 new Okta.User.Inputs.GetUsersSearchArgs
         ///                 {
-        ///                     Comparison = "sw",
-        ///                     Name = "profile.company",
-        ///                     Value = "Articulate",
+        ///                     Expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
         ///                 },
         ///             },
         ///         }));
@@ -43,9 +42,32 @@ namespace Pulumi.Okta.User
         /// }
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Lookup Users by Group Membership
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleGroup = new Okta.Group.Group("exampleGroup", new Okta.Group.GroupArgs
+        ///         {
+        ///         });
+        ///         var exampleUsers = Okta.User.GetUsers.Invoke(new Okta.User.GetUsersInvokeArgs
+        ///         {
+        ///             GroupId = exampleGroup.Id,
+        ///             IncludeGroups = true,
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetUsersResult> InvokeAsync(GetUsersArgs args, InvokeOptions? options = null)
+        public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("okta:user/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
         /// <summary>
@@ -54,6 +76,7 @@ namespace Pulumi.Okta.User
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
+        /// ### Lookup Users by Search Criteria
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -69,9 +92,7 @@ namespace Pulumi.Okta.User
         ///             {
         ///                 new Okta.User.Inputs.GetUsersSearchArgs
         ///                 {
-        ///                     Comparison = "sw",
-        ///                     Name = "profile.company",
-        ///                     Value = "Articulate",
+        ///                     Expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
         ///                 },
         ///             },
         ///         }));
@@ -80,20 +101,61 @@ namespace Pulumi.Okta.User
         /// }
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Lookup Users by Group Membership
+        /// ```csharp
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleGroup = new Okta.Group.Group("exampleGroup", new Okta.Group.GroupArgs
+        ///         {
+        ///         });
+        ///         var exampleUsers = Okta.User.GetUsers.Invoke(new Okta.User.GetUsersInvokeArgs
+        ///         {
+        ///             GroupId = exampleGroup.Id,
+        ///             IncludeGroups = true,
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUsersResult>("okta:user/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetUsersArgs : Pulumi.InvokeArgs
     {
-        [Input("searches", required: true)]
+        /// <summary>
+        /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+        /// </summary>
+        [Input("compoundSearchOperator")]
+        public string? CompoundSearchOperator { get; set; }
+
+        /// <summary>
+        /// Id of group used to find users based on membership.
+        /// </summary>
+        [Input("groupId")]
+        public string? GroupId { get; set; }
+
+        /// <summary>
+        /// Fetch each user's group memberships. Defaults to `false`, in which case the `group_memberships` user attribute will be empty.
+        /// </summary>
+        [Input("includeGroups")]
+        public bool? IncludeGroups { get; set; }
+
+        [Input("searches")]
         private List<Inputs.GetUsersSearchArgs>? _searches;
 
         /// <summary>
-        /// Map of search criteria to find users. It supports the following properties.
+        /// Map of search criteria. It supports the following properties.
         /// </summary>
         public List<Inputs.GetUsersSearchArgs> Searches
         {
@@ -108,11 +170,29 @@ namespace Pulumi.Okta.User
 
     public sealed class GetUsersInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("searches", required: true)]
+        /// <summary>
+        /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+        /// </summary>
+        [Input("compoundSearchOperator")]
+        public Input<string>? CompoundSearchOperator { get; set; }
+
+        /// <summary>
+        /// Id of group used to find users based on membership.
+        /// </summary>
+        [Input("groupId")]
+        public Input<string>? GroupId { get; set; }
+
+        /// <summary>
+        /// Fetch each user's group memberships. Defaults to `false`, in which case the `group_memberships` user attribute will be empty.
+        /// </summary>
+        [Input("includeGroups")]
+        public Input<bool>? IncludeGroups { get; set; }
+
+        [Input("searches")]
         private InputList<Inputs.GetUsersSearchInputArgs>? _searches;
 
         /// <summary>
-        /// Map of search criteria to find users. It supports the following properties.
+        /// Map of search criteria. It supports the following properties.
         /// </summary>
         public InputList<Inputs.GetUsersSearchInputArgs> Searches
         {
@@ -129,10 +209,13 @@ namespace Pulumi.Okta.User
     [OutputType]
     public sealed class GetUsersResult
     {
+        public readonly string? CompoundSearchOperator;
+        public readonly string? GroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly bool? IncludeGroups;
         public readonly ImmutableArray<Outputs.GetUsersSearchResult> Searches;
         /// <summary>
         /// collection of users retrieved from Okta with the following properties.
@@ -141,13 +224,22 @@ namespace Pulumi.Okta.User
 
         [OutputConstructor]
         private GetUsersResult(
+            string? compoundSearchOperator,
+
+            string? groupId,
+
             string id,
+
+            bool? includeGroups,
 
             ImmutableArray<Outputs.GetUsersSearchResult> searches,
 
             ImmutableArray<Outputs.GetUsersUserResult> users)
         {
+            CompoundSearchOperator = compoundSearchOperator;
+            GroupId = groupId;
             Id = id;
+            IncludeGroups = includeGroups;
             Searches = searches;
             Users = users;
         }

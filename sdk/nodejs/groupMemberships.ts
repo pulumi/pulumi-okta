@@ -26,6 +26,14 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * an Okta Group's memberships can be imported via the Okta group ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
+ * ```
  */
 export class GroupMemberships extends pulumi.CustomResource {
     /**

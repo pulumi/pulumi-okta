@@ -241,7 +241,7 @@ import * as utilities from "./utilities";
  * Okta app sign-on policy rule can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example <policy_id>/<rule_id>
+ *  $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
  * ```
  */
 export class AppSignonPolicyRule extends pulumi.CustomResource {

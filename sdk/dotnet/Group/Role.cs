@@ -40,7 +40,7 @@ namespace Pulumi.Okta.Group
     /// Individual admin role assignment can be imported by passing the group and role assignment IDs as follows
     /// 
     /// ```sh
-    ///  $ pulumi import okta:group/role:Role example &lt;group id&gt;/&lt;role id&gt;
+    ///  $ pulumi import okta:group/role:Role example &amp;#60;group id&amp;#62;/&amp;#60;role id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:group/role:Role")]

@@ -71,21 +71,21 @@ import (
 // Okta Auto Login App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/autoLogin:AutoLogin example <app id>
+//  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
 // ```
 //
 //  It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/autoLogin:AutoLogin example <app id>/skip_users
+//  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/autoLogin:AutoLogin example <app id>/skip_users/skip_groups
+//  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users/skip_groups
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/autoLogin:AutoLogin example <app id>/skip_groups
+//  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_groups
 // ```
 type AutoLogin struct {
 	pulumi.CustomResourceState
@@ -553,6 +553,167 @@ func (o AutoLoginOutput) ToAutoLoginOutput() AutoLoginOutput {
 
 func (o AutoLoginOutput) ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginOutput {
 	return o
+}
+
+// Custom error page URL.
+func (o AutoLoginOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page for this application.
+func (o AutoLoginOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self-service. By default, it is `false`.
+func (o AutoLoginOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for admins.
+func (o AutoLoginOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app. The value for each application link should be boolean.
+func (o AutoLoginOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Application settings in JSON format.
+func (o AutoLoginOutput) AppSettingsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
+}
+
+// Display auto submit toolbar.
+func (o AutoLoginOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+func (o AutoLoginOutput) CredentialsScheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.CredentialsScheme }).(pulumi.StringPtrOutput)
+}
+
+// Application notes for end users.
+func (o AutoLoginOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o AutoLoginOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app.
+func (o AutoLoginOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users.
+func (o AutoLoginOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// The Application's display name.
+func (o AutoLoginOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+func (o AutoLoginOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// Direct link of application logo.
+func (o AutoLoginOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// Name assigned to the application by Okta.
+func (o AutoLoginOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
+func (o AutoLoginOutput) PreconfiguredApp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.PreconfiguredApp }).(pulumi.StringPtrOutput)
+}
+
+// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+func (o AutoLoginOutput) RevealPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.RevealPassword }).(pulumi.BoolPtrOutput)
+}
+
+// Shared password, required for certain schemes
+func (o AutoLoginOutput) SharedPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.SharedPassword }).(pulumi.StringPtrOutput)
+}
+
+// Shared username, required for certain schemes
+func (o AutoLoginOutput) SharedUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.SharedUsername }).(pulumi.StringPtrOutput)
+}
+
+// Sign-on mode of the application.
+func (o AutoLoginOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
+func (o AutoLoginOutput) SignOnRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.SignOnRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// App login page URL
+func (o AutoLoginOutput) SignOnUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.SignOnUrl }).(pulumi.StringPtrOutput)
+}
+
+// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+func (o AutoLoginOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+func (o AutoLoginOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// The status of the application, by default, it is `"ACTIVE"`.
+func (o AutoLoginOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Username template. Default: `"${source.login}"`
+func (o AutoLoginOutput) UserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+func (o AutoLoginOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
+}
+
+// Username template suffix.
+func (o AutoLoginOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Username template type. Default: `"BUILT_IN"`.
+func (o AutoLoginOutput) UserNameTemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
+}
+
+// The users assigned to the application. See `app.User` for a more flexible approach.
+// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o AutoLoginOutput) Users() AutoLoginUserArrayOutput {
+	return o.ApplyT(func(v *AutoLogin) AutoLoginUserArrayOutput { return v.Users }).(AutoLoginUserArrayOutput)
 }
 
 type AutoLoginArrayOutput struct{ *pulumi.OutputState }

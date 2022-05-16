@@ -210,6 +210,11 @@ func (o EventHookVerificationOutput) ToEventHookVerificationOutputWithContext(ct
 	return o
 }
 
+// Event Hook ID.
+func (o EventHookVerificationOutput) EventHookId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHookVerification) pulumi.StringOutput { return v.EventHookId }).(pulumi.StringOutput)
+}
+
 type EventHookVerificationArrayOutput struct{ *pulumi.OutputState }
 
 func (EventHookVerificationArrayOutput) ElementType() reflect.Type {

@@ -61,7 +61,7 @@ import (
 // A post logout redirect URI can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example <app id>/<uri>
+//  $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
 // ```
 type OAuthPostLogoutRedirectUri struct {
 	pulumi.CustomResourceState
@@ -224,6 +224,16 @@ func (o OAuthPostLogoutRedirectUriOutput) ToOAuthPostLogoutRedirectUriOutput() O
 
 func (o OAuthPostLogoutRedirectUriOutput) ToOAuthPostLogoutRedirectUriOutputWithContext(ctx context.Context) OAuthPostLogoutRedirectUriOutput {
 	return o
+}
+
+// OAuth application ID.
+func (o OAuthPostLogoutRedirectUriOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuthPostLogoutRedirectUri) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+// Post Logout Redirect URI to append to Okta OIDC application.
+func (o OAuthPostLogoutRedirectUriOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuthPostLogoutRedirectUri) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
 }
 
 type OAuthPostLogoutRedirectUriArrayOutput struct{ *pulumi.OutputState }

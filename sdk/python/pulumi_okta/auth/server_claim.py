@@ -349,7 +349,7 @@ class ServerClaim(pulumi.CustomResource):
         Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
 
         ```sh
-         $ pulumi import okta:auth/serverClaim:ServerClaim example <auth server id>/<claim id>
+         $ pulumi import okta:auth/serverClaim:ServerClaim example &#60;auth server id&#62;/&#60;claim id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -393,7 +393,7 @@ class ServerClaim(pulumi.CustomResource):
         Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
 
         ```sh
-         $ pulumi import okta:auth/serverClaim:ServerClaim example <auth server id>/<claim id>
+         $ pulumi import okta:auth/serverClaim:ServerClaim example &#60;auth server id&#62;/&#60;claim id&#62;
         ```
 
         :param str resource_name: The name of the resource.

@@ -69,7 +69,7 @@ import (
 // A settings for the SAML App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example <app id>
+//  $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
 // ```
 type AppSamlAppSettings struct {
 	pulumi.CustomResourceState
@@ -232,6 +232,16 @@ func (o AppSamlAppSettingsOutput) ToAppSamlAppSettingsOutput() AppSamlAppSetting
 
 func (o AppSamlAppSettingsOutput) ToAppSamlAppSettingsOutputWithContext(ctx context.Context) AppSamlAppSettingsOutput {
 	return o
+}
+
+// ID of the application.
+func (o AppSamlAppSettingsOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppSamlAppSettings) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+// Application settings in JSON format.
+func (o AppSamlAppSettingsOutput) Settings() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppSamlAppSettings) pulumi.StringOutput { return v.Settings }).(pulumi.StringOutput)
 }
 
 type AppSamlAppSettingsArrayOutput struct{ *pulumi.OutputState }

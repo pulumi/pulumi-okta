@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ** This resource is deprecated. Swith over to the emailCustomization resource.
+//
 // Creates an Okta Email Template.
 //
 // This resource allows you to create and configure an Okta Email Template.
@@ -57,7 +59,7 @@ import (
 // An Okta Email Template can be imported via the template type.
 //
 // ```sh
-//  $ pulumi import okta:template/email:Email example <template type>
+//  $ pulumi import okta:template/email:Email example &#60;template type&#62;
 // ```
 type Email struct {
 	pulumi.CustomResourceState
@@ -230,6 +232,21 @@ func (o EmailOutput) ToEmailOutput() EmailOutput {
 
 func (o EmailOutput) ToEmailOutputWithContext(ctx context.Context) EmailOutput {
 	return o
+}
+
+// The default language, by default is set to `"en"`.
+func (o EmailOutput) DefaultLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Email) pulumi.StringPtrOutput { return v.DefaultLanguage }).(pulumi.StringPtrOutput)
+}
+
+// Set of translations for a particular template.
+func (o EmailOutput) Translations() EmailTranslationArrayOutput {
+	return o.ApplyT(func(v *Email) EmailTranslationArrayOutput { return v.Translations }).(EmailTranslationArrayOutput)
+}
+
+// Email template type
+func (o EmailOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Email) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 type EmailArrayOutput struct{ *pulumi.OutputState }

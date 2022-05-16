@@ -41,21 +41,21 @@ import * as utilities from "./utilities";
  * Okta SWA Shared Credentials App can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>
+ *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;
  * ```
  *
  *  It's also possible to import app without groups or/and users. In this case ID may look like this
  *
  * ```sh
- *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users
+ *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users
  * ```
  *
  * ```sh
- *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users/skip_groups
+ *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users/skip_groups
  * ```
  *
  * ```sh
- *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_groups
+ *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_groups
  * ```
  */
 export class AppSharedCredentials extends pulumi.CustomResource {

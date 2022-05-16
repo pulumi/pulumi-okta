@@ -49,7 +49,7 @@ import (
 // Okta Link Definition can be imported via the Okta Primary Link Name.
 //
 // ```sh
-//  $ pulumi import okta:index/linkDefinition:LinkDefinition example <primary_name>
+//  $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
 // ```
 type LinkDefinition struct {
 	pulumi.CustomResourceState
@@ -264,6 +264,36 @@ func (o LinkDefinitionOutput) ToLinkDefinitionOutput() LinkDefinitionOutput {
 
 func (o LinkDefinitionOutput) ToLinkDefinitionOutputWithContext(ctx context.Context) LinkDefinitionOutput {
 	return o
+}
+
+// Description of the associated relationship.
+func (o LinkDefinitionOutput) AssociatedDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkDefinition) pulumi.StringOutput { return v.AssociatedDescription }).(pulumi.StringOutput)
+}
+
+// API name of the associated link.
+func (o LinkDefinitionOutput) AssociatedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkDefinition) pulumi.StringOutput { return v.AssociatedName }).(pulumi.StringOutput)
+}
+
+// Display name of the associated link.
+func (o LinkDefinitionOutput) AssociatedTitle() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkDefinition) pulumi.StringOutput { return v.AssociatedTitle }).(pulumi.StringOutput)
+}
+
+// Description of the primary relationship.
+func (o LinkDefinitionOutput) PrimaryDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkDefinition) pulumi.StringOutput { return v.PrimaryDescription }).(pulumi.StringOutput)
+}
+
+// API name of the primary link.
+func (o LinkDefinitionOutput) PrimaryName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkDefinition) pulumi.StringOutput { return v.PrimaryName }).(pulumi.StringOutput)
+}
+
+// Display name of the primary link.
+func (o LinkDefinitionOutput) PrimaryTitle() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkDefinition) pulumi.StringOutput { return v.PrimaryTitle }).(pulumi.StringOutput)
 }
 
 type LinkDefinitionArrayOutput struct{ *pulumi.OutputState }

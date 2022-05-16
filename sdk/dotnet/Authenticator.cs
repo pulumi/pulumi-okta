@@ -46,14 +46,14 @@ namespace Pulumi.Okta
     /// Okta authenticator can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/authenticator:Authenticator example &lt;authenticator_id&gt;
+    ///  $ pulumi import okta:index/authenticator:Authenticator example &amp;#60;authenticator_id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/authenticator:Authenticator")]
     public partial class Authenticator : Pulumi.CustomResource
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
+        /// A human-readable string that identifies the authenticator. Possible values inclue: `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, and `"webauthn"`.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Okta
     public sealed class AuthenticatorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
+        /// A human-readable string that identifies the authenticator. Possible values inclue: `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, and `"webauthn"`.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Okta
     public sealed class AuthenticatorState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Possible values inclue: `"duo"`, `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, `"webauthn"`, and `"yubikey_token"`.
+        /// A human-readable string that identifies the authenticator. Possible values inclue: `"external_idp"`, `"google_otp"`, `"okta_email"`, `"okta_password"`, `"okta_verify"`, `"onprem_mfa"`, `"phone_number"`, `"rsa_token"`, `"security_question"`, and `"webauthn"`.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

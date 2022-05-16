@@ -403,6 +403,129 @@ func (o SignonPolicyRuleOutput) ToSignonPolicyRuleOutputWithContext(ctx context.
 	return o
 }
 
+// Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
+func (o SignonPolicyRuleOutput) Access() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringPtrOutput { return v.Access }).(pulumi.StringPtrOutput)
+}
+
+// Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
+func (o SignonPolicyRuleOutput) Authtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringPtrOutput { return v.Authtype }).(pulumi.StringPtrOutput)
+}
+
+// List of behavior IDs
+func (o SignonPolicyRuleOutput) Behaviors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringArrayOutput { return v.Behaviors }).(pulumi.StringArrayOutput)
+}
+
+func (o SignonPolicyRuleOutput) FactorSequences() SignonPolicyRuleFactorSequenceArrayOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) SignonPolicyRuleFactorSequenceArrayOutput { return v.FactorSequences }).(SignonPolicyRuleFactorSequenceArrayOutput)
+}
+
+// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+func (o SignonPolicyRuleOutput) IdentityProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringPtrOutput { return v.IdentityProvider }).(pulumi.StringPtrOutput)
+}
+
+// When identity_provider is SPECIFIC_IDP then this is the list of IdP IDs to apply the rule on
+func (o SignonPolicyRuleOutput) IdentityProviderIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringArrayOutput { return v.IdentityProviderIds }).(pulumi.StringArrayOutput)
+}
+
+// Elapsed time before the next MFA challenge
+func (o SignonPolicyRuleOutput) MfaLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.IntPtrOutput { return v.MfaLifetime }).(pulumi.IntPtrOutput)
+}
+
+// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
+func (o SignonPolicyRuleOutput) MfaPrompt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringPtrOutput { return v.MfaPrompt }).(pulumi.StringPtrOutput)
+}
+
+// Remember MFA device.
+func (o SignonPolicyRuleOutput) MfaRememberDevice() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.BoolPtrOutput { return v.MfaRememberDevice }).(pulumi.BoolPtrOutput)
+}
+
+// Require MFA.
+func (o SignonPolicyRuleOutput) MfaRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.BoolPtrOutput { return v.MfaRequired }).(pulumi.BoolPtrOutput)
+}
+
+// Policy Rule Name
+func (o SignonPolicyRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+func (o SignonPolicyRuleOutput) NetworkConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringPtrOutput { return v.NetworkConnection }).(pulumi.StringPtrOutput)
+}
+
+// The zones to exclude
+func (o SignonPolicyRuleOutput) NetworkExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
+}
+
+// The zones to include
+func (o SignonPolicyRuleOutput) NetworkIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
+}
+
+// Policy ID of the Rule
+func (o SignonPolicyRuleOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Policy ID of the Rule
+//
+// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
+func (o SignonPolicyRuleOutput) Policyid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringPtrOutput { return v.Policyid }).(pulumi.StringPtrOutput)
+}
+
+// Primary factor.
+func (o SignonPolicyRuleOutput) PrimaryFactor() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringOutput { return v.PrimaryFactor }).(pulumi.StringOutput)
+}
+
+// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an
+// invalid priority is provided. API defaults it to the last (lowest) if not there.
+func (o SignonPolicyRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Risc level: ANY, LOW, MEDIUM or HIGH
+func (o SignonPolicyRuleOutput) RiscLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringPtrOutput { return v.RiscLevel }).(pulumi.StringPtrOutput)
+}
+
+// Max minutes a session can be idle.
+func (o SignonPolicyRuleOutput) SessionIdle() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.IntPtrOutput { return v.SessionIdle }).(pulumi.IntPtrOutput)
+}
+
+// Max minutes a session is active: Disable = 0.
+func (o SignonPolicyRuleOutput) SessionLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.IntPtrOutput { return v.SessionLifetime }).(pulumi.IntPtrOutput)
+}
+
+// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+// cookies.
+func (o SignonPolicyRuleOutput) SessionPersistent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.BoolPtrOutput { return v.SessionPersistent }).(pulumi.BoolPtrOutput)
+}
+
+// Policy Rule Status: ACTIVE or INACTIVE.
+func (o SignonPolicyRuleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Set of User IDs to Exclude
+func (o SignonPolicyRuleOutput) UsersExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SignonPolicyRule) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+}
+
 type SignonPolicyRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (SignonPolicyRuleArrayOutput) ElementType() reflect.Type {

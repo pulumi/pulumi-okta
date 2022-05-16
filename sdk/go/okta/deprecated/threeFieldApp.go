@@ -518,6 +518,180 @@ func (o ThreeFieldAppOutput) ToThreeFieldAppOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Custom error page URL
+func (o ThreeFieldAppOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page URL
+func (o ThreeFieldAppOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self service
+func (o ThreeFieldAppOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for admins.
+func (o ThreeFieldAppOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app
+func (o ThreeFieldAppOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Display auto submit toolbar
+func (o ThreeFieldAppOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// Login button field CSS selector
+func (o ThreeFieldAppOutput) ButtonSelector() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringOutput { return v.ButtonSelector }).(pulumi.StringOutput)
+}
+
+// Application credentials scheme
+func (o ThreeFieldAppOutput) CredentialsScheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.CredentialsScheme }).(pulumi.StringPtrOutput)
+}
+
+// Application notes for end users.
+func (o ThreeFieldAppOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// Extra field CSS selector
+func (o ThreeFieldAppOutput) ExtraFieldSelector() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringOutput { return v.ExtraFieldSelector }).(pulumi.StringOutput)
+}
+
+// Value for extra form field
+func (o ThreeFieldAppOutput) ExtraFieldValue() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringOutput { return v.ExtraFieldValue }).(pulumi.StringOutput)
+}
+
+// Groups associated with the application
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o ThreeFieldAppOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app
+func (o ThreeFieldAppOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users
+func (o ThreeFieldAppOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// Pretty name of app.
+func (o ThreeFieldAppOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Local path to logo of the application.
+func (o ThreeFieldAppOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// URL of the application's logo
+func (o ThreeFieldAppOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// Name of the app.
+func (o ThreeFieldAppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Login password field CSS selector
+func (o ThreeFieldAppOutput) PasswordSelector() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringOutput { return v.PasswordSelector }).(pulumi.StringOutput)
+}
+
+// Allow user to reveal password
+func (o ThreeFieldAppOutput) RevealPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.BoolPtrOutput { return v.RevealPassword }).(pulumi.BoolPtrOutput)
+}
+
+// Shared password, required for certain schemes.
+func (o ThreeFieldAppOutput) SharedPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.SharedPassword }).(pulumi.StringPtrOutput)
+}
+
+// Shared username, required for certain schemes.
+func (o ThreeFieldAppOutput) SharedUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.SharedUsername }).(pulumi.StringPtrOutput)
+}
+
+// Sign on mode of application.
+func (o ThreeFieldAppOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+func (o ThreeFieldAppOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+func (o ThreeFieldAppOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Status of application.
+func (o ThreeFieldAppOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Login URL
+func (o ThreeFieldAppOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
+// A regex that further restricts URL to the specified regex
+func (o ThreeFieldAppOutput) UrlRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.UrlRegex }).(pulumi.StringPtrOutput)
+}
+
+// Username template
+func (o ThreeFieldAppOutput) UserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update
+func (o ThreeFieldAppOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
+}
+
+// Username template suffix
+func (o ThreeFieldAppOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Username template type
+func (o ThreeFieldAppOutput) UserNameTemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
+}
+
+// Login username field CSS selector
+func (o ThreeFieldAppOutput) UsernameSelector() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) pulumi.StringOutput { return v.UsernameSelector }).(pulumi.StringOutput)
+}
+
+// Users associated with the application
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o ThreeFieldAppOutput) Users() ThreeFieldAppUserArrayOutput {
+	return o.ApplyT(func(v *ThreeFieldApp) ThreeFieldAppUserArrayOutput { return v.Users }).(ThreeFieldAppUserArrayOutput)
+}
+
 type ThreeFieldAppArrayOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldAppArrayOutput) ElementType() reflect.Type {

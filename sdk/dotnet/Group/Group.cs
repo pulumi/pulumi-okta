@@ -83,13 +83,13 @@ namespace Pulumi.Okta.Group
     /// An Okta Group can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:group/group:Group example &lt;group id&gt;
+    ///  $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;
     /// ```
     /// 
     ///  It's also possible to import group without users. In this case ID will look like this
     /// 
     /// ```sh
-    ///  $ pulumi import okta:group/group:Group example &lt;group id&gt;/skip_users
+    ///  $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;/skip_users
     /// ```
     /// </summary>
     [OktaResourceType("okta:group/group:Group")]

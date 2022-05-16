@@ -748,7 +748,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         App user schema property can be imported via the property index and app id.
 
         ```sh
-         $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example <app id>/<property name>
+         $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -806,7 +806,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         App user schema property can be imported via the property index and app id.
 
         ```sh
-         $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example <app id>/<property name>
+         $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
         ```
 
         :param str resource_name: The name of the resource.

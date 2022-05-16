@@ -58,21 +58,21 @@ import (
 // Okta SWA Shared Credentials App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>
+//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;
 // ```
 //
 //  It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users
+//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users
 // ```
 //
 // ```sh
-//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_users/skip_groups
+//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users/skip_groups
 // ```
 //
 // ```sh
-//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app id>/skip_groups
+//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_groups
 // ```
 type AppSharedCredentials struct {
 	pulumi.CustomResourceState
@@ -560,6 +560,177 @@ func (o AppSharedCredentialsOutput) ToAppSharedCredentialsOutput() AppSharedCred
 
 func (o AppSharedCredentialsOutput) ToAppSharedCredentialsOutputWithContext(ctx context.Context) AppSharedCredentialsOutput {
 	return o
+}
+
+// Custom error page URL.
+func (o AppSharedCredentialsOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page for this application.
+func (o AppSharedCredentialsOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self-service. By default, it is `false`.
+func (o AppSharedCredentialsOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for admins.
+func (o AppSharedCredentialsOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app. The value for each application link should be boolean.
+func (o AppSharedCredentialsOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Display auto submit toolbar.
+func (o AppSharedCredentialsOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// CSS selector for the Sign-In button in the sign-in form.
+func (o AppSharedCredentialsOutput) ButtonField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.ButtonField }).(pulumi.StringPtrOutput)
+}
+
+// CSS selector for the checkbox.
+func (o AppSharedCredentialsOutput) Checkbox() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.Checkbox }).(pulumi.StringPtrOutput)
+}
+
+// Application notes for end users.
+func (o AppSharedCredentialsOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
+// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o AppSharedCredentialsOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app.
+func (o AppSharedCredentialsOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users.
+func (o AppSharedCredentialsOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// The Application's display name.
+func (o AppSharedCredentialsOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+func (o AppSharedCredentialsOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// Direct link of application logo.
+func (o AppSharedCredentialsOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// Name assigned to the application by Okta.
+func (o AppSharedCredentialsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// CSS selector for the Password field in the sign-in form.
+func (o AppSharedCredentialsOutput) PasswordField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.PasswordField }).(pulumi.StringPtrOutput)
+}
+
+// name of application from the Okta Integration Network, if not included a custom app will be created.
+func (o AppSharedCredentialsOutput) PreconfiguredApp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.PreconfiguredApp }).(pulumi.StringPtrOutput)
+}
+
+// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+func (o AppSharedCredentialsOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.RedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Shared password, required for certain schemes.
+func (o AppSharedCredentialsOutput) SharedPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.SharedPassword }).(pulumi.StringPtrOutput)
+}
+
+// Shared username, required for certain schemes.
+func (o AppSharedCredentialsOutput) SharedUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.SharedUsername }).(pulumi.StringPtrOutput)
+}
+
+// Authentication mode of app.
+func (o AppSharedCredentialsOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
+func (o AppSharedCredentialsOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
+func (o AppSharedCredentialsOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// The status of the application, by default, it is `"ACTIVE"`.
+func (o AppSharedCredentialsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the sign-in page for this app.
+func (o AppSharedCredentialsOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// A regular expression that further restricts url to the specified regular expression.
+func (o AppSharedCredentialsOutput) UrlRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.UrlRegex }).(pulumi.StringPtrOutput)
+}
+
+// Username template. Default: `"${source.login}"`
+func (o AppSharedCredentialsOutput) UserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+func (o AppSharedCredentialsOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
+}
+
+// Username template suffix.
+func (o AppSharedCredentialsOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Username template type. Default: `"BUILT_IN"`.
+func (o AppSharedCredentialsOutput) UserNameTemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
+}
+
+// CSS selector for the username field.
+func (o AppSharedCredentialsOutput) UsernameField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.UsernameField }).(pulumi.StringPtrOutput)
+}
+
+// The users assigned to the application. See `app.User` for a more flexible approach.
+// - `DEPRECATED`: Please replace usage with the `app.User` resource.
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o AppSharedCredentialsOutput) Users() AppSharedCredentialsUserArrayOutput {
+	return o.ApplyT(func(v *AppSharedCredentials) AppSharedCredentialsUserArrayOutput { return v.Users }).(AppSharedCredentialsUserArrayOutput)
 }
 
 type AppSharedCredentialsArrayOutput struct{ *pulumi.OutputState }

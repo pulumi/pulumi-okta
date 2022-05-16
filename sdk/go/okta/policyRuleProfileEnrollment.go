@@ -91,7 +91,7 @@ import (
 // A Policy Rule can be imported via the Policy and Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example <policy id>/<rule id>
+//  $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
 // ```
 type PolicyRuleProfileEnrollment struct {
 	pulumi.CustomResourceState
@@ -316,6 +316,53 @@ func (o PolicyRuleProfileEnrollmentOutput) ToPolicyRuleProfileEnrollmentOutput()
 
 func (o PolicyRuleProfileEnrollmentOutput) ToPolicyRuleProfileEnrollmentOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentOutput {
 	return o
+}
+
+// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+func (o PolicyRuleProfileEnrollmentOutput) Access() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.Access }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether email verification should occur before access is granted. Default is `true`.
+func (o PolicyRuleProfileEnrollmentOutput) EmailVerification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.BoolPtrOutput { return v.EmailVerification }).(pulumi.BoolPtrOutput)
+}
+
+// ID of a Registration Inline Hook.
+func (o PolicyRuleProfileEnrollmentOutput) InlineHookId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.InlineHookId }).(pulumi.StringPtrOutput)
+}
+
+// The name of a User Profile property
+func (o PolicyRuleProfileEnrollmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Policy ID.
+func (o PolicyRuleProfileEnrollmentOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// A list of attributes to prompt the user during registration or progressive profiling.
+func (o PolicyRuleProfileEnrollmentOutput) ProfileAttributes() PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
+		return v.ProfileAttributes
+	}).(PolicyRuleProfileEnrollmentProfileAttributeArrayOutput)
+}
+
+// Status of the Rule.
+func (o PolicyRuleProfileEnrollmentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The ID of a Group that this User should be added to.
+func (o PolicyRuleProfileEnrollmentOutput) TargetGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.TargetGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+func (o PolicyRuleProfileEnrollmentOutput) UnknownUserAction() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringOutput { return v.UnknownUserAction }).(pulumi.StringOutput)
 }
 
 type PolicyRuleProfileEnrollmentArrayOutput struct{ *pulumi.OutputState }

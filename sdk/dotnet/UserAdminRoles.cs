@@ -52,7 +52,7 @@ namespace Pulumi.Okta
     /// Existing user admin roles can be imported via the Okta User ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &lt;user id&gt;
+    ///  $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &amp;#60;user id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/userAdminRoles:UserAdminRoles")]

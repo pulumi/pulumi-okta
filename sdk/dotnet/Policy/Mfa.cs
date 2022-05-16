@@ -62,7 +62,7 @@ namespace Pulumi.Okta.Policy
     /// An MFA Policy can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:policy/mfa:Mfa example &lt;policy id&gt;
+    ///  $ pulumi import okta:policy/mfa:Mfa example &amp;#60;policy id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/mfa:Mfa")]

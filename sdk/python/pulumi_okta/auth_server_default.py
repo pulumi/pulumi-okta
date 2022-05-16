@@ -313,7 +313,7 @@ class AuthServerDefault(pulumi.CustomResource):
         Authorization Server can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/authServerDefault:AuthServerDefault example <auth server name>
+         $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;auth server name&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -350,7 +350,7 @@ class AuthServerDefault(pulumi.CustomResource):
         Authorization Server can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/authServerDefault:AuthServerDefault example <auth server name>
+         $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;auth server name&#62;
         ```
 
         :param str resource_name: The name of the resource.

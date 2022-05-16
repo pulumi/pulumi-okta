@@ -45,7 +45,7 @@ namespace Pulumi.Okta
     /// Okta Admin Role Targets can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &lt;user id&gt;/&lt;role type&gt;
+    ///  $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &amp;#60;user id&amp;#62;/&amp;#60;role type&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/adminRoleTargets:AdminRoleTargets")]

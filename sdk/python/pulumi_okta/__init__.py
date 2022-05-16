@@ -19,11 +19,13 @@ from .auth_server_claim_default import *
 from .auth_server_default import *
 from .authenticator import *
 from .behaviour import *
+from .brand import *
 from .captcha import *
 from .captcha_org_wide_settings import *
 from .domain import *
 from .domain_certificate import *
 from .domain_verification import *
+from .email_customization import *
 from .email_sender import *
 from .email_sender_verification import *
 from .event_hook import *
@@ -37,9 +39,17 @@ from .get_auth_server_claims import *
 from .get_authenticator import *
 from .get_behaviour import *
 from .get_behaviours import *
+from .get_brand import *
+from .get_brands import *
+from .get_email_customization import *
+from .get_email_customizations import *
 from .get_groups import *
 from .get_network_zone import *
 from .get_role_subscription import *
+from .get_template import *
+from .get_templates import *
+from .get_theme import *
+from .get_themes import *
 from .get_trusted_origins import *
 from .get_user_security_questions import *
 from .group_memberships import *
@@ -59,6 +69,7 @@ from .resource_set import *
 from .role_subscription import *
 from .security_notification_emails import *
 from .template_sms import *
+from .theme import *
 from .threat_insight_settings import *
 from .user_admin_roles import *
 from .user_base_schema_property import *
@@ -615,6 +626,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/brand",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/brand:Brand": "Brand"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/captcha",
   "fqn": "pulumi_okta",
   "classes": {
@@ -651,6 +670,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/domainVerification:DomainVerification": "DomainVerification"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/emailCustomization",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/emailCustomization:EmailCustomization": "EmailCustomization"
   }
  },
  {
@@ -819,6 +846,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/templateSms:TemplateSms": "TemplateSms"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/theme",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/theme:Theme": "Theme"
   }
  },
  {

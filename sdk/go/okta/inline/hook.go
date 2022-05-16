@@ -54,7 +54,7 @@ import (
 // An inline hook can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:inline/hook:Hook example <hook id>
+//  $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
 // ```
 type Hook struct {
 	pulumi.CustomResourceState
@@ -265,6 +265,40 @@ func (o HookOutput) ToHookOutput() HookOutput {
 
 func (o HookOutput) ToHookOutputWithContext(ctx context.Context) HookOutput {
 	return o
+}
+
+// Authentication required for inline hook request.
+func (o HookOutput) Auth() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Hook) pulumi.StringMapOutput { return v.Auth }).(pulumi.StringMapOutput)
+}
+
+// Details of the endpoint the inline hook will hit.
+func (o HookOutput) Channel() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Hook) pulumi.StringMapOutput { return v.Channel }).(pulumi.StringMapOutput)
+}
+
+// Map of headers to send along in inline hook request.
+func (o HookOutput) Headers() HookHeaderArrayOutput {
+	return o.ApplyT(func(v *Hook) HookHeaderArrayOutput { return v.Headers }).(HookHeaderArrayOutput)
+}
+
+// The inline hook display name.
+func (o HookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o HookOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Hook) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+func (o HookOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hook) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the channel. The currently-supported version is `"1.0.0"`.
+func (o HookOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hook) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
 type HookArrayOutput struct{ *pulumi.OutputState }

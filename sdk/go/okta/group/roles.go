@@ -46,7 +46,7 @@ import (
 // Group Role Assignment can be imported via the Okta Group ID.
 //
 // ```sh
-//  $ pulumi import okta:group/roles:Roles example <group id>
+//  $ pulumi import okta:group/roles:Roles example &#60;group id&#62;
 // ```
 type Roles struct {
 	pulumi.CustomResourceState
@@ -206,6 +206,16 @@ func (o RolesOutput) ToRolesOutput() RolesOutput {
 
 func (o RolesOutput) ToRolesOutputWithContext(ctx context.Context) RolesOutput {
 	return o
+}
+
+// Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+func (o RolesOutput) AdminRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Roles) pulumi.StringArrayOutput { return v.AdminRoles }).(pulumi.StringArrayOutput)
+}
+
+// The ID of group to attach admin roles to.
+func (o RolesOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Roles) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
 type RolesArrayOutput struct{ *pulumi.OutputState }

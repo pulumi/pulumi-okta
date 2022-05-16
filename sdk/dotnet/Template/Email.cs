@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Template
 {
     /// <summary>
+    /// ** This resource is deprecated. Swith over to the email_customization resource.
+    /// 
     /// Creates an Okta Email Template.
     /// 
     /// This resource allows you to create and configure an Okta Email Template.
@@ -53,7 +55,7 @@ namespace Pulumi.Okta.Template
     /// An Okta Email Template can be imported via the template type.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:template/email:Email example &lt;template type&gt;
+    ///  $ pulumi import okta:template/email:Email example &amp;#60;template type&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:template/email:Email")]

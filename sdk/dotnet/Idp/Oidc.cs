@@ -53,7 +53,7 @@ namespace Pulumi.Okta.Idp
     /// An OIDC IdP can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:idp/oidc:Oidc example &lt;idp id&gt;
+    ///  $ pulumi import okta:idp/oidc:Oidc example &amp;#60;idp id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:idp/oidc:Oidc")]

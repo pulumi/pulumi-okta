@@ -29,7 +29,7 @@ import (
 // Okta Resource Set can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/resourceSet:ResourceSet example <resource_set_id>
+//  $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
 // ```
 type ResourceSet struct {
 	pulumi.CustomResourceState
@@ -207,6 +207,22 @@ func (o ResourceSetOutput) ToResourceSetOutput() ResourceSetOutput {
 
 func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) ResourceSetOutput {
 	return o
+}
+
+// A description of the Resource Set.
+func (o ResourceSetOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Unique name given to the Resource Set.
+func (o ResourceSetOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// The endpoints that reference the resources to be included in the new Resource Set. At least one
+// endpoint must be specified when creating resource set.
+func (o ResourceSetOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
 type ResourceSetArrayOutput struct{ *pulumi.OutputState }

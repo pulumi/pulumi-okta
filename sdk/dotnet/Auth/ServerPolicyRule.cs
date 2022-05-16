@@ -49,7 +49,7 @@ namespace Pulumi.Okta.Auth
     /// Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example &lt;auth server id&gt;/&lt;policy id&gt;/&lt;policy rule id&gt;
+    ///  $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example &amp;#60;auth server id&amp;#62;/&amp;#60;policy id&amp;#62;/&amp;#60;policy rule id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:auth/serverPolicyRule:ServerPolicyRule")]

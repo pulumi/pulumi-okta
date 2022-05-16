@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  * A Policy Rule can be imported via the Policy and Rule ID.
  *
  * ```sh
- *  $ pulumi import okta:policy/ruleSignon:RuleSignon example <policy id>/<rule id>
+ *  $ pulumi import okta:policy/ruleSignon:RuleSignon example &#60;policy id&#62;/&#60;rule id&#62;
  * ```
  */
 export class RuleSignon extends pulumi.CustomResource {

@@ -9,27 +9,42 @@ import * as utilities from "../utilities";
  * Use this data source to retrieve a list of users from Okta.
  *
  * ## Example Usage
+ * ### Lookup Users by Search Criteria
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
+ * // Search for multiple users based on a raw search expression string
  * const example = pulumi.output(okta.user.getUsers({
  *     searches: [{
- *         comparison: "sw",
- *         name: "profile.company",
- *         value: "Articulate",
+ *         expression: "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
  *     }],
  * }));
  * ```
+ * ### Lookup Users by Group Membership
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleGroup = new okta.group.Group("exampleGroup", {});
+ * const exampleUsers = okta.user.getUsersOutput({
+ *     groupId: exampleGroup.id,
+ *     includeGroups: true,
+ * });
+ * ```
  */
-export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
+export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:user/getUsers:getUsers", {
+        "compoundSearchOperator": args.compoundSearchOperator,
+        "groupId": args.groupId,
+        "includeGroups": args.includeGroups,
         "searches": args.searches,
     }, opts);
 }
@@ -39,27 +54,42 @@ export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetUsersArgs {
     /**
-     * Map of search criteria to find users. It supports the following properties.
+     * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      */
-    searches: inputs.user.GetUsersSearch[];
+    compoundSearchOperator?: string;
+    /**
+     * Id of group used to find users based on membership.
+     */
+    groupId?: string;
+    /**
+     * Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
+     */
+    includeGroups?: boolean;
+    /**
+     * Map of search criteria. It supports the following properties.
+     */
+    searches?: inputs.user.GetUsersSearch[];
 }
 
 /**
  * A collection of values returned by getUsers.
  */
 export interface GetUsersResult {
+    readonly compoundSearchOperator?: string;
+    readonly groupId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly searches: outputs.user.GetUsersSearch[];
+    readonly includeGroups?: boolean;
+    readonly searches?: outputs.user.GetUsersSearch[];
     /**
      * collection of users retrieved from Okta with the following properties.
      */
     readonly users: outputs.user.GetUsersUser[];
 }
 
-export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
+export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(args).apply(a => getUsers(a, opts))
 }
 
@@ -68,7 +98,19 @@ export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetUsersOutputArgs {
     /**
-     * Map of search criteria to find users. It supports the following properties.
+     * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      */
-    searches: pulumi.Input<pulumi.Input<inputs.user.GetUsersSearchArgs>[]>;
+    compoundSearchOperator?: pulumi.Input<string>;
+    /**
+     * Id of group used to find users based on membership.
+     */
+    groupId?: pulumi.Input<string>;
+    /**
+     * Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
+     */
+    includeGroups?: pulumi.Input<boolean>;
+    /**
+     * Map of search criteria. It supports the following properties.
+     */
+    searches?: pulumi.Input<pulumi.Input<inputs.user.GetUsersSearchArgs>[]>;
 }

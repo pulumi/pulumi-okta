@@ -529,6 +529,190 @@ func (o SecurePasswordStoreAppOutput) ToSecurePasswordStoreAppOutputWithContext(
 	return o
 }
 
+// Custom error page URL
+func (o SecurePasswordStoreAppOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom login page URL
+func (o SecurePasswordStoreAppOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable self service
+func (o SecurePasswordStoreAppOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
+}
+
+// Application notes for admins.
+func (o SecurePasswordStoreAppOutput) AdminNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
+}
+
+// Displays specific appLinks for the app
+func (o SecurePasswordStoreAppOutput) AppLinksJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Display auto submit toolbar
+func (o SecurePasswordStoreAppOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// Application credentials scheme
+func (o SecurePasswordStoreAppOutput) CredentialsScheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.CredentialsScheme }).(pulumi.StringPtrOutput)
+}
+
+// Application notes for end users.
+func (o SecurePasswordStoreAppOutput) EnduserNote() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
+}
+
+// Groups associated with the application
+//
+// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
+func (o SecurePasswordStoreAppOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Do not display application icon on mobile app
+func (o SecurePasswordStoreAppOutput) HideIos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
+}
+
+// Do not display application icon to users
+func (o SecurePasswordStoreAppOutput) HideWeb() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
+}
+
+// Pretty name of app.
+func (o SecurePasswordStoreAppOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Local path to logo of the application.
+func (o SecurePasswordStoreAppOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// URL of the application's logo
+func (o SecurePasswordStoreAppOutput) LogoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
+}
+
+// Name of the app.
+func (o SecurePasswordStoreAppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of optional param in the login form
+func (o SecurePasswordStoreAppOutput) OptionalField1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.OptionalField1 }).(pulumi.StringPtrOutput)
+}
+
+// Name of optional value in login form
+func (o SecurePasswordStoreAppOutput) OptionalField1Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.OptionalField1Value }).(pulumi.StringPtrOutput)
+}
+
+// Name of optional param in the login form
+func (o SecurePasswordStoreAppOutput) OptionalField2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.OptionalField2 }).(pulumi.StringPtrOutput)
+}
+
+// Name of optional value in login form
+func (o SecurePasswordStoreAppOutput) OptionalField2Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.OptionalField2Value }).(pulumi.StringPtrOutput)
+}
+
+// Name of optional param in the login form
+func (o SecurePasswordStoreAppOutput) OptionalField3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.OptionalField3 }).(pulumi.StringPtrOutput)
+}
+
+// Name of optional value in login form
+func (o SecurePasswordStoreAppOutput) OptionalField3Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.OptionalField3Value }).(pulumi.StringPtrOutput)
+}
+
+// Login password field
+func (o SecurePasswordStoreAppOutput) PasswordField() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringOutput { return v.PasswordField }).(pulumi.StringOutput)
+}
+
+// Allow user to reveal password
+func (o SecurePasswordStoreAppOutput) RevealPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.BoolPtrOutput { return v.RevealPassword }).(pulumi.BoolPtrOutput)
+}
+
+// Shared password, required for certain schemes.
+func (o SecurePasswordStoreAppOutput) SharedPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.SharedPassword }).(pulumi.StringPtrOutput)
+}
+
+// Shared username, required for certain schemes.
+func (o SecurePasswordStoreAppOutput) SharedUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.SharedUsername }).(pulumi.StringPtrOutput)
+}
+
+// Sign on mode of application.
+func (o SecurePasswordStoreAppOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+func (o SecurePasswordStoreAppOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+func (o SecurePasswordStoreAppOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Status of application.
+func (o SecurePasswordStoreAppOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Login URL
+func (o SecurePasswordStoreAppOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
+// Username template
+func (o SecurePasswordStoreAppOutput) UserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update
+func (o SecurePasswordStoreAppOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
+}
+
+// Username template suffix
+func (o SecurePasswordStoreAppOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Username template type
+func (o SecurePasswordStoreAppOutput) UserNameTemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
+}
+
+// Login username field
+func (o SecurePasswordStoreAppOutput) UsernameField() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) pulumi.StringOutput { return v.UsernameField }).(pulumi.StringOutput)
+}
+
+// Users associated with the application
+//
+// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
+func (o SecurePasswordStoreAppOutput) Users() SecurePasswordStoreAppUserArrayOutput {
+	return o.ApplyT(func(v *SecurePasswordStoreApp) SecurePasswordStoreAppUserArrayOutput { return v.Users }).(SecurePasswordStoreAppUserArrayOutput)
+}
+
 type SecurePasswordStoreAppArrayOutput struct{ *pulumi.OutputState }
 
 func (SecurePasswordStoreAppArrayOutput) ElementType() reflect.Type {

@@ -444,7 +444,7 @@ class RulePassword(pulumi.CustomResource):
         A Policy Rule can be imported via the Policy and Rule ID.
 
         ```sh
-         $ pulumi import okta:policy/rulePassword:RulePassword example <policy id>/<rule id>
+         $ pulumi import okta:policy/rulePassword:RulePassword example &#60;policy id&#62;/&#60;rule id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -478,7 +478,7 @@ class RulePassword(pulumi.CustomResource):
         A Policy Rule can be imported via the Policy and Rule ID.
 
         ```sh
-         $ pulumi import okta:policy/rulePassword:RulePassword example <policy id>/<rule id>
+         $ pulumi import okta:policy/rulePassword:RulePassword example &#60;policy id&#62;/&#60;rule id&#62;
         ```
 
         :param str resource_name: The name of the resource.

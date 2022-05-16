@@ -93,7 +93,7 @@ namespace Pulumi.Okta.User
     /// An Okta User can be imported via the ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:user/user:User example &lt;user id&gt;
+    ///  $ pulumi import okta:user/user:User example &amp;#60;user id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:user/user:User")]
@@ -329,7 +329,7 @@ namespace Pulumi.Okta.User
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -648,7 +648,7 @@ namespace Pulumi.Okta.User
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -934,7 +934,7 @@ namespace Pulumi.Okta.User
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

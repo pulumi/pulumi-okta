@@ -48,6 +48,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Authenticator{}
 	case "okta:index/behaviour:Behaviour":
 		r = &Behaviour{}
+	case "okta:index/brand:Brand":
+		r = &Brand{}
 	case "okta:index/captcha:Captcha":
 		r = &Captcha{}
 	case "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings":
@@ -58,6 +60,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DomainCertificate{}
 	case "okta:index/domainVerification:DomainVerification":
 		r = &DomainVerification{}
+	case "okta:index/emailCustomization:EmailCustomization":
+		r = &EmailCustomization{}
 	case "okta:index/emailSender:EmailSender":
 		r = &EmailSender{}
 	case "okta:index/emailSenderVerification:EmailSenderVerification":
@@ -100,6 +104,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityNotificationEmails{}
 	case "okta:index/templateSms:TemplateSms":
 		r = &TemplateSms{}
+	case "okta:index/theme:Theme":
+		r = &Theme{}
 	case "okta:index/threatInsightSettings:ThreatInsightSettings":
 		r = &ThreatInsightSettings{}
 	case "okta:index/userAdminRoles:UserAdminRoles":
@@ -212,6 +218,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/brand",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/captcha",
 		&module{version},
 	)
@@ -233,6 +244,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/domainVerification",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/emailCustomization",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -338,6 +354,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/templateSms",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/theme",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

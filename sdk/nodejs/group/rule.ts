@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * An Okta Group Rule can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:group/rule:Rule example <group rule id>
+ *  $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
  * ```
  */
 export class Rule extends pulumi.CustomResource {
@@ -73,7 +73,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly groupAssignments!: pulumi.Output<string[]>;
     /**
-     * The name of the Group Rule.
+     * The name of the Group Rule (min character 1; max characters 50).
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -149,7 +149,7 @@ export interface RuleState {
      */
     groupAssignments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the Group Rule.
+     * The name of the Group Rule (min character 1; max characters 50).
      */
     name?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface RuleArgs {
      */
     groupAssignments: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the Group Rule.
+     * The name of the Group Rule (min character 1; max characters 50).
      */
     name?: pulumi.Input<string>;
     /**

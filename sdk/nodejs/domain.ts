@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * Okta Admin Role Targets can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/domain:Domain example <domain_id>
+ *  $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
  * ```
  */
 export class Domain extends pulumi.CustomResource {

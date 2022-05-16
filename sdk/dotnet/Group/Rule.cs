@@ -44,7 +44,7 @@ namespace Pulumi.Okta.Group
     /// An Okta Group Rule can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:group/rule:Rule example &lt;group rule id&gt;
+    ///  $ pulumi import okta:group/rule:Rule example &amp;#60;group rule id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:group/rule:Rule")]
@@ -70,7 +70,7 @@ namespace Pulumi.Okta.Group
         public Output<ImmutableArray<string>> GroupAssignments { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Group Rule.
+        /// The name of the Group Rule (min character 1; max characters 50).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Okta.Group
         }
 
         /// <summary>
-        /// The name of the Group Rule.
+        /// The name of the Group Rule (min character 1; max characters 50).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Okta.Group
         }
 
         /// <summary>
-        /// The name of the Group Rule.
+        /// The name of the Group Rule (min character 1; max characters 50).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -180,6 +180,35 @@ func (o SamlIdpSigningKeyOutput) ToSamlIdpSigningKeyOutputWithContext(ctx contex
 	return o
 }
 
+func (o SamlIdpSigningKeyOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdpSigningKey) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+func (o SamlIdpSigningKeyOutput) ExpiresAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdpSigningKey) pulumi.StringOutput { return v.ExpiresAt }).(pulumi.StringOutput)
+}
+
+func (o SamlIdpSigningKeyOutput) Kid() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdpSigningKey) pulumi.StringOutput { return v.Kid }).(pulumi.StringOutput)
+}
+
+func (o SamlIdpSigningKeyOutput) Kty() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdpSigningKey) pulumi.StringOutput { return v.Kty }).(pulumi.StringOutput)
+}
+
+func (o SamlIdpSigningKeyOutput) Use() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdpSigningKey) pulumi.StringOutput { return v.Use }).(pulumi.StringOutput)
+}
+
+// base64-encoded X.509 certificate chain with DER encoding
+func (o SamlIdpSigningKeyOutput) X5cs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SamlIdpSigningKey) pulumi.StringArrayOutput { return v.X5cs }).(pulumi.StringArrayOutput)
+}
+
+func (o SamlIdpSigningKeyOutput) X5tS256() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlIdpSigningKey) pulumi.StringOutput { return v.X5tS256 }).(pulumi.StringOutput)
+}
+
 type SamlIdpSigningKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (SamlIdpSigningKeyArrayOutput) ElementType() reflect.Type {

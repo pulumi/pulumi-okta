@@ -349,7 +349,7 @@ import (
 // Okta app sign-on policy rule can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example <policy_id>/<rule_id>
+//  $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
 // ```
 type AppSignonPolicyRule struct {
 	pulumi.CustomResourceState
@@ -719,6 +719,118 @@ func (o AppSignonPolicyRuleOutput) ToAppSignonPolicyRuleOutput() AppSignonPolicy
 
 func (o AppSignonPolicyRuleOutput) ToAppSignonPolicyRuleOutputWithContext(ctx context.Context) AppSignonPolicyRuleOutput {
 	return o
+}
+
+// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
+func (o AppSignonPolicyRuleOutput) Access() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.Access }).(pulumi.StringPtrOutput)
+}
+
+// - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+func (o AppSignonPolicyRuleOutput) Constraints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.Constraints }).(pulumi.StringArrayOutput)
+}
+
+// This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+func (o AppSignonPolicyRuleOutput) CustomExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.CustomExpression }).(pulumi.StringPtrOutput)
+}
+
+// If the device is managed. A device is managed if it's managed by a device management
+// system. When managed is passed, `deviceIsRegistered` must also be included and must be set to `true`.
+func (o AppSignonPolicyRuleOutput) DeviceIsManaged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.BoolPtrOutput { return v.DeviceIsManaged }).(pulumi.BoolPtrOutput)
+}
+
+// If the device is registered. A device is registered if the User enrolls with Okta
+// Verify that is installed on the device. Can only be set to `true`.
+func (o AppSignonPolicyRuleOutput) DeviceIsRegistered() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.BoolPtrOutput { return v.DeviceIsRegistered }).(pulumi.BoolPtrOutput)
+}
+
+// The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
+func (o AppSignonPolicyRuleOutput) FactorMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.FactorMode }).(pulumi.StringPtrOutput)
+}
+
+// List of groups IDs to be excluded.
+func (o AppSignonPolicyRuleOutput) GroupsExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.GroupsExcludeds }).(pulumi.StringArrayOutput)
+}
+
+// List of groups IDs to be included.
+func (o AppSignonPolicyRuleOutput) GroupsIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+}
+
+// Name of the policy rule.
+func (o AppSignonPolicyRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+func (o AppSignonPolicyRuleOutput) NetworkConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.NetworkConnection }).(pulumi.StringPtrOutput)
+}
+
+// List of network zones IDs to exclude. Conflicts with `networkIncludes`.
+func (o AppSignonPolicyRuleOutput) NetworkExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
+}
+
+// List of network zones IDs to include. Conflicts with `networkExcludes`.
+func (o AppSignonPolicyRuleOutput) NetworkIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
+}
+
+// List of particular platforms or devices to match on.
+func (o AppSignonPolicyRuleOutput) PlatformIncludes() AppSignonPolicyRulePlatformIncludeArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) AppSignonPolicyRulePlatformIncludeArrayOutput { return v.PlatformIncludes }).(AppSignonPolicyRulePlatformIncludeArrayOutput)
+}
+
+// ID of the app sign-on policy.
+func (o AppSignonPolicyRuleOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// Priority of the rule.
+func (o AppSignonPolicyRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
+func (o AppSignonPolicyRuleOutput) ReAuthenticationFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.ReAuthenticationFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Status of the rule
+func (o AppSignonPolicyRuleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+func (o AppSignonPolicyRuleOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// List of user types IDs to be excluded.
+func (o AppSignonPolicyRuleOutput) UserTypesExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UserTypesExcludeds }).(pulumi.StringArrayOutput)
+}
+
+// List of user types IDs to be included.
+func (o AppSignonPolicyRuleOutput) UserTypesIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UserTypesIncludeds }).(pulumi.StringArrayOutput)
+}
+
+// List of users IDs to be excluded.
+func (o AppSignonPolicyRuleOutput) UsersExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+}
+
+// List of users IDs to be included.
+func (o AppSignonPolicyRuleOutput) UsersIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UsersIncludeds }).(pulumi.StringArrayOutput)
 }
 
 type AppSignonPolicyRuleArrayOutput struct{ *pulumi.OutputState }

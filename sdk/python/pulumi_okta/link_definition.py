@@ -250,7 +250,7 @@ class LinkDefinition(pulumi.CustomResource):
         Okta Link Definition can be imported via the Okta Primary Link Name.
 
         ```sh
-         $ pulumi import okta:index/linkDefinition:LinkDefinition example <primary_name>
+         $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -294,7 +294,7 @@ class LinkDefinition(pulumi.CustomResource):
         Okta Link Definition can be imported via the Okta Primary Link Name.
 
         ```sh
-         $ pulumi import okta:index/linkDefinition:LinkDefinition example <primary_name>
+         $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
         ```
 
         :param str resource_name: The name of the resource.

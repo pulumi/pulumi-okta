@@ -210,6 +210,16 @@ func (o UserGroupMembershipsOutput) ToUserGroupMembershipsOutputWithContext(ctx 
 	return o
 }
 
+// The list of Okta group IDs which the user should have membership managed for.
+func (o UserGroupMembershipsOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserGroupMemberships) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Okta user ID.
+func (o UserGroupMembershipsOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserGroupMemberships) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
 type UserGroupMembershipsArrayOutput struct{ *pulumi.OutputState }
 
 func (UserGroupMembershipsArrayOutput) ElementType() reflect.Type {
