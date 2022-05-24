@@ -35,10 +35,6 @@ class SocialArgs:
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
                  subject_match_type: Optional[pulumi.Input[str]] = None,
@@ -68,10 +64,6 @@ class SocialArgs:
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message.
-        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
         :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
@@ -126,14 +118,6 @@ class SocialArgs:
             pulumi.set(__self__, "protocol_type", protocol_type)
         if provisioning_action is not None:
             pulumi.set(__self__, "provisioning_action", provisioning_action)
-        if request_signature_algorithm is not None:
-            pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
-        if request_signature_scope is not None:
-            pulumi.set(__self__, "request_signature_scope", request_signature_scope)
-        if response_signature_algorithm is not None:
-            pulumi.set(__self__, "response_signature_algorithm", response_signature_algorithm)
-        if response_signature_scope is not None:
-            pulumi.set(__self__, "response_signature_scope", response_signature_scope)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if subject_match_attribute is not None:
@@ -406,54 +390,6 @@ class SocialArgs:
         pulumi.set(self, "provisioning_action", value)
 
     @property
-    @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
-        """
-        The XML digital signature algorithm used when signing an AuthnRequest message.
-        """
-        return pulumi.get(self, "request_signature_algorithm")
-
-    @request_signature_algorithm.setter
-    def request_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "request_signature_algorithm", value)
-
-    @property
-    @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        """
-        return pulumi.get(self, "request_signature_scope")
-
-    @request_signature_scope.setter
-    def request_signature_scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "request_signature_scope", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
-        """
-        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-        """
-        return pulumi.get(self, "response_signature_algorithm")
-
-    @response_signature_algorithm.setter
-    def response_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_algorithm", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-        """
-        return pulumi.get(self, "response_signature_scope")
-
-    @response_signature_scope.setter
-    def response_signature_scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_scope", value)
-
-    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -539,10 +475,6 @@ class _SocialState:
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -576,10 +508,6 @@ class _SocialState:
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message.
-        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
@@ -640,14 +568,6 @@ class _SocialState:
             pulumi.set(__self__, "protocol_type", protocol_type)
         if provisioning_action is not None:
             pulumi.set(__self__, "provisioning_action", provisioning_action)
-        if request_signature_algorithm is not None:
-            pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
-        if request_signature_scope is not None:
-            pulumi.set(__self__, "request_signature_scope", request_signature_scope)
-        if response_signature_algorithm is not None:
-            pulumi.set(__self__, "response_signature_algorithm", response_signature_algorithm)
-        if response_signature_scope is not None:
-            pulumi.set(__self__, "response_signature_scope", response_signature_scope)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
         if status is not None:
@@ -928,54 +848,6 @@ class _SocialState:
         pulumi.set(self, "provisioning_action", value)
 
     @property
-    @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
-        """
-        The XML digital signature algorithm used when signing an AuthnRequest message.
-        """
-        return pulumi.get(self, "request_signature_algorithm")
-
-    @request_signature_algorithm.setter
-    def request_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "request_signature_algorithm", value)
-
-    @property
-    @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        """
-        return pulumi.get(self, "request_signature_scope")
-
-    @request_signature_scope.setter
-    def request_signature_scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "request_signature_scope", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
-        """
-        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-        """
-        return pulumi.get(self, "response_signature_algorithm")
-
-    @response_signature_algorithm.setter
-    def response_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_algorithm", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-        """
-        return pulumi.get(self, "response_signature_scope")
-
-    @response_signature_scope.setter
-    def response_signature_scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_scope", value)
-
-    @property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1109,10 +981,6 @@ class Social(pulumi.CustomResource):
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -1176,10 +1044,6 @@ class Social(pulumi.CustomResource):
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message.
-        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
@@ -1262,10 +1126,6 @@ class Social(pulumi.CustomResource):
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -1311,10 +1171,6 @@ class Social(pulumi.CustomResource):
             __props__.__dict__["profile_master"] = profile_master
             __props__.__dict__["protocol_type"] = protocol_type
             __props__.__dict__["provisioning_action"] = provisioning_action
-            __props__.__dict__["request_signature_algorithm"] = request_signature_algorithm
-            __props__.__dict__["request_signature_scope"] = request_signature_scope
-            __props__.__dict__["response_signature_algorithm"] = response_signature_algorithm
-            __props__.__dict__["response_signature_scope"] = response_signature_scope
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__.__dict__["scopes"] = scopes
@@ -1362,10 +1218,6 @@ class Social(pulumi.CustomResource):
             profile_master: Optional[pulumi.Input[bool]] = None,
             protocol_type: Optional[pulumi.Input[str]] = None,
             provisioning_action: Optional[pulumi.Input[str]] = None,
-            request_signature_algorithm: Optional[pulumi.Input[str]] = None,
-            request_signature_scope: Optional[pulumi.Input[str]] = None,
-            response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-            response_signature_scope: Optional[pulumi.Input[str]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -1404,10 +1256,6 @@ class Social(pulumi.CustomResource):
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message.
-        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Status of the IdP.
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
@@ -1444,10 +1292,6 @@ class Social(pulumi.CustomResource):
         __props__.__dict__["profile_master"] = profile_master
         __props__.__dict__["protocol_type"] = protocol_type
         __props__.__dict__["provisioning_action"] = provisioning_action
-        __props__.__dict__["request_signature_algorithm"] = request_signature_algorithm
-        __props__.__dict__["request_signature_scope"] = request_signature_scope
-        __props__.__dict__["response_signature_algorithm"] = response_signature_algorithm
-        __props__.__dict__["response_signature_scope"] = response_signature_scope
         __props__.__dict__["scopes"] = scopes
         __props__.__dict__["status"] = status
         __props__.__dict__["subject_match_attribute"] = subject_match_attribute
@@ -1630,38 +1474,6 @@ class Social(pulumi.CustomResource):
         Provisioning action for an IdP user during authentication.
         """
         return pulumi.get(self, "provisioning_action")
-
-    @property
-    @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
-        """
-        The XML digital signature algorithm used when signing an AuthnRequest message.
-        """
-        return pulumi.get(self, "request_signature_algorithm")
-
-    @property
-    @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        """
-        return pulumi.get(self, "request_signature_scope")
-
-    @property
-    @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
-        """
-        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-        """
-        return pulumi.get(self, "response_signature_algorithm")
-
-    @property
-    @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-        """
-        return pulumi.get(self, "response_signature_scope")
 
     @property
     @pulumi.getter

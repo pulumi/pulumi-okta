@@ -40,27 +40,19 @@ type SocialIdp struct {
 	MatchType    pulumi.StringPtrOutput `pulumi:"matchType"`
 	MaxClockSkew pulumi.IntPtrOutput    `pulumi:"maxClockSkew"`
 	// Name of the IdP
-	Name               pulumi.StringOutput    `pulumi:"name"`
-	ProfileMaster      pulumi.BoolPtrOutput   `pulumi:"profileMaster"`
-	ProtocolType       pulumi.StringPtrOutput `pulumi:"protocolType"`
-	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
-	RequestSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
-	RequestSignatureScope pulumi.StringPtrOutput `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
-	ResponseSignatureScope pulumi.StringPtrOutput   `pulumi:"responseSignatureScope"`
-	Scopes                 pulumi.StringArrayOutput `pulumi:"scopes"`
-	Status                 pulumi.StringPtrOutput   `pulumi:"status"`
-	SubjectMatchAttribute  pulumi.StringPtrOutput   `pulumi:"subjectMatchAttribute"`
-	SubjectMatchType       pulumi.StringPtrOutput   `pulumi:"subjectMatchType"`
-	SuspendedAction        pulumi.StringPtrOutput   `pulumi:"suspendedAction"`
-	TokenBinding           pulumi.StringOutput      `pulumi:"tokenBinding"`
-	TokenUrl               pulumi.StringOutput      `pulumi:"tokenUrl"`
-	Type                   pulumi.StringOutput      `pulumi:"type"`
-	UsernameTemplate       pulumi.StringPtrOutput   `pulumi:"usernameTemplate"`
+	Name                  pulumi.StringOutput      `pulumi:"name"`
+	ProfileMaster         pulumi.BoolPtrOutput     `pulumi:"profileMaster"`
+	ProtocolType          pulumi.StringPtrOutput   `pulumi:"protocolType"`
+	ProvisioningAction    pulumi.StringPtrOutput   `pulumi:"provisioningAction"`
+	Scopes                pulumi.StringArrayOutput `pulumi:"scopes"`
+	Status                pulumi.StringPtrOutput   `pulumi:"status"`
+	SubjectMatchAttribute pulumi.StringPtrOutput   `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType      pulumi.StringPtrOutput   `pulumi:"subjectMatchType"`
+	SuspendedAction       pulumi.StringPtrOutput   `pulumi:"suspendedAction"`
+	TokenBinding          pulumi.StringOutput      `pulumi:"tokenBinding"`
+	TokenUrl              pulumi.StringOutput      `pulumi:"tokenUrl"`
+	Type                  pulumi.StringOutput      `pulumi:"type"`
+	UsernameTemplate      pulumi.StringPtrOutput   `pulumi:"usernameTemplate"`
 }
 
 // NewSocialIdp registers a new resource with the given unique name, arguments, and options.
@@ -123,27 +115,19 @@ type socialIdpState struct {
 	MatchType    *string `pulumi:"matchType"`
 	MaxClockSkew *int    `pulumi:"maxClockSkew"`
 	// Name of the IdP
-	Name               *string `pulumi:"name"`
-	ProfileMaster      *bool   `pulumi:"profileMaster"`
-	ProtocolType       *string `pulumi:"protocolType"`
-	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
-	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
-	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
-	ResponseSignatureScope *string  `pulumi:"responseSignatureScope"`
-	Scopes                 []string `pulumi:"scopes"`
-	Status                 *string  `pulumi:"status"`
-	SubjectMatchAttribute  *string  `pulumi:"subjectMatchAttribute"`
-	SubjectMatchType       *string  `pulumi:"subjectMatchType"`
-	SuspendedAction        *string  `pulumi:"suspendedAction"`
-	TokenBinding           *string  `pulumi:"tokenBinding"`
-	TokenUrl               *string  `pulumi:"tokenUrl"`
-	Type                   *string  `pulumi:"type"`
-	UsernameTemplate       *string  `pulumi:"usernameTemplate"`
+	Name                  *string  `pulumi:"name"`
+	ProfileMaster         *bool    `pulumi:"profileMaster"`
+	ProtocolType          *string  `pulumi:"protocolType"`
+	ProvisioningAction    *string  `pulumi:"provisioningAction"`
+	Scopes                []string `pulumi:"scopes"`
+	Status                *string  `pulumi:"status"`
+	SubjectMatchAttribute *string  `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType      *string  `pulumi:"subjectMatchType"`
+	SuspendedAction       *string  `pulumi:"suspendedAction"`
+	TokenBinding          *string  `pulumi:"tokenBinding"`
+	TokenUrl              *string  `pulumi:"tokenUrl"`
+	Type                  *string  `pulumi:"type"`
+	UsernameTemplate      *string  `pulumi:"usernameTemplate"`
 }
 
 type SocialIdpState struct {
@@ -172,27 +156,19 @@ type SocialIdpState struct {
 	MatchType    pulumi.StringPtrInput
 	MaxClockSkew pulumi.IntPtrInput
 	// Name of the IdP
-	Name               pulumi.StringPtrInput
-	ProfileMaster      pulumi.BoolPtrInput
-	ProtocolType       pulumi.StringPtrInput
-	ProvisioningAction pulumi.StringPtrInput
-	// algorithm to use to sign requests
-	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
-	RequestSignatureScope pulumi.StringPtrInput
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
-	ResponseSignatureScope pulumi.StringPtrInput
-	Scopes                 pulumi.StringArrayInput
-	Status                 pulumi.StringPtrInput
-	SubjectMatchAttribute  pulumi.StringPtrInput
-	SubjectMatchType       pulumi.StringPtrInput
-	SuspendedAction        pulumi.StringPtrInput
-	TokenBinding           pulumi.StringPtrInput
-	TokenUrl               pulumi.StringPtrInput
-	Type                   pulumi.StringPtrInput
-	UsernameTemplate       pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	ProfileMaster         pulumi.BoolPtrInput
+	ProtocolType          pulumi.StringPtrInput
+	ProvisioningAction    pulumi.StringPtrInput
+	Scopes                pulumi.StringArrayInput
+	Status                pulumi.StringPtrInput
+	SubjectMatchAttribute pulumi.StringPtrInput
+	SubjectMatchType      pulumi.StringPtrInput
+	SuspendedAction       pulumi.StringPtrInput
+	TokenBinding          pulumi.StringPtrInput
+	TokenUrl              pulumi.StringPtrInput
+	Type                  pulumi.StringPtrInput
+	UsernameTemplate      pulumi.StringPtrInput
 }
 
 func (SocialIdpState) ElementType() reflect.Type {
@@ -223,25 +199,17 @@ type socialIdpArgs struct {
 	MatchType    *string `pulumi:"matchType"`
 	MaxClockSkew *int    `pulumi:"maxClockSkew"`
 	// Name of the IdP
-	Name               *string `pulumi:"name"`
-	ProfileMaster      *bool   `pulumi:"profileMaster"`
-	ProtocolType       *string `pulumi:"protocolType"`
-	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
-	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
-	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
-	ResponseSignatureScope *string  `pulumi:"responseSignatureScope"`
-	Scopes                 []string `pulumi:"scopes"`
-	Status                 *string  `pulumi:"status"`
-	SubjectMatchAttribute  *string  `pulumi:"subjectMatchAttribute"`
-	SubjectMatchType       *string  `pulumi:"subjectMatchType"`
-	SuspendedAction        *string  `pulumi:"suspendedAction"`
-	Type                   string   `pulumi:"type"`
-	UsernameTemplate       *string  `pulumi:"usernameTemplate"`
+	Name                  *string  `pulumi:"name"`
+	ProfileMaster         *bool    `pulumi:"profileMaster"`
+	ProtocolType          *string  `pulumi:"protocolType"`
+	ProvisioningAction    *string  `pulumi:"provisioningAction"`
+	Scopes                []string `pulumi:"scopes"`
+	Status                *string  `pulumi:"status"`
+	SubjectMatchAttribute *string  `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType      *string  `pulumi:"subjectMatchType"`
+	SuspendedAction       *string  `pulumi:"suspendedAction"`
+	Type                  string   `pulumi:"type"`
+	UsernameTemplate      *string  `pulumi:"usernameTemplate"`
 }
 
 // The set of arguments for constructing a SocialIdp resource.
@@ -269,25 +237,17 @@ type SocialIdpArgs struct {
 	MatchType    pulumi.StringPtrInput
 	MaxClockSkew pulumi.IntPtrInput
 	// Name of the IdP
-	Name               pulumi.StringPtrInput
-	ProfileMaster      pulumi.BoolPtrInput
-	ProtocolType       pulumi.StringPtrInput
-	ProvisioningAction pulumi.StringPtrInput
-	// algorithm to use to sign requests
-	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
-	RequestSignatureScope pulumi.StringPtrInput
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
-	ResponseSignatureScope pulumi.StringPtrInput
-	Scopes                 pulumi.StringArrayInput
-	Status                 pulumi.StringPtrInput
-	SubjectMatchAttribute  pulumi.StringPtrInput
-	SubjectMatchType       pulumi.StringPtrInput
-	SuspendedAction        pulumi.StringPtrInput
-	Type                   pulumi.StringInput
-	UsernameTemplate       pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	ProfileMaster         pulumi.BoolPtrInput
+	ProtocolType          pulumi.StringPtrInput
+	ProvisioningAction    pulumi.StringPtrInput
+	Scopes                pulumi.StringArrayInput
+	Status                pulumi.StringPtrInput
+	SubjectMatchAttribute pulumi.StringPtrInput
+	SubjectMatchType      pulumi.StringPtrInput
+	SuspendedAction       pulumi.StringPtrInput
+	Type                  pulumi.StringInput
+	UsernameTemplate      pulumi.StringPtrInput
 }
 
 func (SocialIdpArgs) ElementType() reflect.Type {
@@ -470,26 +430,6 @@ func (o SocialIdpOutput) ProtocolType() pulumi.StringPtrOutput {
 
 func (o SocialIdpOutput) ProvisioningAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
-}
-
-// algorithm to use to sign requests
-func (o SocialIdpOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
-}
-
-// algorithm to use to sign response
-func (o SocialIdpOutput) RequestSignatureScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
-}
-
-// algorithm to use to sign requests
-func (o SocialIdpOutput) ResponseSignatureAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.ResponseSignatureAlgorithm }).(pulumi.StringPtrOutput)
-}
-
-// algorithm to use to sign response
-func (o SocialIdpOutput) ResponseSignatureScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SocialIdp) pulumi.StringPtrOutput { return v.ResponseSignatureScope }).(pulumi.StringPtrOutput)
 }
 
 func (o SocialIdpOutput) Scopes() pulumi.StringArrayOutput {

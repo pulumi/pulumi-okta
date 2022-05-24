@@ -80,28 +80,16 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> ProvisioningAction { get; private set; } = null!;
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The HMAC Signature Algorithm used when signing an authorization request
         /// </summary>
         [Output("requestSignatureAlgorithm")]
         public Output<string?> RequestSignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to digitally sign an authorization request to the IdP
         /// </summary>
         [Output("requestSignatureScope")]
         public Output<string?> RequestSignatureScope { get; private set; } = null!;
-
-        /// <summary>
-        /// algorithm to use to sign requests
-        /// </summary>
-        [Output("responseSignatureAlgorithm")]
-        public Output<string?> ResponseSignatureAlgorithm { get; private set; } = null!;
-
-        /// <summary>
-        /// algorithm to use to sign response
-        /// </summary>
-        [Output("responseSignatureScope")]
-        public Output<string?> ResponseSignatureScope { get; private set; } = null!;
 
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
@@ -267,28 +255,16 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ProvisioningAction { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The HMAC Signature Algorithm used when signing an authorization request
         /// </summary>
         [Input("requestSignatureAlgorithm")]
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to digitally sign an authorization request to the IdP
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
-
-        /// <summary>
-        /// algorithm to use to sign requests
-        /// </summary>
-        [Input("responseSignatureAlgorithm")]
-        public Input<string>? ResponseSignatureAlgorithm { get; set; }
-
-        /// <summary>
-        /// algorithm to use to sign response
-        /// </summary>
-        [Input("responseSignatureScope")]
-        public Input<string>? ResponseSignatureScope { get; set; }
 
         [Input("scopes", required: true)]
         private InputList<string>? _scopes;
@@ -414,28 +390,16 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ProvisioningAction { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The HMAC Signature Algorithm used when signing an authorization request
         /// </summary>
         [Input("requestSignatureAlgorithm")]
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to digitally sign an authorization request to the IdP
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
-
-        /// <summary>
-        /// algorithm to use to sign requests
-        /// </summary>
-        [Input("responseSignatureAlgorithm")]
-        public Input<string>? ResponseSignatureAlgorithm { get; set; }
-
-        /// <summary>
-        /// algorithm to use to sign response
-        /// </summary>
-        [Input("responseSignatureScope")]
-        public Input<string>? ResponseSignatureScope { get; set; }
 
         [Input("scopes")]
         private InputList<string>? _scopes;

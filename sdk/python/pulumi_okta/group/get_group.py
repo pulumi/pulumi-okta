@@ -20,7 +20,10 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, description=None, id=None, include_users=None, name=None, type=None, users=None):
+    def __init__(__self__, delay_read_seconds=None, description=None, id=None, include_users=None, name=None, type=None, users=None):
+        if delay_read_seconds and not isinstance(delay_read_seconds, str):
+            raise TypeError("Expected argument 'delay_read_seconds' to be a str")
+        pulumi.set(__self__, "delay_read_seconds", delay_read_seconds)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -39,6 +42,11 @@ class GetGroupResult:
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
         pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter(name="delayReadSeconds")
+    def delay_read_seconds(self) -> Optional[str]:
+        return pulumi.get(self, "delay_read_seconds")
 
     @property
     @pulumi.getter
@@ -92,6 +100,7 @@ class AwaitableGetGroupResult(GetGroupResult):
         if False:
             yield self
         return GetGroupResult(
+            delay_read_seconds=self.delay_read_seconds,
             description=self.description,
             id=self.id,
             include_users=self.include_users,
@@ -100,7 +109,8 @@ class AwaitableGetGroupResult(GetGroupResult):
             users=self.users)
 
 
-def get_group(id: Optional[str] = None,
+def get_group(delay_read_seconds: Optional[str] = None,
+              id: Optional[str] = None,
               include_users: Optional[bool] = None,
               name: Optional[str] = None,
               type: Optional[str] = None,
@@ -118,6 +128,7 @@ def get_group(id: Optional[str] = None,
     ```
 
 
+    :param str delay_read_seconds: Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
     :param str id: ID of the group. Conflicts with `"name"` and `"type"`.
     :param bool include_users: whether to retrieve all member ids.
     :param str name: name of group to retrieve.
@@ -125,6 +136,7 @@ def get_group(id: Optional[str] = None,
            (Imported App Groups), or `BUILT_IN` (Okta System Groups).
     """
     __args__ = dict()
+    __args__['delayReadSeconds'] = delay_read_seconds
     __args__['id'] = id
     __args__['includeUsers'] = include_users
     __args__['name'] = name
@@ -136,6 +148,7 @@ def get_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:group/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
+        delay_read_seconds=__ret__.delay_read_seconds,
         description=__ret__.description,
         id=__ret__.id,
         include_users=__ret__.include_users,
@@ -145,7 +158,8 @@ def get_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_group)
-def get_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_group_output(delay_read_seconds: Optional[pulumi.Input[Optional[str]]] = None,
+                     id: Optional[pulumi.Input[Optional[str]]] = None,
                      include_users: Optional[pulumi.Input[Optional[bool]]] = None,
                      name: Optional[pulumi.Input[Optional[str]]] = None,
                      type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -163,6 +177,7 @@ def get_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
+    :param str delay_read_seconds: Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
     :param str id: ID of the group. Conflicts with `"name"` and `"type"`.
     :param bool include_users: whether to retrieve all member ids.
     :param str name: name of group to retrieve.

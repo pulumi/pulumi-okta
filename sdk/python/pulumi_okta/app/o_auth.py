@@ -100,7 +100,7 @@ class OAuthArgs:
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
-        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
@@ -583,7 +583,7 @@ class OAuthArgs:
     @pulumi.getter(name="omitSecret")
     def omit_secret(self) -> Optional[pulumi.Input[bool]]:
         """
-        This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+        This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
         """
         return pulumi.get(self, "omit_secret")
 
@@ -903,7 +903,7 @@ class _OAuthState:
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name of the claim that will be used in the token.
-        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
@@ -1422,7 +1422,7 @@ class _OAuthState:
     @pulumi.getter(name="omitSecret")
     def omit_secret(self) -> Optional[pulumi.Input[bool]]:
         """
-        This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+        This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
         """
         return pulumi.get(self, "omit_secret")
 
@@ -1760,6 +1760,10 @@ class OAuth(pulumi.CustomResource):
             token_endpoint_auth_method="private_key_jwt",
             type="service")
         ```
+        ## Etc.
+
+        ### Resetting client secret
+        If the client secret needs to be reset run an apply with `omit_secret` set to true in the resource. This causes `client_secret` to be set to blank. Remove `omit_secret` and run apply again. The resource will set a new `client_secret` for the app.
 
         ## Import
 
@@ -1819,7 +1823,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
-        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
@@ -1881,6 +1885,10 @@ class OAuth(pulumi.CustomResource):
             token_endpoint_auth_method="private_key_jwt",
             type="service")
         ```
+        ## Etc.
+
+        ### Resetting client secret
+        If the client secret needs to be reset run an apply with `omit_secret` set to true in the resource. This causes `client_secret` to be set to blank. Remove `omit_secret` and run apply again. The resource will set a new `client_secret` for the app.
 
         ## Import
 
@@ -2150,7 +2158,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name of the claim that will be used in the token.
-        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
@@ -2489,7 +2497,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="omitSecret")
     def omit_secret(self) -> pulumi.Output[Optional[bool]]:
         """
-        This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+        This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
         """
         return pulumi.get(self, "omit_secret")
 

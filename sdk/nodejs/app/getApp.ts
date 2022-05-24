@@ -49,8 +49,10 @@ export interface GetAppArgs {
     id?: string;
     /**
      * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
-     * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-     * and `label`. This is used to avoid paginating through all applications.
+     * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
+     * and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
+     * may result in multiple apps being returned for the query. The data source further inspects the lables looking for
+     * an exact match.
      */
     label?: string;
     /**
@@ -130,8 +132,10 @@ export interface GetAppOutputArgs {
     id?: pulumi.Input<string>;
     /**
      * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
-     * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-     * and `label`. This is used to avoid paginating through all applications.
+     * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
+     * and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
+     * may result in multiple apps being returned for the query. The data source further inspects the lables looking for
+     * an exact match.
      */
     label?: pulumi.Input<string>;
     /**

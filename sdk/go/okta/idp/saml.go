@@ -92,11 +92,11 @@ type Saml struct {
 	ProfileMaster pulumi.BoolPtrOutput `pulumi:"profileMaster"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
-	// The XML digital signature algorithm used when signing an AuthnRequest message.
+	// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
 	RequestSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"requestSignatureAlgorithm"`
 	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrOutput `pulumi:"requestSignatureScope"`
-	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
 	ResponseSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"responseSignatureAlgorithm"`
 	// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
 	ResponseSignatureScope pulumi.StringPtrOutput `pulumi:"responseSignatureScope"`
@@ -200,11 +200,11 @@ type samlState struct {
 	ProfileMaster *bool `pulumi:"profileMaster"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// The XML digital signature algorithm used when signing an AuthnRequest message.
+	// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
 	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
 	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
 	// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
 	ResponseSignatureScope *string `pulumi:"responseSignatureScope"`
@@ -271,11 +271,11 @@ type SamlState struct {
 	ProfileMaster pulumi.BoolPtrInput
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrInput
-	// The XML digital signature algorithm used when signing an AuthnRequest message.
+	// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
 	RequestSignatureAlgorithm pulumi.StringPtrInput
 	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrInput
-	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
 	ResponseSignatureAlgorithm pulumi.StringPtrInput
 	// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
 	ResponseSignatureScope pulumi.StringPtrInput
@@ -344,11 +344,11 @@ type samlArgs struct {
 	ProfileMaster *bool `pulumi:"profileMaster"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// The XML digital signature algorithm used when signing an AuthnRequest message.
+	// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
 	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
 	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
 	// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
 	ResponseSignatureScope *string `pulumi:"responseSignatureScope"`
@@ -410,11 +410,11 @@ type SamlArgs struct {
 	ProfileMaster pulumi.BoolPtrInput
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrInput
-	// The XML digital signature algorithm used when signing an AuthnRequest message.
+	// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
 	RequestSignatureAlgorithm pulumi.StringPtrInput
 	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrInput
-	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
 	ResponseSignatureAlgorithm pulumi.StringPtrInput
 	// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
 	ResponseSignatureScope pulumi.StringPtrInput
@@ -617,7 +617,7 @@ func (o SamlOutput) ProvisioningAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
 }
 
-// The XML digital signature algorithm used when signing an AuthnRequest message.
+// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
 func (o SamlOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
 }
@@ -627,7 +627,7 @@ func (o SamlOutput) RequestSignatureScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
 }
 
-// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
 func (o SamlOutput) ResponseSignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.ResponseSignatureAlgorithm }).(pulumi.StringPtrOutput)
 }

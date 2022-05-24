@@ -527,8 +527,9 @@ github.com/hashicorp/go-version v1.4.0/go.mod h1:fltr4n8CU8Ke44wwGCBoEymUuxUHl09
 github.com/hashicorp/golang-lru v0.5.0/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
 github.com/hashicorp/golang-lru v0.5.1/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
 github.com/hashicorp/golang-lru v0.5.3/go.mod h1:iADmTwqILo4mZ8BN3D2Q6+9jd8WM5uGBxy+E8yxSoD4=
-github.com/hashicorp/hc-install v0.3.1 h1:VIjllE6KyAI1A244G8kTaHXy+TL5/XYzvrtFi8po/Yk=
 github.com/hashicorp/hc-install v0.3.1/go.mod h1:3LCdWcCDS1gaHC9mhHCGbkYfoY6vdsKohGjugbZdZak=
+github.com/hashicorp/hc-install v0.3.2 h1:oiQdJZvXmkNcRcEOOfM5n+VTsvNjWQeOjfAoO6dKSH8=
+github.com/hashicorp/hc-install v0.3.2/go.mod h1:xMG6Tr8Fw1WFjlxH0A9v61cW15pFwgEGqEz0V4jisHs=
 github.com/hashicorp/hcl v0.0.0-20170504190234-a4b07c25de5f/go.mod h1:oZtUIOe8dh44I2q6ScRibXws4Ajl+d+nod3AaR9vL5w=
 github.com/hashicorp/hcl v1.0.0 h1:0Anlzjpi4vEasTeNFn2mLJgTSwt0+6sfsiTG8qcWGx4=
 github.com/hashicorp/hcl v1.0.0/go.mod h1:E5yfLk+7swimpb2L/Alb/PJmXilQ/rhwaUYs4T20WEQ=
@@ -759,8 +760,8 @@ github.com/oklog/run v1.1.0/go.mod h1:sVPdnTZT1zYwAJeCMu2Th4T21pA3FPOQRfWjQlk7DV
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
 github.com/okta/okta-sdk-golang/v2 v2.12.1-0.20220418232441-a4b5722f6e4f h1:sI7Kn1I17DoJbZEd6zQMmEZ2RR4Ek40siBvgS+CmFZQ=
 github.com/okta/okta-sdk-golang/v2 v2.12.1-0.20220418232441-a4b5722f6e4f/go.mod h1:KRoAArk1H216oiRnQT77UN6JAhBOnOWkK27yA1SM7FQ=
-github.com/okta/terraform-provider-okta v0.0.0-20220513215109-7faabded2507 h1:a/N3brk3Oze+hkg/oPIkH38JcIkUEKKa9K3XOFDKuhI=
-github.com/okta/terraform-provider-okta v0.0.0-20220513215109-7faabded2507/go.mod h1:flfBGP4gX8CTdrvrzaUALuCzmvFG3sprHWC7rt9Ch3U=
+github.com/okta/terraform-provider-okta v0.0.0-20220524210002-345f8574c193 h1:0P7hZDkd7YKsJKcw2a7mE4InZ2ebSaZtBCDnA8vfeCY=
+github.com/okta/terraform-provider-okta v0.0.0-20220524210002-345f8574c193/go.mod h1:BF77jPk4od5YGxK20D7B184I+OrC7q8AtwvM/knyzvM=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.10.1/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=

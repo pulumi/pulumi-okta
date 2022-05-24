@@ -35,10 +35,6 @@ class SocialIdpArgs:
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
                  subject_match_type: Optional[pulumi.Input[str]] = None,
@@ -51,10 +47,6 @@ class SocialIdpArgs:
         :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
         """
         pulumi.set(__self__, "scopes", scopes)
         pulumi.set(__self__, "type", type)
@@ -104,14 +96,6 @@ class SocialIdpArgs:
             pulumi.set(__self__, "protocol_type", protocol_type)
         if provisioning_action is not None:
             pulumi.set(__self__, "provisioning_action", provisioning_action)
-        if request_signature_algorithm is not None:
-            pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
-        if request_signature_scope is not None:
-            pulumi.set(__self__, "request_signature_scope", request_signature_scope)
-        if response_signature_algorithm is not None:
-            pulumi.set(__self__, "response_signature_algorithm", response_signature_algorithm)
-        if response_signature_scope is not None:
-            pulumi.set(__self__, "response_signature_scope", response_signature_scope)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if subject_match_attribute is not None:
@@ -337,54 +321,6 @@ class SocialIdpArgs:
         pulumi.set(self, "provisioning_action", value)
 
     @property
-    @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign requests
-        """
-        return pulumi.get(self, "request_signature_algorithm")
-
-    @request_signature_algorithm.setter
-    def request_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "request_signature_algorithm", value)
-
-    @property
-    @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign response
-        """
-        return pulumi.get(self, "request_signature_scope")
-
-    @request_signature_scope.setter
-    def request_signature_scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "request_signature_scope", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign requests
-        """
-        return pulumi.get(self, "response_signature_algorithm")
-
-    @response_signature_algorithm.setter
-    def response_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_algorithm", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign response
-        """
-        return pulumi.get(self, "response_signature_scope")
-
-    @response_signature_scope.setter
-    def response_signature_scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_scope", value)
-
-    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "status")
@@ -455,10 +391,6 @@ class _SocialIdpState:
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -475,10 +407,6 @@ class _SocialIdpState:
         :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
         """
         if account_link_action is not None:
             pulumi.set(__self__, "account_link_action", account_link_action)
@@ -530,14 +458,6 @@ class _SocialIdpState:
             pulumi.set(__self__, "protocol_type", protocol_type)
         if provisioning_action is not None:
             pulumi.set(__self__, "provisioning_action", provisioning_action)
-        if request_signature_algorithm is not None:
-            pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
-        if request_signature_scope is not None:
-            pulumi.set(__self__, "request_signature_scope", request_signature_scope)
-        if response_signature_algorithm is not None:
-            pulumi.set(__self__, "response_signature_algorithm", response_signature_algorithm)
-        if response_signature_scope is not None:
-            pulumi.set(__self__, "response_signature_scope", response_signature_scope)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
         if status is not None:
@@ -771,54 +691,6 @@ class _SocialIdpState:
         pulumi.set(self, "provisioning_action", value)
 
     @property
-    @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign requests
-        """
-        return pulumi.get(self, "request_signature_algorithm")
-
-    @request_signature_algorithm.setter
-    def request_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "request_signature_algorithm", value)
-
-    @property
-    @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign response
-        """
-        return pulumi.get(self, "request_signature_scope")
-
-    @request_signature_scope.setter
-    def request_signature_scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "request_signature_scope", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign requests
-        """
-        return pulumi.get(self, "response_signature_algorithm")
-
-    @response_signature_algorithm.setter
-    def response_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_algorithm", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign response
-        """
-        return pulumi.get(self, "response_signature_scope")
-
-    @response_signature_scope.setter
-    def response_signature_scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_scope", value)
-
-    @property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "scopes")
@@ -930,10 +802,6 @@ class SocialIdp(pulumi.CustomResource):
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -951,10 +819,6 @@ class SocialIdp(pulumi.CustomResource):
         :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
         """
         ...
     @overload
@@ -999,10 +863,6 @@ class SocialIdp(pulumi.CustomResource):
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -1049,10 +909,6 @@ class SocialIdp(pulumi.CustomResource):
             __props__.__dict__["profile_master"] = profile_master
             __props__.__dict__["protocol_type"] = protocol_type
             __props__.__dict__["provisioning_action"] = provisioning_action
-            __props__.__dict__["request_signature_algorithm"] = request_signature_algorithm
-            __props__.__dict__["request_signature_scope"] = request_signature_scope
-            __props__.__dict__["response_signature_algorithm"] = response_signature_algorithm
-            __props__.__dict__["response_signature_scope"] = response_signature_scope
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__.__dict__["scopes"] = scopes
@@ -1100,10 +956,6 @@ class SocialIdp(pulumi.CustomResource):
             profile_master: Optional[pulumi.Input[bool]] = None,
             protocol_type: Optional[pulumi.Input[str]] = None,
             provisioning_action: Optional[pulumi.Input[str]] = None,
-            request_signature_algorithm: Optional[pulumi.Input[str]] = None,
-            request_signature_scope: Optional[pulumi.Input[str]] = None,
-            response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-            response_signature_scope: Optional[pulumi.Input[str]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -1125,10 +977,6 @@ class SocialIdp(pulumi.CustomResource):
         :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1156,10 +1004,6 @@ class SocialIdp(pulumi.CustomResource):
         __props__.__dict__["profile_master"] = profile_master
         __props__.__dict__["protocol_type"] = protocol_type
         __props__.__dict__["provisioning_action"] = provisioning_action
-        __props__.__dict__["request_signature_algorithm"] = request_signature_algorithm
-        __props__.__dict__["request_signature_scope"] = request_signature_scope
-        __props__.__dict__["response_signature_algorithm"] = response_signature_algorithm
-        __props__.__dict__["response_signature_scope"] = response_signature_scope
         __props__.__dict__["scopes"] = scopes
         __props__.__dict__["status"] = status
         __props__.__dict__["subject_match_attribute"] = subject_match_attribute
@@ -1295,38 +1139,6 @@ class SocialIdp(pulumi.CustomResource):
     @pulumi.getter(name="provisioningAction")
     def provisioning_action(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "provisioning_action")
-
-    @property
-    @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
-        """
-        algorithm to use to sign requests
-        """
-        return pulumi.get(self, "request_signature_algorithm")
-
-    @property
-    @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> pulumi.Output[Optional[str]]:
-        """
-        algorithm to use to sign response
-        """
-        return pulumi.get(self, "request_signature_scope")
-
-    @property
-    @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
-        """
-        algorithm to use to sign requests
-        """
-        return pulumi.get(self, "response_signature_algorithm")
-
-    @property
-    @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> pulumi.Output[Optional[str]]:
-        """
-        algorithm to use to sign response
-        """
-        return pulumi.get(self, "response_signature_scope")
 
     @property
     @pulumi.getter

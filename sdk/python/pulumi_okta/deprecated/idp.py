@@ -38,8 +38,6 @@ class IdpArgs:
                  provisioning_action: Optional[pulumi.Input[str]] = None,
                  request_signature_algorithm: Optional[pulumi.Input[str]] = None,
                  request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
                  subject_match_type: Optional[pulumi.Input[str]] = None,
@@ -51,10 +49,8 @@ class IdpArgs:
         The set of arguments for constructing a Idp resource.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an authorization request to the IdP
         """
         pulumi.set(__self__, "authorization_binding", authorization_binding)
         pulumi.set(__self__, "authorization_url", authorization_url)
@@ -96,10 +92,6 @@ class IdpArgs:
             pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
         if request_signature_scope is not None:
             pulumi.set(__self__, "request_signature_scope", request_signature_scope)
-        if response_signature_algorithm is not None:
-            pulumi.set(__self__, "response_signature_algorithm", response_signature_algorithm)
-        if response_signature_scope is not None:
-            pulumi.set(__self__, "response_signature_scope", response_signature_scope)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if subject_match_attribute is not None:
@@ -332,7 +324,7 @@ class IdpArgs:
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign requests
+        The HMAC Signature Algorithm used when signing an authorization request
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -344,37 +336,13 @@ class IdpArgs:
     @pulumi.getter(name="requestSignatureScope")
     def request_signature_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign response
+        Specifies whether to digitally sign an authorization request to the IdP
         """
         return pulumi.get(self, "request_signature_scope")
 
     @request_signature_scope.setter
     def request_signature_scope(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "request_signature_scope", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign requests
-        """
-        return pulumi.get(self, "response_signature_algorithm")
-
-    @response_signature_algorithm.setter
-    def response_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_algorithm", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign response
-        """
-        return pulumi.get(self, "response_signature_scope")
-
-    @response_signature_scope.setter
-    def response_signature_scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_scope", value)
 
     @property
     @pulumi.getter
@@ -465,8 +433,6 @@ class _IdpState:
                  provisioning_action: Optional[pulumi.Input[str]] = None,
                  request_signature_algorithm: Optional[pulumi.Input[str]] = None,
                  request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -483,10 +449,8 @@ class _IdpState:
         Input properties used for looking up and filtering Idp resources.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an authorization request to the IdP
         """
         if account_link_action is not None:
             pulumi.set(__self__, "account_link_action", account_link_action)
@@ -532,10 +496,6 @@ class _IdpState:
             pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
         if request_signature_scope is not None:
             pulumi.set(__self__, "request_signature_scope", request_signature_scope)
-        if response_signature_algorithm is not None:
-            pulumi.set(__self__, "response_signature_algorithm", response_signature_algorithm)
-        if response_signature_scope is not None:
-            pulumi.set(__self__, "response_signature_scope", response_signature_scope)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
         if status is not None:
@@ -751,7 +711,7 @@ class _IdpState:
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign requests
+        The HMAC Signature Algorithm used when signing an authorization request
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -763,37 +723,13 @@ class _IdpState:
     @pulumi.getter(name="requestSignatureScope")
     def request_signature_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign response
+        Specifies whether to digitally sign an authorization request to the IdP
         """
         return pulumi.get(self, "request_signature_scope")
 
     @request_signature_scope.setter
     def request_signature_scope(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "request_signature_scope", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign requests
-        """
-        return pulumi.get(self, "response_signature_algorithm")
-
-    @response_signature_algorithm.setter
-    def response_signature_algorithm(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_algorithm", value)
-
-    @property
-    @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        algorithm to use to sign response
-        """
-        return pulumi.get(self, "response_signature_scope")
-
-    @response_signature_scope.setter
-    def response_signature_scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "response_signature_scope", value)
 
     @property
     @pulumi.getter
@@ -936,8 +872,6 @@ class Idp(pulumi.CustomResource):
                  provisioning_action: Optional[pulumi.Input[str]] = None,
                  request_signature_algorithm: Optional[pulumi.Input[str]] = None,
                  request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -955,10 +889,8 @@ class Idp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an authorization request to the IdP
         """
         ...
     @overload
@@ -1005,8 +937,6 @@ class Idp(pulumi.CustomResource):
                  provisioning_action: Optional[pulumi.Input[str]] = None,
                  request_signature_algorithm: Optional[pulumi.Input[str]] = None,
                  request_signature_scope: Optional[pulumi.Input[str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -1066,8 +996,6 @@ class Idp(pulumi.CustomResource):
             __props__.__dict__["provisioning_action"] = provisioning_action
             __props__.__dict__["request_signature_algorithm"] = request_signature_algorithm
             __props__.__dict__["request_signature_scope"] = request_signature_scope
-            __props__.__dict__["response_signature_algorithm"] = response_signature_algorithm
-            __props__.__dict__["response_signature_scope"] = response_signature_scope
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__.__dict__["scopes"] = scopes
@@ -1118,8 +1046,6 @@ class Idp(pulumi.CustomResource):
             provisioning_action: Optional[pulumi.Input[str]] = None,
             request_signature_algorithm: Optional[pulumi.Input[str]] = None,
             request_signature_scope: Optional[pulumi.Input[str]] = None,
-            response_signature_algorithm: Optional[pulumi.Input[str]] = None,
-            response_signature_scope: Optional[pulumi.Input[str]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             subject_match_attribute: Optional[pulumi.Input[str]] = None,
@@ -1141,10 +1067,8 @@ class Idp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an authorization request to the IdP
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1172,8 +1096,6 @@ class Idp(pulumi.CustomResource):
         __props__.__dict__["provisioning_action"] = provisioning_action
         __props__.__dict__["request_signature_algorithm"] = request_signature_algorithm
         __props__.__dict__["request_signature_scope"] = request_signature_scope
-        __props__.__dict__["response_signature_algorithm"] = response_signature_algorithm
-        __props__.__dict__["response_signature_scope"] = response_signature_scope
         __props__.__dict__["scopes"] = scopes
         __props__.__dict__["status"] = status
         __props__.__dict__["subject_match_attribute"] = subject_match_attribute
@@ -1298,7 +1220,7 @@ class Idp(pulumi.CustomResource):
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        algorithm to use to sign requests
+        The HMAC Signature Algorithm used when signing an authorization request
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -1306,25 +1228,9 @@ class Idp(pulumi.CustomResource):
     @pulumi.getter(name="requestSignatureScope")
     def request_signature_scope(self) -> pulumi.Output[Optional[str]]:
         """
-        algorithm to use to sign response
+        Specifies whether to digitally sign an authorization request to the IdP
         """
         return pulumi.get(self, "request_signature_scope")
-
-    @property
-    @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
-        """
-        algorithm to use to sign requests
-        """
-        return pulumi.get(self, "response_signature_algorithm")
-
-    @property
-    @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> pulumi.Output[Optional[str]]:
-        """
-        algorithm to use to sign response
-        """
-        return pulumi.get(self, "response_signature_scope")
 
     @property
     @pulumi.getter

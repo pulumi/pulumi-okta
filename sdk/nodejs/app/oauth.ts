@@ -41,6 +41,10 @@ import * as utilities from "../utilities";
  *     type: "service",
  * });
  * ```
+ * ## Etc.
+ *
+ * ### Resetting client secret
+ * If the client secret needs to be reset run an apply with `omitSecret` set to true in the resource. This causes `clientSecret` to be set to blank. Remove `omitSecret` and run apply again. The resource will set a new `clientSecret` for the app.
  *
  * ## Import
  *
@@ -227,7 +231,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+     * This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
      */
     public readonly omitSecret!: pulumi.Output<boolean | undefined>;
     /**
@@ -584,7 +588,7 @@ export interface OAuthState {
      */
     name?: pulumi.Input<string>;
     /**
-     * This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+     * This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
@@ -799,7 +803,7 @@ export interface OAuthArgs {
      */
     logoUri?: pulumi.Input<string>;
     /**
-     * This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+     * This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
      */
     omitSecret?: pulumi.Input<boolean>;
     /**

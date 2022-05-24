@@ -102,14 +102,10 @@ type Oidc struct {
 	ProtocolType pulumi.StringPtrOutput `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
+	// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
 	RequestSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrOutput `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
-	ResponseSignatureScope pulumi.StringPtrOutput `pulumi:"responseSignatureScope"`
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// Status of the IdP.
@@ -234,14 +230,10 @@ type oidcState struct {
 	ProtocolType *string `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
+	// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
-	ResponseSignatureScope *string `pulumi:"responseSignatureScope"`
 	// The scopes of the IdP.
 	Scopes []string `pulumi:"scopes"`
 	// Status of the IdP.
@@ -308,14 +300,10 @@ type OidcState struct {
 	ProtocolType pulumi.StringPtrInput
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrInput
-	// algorithm to use to sign requests
+	// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrInput
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
-	ResponseSignatureScope pulumi.StringPtrInput
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayInput
 	// Status of the IdP.
@@ -386,14 +374,10 @@ type oidcArgs struct {
 	ProtocolType *string `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
+	// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
-	ResponseSignatureScope *string `pulumi:"responseSignatureScope"`
 	// The scopes of the IdP.
 	Scopes []string `pulumi:"scopes"`
 	// Status of the IdP.
@@ -457,14 +441,10 @@ type OidcArgs struct {
 	ProtocolType pulumi.StringPtrInput
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrInput
-	// algorithm to use to sign requests
+	// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrInput
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
-	ResponseSignatureScope pulumi.StringPtrInput
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayInput
 	// Status of the IdP.
@@ -673,24 +653,14 @@ func (o OidcOutput) ProvisioningAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
 }
 
-// algorithm to use to sign requests
+// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
 func (o OidcOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// algorithm to use to sign response
+// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
 func (o OidcOutput) RequestSignatureScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
-}
-
-// algorithm to use to sign requests
-func (o OidcOutput) ResponseSignatureAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.ResponseSignatureAlgorithm }).(pulumi.StringPtrOutput)
-}
-
-// algorithm to use to sign response
-func (o OidcOutput) ResponseSignatureScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.ResponseSignatureScope }).(pulumi.StringPtrOutput)
 }
 
 // The scopes of the IdP.

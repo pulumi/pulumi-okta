@@ -180,28 +180,16 @@ namespace Pulumi.Okta.Idp
         public Output<string?> ProvisioningAction { get; private set; } = null!;
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
         /// </summary>
         [Output("requestSignatureAlgorithm")]
         public Output<string?> RequestSignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         /// </summary>
         [Output("requestSignatureScope")]
         public Output<string?> RequestSignatureScope { get; private set; } = null!;
-
-        /// <summary>
-        /// algorithm to use to sign requests
-        /// </summary>
-        [Output("responseSignatureAlgorithm")]
-        public Output<string?> ResponseSignatureAlgorithm { get; private set; } = null!;
-
-        /// <summary>
-        /// algorithm to use to sign response
-        /// </summary>
-        [Output("responseSignatureScope")]
-        public Output<string?> ResponseSignatureScope { get; private set; } = null!;
 
         /// <summary>
         /// The scopes of the IdP.
@@ -457,28 +445,16 @@ namespace Pulumi.Okta.Idp
         public Input<string>? ProvisioningAction { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
         /// </summary>
         [Input("requestSignatureAlgorithm")]
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
-
-        /// <summary>
-        /// algorithm to use to sign requests
-        /// </summary>
-        [Input("responseSignatureAlgorithm")]
-        public Input<string>? ResponseSignatureAlgorithm { get; set; }
-
-        /// <summary>
-        /// algorithm to use to sign response
-        /// </summary>
-        [Input("responseSignatureScope")]
-        public Input<string>? ResponseSignatureScope { get; set; }
 
         [Input("scopes", required: true)]
         private InputList<string>? _scopes;
@@ -689,28 +665,16 @@ namespace Pulumi.Okta.Idp
         public Input<string>? ProvisioningAction { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
         /// </summary>
         [Input("requestSignatureAlgorithm")]
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
-
-        /// <summary>
-        /// algorithm to use to sign requests
-        /// </summary>
-        [Input("responseSignatureAlgorithm")]
-        public Input<string>? ResponseSignatureAlgorithm { get; set; }
-
-        /// <summary>
-        /// algorithm to use to sign response
-        /// </summary>
-        [Input("responseSignatureScope")]
-        public Input<string>? ResponseSignatureScope { get; set; }
 
         [Input("scopes")]
         private InputList<string>? _scopes;

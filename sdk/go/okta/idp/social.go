@@ -104,14 +104,6 @@ type Social struct {
 	ProtocolType pulumi.StringPtrOutput `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
-	// The XML digital signature algorithm used when signing an AuthnRequest message.
-	RequestSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-	RequestSignatureScope pulumi.StringPtrOutput `pulumi:"requestSignatureScope"`
-	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-	ResponseSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"responseSignatureAlgorithm"`
-	// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-	ResponseSignatureScope pulumi.StringPtrOutput `pulumi:"responseSignatureScope"`
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// Status of the IdP.
@@ -213,14 +205,6 @@ type socialState struct {
 	ProtocolType *string `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// The XML digital signature algorithm used when signing an AuthnRequest message.
-	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
-	// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-	ResponseSignatureScope *string `pulumi:"responseSignatureScope"`
 	// The scopes of the IdP.
 	Scopes []string `pulumi:"scopes"`
 	// Status of the IdP.
@@ -288,14 +272,6 @@ type SocialState struct {
 	ProtocolType pulumi.StringPtrInput
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrInput
-	// The XML digital signature algorithm used when signing an AuthnRequest message.
-	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-	RequestSignatureScope pulumi.StringPtrInput
-	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-	ResponseSignatureAlgorithm pulumi.StringPtrInput
-	// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-	ResponseSignatureScope pulumi.StringPtrInput
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayInput
 	// Status of the IdP.
@@ -363,14 +339,6 @@ type socialArgs struct {
 	ProtocolType *string `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// The XML digital signature algorithm used when signing an AuthnRequest message.
-	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
-	// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-	ResponseSignatureScope *string `pulumi:"responseSignatureScope"`
 	// The scopes of the IdP.
 	Scopes []string `pulumi:"scopes"`
 	// Status of the IdP.
@@ -431,14 +399,6 @@ type SocialArgs struct {
 	ProtocolType pulumi.StringPtrInput
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrInput
-	// The XML digital signature algorithm used when signing an AuthnRequest message.
-	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-	RequestSignatureScope pulumi.StringPtrInput
-	// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-	ResponseSignatureAlgorithm pulumi.StringPtrInput
-	// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-	ResponseSignatureScope pulumi.StringPtrInput
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayInput
 	// Status of the IdP.
@@ -652,26 +612,6 @@ func (o SocialOutput) ProtocolType() pulumi.StringPtrOutput {
 // Provisioning action for an IdP user during authentication.
 func (o SocialOutput) ProvisioningAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
-}
-
-// The XML digital signature algorithm used when signing an AuthnRequest message.
-func (o SocialOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-func (o SocialOutput) RequestSignatureScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
-}
-
-// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-func (o SocialOutput) ResponseSignatureAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ResponseSignatureAlgorithm }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-func (o SocialOutput) ResponseSignatureScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ResponseSignatureScope }).(pulumi.StringPtrOutput)
 }
 
 // The scopes of the IdP.
