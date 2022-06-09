@@ -63,9 +63,9 @@ class SamlArgs:
         :param pulumi.Input[str] name_format: The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message.
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
         :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
         :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] sso_destination: URI reference indicating the address to which the AuthnRequest message is sent.
@@ -357,7 +357,7 @@ class SamlArgs:
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        The XML digital signature algorithm used when signing an AuthnRequest message.
+        The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -381,7 +381,7 @@ class SamlArgs:
     @pulumi.getter(name="responseSignatureAlgorithm")
     def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
         """
         return pulumi.get(self, "response_signature_algorithm")
 
@@ -566,9 +566,9 @@ class _SamlState:
         :param pulumi.Input[str] name_format: The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message.
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
         :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
         :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] sso_destination: URI reference indicating the address to which the AuthnRequest message is sent.
@@ -872,7 +872,7 @@ class _SamlState:
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        The XML digital signature algorithm used when signing an AuthnRequest message.
+        The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -896,7 +896,7 @@ class _SamlState:
     @pulumi.getter(name="responseSignatureAlgorithm")
     def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
         """
         return pulumi.get(self, "response_signature_algorithm")
 
@@ -1147,9 +1147,9 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] name_format: The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message.
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
         :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
         :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] sso_destination: URI reference indicating the address to which the AuthnRequest message is sent.
@@ -1368,9 +1368,9 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] name_format: The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message.
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
         :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
         :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
         :param pulumi.Input[str] sso_destination: URI reference indicating the address to which the AuthnRequest message is sent.
@@ -1570,7 +1570,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        The XML digital signature algorithm used when signing an AuthnRequest message.
+        The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -1586,7 +1586,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="responseSignatureAlgorithm")
     def response_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
         """
         return pulumi.get(self, "response_signature_algorithm")
 

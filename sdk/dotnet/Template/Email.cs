@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Template
 {
     /// <summary>
-    /// ** This resource is deprecated. Swith over to the email_customization resource.
+    /// &gt; **DEPRECATED** This resource is deprecated. Switch over to the email_customization resource.
     /// 
     /// Creates an Okta Email Template.
     /// 

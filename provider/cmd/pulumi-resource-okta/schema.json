@@ -4622,7 +4622,7 @@
             }
         },
         "okta:app/oAuth:OAuth": {
-            "description": "This resource allows you to create and configure an OIDC Application.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.OAuth(\"example\", {\n    grantTypes: [\"authorization_code\"],\n    label: \"example\",\n    redirectUris: [\"https://example.com/\"],\n    responseTypes: [\"code\"],\n    type: \"web\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.OAuth(\"example\",\n    grant_types=[\"authorization_code\"],\n    label=\"example\",\n    redirect_uris=[\"https://example.com/\"],\n    response_types=[\"code\"],\n    type=\"web\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.App.OAuth(\"example\", new Okta.App.OAuthArgs\n        {\n            GrantTypes = \n            {\n                \"authorization_code\",\n            },\n            Label = \"example\",\n            RedirectUris = \n            {\n                \"https://example.com/\",\n            },\n            ResponseTypes = \n            {\n                \"code\",\n            },\n            Type = \"web\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewOAuth(ctx, \"example\", \u0026app.OAuthArgs{\n\t\t\tGrantTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"authorization_code\"),\n\t\t\t},\n\t\t\tLabel: pulumi.String(\"example\"),\n\t\t\tRedirectUris: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://example.com/\"),\n\t\t\t},\n\t\t\tResponseTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"code\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"web\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new OAuth(\"example\", OAuthArgs.builder()        \n            .grantTypes(\"authorization_code\")\n            .label(\"example\")\n            .redirectUris(\"https://example.com/\")\n            .responseTypes(\"code\")\n            .type(\"web\")\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:OAuth\n    properties:\n      grantTypes:\n        - authorization_code\n      label: example\n      redirectUris:\n        - https://example.com/\n      responseTypes:\n        - code\n      type: web\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.OAuth(\"example\", {\n    grantTypes: [\"client_credentials\"],\n    jwks: [{\n        e: \"AQAB\",\n        kid: \"SIGNING_KEY\",\n        kty: \"RSA\",\n        n: \"xyz\",\n    }],\n    label: \"example\",\n    responseTypes: [\"token\"],\n    tokenEndpointAuthMethod: \"private_key_jwt\",\n    type: \"service\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.OAuth(\"example\",\n    grant_types=[\"client_credentials\"],\n    jwks=[okta.app.OAuthJwkArgs(\n        e=\"AQAB\",\n        kid=\"SIGNING_KEY\",\n        kty=\"RSA\",\n        n=\"xyz\",\n    )],\n    label=\"example\",\n    response_types=[\"token\"],\n    token_endpoint_auth_method=\"private_key_jwt\",\n    type=\"service\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.App.OAuth(\"example\", new Okta.App.OAuthArgs\n        {\n            GrantTypes = \n            {\n                \"client_credentials\",\n            },\n            Jwks = \n            {\n                new Okta.App.Inputs.OAuthJwkArgs\n                {\n                    E = \"AQAB\",\n                    Kid = \"SIGNING_KEY\",\n                    Kty = \"RSA\",\n                    N = \"xyz\",\n                },\n            },\n            Label = \"example\",\n            ResponseTypes = \n            {\n                \"token\",\n            },\n            TokenEndpointAuthMethod = \"private_key_jwt\",\n            Type = \"service\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewOAuth(ctx, \"example\", \u0026app.OAuthArgs{\n\t\t\tGrantTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"client_credentials\"),\n\t\t\t},\n\t\t\tJwks: app.OAuthJwkArray{\n\t\t\t\t\u0026app.OAuthJwkArgs{\n\t\t\t\t\tE:   pulumi.String(\"AQAB\"),\n\t\t\t\t\tKid: pulumi.String(\"SIGNING_KEY\"),\n\t\t\t\t\tKty: pulumi.String(\"RSA\"),\n\t\t\t\t\tN:   pulumi.String(\"xyz\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tLabel: pulumi.String(\"example\"),\n\t\t\tResponseTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"token\"),\n\t\t\t},\n\t\t\tTokenEndpointAuthMethod: pulumi.String(\"private_key_jwt\"),\n\t\t\tType:                    pulumi.String(\"service\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new OAuth(\"example\", OAuthArgs.builder()        \n            .grantTypes(\"client_credentials\")\n            .jwks(OAuthJwk.builder()\n                .e(\"AQAB\")\n                .kid(\"SIGNING_KEY\")\n                .kty(\"RSA\")\n                .n(\"xyz\")\n                .build())\n            .label(\"example\")\n            .responseTypes(\"token\")\n            .tokenEndpointAuthMethod(\"private_key_jwt\")\n            .type(\"service\")\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:OAuth\n    properties:\n      grantTypes:\n        - client_credentials\n      jwks:\n        - e: AQAB\n          kid: SIGNING_KEY\n          kty: RSA\n          n: xyz\n      label: example\n      responseTypes:\n        - token\n      tokenEndpointAuthMethod: private_key_jwt\n      type: service\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn OIDC Application can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:app/oAuth:OAuth example \u0026#60;app id\u0026#62;\n```\n\n It's also possible to import app without groups or/and users. In this case ID may look like this\n\n```sh\n $ pulumi import okta:app/oAuth:OAuth example \u0026#60;app id\u0026#62;/skip_users\n```\n\n\n\n```sh\n $ pulumi import okta:app/oAuth:OAuth example \u0026#60;app id\u0026#62;/skip_users/skip_groups\n```\n\n\n\n```sh\n $ pulumi import okta:app/oAuth:OAuth example \u0026#60;app id\u0026#62;/skip_groups\n```\n\n ",
+            "description": "This resource allows you to create and configure an OIDC Application.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.OAuth(\"example\", {\n    grantTypes: [\"authorization_code\"],\n    label: \"example\",\n    redirectUris: [\"https://example.com/\"],\n    responseTypes: [\"code\"],\n    type: \"web\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.OAuth(\"example\",\n    grant_types=[\"authorization_code\"],\n    label=\"example\",\n    redirect_uris=[\"https://example.com/\"],\n    response_types=[\"code\"],\n    type=\"web\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.App.OAuth(\"example\", new Okta.App.OAuthArgs\n        {\n            GrantTypes = \n            {\n                \"authorization_code\",\n            },\n            Label = \"example\",\n            RedirectUris = \n            {\n                \"https://example.com/\",\n            },\n            ResponseTypes = \n            {\n                \"code\",\n            },\n            Type = \"web\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewOAuth(ctx, \"example\", \u0026app.OAuthArgs{\n\t\t\tGrantTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"authorization_code\"),\n\t\t\t},\n\t\t\tLabel: pulumi.String(\"example\"),\n\t\t\tRedirectUris: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://example.com/\"),\n\t\t\t},\n\t\t\tResponseTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"code\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"web\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new OAuth(\"example\", OAuthArgs.builder()        \n            .grantTypes(\"authorization_code\")\n            .label(\"example\")\n            .redirectUris(\"https://example.com/\")\n            .responseTypes(\"code\")\n            .type(\"web\")\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:OAuth\n    properties:\n      grantTypes:\n        - authorization_code\n      label: example\n      redirectUris:\n        - https://example.com/\n      responseTypes:\n        - code\n      type: web\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.OAuth(\"example\", {\n    grantTypes: [\"client_credentials\"],\n    jwks: [{\n        e: \"AQAB\",\n        kid: \"SIGNING_KEY\",\n        kty: \"RSA\",\n        n: \"xyz\",\n    }],\n    label: \"example\",\n    responseTypes: [\"token\"],\n    tokenEndpointAuthMethod: \"private_key_jwt\",\n    type: \"service\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.OAuth(\"example\",\n    grant_types=[\"client_credentials\"],\n    jwks=[okta.app.OAuthJwkArgs(\n        e=\"AQAB\",\n        kid=\"SIGNING_KEY\",\n        kty=\"RSA\",\n        n=\"xyz\",\n    )],\n    label=\"example\",\n    response_types=[\"token\"],\n    token_endpoint_auth_method=\"private_key_jwt\",\n    type=\"service\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.App.OAuth(\"example\", new Okta.App.OAuthArgs\n        {\n            GrantTypes = \n            {\n                \"client_credentials\",\n            },\n            Jwks = \n            {\n                new Okta.App.Inputs.OAuthJwkArgs\n                {\n                    E = \"AQAB\",\n                    Kid = \"SIGNING_KEY\",\n                    Kty = \"RSA\",\n                    N = \"xyz\",\n                },\n            },\n            Label = \"example\",\n            ResponseTypes = \n            {\n                \"token\",\n            },\n            TokenEndpointAuthMethod = \"private_key_jwt\",\n            Type = \"service\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewOAuth(ctx, \"example\", \u0026app.OAuthArgs{\n\t\t\tGrantTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"client_credentials\"),\n\t\t\t},\n\t\t\tJwks: app.OAuthJwkArray{\n\t\t\t\t\u0026app.OAuthJwkArgs{\n\t\t\t\t\tE:   pulumi.String(\"AQAB\"),\n\t\t\t\t\tKid: pulumi.String(\"SIGNING_KEY\"),\n\t\t\t\t\tKty: pulumi.String(\"RSA\"),\n\t\t\t\t\tN:   pulumi.String(\"xyz\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tLabel: pulumi.String(\"example\"),\n\t\t\tResponseTypes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"token\"),\n\t\t\t},\n\t\t\tTokenEndpointAuthMethod: pulumi.String(\"private_key_jwt\"),\n\t\t\tType:                    pulumi.String(\"service\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new OAuth(\"example\", OAuthArgs.builder()        \n            .grantTypes(\"client_credentials\")\n            .jwks(OAuthJwk.builder()\n                .e(\"AQAB\")\n                .kid(\"SIGNING_KEY\")\n                .kty(\"RSA\")\n                .n(\"xyz\")\n                .build())\n            .label(\"example\")\n            .responseTypes(\"token\")\n            .tokenEndpointAuthMethod(\"private_key_jwt\")\n            .type(\"service\")\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:OAuth\n    properties:\n      grantTypes:\n        - client_credentials\n      jwks:\n        - e: AQAB\n          kid: SIGNING_KEY\n          kty: RSA\n          n: xyz\n      label: example\n      responseTypes:\n        - token\n      tokenEndpointAuthMethod: private_key_jwt\n      type: service\n```\n{{% /example %}}\n{{% /examples %}}\n## Etc.\n\n### Resetting client secret\nIf the client secret needs to be reset run an apply with `omit_secret` set to true in the resource. This causes `client_secret` to be set to blank. Remove `omit_secret` and run apply again. The resource will set a new `client_secret` for the app.\n\n\n## Import\n\nAn OIDC Application can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:app/oAuth:OAuth example \u0026#60;app id\u0026#62;\n```\n\n It's also possible to import app without groups or/and users. In this case ID may look like this\n\n```sh\n $ pulumi import okta:app/oAuth:OAuth example \u0026#60;app id\u0026#62;/skip_users\n```\n\n\n\n```sh\n $ pulumi import okta:app/oAuth:OAuth example \u0026#60;app id\u0026#62;/skip_users/skip_groups\n```\n\n\n\n```sh\n $ pulumi import okta:app/oAuth:OAuth example \u0026#60;app id\u0026#62;/skip_groups\n```\n\n ",
             "properties": {
                 "accessibilityErrorRedirectUrl": {
                     "type": "string",
@@ -4764,7 +4764,7 @@
                 },
                 "omitSecret": {
                     "type": "boolean",
-                    "description": "This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true =\u003e false.\n"
+                    "description": "This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =\u003e false.\n"
                 },
                 "policyUri": {
                     "type": "string",
@@ -5000,7 +5000,7 @@
                 },
                 "omitSecret": {
                     "type": "boolean",
-                    "description": "This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true =\u003e false.\n"
+                    "description": "This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =\u003e false.\n"
                 },
                 "policyUri": {
                     "type": "string",
@@ -5239,7 +5239,7 @@
                     },
                     "omitSecret": {
                         "type": "boolean",
-                        "description": "This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true =\u003e false.\n"
+                        "description": "This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =\u003e false.\n"
                     },
                     "policyUri": {
                         "type": "string",
@@ -9043,11 +9043,16 @@
                 "name": {
                     "type": "string",
                     "description": "Auth Server scope name.\n"
+                },
+                "system": {
+                    "type": "boolean",
+                    "description": "Whether Okta created the Scope\n"
                 }
             },
             "required": [
                 "authServerId",
-                "name"
+                "name",
+                "system"
             ],
             "inputProperties": {
                 "authServerId": {
@@ -9112,6 +9117,10 @@
                     "name": {
                         "type": "string",
                         "description": "Auth Server scope name.\n"
+                    },
+                    "system": {
+                        "type": "boolean",
+                        "description": "Whether Okta created the Scope\n"
                     }
                 },
                 "type": "object"
@@ -9880,19 +9889,11 @@
                 },
                 "requestSignatureAlgorithm": {
                     "type": "string",
-                    "description": "algorithm to use to sign requests\n"
+                    "description": "The HMAC Signature Algorithm used when signing an authorization request\n"
                 },
                 "requestSignatureScope": {
                     "type": "string",
-                    "description": "algorithm to use to sign response\n"
-                },
-                "responseSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "algorithm to use to sign requests\n"
-                },
-                "responseSignatureScope": {
-                    "type": "string",
-                    "description": "algorithm to use to sign response\n"
+                    "description": "Specifies whether to digitally sign an authorization request to the IdP\n"
                 },
                 "scopes": {
                     "type": "array",
@@ -10023,19 +10024,11 @@
                 },
                 "requestSignatureAlgorithm": {
                     "type": "string",
-                    "description": "algorithm to use to sign requests\n"
+                    "description": "The HMAC Signature Algorithm used when signing an authorization request\n"
                 },
                 "requestSignatureScope": {
                     "type": "string",
-                    "description": "algorithm to use to sign response\n"
-                },
-                "responseSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "algorithm to use to sign requests\n"
-                },
-                "responseSignatureScope": {
-                    "type": "string",
-                    "description": "algorithm to use to sign response\n"
+                    "description": "Specifies whether to digitally sign an authorization request to the IdP\n"
                 },
                 "scopes": {
                     "type": "array",
@@ -10159,19 +10152,11 @@
                     },
                     "requestSignatureAlgorithm": {
                         "type": "string",
-                        "description": "algorithm to use to sign requests\n"
+                        "description": "The HMAC Signature Algorithm used when signing an authorization request\n"
                     },
                     "requestSignatureScope": {
                         "type": "string",
-                        "description": "algorithm to use to sign response\n"
-                    },
-                    "responseSignatureAlgorithm": {
-                        "type": "string",
-                        "description": "algorithm to use to sign requests\n"
-                    },
-                    "responseSignatureScope": {
-                        "type": "string",
-                        "description": "algorithm to use to sign response\n"
+                        "description": "Specifies whether to digitally sign an authorization request to the IdP\n"
                     },
                     "scopes": {
                         "type": "array",
@@ -13064,19 +13049,19 @@
                 },
                 "requestSignatureAlgorithm": {
                     "type": "string",
-                    "description": "algorithm to use to sign requests\n"
+                    "description": "The XML digital Signature Algorithm used when signing an \u003cAuthnRequest\u003e message\n"
                 },
                 "requestSignatureScope": {
                     "type": "string",
-                    "description": "algorithm to use to sign response\n"
+                    "description": "Specifies whether to digitally sign \u003cAuthnRequest\u003e messages to the IdP\n"
                 },
                 "responseSignatureAlgorithm": {
                     "type": "string",
-                    "description": "algorithm to use to sign requests\n"
+                    "description": "The minimum XML digital Signature Algorithm allowed when verifying a \u003cSAMLResponse\u003e message or \u003cAssertion\u003e element\n"
                 },
                 "responseSignatureScope": {
                     "type": "string",
-                    "description": "algorithm to use to sign response\n"
+                    "description": "Specifies whether to verify a \u003cSAMLResponse\u003e message or \u003cAssertion\u003e element XML digital signature\n"
                 },
                 "ssoBinding": {
                     "type": "string"
@@ -13193,19 +13178,19 @@
                 },
                 "requestSignatureAlgorithm": {
                     "type": "string",
-                    "description": "algorithm to use to sign requests\n"
+                    "description": "The XML digital Signature Algorithm used when signing an \u003cAuthnRequest\u003e message\n"
                 },
                 "requestSignatureScope": {
                     "type": "string",
-                    "description": "algorithm to use to sign response\n"
+                    "description": "Specifies whether to digitally sign \u003cAuthnRequest\u003e messages to the IdP\n"
                 },
                 "responseSignatureAlgorithm": {
                     "type": "string",
-                    "description": "algorithm to use to sign requests\n"
+                    "description": "The minimum XML digital Signature Algorithm allowed when verifying a \u003cSAMLResponse\u003e message or \u003cAssertion\u003e element\n"
                 },
                 "responseSignatureScope": {
                     "type": "string",
-                    "description": "algorithm to use to sign response\n"
+                    "description": "Specifies whether to verify a \u003cSAMLResponse\u003e message or \u003cAssertion\u003e element XML digital signature\n"
                 },
                 "ssoBinding": {
                     "type": "string"
@@ -13317,19 +13302,19 @@
                     },
                     "requestSignatureAlgorithm": {
                         "type": "string",
-                        "description": "algorithm to use to sign requests\n"
+                        "description": "The XML digital Signature Algorithm used when signing an \u003cAuthnRequest\u003e message\n"
                     },
                     "requestSignatureScope": {
                         "type": "string",
-                        "description": "algorithm to use to sign response\n"
+                        "description": "Specifies whether to digitally sign \u003cAuthnRequest\u003e messages to the IdP\n"
                     },
                     "responseSignatureAlgorithm": {
                         "type": "string",
-                        "description": "algorithm to use to sign requests\n"
+                        "description": "The minimum XML digital Signature Algorithm allowed when verifying a \u003cSAMLResponse\u003e message or \u003cAssertion\u003e element\n"
                     },
                     "responseSignatureScope": {
                         "type": "string",
-                        "description": "algorithm to use to sign response\n"
+                        "description": "Specifies whether to verify a \u003cSAMLResponse\u003e message or \u003cAssertion\u003e element XML digital signature\n"
                     },
                     "ssoBinding": {
                         "type": "string"
@@ -14457,22 +14442,6 @@
                 "provisioningAction": {
                     "type": "string"
                 },
-                "requestSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "algorithm to use to sign requests\n"
-                },
-                "requestSignatureScope": {
-                    "type": "string",
-                    "description": "algorithm to use to sign response\n"
-                },
-                "responseSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "algorithm to use to sign requests\n"
-                },
-                "responseSignatureScope": {
-                    "type": "string",
-                    "description": "algorithm to use to sign response\n"
-                },
                 "scopes": {
                     "type": "array",
                     "items": {
@@ -14590,22 +14559,6 @@
                 "provisioningAction": {
                     "type": "string"
                 },
-                "requestSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "algorithm to use to sign requests\n"
-                },
-                "requestSignatureScope": {
-                    "type": "string",
-                    "description": "algorithm to use to sign response\n"
-                },
-                "responseSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "algorithm to use to sign requests\n"
-                },
-                "responseSignatureScope": {
-                    "type": "string",
-                    "description": "algorithm to use to sign response\n"
-                },
                 "scopes": {
                     "type": "array",
                     "items": {
@@ -14719,22 +14672,6 @@
                     },
                     "provisioningAction": {
                         "type": "string"
-                    },
-                    "requestSignatureAlgorithm": {
-                        "type": "string",
-                        "description": "algorithm to use to sign requests\n"
-                    },
-                    "requestSignatureScope": {
-                        "type": "string",
-                        "description": "algorithm to use to sign response\n"
-                    },
-                    "responseSignatureAlgorithm": {
-                        "type": "string",
-                        "description": "algorithm to use to sign requests\n"
-                    },
-                    "responseSignatureScope": {
-                        "type": "string",
-                        "description": "algorithm to use to sign response\n"
                     },
                     "scopes": {
                         "type": "array",
@@ -16176,19 +16113,11 @@
                 },
                 "requestSignatureAlgorithm": {
                     "type": "string",
-                    "description": "algorithm to use to sign requests\n"
+                    "description": "The HMAC Signature Algorithm used when signing an authorization request. It can be `\"HS256\"`, `\"HS384\"`, or `\"HS512\"`.\n"
                 },
                 "requestSignatureScope": {
                     "type": "string",
-                    "description": "algorithm to use to sign response\n"
-                },
-                "responseSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "algorithm to use to sign requests\n"
-                },
-                "responseSignatureScope": {
-                    "type": "string",
-                    "description": "algorithm to use to sign response\n"
+                    "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
                 },
                 "scopes": {
                     "type": "array",
@@ -16348,19 +16277,11 @@
                 },
                 "requestSignatureAlgorithm": {
                     "type": "string",
-                    "description": "algorithm to use to sign requests\n"
+                    "description": "The HMAC Signature Algorithm used when signing an authorization request. It can be `\"HS256\"`, `\"HS384\"`, or `\"HS512\"`.\n"
                 },
                 "requestSignatureScope": {
                     "type": "string",
-                    "description": "algorithm to use to sign response\n"
-                },
-                "responseSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "algorithm to use to sign requests\n"
-                },
-                "responseSignatureScope": {
-                    "type": "string",
-                    "description": "algorithm to use to sign response\n"
+                    "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
                 },
                 "scopes": {
                     "type": "array",
@@ -16511,19 +16432,11 @@
                     },
                     "requestSignatureAlgorithm": {
                         "type": "string",
-                        "description": "algorithm to use to sign requests\n"
+                        "description": "The HMAC Signature Algorithm used when signing an authorization request. It can be `\"HS256\"`, `\"HS384\"`, or `\"HS512\"`.\n"
                     },
                     "requestSignatureScope": {
                         "type": "string",
-                        "description": "algorithm to use to sign response\n"
-                    },
-                    "responseSignatureAlgorithm": {
-                        "type": "string",
-                        "description": "algorithm to use to sign requests\n"
-                    },
-                    "responseSignatureScope": {
-                        "type": "string",
-                        "description": "algorithm to use to sign response\n"
+                        "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
                     },
                     "scopes": {
                         "type": "array",
@@ -16665,7 +16578,7 @@
                 },
                 "requestSignatureAlgorithm": {
                     "type": "string",
-                    "description": "The XML digital signature algorithm used when signing an AuthnRequest message.\n"
+                    "description": "The XML digital signature algorithm used when signing an AuthnRequest message. It can be `\"SHA-256\"` or `\"SHA-1\"`.\n"
                 },
                 "requestSignatureScope": {
                     "type": "string",
@@ -16673,7 +16586,7 @@
                 },
                 "responseSignatureAlgorithm": {
                     "type": "string",
-                    "description": "The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.\n"
+                    "description": "The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `\"SHA-256\"` or `\"SHA-1\"`.\n"
                 },
                 "responseSignatureScope": {
                     "type": "string",
@@ -16820,7 +16733,7 @@
                 },
                 "requestSignatureAlgorithm": {
                     "type": "string",
-                    "description": "The XML digital signature algorithm used when signing an AuthnRequest message.\n"
+                    "description": "The XML digital signature algorithm used when signing an AuthnRequest message. It can be `\"SHA-256\"` or `\"SHA-1\"`.\n"
                 },
                 "requestSignatureScope": {
                     "type": "string",
@@ -16828,7 +16741,7 @@
                 },
                 "responseSignatureAlgorithm": {
                     "type": "string",
-                    "description": "The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.\n"
+                    "description": "The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `\"SHA-256\"` or `\"SHA-1\"`.\n"
                 },
                 "responseSignatureScope": {
                     "type": "string",
@@ -16969,7 +16882,7 @@
                     },
                     "requestSignatureAlgorithm": {
                         "type": "string",
-                        "description": "The XML digital signature algorithm used when signing an AuthnRequest message.\n"
+                        "description": "The XML digital signature algorithm used when signing an AuthnRequest message. It can be `\"SHA-256\"` or `\"SHA-1\"`.\n"
                     },
                     "requestSignatureScope": {
                         "type": "string",
@@ -16977,7 +16890,7 @@
                     },
                     "responseSignatureAlgorithm": {
                         "type": "string",
-                        "description": "The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.\n"
+                        "description": "The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `\"SHA-256\"` or `\"SHA-1\"`.\n"
                     },
                     "responseSignatureScope": {
                         "type": "string",
@@ -17232,22 +17145,6 @@
                     "type": "string",
                     "description": "Provisioning action for an IdP user during authentication.\n"
                 },
-                "requestSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "The XML digital signature algorithm used when signing an AuthnRequest message.\n"
-                },
-                "requestSignatureScope": {
-                    "type": "string",
-                    "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
-                },
-                "responseSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.\n"
-                },
-                "responseSignatureScope": {
-                    "type": "string",
-                    "description": "Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `\"RESPONSE\"`, `\"ASSERTION\"`, or `\"ANY\"`.\n"
-                },
                 "scopes": {
                     "type": "array",
                     "items": {
@@ -17387,22 +17284,6 @@
                     "type": "string",
                     "description": "Provisioning action for an IdP user during authentication.\n"
                 },
-                "requestSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "The XML digital signature algorithm used when signing an AuthnRequest message.\n"
-                },
-                "requestSignatureScope": {
-                    "type": "string",
-                    "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
-                },
-                "responseSignatureAlgorithm": {
-                    "type": "string",
-                    "description": "The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.\n"
-                },
-                "responseSignatureScope": {
-                    "type": "string",
-                    "description": "Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `\"RESPONSE\"`, `\"ASSERTION\"`, or `\"ANY\"`.\n"
-                },
                 "scopes": {
                     "type": "array",
                     "items": {
@@ -17539,22 +17420,6 @@
                         "type": "string",
                         "description": "Provisioning action for an IdP user during authentication.\n"
                     },
-                    "requestSignatureAlgorithm": {
-                        "type": "string",
-                        "description": "The XML digital signature algorithm used when signing an AuthnRequest message.\n"
-                    },
-                    "requestSignatureScope": {
-                        "type": "string",
-                        "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
-                    },
-                    "responseSignatureAlgorithm": {
-                        "type": "string",
-                        "description": "The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.\n"
-                    },
-                    "responseSignatureScope": {
-                        "type": "string",
-                        "description": "Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `\"RESPONSE\"`, `\"ASSERTION\"`, or `\"ANY\"`.\n"
-                    },
                     "scopes": {
                         "type": "array",
                         "items": {
@@ -17614,7 +17479,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The permissions that the new Role grants. At least one\npermission must be specified when creating custom role. Valid values: `\"okta.apps.assignment.manage\"`,\n`\"okta.apps.manage\"`,\n`\"okta.apps.read\"`,\n`\"okta.groups.appAssignment.manage\"`,\n`\"okta.groups.create\"`,\n`\"okta.groups.manage\"`,\n`\"okta.groups.members.manage\"`,\n`\"okta.groups.read\"`,\n`\"okta.profilesource.import.run\"`,\n`\"okta.users.appAssignment.manage\"`,\n`\"okta.users.create\"`,\n`\"okta.users.credentials.expirePassword\"`,\n`\"okta.users.credentials.manage\"`,\n`\"okta.users.credentials.resetFactors\"`,\n`\"okta.users.credentials.resetPassword\"`,\n`\"okta.users.groupMembership.manage\"`,\n`\"okta.users.lifecycle.activate\"`,\n`\"okta.users.lifecycle.clearSessions\"`,\n`\"okta.users.lifecycle.deactivate\"`,\n`\"okta.users.lifecycle.delete\"`,\n`\"okta.users.lifecycle.manage\"`,\n`\"okta.users.lifecycle.suspend\"`,\n`\"okta.users.lifecycle.unlock\"`,\n`\"okta.users.lifecycle.unsuspend\"`,\n`\"okta.users.manage\"`,\n`\"okta.users.read\"`,\n`\"okta.users.userprofile.manage\"`.\n"
+                    "description": "The permissions that the new Role grants. At least one\npermission must be specified when creating custom role. Valid values: `\"okta.apps.assignment.manage\"`,\n`\"okta.apps.manage\"`,\n`\"okta.apps.read\"`,\n`\"okta.groups.appAssignment.manage\"`,\n`\"okta.groups.create\"`,\n`\"okta.groups.manage\"`,\n`\"okta.groups.members.manage\"`,\n`\"okta.groups.read\"`,\n`\"okta.profilesources.import.run\"`,\n`\"okta.users.appAssignment.manage\"`,\n`\"okta.users.create\"`,\n`\"okta.users.credentials.expirePassword\"`,\n`\"okta.users.credentials.manage\"`,\n`\"okta.users.credentials.resetFactors\"`,\n`\"okta.users.credentials.resetPassword\"`,\n`\"okta.users.groupMembership.manage\"`,\n`\"okta.users.lifecycle.activate\"`,\n`\"okta.users.lifecycle.clearSessions\"`,\n`\"okta.users.lifecycle.deactivate\"`,\n`\"okta.users.lifecycle.delete\"`,\n`\"okta.users.lifecycle.manage\"`,\n`\"okta.users.lifecycle.suspend\"`,\n`\"okta.users.lifecycle.unlock\"`,\n`\"okta.users.lifecycle.unsuspend\"`,\n`\"okta.users.manage\"`,\n`\"okta.users.read\"`,\n`\"okta.users.userprofile.manage\"`.\n"
                 }
             },
             "required": [
@@ -17635,7 +17500,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The permissions that the new Role grants. At least one\npermission must be specified when creating custom role. Valid values: `\"okta.apps.assignment.manage\"`,\n`\"okta.apps.manage\"`,\n`\"okta.apps.read\"`,\n`\"okta.groups.appAssignment.manage\"`,\n`\"okta.groups.create\"`,\n`\"okta.groups.manage\"`,\n`\"okta.groups.members.manage\"`,\n`\"okta.groups.read\"`,\n`\"okta.profilesource.import.run\"`,\n`\"okta.users.appAssignment.manage\"`,\n`\"okta.users.create\"`,\n`\"okta.users.credentials.expirePassword\"`,\n`\"okta.users.credentials.manage\"`,\n`\"okta.users.credentials.resetFactors\"`,\n`\"okta.users.credentials.resetPassword\"`,\n`\"okta.users.groupMembership.manage\"`,\n`\"okta.users.lifecycle.activate\"`,\n`\"okta.users.lifecycle.clearSessions\"`,\n`\"okta.users.lifecycle.deactivate\"`,\n`\"okta.users.lifecycle.delete\"`,\n`\"okta.users.lifecycle.manage\"`,\n`\"okta.users.lifecycle.suspend\"`,\n`\"okta.users.lifecycle.unlock\"`,\n`\"okta.users.lifecycle.unsuspend\"`,\n`\"okta.users.manage\"`,\n`\"okta.users.read\"`,\n`\"okta.users.userprofile.manage\"`.\n"
+                    "description": "The permissions that the new Role grants. At least one\npermission must be specified when creating custom role. Valid values: `\"okta.apps.assignment.manage\"`,\n`\"okta.apps.manage\"`,\n`\"okta.apps.read\"`,\n`\"okta.groups.appAssignment.manage\"`,\n`\"okta.groups.create\"`,\n`\"okta.groups.manage\"`,\n`\"okta.groups.members.manage\"`,\n`\"okta.groups.read\"`,\n`\"okta.profilesources.import.run\"`,\n`\"okta.users.appAssignment.manage\"`,\n`\"okta.users.create\"`,\n`\"okta.users.credentials.expirePassword\"`,\n`\"okta.users.credentials.manage\"`,\n`\"okta.users.credentials.resetFactors\"`,\n`\"okta.users.credentials.resetPassword\"`,\n`\"okta.users.groupMembership.manage\"`,\n`\"okta.users.lifecycle.activate\"`,\n`\"okta.users.lifecycle.clearSessions\"`,\n`\"okta.users.lifecycle.deactivate\"`,\n`\"okta.users.lifecycle.delete\"`,\n`\"okta.users.lifecycle.manage\"`,\n`\"okta.users.lifecycle.suspend\"`,\n`\"okta.users.lifecycle.unlock\"`,\n`\"okta.users.lifecycle.unsuspend\"`,\n`\"okta.users.manage\"`,\n`\"okta.users.read\"`,\n`\"okta.users.userprofile.manage\"`.\n"
                 }
             },
             "requiredInputs": [
@@ -17658,7 +17523,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The permissions that the new Role grants. At least one\npermission must be specified when creating custom role. Valid values: `\"okta.apps.assignment.manage\"`,\n`\"okta.apps.manage\"`,\n`\"okta.apps.read\"`,\n`\"okta.groups.appAssignment.manage\"`,\n`\"okta.groups.create\"`,\n`\"okta.groups.manage\"`,\n`\"okta.groups.members.manage\"`,\n`\"okta.groups.read\"`,\n`\"okta.profilesource.import.run\"`,\n`\"okta.users.appAssignment.manage\"`,\n`\"okta.users.create\"`,\n`\"okta.users.credentials.expirePassword\"`,\n`\"okta.users.credentials.manage\"`,\n`\"okta.users.credentials.resetFactors\"`,\n`\"okta.users.credentials.resetPassword\"`,\n`\"okta.users.groupMembership.manage\"`,\n`\"okta.users.lifecycle.activate\"`,\n`\"okta.users.lifecycle.clearSessions\"`,\n`\"okta.users.lifecycle.deactivate\"`,\n`\"okta.users.lifecycle.delete\"`,\n`\"okta.users.lifecycle.manage\"`,\n`\"okta.users.lifecycle.suspend\"`,\n`\"okta.users.lifecycle.unlock\"`,\n`\"okta.users.lifecycle.unsuspend\"`,\n`\"okta.users.manage\"`,\n`\"okta.users.read\"`,\n`\"okta.users.userprofile.manage\"`.\n"
+                        "description": "The permissions that the new Role grants. At least one\npermission must be specified when creating custom role. Valid values: `\"okta.apps.assignment.manage\"`,\n`\"okta.apps.manage\"`,\n`\"okta.apps.read\"`,\n`\"okta.groups.appAssignment.manage\"`,\n`\"okta.groups.create\"`,\n`\"okta.groups.manage\"`,\n`\"okta.groups.members.manage\"`,\n`\"okta.groups.read\"`,\n`\"okta.profilesources.import.run\"`,\n`\"okta.users.appAssignment.manage\"`,\n`\"okta.users.create\"`,\n`\"okta.users.credentials.expirePassword\"`,\n`\"okta.users.credentials.manage\"`,\n`\"okta.users.credentials.resetFactors\"`,\n`\"okta.users.credentials.resetPassword\"`,\n`\"okta.users.groupMembership.manage\"`,\n`\"okta.users.lifecycle.activate\"`,\n`\"okta.users.lifecycle.clearSessions\"`,\n`\"okta.users.lifecycle.deactivate\"`,\n`\"okta.users.lifecycle.delete\"`,\n`\"okta.users.lifecycle.manage\"`,\n`\"okta.users.lifecycle.suspend\"`,\n`\"okta.users.lifecycle.unlock\"`,\n`\"okta.users.lifecycle.unsuspend\"`,\n`\"okta.users.manage\"`,\n`\"okta.users.read\"`,\n`\"okta.users.userprofile.manage\"`.\n"
                     }
                 },
                 "type": "object"
@@ -20584,7 +20449,7 @@
             }
         },
         "okta:index/groupMemberships:GroupMemberships": {
-            "description": "Resource to manage a set of memberships for a specific group.\n\nThis resource will allow you to bulk manage group membership in Okta for a given group. This offers an interface to pass multiple users into a single resource call, for better API resource usage. Effectively this is the same as using the `okta.group.Membership` resource several times with a single group and different users. If you need a relationship of a single user to many groups, please use the `okta.UserGroupMemberships` resource.\n\nWhen using this with a `okta.user.User` resource, you should add a lifecycle ignore for group memberships to avoid conflicts in desired state.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst testGroup = new okta.group.Group(\"testGroup\", {description: \"testing, testing\"});\nconst testGroupMemberships = new okta.GroupMemberships(\"testGroupMemberships\", {\n    groupId: testGroup.id,\n    users: [\n        okta_user.test1.id,\n        okta_user.test2.id,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest_group = okta.group.Group(\"testGroup\", description=\"testing, testing\")\ntest_group_memberships = okta.GroupMemberships(\"testGroupMemberships\",\n    group_id=test_group.id,\n    users=[\n        okta_user[\"test1\"][\"id\"],\n        okta_user[\"test2\"][\"id\"],\n    ])\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testGroup = new Okta.Group.Group(\"testGroup\", new Okta.Group.GroupArgs\n        {\n            Description = \"testing, testing\",\n        });\n        var testGroupMemberships = new Okta.GroupMemberships(\"testGroupMemberships\", new Okta.GroupMembershipsArgs\n        {\n            GroupId = testGroup.Id,\n            Users = \n            {\n                okta_user.Test1.Id,\n                okta_user.Test2.Id,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestGroup, err := group.NewGroup(ctx, \"testGroup\", \u0026group.GroupArgs{\n\t\t\tDescription: pulumi.String(\"testing, testing\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewGroupMemberships(ctx, \"testGroupMemberships\", \u0026okta.GroupMembershipsArgs{\n\t\t\tGroupId: testGroup.ID(),\n\t\t\tUsers: pulumi.StringArray{\n\t\t\t\tpulumi.Any(okta_user.Test1.Id),\n\t\t\t\tpulumi.Any(okta_user.Test2.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testGroup = new Group(\"testGroup\", GroupArgs.builder()        \n            .description(\"testing, testing\")\n            .build());\n\n        var testGroupMemberships = new GroupMemberships(\"testGroupMemberships\", GroupMembershipsArgs.builder()        \n            .groupId(testGroup.getId())\n            .users(            \n                okta_user.getTest1().getId(),\n                okta_user.getTest2().getId())\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  testGroup:\n    type: okta:group:Group\n    properties:\n      description: testing, testing\n  testGroupMemberships:\n    type: okta:GroupMemberships\n    properties:\n      groupId: ${testGroup.id}\n      users:\n        - ${okta_user.test1.id}\n        - ${okta_user.test2.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nan Okta Group's memberships can be imported via the Okta group ID.\n\n```sh\n $ pulumi import okta:index/groupMemberships:GroupMemberships test \u0026#60;group id\u0026#62;\n```\n\n ",
+            "description": "Resource to manage a set of memberships for a specific group.\n\nThis resource will allow you to bulk manage group membership in Okta for a given\ngroup. This offers an interface to pass multiple users into a single resource\ncall, for better API resource usage. Effectively this is the same as using the\n`okta.group.Membership` resource several times with a single group and different\nusers. If you need a relationship of a single user to many groups, please use\nthe `okta.UserGroupMemberships` resource.\n\n**Important**: When the group memberships resource is used in an environment\nwhere other resources or services can add users to the group it will make this\nresource appear to drift. If that is the case make use of a lifecycle ignore for\nthe `users` argument to avoid conflicts in desired state.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst testGroup = new okta.group.Group(\"testGroup\", {description: \"testing, testing\"});\nconst testGroupMemberships = new okta.GroupMemberships(\"testGroupMemberships\", {\n    groupId: testGroup.id,\n    users: [\n        okta_user.test1.id,\n        okta_user.test2.id,\n    ],\n});\n// lifecycle {\n//   ignore_changes = [users]\n// }\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest_group = okta.group.Group(\"testGroup\", description=\"testing, testing\")\ntest_group_memberships = okta.GroupMemberships(\"testGroupMemberships\",\n    group_id=test_group.id,\n    users=[\n        okta_user[\"test1\"][\"id\"],\n        okta_user[\"test2\"][\"id\"],\n    ])\n# lifecycle {\n#   ignore_changes = [users]\n# }\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testGroup = new Okta.Group.Group(\"testGroup\", new Okta.Group.GroupArgs\n        {\n            Description = \"testing, testing\",\n        });\n        var testGroupMemberships = new Okta.GroupMemberships(\"testGroupMemberships\", new Okta.GroupMembershipsArgs\n        {\n            GroupId = testGroup.Id,\n            Users = \n            {\n                okta_user.Test1.Id,\n                okta_user.Test2.Id,\n            },\n        });\n        // lifecycle {\n        //   ignore_changes = [users]\n        // }\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestGroup, err := group.NewGroup(ctx, \"testGroup\", \u0026group.GroupArgs{\n\t\t\tDescription: pulumi.String(\"testing, testing\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewGroupMemberships(ctx, \"testGroupMemberships\", \u0026okta.GroupMembershipsArgs{\n\t\t\tGroupId: testGroup.ID(),\n\t\t\tUsers: pulumi.StringArray{\n\t\t\t\tpulumi.Any(okta_user.Test1.Id),\n\t\t\t\tpulumi.Any(okta_user.Test2.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testGroup = new Group(\"testGroup\", GroupArgs.builder()        \n            .description(\"testing, testing\")\n            .build());\n\n        var testGroupMemberships = new GroupMemberships(\"testGroupMemberships\", GroupMembershipsArgs.builder()        \n            .groupId(testGroup.getId())\n            .users(            \n                okta_user.getTest1().getId(),\n                okta_user.getTest2().getId())\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  testGroup:\n    type: okta:group:Group\n    properties:\n      description: testing, testing\n  testGroupMemberships:\n    type: okta:GroupMemberships\n    properties:\n      groupId: ${testGroup.id}\n      users:\n        - ${okta_user.test1.id}\n        - ${okta_user.test2.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nan Okta Group's memberships can be imported via the Okta group ID.\n\n```sh\n $ pulumi import okta:index/groupMemberships:GroupMemberships test \u0026#60;group id\u0026#62;\n```\n\n ",
             "properties": {
                 "groupId": {
                     "type": "string",
@@ -22475,7 +22340,7 @@
             }
         },
         "okta:index/rateLimiting:RateLimiting": {
-            "description": "This resource allows you to configure the client-based rate limit and rate limiting communications settings.\n\n\u003e **WARNING:** This resource is available only when using api token in the provider config.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.RateLimiting(\"example\", {\n    authorize: \"ENFORCE\",\n    communicationsEnabled: true,\n    login: \"ENFORCE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.RateLimiting(\"example\",\n    authorize=\"ENFORCE\",\n    communications_enabled=True,\n    login=\"ENFORCE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.RateLimiting(\"example\", new Okta.RateLimitingArgs\n        {\n            Authorize = \"ENFORCE\",\n            CommunicationsEnabled = true,\n            Login = \"ENFORCE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRateLimiting(ctx, \"example\", \u0026okta.RateLimitingArgs{\n\t\t\tAuthorize:             pulumi.String(\"ENFORCE\"),\n\t\t\tCommunicationsEnabled: pulumi.Bool(true),\n\t\t\tLogin:                 pulumi.String(\"ENFORCE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RateLimiting(\"example\", RateLimitingArgs.builder()        \n            .authorize(\"ENFORCE\")\n            .communicationsEnabled(true)\n            .login(\"ENFORCE\")\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:RateLimiting\n    properties:\n      authorize: ENFORCE\n      communicationsEnabled: true\n      login: ENFORCE\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRate limit settings can be imported without any parameters.\n\n```sh\n $ pulumi import okta:index/rateLimiting:RateLimiting example .\n```\n\n ",
+            "description": "This resource allows you to configure the client-based rate limit and rate limiting communications settings.\n\n\u003e **WARNING:** This resource is available only when using api token in the provider config.\n\n\u003e **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable. \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.RateLimiting(\"example\", {\n    authorize: \"ENFORCE\",\n    communicationsEnabled: true,\n    login: \"ENFORCE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.RateLimiting(\"example\",\n    authorize=\"ENFORCE\",\n    communications_enabled=True,\n    login=\"ENFORCE\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.RateLimiting(\"example\", new Okta.RateLimitingArgs\n        {\n            Authorize = \"ENFORCE\",\n            CommunicationsEnabled = true,\n            Login = \"ENFORCE\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRateLimiting(ctx, \"example\", \u0026okta.RateLimitingArgs{\n\t\t\tAuthorize:             pulumi.String(\"ENFORCE\"),\n\t\t\tCommunicationsEnabled: pulumi.Bool(true),\n\t\t\tLogin:                 pulumi.String(\"ENFORCE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RateLimiting(\"example\", RateLimitingArgs.builder()        \n            .authorize(\"ENFORCE\")\n            .communicationsEnabled(true)\n            .login(\"ENFORCE\")\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:RateLimiting\n    properties:\n      authorize: ENFORCE\n      communicationsEnabled: true\n      login: ENFORCE\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRate limit settings can be imported without any parameters.\n\n```sh\n $ pulumi import okta:index/rateLimiting:RateLimiting example .\n```\n\n ",
             "properties": {
                 "authorize": {
                     "type": "string",
@@ -26142,7 +26007,7 @@
             }
         },
         "okta:template/email:Email": {
-            "description": "** This resource is deprecated. Swith over to the email_customization resource.\n\nCreates an Okta Email Template.\n\nThis resource allows you to create and configure an Okta Email Template.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.template.Email(\"example\", {\n    translations: [\n        {\n            language: \"en\",\n            subject: \"Stuff\",\n            template: \"Hi $user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah $resetPasswordLink\",\n        },\n        {\n            language: \"es\",\n            subject: \"Cosas\",\n            template: \"Hola $user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano $resetPasswordLink\",\n        },\n    ],\n    type: \"email.forgotPassword\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.template.Email(\"example\",\n    translations=[\n        okta.template.EmailTranslationArgs(\n            language=\"en\",\n            subject=\"Stuff\",\n            template=\"Hi $user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah $resetPasswordLink\",\n        ),\n        okta.template.EmailTranslationArgs(\n            language=\"es\",\n            subject=\"Cosas\",\n            template=\"Hola $user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano $resetPasswordLink\",\n        ),\n    ],\n    type=\"email.forgotPassword\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Template.Email(\"example\", new Okta.Template.EmailArgs\n        {\n            Translations = \n            {\n                new Okta.Template.Inputs.EmailTranslationArgs\n                {\n                    Language = \"en\",\n                    Subject = \"Stuff\",\n                    Template = \"Hi $user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah $resetPasswordLink\",\n                },\n                new Okta.Template.Inputs.EmailTranslationArgs\n                {\n                    Language = \"es\",\n                    Subject = \"Cosas\",\n                    Template = \"Hola $user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano $resetPasswordLink\",\n                },\n            },\n            Type = \"email.forgotPassword\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/template\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := template.NewEmail(ctx, \"example\", \u0026template.EmailArgs{\n\t\t\tTranslations: template.EmailTranslationArray{\n\t\t\t\t\u0026template.EmailTranslationArgs{\n\t\t\t\t\tLanguage: pulumi.String(\"en\"),\n\t\t\t\t\tSubject:  pulumi.String(\"Stuff\"),\n\t\t\t\t\tTemplate: pulumi.String(fmt.Sprintf(\"%v%v%v%v%v\", \"Hi \", \"$\", \"user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah \", \"$\", \"resetPasswordLink\")),\n\t\t\t\t},\n\t\t\t\t\u0026template.EmailTranslationArgs{\n\t\t\t\t\tLanguage: pulumi.String(\"es\"),\n\t\t\t\t\tSubject:  pulumi.String(\"Cosas\"),\n\t\t\t\t\tTemplate: pulumi.String(fmt.Sprintf(\"%v%v%v%v%v\", \"Hola \", \"$\", \"user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano \", \"$\", \"resetPasswordLink\")),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"email.forgotPassword\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Email(\"example\", EmailArgs.builder()        \n            .translations(            \n                EmailTranslation.builder()\n                    .language(\"en\")\n                    .subject(\"Stuff\")\n                    .template(\"Hi $user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah $resetPasswordLink\")\n                    .build(),\n                EmailTranslation.builder()\n                    .language(\"es\")\n                    .subject(\"Cosas\")\n                    .template(\"Hola $user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano $resetPasswordLink\")\n                    .build())\n            .type(\"email.forgotPassword\")\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:template:Email\n    properties:\n      translations:\n        - language: en\n          subject: Stuff\n          template: Hi $user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah $resetPasswordLink\n        - language: es\n          subject: Cosas\n          template: Hola $user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano $resetPasswordLink\n      type: email.forgotPassword\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn Okta Email Template can be imported via the template type.\n\n```sh\n $ pulumi import okta:template/email:Email example \u0026#60;template type\u0026#62;\n```\n\n ",
+            "description": "\u003e **DEPRECATED** This resource is deprecated. Switch over to the email_customization resource.\n\nCreates an Okta Email Template.\n\nThis resource allows you to create and configure an Okta Email Template.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.template.Email(\"example\", {\n    translations: [\n        {\n            language: \"en\",\n            subject: \"Stuff\",\n            template: \"Hi $user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah $resetPasswordLink\",\n        },\n        {\n            language: \"es\",\n            subject: \"Cosas\",\n            template: \"Hola $user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano $resetPasswordLink\",\n        },\n    ],\n    type: \"email.forgotPassword\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.template.Email(\"example\",\n    translations=[\n        okta.template.EmailTranslationArgs(\n            language=\"en\",\n            subject=\"Stuff\",\n            template=\"Hi $user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah $resetPasswordLink\",\n        ),\n        okta.template.EmailTranslationArgs(\n            language=\"es\",\n            subject=\"Cosas\",\n            template=\"Hola $user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano $resetPasswordLink\",\n        ),\n    ],\n    type=\"email.forgotPassword\")\n```\n```csharp\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Okta.Template.Email(\"example\", new Okta.Template.EmailArgs\n        {\n            Translations = \n            {\n                new Okta.Template.Inputs.EmailTranslationArgs\n                {\n                    Language = \"en\",\n                    Subject = \"Stuff\",\n                    Template = \"Hi $user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah $resetPasswordLink\",\n                },\n                new Okta.Template.Inputs.EmailTranslationArgs\n                {\n                    Language = \"es\",\n                    Subject = \"Cosas\",\n                    Template = \"Hola $user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano $resetPasswordLink\",\n                },\n            },\n            Type = \"email.forgotPassword\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/template\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := template.NewEmail(ctx, \"example\", \u0026template.EmailArgs{\n\t\t\tTranslations: template.EmailTranslationArray{\n\t\t\t\t\u0026template.EmailTranslationArgs{\n\t\t\t\t\tLanguage: pulumi.String(\"en\"),\n\t\t\t\t\tSubject:  pulumi.String(\"Stuff\"),\n\t\t\t\t\tTemplate: pulumi.String(fmt.Sprintf(\"%v%v%v%v%v\", \"Hi \", \"$\", \"user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah \", \"$\", \"resetPasswordLink\")),\n\t\t\t\t},\n\t\t\t\t\u0026template.EmailTranslationArgs{\n\t\t\t\t\tLanguage: pulumi.String(\"es\"),\n\t\t\t\t\tSubject:  pulumi.String(\"Cosas\"),\n\t\t\t\t\tTemplate: pulumi.String(fmt.Sprintf(\"%v%v%v%v%v\", \"Hola \", \"$\", \"user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano \", \"$\", \"resetPasswordLink\")),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"email.forgotPassword\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Email(\"example\", EmailArgs.builder()        \n            .translations(            \n                EmailTranslation.builder()\n                    .language(\"en\")\n                    .subject(\"Stuff\")\n                    .template(\"Hi $user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah $resetPasswordLink\")\n                    .build(),\n                EmailTranslation.builder()\n                    .language(\"es\")\n                    .subject(\"Cosas\")\n                    .template(\"Hola $user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano $resetPasswordLink\")\n                    .build())\n            .type(\"email.forgotPassword\")\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:template:Email\n    properties:\n      translations:\n        - language: en\n          subject: Stuff\n          template: Hi $user.firstName,\u003cbr/\u003e\u003cbr/\u003eBlah blah $resetPasswordLink\n        - language: es\n          subject: Cosas\n          template: Hola $user.firstName,\u003cbr/\u003e\u003cbr/\u003ePuedo ir al bano $resetPasswordLink\n      type: email.forgotPassword\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn Okta Email Template can be imported via the template type.\n\n```sh\n $ pulumi import okta:template/email:Email example \u0026#60;template type\u0026#62;\n```\n\n ",
             "properties": {
                 "defaultLanguage": {
                     "type": "string",
@@ -27377,7 +27242,7 @@
                     },
                     "label": {
                         "type": "string",
-                        "description": "The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses\nthe `?q=\u003clabel\u003e` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`\nand `label`. This is used to avoid paginating through all applications.\n"
+                        "description": "The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses\nthe `?q=\u003clabel\u003e` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`\nand `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which\nmay result in multiple apps being returned for the query. The data source further inspects the lables looking for\nan exact match.\n"
                     },
                     "labelPrefix": {
                         "type": "string",
@@ -28249,6 +28114,10 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getGroup.\n",
                 "properties": {
+                    "delayReadSeconds": {
+                        "type": "string",
+                        "description": "Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.\n"
+                    },
                     "id": {
                         "type": "string",
                         "description": "ID of the group. Conflicts with `\"name\"` and `\"type\"`.\n"
@@ -28271,6 +28140,9 @@
             "outputs": {
                 "description": "A collection of values returned by getGroup.\n",
                 "properties": {
+                    "delayReadSeconds": {
+                        "type": "string"
+                    },
                     "description": {
                         "type": "string",
                         "description": "description of group.\n"

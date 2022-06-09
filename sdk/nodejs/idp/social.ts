@@ -157,22 +157,6 @@ export class Social extends pulumi.CustomResource {
      */
     public readonly provisioningAction!: pulumi.Output<string | undefined>;
     /**
-     * The XML digital signature algorithm used when signing an AuthnRequest message.
-     */
-    public readonly requestSignatureAlgorithm!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-     */
-    public readonly requestSignatureScope!: pulumi.Output<string | undefined>;
-    /**
-     * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-     */
-    public readonly responseSignatureAlgorithm!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-     */
-    public readonly responseSignatureScope!: pulumi.Output<string | undefined>;
-    /**
      * The scopes of the IdP.
      */
     public readonly scopes!: pulumi.Output<string[]>;
@@ -244,10 +228,6 @@ export class Social extends pulumi.CustomResource {
             resourceInputs["profileMaster"] = state ? state.profileMaster : undefined;
             resourceInputs["protocolType"] = state ? state.protocolType : undefined;
             resourceInputs["provisioningAction"] = state ? state.provisioningAction : undefined;
-            resourceInputs["requestSignatureAlgorithm"] = state ? state.requestSignatureAlgorithm : undefined;
-            resourceInputs["requestSignatureScope"] = state ? state.requestSignatureScope : undefined;
-            resourceInputs["responseSignatureAlgorithm"] = state ? state.responseSignatureAlgorithm : undefined;
-            resourceInputs["responseSignatureScope"] = state ? state.responseSignatureScope : undefined;
             resourceInputs["scopes"] = state ? state.scopes : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["subjectMatchAttribute"] = state ? state.subjectMatchAttribute : undefined;
@@ -285,10 +265,6 @@ export class Social extends pulumi.CustomResource {
             resourceInputs["profileMaster"] = args ? args.profileMaster : undefined;
             resourceInputs["protocolType"] = args ? args.protocolType : undefined;
             resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            resourceInputs["requestSignatureAlgorithm"] = args ? args.requestSignatureAlgorithm : undefined;
-            resourceInputs["requestSignatureScope"] = args ? args.requestSignatureScope : undefined;
-            resourceInputs["responseSignatureAlgorithm"] = args ? args.responseSignatureAlgorithm : undefined;
-            resourceInputs["responseSignatureScope"] = args ? args.responseSignatureScope : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["subjectMatchAttribute"] = args ? args.subjectMatchAttribute : undefined;
@@ -400,22 +376,6 @@ export interface SocialState {
      * Provisioning action for an IdP user during authentication.
      */
     provisioningAction?: pulumi.Input<string>;
-    /**
-     * The XML digital signature algorithm used when signing an AuthnRequest message.
-     */
-    requestSignatureAlgorithm?: pulumi.Input<string>;
-    /**
-     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-     */
-    requestSignatureScope?: pulumi.Input<string>;
-    /**
-     * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-     */
-    responseSignatureAlgorithm?: pulumi.Input<string>;
-    /**
-     * Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-     */
-    responseSignatureScope?: pulumi.Input<string>;
     /**
      * The scopes of the IdP.
      */
@@ -540,22 +500,6 @@ export interface SocialArgs {
      * Provisioning action for an IdP user during authentication.
      */
     provisioningAction?: pulumi.Input<string>;
-    /**
-     * The XML digital signature algorithm used when signing an AuthnRequest message.
-     */
-    requestSignatureAlgorithm?: pulumi.Input<string>;
-    /**
-     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-     */
-    requestSignatureScope?: pulumi.Input<string>;
-    /**
-     * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-     */
-    responseSignatureAlgorithm?: pulumi.Input<string>;
-    /**
-     * Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-     */
-    responseSignatureScope?: pulumi.Input<string>;
     /**
      * The scopes of the IdP.
      */

@@ -86,6 +86,10 @@ export class ServerScope extends pulumi.CustomResource {
      * Auth Server scope name.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether Okta created the Scope
+     */
+    public /*out*/ readonly system!: pulumi.Output<boolean>;
 
     /**
      * Create a ServerScope resource with the given unique name, arguments, and options.
@@ -107,6 +111,7 @@ export class ServerScope extends pulumi.CustomResource {
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["metadataPublish"] = state ? state.metadataPublish : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["system"] = state ? state.system : undefined;
         } else {
             const args = argsOrState as ServerScopeArgs | undefined;
             if ((!args || args.authServerId === undefined) && !opts.urn) {
@@ -119,6 +124,7 @@ export class ServerScope extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["metadataPublish"] = args ? args.metadataPublish : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["system"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServerScope.__pulumiType, name, resourceInputs, opts);
@@ -157,6 +163,10 @@ export interface ServerScopeState {
      * Auth Server scope name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether Okta created the Scope
+     */
+    system?: pulumi.Input<boolean>;
 }
 
 /**

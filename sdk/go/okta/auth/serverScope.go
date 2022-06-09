@@ -64,6 +64,8 @@ type ServerScope struct {
 	MetadataPublish pulumi.StringPtrOutput `pulumi:"metadataPublish"`
 	// Auth Server scope name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether Okta created the Scope
+	System pulumi.BoolOutput `pulumi:"system"`
 }
 
 // NewServerScope registers a new resource with the given unique name, arguments, and options.
@@ -112,6 +114,8 @@ type serverScopeState struct {
 	MetadataPublish *string `pulumi:"metadataPublish"`
 	// Auth Server scope name.
 	Name *string `pulumi:"name"`
+	// Whether Okta created the Scope
+	System *bool `pulumi:"system"`
 }
 
 type ServerScopeState struct {
@@ -129,6 +133,8 @@ type ServerScopeState struct {
 	MetadataPublish pulumi.StringPtrInput
 	// Auth Server scope name.
 	Name pulumi.StringPtrInput
+	// Whether Okta created the Scope
+	System pulumi.BoolPtrInput
 }
 
 func (ServerScopeState) ElementType() reflect.Type {
@@ -290,6 +296,11 @@ func (o ServerScopeOutput) MetadataPublish() pulumi.StringPtrOutput {
 // Auth Server scope name.
 func (o ServerScopeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether Okta created the Scope
+func (o ServerScopeOutput) System() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ServerScope) pulumi.BoolOutput { return v.System }).(pulumi.BoolOutput)
 }
 
 type ServerScopeArrayOutput struct{ *pulumi.OutputState }

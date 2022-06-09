@@ -50,8 +50,10 @@ type GetAppArgs struct {
 	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
 	Id *string `pulumi:"id"`
 	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
-	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-	// and `label`. This is used to avoid paginating through all applications.
+	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
+	// and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
+	// may result in multiple apps being returned for the query. The data source further inspects the lables looking for
+	// an exact match.
 	Label *string `pulumi:"label"`
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
@@ -110,8 +112,10 @@ type GetAppOutputArgs struct {
 	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
-	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-	// and `label`. This is used to avoid paginating through all applications.
+	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
+	// and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
+	// may result in multiple apps being returned for the query. The data source further inspects the lables looking for
+	// an exact match.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.

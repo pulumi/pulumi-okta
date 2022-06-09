@@ -132,7 +132,7 @@ class Email(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ** This resource is deprecated. Swith over to the email_customization resource.
+        > **DEPRECATED** This resource is deprecated. Switch over to the email_customization resource.
 
         Creates an Okta Email Template.
 
@@ -181,7 +181,7 @@ class Email(pulumi.CustomResource):
                  args: EmailArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ** This resource is deprecated. Swith over to the email_customization resource.
+        > **DEPRECATED** This resource is deprecated. Switch over to the email_customization resource.
 
         Creates an Okta Email Template.
 

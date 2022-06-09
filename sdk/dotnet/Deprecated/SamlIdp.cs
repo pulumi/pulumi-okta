@@ -74,25 +74,25 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> ProvisioningAction { get; private set; } = null!;
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The XML digital Signature Algorithm used when signing an &lt;AuthnRequest&gt; message
         /// </summary>
         [Output("requestSignatureAlgorithm")]
         public Output<string?> RequestSignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to digitally sign &lt;AuthnRequest&gt; messages to the IdP
         /// </summary>
         [Output("requestSignatureScope")]
         public Output<string?> RequestSignatureScope { get; private set; } = null!;
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The minimum XML digital Signature Algorithm allowed when verifying a &lt;SAMLResponse&gt; message or &lt;Assertion&gt; element
         /// </summary>
         [Output("responseSignatureAlgorithm")]
         public Output<string?> ResponseSignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to verify a &lt;SAMLResponse&gt; message or &lt;Assertion&gt; element XML digital signature
         /// </summary>
         [Output("responseSignatureScope")]
         public Output<string?> ResponseSignatureScope { get; private set; } = null!;
@@ -252,25 +252,25 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ProvisioningAction { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The XML digital Signature Algorithm used when signing an &lt;AuthnRequest&gt; message
         /// </summary>
         [Input("requestSignatureAlgorithm")]
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to digitally sign &lt;AuthnRequest&gt; messages to the IdP
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The minimum XML digital Signature Algorithm allowed when verifying a &lt;SAMLResponse&gt; message or &lt;Assertion&gt; element
         /// </summary>
         [Input("responseSignatureAlgorithm")]
         public Input<string>? ResponseSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to verify a &lt;SAMLResponse&gt; message or &lt;Assertion&gt; element XML digital signature
         /// </summary>
         [Input("responseSignatureScope")]
         public Input<string>? ResponseSignatureScope { get; set; }
@@ -393,25 +393,25 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ProvisioningAction { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The XML digital Signature Algorithm used when signing an &lt;AuthnRequest&gt; message
         /// </summary>
         [Input("requestSignatureAlgorithm")]
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to digitally sign &lt;AuthnRequest&gt; messages to the IdP
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign requests
+        /// The minimum XML digital Signature Algorithm allowed when verifying a &lt;SAMLResponse&gt; message or &lt;Assertion&gt; element
         /// </summary>
         [Input("responseSignatureAlgorithm")]
         public Input<string>? ResponseSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// algorithm to use to sign response
+        /// Specifies whether to verify a &lt;SAMLResponse&gt; message or &lt;Assertion&gt; element XML digital signature
         /// </summary>
         [Input("responseSignatureScope")]
         public Input<string>? ResponseSignatureScope { get; set; }

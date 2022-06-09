@@ -48,10 +48,10 @@ class SamlIdpArgs:
         The set of arguments for constructing a SamlIdp resource.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital Signature Algorithm used when signing an <AuthnRequest> message
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign <AuthnRequest> messages to the IdP
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
+        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
         """
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "kid", kid)
@@ -288,7 +288,7 @@ class SamlIdpArgs:
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign requests
+        The XML digital Signature Algorithm used when signing an <AuthnRequest> message
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -300,7 +300,7 @@ class SamlIdpArgs:
     @pulumi.getter(name="requestSignatureScope")
     def request_signature_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign response
+        Specifies whether to digitally sign <AuthnRequest> messages to the IdP
         """
         return pulumi.get(self, "request_signature_scope")
 
@@ -312,7 +312,7 @@ class SamlIdpArgs:
     @pulumi.getter(name="responseSignatureAlgorithm")
     def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign requests
+        The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
         """
         return pulumi.get(self, "response_signature_algorithm")
 
@@ -324,7 +324,7 @@ class SamlIdpArgs:
     @pulumi.getter(name="responseSignatureScope")
     def response_signature_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign response
+        Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
         """
         return pulumi.get(self, "response_signature_scope")
 
@@ -455,10 +455,10 @@ class _SamlIdpState:
         Input properties used for looking up and filtering SamlIdp resources.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital Signature Algorithm used when signing an <AuthnRequest> message
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign <AuthnRequest> messages to the IdP
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
+        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
         """
         if account_link_action is not None:
             pulumi.set(__self__, "account_link_action", account_link_action)
@@ -704,7 +704,7 @@ class _SamlIdpState:
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign requests
+        The XML digital Signature Algorithm used when signing an <AuthnRequest> message
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -716,7 +716,7 @@ class _SamlIdpState:
     @pulumi.getter(name="requestSignatureScope")
     def request_signature_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign response
+        Specifies whether to digitally sign <AuthnRequest> messages to the IdP
         """
         return pulumi.get(self, "request_signature_scope")
 
@@ -728,7 +728,7 @@ class _SamlIdpState:
     @pulumi.getter(name="responseSignatureAlgorithm")
     def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign requests
+        The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
         """
         return pulumi.get(self, "response_signature_algorithm")
 
@@ -740,7 +740,7 @@ class _SamlIdpState:
     @pulumi.getter(name="responseSignatureScope")
     def response_signature_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        algorithm to use to sign response
+        Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
         """
         return pulumi.get(self, "response_signature_scope")
 
@@ -905,10 +905,10 @@ class SamlIdp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital Signature Algorithm used when signing an <AuthnRequest> message
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign <AuthnRequest> messages to the IdP
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
+        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
         """
         ...
     @overload
@@ -1073,10 +1073,10 @@ class SamlIdp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] request_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] request_signature_scope: algorithm to use to sign response
-        :param pulumi.Input[str] response_signature_algorithm: algorithm to use to sign requests
-        :param pulumi.Input[str] response_signature_scope: algorithm to use to sign response
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital Signature Algorithm used when signing an <AuthnRequest> message
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign <AuthnRequest> messages to the IdP
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
+        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1218,7 +1218,7 @@ class SamlIdp(pulumi.CustomResource):
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        algorithm to use to sign requests
+        The XML digital Signature Algorithm used when signing an <AuthnRequest> message
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -1226,7 +1226,7 @@ class SamlIdp(pulumi.CustomResource):
     @pulumi.getter(name="requestSignatureScope")
     def request_signature_scope(self) -> pulumi.Output[Optional[str]]:
         """
-        algorithm to use to sign response
+        Specifies whether to digitally sign <AuthnRequest> messages to the IdP
         """
         return pulumi.get(self, "request_signature_scope")
 
@@ -1234,7 +1234,7 @@ class SamlIdp(pulumi.CustomResource):
     @pulumi.getter(name="responseSignatureAlgorithm")
     def response_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        algorithm to use to sign requests
+        The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
         """
         return pulumi.get(self, "response_signature_algorithm")
 
@@ -1242,7 +1242,7 @@ class SamlIdp(pulumi.CustomResource):
     @pulumi.getter(name="responseSignatureScope")
     def response_signature_scope(self) -> pulumi.Output[Optional[str]]:
         """
-        algorithm to use to sign response
+        Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
         """
         return pulumi.get(self, "response_signature_scope")
 

@@ -82,6 +82,10 @@ import (
 // 	})
 // }
 // ```
+// ## Etc.
+//
+// ### Resetting client secret
+// If the client secret needs to be reset run an apply with `omitSecret` set to true in the resource. This causes `clientSecret` to be set to blank. Remove `omitSecret` and run apply again. The resource will set a new `clientSecret` for the app.
 //
 // ## Import
 //
@@ -179,7 +183,7 @@ type OAuth struct {
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name of the claim that will be used in the token.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrOutput `pulumi:"policyUri"`
@@ -333,7 +337,7 @@ type oauthState struct {
 	LogoUrl *string `pulumi:"logoUrl"`
 	// Name of the claim that will be used in the token.
 	Name *string `pulumi:"name"`
-	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 	OmitSecret *bool `pulumi:"omitSecret"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
@@ -453,7 +457,7 @@ type OAuthState struct {
 	LogoUrl pulumi.StringPtrInput
 	// Name of the claim that will be used in the token.
 	Name pulumi.StringPtrInput
-	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 	OmitSecret pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
@@ -571,7 +575,7 @@ type oauthArgs struct {
 	Logo *string `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
-	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 	OmitSecret *bool `pulumi:"omitSecret"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
@@ -684,7 +688,7 @@ type OAuthArgs struct {
 	Logo pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
-	// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 	OmitSecret pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
@@ -981,7 +985,7 @@ func (o OAuthOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true => false.
+// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 func (o OAuthOutput) OmitSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.OmitSecret }).(pulumi.BoolPtrOutput)
 }

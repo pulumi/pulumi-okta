@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * ** This resource is deprecated. Swith over to the emailCustomization resource.
+ * > **DEPRECATED** This resource is deprecated. Switch over to the emailCustomization resource.
  *
  * Creates an Okta Email Template.
  *

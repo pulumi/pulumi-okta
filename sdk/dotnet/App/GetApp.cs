@@ -87,8 +87,10 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-        /// and `label`. This is used to avoid paginating through all applications.
+        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
+        /// and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
+        /// may result in multiple apps being returned for the query. The data source further inspects the lables looking for
+        /// an exact match.
         /// </summary>
         [Input("label")]
         public string? Label { get; set; }
@@ -133,8 +135,10 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-        /// and `label`. This is used to avoid paginating through all applications.
+        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
+        /// and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
+        /// may result in multiple apps being returned for the query. The data source further inspects the lables looking for
+        /// an exact match.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
