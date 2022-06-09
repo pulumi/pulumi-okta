@@ -158,7 +158,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> ProvisioningAction { get; private set; } = null!;
 
         /// <summary>
-        /// The XML digital signature algorithm used when signing an AuthnRequest message.
+        /// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
         /// </summary>
         [Output("requestSignatureAlgorithm")]
         public Output<string?> RequestSignatureAlgorithm { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> RequestSignatureScope { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
         /// </summary>
         [Output("responseSignatureAlgorithm")]
         public Output<string?> ResponseSignatureAlgorithm { get; private set; } = null!;
@@ -417,7 +417,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? ProvisioningAction { get; set; }
 
         /// <summary>
-        /// The XML digital signature algorithm used when signing an AuthnRequest message.
+        /// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
         /// </summary>
         [Input("requestSignatureAlgorithm")]
         public Input<string>? RequestSignatureAlgorithm { get; set; }
@@ -429,7 +429,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? RequestSignatureScope { get; set; }
 
         /// <summary>
-        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
         /// </summary>
         [Input("responseSignatureAlgorithm")]
         public Input<string>? ResponseSignatureAlgorithm { get; set; }
@@ -637,7 +637,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? ProvisioningAction { get; set; }
 
         /// <summary>
-        /// The XML digital signature algorithm used when signing an AuthnRequest message.
+        /// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
         /// </summary>
         [Input("requestSignatureAlgorithm")]
         public Input<string>? RequestSignatureAlgorithm { get; set; }
@@ -649,7 +649,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? RequestSignatureScope { get; set; }
 
         /// <summary>
-        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
         /// </summary>
         [Input("responseSignatureAlgorithm")]
         public Input<string>? ResponseSignatureAlgorithm { get; set; }

@@ -80,6 +80,10 @@ namespace Pulumi.Okta.App
     /// 
     /// }
     /// ```
+    /// ## Etc.
+    /// 
+    /// ### Resetting client secret
+    /// If the client secret needs to be reset run an apply with `omit_secret` set to true in the resource. This causes `client_secret` to be set to blank. Remove `omit_secret` and run apply again. The resource will set a new `client_secret` for the app.
     /// 
     /// ## Import
     /// 
@@ -299,7 +303,7 @@ namespace Pulumi.Okta.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true =&gt; false.
+        /// This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =&gt; false.
         /// </summary>
         [Output("omitSecret")]
         public Output<bool?> OmitSecret { get; private set; } = null!;
@@ -671,7 +675,7 @@ namespace Pulumi.Okta.App
         public Input<string>? LogoUri { get; set; }
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true =&gt; false.
+        /// This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =&gt; false.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
@@ -1041,7 +1045,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. Your app will be recreated if this ever changes from true =&gt; false.
+        /// This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =&gt; false.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }

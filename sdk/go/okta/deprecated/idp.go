@@ -37,26 +37,22 @@ type Idp struct {
 	ProfileMaster      pulumi.BoolPtrOutput   `pulumi:"profileMaster"`
 	ProtocolType       pulumi.StringPtrOutput `pulumi:"protocolType"`
 	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
+	// The HMAC Signature Algorithm used when signing an authorization request
 	RequestSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
-	RequestSignatureScope pulumi.StringPtrOutput `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
-	ResponseSignatureScope pulumi.StringPtrOutput   `pulumi:"responseSignatureScope"`
-	Scopes                 pulumi.StringArrayOutput `pulumi:"scopes"`
-	Status                 pulumi.StringPtrOutput   `pulumi:"status"`
-	SubjectMatchAttribute  pulumi.StringPtrOutput   `pulumi:"subjectMatchAttribute"`
-	SubjectMatchType       pulumi.StringPtrOutput   `pulumi:"subjectMatchType"`
-	SuspendedAction        pulumi.StringPtrOutput   `pulumi:"suspendedAction"`
-	TokenBinding           pulumi.StringOutput      `pulumi:"tokenBinding"`
-	TokenUrl               pulumi.StringOutput      `pulumi:"tokenUrl"`
-	Type                   pulumi.StringOutput      `pulumi:"type"`
-	UserInfoBinding        pulumi.StringPtrOutput   `pulumi:"userInfoBinding"`
-	UserInfoUrl            pulumi.StringPtrOutput   `pulumi:"userInfoUrl"`
-	UserTypeId             pulumi.StringOutput      `pulumi:"userTypeId"`
-	UsernameTemplate       pulumi.StringPtrOutput   `pulumi:"usernameTemplate"`
+	// Specifies whether to digitally sign an authorization request to the IdP
+	RequestSignatureScope pulumi.StringPtrOutput   `pulumi:"requestSignatureScope"`
+	Scopes                pulumi.StringArrayOutput `pulumi:"scopes"`
+	Status                pulumi.StringPtrOutput   `pulumi:"status"`
+	SubjectMatchAttribute pulumi.StringPtrOutput   `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType      pulumi.StringPtrOutput   `pulumi:"subjectMatchType"`
+	SuspendedAction       pulumi.StringPtrOutput   `pulumi:"suspendedAction"`
+	TokenBinding          pulumi.StringOutput      `pulumi:"tokenBinding"`
+	TokenUrl              pulumi.StringOutput      `pulumi:"tokenUrl"`
+	Type                  pulumi.StringOutput      `pulumi:"type"`
+	UserInfoBinding       pulumi.StringPtrOutput   `pulumi:"userInfoBinding"`
+	UserInfoUrl           pulumi.StringPtrOutput   `pulumi:"userInfoUrl"`
+	UserTypeId            pulumi.StringOutput      `pulumi:"userTypeId"`
+	UsernameTemplate      pulumi.StringPtrOutput   `pulumi:"usernameTemplate"`
 }
 
 // NewIdp registers a new resource with the given unique name, arguments, and options.
@@ -140,26 +136,22 @@ type idpState struct {
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
 	ProtocolType       *string `pulumi:"protocolType"`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
+	// The HMAC Signature Algorithm used when signing an authorization request
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
-	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
-	ResponseSignatureScope *string  `pulumi:"responseSignatureScope"`
-	Scopes                 []string `pulumi:"scopes"`
-	Status                 *string  `pulumi:"status"`
-	SubjectMatchAttribute  *string  `pulumi:"subjectMatchAttribute"`
-	SubjectMatchType       *string  `pulumi:"subjectMatchType"`
-	SuspendedAction        *string  `pulumi:"suspendedAction"`
-	TokenBinding           *string  `pulumi:"tokenBinding"`
-	TokenUrl               *string  `pulumi:"tokenUrl"`
-	Type                   *string  `pulumi:"type"`
-	UserInfoBinding        *string  `pulumi:"userInfoBinding"`
-	UserInfoUrl            *string  `pulumi:"userInfoUrl"`
-	UserTypeId             *string  `pulumi:"userTypeId"`
-	UsernameTemplate       *string  `pulumi:"usernameTemplate"`
+	// Specifies whether to digitally sign an authorization request to the IdP
+	RequestSignatureScope *string  `pulumi:"requestSignatureScope"`
+	Scopes                []string `pulumi:"scopes"`
+	Status                *string  `pulumi:"status"`
+	SubjectMatchAttribute *string  `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType      *string  `pulumi:"subjectMatchType"`
+	SuspendedAction       *string  `pulumi:"suspendedAction"`
+	TokenBinding          *string  `pulumi:"tokenBinding"`
+	TokenUrl              *string  `pulumi:"tokenUrl"`
+	Type                  *string  `pulumi:"type"`
+	UserInfoBinding       *string  `pulumi:"userInfoBinding"`
+	UserInfoUrl           *string  `pulumi:"userInfoUrl"`
+	UserTypeId            *string  `pulumi:"userTypeId"`
+	UsernameTemplate      *string  `pulumi:"usernameTemplate"`
 }
 
 type IdpState struct {
@@ -185,26 +177,22 @@ type IdpState struct {
 	ProfileMaster      pulumi.BoolPtrInput
 	ProtocolType       pulumi.StringPtrInput
 	ProvisioningAction pulumi.StringPtrInput
-	// algorithm to use to sign requests
+	// The HMAC Signature Algorithm used when signing an authorization request
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign an authorization request to the IdP
 	RequestSignatureScope pulumi.StringPtrInput
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
-	ResponseSignatureScope pulumi.StringPtrInput
-	Scopes                 pulumi.StringArrayInput
-	Status                 pulumi.StringPtrInput
-	SubjectMatchAttribute  pulumi.StringPtrInput
-	SubjectMatchType       pulumi.StringPtrInput
-	SuspendedAction        pulumi.StringPtrInput
-	TokenBinding           pulumi.StringPtrInput
-	TokenUrl               pulumi.StringPtrInput
-	Type                   pulumi.StringPtrInput
-	UserInfoBinding        pulumi.StringPtrInput
-	UserInfoUrl            pulumi.StringPtrInput
-	UserTypeId             pulumi.StringPtrInput
-	UsernameTemplate       pulumi.StringPtrInput
+	Scopes                pulumi.StringArrayInput
+	Status                pulumi.StringPtrInput
+	SubjectMatchAttribute pulumi.StringPtrInput
+	SubjectMatchType      pulumi.StringPtrInput
+	SuspendedAction       pulumi.StringPtrInput
+	TokenBinding          pulumi.StringPtrInput
+	TokenUrl              pulumi.StringPtrInput
+	Type                  pulumi.StringPtrInput
+	UserInfoBinding       pulumi.StringPtrInput
+	UserInfoUrl           pulumi.StringPtrInput
+	UserTypeId            pulumi.StringPtrInput
+	UsernameTemplate      pulumi.StringPtrInput
 }
 
 func (IdpState) ElementType() reflect.Type {
@@ -234,24 +222,20 @@ type idpArgs struct {
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
 	ProtocolType       *string `pulumi:"protocolType"`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
+	// The HMAC Signature Algorithm used when signing an authorization request
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
-	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
-	ResponseSignatureScope *string  `pulumi:"responseSignatureScope"`
-	Scopes                 []string `pulumi:"scopes"`
-	Status                 *string  `pulumi:"status"`
-	SubjectMatchAttribute  *string  `pulumi:"subjectMatchAttribute"`
-	SubjectMatchType       *string  `pulumi:"subjectMatchType"`
-	SuspendedAction        *string  `pulumi:"suspendedAction"`
-	TokenBinding           string   `pulumi:"tokenBinding"`
-	TokenUrl               string   `pulumi:"tokenUrl"`
-	UserInfoBinding        *string  `pulumi:"userInfoBinding"`
-	UserInfoUrl            *string  `pulumi:"userInfoUrl"`
-	UsernameTemplate       *string  `pulumi:"usernameTemplate"`
+	// Specifies whether to digitally sign an authorization request to the IdP
+	RequestSignatureScope *string  `pulumi:"requestSignatureScope"`
+	Scopes                []string `pulumi:"scopes"`
+	Status                *string  `pulumi:"status"`
+	SubjectMatchAttribute *string  `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType      *string  `pulumi:"subjectMatchType"`
+	SuspendedAction       *string  `pulumi:"suspendedAction"`
+	TokenBinding          string   `pulumi:"tokenBinding"`
+	TokenUrl              string   `pulumi:"tokenUrl"`
+	UserInfoBinding       *string  `pulumi:"userInfoBinding"`
+	UserInfoUrl           *string  `pulumi:"userInfoUrl"`
+	UsernameTemplate      *string  `pulumi:"usernameTemplate"`
 }
 
 // The set of arguments for constructing a Idp resource.
@@ -278,24 +262,20 @@ type IdpArgs struct {
 	ProfileMaster      pulumi.BoolPtrInput
 	ProtocolType       pulumi.StringPtrInput
 	ProvisioningAction pulumi.StringPtrInput
-	// algorithm to use to sign requests
+	// The HMAC Signature Algorithm used when signing an authorization request
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign an authorization request to the IdP
 	RequestSignatureScope pulumi.StringPtrInput
-	// algorithm to use to sign requests
-	ResponseSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
-	ResponseSignatureScope pulumi.StringPtrInput
-	Scopes                 pulumi.StringArrayInput
-	Status                 pulumi.StringPtrInput
-	SubjectMatchAttribute  pulumi.StringPtrInput
-	SubjectMatchType       pulumi.StringPtrInput
-	SuspendedAction        pulumi.StringPtrInput
-	TokenBinding           pulumi.StringInput
-	TokenUrl               pulumi.StringInput
-	UserInfoBinding        pulumi.StringPtrInput
-	UserInfoUrl            pulumi.StringPtrInput
-	UsernameTemplate       pulumi.StringPtrInput
+	Scopes                pulumi.StringArrayInput
+	Status                pulumi.StringPtrInput
+	SubjectMatchAttribute pulumi.StringPtrInput
+	SubjectMatchType      pulumi.StringPtrInput
+	SuspendedAction       pulumi.StringPtrInput
+	TokenBinding          pulumi.StringInput
+	TokenUrl              pulumi.StringInput
+	UserInfoBinding       pulumi.StringPtrInput
+	UserInfoUrl           pulumi.StringPtrInput
+	UsernameTemplate      pulumi.StringPtrInput
 }
 
 func (IdpArgs) ElementType() reflect.Type {
@@ -467,24 +447,14 @@ func (o IdpOutput) ProvisioningAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
 }
 
-// algorithm to use to sign requests
+// The HMAC Signature Algorithm used when signing an authorization request
 func (o IdpOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// algorithm to use to sign response
+// Specifies whether to digitally sign an authorization request to the IdP
 func (o IdpOutput) RequestSignatureScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
-}
-
-// algorithm to use to sign requests
-func (o IdpOutput) ResponseSignatureAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.ResponseSignatureAlgorithm }).(pulumi.StringPtrOutput)
-}
-
-// algorithm to use to sign response
-func (o IdpOutput) ResponseSignatureScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.ResponseSignatureScope }).(pulumi.StringPtrOutput)
 }
 
 func (o IdpOutput) Scopes() pulumi.StringArrayOutput {

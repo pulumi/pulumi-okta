@@ -138,7 +138,8 @@ class _ServerScopeState:
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  metadata_publish: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 system: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering ServerScope resources.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
@@ -148,6 +149,7 @@ class _ServerScopeState:
         :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
+        :param pulumi.Input[bool] system: Whether Okta created the Scope
         """
         if auth_server_id is not None:
             pulumi.set(__self__, "auth_server_id", auth_server_id)
@@ -163,6 +165,8 @@ class _ServerScopeState:
             pulumi.set(__self__, "metadata_publish", metadata_publish)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -247,6 +251,18 @@ class _ServerScopeState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def system(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Okta created the Scope
+        """
+        return pulumi.get(self, "system")
+
+    @system.setter
+    def system(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "system", value)
 
 
 class ServerScope(pulumi.CustomResource):
@@ -371,6 +387,7 @@ class ServerScope(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["metadata_publish"] = metadata_publish
             __props__.__dict__["name"] = name
+            __props__.__dict__["system"] = None
         super(ServerScope, __self__).__init__(
             'okta:auth/serverScope:ServerScope',
             resource_name,
@@ -387,7 +404,8 @@ class ServerScope(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             metadata_publish: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'ServerScope':
+            name: Optional[pulumi.Input[str]] = None,
+            system: Optional[pulumi.Input[bool]] = None) -> 'ServerScope':
         """
         Get an existing ServerScope resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -402,6 +420,7 @@ class ServerScope(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
+        :param pulumi.Input[bool] system: Whether Okta created the Scope
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -414,6 +433,7 @@ class ServerScope(pulumi.CustomResource):
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["metadata_publish"] = metadata_publish
         __props__.__dict__["name"] = name
+        __props__.__dict__["system"] = system
         return ServerScope(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -471,4 +491,12 @@ class ServerScope(pulumi.CustomResource):
         Auth Server scope name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def system(self) -> pulumi.Output[bool]:
+        """
+        Whether Okta created the Scope
+        """
+        return pulumi.get(self, "system")
 

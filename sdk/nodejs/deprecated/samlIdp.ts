@@ -64,19 +64,19 @@ export class SamlIdp extends pulumi.CustomResource {
     public readonly profileMaster!: pulumi.Output<boolean | undefined>;
     public readonly provisioningAction!: pulumi.Output<string | undefined>;
     /**
-     * algorithm to use to sign requests
+     * The XML digital Signature Algorithm used when signing an <AuthnRequest> message
      */
     public readonly requestSignatureAlgorithm!: pulumi.Output<string | undefined>;
     /**
-     * algorithm to use to sign response
+     * Specifies whether to digitally sign <AuthnRequest> messages to the IdP
      */
     public readonly requestSignatureScope!: pulumi.Output<string | undefined>;
     /**
-     * algorithm to use to sign requests
+     * The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
      */
     public readonly responseSignatureAlgorithm!: pulumi.Output<string | undefined>;
     /**
-     * algorithm to use to sign response
+     * Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
      */
     public readonly responseSignatureScope!: pulumi.Output<string | undefined>;
     public readonly ssoBinding!: pulumi.Output<string | undefined>;
@@ -225,19 +225,19 @@ export interface SamlIdpState {
     profileMaster?: pulumi.Input<boolean>;
     provisioningAction?: pulumi.Input<string>;
     /**
-     * algorithm to use to sign requests
+     * The XML digital Signature Algorithm used when signing an <AuthnRequest> message
      */
     requestSignatureAlgorithm?: pulumi.Input<string>;
     /**
-     * algorithm to use to sign response
+     * Specifies whether to digitally sign <AuthnRequest> messages to the IdP
      */
     requestSignatureScope?: pulumi.Input<string>;
     /**
-     * algorithm to use to sign requests
+     * The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
      */
     responseSignatureAlgorithm?: pulumi.Input<string>;
     /**
-     * algorithm to use to sign response
+     * Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
      */
     responseSignatureScope?: pulumi.Input<string>;
     ssoBinding?: pulumi.Input<string>;
@@ -285,19 +285,19 @@ export interface SamlIdpArgs {
     profileMaster?: pulumi.Input<boolean>;
     provisioningAction?: pulumi.Input<string>;
     /**
-     * algorithm to use to sign requests
+     * The XML digital Signature Algorithm used when signing an <AuthnRequest> message
      */
     requestSignatureAlgorithm?: pulumi.Input<string>;
     /**
-     * algorithm to use to sign response
+     * Specifies whether to digitally sign <AuthnRequest> messages to the IdP
      */
     requestSignatureScope?: pulumi.Input<string>;
     /**
-     * algorithm to use to sign requests
+     * The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
      */
     responseSignatureAlgorithm?: pulumi.Input<string>;
     /**
-     * algorithm to use to sign response
+     * Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
      */
     responseSignatureScope?: pulumi.Input<string>;
     ssoBinding?: pulumi.Input<string>;

@@ -79,22 +79,6 @@ export class SocialIdp extends pulumi.CustomResource {
     public readonly profileMaster!: pulumi.Output<boolean | undefined>;
     public readonly protocolType!: pulumi.Output<string | undefined>;
     public readonly provisioningAction!: pulumi.Output<string | undefined>;
-    /**
-     * algorithm to use to sign requests
-     */
-    public readonly requestSignatureAlgorithm!: pulumi.Output<string | undefined>;
-    /**
-     * algorithm to use to sign response
-     */
-    public readonly requestSignatureScope!: pulumi.Output<string | undefined>;
-    /**
-     * algorithm to use to sign requests
-     */
-    public readonly responseSignatureAlgorithm!: pulumi.Output<string | undefined>;
-    /**
-     * algorithm to use to sign response
-     */
-    public readonly responseSignatureScope!: pulumi.Output<string | undefined>;
     public readonly scopes!: pulumi.Output<string[]>;
     public readonly status!: pulumi.Output<string | undefined>;
     public readonly subjectMatchAttribute!: pulumi.Output<string | undefined>;
@@ -143,10 +127,6 @@ export class SocialIdp extends pulumi.CustomResource {
             resourceInputs["profileMaster"] = state ? state.profileMaster : undefined;
             resourceInputs["protocolType"] = state ? state.protocolType : undefined;
             resourceInputs["provisioningAction"] = state ? state.provisioningAction : undefined;
-            resourceInputs["requestSignatureAlgorithm"] = state ? state.requestSignatureAlgorithm : undefined;
-            resourceInputs["requestSignatureScope"] = state ? state.requestSignatureScope : undefined;
-            resourceInputs["responseSignatureAlgorithm"] = state ? state.responseSignatureAlgorithm : undefined;
-            resourceInputs["responseSignatureScope"] = state ? state.responseSignatureScope : undefined;
             resourceInputs["scopes"] = state ? state.scopes : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["subjectMatchAttribute"] = state ? state.subjectMatchAttribute : undefined;
@@ -184,10 +164,6 @@ export class SocialIdp extends pulumi.CustomResource {
             resourceInputs["profileMaster"] = args ? args.profileMaster : undefined;
             resourceInputs["protocolType"] = args ? args.protocolType : undefined;
             resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            resourceInputs["requestSignatureAlgorithm"] = args ? args.requestSignatureAlgorithm : undefined;
-            resourceInputs["requestSignatureScope"] = args ? args.requestSignatureScope : undefined;
-            resourceInputs["responseSignatureAlgorithm"] = args ? args.responseSignatureAlgorithm : undefined;
-            resourceInputs["responseSignatureScope"] = args ? args.responseSignatureScope : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["subjectMatchAttribute"] = args ? args.subjectMatchAttribute : undefined;
@@ -252,22 +228,6 @@ export interface SocialIdpState {
     profileMaster?: pulumi.Input<boolean>;
     protocolType?: pulumi.Input<string>;
     provisioningAction?: pulumi.Input<string>;
-    /**
-     * algorithm to use to sign requests
-     */
-    requestSignatureAlgorithm?: pulumi.Input<string>;
-    /**
-     * algorithm to use to sign response
-     */
-    requestSignatureScope?: pulumi.Input<string>;
-    /**
-     * algorithm to use to sign requests
-     */
-    responseSignatureAlgorithm?: pulumi.Input<string>;
-    /**
-     * algorithm to use to sign response
-     */
-    responseSignatureScope?: pulumi.Input<string>;
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     status?: pulumi.Input<string>;
     subjectMatchAttribute?: pulumi.Input<string>;
@@ -324,22 +284,6 @@ export interface SocialIdpArgs {
     profileMaster?: pulumi.Input<boolean>;
     protocolType?: pulumi.Input<string>;
     provisioningAction?: pulumi.Input<string>;
-    /**
-     * algorithm to use to sign requests
-     */
-    requestSignatureAlgorithm?: pulumi.Input<string>;
-    /**
-     * algorithm to use to sign response
-     */
-    requestSignatureScope?: pulumi.Input<string>;
-    /**
-     * algorithm to use to sign requests
-     */
-    responseSignatureAlgorithm?: pulumi.Input<string>;
-    /**
-     * algorithm to use to sign response
-     */
-    responseSignatureScope?: pulumi.Input<string>;
     scopes: pulumi.Input<pulumi.Input<string>[]>;
     status?: pulumi.Input<string>;
     subjectMatchAttribute?: pulumi.Input<string>;

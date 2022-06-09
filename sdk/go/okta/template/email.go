@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ** This resource is deprecated. Swith over to the emailCustomization resource.
+// > **DEPRECATED** This resource is deprecated. Switch over to the emailCustomization resource.
 //
 // Creates an Okta Email Template.
 //

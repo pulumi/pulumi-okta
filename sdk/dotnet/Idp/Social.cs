@@ -184,30 +184,6 @@ namespace Pulumi.Okta.Idp
         public Output<string?> ProvisioningAction { get; private set; } = null!;
 
         /// <summary>
-        /// The XML digital signature algorithm used when signing an AuthnRequest message.
-        /// </summary>
-        [Output("requestSignatureAlgorithm")]
-        public Output<string?> RequestSignatureAlgorithm { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        /// </summary>
-        [Output("requestSignatureScope")]
-        public Output<string?> RequestSignatureScope { get; private set; } = null!;
-
-        /// <summary>
-        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-        /// </summary>
-        [Output("responseSignatureAlgorithm")]
-        public Output<string?> ResponseSignatureAlgorithm { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-        /// </summary>
-        [Output("responseSignatureScope")]
-        public Output<string?> ResponseSignatureScope { get; private set; } = null!;
-
-        /// <summary>
         /// The scopes of the IdP.
         /// </summary>
         [Output("scopes")]
@@ -441,30 +417,6 @@ namespace Pulumi.Okta.Idp
         [Input("provisioningAction")]
         public Input<string>? ProvisioningAction { get; set; }
 
-        /// <summary>
-        /// The XML digital signature algorithm used when signing an AuthnRequest message.
-        /// </summary>
-        [Input("requestSignatureAlgorithm")]
-        public Input<string>? RequestSignatureAlgorithm { get; set; }
-
-        /// <summary>
-        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        /// </summary>
-        [Input("requestSignatureScope")]
-        public Input<string>? RequestSignatureScope { get; set; }
-
-        /// <summary>
-        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-        /// </summary>
-        [Input("responseSignatureAlgorithm")]
-        public Input<string>? ResponseSignatureAlgorithm { get; set; }
-
-        /// <summary>
-        /// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-        /// </summary>
-        [Input("responseSignatureScope")]
-        public Input<string>? ResponseSignatureScope { get; set; }
-
         [Input("scopes", required: true)]
         private InputList<string>? _scopes;
 
@@ -665,30 +617,6 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Input("provisioningAction")]
         public Input<string>? ProvisioningAction { get; set; }
-
-        /// <summary>
-        /// The XML digital signature algorithm used when signing an AuthnRequest message.
-        /// </summary>
-        [Input("requestSignatureAlgorithm")]
-        public Input<string>? RequestSignatureAlgorithm { get; set; }
-
-        /// <summary>
-        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        /// </summary>
-        [Input("requestSignatureScope")]
-        public Input<string>? RequestSignatureScope { get; set; }
-
-        /// <summary>
-        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
-        /// </summary>
-        [Input("responseSignatureAlgorithm")]
-        public Input<string>? ResponseSignatureAlgorithm { get; set; }
-
-        /// <summary>
-        /// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-        /// </summary>
-        [Input("responseSignatureScope")]
-        public Input<string>? ResponseSignatureScope { get; set; }
 
         [Input("scopes")]
         private InputList<string>? _scopes;

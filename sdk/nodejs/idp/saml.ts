@@ -137,7 +137,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly provisioningAction!: pulumi.Output<string | undefined>;
     /**
-     * The XML digital signature algorithm used when signing an AuthnRequest message.
+     * The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
      */
     public readonly requestSignatureAlgorithm!: pulumi.Output<string | undefined>;
     /**
@@ -145,7 +145,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly requestSignatureScope!: pulumi.Output<string | undefined>;
     /**
-     * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+     * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
      */
     public readonly responseSignatureAlgorithm!: pulumi.Output<string | undefined>;
     /**
@@ -376,7 +376,7 @@ export interface SamlState {
      */
     provisioningAction?: pulumi.Input<string>;
     /**
-     * The XML digital signature algorithm used when signing an AuthnRequest message.
+     * The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
      */
     requestSignatureAlgorithm?: pulumi.Input<string>;
     /**
@@ -384,7 +384,7 @@ export interface SamlState {
      */
     requestSignatureScope?: pulumi.Input<string>;
     /**
-     * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+     * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
      */
     responseSignatureAlgorithm?: pulumi.Input<string>;
     /**
@@ -514,7 +514,7 @@ export interface SamlArgs {
      */
     provisioningAction?: pulumi.Input<string>;
     /**
-     * The XML digital signature algorithm used when signing an AuthnRequest message.
+     * The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
      */
     requestSignatureAlgorithm?: pulumi.Input<string>;
     /**
@@ -522,7 +522,7 @@ export interface SamlArgs {
      */
     requestSignatureScope?: pulumi.Input<string>;
     /**
-     * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element.
+     * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
      */
     responseSignatureAlgorithm?: pulumi.Input<string>;
     /**

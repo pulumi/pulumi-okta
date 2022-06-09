@@ -45,6 +45,8 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
+	// Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
+	DelayReadSeconds *string `pulumi:"delayReadSeconds"`
 	// ID of the group. Conflicts with `"name"` and `"type"`.
 	Id *string `pulumi:"id"`
 	// whether to retrieve all member ids.
@@ -58,6 +60,7 @@ type LookupGroupArgs struct {
 
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
+	DelayReadSeconds *string `pulumi:"delayReadSeconds"`
 	// description of group.
 	Description string `pulumi:"description"`
 	// ID of group.
@@ -86,6 +89,8 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupOutputArgs struct {
+	// Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
+	DelayReadSeconds pulumi.StringPtrInput `pulumi:"delayReadSeconds"`
 	// ID of the group. Conflicts with `"name"` and `"type"`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// whether to retrieve all member ids.
@@ -114,6 +119,10 @@ func (o LookupGroupResultOutput) ToLookupGroupResultOutput() LookupGroupResultOu
 
 func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx context.Context) LookupGroupResultOutput {
 	return o
+}
+
+func (o LookupGroupResultOutput) DelayReadSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.DelayReadSeconds }).(pulumi.StringPtrOutput)
 }
 
 // description of group.

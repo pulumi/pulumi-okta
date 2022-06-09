@@ -36,13 +36,13 @@ type SamlIdp struct {
 	NameFormat         pulumi.StringPtrOutput `pulumi:"nameFormat"`
 	ProfileMaster      pulumi.BoolPtrOutput   `pulumi:"profileMaster"`
 	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
+	// The XML digital Signature Algorithm used when signing an <AuthnRequest> message
 	RequestSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign <AuthnRequest> messages to the IdP
 	RequestSignatureScope pulumi.StringPtrOutput `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
+	// The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
 	ResponseSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
+	// Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
 	ResponseSignatureScope pulumi.StringPtrOutput   `pulumi:"responseSignatureScope"`
 	SsoBinding             pulumi.StringPtrOutput   `pulumi:"ssoBinding"`
 	SsoDestination         pulumi.StringPtrOutput   `pulumi:"ssoDestination"`
@@ -117,13 +117,13 @@ type samlIdpState struct {
 	NameFormat         *string `pulumi:"nameFormat"`
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
+	// The XML digital Signature Algorithm used when signing an <AuthnRequest> message
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign <AuthnRequest> messages to the IdP
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
+	// The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
 	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
+	// Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
 	ResponseSignatureScope *string  `pulumi:"responseSignatureScope"`
 	SsoBinding             *string  `pulumi:"ssoBinding"`
 	SsoDestination         *string  `pulumi:"ssoDestination"`
@@ -161,13 +161,13 @@ type SamlIdpState struct {
 	NameFormat         pulumi.StringPtrInput
 	ProfileMaster      pulumi.BoolPtrInput
 	ProvisioningAction pulumi.StringPtrInput
-	// algorithm to use to sign requests
+	// The XML digital Signature Algorithm used when signing an <AuthnRequest> message
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign <AuthnRequest> messages to the IdP
 	RequestSignatureScope pulumi.StringPtrInput
-	// algorithm to use to sign requests
+	// The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
 	ResponseSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
+	// Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
 	ResponseSignatureScope pulumi.StringPtrInput
 	SsoBinding             pulumi.StringPtrInput
 	SsoDestination         pulumi.StringPtrInput
@@ -208,13 +208,13 @@ type samlIdpArgs struct {
 	NameFormat         *string `pulumi:"nameFormat"`
 	ProfileMaster      *bool   `pulumi:"profileMaster"`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// algorithm to use to sign requests
+	// The XML digital Signature Algorithm used when signing an <AuthnRequest> message
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign <AuthnRequest> messages to the IdP
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// algorithm to use to sign requests
+	// The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
 	ResponseSignatureAlgorithm *string `pulumi:"responseSignatureAlgorithm"`
-	// algorithm to use to sign response
+	// Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
 	ResponseSignatureScope *string  `pulumi:"responseSignatureScope"`
 	SsoBinding             *string  `pulumi:"ssoBinding"`
 	SsoDestination         *string  `pulumi:"ssoDestination"`
@@ -250,13 +250,13 @@ type SamlIdpArgs struct {
 	NameFormat         pulumi.StringPtrInput
 	ProfileMaster      pulumi.BoolPtrInput
 	ProvisioningAction pulumi.StringPtrInput
-	// algorithm to use to sign requests
+	// The XML digital Signature Algorithm used when signing an <AuthnRequest> message
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
+	// Specifies whether to digitally sign <AuthnRequest> messages to the IdP
 	RequestSignatureScope pulumi.StringPtrInput
-	// algorithm to use to sign requests
+	// The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
 	ResponseSignatureAlgorithm pulumi.StringPtrInput
-	// algorithm to use to sign response
+	// Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
 	ResponseSignatureScope pulumi.StringPtrInput
 	SsoBinding             pulumi.StringPtrInput
 	SsoDestination         pulumi.StringPtrInput
@@ -432,22 +432,22 @@ func (o SamlIdpOutput) ProvisioningAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
 }
 
-// algorithm to use to sign requests
+// The XML digital Signature Algorithm used when signing an <AuthnRequest> message
 func (o SamlIdpOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// algorithm to use to sign response
+// Specifies whether to digitally sign <AuthnRequest> messages to the IdP
 func (o SamlIdpOutput) RequestSignatureScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
 }
 
-// algorithm to use to sign requests
+// The minimum XML digital Signature Algorithm allowed when verifying a <SAMLResponse> message or <Assertion> element
 func (o SamlIdpOutput) ResponseSignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.ResponseSignatureAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// algorithm to use to sign response
+// Specifies whether to verify a <SAMLResponse> message or <Assertion> element XML digital signature
 func (o SamlIdpOutput) ResponseSignatureScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlIdp) pulumi.StringPtrOutput { return v.ResponseSignatureScope }).(pulumi.StringPtrOutput)
 }

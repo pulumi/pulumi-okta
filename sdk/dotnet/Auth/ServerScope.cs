@@ -88,6 +88,12 @@ namespace Pulumi.Okta.Auth
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether Okta created the Scope
+        /// </summary>
+        [Output("system")]
+        public Output<bool> System { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ServerScope resource with the given unique name, arguments, and options.
@@ -224,6 +230,12 @@ namespace Pulumi.Okta.Auth
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether Okta created the Scope
+        /// </summary>
+        [Input("system")]
+        public Input<bool>? System { get; set; }
 
         public ServerScopeState()
         {
