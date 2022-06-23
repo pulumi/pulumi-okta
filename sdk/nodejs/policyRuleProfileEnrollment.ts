@@ -10,52 +10,6 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to create and configure a Profile Enrollment Policy Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const examplePolicyProfileEnrollment = new okta.PolicyProfileEnrollment("examplePolicyProfileEnrollment", {});
- * const exampleHook = new okta.inline.Hook("exampleHook", {
- *     status: "ACTIVE",
- *     type: "com.okta.user.pre-registration",
- *     version: "1.0.3",
- *     channel: {
- *         type: "HTTP",
- *         version: "1.0.0",
- *         uri: "https://example.com/test2",
- *         method: "POST",
- *     },
- * });
- * const exampleGroup = new okta.group.Group("exampleGroup", {description: "Group of some users"});
- * const examplePolicyRuleProfileEnrollment = new okta.PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment", {
- *     policyId: examplePolicyProfileEnrollment.id,
- *     inlineHookId: exampleHook.id,
- *     targetGroupId: exampleGroup.id,
- *     unknownUserAction: "REGISTER",
- *     emailVerification: true,
- *     access: "ALLOW",
- *     profileAttributes: [
- *         {
- *             name: "email",
- *             label: "Email",
- *             required: true,
- *         },
- *         {
- *             name: "name",
- *             label: "Name",
- *             required: true,
- *         },
- *         {
- *             name: "t-shirt",
- *             label: "T-Shirt Size",
- *             required: false,
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * A Policy Rule can be imported via the Policy and Rule ID.

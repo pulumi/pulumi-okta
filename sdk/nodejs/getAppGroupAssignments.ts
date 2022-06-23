@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getAppGroupAssignments({
- *     id: okta_app_oauth.test.id,
- * });
- * ```
  */
 export function getAppGroupAssignments(args: GetAppGroupAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAppGroupAssignmentsResult> {
     if (!opts) {

@@ -35,52 +35,6 @@ import * as utilities from "../utilities";
  *     subjectNameIdTemplate: "${user.userName}",
  * });
  * ```
- * ### With inline hook
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const testHook = new okta.inline.Hook("testHook", {
- *     status: "ACTIVE",
- *     type: "com.okta.saml.tokens.transform",
- *     version: "1.0.2",
- *     channel: {
- *         type: "HTTP",
- *         version: "1.0.0",
- *         uri: "https://example.com/test1",
- *         method: "POST",
- *     },
- *     auth: {
- *         key: "Authorization",
- *         type: "HEADER",
- *         value: "secret",
- *     },
- * });
- * const testSaml = new okta.app.Saml("testSaml", {
- *     label: "testAcc_replace_with_uuid",
- *     ssoUrl: "https://google.com",
- *     recipient: "https://here.com",
- *     destination: "https://its-about-the-journey.com",
- *     audience: "https://audience.com",
- *     subjectNameIdTemplate: user.userName,
- *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
- *     responseSigned: true,
- *     signatureAlgorithm: "RSA_SHA256",
- *     digestAlgorithm: "SHA256",
- *     honorForceAuthn: false,
- *     authnContextClassRef: "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
- *     inlineHookId: testHook.id,
- *     attributeStatements: [{
- *         type: "GROUP",
- *         name: "groups",
- *         filterType: "REGEX",
- *         filterValue: ".*",
- *     }],
- * }, {
- *     dependsOn: [testHook],
- * });
- * ```
  * ### Pre-configured app with SAML 1.1 sign-on mode
  *
  * ```typescript

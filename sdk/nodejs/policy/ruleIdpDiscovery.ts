@@ -8,56 +8,6 @@ import * as utilities from "../utilities";
 /**
  * This resource allows you to create and configure an IdP Discovery Policy Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const idpDiscoveryPolicy = okta.policy.getPolicy({
- *     name: "Idp Discovery Policy",
- *     type: "IDP_DISCOVERY",
- * });
- * const example = new okta.policy.RuleIdpDiscovery("example", {
- *     policyId: idpDiscoveryPolicy.then(idpDiscoveryPolicy => idpDiscoveryPolicy.id),
- *     idpId: "<idp id>",
- *     idpType: "OIDC",
- *     networkConnection: "ANYWHERE",
- *     priority: 1,
- *     status: "ACTIVE",
- *     userIdentifierType: "ATTRIBUTE",
- *     userIdentifierAttribute: "company",
- *     appExcludes: [
- *         {
- *             id: "<app id>",
- *             type: "APP",
- *         },
- *         {
- *             name: "yahoo_mail",
- *             type: "APP_TYPE",
- *         },
- *     ],
- *     appIncludes: [
- *         {
- *             id: "<app id>",
- *             type: "APP",
- *         },
- *         {
- *             name: "<app type name>",
- *             type: "APP_TYPE",
- *         },
- *     ],
- *     platformIncludes: [{
- *         type: "MOBILE",
- *         osType: "OSX",
- *     }],
- *     userIdentifierPatterns: [{
- *         matchType: "EQUALS",
- *         value: "Articulate",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * A Policy Rule can be imported via the Policy and Rule ID.

@@ -194,8 +194,8 @@ import (
 // 			__res, err := user.NewUser(ctx, fmt.Sprintf("testUser-%v", key0), &user.UserArgs{
 // 				FirstName: pulumi.String("TestAcc"),
 // 				LastName:  pulumi.String("Smith"),
-// 				Login:     pulumi.String(fmt.Sprintf("%v%v%v", "testAcc_", val0, "@example.com")),
-// 				Email:     pulumi.String(fmt.Sprintf("%v%v%v", "testAcc_", val0, "@example.com")),
+// 				Login:     pulumi.String(fmt.Sprintf("testAcc_%v@example.com", val0)),
+// 				Email:     pulumi.String(fmt.Sprintf("testAcc_%v@example.com", val0)),
 // 			})
 // 			if err != nil {
 // 				return err
@@ -205,7 +205,7 @@ import (
 // 		var this []*group.Group
 // 		for key0, val0 := range 5 {
 // 			__res, err := group.NewGroup(ctx, fmt.Sprintf("this-%v", key0), &group.GroupArgs{
-// 				Description: pulumi.String(fmt.Sprintf("%v%v", "testAcc_", val0)),
+// 				Description: pulumi.String(fmt.Sprintf("testAcc_%v", val0)),
 // 			})
 // 			if err != nil {
 // 				return err

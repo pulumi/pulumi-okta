@@ -9,34 +9,6 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to create and configure security question factor for a user.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleUser = new okta.user.User("exampleUser", {
- *     firstName: "John",
- *     lastName: "Smith",
- *     login: "john.smith@example.com",
- *     email: "john.smith@example.com",
- * });
- * const exampleUserSecurityQuestions = okta.getUserSecurityQuestionsOutput({
- *     userId: exampleUser.id,
- * });
- * const exampleFactor = new okta.factor.Factor("exampleFactor", {
- *     providerId: "okta_question",
- *     active: true,
- * });
- * const exampleUserFactorQuestion = new okta.UserFactorQuestion("exampleUserFactorQuestion", {
- *     userId: exampleUser.id,
- *     key: exampleUserSecurityQuestions.apply(exampleUserSecurityQuestions => exampleUserSecurityQuestions.questions?[0]?.key),
- *     answer: "meatball",
- * }, {
- *     dependsOn: [exampleFactor],
- * });
- * ```
- *
  * ## Import
  *
  * Security question factor for a user can be imported via the `user_id` and the `factor_id`.

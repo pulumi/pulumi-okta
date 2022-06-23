@@ -9,16 +9,6 @@ import * as utilities from "./utilities";
  * created if the domain could not be verified. The provider will make several requests to verify the domain until
  * the API returns `VERIFIED` verification status.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleDomain = new okta.Domain("exampleDomain", {});
- * const exampleDomainVerification = new okta.DomainVerification("exampleDomainVerification", {domainId: okta_domain.test.id});
- * ```
- *
  * ## Import
  *
  * This resource does not support importing.

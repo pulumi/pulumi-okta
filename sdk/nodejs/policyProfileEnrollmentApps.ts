@@ -14,25 +14,6 @@ import * as utilities from "./utilities";
  *  - When re-assigning the app to another policy, please use `dependsOn` in the policy to which the app will be assigned. This is necessary to avoid
  *      unexpected behavior, since if the app is unassigned from the policy it is just assigned to the `Default` one.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const examplePolicy = okta.policy.getPolicy({
- *     name: "My Policy",
- *     type: "PROFILE_ENROLLMENT",
- * });
- * const test = okta.app.getApp({
- *     label: "My App",
- * });
- * const examplePolicyProfileEnrollmentApps = new okta.PolicyProfileEnrollmentApps("examplePolicyProfileEnrollmentApps", {
- *     policyId: okta_policy.example.id,
- *     apps: [data.okta_app.id],
- * });
- * ```
- *
  * ## Import
  *
  * A Profile Enrollment Policy Apps can be imported via the Okta ID.

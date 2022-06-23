@@ -7,23 +7,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve a list of user's security questions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleUser = new okta.user.User("exampleUser", {
- *     firstName: "John",
- *     lastName: "Smith",
- *     login: "john.smith@example.com",
- *     email: "john.smith@example.com",
- * });
- * const exampleUserSecurityQuestions = okta.getUserSecurityQuestionsOutput({
- *     userId: exampleUser.id,
- * });
- * ```
  */
 export function getUserSecurityQuestions(args: GetUserSecurityQuestionsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSecurityQuestionsResult> {
     if (!opts) {

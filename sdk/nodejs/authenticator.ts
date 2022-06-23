@@ -11,20 +11,6 @@ import * as utilities from "./utilities";
  *
  * > **NOTE:** An authenticator can only be deleted if it's not in use by any policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = new okta.Authenticator("test", {
- *     key: "security_question",
- *     settings: JSON.stringify({
- *         allowedFor: "recovery",
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * Okta authenticator can be imported via the Okta ID.

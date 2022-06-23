@@ -7,29 +7,6 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to configure Threat Insight Settings.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const ipNetworkZoneExample = new okta.network.Zone("ipNetworkZoneExample", {
- *     type: "IP",
- *     gateways: [
- *         "1.2.3.4/24",
- *         "2.3.4.5-2.3.4.15",
- *     ],
- *     proxies: [
- *         "2.2.3.4/24",
- *         "3.3.4.5-3.3.4.15",
- *     ],
- * });
- * const example = new okta.ThreatInsightSettings("example", {
- *     action: "block",
- *     networkExcludes: [ipNetworkZoneExample.id],
- * });
- * ```
- *
  * ## Import
  *
  * Threat Insight Settings can be imported without any parameters.

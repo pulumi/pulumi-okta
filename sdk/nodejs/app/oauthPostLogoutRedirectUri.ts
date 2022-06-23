@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 /**
  * This resource allows you to manage post logout redirection URI for use in redirect-based flows.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const testOAuth = new okta.app.OAuth("testOAuth", {
- *     label: "testAcc_replace_with_uuid",
- *     type: "web",
- *     grantTypes: ["authorization_code"],
- *     responseTypes: ["code"],
- *     redirectUris: ["myapp://callback"],
- *     postLogoutRedirectUris: ["https://www.example.com"],
- * });
- * const testOAuthPostLogoutRedirectUri = new okta.app.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri", {
- *     appId: testOAuth.id,
- *     uri: "https://www.example.com",
- * });
- * ```
- *
  * ## Import
  *
  * A post logout redirect URI can be imported via the Okta ID.

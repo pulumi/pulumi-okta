@@ -9,43 +9,6 @@ import * as utilities from "../utilities";
  *
  * This resource allows you to create and configure an Okta Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.group.Group("example", {
- *     description: "My Example Group",
- * });
- * ```
- *
- * Ignore users sync
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleSkip = new okta.group.Group("example_skip", {
- *     description: "My Example Group",
- *     skipUsers: true,
- * });
- * ```
- *
- * Custom profile attributes
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.group.Group("example", {
- *     description: "My Example Group",
- *     customProfileAttributes: JSON.stringify({
- *         example1: "testing1234",
- *         example2: true,
- *         example3: 54321,
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * An Okta Group can be imported via the Okta ID.

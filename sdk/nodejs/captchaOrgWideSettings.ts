@@ -10,37 +10,6 @@ import * as utilities from "./utilities";
  * This resource allows you to configure which parts of the authentication flow requires users to pass the CAPTCHA logic.
  * CAPTCHA org-wide settings can be disabled by unsetting `captchaId` and `enabledFor`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleCaptcha = new okta.Captcha("exampleCaptcha", {
- *     type: "HCAPTCHA",
- *     siteKey: "some_key",
- *     secretKey: "some_secret_key",
- * });
- * const exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", {
- *     captchaId: okta_captcha.test.id,
- *     enabledFors: ["SSR"],
- * });
- * ```
- *
- * The following example disables org-wide CAPTCHA.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleCaptcha = new okta.Captcha("example", {
- *     secretKey: "some_secret_key",
- *     siteKey: "some_key",
- *     type: "HCAPTCHA",
- * });
- * const exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings("example", {});
- * ```
- *
  * ## Import
  *
  * Org-Wide CAPTCHA settings can be imported without any parameters.

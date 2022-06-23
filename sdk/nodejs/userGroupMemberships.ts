@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const testUser = new okta.user.User("testUser", {
- *     firstName: "TestAcc",
- *     lastName: "Smith",
- *     login: "testAcc-replace_with_uuid@example.com",
- *     email: "testAcc-replace_with_uuid@example.com",
- * });
- * const testUserGroupMemberships = new okta.UserGroupMemberships("testUserGroupMemberships", {
- *     userId: testUser.id,
- *     groups: [
- *         okta_group.test_1.id,
- *         okta_group.test_2.id,
- *     ],
- * });
- * ```
- */
 export class UserGroupMemberships extends pulumi.CustomResource {
     /**
      * Get an existing UserGroupMemberships resource's state with the given name, ID, and optional extra

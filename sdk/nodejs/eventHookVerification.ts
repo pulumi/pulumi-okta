@@ -9,31 +9,6 @@ import * as utilities from "./utilities";
  * JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request)
  * documentation for details.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleEventHook = new okta.EventHook("exampleEventHook", {
- *     events: [
- *         "user.lifecycle.create",
- *         "user.lifecycle.delete.initiated",
- *     ],
- *     channel: {
- *         type: "HTTP",
- *         version: "1.0.0",
- *         uri: "https://example.com/test",
- *     },
- *     auth: {
- *         type: "HEADER",
- *         key: "Authorization",
- *         value: "123",
- *     },
- * });
- * const exampleEventHookVerification = new okta.EventHookVerification("exampleEventHookVerification", {eventHookId: exampleEventHook.id});
- * ```
- *
  * ## Import
  *
  * This resource does not support importing.

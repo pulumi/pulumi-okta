@@ -53,7 +53,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := app.NewAutoLogin(ctx, "example", &app.AutoLoginArgs{
-// 			AppSettingsJson:  pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "    \"domain\": \"okta\",\n", "    \"afwOnly\": false\n", "}\n", "\n")),
+// 			AppSettingsJson:  pulumi.String(fmt.Sprintf("{\n    \"domain\": \"okta\",\n    \"afwOnly\": false\n}\n\n")),
 // 			Label:            pulumi.String("Google Example App"),
 // 			PreconfiguredApp: pulumi.String("google"),
 // 			Status:           pulumi.String("ACTIVE"),

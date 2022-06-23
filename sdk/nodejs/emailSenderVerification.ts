@@ -7,20 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Verifies the email sender. The resource won't be created if the email sender could not be verified.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleEmailSender = new okta.EmailSender("exampleEmailSender", {
- *     fromName: "Paul Atreides",
- *     fromAddress: "no-reply@caladan.planet",
- *     subdomain: "mail",
- * });
- * const exampleEmailSenderVerification = new okta.EmailSenderVerification("exampleEmailSenderVerification", {senderId: okta_email_sender.valid.id});
- * ```
- *
  * ## Import
  *
  * This resource does not support importing.

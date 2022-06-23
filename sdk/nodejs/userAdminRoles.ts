@@ -12,24 +12,6 @@ import * as utilities from "./utilities";
  * When using this with a `okta.user.User` resource, you should add a lifecycle ignore for admin roles to avoid conflicts
  * in desired state.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const testUser = new okta.user.User("testUser", {
- *     firstName: "TestAcc",
- *     lastName: "Smith",
- *     login: "testAcc-replace_with_uuid@example.com",
- *     email: "testAcc-replace_with_uuid@example.com",
- * });
- * const testUserAdminRoles = new okta.UserAdminRoles("testUserAdminRoles", {
- *     userId: testUser.id,
- *     adminRoles: ["APP_ADMIN"],
- * });
- * ```
- *
  * ## Import
  *
  * Existing user admin roles can be imported via the Okta User ID.

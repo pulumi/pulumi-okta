@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getAppUserAssignments({
- *     id: okta_app_oauth.test.id,
- * });
- * ```
  */
 export function getAppUserAssignments(args: GetAppUserAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAppUserAssignmentsResult> {
     if (!opts) {

@@ -7,48 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Link value operations allow you to create relationships between primary and associated users.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const padishah = new okta.LinkDefinition("padishah", {
- *     primaryName: "emperor",
- *     primaryTitle: "Emperor",
- *     primaryDescription: "Hereditary ruler of the Imperium and the Known Universe",
- *     associatedName: "sardaukar",
- *     associatedTitle: "Sardaukar",
- *     associatedDescription: "Elite military force member",
- * });
- * const emperor = new okta.user.User("emperor", {
- *     firstName: "Shaddam",
- *     lastName: "Corrino IV",
- *     login: "shaddam.corrino.iv@salusa-secundus.planet",
- *     email: "shaddam.corrino.iv@salusa-secundus.planet",
- * });
- * const sardaukars: okta.user.User[];
- * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     sardaukars.push(new okta.user.User(`sardaukars-${range.value}`, {
- *         firstName: "Amrit",
- *         lastName: `Sardaukar_${range.value}`,
- *         login: `amritsardaukar_${range.value}@salusa-secundus.planet`,
- *         email: `amritsardaukar_${range.value}@salusa-secundus.planet`,
- *     }));
- * }
- * const example = new okta.LinkValue("example", {
- *     primaryName: padishah.primaryName,
- *     primaryUserId: emperor.id,
- *     associatedUserIds: [
- *         sardaukars[0].id,
- *         sardaukars[1].id,
- *         sardaukars[2].id,
- *         sardaukars[3].id,
- *         sardaukars[4].id,
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Okta Link Value can be imported via Primary Name and Primary User ID.

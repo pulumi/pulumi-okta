@@ -22,17 +22,6 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * ```
- * ### Lookup Users by Group Membership
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleGroup = new okta.group.Group("exampleGroup", {});
- * const exampleUsers = okta.user.getUsersOutput({
- *     groupId: exampleGroup.id,
- *     includeGroups: true,
- * });
- * ```
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};

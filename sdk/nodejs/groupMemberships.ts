@@ -19,25 +19,6 @@ import * as utilities from "./utilities";
  * resource appear to drift. If that is the case make use of a lifecycle ignore for
  * the `users` argument to avoid conflicts in desired state.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const testGroup = new okta.group.Group("testGroup", {description: "testing, testing"});
- * const testGroupMemberships = new okta.GroupMemberships("testGroupMemberships", {
- *     groupId: testGroup.id,
- *     users: [
- *         okta_user.test1.id,
- *         okta_user.test2.id,
- *     ],
- * });
- * // lifecycle {
- * //   ignore_changes = [users]
- * // }
- * ```
- *
  * ## Import
  *
  * an Okta Group's memberships can be imported via the Okta group ID.

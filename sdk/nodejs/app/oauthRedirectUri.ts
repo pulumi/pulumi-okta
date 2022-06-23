@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * This resource allows you to manage redirection URI for use in redirect-based flows.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const testOAuth = new okta.app.OAuth("testOAuth", {
- *     label: "testAcc_replace_with_uuid",
- *     type: "web",
- *     grantTypes: ["authorization_code"],
- *     responseTypes: ["code"],
- *     redirectUris: ["myapp://callback"],
- * });
- * const testOAuthRedirectUri = new okta.app.OAuthRedirectUri("testOAuthRedirectUri", {
- *     appId: testOAuth.id,
- *     uri: "http://google.com",
- * });
- * ```
- *
  * ## Import
  *
  * A redirect URI can be imported via the Okta ID.
