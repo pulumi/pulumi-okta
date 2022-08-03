@@ -123,6 +123,8 @@ type OAuth struct {
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy pulumi.StringPtrOutput `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrOutput `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar.
@@ -277,6 +279,8 @@ type oauthState struct {
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode.
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar.
@@ -397,6 +401,8 @@ type OAuthState struct {
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar.
@@ -521,6 +527,8 @@ type oauthArgs struct {
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode.
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar.
@@ -634,6 +642,8 @@ type OAuthArgs struct {
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar.
@@ -848,6 +858,11 @@ func (o OAuthOutput) AppLinksJson() pulumi.StringPtrOutput {
 // Application settings in JSON format.
 func (o OAuthOutput) AppSettingsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+func (o OAuthOutput) AuthenticationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AuthenticationPolicy }).(pulumi.StringPtrOutput)
 }
 
 // Requested key rotation mode.

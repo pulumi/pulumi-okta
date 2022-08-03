@@ -19,6 +19,13 @@ namespace Pulumi.Okta.App.Inputs
         public Input<string>? FilterType { get; set; }
 
         /// <summary>
+        /// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+        /// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        /// </summary>
+        [Input("issuerMode")]
+        public Input<string>? IssuerMode { get; set; }
+
+        /// <summary>
         /// Name of the claim that will be used in the token.
         /// </summary>
         [Input("name", required: true)]

@@ -31,6 +31,7 @@ export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promis
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:user/getUser:getUser", {
         "compoundSearchOperator": args.compoundSearchOperator,
+        "delayReadSeconds": args.delayReadSeconds,
         "searches": args.searches,
         "skipGroups": args.skipGroups,
         "skipRoles": args.skipRoles,
@@ -46,6 +47,10 @@ export interface GetUserArgs {
      * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      */
     compoundSearchOperator?: string;
+    /**
+     * Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
+     */
+    delayReadSeconds?: string;
     /**
      * Map of search criteria. It supports the following properties.
      */
@@ -73,56 +78,57 @@ export interface GetUserResult {
      */
     readonly adminRoles: string[];
     /**
-     * user profile property.
+     * City or locality component of user's address.
      */
     readonly city: string;
     readonly compoundSearchOperator?: string;
     /**
-     * user profile property.
+     * Name of a cost center assigned to user.
      */
     readonly costCenter: string;
     /**
-     * user profile property.
+     * Country name component of user's address.
      */
     readonly countryCode: string;
     /**
-     * raw JSON containing all custom profile attributes.
+     * Raw JSON containing all custom profile attributes.
      */
     readonly customProfileAttributes: string;
+    readonly delayReadSeconds?: string;
     /**
-     * user profile property.
+     * Name of user's department.
      */
     readonly department: string;
     /**
-     * user profile property.
+     * Name of the user, suitable for display to end users.
      */
     readonly displayName: string;
     /**
-     * user profile property.
+     * Name of user's division.
      */
     readonly division: string;
     /**
-     * user profile property.
+     * Primary email address of user.
      */
     readonly email: string;
     /**
-     * user profile property.
+     * Organization or company assigned unique identifier for the user.
      */
     readonly employeeNumber: string;
     /**
-     * user profile property.
+     * Given name of the user.
      */
     readonly firstName: string;
     /**
-     * user profile property.
+     * Groups user belongs to.
      */
     readonly groupMemberships: string[];
     /**
-     * user profile property.
+     * Honorific prefix(es) of the user, or title in most Western languages.
      */
     readonly honorificPrefix: string;
     /**
-     * user profile property.
+     * Honorific suffix(es) of the user.
      */
     readonly honorificSuffix: string;
     /**
@@ -130,91 +136,91 @@ export interface GetUserResult {
      */
     readonly id: string;
     /**
-     * user profile property.
+     * Family name of the user.
      */
     readonly lastName: string;
     /**
-     * user profile property.
+     * User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
      */
     readonly locale: string;
     /**
-     * user profile property.
+     * Unique identifier for the user.
      */
     readonly login: string;
     /**
-     * user profile property.
+     * Display name of the user's manager.
      */
     readonly manager: string;
     /**
-     * user profile property.
+     * `id` of a user's manager.
      */
     readonly managerId: string;
     /**
-     * user profile property.
+     * Middle name(s) of the user.
      */
     readonly middleName: string;
     /**
-     * user profile property.
+     * Mobile phone number of user.
      */
     readonly mobilePhone: string;
     /**
-     * user profile property.
+     * Casual way to address the user in real life.
      */
     readonly nickName: string;
     /**
-     * user profile property.
+     * Name of user's organization.
      */
     readonly organization: string;
     /**
-     * user profile property.
+     * Mailing address component of user's address.
      */
     readonly postalAddress: string;
     /**
-     * user profile property.
+     * User's preferred written or spoken languages.
      */
     readonly preferredLanguage: string;
     /**
-     * user profile property.
+     * Primary phone number of user such as home number.
      */
     readonly primaryPhone: string;
     /**
-     * user profile property.
+     * URL of user's online profile (e.g. a web page).
      */
     readonly profileUrl: string;
     readonly searches?: outputs.user.GetUserSearch[];
     /**
-     * user profile property.
+     * Secondary email address of user typically used for account recovery.
      */
     readonly secondEmail: string;
     readonly skipGroups?: boolean;
     readonly skipRoles?: boolean;
     /**
-     * user profile property.
+     * State or region component of user's address (region).
      */
     readonly state: string;
     /**
-     * user profile property.
+     * Current status of user.
      */
     readonly status: string;
     /**
-     * user profile property.
+     * Full street address component of user's address.
      */
     readonly streetAddress: string;
     /**
-     * user profile property.
+     * User's time zone.
      */
     readonly timezone: string;
     /**
-     * user profile property.
+     * User's title, such as "Vice President".
      */
     readonly title: string;
     readonly userId?: string;
     /**
-     * user profile property.
+     * Used to describe the organization to user relationship such as "Employee" or "Contractor".
      */
     readonly userType: string;
     /**
-     * user profile property.
+     * Zipcode or postal code component of user's address (postalCode)
      */
     readonly zipCode: string;
 }
@@ -231,6 +237,10 @@ export interface GetUserOutputArgs {
      * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      */
     compoundSearchOperator?: pulumi.Input<string>;
+    /**
+     * Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
+     */
+    delayReadSeconds?: pulumi.Input<string>;
     /**
      * Map of search criteria. It supports the following properties.
      */

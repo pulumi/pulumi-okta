@@ -62,6 +62,10 @@ export class OauthApp extends pulumi.CustomResource {
      */
     public readonly appSettingsJson!: pulumi.Output<string | undefined>;
     /**
+     * Id of this apps authentication policy
+     */
+    public readonly authenticationPolicy!: pulumi.Output<string | undefined>;
+    /**
      * Requested key rotation mode.
      */
     public readonly autoKeyRotation!: pulumi.Output<boolean | undefined>;
@@ -279,6 +283,7 @@ export class OauthApp extends pulumi.CustomResource {
             resourceInputs["adminNote"] = state ? state.adminNote : undefined;
             resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             resourceInputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
+            resourceInputs["authenticationPolicy"] = state ? state.authenticationPolicy : undefined;
             resourceInputs["autoKeyRotation"] = state ? state.autoKeyRotation : undefined;
             resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             resourceInputs["clientBasicSecret"] = state ? state.clientBasicSecret : undefined;
@@ -339,6 +344,7 @@ export class OauthApp extends pulumi.CustomResource {
             resourceInputs["adminNote"] = args ? args.adminNote : undefined;
             resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             resourceInputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
+            resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
             resourceInputs["autoKeyRotation"] = args ? args.autoKeyRotation : undefined;
             resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             resourceInputs["clientBasicSecret"] = args ? args.clientBasicSecret : undefined;
@@ -419,6 +425,10 @@ export interface OauthAppState {
      * Application settings in JSON format
      */
     appSettingsJson?: pulumi.Input<string>;
+    /**
+     * Id of this apps authentication policy
+     */
+    authenticationPolicy?: pulumi.Input<string>;
     /**
      * Requested key rotation mode.
      */
@@ -644,6 +654,10 @@ export interface OauthAppArgs {
      * Application settings in JSON format
      */
     appSettingsJson?: pulumi.Input<string>;
+    /**
+     * Id of this apps authentication policy
+     */
+    authenticationPolicy?: pulumi.Input<string>;
     /**
      * Requested key rotation mode.
      */

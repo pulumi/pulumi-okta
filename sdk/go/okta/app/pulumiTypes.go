@@ -355,6 +355,9 @@ func (o BookmarkUserArrayOutput) Index(i pulumi.IntInput) BookmarkUserOutput {
 type OAuthGroupsClaim struct {
 	// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
 	FilterType *string `pulumi:"filterType"`
+	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+	IssuerMode *string `pulumi:"issuerMode"`
 	// Name of the claim that will be used in the token.
 	Name string `pulumi:"name"`
 	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
@@ -377,6 +380,9 @@ type OAuthGroupsClaimInput interface {
 type OAuthGroupsClaimArgs struct {
 	// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
 	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
+	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+	IssuerMode pulumi.StringPtrInput `pulumi:"issuerMode"`
 	// Name of the claim that will be used in the token.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
@@ -467,6 +473,12 @@ func (o OAuthGroupsClaimOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+func (o OAuthGroupsClaimOutput) IssuerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthGroupsClaim) *string { return v.IssuerMode }).(pulumi.StringPtrOutput)
+}
+
 // Name of the claim that will be used in the token.
 func (o OAuthGroupsClaimOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) string { return v.Name }).(pulumi.StringOutput)
@@ -513,6 +525,17 @@ func (o OAuthGroupsClaimPtrOutput) FilterType() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.FilterType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+func (o OAuthGroupsClaimPtrOutput) IssuerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuthGroupsClaim) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IssuerMode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -913,6 +936,184 @@ func (o SamlAttributeStatementArrayOutput) Index(i pulumi.IntInput) SamlAttribut
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlAttributeStatement {
 		return vs[0].([]SamlAttributeStatement)[vs[1].(int)]
 	}).(SamlAttributeStatementOutput)
+}
+
+type SamlKey struct {
+	// Date created.
+	Created *string `pulumi:"created"`
+	// RSA exponent.
+	E *string `pulumi:"e"`
+	// Date the key expires.
+	ExpiresAt *string `pulumi:"expiresAt"`
+	// Key ID.
+	Kid *string `pulumi:"kid"`
+	// Identifies the cryptographic algorithm family used with the key.
+	Kty *string `pulumi:"kty"`
+	// Date the key was last updated.
+	LastUpdated *string `pulumi:"lastUpdated"`
+	// RSA modulus.
+	N *string `pulumi:"n"`
+	// Intended use of the public key.
+	Use *string `pulumi:"use"`
+	// X.509 certificate chain.
+	X5cs []string `pulumi:"x5cs"`
+	// X.509 certificate SHA-256 thumbprint.
+	X5tS256 *string `pulumi:"x5tS256"`
+}
+
+// SamlKeyInput is an input type that accepts SamlKeyArgs and SamlKeyOutput values.
+// You can construct a concrete instance of `SamlKeyInput` via:
+//
+//          SamlKeyArgs{...}
+type SamlKeyInput interface {
+	pulumi.Input
+
+	ToSamlKeyOutput() SamlKeyOutput
+	ToSamlKeyOutputWithContext(context.Context) SamlKeyOutput
+}
+
+type SamlKeyArgs struct {
+	// Date created.
+	Created pulumi.StringPtrInput `pulumi:"created"`
+	// RSA exponent.
+	E pulumi.StringPtrInput `pulumi:"e"`
+	// Date the key expires.
+	ExpiresAt pulumi.StringPtrInput `pulumi:"expiresAt"`
+	// Key ID.
+	Kid pulumi.StringPtrInput `pulumi:"kid"`
+	// Identifies the cryptographic algorithm family used with the key.
+	Kty pulumi.StringPtrInput `pulumi:"kty"`
+	// Date the key was last updated.
+	LastUpdated pulumi.StringPtrInput `pulumi:"lastUpdated"`
+	// RSA modulus.
+	N pulumi.StringPtrInput `pulumi:"n"`
+	// Intended use of the public key.
+	Use pulumi.StringPtrInput `pulumi:"use"`
+	// X.509 certificate chain.
+	X5cs pulumi.StringArrayInput `pulumi:"x5cs"`
+	// X.509 certificate SHA-256 thumbprint.
+	X5tS256 pulumi.StringPtrInput `pulumi:"x5tS256"`
+}
+
+func (SamlKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlKey)(nil)).Elem()
+}
+
+func (i SamlKeyArgs) ToSamlKeyOutput() SamlKeyOutput {
+	return i.ToSamlKeyOutputWithContext(context.Background())
+}
+
+func (i SamlKeyArgs) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyOutput)
+}
+
+// SamlKeyArrayInput is an input type that accepts SamlKeyArray and SamlKeyArrayOutput values.
+// You can construct a concrete instance of `SamlKeyArrayInput` via:
+//
+//          SamlKeyArray{ SamlKeyArgs{...} }
+type SamlKeyArrayInput interface {
+	pulumi.Input
+
+	ToSamlKeyArrayOutput() SamlKeyArrayOutput
+	ToSamlKeyArrayOutputWithContext(context.Context) SamlKeyArrayOutput
+}
+
+type SamlKeyArray []SamlKeyInput
+
+func (SamlKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlKey)(nil)).Elem()
+}
+
+func (i SamlKeyArray) ToSamlKeyArrayOutput() SamlKeyArrayOutput {
+	return i.ToSamlKeyArrayOutputWithContext(context.Background())
+}
+
+func (i SamlKeyArray) ToSamlKeyArrayOutputWithContext(ctx context.Context) SamlKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyArrayOutput)
+}
+
+type SamlKeyOutput struct{ *pulumi.OutputState }
+
+func (SamlKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlKey)(nil)).Elem()
+}
+
+func (o SamlKeyOutput) ToSamlKeyOutput() SamlKeyOutput {
+	return o
+}
+
+func (o SamlKeyOutput) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput {
+	return o
+}
+
+// Date created.
+func (o SamlKeyOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlKey) *string { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// RSA exponent.
+func (o SamlKeyOutput) E() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlKey) *string { return v.E }).(pulumi.StringPtrOutput)
+}
+
+// Date the key expires.
+func (o SamlKeyOutput) ExpiresAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlKey) *string { return v.ExpiresAt }).(pulumi.StringPtrOutput)
+}
+
+// Key ID.
+func (o SamlKeyOutput) Kid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlKey) *string { return v.Kid }).(pulumi.StringPtrOutput)
+}
+
+// Identifies the cryptographic algorithm family used with the key.
+func (o SamlKeyOutput) Kty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlKey) *string { return v.Kty }).(pulumi.StringPtrOutput)
+}
+
+// Date the key was last updated.
+func (o SamlKeyOutput) LastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlKey) *string { return v.LastUpdated }).(pulumi.StringPtrOutput)
+}
+
+// RSA modulus.
+func (o SamlKeyOutput) N() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlKey) *string { return v.N }).(pulumi.StringPtrOutput)
+}
+
+// Intended use of the public key.
+func (o SamlKeyOutput) Use() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlKey) *string { return v.Use }).(pulumi.StringPtrOutput)
+}
+
+// X.509 certificate chain.
+func (o SamlKeyOutput) X5cs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SamlKey) []string { return v.X5cs }).(pulumi.StringArrayOutput)
+}
+
+// X.509 certificate SHA-256 thumbprint.
+func (o SamlKeyOutput) X5tS256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlKey) *string { return v.X5tS256 }).(pulumi.StringPtrOutput)
+}
+
+type SamlKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (SamlKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlKey)(nil)).Elem()
+}
+
+func (o SamlKeyArrayOutput) ToSamlKeyArrayOutput() SamlKeyArrayOutput {
+	return o
+}
+
+func (o SamlKeyArrayOutput) ToSamlKeyArrayOutputWithContext(ctx context.Context) SamlKeyArrayOutput {
+	return o
+}
+
+func (o SamlKeyArrayOutput) Index(i pulumi.IntInput) SamlKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlKey {
+		return vs[0].([]SamlKey)[vs[1].(int)]
+	}).(SamlKeyOutput)
 }
 
 type SamlUser struct {
@@ -1735,6 +1936,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthUserArrayInput)(nil)).Elem(), OAuthUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAttributeStatementInput)(nil)).Elem(), SamlAttributeStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAttributeStatementArrayInput)(nil)).Elem(), SamlAttributeStatementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyInput)(nil)).Elem(), SamlKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyArrayInput)(nil)).Elem(), SamlKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlUserInput)(nil)).Elem(), SamlUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlUserArrayInput)(nil)).Elem(), SamlUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurePasswordStoreUserInput)(nil)).Elem(), SecurePasswordStoreUserArgs{})
@@ -1763,6 +1966,8 @@ func init() {
 	pulumi.RegisterOutputType(OAuthUserArrayOutput{})
 	pulumi.RegisterOutputType(SamlAttributeStatementOutput{})
 	pulumi.RegisterOutputType(SamlAttributeStatementArrayOutput{})
+	pulumi.RegisterOutputType(SamlKeyOutput{})
+	pulumi.RegisterOutputType(SamlKeyArrayOutput{})
 	pulumi.RegisterOutputType(SamlUserOutput{})
 	pulumi.RegisterOutputType(SamlUserArrayOutput{})
 	pulumi.RegisterOutputType(SecurePasswordStoreUserOutput{})

@@ -12,6 +12,7 @@ from .app_group_assignments import *
 from .app_oauth_api_scope import *
 from .app_saml_app_settings import *
 from .app_shared_credentials import *
+from .app_signon_policy import *
 from .app_signon_policy_rule import *
 from .app_user_base_schema_property import *
 from .app_user_schema_property import *
@@ -566,6 +567,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/appSharedCredentials:AppSharedCredentials": "AppSharedCredentials"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/appSignonPolicy",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/appSignonPolicy:AppSignonPolicy": "AppSignonPolicy"
   }
  },
  {

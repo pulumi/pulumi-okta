@@ -14,6 +14,10 @@ import (
 //
 // This resource allows you to configure default MFA Policy.
 //
+// > Requires Org Feature Flag `OKTA_MFA_POLICY`. Contact support to have this feature flag ***enabled***.
+//
+// > Unless Org Feature Flag `ENG_ENABLE_OPTIONAL_PASSWORD_ENROLLMENT` is ***disabled*** `oktaPassword` or `oktaEmail` must be present and its `enroll` value set to `REQUIRED`. Contact support to have this feature flag ***disabled***.
+//
 // ## Example Usage
 //
 // ```go
@@ -31,12 +35,18 @@ import (
 // 			OktaOtp: pulumi.StringMap{
 // 				"enroll": pulumi.String("REQUIRED"),
 // 			},
+// 			OktaPassword: pulumi.StringMap{
+// 				"enroll": pulumi.String("REQUIRED"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = okta.NewPolicyMfaDefault(ctx, "oieExample", &okta.PolicyMfaDefaultArgs{
 // 			IsOie: pulumi.Bool(true),
+// 			OktaPassword: pulumi.StringMap{
+// 				"enroll": pulumi.String("REQUIRED"),
+// 			},
 // 			OktaVerify: pulumi.StringMap{
 // 				"enroll": pulumi.String("REQUIRED"),
 // 			},

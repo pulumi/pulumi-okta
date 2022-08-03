@@ -18,6 +18,11 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly string? FilterType;
         /// <summary>
+        /// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+        /// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        /// </summary>
+        public readonly string? IssuerMode;
+        /// <summary>
         /// Name of the claim that will be used in the token.
         /// </summary>
         public readonly string Name;
@@ -34,6 +39,8 @@ namespace Pulumi.Okta.App.Outputs
         private OAuthGroupsClaim(
             string? filterType,
 
+            string? issuerMode,
+
             string name,
 
             string type,
@@ -41,6 +48,7 @@ namespace Pulumi.Okta.App.Outputs
             string value)
         {
             FilterType = filterType;
+            IssuerMode = issuerMode;
             Name = name;
             Type = type;
             Value = value;

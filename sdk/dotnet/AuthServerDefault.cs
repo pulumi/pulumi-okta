@@ -80,7 +80,7 @@ namespace Pulumi.Okta
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Okta
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Okta
         public Input<string>? Issuer { get; set; }
 
         /// <summary>
-        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }

@@ -19,6 +19,12 @@ namespace Pulumi.Okta
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
+        /// Bearer token granting privileges to Okta API.
+        /// </summary>
+        [Output("accessToken")]
+        public Output<string?> AccessToken { get; private set; } = null!;
+
+        /// <summary>
         /// API Token granting privileges to Okta API.
         /// </summary>
         [Output("apiToken")]
@@ -37,6 +43,12 @@ namespace Pulumi.Okta
         public Output<string?> ClientId { get; private set; } = null!;
 
         /// <summary>
+        /// Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
+        /// </summary>
+        [Output("httpProxy")]
+        public Output<string?> HttpProxy { get; private set; } = null!;
+
+        /// <summary>
         /// The organization to manage in Okta.
         /// </summary>
         [Output("orgName")]
@@ -47,6 +59,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
+
+        /// <summary>
+        /// API Token Id granting privileges to Okta API.
+        /// </summary>
+        [Output("privateKeyId")]
+        public Output<string?> PrivateKeyId { get; private set; } = null!;
 
 
         /// <summary>
@@ -77,6 +95,12 @@ namespace Pulumi.Okta
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Bearer token granting privileges to Okta API.
+        /// </summary>
+        [Input("accessToken")]
+        public Input<string>? AccessToken { get; set; }
+
+        /// <summary>
         /// API Token granting privileges to Okta API.
         /// </summary>
         [Input("apiToken")]
@@ -99,6 +123,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
+
+        /// <summary>
+        /// Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
+        /// </summary>
+        [Input("httpProxy")]
+        public Input<string>? HttpProxy { get; set; }
 
         /// <summary>
         /// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
@@ -150,6 +180,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
+
+        /// <summary>
+        /// API Token Id granting privileges to Okta API.
+        /// </summary>
+        [Input("privateKeyId")]
+        public Input<string>? PrivateKeyId { get; set; }
 
         /// <summary>
         /// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum

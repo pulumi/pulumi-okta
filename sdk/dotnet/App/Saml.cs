@@ -287,6 +287,12 @@ namespace Pulumi.Okta.App
         public Output<string?> Audience { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// </summary>
+        [Output("authenticationPolicy")]
+        public Output<string?> AuthenticationPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Identifies the SAML authentication context class for the assertion’s authentication statement.
         /// </summary>
         [Output("authnContextClassRef")]
@@ -323,6 +329,12 @@ namespace Pulumi.Okta.App
         public Output<string?> DigestAlgorithm { get; private set; } = null!;
 
         /// <summary>
+        /// The url that can be used to embed this application in other portals.
+        /// </summary>
+        [Output("embedUrl")]
+        public Output<string> EmbedUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Output("enduserNote")]
@@ -348,7 +360,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -390,7 +401,7 @@ namespace Pulumi.Okta.App
         public Output<string?> IdpIssuer { get; private set; } = null!;
 
         /// <summary>
-        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         /// </summary>
         [Output("implicitAssignment")]
         public Output<bool?> ImplicitAssignment { get; private set; } = null!;
@@ -418,6 +429,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("keyYearsValid")]
         public Output<int?> KeyYearsValid { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of all key credentials for the application. Format of each entry is as follows:
+        /// </summary>
+        [Output("keys")]
+        public Output<ImmutableArray<Outputs.SamlKey>> Keys { get; private set; } = null!;
 
         /// <summary>
         /// label of application.
@@ -458,15 +475,6 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// name of application from the Okta Integration Network, if not included a custom app will be created.  
         /// If not provided the following arguments are required:
-        /// - `sso_url`
-        /// - `recipient`
-        /// - `destination`
-        /// - `audience`
-        /// - `subject_name_id_template`
-        /// - `subject_name_id_format`
-        /// - `signature_algorithm`
-        /// - `digest_algorithm`
-        /// - `authn_context_class_ref`
         /// </summary>
         [Output("preconfiguredApp")]
         public Output<string?> PreconfiguredApp { get; private set; } = null!;
@@ -594,7 +602,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Users associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.SamlUser>> Users { get; private set; } = null!;
@@ -718,6 +725,12 @@ namespace Pulumi.Okta.App
         public Input<string>? Audience { get; set; }
 
         /// <summary>
+        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
+
+        /// <summary>
         /// Identifies the SAML authentication context class for the assertion’s authentication statement.
         /// </summary>
         [Input("authnContextClassRef")]
@@ -770,7 +783,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
@@ -804,7 +816,7 @@ namespace Pulumi.Okta.App
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         /// </summary>
         [Input("implicitAssignment")]
         public Input<bool>? ImplicitAssignment { get; set; }
@@ -842,15 +854,6 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// name of application from the Okta Integration Network, if not included a custom app will be created.  
         /// If not provided the following arguments are required:
-        /// - `sso_url`
-        /// - `recipient`
-        /// - `destination`
-        /// - `audience`
-        /// - `subject_name_id_template`
-        /// - `subject_name_id_format`
-        /// - `signature_algorithm`
-        /// - `digest_algorithm`
-        /// - `authn_context_class_ref`
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
@@ -975,7 +978,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Users associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.SamlUserArgs> Users
@@ -1064,6 +1066,12 @@ namespace Pulumi.Okta.App
         public Input<string>? Audience { get; set; }
 
         /// <summary>
+        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
+
+        /// <summary>
         /// Identifies the SAML authentication context class for the assertion’s authentication statement.
         /// </summary>
         [Input("authnContextClassRef")]
@@ -1100,6 +1108,12 @@ namespace Pulumi.Okta.App
         public Input<string>? DigestAlgorithm { get; set; }
 
         /// <summary>
+        /// The url that can be used to embed this application in other portals.
+        /// </summary>
+        [Input("embedUrl")]
+        public Input<string>? EmbedUrl { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -1134,7 +1148,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
@@ -1180,7 +1193,7 @@ namespace Pulumi.Okta.App
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         /// </summary>
         [Input("implicitAssignment")]
         public Input<bool>? ImplicitAssignment { get; set; }
@@ -1208,6 +1221,18 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("keyYearsValid")]
         public Input<int>? KeyYearsValid { get; set; }
+
+        [Input("keys")]
+        private InputList<Inputs.SamlKeyGetArgs>? _keys;
+
+        /// <summary>
+        /// An array of all key credentials for the application. Format of each entry is as follows:
+        /// </summary>
+        public InputList<Inputs.SamlKeyGetArgs> Keys
+        {
+            get => _keys ?? (_keys = new InputList<Inputs.SamlKeyGetArgs>());
+            set => _keys = value;
+        }
 
         /// <summary>
         /// label of application.
@@ -1248,15 +1273,6 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// name of application from the Okta Integration Network, if not included a custom app will be created.  
         /// If not provided the following arguments are required:
-        /// - `sso_url`
-        /// - `recipient`
-        /// - `destination`
-        /// - `audience`
-        /// - `subject_name_id_template`
-        /// - `subject_name_id_format`
-        /// - `signature_algorithm`
-        /// - `digest_algorithm`
-        /// - `authn_context_class_ref`
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
@@ -1387,7 +1403,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Users associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.SamlUserGetArgs> Users

@@ -82,7 +82,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := group.NewGroup(ctx, "example", &group.GroupArgs{
+// 		_, err = group.NewGroup(ctx, "example", &group.GroupArgs{
 // 			Description:             pulumi.String("My Example Group"),
 // 			CustomProfileAttributes: pulumi.String(json0),
 // 		})

@@ -307,6 +307,10 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     public readonly groupsIncludeds!: pulumi.Output<string[] | undefined>;
     /**
+     * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+     */
+    public readonly inactivityPeriod!: pulumi.Output<string | undefined>;
+    /**
      * Name of the policy rule.
      */
     public readonly name!: pulumi.Output<string>;
@@ -384,6 +388,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["factorMode"] = state ? state.factorMode : undefined;
             resourceInputs["groupsExcludeds"] = state ? state.groupsExcludeds : undefined;
             resourceInputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
+            resourceInputs["inactivityPeriod"] = state ? state.inactivityPeriod : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
             resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
@@ -411,6 +416,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["factorMode"] = args ? args.factorMode : undefined;
             resourceInputs["groupsExcludeds"] = args ? args.groupsExcludeds : undefined;
             resourceInputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
+            resourceInputs["inactivityPeriod"] = args ? args.inactivityPeriod : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
             resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
@@ -469,6 +475,10 @@ export interface AppSignonPolicyRuleState {
      * List of groups IDs to be included.
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+     */
+    inactivityPeriod?: pulumi.Input<string>;
     /**
      * Name of the policy rule.
      */
@@ -565,6 +575,10 @@ export interface AppSignonPolicyRuleArgs {
      * List of groups IDs to be included.
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+     */
+    inactivityPeriod?: pulumi.Input<string>;
     /**
      * Name of the policy rule.
      */

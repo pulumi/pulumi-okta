@@ -416,6 +416,12 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<string>> GroupsIncludeds { get; private set; } = null!;
 
         /// <summary>
+        /// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+        /// </summary>
+        [Output("inactivityPeriod")]
+        public Output<string?> InactivityPeriod { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the policy rule.
         /// </summary>
         [Output("name")]
@@ -612,6 +618,12 @@ namespace Pulumi.Okta
             get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
             set => _groupsIncludeds = value;
         }
+
+        /// <summary>
+        /// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+        /// </summary>
+        [Input("inactivityPeriod")]
+        public Input<string>? InactivityPeriod { get; set; }
 
         /// <summary>
         /// Name of the policy rule.
@@ -813,6 +825,12 @@ namespace Pulumi.Okta
             get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
             set => _groupsIncludeds = value;
         }
+
+        /// <summary>
+        /// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+        /// </summary>
+        [Input("inactivityPeriod")]
+        public Input<string>? InactivityPeriod { get; set; }
 
         /// <summary>
         /// Name of the policy rule.

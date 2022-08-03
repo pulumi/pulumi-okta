@@ -11,29 +11,6 @@ import (
 )
 
 // Use this data source to retrieve a behavior from Okta.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.LookupBehaviour(ctx, &GetBehaviourArgs{
-// 			Label: "New City",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 func LookupBehaviour(ctx *pulumi.Context, args *LookupBehaviourArgs, opts ...pulumi.InvokeOption) (*LookupBehaviourResult, error) {
 	var rv LookupBehaviourResult
 	err := ctx.Invoke("okta:index/getBehaviour:getBehaviour", args, &rv, opts...)

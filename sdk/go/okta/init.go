@@ -34,6 +34,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AppSamlAppSettings{}
 	case "okta:index/appSharedCredentials:AppSharedCredentials":
 		r = &AppSharedCredentials{}
+	case "okta:index/appSignonPolicy:AppSignonPolicy":
+		r = &AppSignonPolicy{}
 	case "okta:index/appSignonPolicyRule:AppSignonPolicyRule":
 		r = &AppSignonPolicyRule{}
 	case "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty":
@@ -179,6 +181,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/appSharedCredentials",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/appSignonPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

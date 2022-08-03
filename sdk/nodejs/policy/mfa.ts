@@ -9,6 +9,10 @@ import * as utilities from "../utilities";
  *
  * This resource allows you to create and configure an MFA Policy.
  *
+ * > Requires Org Feature Flag `OKTA_MFA_POLICY`. Contact support to have this feature flag ***enabled***.
+ *
+ * > Unless Org Feature Flag `ENG_ENABLE_OPTIONAL_PASSWORD_ENROLLMENT` is ***disabled*** `oktaPassword` or `oktaEmail` must be present and its `enroll` value set to `REQUIRED`. Contact support to have this feature flag ***disabled***.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -22,12 +26,18 @@ import * as utilities from "../utilities";
  *     oktaOtp: {
  *         enroll: "REQUIRED",
  *     },
+ *     oktaPassword: {
+ *         enroll: "REQUIRED",
+ *     },
  *     status: "ACTIVE",
  * });
  * const oieExample = new okta.policy.Mfa("oie_example", {
  *     description: "Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
  *     groupsIncludeds: [okta_group_everyone.id],
  *     isOie: true,
+ *     oktaPassword: {
+ *         enroll: "REQUIRED",
+ *     },
  *     // The following authenticator can only be used when `is_oie` is set to true
  *     oktaVerify: {
  *         enroll: "REQUIRED",

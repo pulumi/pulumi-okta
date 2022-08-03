@@ -27,6 +27,8 @@ type OauthApp struct {
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
+	// Id of this apps authentication policy
+	AuthenticationPolicy pulumi.StringPtrOutput `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrOutput `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
@@ -181,6 +183,8 @@ type oauthAppState struct {
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
+	// Id of this apps authentication policy
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode.
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
@@ -301,6 +305,8 @@ type OauthAppState struct {
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
+	// Id of this apps authentication policy
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
@@ -425,6 +431,8 @@ type oauthAppArgs struct {
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
+	// Id of this apps authentication policy
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode.
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
@@ -538,6 +546,8 @@ type OauthAppArgs struct {
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
+	// Id of this apps authentication policy
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Requested key rotation mode.
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
@@ -752,6 +762,11 @@ func (o OauthAppOutput) AppLinksJson() pulumi.StringPtrOutput {
 // Application settings in JSON format
 func (o OauthAppOutput) AppSettingsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OauthApp) pulumi.StringPtrOutput { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
+}
+
+// Id of this apps authentication policy
+func (o OauthAppOutput) AuthenticationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OauthApp) pulumi.StringPtrOutput { return v.AuthenticationPolicy }).(pulumi.StringPtrOutput)
 }
 
 // Requested key rotation mode.

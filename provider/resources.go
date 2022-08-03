@@ -304,6 +304,7 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_authenticator":                  {Tok: makeResource(mainMod, "Authenticator")},
 			"okta_app_saml_app_settings":          {Tok: makeResource(mainMod, "AppSamlAppSettings")},
 			"okta_app_signon_policy_rule":         {Tok: makeResource(mainMod, "AppSignonPolicyRule")},
+			"okta_app_signon_policy":              {Tok: makeResource(mainMod, "AppSignonPolicy")},
 			"okta_domain_certificate":             {Tok: makeResource(mainMod, "DomainCertificate")},
 			"okta_domain_verification":            {Tok: makeResource(mainMod, "DomainVerification")},
 			"okta_email_sender":                   {Tok: makeResource(mainMod, "EmailSender")},

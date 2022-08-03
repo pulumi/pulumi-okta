@@ -71,6 +71,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> Audience { get; private set; } = null!;
 
         /// <summary>
+        /// Id of this apps authentication policy
+        /// </summary>
+        [Output("authenticationPolicy")]
+        public Output<string?> AuthenticationPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Identifies the SAML authentication context class for the assertion’s authentication statement
         /// </summary>
         [Output("authnContextClassRef")]
@@ -105,6 +111,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("digestAlgorithm")]
         public Output<string?> DigestAlgorithm { get; private set; } = null!;
+
+        /// <summary>
+        /// The url that can be used to embed this application in other portals.
+        /// </summary>
+        [Output("embedUrl")]
+        public Output<string> EmbedUrl { get; private set; } = null!;
 
         /// <summary>
         /// Application notes for end users.
@@ -201,6 +213,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Output("keyYearsValid")]
         public Output<int?> KeyYearsValid { get; private set; } = null!;
+
+        /// <summary>
+        /// Application keys
+        /// </summary>
+        [Output("keys")]
+        public Output<ImmutableArray<Outputs.SamlAppKey>> Keys { get; private set; } = null!;
 
         /// <summary>
         /// Pretty name of app.
@@ -483,6 +501,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("audience")]
         public Input<string>? Audience { get; set; }
+
+        /// <summary>
+        /// Id of this apps authentication policy
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
         /// Identifies the SAML authentication context class for the assertion’s authentication statement
@@ -814,6 +838,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? Audience { get; set; }
 
         /// <summary>
+        /// Id of this apps authentication policy
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
+
+        /// <summary>
         /// Identifies the SAML authentication context class for the assertion’s authentication statement
         /// </summary>
         [Input("authnContextClassRef")]
@@ -848,6 +878,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("digestAlgorithm")]
         public Input<string>? DigestAlgorithm { get; set; }
+
+        /// <summary>
+        /// The url that can be used to embed this application in other portals.
+        /// </summary>
+        [Input("embedUrl")]
+        public Input<string>? EmbedUrl { get; set; }
 
         /// <summary>
         /// Application notes for end users.
@@ -957,6 +993,18 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("keyYearsValid")]
         public Input<int>? KeyYearsValid { get; set; }
+
+        [Input("keys")]
+        private InputList<Inputs.SamlAppKeyGetArgs>? _keys;
+
+        /// <summary>
+        /// Application keys
+        /// </summary>
+        public InputList<Inputs.SamlAppKeyGetArgs> Keys
+        {
+            get => _keys ?? (_keys = new InputList<Inputs.SamlAppKeyGetArgs>());
+            set => _keys = value;
+        }
 
         /// <summary>
         /// Pretty name of app.

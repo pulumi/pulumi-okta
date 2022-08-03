@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  * const exampleUsers = okta.user.getUsersOutput({
  *     groupId: exampleGroup.id,
  *     includeGroups: true,
+ *     includeRoles: true,
  * });
  * ```
  */
@@ -43,8 +44,10 @@ export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Prom
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("okta:user/getUsers:getUsers", {
         "compoundSearchOperator": args.compoundSearchOperator,
+        "delayReadSeconds": args.delayReadSeconds,
         "groupId": args.groupId,
         "includeGroups": args.includeGroups,
+        "includeRoles": args.includeRoles,
         "searches": args.searches,
     }, opts);
 }
@@ -58,6 +61,10 @@ export interface GetUsersArgs {
      */
     compoundSearchOperator?: string;
     /**
+     * Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
+     */
+    delayReadSeconds?: string;
+    /**
      * Id of group used to find users based on membership.
      */
     groupId?: string;
@@ -65,6 +72,10 @@ export interface GetUsersArgs {
      * Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
      */
     includeGroups?: boolean;
+    /**
+     * Fetch each user's administrator roles. Defaults to `false`, in which case the `adminRoles` user attribute will be empty.
+     */
+    includeRoles?: boolean;
     /**
      * Map of search criteria. It supports the following properties.
      */
@@ -76,12 +87,14 @@ export interface GetUsersArgs {
  */
 export interface GetUsersResult {
     readonly compoundSearchOperator?: string;
+    readonly delayReadSeconds?: string;
     readonly groupId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly includeGroups?: boolean;
+    readonly includeRoles?: boolean;
     readonly searches?: outputs.user.GetUsersSearch[];
     /**
      * collection of users retrieved from Okta with the following properties.
@@ -102,6 +115,10 @@ export interface GetUsersOutputArgs {
      */
     compoundSearchOperator?: pulumi.Input<string>;
     /**
+     * Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
+     */
+    delayReadSeconds?: pulumi.Input<string>;
+    /**
      * Id of group used to find users based on membership.
      */
     groupId?: pulumi.Input<string>;
@@ -109,6 +126,10 @@ export interface GetUsersOutputArgs {
      * Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
      */
     includeGroups?: pulumi.Input<boolean>;
+    /**
+     * Fetch each user's administrator roles. Defaults to `false`, in which case the `adminRoles` user attribute will be empty.
+     */
+    includeRoles?: pulumi.Input<boolean>;
     /**
      * Map of search criteria. It supports the following properties.
      */

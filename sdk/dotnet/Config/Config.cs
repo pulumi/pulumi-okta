@@ -32,6 +32,16 @@ namespace Pulumi.Okta
 
         private static readonly Pulumi.Config __config = new Pulumi.Config("okta");
 
+        private static readonly __Value<string?> _accessToken = new __Value<string?>(() => __config.Get("accessToken"));
+        /// <summary>
+        /// Bearer token granting privileges to Okta API.
+        /// </summary>
+        public static string? AccessToken
+        {
+            get => _accessToken.Get();
+            set => _accessToken.Set(value);
+        }
+
         private static readonly __Value<string?> _apiToken = new __Value<string?>(() => __config.Get("apiToken"));
         /// <summary>
         /// API Token granting privileges to Okta API.
@@ -70,6 +80,16 @@ namespace Pulumi.Okta
         {
             get => _clientId.Get();
             set => _clientId.Set(value);
+        }
+
+        private static readonly __Value<string?> _httpProxy = new __Value<string?>(() => __config.Get("httpProxy"));
+        /// <summary>
+        /// Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
+        /// </summary>
+        public static string? HttpProxy
+        {
+            get => _httpProxy.Get();
+            set => _httpProxy.Set(value);
         }
 
         private static readonly __Value<int?> _logLevel = new __Value<int?>(() => __config.GetInt32("logLevel"));
@@ -153,6 +173,16 @@ namespace Pulumi.Okta
         {
             get => _privateKey.Get();
             set => _privateKey.Set(value);
+        }
+
+        private static readonly __Value<string?> _privateKeyId = new __Value<string?>(() => __config.Get("privateKeyId"));
+        /// <summary>
+        /// API Token Id granting privileges to Okta API.
+        /// </summary>
+        public static string? PrivateKeyId
+        {
+            get => _privateKeyId.Get();
+            set => _privateKeyId.Set(value);
         }
 
         private static readonly __Value<int?> _requestTimeout = new __Value<int?>(() => __config.GetInt32("requestTimeout"));

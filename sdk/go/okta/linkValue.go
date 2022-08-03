@@ -52,9 +52,9 @@ import (
 // 		for key0, val0 := range 5 {
 // 			__res, err := user.NewUser(ctx, fmt.Sprintf("sardaukars-%v", key0), &user.UserArgs{
 // 				FirstName: pulumi.String("Amrit"),
-// 				LastName:  pulumi.String(fmt.Sprintf("%v%v", "Sardaukar_", val0)),
-// 				Login:     pulumi.String(fmt.Sprintf("%v%v%v", "amritsardaukar_", val0, "@salusa-secundus.planet")),
-// 				Email:     pulumi.String(fmt.Sprintf("%v%v%v", "amritsardaukar_", val0, "@salusa-secundus.planet")),
+// 				LastName:  pulumi.String(fmt.Sprintf("Sardaukar_%v", val0)),
+// 				Login:     pulumi.String(fmt.Sprintf("amritsardaukar_%v@salusa-secundus.planet", val0)),
+// 				Email:     pulumi.String(fmt.Sprintf("amritsardaukar_%v@salusa-secundus.planet", val0)),
 // 			})
 // 			if err != nil {
 // 				return err

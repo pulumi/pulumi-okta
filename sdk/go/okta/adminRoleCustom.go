@@ -57,9 +57,13 @@ type AdminRoleCustom struct {
 	// The name given to the new Role.
 	Label pulumi.StringOutput `pulumi:"label"`
 	// The permissions that the new Role grants. At least one
-	// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+	// permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+	// `"okta.authzServers.read"`,
+	// `"okta.apps.assignment.manage"`,
 	// `"okta.apps.manage"`,
 	// `"okta.apps.read"`,
+	// `"okta.customizations.manage"`,
+	// `"okta.customizations.read"`,
 	// `"okta.groups.appAssignment.manage"`,
 	// `"okta.groups.create"`,
 	// `"okta.groups.manage"`,
@@ -83,7 +87,8 @@ type AdminRoleCustom struct {
 	// `"okta.users.lifecycle.unsuspend"`,
 	// `"okta.users.manage"`,
 	// `"okta.users.read"`,
-	// `"okta.users.userprofile.manage"`.
+	// `"okta.users.userprofile.manage"`,
+	// `"okta.workflows.invoke"`.,
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 }
 
@@ -127,9 +132,13 @@ type adminRoleCustomState struct {
 	// The name given to the new Role.
 	Label *string `pulumi:"label"`
 	// The permissions that the new Role grants. At least one
-	// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+	// permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+	// `"okta.authzServers.read"`,
+	// `"okta.apps.assignment.manage"`,
 	// `"okta.apps.manage"`,
 	// `"okta.apps.read"`,
+	// `"okta.customizations.manage"`,
+	// `"okta.customizations.read"`,
 	// `"okta.groups.appAssignment.manage"`,
 	// `"okta.groups.create"`,
 	// `"okta.groups.manage"`,
@@ -153,7 +162,8 @@ type adminRoleCustomState struct {
 	// `"okta.users.lifecycle.unsuspend"`,
 	// `"okta.users.manage"`,
 	// `"okta.users.read"`,
-	// `"okta.users.userprofile.manage"`.
+	// `"okta.users.userprofile.manage"`,
+	// `"okta.workflows.invoke"`.,
 	Permissions []string `pulumi:"permissions"`
 }
 
@@ -163,9 +173,13 @@ type AdminRoleCustomState struct {
 	// The name given to the new Role.
 	Label pulumi.StringPtrInput
 	// The permissions that the new Role grants. At least one
-	// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+	// permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+	// `"okta.authzServers.read"`,
+	// `"okta.apps.assignment.manage"`,
 	// `"okta.apps.manage"`,
 	// `"okta.apps.read"`,
+	// `"okta.customizations.manage"`,
+	// `"okta.customizations.read"`,
 	// `"okta.groups.appAssignment.manage"`,
 	// `"okta.groups.create"`,
 	// `"okta.groups.manage"`,
@@ -189,7 +203,8 @@ type AdminRoleCustomState struct {
 	// `"okta.users.lifecycle.unsuspend"`,
 	// `"okta.users.manage"`,
 	// `"okta.users.read"`,
-	// `"okta.users.userprofile.manage"`.
+	// `"okta.users.userprofile.manage"`,
+	// `"okta.workflows.invoke"`.,
 	Permissions pulumi.StringArrayInput
 }
 
@@ -203,9 +218,13 @@ type adminRoleCustomArgs struct {
 	// The name given to the new Role.
 	Label string `pulumi:"label"`
 	// The permissions that the new Role grants. At least one
-	// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+	// permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+	// `"okta.authzServers.read"`,
+	// `"okta.apps.assignment.manage"`,
 	// `"okta.apps.manage"`,
 	// `"okta.apps.read"`,
+	// `"okta.customizations.manage"`,
+	// `"okta.customizations.read"`,
 	// `"okta.groups.appAssignment.manage"`,
 	// `"okta.groups.create"`,
 	// `"okta.groups.manage"`,
@@ -229,7 +248,8 @@ type adminRoleCustomArgs struct {
 	// `"okta.users.lifecycle.unsuspend"`,
 	// `"okta.users.manage"`,
 	// `"okta.users.read"`,
-	// `"okta.users.userprofile.manage"`.
+	// `"okta.users.userprofile.manage"`,
+	// `"okta.workflows.invoke"`.,
 	Permissions []string `pulumi:"permissions"`
 }
 
@@ -240,9 +260,13 @@ type AdminRoleCustomArgs struct {
 	// The name given to the new Role.
 	Label pulumi.StringInput
 	// The permissions that the new Role grants. At least one
-	// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+	// permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+	// `"okta.authzServers.read"`,
+	// `"okta.apps.assignment.manage"`,
 	// `"okta.apps.manage"`,
 	// `"okta.apps.read"`,
+	// `"okta.customizations.manage"`,
+	// `"okta.customizations.read"`,
 	// `"okta.groups.appAssignment.manage"`,
 	// `"okta.groups.create"`,
 	// `"okta.groups.manage"`,
@@ -266,7 +290,8 @@ type AdminRoleCustomArgs struct {
 	// `"okta.users.lifecycle.unsuspend"`,
 	// `"okta.users.manage"`,
 	// `"okta.users.read"`,
-	// `"okta.users.userprofile.manage"`.
+	// `"okta.users.userprofile.manage"`,
+	// `"okta.workflows.invoke"`.,
 	Permissions pulumi.StringArrayInput
 }
 
@@ -368,9 +393,13 @@ func (o AdminRoleCustomOutput) Label() pulumi.StringOutput {
 }
 
 // The permissions that the new Role grants. At least one
-// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+// permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+// `"okta.authzServers.read"`,
+// `"okta.apps.assignment.manage"`,
 // `"okta.apps.manage"`,
 // `"okta.apps.read"`,
+// `"okta.customizations.manage"`,
+// `"okta.customizations.read"`,
 // `"okta.groups.appAssignment.manage"`,
 // `"okta.groups.create"`,
 // `"okta.groups.manage"`,
@@ -394,7 +423,8 @@ func (o AdminRoleCustomOutput) Label() pulumi.StringOutput {
 // `"okta.users.lifecycle.unsuspend"`,
 // `"okta.users.manage"`,
 // `"okta.users.read"`,
-// `"okta.users.userprofile.manage"`.
+// `"okta.users.userprofile.manage"`,
+// `"okta.workflows.invoke"`.,
 func (o AdminRoleCustomOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AdminRoleCustom) pulumi.StringArrayOutput { return v.Permissions }).(pulumi.StringArrayOutput)
 }

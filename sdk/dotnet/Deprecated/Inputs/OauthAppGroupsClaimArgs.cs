@@ -15,6 +15,9 @@ namespace Pulumi.Okta.Deprecated.Inputs
         [Input("filterType")]
         public Input<string>? FilterType { get; set; }
 
+        [Input("issuerMode")]
+        public Input<string>? IssuerMode { get; set; }
+
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

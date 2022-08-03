@@ -237,6 +237,11 @@ export namespace app {
          */
         filterType?: pulumi.Input<string>;
         /**
+         * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+         * Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+         */
+        issuerMode?: pulumi.Input<string>;
+        /**
          * Name of the claim that will be used in the token.
          */
         name: pulumi.Input<string>;
@@ -292,6 +297,49 @@ export namespace app {
          * Array of values to use.
          */
         values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SamlKey {
+        /**
+         * Date created.
+         */
+        created?: pulumi.Input<string>;
+        /**
+         * RSA exponent.
+         */
+        e?: pulumi.Input<string>;
+        /**
+         * Date the key expires.
+         */
+        expiresAt?: pulumi.Input<string>;
+        /**
+         * Key ID.
+         */
+        kid?: pulumi.Input<string>;
+        /**
+         * Identifies the cryptographic algorithm family used with the key.
+         */
+        kty?: pulumi.Input<string>;
+        /**
+         * Date the key was last updated.
+         */
+        lastUpdated?: pulumi.Input<string>;
+        /**
+         * RSA modulus.
+         */
+        n?: pulumi.Input<string>;
+        /**
+         * Intended use of the public key.
+         */
+        use?: pulumi.Input<string>;
+        /**
+         * X.509 certificate chain.
+         */
+        x5cs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * X.509 certificate SHA-256 thumbprint.
+         */
+        x5tS256?: pulumi.Input<string>;
     }
 
     export interface SamlUser {
@@ -380,6 +428,7 @@ export namespace deprecated {
 
     export interface OauthAppGroupsClaim {
         filterType?: pulumi.Input<string>;
+        issuerMode?: pulumi.Input<string>;
         name: pulumi.Input<string>;
         type: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -406,6 +455,19 @@ export namespace deprecated {
         namespace?: pulumi.Input<string>;
         type?: pulumi.Input<string>;
         values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SamlAppKey {
+        created?: pulumi.Input<string>;
+        e?: pulumi.Input<string>;
+        expiresAt?: pulumi.Input<string>;
+        kid?: pulumi.Input<string>;
+        kty?: pulumi.Input<string>;
+        lastUpdated?: pulumi.Input<string>;
+        n?: pulumi.Input<string>;
+        use?: pulumi.Input<string>;
+        x5cs?: pulumi.Input<pulumi.Input<string>[]>;
+        x5tS256?: pulumi.Input<string>;
     }
 
     export interface SamlAppUser {

@@ -63,9 +63,13 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// The permissions that the new Role grants. At least one
-        /// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+        /// permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+        /// `"okta.authzServers.read"`,
+        /// `"okta.apps.assignment.manage"`,
         /// `"okta.apps.manage"`,
         /// `"okta.apps.read"`,
+        /// `"okta.customizations.manage"`,
+        /// `"okta.customizations.read"`,
         /// `"okta.groups.appAssignment.manage"`,
         /// `"okta.groups.create"`,
         /// `"okta.groups.manage"`,
@@ -89,7 +93,8 @@ namespace Pulumi.Okta
         /// `"okta.users.lifecycle.unsuspend"`,
         /// `"okta.users.manage"`,
         /// `"okta.users.read"`,
-        /// `"okta.users.userprofile.manage"`.
+        /// `"okta.users.userprofile.manage"`,
+        /// `"okta.workflows.invoke"`.,
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<string>> Permissions { get; private set; } = null!;
@@ -157,9 +162,13 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// The permissions that the new Role grants. At least one
-        /// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+        /// permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+        /// `"okta.authzServers.read"`,
+        /// `"okta.apps.assignment.manage"`,
         /// `"okta.apps.manage"`,
         /// `"okta.apps.read"`,
+        /// `"okta.customizations.manage"`,
+        /// `"okta.customizations.read"`,
         /// `"okta.groups.appAssignment.manage"`,
         /// `"okta.groups.create"`,
         /// `"okta.groups.manage"`,
@@ -183,7 +192,8 @@ namespace Pulumi.Okta
         /// `"okta.users.lifecycle.unsuspend"`,
         /// `"okta.users.manage"`,
         /// `"okta.users.read"`,
-        /// `"okta.users.userprofile.manage"`.
+        /// `"okta.users.userprofile.manage"`,
+        /// `"okta.workflows.invoke"`.,
         /// </summary>
         public InputList<string> Permissions
         {
@@ -215,9 +225,13 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// The permissions that the new Role grants. At least one
-        /// permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+        /// permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+        /// `"okta.authzServers.read"`,
+        /// `"okta.apps.assignment.manage"`,
         /// `"okta.apps.manage"`,
         /// `"okta.apps.read"`,
+        /// `"okta.customizations.manage"`,
+        /// `"okta.customizations.read"`,
         /// `"okta.groups.appAssignment.manage"`,
         /// `"okta.groups.create"`,
         /// `"okta.groups.manage"`,
@@ -241,7 +255,8 @@ namespace Pulumi.Okta
         /// `"okta.users.lifecycle.unsuspend"`,
         /// `"okta.users.manage"`,
         /// `"okta.users.read"`,
-        /// `"okta.users.userprofile.manage"`.
+        /// `"okta.users.userprofile.manage"`,
+        /// `"okta.workflows.invoke"`.,
         /// </summary>
         public InputList<string> Permissions
         {
