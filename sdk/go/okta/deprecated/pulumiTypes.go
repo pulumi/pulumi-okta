@@ -448,6 +448,7 @@ func (o MfaPolicyRuleAppIncludeArrayOutput) Index(i pulumi.IntInput) MfaPolicyRu
 
 type OauthAppGroupsClaim struct {
 	FilterType *string `pulumi:"filterType"`
+	IssuerMode *string `pulumi:"issuerMode"`
 	Name       string  `pulumi:"name"`
 	Type       string  `pulumi:"type"`
 	Value      string  `pulumi:"value"`
@@ -466,6 +467,7 @@ type OauthAppGroupsClaimInput interface {
 
 type OauthAppGroupsClaimArgs struct {
 	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
+	IssuerMode pulumi.StringPtrInput `pulumi:"issuerMode"`
 	Name       pulumi.StringInput    `pulumi:"name"`
 	Type       pulumi.StringInput    `pulumi:"type"`
 	Value      pulumi.StringInput    `pulumi:"value"`
@@ -552,6 +554,10 @@ func (o OauthAppGroupsClaimOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OauthAppGroupsClaim) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
+func (o OauthAppGroupsClaimOutput) IssuerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OauthAppGroupsClaim) *string { return v.IssuerMode }).(pulumi.StringPtrOutput)
+}
+
 func (o OauthAppGroupsClaimOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OauthAppGroupsClaim) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -594,6 +600,15 @@ func (o OauthAppGroupsClaimPtrOutput) FilterType() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.FilterType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OauthAppGroupsClaimPtrOutput) IssuerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OauthAppGroupsClaim) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IssuerMode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -970,6 +985,154 @@ func (o SamlAppAttributeStatementArrayOutput) Index(i pulumi.IntInput) SamlAppAt
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlAppAttributeStatement {
 		return vs[0].([]SamlAppAttributeStatement)[vs[1].(int)]
 	}).(SamlAppAttributeStatementOutput)
+}
+
+type SamlAppKey struct {
+	Created     *string  `pulumi:"created"`
+	E           *string  `pulumi:"e"`
+	ExpiresAt   *string  `pulumi:"expiresAt"`
+	Kid         *string  `pulumi:"kid"`
+	Kty         *string  `pulumi:"kty"`
+	LastUpdated *string  `pulumi:"lastUpdated"`
+	N           *string  `pulumi:"n"`
+	Use         *string  `pulumi:"use"`
+	X5cs        []string `pulumi:"x5cs"`
+	X5tS256     *string  `pulumi:"x5tS256"`
+}
+
+// SamlAppKeyInput is an input type that accepts SamlAppKeyArgs and SamlAppKeyOutput values.
+// You can construct a concrete instance of `SamlAppKeyInput` via:
+//
+//          SamlAppKeyArgs{...}
+type SamlAppKeyInput interface {
+	pulumi.Input
+
+	ToSamlAppKeyOutput() SamlAppKeyOutput
+	ToSamlAppKeyOutputWithContext(context.Context) SamlAppKeyOutput
+}
+
+type SamlAppKeyArgs struct {
+	Created     pulumi.StringPtrInput   `pulumi:"created"`
+	E           pulumi.StringPtrInput   `pulumi:"e"`
+	ExpiresAt   pulumi.StringPtrInput   `pulumi:"expiresAt"`
+	Kid         pulumi.StringPtrInput   `pulumi:"kid"`
+	Kty         pulumi.StringPtrInput   `pulumi:"kty"`
+	LastUpdated pulumi.StringPtrInput   `pulumi:"lastUpdated"`
+	N           pulumi.StringPtrInput   `pulumi:"n"`
+	Use         pulumi.StringPtrInput   `pulumi:"use"`
+	X5cs        pulumi.StringArrayInput `pulumi:"x5cs"`
+	X5tS256     pulumi.StringPtrInput   `pulumi:"x5tS256"`
+}
+
+func (SamlAppKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlAppKey)(nil)).Elem()
+}
+
+func (i SamlAppKeyArgs) ToSamlAppKeyOutput() SamlAppKeyOutput {
+	return i.ToSamlAppKeyOutputWithContext(context.Background())
+}
+
+func (i SamlAppKeyArgs) ToSamlAppKeyOutputWithContext(ctx context.Context) SamlAppKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlAppKeyOutput)
+}
+
+// SamlAppKeyArrayInput is an input type that accepts SamlAppKeyArray and SamlAppKeyArrayOutput values.
+// You can construct a concrete instance of `SamlAppKeyArrayInput` via:
+//
+//          SamlAppKeyArray{ SamlAppKeyArgs{...} }
+type SamlAppKeyArrayInput interface {
+	pulumi.Input
+
+	ToSamlAppKeyArrayOutput() SamlAppKeyArrayOutput
+	ToSamlAppKeyArrayOutputWithContext(context.Context) SamlAppKeyArrayOutput
+}
+
+type SamlAppKeyArray []SamlAppKeyInput
+
+func (SamlAppKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlAppKey)(nil)).Elem()
+}
+
+func (i SamlAppKeyArray) ToSamlAppKeyArrayOutput() SamlAppKeyArrayOutput {
+	return i.ToSamlAppKeyArrayOutputWithContext(context.Background())
+}
+
+func (i SamlAppKeyArray) ToSamlAppKeyArrayOutputWithContext(ctx context.Context) SamlAppKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlAppKeyArrayOutput)
+}
+
+type SamlAppKeyOutput struct{ *pulumi.OutputState }
+
+func (SamlAppKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlAppKey)(nil)).Elem()
+}
+
+func (o SamlAppKeyOutput) ToSamlAppKeyOutput() SamlAppKeyOutput {
+	return o
+}
+
+func (o SamlAppKeyOutput) ToSamlAppKeyOutputWithContext(ctx context.Context) SamlAppKeyOutput {
+	return o
+}
+
+func (o SamlAppKeyOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlAppKey) *string { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlAppKeyOutput) E() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlAppKey) *string { return v.E }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlAppKeyOutput) ExpiresAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlAppKey) *string { return v.ExpiresAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlAppKeyOutput) Kid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlAppKey) *string { return v.Kid }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlAppKeyOutput) Kty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlAppKey) *string { return v.Kty }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlAppKeyOutput) LastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlAppKey) *string { return v.LastUpdated }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlAppKeyOutput) N() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlAppKey) *string { return v.N }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlAppKeyOutput) Use() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlAppKey) *string { return v.Use }).(pulumi.StringPtrOutput)
+}
+
+func (o SamlAppKeyOutput) X5cs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SamlAppKey) []string { return v.X5cs }).(pulumi.StringArrayOutput)
+}
+
+func (o SamlAppKeyOutput) X5tS256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamlAppKey) *string { return v.X5tS256 }).(pulumi.StringPtrOutput)
+}
+
+type SamlAppKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (SamlAppKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlAppKey)(nil)).Elem()
+}
+
+func (o SamlAppKeyArrayOutput) ToSamlAppKeyArrayOutput() SamlAppKeyArrayOutput {
+	return o
+}
+
+func (o SamlAppKeyArrayOutput) ToSamlAppKeyArrayOutputWithContext(ctx context.Context) SamlAppKeyArrayOutput {
+	return o
+}
+
+func (o SamlAppKeyArrayOutput) Index(i pulumi.IntInput) SamlAppKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlAppKey {
+		return vs[0].([]SamlAppKey)[vs[1].(int)]
+	}).(SamlAppKeyOutput)
 }
 
 type SamlAppUser struct {
@@ -1645,6 +1808,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthAppUserArrayInput)(nil)).Elem(), OauthAppUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAppAttributeStatementInput)(nil)).Elem(), SamlAppAttributeStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAppAttributeStatementArrayInput)(nil)).Elem(), SamlAppAttributeStatementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlAppKeyInput)(nil)).Elem(), SamlAppKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlAppKeyArrayInput)(nil)).Elem(), SamlAppKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAppUserInput)(nil)).Elem(), SamlAppUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAppUserArrayInput)(nil)).Elem(), SamlAppUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurePasswordStoreAppUserInput)(nil)).Elem(), SecurePasswordStoreAppUserArgs{})
@@ -1673,6 +1838,8 @@ func init() {
 	pulumi.RegisterOutputType(OauthAppUserArrayOutput{})
 	pulumi.RegisterOutputType(SamlAppAttributeStatementOutput{})
 	pulumi.RegisterOutputType(SamlAppAttributeStatementArrayOutput{})
+	pulumi.RegisterOutputType(SamlAppKeyOutput{})
+	pulumi.RegisterOutputType(SamlAppKeyArrayOutput{})
 	pulumi.RegisterOutputType(SamlAppUserOutput{})
 	pulumi.RegisterOutputType(SamlAppUserArrayOutput{})
 	pulumi.RegisterOutputType(SecurePasswordStoreAppUserOutput{})

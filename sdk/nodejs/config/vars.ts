@@ -8,6 +8,17 @@ declare var exports: any;
 const __config = new pulumi.Config("okta");
 
 /**
+ * Bearer token granting privileges to Okta API.
+ */
+export declare const accessToken: string | undefined;
+Object.defineProperty(exports, "accessToken", {
+    get() {
+        return __config.get("accessToken");
+    },
+    enumerable: true,
+});
+
+/**
  * API Token granting privileges to Okta API.
  */
 export declare const apiToken: string | undefined;
@@ -47,6 +58,17 @@ export declare const clientId: string | undefined;
 Object.defineProperty(exports, "clientId", {
     get() {
         return __config.get("clientId");
+    },
+    enumerable: true,
+});
+
+/**
+ * Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
+ */
+export declare const httpProxy: string | undefined;
+Object.defineProperty(exports, "httpProxy", {
+    get() {
+        return __config.get("httpProxy");
     },
     enumerable: true,
 });
@@ -138,6 +160,17 @@ export declare const privateKey: string | undefined;
 Object.defineProperty(exports, "privateKey", {
     get() {
         return __config.get("privateKey");
+    },
+    enumerable: true,
+});
+
+/**
+ * API Token Id granting privileges to Okta API.
+ */
+export declare const privateKeyId: string | undefined;
+Object.defineProperty(exports, "privateKeyId", {
+    get() {
+        return __config.get("privateKeyId");
     },
     enumerable: true,
 });

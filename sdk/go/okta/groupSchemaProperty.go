@@ -11,10 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Group Schema property.
-//
-// This resource allows you to create and configure a custom group schema property.
-//
 // ## Example Usage
 //
 // ```go

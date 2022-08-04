@@ -12,6 +12,7 @@ export * from "./appGroupAssignments";
 export * from "./appOauthApiScope";
 export * from "./appSamlAppSettings";
 export * from "./appSharedCredentials";
+export * from "./appSignonPolicy";
 export * from "./appSignonPolicyRule";
 export * from "./appUserBaseSchemaProperty";
 export * from "./appUserSchemaProperty";
@@ -120,6 +121,7 @@ import { AppGroupAssignments } from "./appGroupAssignments";
 import { AppOauthApiScope } from "./appOauthApiScope";
 import { AppSamlAppSettings } from "./appSamlAppSettings";
 import { AppSharedCredentials } from "./appSharedCredentials";
+import { AppSignonPolicy } from "./appSignonPolicy";
 import { AppSignonPolicyRule } from "./appSignonPolicyRule";
 import { AppUserBaseSchemaProperty } from "./appUserBaseSchemaProperty";
 import { AppUserSchemaProperty } from "./appUserSchemaProperty";
@@ -181,6 +183,8 @@ const _module = {
                 return new AppSamlAppSettings(name, <any>undefined, { urn })
             case "okta:index/appSharedCredentials:AppSharedCredentials":
                 return new AppSharedCredentials(name, <any>undefined, { urn })
+            case "okta:index/appSignonPolicy:AppSignonPolicy":
+                return new AppSignonPolicy(name, <any>undefined, { urn })
             case "okta:index/appSignonPolicyRule:AppSignonPolicyRule":
                 return new AppSignonPolicyRule(name, <any>undefined, { urn })
             case "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty":
@@ -277,6 +281,7 @@ pulumi.runtime.registerResourceModule("okta", "index/appGroupAssignments", _modu
 pulumi.runtime.registerResourceModule("okta", "index/appOauthApiScope", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appSamlAppSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appSharedCredentials", _module)
+pulumi.runtime.registerResourceModule("okta", "index/appSignonPolicy", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appSignonPolicyRule", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appUserBaseSchemaProperty", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appUserSchemaProperty", _module)

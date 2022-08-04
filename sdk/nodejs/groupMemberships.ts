@@ -14,10 +14,11 @@ import * as utilities from "./utilities";
  * users. If you need a relationship of a single user to many groups, please use
  * the `okta.UserGroupMemberships` resource.
  *
- * **Important**: When the group memberships resource is used in an environment
- * where other resources or services can add users to the group it will make this
- * resource appear to drift. If that is the case make use of a lifecycle ignore for
- * the `users` argument to avoid conflicts in desired state.
+ * **Important**: The default behavior of the resource is to only maintain the
+ * state of user ids that are assigned it. This behavior will signal drift only if
+ * those users stop being part of the group. If the desired behavior is track all
+ * users that are added/removed from the group make use of the `trackAllUsers`
+ * argument with this resource.
  *
  * ## Example Usage
  *
@@ -33,9 +34,6 @@ import * as utilities from "./utilities";
  *         okta_user.test2.id,
  *     ],
  * });
- * // lifecycle {
- * //   ignore_changes = [users]
- * // }
  * ```
  *
  * ## Import
@@ -79,6 +77,10 @@ export class GroupMemberships extends pulumi.CustomResource {
      */
     public readonly groupId!: pulumi.Output<string>;
     /**
+     * The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+     */
+    public readonly trackAllUsers!: pulumi.Output<boolean | undefined>;
+    /**
      * The list of Okta user IDs which the group should have membership managed for.
      */
     public readonly users!: pulumi.Output<string[]>;
@@ -97,6 +99,7 @@ export class GroupMemberships extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GroupMembershipsState | undefined;
             resourceInputs["groupId"] = state ? state.groupId : undefined;
+            resourceInputs["trackAllUsers"] = state ? state.trackAllUsers : undefined;
             resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as GroupMembershipsArgs | undefined;
@@ -107,6 +110,7 @@ export class GroupMemberships extends pulumi.CustomResource {
                 throw new Error("Missing required property 'users'");
             }
             resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["trackAllUsers"] = args ? args.trackAllUsers : undefined;
             resourceInputs["users"] = args ? args.users : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -123,6 +127,10 @@ export interface GroupMembershipsState {
      */
     groupId?: pulumi.Input<string>;
     /**
+     * The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+     */
+    trackAllUsers?: pulumi.Input<boolean>;
+    /**
      * The list of Okta user IDs which the group should have membership managed for.
      */
     users?: pulumi.Input<pulumi.Input<string>[]>;
@@ -136,6 +144,10 @@ export interface GroupMembershipsArgs {
      * Okta group ID.
      */
     groupId: pulumi.Input<string>;
+    /**
+     * The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+     */
+    trackAllUsers?: pulumi.Input<boolean>;
     /**
      * The list of Okta user IDs which the group should have membership managed for.
      */

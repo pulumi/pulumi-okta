@@ -121,6 +121,10 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly appSettingsJson!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     */
+    public readonly authenticationPolicy!: pulumi.Output<string | undefined>;
+    /**
      * Requested key rotation mode.
      */
     public readonly autoKeyRotation!: pulumi.Output<boolean | undefined>;
@@ -337,6 +341,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["adminNote"] = state ? state.adminNote : undefined;
             resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             resourceInputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
+            resourceInputs["authenticationPolicy"] = state ? state.authenticationPolicy : undefined;
             resourceInputs["autoKeyRotation"] = state ? state.autoKeyRotation : undefined;
             resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             resourceInputs["clientBasicSecret"] = state ? state.clientBasicSecret : undefined;
@@ -397,6 +402,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["adminNote"] = args ? args.adminNote : undefined;
             resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             resourceInputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
+            resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
             resourceInputs["autoKeyRotation"] = args ? args.autoKeyRotation : undefined;
             resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             resourceInputs["clientBasicSecret"] = args ? args.clientBasicSecret : undefined;
@@ -477,6 +483,10 @@ export interface OAuthState {
      * Application settings in JSON format.
      */
     appSettingsJson?: pulumi.Input<string>;
+    /**
+     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     */
+    authenticationPolicy?: pulumi.Input<string>;
     /**
      * Requested key rotation mode.
      */
@@ -704,6 +714,10 @@ export interface OAuthArgs {
      * Application settings in JSON format.
      */
     appSettingsJson?: pulumi.Input<string>;
+    /**
+     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     */
+    authenticationPolicy?: pulumi.Input<string>;
     /**
      * Requested key rotation mode.
      */

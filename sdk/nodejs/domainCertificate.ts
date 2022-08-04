@@ -11,8 +11,8 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as fs from "fs";
  * import * as okta from "@pulumi/okta";
- * import * from "fs";
  *
  * const example = new okta.Domain("example", {});
  * const test = new okta.DomainCertificate("test", {

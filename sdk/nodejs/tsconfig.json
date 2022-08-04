@@ -39,6 +39,7 @@
         "appOauthApiScope.ts",
         "appSamlAppSettings.ts",
         "appSharedCredentials.ts",
+        "appSignonPolicy.ts",
         "appSignonPolicyRule.ts",
         "appUserBaseSchemaProperty.ts",
         "appUserSchemaProperty.ts",

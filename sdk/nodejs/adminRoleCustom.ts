@@ -68,9 +68,13 @@ export class AdminRoleCustom extends pulumi.CustomResource {
     public readonly label!: pulumi.Output<string>;
     /**
      * The permissions that the new Role grants. At least one
-     * permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+     * permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+     * `"okta.authzServers.read"`,
+     * `"okta.apps.assignment.manage"`,
      * `"okta.apps.manage"`,
      * `"okta.apps.read"`,
+     * `"okta.customizations.manage"`,
+     * `"okta.customizations.read"`,
      * `"okta.groups.appAssignment.manage"`,
      * `"okta.groups.create"`,
      * `"okta.groups.manage"`,
@@ -94,7 +98,8 @@ export class AdminRoleCustom extends pulumi.CustomResource {
      * `"okta.users.lifecycle.unsuspend"`,
      * `"okta.users.manage"`,
      * `"okta.users.read"`,
-     * `"okta.users.userprofile.manage"`.
+     * `"okta.users.userprofile.manage"`,
+     * `"okta.workflows.invoke"`.,
      */
     public readonly permissions!: pulumi.Output<string[] | undefined>;
 
@@ -145,9 +150,13 @@ export interface AdminRoleCustomState {
     label?: pulumi.Input<string>;
     /**
      * The permissions that the new Role grants. At least one
-     * permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+     * permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+     * `"okta.authzServers.read"`,
+     * `"okta.apps.assignment.manage"`,
      * `"okta.apps.manage"`,
      * `"okta.apps.read"`,
+     * `"okta.customizations.manage"`,
+     * `"okta.customizations.read"`,
      * `"okta.groups.appAssignment.manage"`,
      * `"okta.groups.create"`,
      * `"okta.groups.manage"`,
@@ -171,7 +180,8 @@ export interface AdminRoleCustomState {
      * `"okta.users.lifecycle.unsuspend"`,
      * `"okta.users.manage"`,
      * `"okta.users.read"`,
-     * `"okta.users.userprofile.manage"`.
+     * `"okta.users.userprofile.manage"`,
+     * `"okta.workflows.invoke"`.,
      */
     permissions?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -190,9 +200,13 @@ export interface AdminRoleCustomArgs {
     label: pulumi.Input<string>;
     /**
      * The permissions that the new Role grants. At least one
-     * permission must be specified when creating custom role. Valid values: `"okta.apps.assignment.manage"`,
+     * permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
+     * `"okta.authzServers.read"`,
+     * `"okta.apps.assignment.manage"`,
      * `"okta.apps.manage"`,
      * `"okta.apps.read"`,
+     * `"okta.customizations.manage"`,
+     * `"okta.customizations.read"`,
      * `"okta.groups.appAssignment.manage"`,
      * `"okta.groups.create"`,
      * `"okta.groups.manage"`,
@@ -216,7 +230,8 @@ export interface AdminRoleCustomArgs {
      * `"okta.users.lifecycle.unsuspend"`,
      * `"okta.users.manage"`,
      * `"okta.users.read"`,
-     * `"okta.users.userprofile.manage"`.
+     * `"okta.users.userprofile.manage"`,
+     * `"okta.workflows.invoke"`.,
      */
     permissions?: pulumi.Input<pulumi.Input<string>[]>;
 }

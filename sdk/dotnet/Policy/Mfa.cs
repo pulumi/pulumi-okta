@@ -14,6 +14,10 @@ namespace Pulumi.Okta.Policy
     /// 
     /// This resource allows you to create and configure an MFA Policy.
     /// 
+    /// &gt; Requires Org Feature Flag `OKTA_MFA_POLICY`. Contact support to have this feature flag ***enabled***.
+    /// 
+    /// &gt; Unless Org Feature Flag `ENG_ENABLE_OPTIONAL_PASSWORD_ENROLLMENT` is ***disabled*** `okta_password` or `okta_email` must be present and its `enroll` value set to `REQUIRED`. Contact support to have this feature flag ***disabled***.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -36,6 +40,10 @@ namespace Pulumi.Okta.Policy
     ///             {
     ///                 { "enroll", "REQUIRED" },
     ///             },
+    ///             OktaPassword = 
+    ///             {
+    ///                 { "enroll", "REQUIRED" },
+    ///             },
     ///             Status = "ACTIVE",
     ///         });
     ///         var oieExample = new Okta.Policy.Mfa("oieExample", new Okta.Policy.MfaArgs
@@ -46,6 +54,10 @@ namespace Pulumi.Okta.Policy
     ///                 data.Okta_group.Everyone.Id,
     ///             },
     ///             IsOie = true,
+    ///             OktaPassword = 
+    ///             {
+    ///                 { "enroll", "REQUIRED" },
+    ///             },
     ///             OktaVerify = 
     ///             {
     ///                 { "enroll", "REQUIRED" },

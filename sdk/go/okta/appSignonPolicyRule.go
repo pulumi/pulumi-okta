@@ -48,7 +48,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
+// 		_, err = okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
 // 			PolicyId: pulumi.Any(data.Okta_app_signon_policy.Test.Id),
 // 			Constraints: pulumi.StringArray{
 // 				pulumi.String(json0),
@@ -107,7 +107,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
+// 		_, err = okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
 // 			PolicyId: pulumi.Any(data.Okta_app_signon_policy.Test.Id),
 // 			Constraints: pulumi.StringArray{
 // 				pulumi.String(json0),
@@ -186,7 +186,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testAppSignonPolicy := okta.GetAppSignonPolicyOutput(ctx, GetAppSignonPolicyOutputArgs{
+// 		testAppSignonPolicy := okta.LookupAppSignonPolicyOutput(ctx, GetAppSignonPolicyOutputArgs{
 // 			AppId: testSaml.ID(),
 // 		}, nil)
 // 		var testUser []*user.User
@@ -194,8 +194,8 @@ import (
 // 			__res, err := user.NewUser(ctx, fmt.Sprintf("testUser-%v", key0), &user.UserArgs{
 // 				FirstName: pulumi.String("TestAcc"),
 // 				LastName:  pulumi.String("Smith"),
-// 				Login:     pulumi.String(fmt.Sprintf("%v%v%v", "testAcc_", val0, "@example.com")),
-// 				Email:     pulumi.String(fmt.Sprintf("%v%v%v", "testAcc_", val0, "@example.com")),
+// 				Login:     pulumi.String(fmt.Sprintf("testAcc_%v@example.com", val0)),
+// 				Email:     pulumi.String(fmt.Sprintf("testAcc_%v@example.com", val0)),
 // 			})
 // 			if err != nil {
 // 				return err
@@ -205,7 +205,7 @@ import (
 // 		var this []*group.Group
 // 		for key0, val0 := range 5 {
 // 			__res, err := group.NewGroup(ctx, fmt.Sprintf("this-%v", key0), &group.GroupArgs{
-// 				Description: pulumi.String(fmt.Sprintf("%v%v", "testAcc_", val0)),
+// 				Description: pulumi.String(fmt.Sprintf("testAcc_%v", val0)),
 // 			})
 // 			if err != nil {
 // 				return err
@@ -372,6 +372,8 @@ type AppSignonPolicyRule struct {
 	GroupsExcludeds pulumi.StringArrayOutput `pulumi:"groupsExcludeds"`
 	// List of groups IDs to be included.
 	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
+	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+	InactivityPeriod pulumi.StringPtrOutput `pulumi:"inactivityPeriod"`
 	// Name of the policy rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
@@ -452,6 +454,8 @@ type appSignonPolicyRuleState struct {
 	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
 	// List of groups IDs to be included.
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+	InactivityPeriod *string `pulumi:"inactivityPeriod"`
 	// Name of the policy rule.
 	Name *string `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
@@ -501,6 +505,8 @@ type AppSignonPolicyRuleState struct {
 	GroupsExcludeds pulumi.StringArrayInput
 	// List of groups IDs to be included.
 	GroupsIncludeds pulumi.StringArrayInput
+	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+	InactivityPeriod pulumi.StringPtrInput
 	// Name of the policy rule.
 	Name pulumi.StringPtrInput
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
@@ -554,6 +560,8 @@ type appSignonPolicyRuleArgs struct {
 	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
 	// List of groups IDs to be included.
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+	InactivityPeriod *string `pulumi:"inactivityPeriod"`
 	// Name of the policy rule.
 	Name *string `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
@@ -604,6 +612,8 @@ type AppSignonPolicyRuleArgs struct {
 	GroupsExcludeds pulumi.StringArrayInput
 	// List of groups IDs to be included.
 	GroupsIncludeds pulumi.StringArrayInput
+	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+	InactivityPeriod pulumi.StringPtrInput
 	// Name of the policy rule.
 	Name pulumi.StringPtrInput
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
@@ -761,6 +771,11 @@ func (o AppSignonPolicyRuleOutput) GroupsExcludeds() pulumi.StringArrayOutput {
 // List of groups IDs to be included.
 func (o AppSignonPolicyRuleOutput) GroupsIncludeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+}
+
+// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+func (o AppSignonPolicyRuleOutput) InactivityPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.InactivityPeriod }).(pulumi.StringPtrOutput)
 }
 
 // Name of the policy rule.

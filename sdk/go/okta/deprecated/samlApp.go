@@ -34,6 +34,8 @@ type SamlApp struct {
 	AttributeStatements SamlAppAttributeStatementArrayOutput `pulumi:"attributeStatements"`
 	// Audience Restriction
 	Audience pulumi.StringPtrOutput `pulumi:"audience"`
+	// Id of this apps authentication policy
+	AuthenticationPolicy pulumi.StringPtrOutput `pulumi:"authenticationPolicy"`
 	// Identifies the SAML authentication context class for the assertion’s authentication statement
 	AuthnContextClassRef pulumi.StringPtrOutput `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar
@@ -46,6 +48,8 @@ type SamlApp struct {
 	Destination pulumi.StringPtrOutput `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm pulumi.StringPtrOutput `pulumi:"digestAlgorithm"`
+	// The url that can be used to embed this application in other portals.
+	EmbedUrl pulumi.StringOutput `pulumi:"embedUrl"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Entity ID, the ID portion of the entity_url
@@ -80,6 +84,8 @@ type SamlApp struct {
 	KeyName pulumi.StringPtrOutput `pulumi:"keyName"`
 	// Number of years the certificate is valid.
 	KeyYearsValid pulumi.IntPtrOutput `pulumi:"keyYearsValid"`
+	// Application keys
+	Keys SamlAppKeyArrayOutput `pulumi:"keys"`
 	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
 	// Local path to logo of the application.
@@ -191,6 +197,8 @@ type samlAppState struct {
 	AttributeStatements []SamlAppAttributeStatement `pulumi:"attributeStatements"`
 	// Audience Restriction
 	Audience *string `pulumi:"audience"`
+	// Id of this apps authentication policy
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Identifies the SAML authentication context class for the assertion’s authentication statement
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar
@@ -203,6 +211,8 @@ type samlAppState struct {
 	Destination *string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
+	// The url that can be used to embed this application in other portals.
+	EmbedUrl *string `pulumi:"embedUrl"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Entity ID, the ID portion of the entity_url
@@ -237,6 +247,8 @@ type samlAppState struct {
 	KeyName *string `pulumi:"keyName"`
 	// Number of years the certificate is valid.
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
+	// Application keys
+	Keys []SamlAppKey `pulumi:"keys"`
 	// Pretty name of app.
 	Label *string `pulumi:"label"`
 	// Local path to logo of the application.
@@ -317,6 +329,8 @@ type SamlAppState struct {
 	AttributeStatements SamlAppAttributeStatementArrayInput
 	// Audience Restriction
 	Audience pulumi.StringPtrInput
+	// Id of this apps authentication policy
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Identifies the SAML authentication context class for the assertion’s authentication statement
 	AuthnContextClassRef pulumi.StringPtrInput
 	// Display auto submit toolbar
@@ -329,6 +343,8 @@ type SamlAppState struct {
 	Destination pulumi.StringPtrInput
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm pulumi.StringPtrInput
+	// The url that can be used to embed this application in other portals.
+	EmbedUrl pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Entity ID, the ID portion of the entity_url
@@ -363,6 +379,8 @@ type SamlAppState struct {
 	KeyName pulumi.StringPtrInput
 	// Number of years the certificate is valid.
 	KeyYearsValid pulumi.IntPtrInput
+	// Application keys
+	Keys SamlAppKeyArrayInput
 	// Pretty name of app.
 	Label pulumi.StringPtrInput
 	// Local path to logo of the application.
@@ -447,6 +465,8 @@ type samlAppArgs struct {
 	AttributeStatements []SamlAppAttributeStatement `pulumi:"attributeStatements"`
 	// Audience Restriction
 	Audience *string `pulumi:"audience"`
+	// Id of this apps authentication policy
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Identifies the SAML authentication context class for the assertion’s authentication statement
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar
@@ -552,6 +572,8 @@ type SamlAppArgs struct {
 	AttributeStatements SamlAppAttributeStatementArrayInput
 	// Audience Restriction
 	Audience pulumi.StringPtrInput
+	// Id of this apps authentication policy
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Identifies the SAML authentication context class for the assertion’s authentication statement
 	AuthnContextClassRef pulumi.StringPtrInput
 	// Display auto submit toolbar
@@ -772,6 +794,11 @@ func (o SamlAppOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.Audience }).(pulumi.StringPtrOutput)
 }
 
+// Id of this apps authentication policy
+func (o SamlAppOutput) AuthenticationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.AuthenticationPolicy }).(pulumi.StringPtrOutput)
+}
+
 // Identifies the SAML authentication context class for the assertion’s authentication statement
 func (o SamlAppOutput) AuthnContextClassRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.AuthnContextClassRef }).(pulumi.StringPtrOutput)
@@ -800,6 +827,11 @@ func (o SamlAppOutput) Destination() pulumi.StringPtrOutput {
 // Determines the digest algorithm used to digitally sign the SAML assertion and response
 func (o SamlAppOutput) DigestAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlApp) pulumi.StringPtrOutput { return v.DigestAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// The url that can be used to embed this application in other portals.
+func (o SamlAppOutput) EmbedUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.StringOutput { return v.EmbedUrl }).(pulumi.StringOutput)
 }
 
 // Application notes for end users.
@@ -882,6 +914,11 @@ func (o SamlAppOutput) KeyName() pulumi.StringPtrOutput {
 // Number of years the certificate is valid.
 func (o SamlAppOutput) KeyYearsValid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SamlApp) pulumi.IntPtrOutput { return v.KeyYearsValid }).(pulumi.IntPtrOutput)
+}
+
+// Application keys
+func (o SamlAppOutput) Keys() SamlAppKeyArrayOutput {
+	return o.ApplyT(func(v *SamlApp) SamlAppKeyArrayOutput { return v.Keys }).(SamlAppKeyArrayOutput)
 }
 
 // Pretty name of app.

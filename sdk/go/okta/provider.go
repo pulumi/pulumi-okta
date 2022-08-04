@@ -17,16 +17,22 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
+	// Bearer token granting privileges to Okta API.
+	AccessToken pulumi.StringPtrOutput `pulumi:"accessToken"`
 	// API Token granting privileges to Okta API.
 	ApiToken pulumi.StringPtrOutput `pulumi:"apiToken"`
 	// The Okta url. (Use 'oktapreview.com' for Okta testing)
 	BaseUrl pulumi.StringPtrOutput `pulumi:"baseUrl"`
 	// API Token granting privileges to Okta API.
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
+	// Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
+	HttpProxy pulumi.StringPtrOutput `pulumi:"httpProxy"`
 	// The organization to manage in Okta.
 	OrgName pulumi.StringPtrOutput `pulumi:"orgName"`
 	// API Token granting privileges to Okta API.
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
+	// API Token Id granting privileges to Okta API.
+	PrivateKeyId pulumi.StringPtrOutput `pulumi:"privateKeyId"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -45,6 +51,8 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
+	// Bearer token granting privileges to Okta API.
+	AccessToken *string `pulumi:"accessToken"`
 	// API Token granting privileges to Okta API.
 	ApiToken *string `pulumi:"apiToken"`
 	// Use exponential back off strategy for rate limits.
@@ -53,6 +61,8 @@ type providerArgs struct {
 	BaseUrl *string `pulumi:"baseUrl"`
 	// API Token granting privileges to Okta API.
 	ClientId *string `pulumi:"clientId"`
+	// Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
+	HttpProxy *string `pulumi:"httpProxy"`
 	// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 	LogLevel *int `pulumi:"logLevel"`
 	// (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
@@ -72,6 +82,8 @@ type providerArgs struct {
 	Parallelism *int `pulumi:"parallelism"`
 	// API Token granting privileges to Okta API.
 	PrivateKey *string `pulumi:"privateKey"`
+	// API Token Id granting privileges to Okta API.
+	PrivateKeyId *string `pulumi:"privateKeyId"`
 	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
 	// value can be `300`.
 	RequestTimeout *int `pulumi:"requestTimeout"`
@@ -81,6 +93,8 @@ type providerArgs struct {
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
+	// Bearer token granting privileges to Okta API.
+	AccessToken pulumi.StringPtrInput
 	// API Token granting privileges to Okta API.
 	ApiToken pulumi.StringPtrInput
 	// Use exponential back off strategy for rate limits.
@@ -89,6 +103,8 @@ type ProviderArgs struct {
 	BaseUrl pulumi.StringPtrInput
 	// API Token granting privileges to Okta API.
 	ClientId pulumi.StringPtrInput
+	// Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
+	HttpProxy pulumi.StringPtrInput
 	// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 	LogLevel pulumi.IntPtrInput
 	// (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
@@ -108,6 +124,8 @@ type ProviderArgs struct {
 	Parallelism pulumi.IntPtrInput
 	// API Token granting privileges to Okta API.
 	PrivateKey pulumi.StringPtrInput
+	// API Token Id granting privileges to Okta API.
+	PrivateKeyId pulumi.StringPtrInput
 	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
 	// value can be `300`.
 	RequestTimeout pulumi.IntPtrInput
@@ -152,6 +170,11 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
+// Bearer token granting privileges to Okta API.
+func (o ProviderOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // API Token granting privileges to Okta API.
 func (o ProviderOutput) ApiToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiToken }).(pulumi.StringPtrOutput)
@@ -167,6 +190,11 @@ func (o ProviderOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
+func (o ProviderOutput) HttpProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.HttpProxy }).(pulumi.StringPtrOutput)
+}
+
 // The organization to manage in Okta.
 func (o ProviderOutput) OrgName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OrgName }).(pulumi.StringPtrOutput)
@@ -175,6 +203,11 @@ func (o ProviderOutput) OrgName() pulumi.StringPtrOutput {
 // API Token granting privileges to Okta API.
 func (o ProviderOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
+}
+
+// API Token Id granting privileges to Okta API.
+func (o ProviderOutput) PrivateKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PrivateKeyId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -18,140 +18,140 @@ namespace Pulumi.Okta.User.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AdminRoles;
         /// <summary>
-        /// user profile property.
+        /// City or locality component of user's address.
         /// </summary>
         public readonly string City;
         /// <summary>
-        /// user profile property.
+        /// Name of a cost center assigned to user.
         /// </summary>
         public readonly string CostCenter;
         /// <summary>
-        /// user profile property.
+        /// Country name component of user's address.
         /// </summary>
         public readonly string CountryCode;
         /// <summary>
-        /// raw JSON containing all custom profile attributes.
+        /// Raw JSON containing all custom profile attributes.
         /// </summary>
         public readonly string CustomProfileAttributes;
         /// <summary>
-        /// user profile property.
+        /// Name of user's department.
         /// </summary>
         public readonly string Department;
         /// <summary>
-        /// user profile property.
+        /// Name of the user, suitable for display to end users.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// user profile property.
+        /// Name of user's division.
         /// </summary>
         public readonly string Division;
         /// <summary>
-        /// user profile property.
+        /// Primary email address of user.
         /// </summary>
         public readonly string Email;
         /// <summary>
-        /// user profile property.
+        /// Organization or company assigned unique identifier for the user.
         /// </summary>
         public readonly string EmployeeNumber;
         /// <summary>
-        /// user profile property.
+        /// Given name of the user.
         /// </summary>
         public readonly string FirstName;
         /// <summary>
-        /// user profile property.
+        /// Groups user belongs to.
         /// </summary>
         public readonly ImmutableArray<string> GroupMemberships;
         /// <summary>
-        /// user profile property.
+        /// Honorific prefix(es) of the user, or title in most Western languages.
         /// </summary>
         public readonly string HonorificPrefix;
         /// <summary>
-        /// user profile property.
+        /// Honorific suffix(es) of the user.
         /// </summary>
         public readonly string HonorificSuffix;
         public readonly string Id;
         /// <summary>
-        /// user profile property.
+        /// Family name of the user.
         /// </summary>
         public readonly string LastName;
         /// <summary>
-        /// user profile property.
+        /// User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
         /// </summary>
         public readonly string Locale;
         /// <summary>
-        /// user profile property.
+        /// Unique identifier for the user.
         /// </summary>
         public readonly string Login;
         /// <summary>
-        /// user profile property.
+        /// Display name of the user's manager.
         /// </summary>
         public readonly string Manager;
         /// <summary>
-        /// user profile property.
+        /// `id` of a user's manager.
         /// </summary>
         public readonly string ManagerId;
         /// <summary>
-        /// user profile property.
+        /// Middle name(s) of the user.
         /// </summary>
         public readonly string MiddleName;
         /// <summary>
-        /// user profile property.
+        /// Mobile phone number of user.
         /// </summary>
         public readonly string MobilePhone;
         /// <summary>
-        /// user profile property.
+        /// Casual way to address the user in real life.
         /// </summary>
         public readonly string NickName;
         /// <summary>
-        /// user profile property.
+        /// Name of user's organization.
         /// </summary>
         public readonly string Organization;
         /// <summary>
-        /// user profile property.
+        /// Mailing address component of user's address.
         /// </summary>
         public readonly string PostalAddress;
         /// <summary>
-        /// user profile property.
+        /// User's preferred written or spoken languages.
         /// </summary>
         public readonly string PreferredLanguage;
         /// <summary>
-        /// user profile property.
+        /// Primary phone number of user such as home number.
         /// </summary>
         public readonly string PrimaryPhone;
         /// <summary>
-        /// user profile property.
+        /// URL of user's online profile (e.g. a web page).
         /// </summary>
         public readonly string ProfileUrl;
         /// <summary>
-        /// user profile property.
+        /// Secondary email address of user typically used for account recovery.
         /// </summary>
         public readonly string SecondEmail;
         /// <summary>
-        /// user profile property.
+        /// State or region component of user's address (region).
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// user profile property.
+        /// Current status of user.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// user profile property.
+        /// Full street address component of user's address.
         /// </summary>
         public readonly string StreetAddress;
         /// <summary>
-        /// user profile property.
+        /// User's time zone.
         /// </summary>
         public readonly string Timezone;
         /// <summary>
-        /// user profile property.
+        /// User's title, such as "Vice President".
         /// </summary>
         public readonly string Title;
         /// <summary>
-        /// user profile property.
+        /// Used to describe the organization to user relationship such as "Employee" or "Contractor".
         /// </summary>
         public readonly string UserType;
         /// <summary>
-        /// user profile property.
+        /// Zipcode or postal code component of user's address (postalCode)
         /// </summary>
         public readonly string ZipCode;
 

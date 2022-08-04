@@ -147,6 +147,12 @@ namespace Pulumi.Okta.App
         public Output<string?> AppSettingsJson { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// </summary>
+        [Output("authenticationPolicy")]
+        public Output<string?> AuthenticationPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Requested key rotation mode.
         /// </summary>
         [Output("autoKeyRotation")]
@@ -512,6 +518,12 @@ namespace Pulumi.Okta.App
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
+        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
+
+        /// <summary>
         /// Requested key rotation mode.
         /// </summary>
         [Input("autoKeyRotation")]
@@ -862,6 +874,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("appSettingsJson")]
         public Input<string>? AppSettingsJson { get; set; }
+
+        /// <summary>
+        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
         /// Requested key rotation mode.

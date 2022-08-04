@@ -8,6 +8,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
 
+// Bearer token granting privileges to Okta API.
+func GetAccessToken(ctx *pulumi.Context) string {
+	return config.Get(ctx, "okta:accessToken")
+}
+
 // API Token granting privileges to Okta API.
 func GetApiToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "okta:apiToken")
@@ -26,6 +31,11 @@ func GetBaseUrl(ctx *pulumi.Context) string {
 // API Token granting privileges to Okta API.
 func GetClientId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "okta:clientId")
+}
+
+// Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
+func GetHttpProxy(ctx *pulumi.Context) string {
+	return config.Get(ctx, "okta:httpProxy")
 }
 
 // providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
@@ -69,6 +79,11 @@ func GetParallelism(ctx *pulumi.Context) int {
 // API Token granting privileges to Okta API.
 func GetPrivateKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "okta:privateKey")
+}
+
+// API Token Id granting privileges to Okta API.
+func GetPrivateKeyId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "okta:privateKeyId")
 }
 
 // Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum

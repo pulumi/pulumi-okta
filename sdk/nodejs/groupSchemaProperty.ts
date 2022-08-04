@@ -6,10 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Creates a Group Schema property.
- *
- * This resource allows you to create and configure a custom group schema property.
- *
  * ## Example Usage
  *
  * ```typescript

@@ -133,7 +133,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := app.NewSaml(ctx, "test", &app.SamlArgs{
-// 			AppSettingsJson:      pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "    \"groupFilter\": \"app1.*\",\n", "    \"siteURL\": \"https://www.okta.com\"\n", "}\n", "\n")),
+// 			AppSettingsJson:      pulumi.String(fmt.Sprintf("{\n    \"groupFilter\": \"app1.*\",\n    \"siteURL\": \"https://www.okta.com\"\n}\n\n")),
 // 			Label:                pulumi.String("SharePoint (On-Premise)"),
 // 			PreconfiguredApp:     pulumi.String("sharepoint_onpremise"),
 // 			SamlVersion:          pulumi.String("1.1"),
@@ -163,8 +163,40 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := app.NewSaml(ctx, "office365", &app.SamlArgs{
-// 			AppLinksJson:     pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  {\n", "      \"calendar\": false,\n", "      \"crm\": false,\n", "      \"delve\": false,\n", "      \"excel\": false,\n", "      \"forms\": false,\n", "      \"mail\": false,\n", "      \"newsfeed\": false,\n", "      \"onedrive\": false,\n", "      \"people\": false,\n", "      \"planner\": false,\n", "      \"powerbi\": false,\n", "      \"powerpoint\": false,\n", "      \"sites\": false,\n", "      \"sway\": false,\n", "      \"tasks\": false,\n", "      \"teams\": false,\n", "      \"video\": false,\n", "      \"word\": false,\n", "      \"yammer\": false,\n", "      \"login\": true\n", "  }\n", "\n")),
-// 			AppSettingsJson:  pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v", "    {\n", "       \"wsFedConfigureType\": \"AUTO\",\n", "       \"windowsTransportEnabled\": false,\n", "       \"domain\": \"okta.com\",\n", "       \"msftTenant\": \"okta\",\n", "       \"domains\": [],\n", "       \"requireAdminConsent\": false\n", "    }\n", "\n")),
+// 			AppLinksJson: pulumi.String(fmt.Sprintf(`  {
+//       "calendar": false,
+//       "crm": false,
+//       "delve": false,
+//       "excel": false,
+//       "forms": false,
+//       "mail": false,
+//       "newsfeed": false,
+//       "onedrive": false,
+//       "people": false,
+//       "planner": false,
+//       "powerbi": false,
+//       "powerpoint": false,
+//       "sites": false,
+//       "sway": false,
+//       "tasks": false,
+//       "teams": false,
+//       "video": false,
+//       "word": false,
+//       "yammer": false,
+//       "login": true
+//   }
+//
+// `)),
+// 			AppSettingsJson: pulumi.String(fmt.Sprintf(`    {
+//        "wsFedConfigureType": "AUTO",
+//        "windowsTransportEnabled": false,
+//        "domain": "okta.com",
+//        "msftTenant": "okta",
+//        "domains": [],
+//        "requireAdminConsent": false
+//     }
+//
+// `)),
 // 			Label:            pulumi.String("Microsoft Office 365"),
 // 			PreconfiguredApp: pulumi.String("office365"),
 // 			SamlVersion:      pulumi.String("1.1"),
@@ -222,6 +254,8 @@ type Saml struct {
 	AttributeStatements SamlAttributeStatementArrayOutput `pulumi:"attributeStatements"`
 	// Audience restriction.
 	Audience pulumi.StringPtrOutput `pulumi:"audience"`
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy pulumi.StringPtrOutput `pulumi:"authenticationPolicy"`
 	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef pulumi.StringPtrOutput `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar. Default is: `false`
@@ -234,6 +268,8 @@ type Saml struct {
 	Destination pulumi.StringPtrOutput `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm pulumi.StringPtrOutput `pulumi:"digestAlgorithm"`
+	// The url that can be used to embed this application in other portals.
+	EmbedUrl pulumi.StringOutput `pulumi:"embedUrl"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Entity ID, the ID portion of the `entityUrl`.
@@ -243,7 +279,6 @@ type Saml struct {
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayOutput `pulumi:"features"`
 	// Groups associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -259,7 +294,7 @@ type Saml struct {
 	HttpRedirectBinding pulumi.StringOutput `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrOutput `pulumi:"idpIssuer"`
-	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrOutput `pulumi:"implicitAssignment"`
 	// Saml Inline Hook associated with the application.
 	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
@@ -269,6 +304,8 @@ type Saml struct {
 	KeyName pulumi.StringPtrOutput `pulumi:"keyName"`
 	// Number of years the certificate is valid (2 - 10 years).
 	KeyYearsValid pulumi.IntPtrOutput `pulumi:"keyYearsValid"`
+	// An array of all key credentials for the application. Format of each entry is as follows:
+	Keys SamlKeyArrayOutput `pulumi:"keys"`
 	// label of application.
 	Label pulumi.StringOutput `pulumi:"label"`
 	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
@@ -283,15 +320,6 @@ type Saml struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.\
 	// If not provided the following arguments are required:
-	// - `ssoUrl`
-	// - `recipient`
-	// - `destination`
-	// - `audience`
-	// - `subjectNameIdTemplate`
-	// - `subjectNameIdFormat`
-	// - `signatureAlgorithm`
-	// - `digestAlgorithm`
-	// - `authnContextClassRef`
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
 	// The location where the app may present the SAML assertion.
 	Recipient pulumi.StringPtrOutput `pulumi:"recipient"`
@@ -335,7 +363,6 @@ type Saml struct {
 	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SamlUserArrayOutput `pulumi:"users"`
@@ -393,6 +420,8 @@ type samlState struct {
 	AttributeStatements []SamlAttributeStatement `pulumi:"attributeStatements"`
 	// Audience restriction.
 	Audience *string `pulumi:"audience"`
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar. Default is: `false`
@@ -405,6 +434,8 @@ type samlState struct {
 	Destination *string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
+	// The url that can be used to embed this application in other portals.
+	EmbedUrl *string `pulumi:"embedUrl"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Entity ID, the ID portion of the `entityUrl`.
@@ -414,7 +445,6 @@ type samlState struct {
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features []string `pulumi:"features"`
 	// Groups associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -430,7 +460,7 @@ type samlState struct {
 	HttpRedirectBinding *string `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
-	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Saml Inline Hook associated with the application.
 	InlineHookId *string `pulumi:"inlineHookId"`
@@ -440,6 +470,8 @@ type samlState struct {
 	KeyName *string `pulumi:"keyName"`
 	// Number of years the certificate is valid (2 - 10 years).
 	KeyYearsValid *int `pulumi:"keyYearsValid"`
+	// An array of all key credentials for the application. Format of each entry is as follows:
+	Keys []SamlKey `pulumi:"keys"`
 	// label of application.
 	Label *string `pulumi:"label"`
 	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
@@ -454,15 +486,6 @@ type samlState struct {
 	Name *string `pulumi:"name"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.\
 	// If not provided the following arguments are required:
-	// - `ssoUrl`
-	// - `recipient`
-	// - `destination`
-	// - `audience`
-	// - `subjectNameIdTemplate`
-	// - `subjectNameIdFormat`
-	// - `signatureAlgorithm`
-	// - `digestAlgorithm`
-	// - `authnContextClassRef`
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// The location where the app may present the SAML assertion.
 	Recipient *string `pulumi:"recipient"`
@@ -506,7 +529,6 @@ type samlState struct {
 	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SamlUser `pulumi:"users"`
@@ -533,6 +555,8 @@ type SamlState struct {
 	AttributeStatements SamlAttributeStatementArrayInput
 	// Audience restriction.
 	Audience pulumi.StringPtrInput
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef pulumi.StringPtrInput
 	// Display auto submit toolbar. Default is: `false`
@@ -545,6 +569,8 @@ type SamlState struct {
 	Destination pulumi.StringPtrInput
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm pulumi.StringPtrInput
+	// The url that can be used to embed this application in other portals.
+	EmbedUrl pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Entity ID, the ID portion of the `entityUrl`.
@@ -554,7 +580,6 @@ type SamlState struct {
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayInput
 	// Groups associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -570,7 +595,7 @@ type SamlState struct {
 	HttpRedirectBinding pulumi.StringPtrInput
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrInput
-	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrInput
 	// Saml Inline Hook associated with the application.
 	InlineHookId pulumi.StringPtrInput
@@ -580,6 +605,8 @@ type SamlState struct {
 	KeyName pulumi.StringPtrInput
 	// Number of years the certificate is valid (2 - 10 years).
 	KeyYearsValid pulumi.IntPtrInput
+	// An array of all key credentials for the application. Format of each entry is as follows:
+	Keys SamlKeyArrayInput
 	// label of application.
 	Label pulumi.StringPtrInput
 	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
@@ -594,15 +621,6 @@ type SamlState struct {
 	Name pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.\
 	// If not provided the following arguments are required:
-	// - `ssoUrl`
-	// - `recipient`
-	// - `destination`
-	// - `audience`
-	// - `subjectNameIdTemplate`
-	// - `subjectNameIdFormat`
-	// - `signatureAlgorithm`
-	// - `digestAlgorithm`
-	// - `authnContextClassRef`
 	PreconfiguredApp pulumi.StringPtrInput
 	// The location where the app may present the SAML assertion.
 	Recipient pulumi.StringPtrInput
@@ -646,7 +664,6 @@ type SamlState struct {
 	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SamlUserArrayInput
@@ -677,6 +694,8 @@ type samlArgs struct {
 	AttributeStatements []SamlAttributeStatement `pulumi:"attributeStatements"`
 	// Audience restriction.
 	Audience *string `pulumi:"audience"`
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar. Default is: `false`
@@ -692,7 +711,6 @@ type samlArgs struct {
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features []string `pulumi:"features"`
 	// Groups associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -704,7 +722,7 @@ type samlArgs struct {
 	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
-	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Saml Inline Hook associated with the application.
 	InlineHookId *string `pulumi:"inlineHookId"`
@@ -718,15 +736,6 @@ type samlArgs struct {
 	Logo *string `pulumi:"logo"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.\
 	// If not provided the following arguments are required:
-	// - `ssoUrl`
-	// - `recipient`
-	// - `destination`
-	// - `audience`
-	// - `subjectNameIdTemplate`
-	// - `subjectNameIdFormat`
-	// - `signatureAlgorithm`
-	// - `digestAlgorithm`
-	// - `authnContextClassRef`
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// The location where the app may present the SAML assertion.
 	Recipient *string `pulumi:"recipient"`
@@ -768,7 +777,6 @@ type samlArgs struct {
 	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Users associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SamlUser `pulumi:"users"`
@@ -796,6 +804,8 @@ type SamlArgs struct {
 	AttributeStatements SamlAttributeStatementArrayInput
 	// Audience restriction.
 	Audience pulumi.StringPtrInput
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef pulumi.StringPtrInput
 	// Display auto submit toolbar. Default is: `false`
@@ -811,7 +821,6 @@ type SamlArgs struct {
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayInput
 	// Groups associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -823,7 +832,7 @@ type SamlArgs struct {
 	HonorForceAuthn pulumi.BoolPtrInput
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrInput
-	// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrInput
 	// Saml Inline Hook associated with the application.
 	InlineHookId pulumi.StringPtrInput
@@ -837,15 +846,6 @@ type SamlArgs struct {
 	Logo pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.\
 	// If not provided the following arguments are required:
-	// - `ssoUrl`
-	// - `recipient`
-	// - `destination`
-	// - `audience`
-	// - `subjectNameIdTemplate`
-	// - `subjectNameIdFormat`
-	// - `signatureAlgorithm`
-	// - `digestAlgorithm`
-	// - `authnContextClassRef`
 	PreconfiguredApp pulumi.StringPtrInput
 	// The location where the app may present the SAML assertion.
 	Recipient pulumi.StringPtrInput
@@ -887,7 +887,6 @@ type SamlArgs struct {
 	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// Users associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SamlUserArrayInput
@@ -1030,6 +1029,11 @@ func (o SamlOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.Audience }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+func (o SamlOutput) AuthenticationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AuthenticationPolicy }).(pulumi.StringPtrOutput)
+}
+
 // Identifies the SAML authentication context class for the assertion’s authentication statement.
 func (o SamlOutput) AuthnContextClassRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AuthnContextClassRef }).(pulumi.StringPtrOutput)
@@ -1060,6 +1064,11 @@ func (o SamlOutput) DigestAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.DigestAlgorithm }).(pulumi.StringPtrOutput)
 }
 
+// The url that can be used to embed this application in other portals.
+func (o SamlOutput) EmbedUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.EmbedUrl }).(pulumi.StringOutput)
+}
+
 // Application notes for end users.
 func (o SamlOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
@@ -1081,7 +1090,6 @@ func (o SamlOutput) Features() pulumi.StringArrayOutput {
 }
 
 // Groups associated with the application.
-// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 //
 // Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 func (o SamlOutput) Groups() pulumi.StringArrayOutput {
@@ -1118,7 +1126,7 @@ func (o SamlOutput) IdpIssuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.IdpIssuer }).(pulumi.StringPtrOutput)
 }
 
-// *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 func (o SamlOutput) ImplicitAssignment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.ImplicitAssignment }).(pulumi.BoolPtrOutput)
 }
@@ -1141,6 +1149,11 @@ func (o SamlOutput) KeyName() pulumi.StringPtrOutput {
 // Number of years the certificate is valid (2 - 10 years).
 func (o SamlOutput) KeyYearsValid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.IntPtrOutput { return v.KeyYearsValid }).(pulumi.IntPtrOutput)
+}
+
+// An array of all key credentials for the application. Format of each entry is as follows:
+func (o SamlOutput) Keys() SamlKeyArrayOutput {
+	return o.ApplyT(func(v *Saml) SamlKeyArrayOutput { return v.Keys }).(SamlKeyArrayOutput)
 }
 
 // label of application.
@@ -1175,15 +1188,6 @@ func (o SamlOutput) Name() pulumi.StringOutput {
 
 // name of application from the Okta Integration Network, if not included a custom app will be created.\
 // If not provided the following arguments are required:
-// - `ssoUrl`
-// - `recipient`
-// - `destination`
-// - `audience`
-// - `subjectNameIdTemplate`
-// - `subjectNameIdFormat`
-// - `signatureAlgorithm`
-// - `digestAlgorithm`
-// - `authnContextClassRef`
 func (o SamlOutput) PreconfiguredApp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.PreconfiguredApp }).(pulumi.StringPtrOutput)
 }
@@ -1290,7 +1294,6 @@ func (o SamlOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 }
 
 // Users associated with the application.
-// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 //
 // Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 func (o SamlOutput) Users() SamlUserArrayOutput {

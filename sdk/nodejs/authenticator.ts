@@ -62,7 +62,7 @@ export class Authenticator extends pulumi.CustomResource {
     }
 
     /**
-     * A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -157,7 +157,7 @@ export class Authenticator extends pulumi.CustomResource {
  */
 export interface AuthenticatorState {
     /**
-     * A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      */
     key?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface AuthenticatorState {
  */
 export interface AuthenticatorArgs {
     /**
-     * A human-readable string that identifies the authenticator. Possible values inclue: `"externalIdp"`, `"googleOtp"`, `"oktaEmail"`, `"oktaPassword"`, `"oktaVerify"`, `"onpremMfa"`, `"phoneNumber"`, `"rsaToken"`, `"securityQuestion"`, and `"webauthn"`.
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      */
     key: pulumi.Input<string>;
     /**

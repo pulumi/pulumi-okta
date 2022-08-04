@@ -19,10 +19,11 @@ namespace Pulumi.Okta
     /// users. If you need a relationship of a single user to many groups, please use
     /// the `okta.UserGroupMemberships` resource.
     /// 
-    /// **Important**: When the group memberships resource is used in an environment
-    /// where other resources or services can add users to the group it will make this
-    /// resource appear to drift. If that is the case make use of a lifecycle ignore for
-    /// the `users` argument to avoid conflicts in desired state.
+    /// **Important**: The default behavior of the resource is to only maintain the
+    /// state of user ids that are assigned it. This behavior will signal drift only if
+    /// those users stop being part of the group. If the desired behavior is track all
+    /// users that are added/removed from the group make use of the `track_all_users`
+    /// argument with this resource.
     /// 
     /// ## Example Usage
     /// 
@@ -47,9 +48,6 @@ namespace Pulumi.Okta
     ///                 okta_user.Test2.Id,
     ///             },
     ///         });
-    ///         // lifecycle {
-    ///         //   ignore_changes = [users]
-    ///         // }
     ///     }
     /// 
     /// }
@@ -71,6 +69,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+        /// </summary>
+        [Output("trackAllUsers")]
+        public Output<bool?> TrackAllUsers { get; private set; } = null!;
 
         /// <summary>
         /// The list of Okta user IDs which the group should have membership managed for.
@@ -130,6 +134,12 @@ namespace Pulumi.Okta
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
 
+        /// <summary>
+        /// The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+        /// </summary>
+        [Input("trackAllUsers")]
+        public Input<bool>? TrackAllUsers { get; set; }
+
         [Input("users", required: true)]
         private InputList<string>? _users;
 
@@ -154,6 +164,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
+
+        /// <summary>
+        /// The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+        /// </summary>
+        [Input("trackAllUsers")]
+        public Input<bool>? TrackAllUsers { get; set; }
 
         [Input("users")]
         private InputList<string>? _users;

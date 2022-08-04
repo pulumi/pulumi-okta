@@ -11,10 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a User Schema property.
-//
-// This resource allows you to create and configure a custom user schema property.
-//
 // ## Example Usage
 //
 // ```go

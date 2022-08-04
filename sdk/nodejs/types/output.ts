@@ -416,6 +416,11 @@ export namespace app {
          */
         filterType?: string;
         /**
+         * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+         * Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+         */
+        issuerMode: string;
+        /**
          * Name of the claim that will be used in the token.
          */
         name: string;
@@ -471,6 +476,49 @@ export namespace app {
          * Array of values to use.
          */
         values?: string[];
+    }
+
+    export interface SamlKey {
+        /**
+         * Date created.
+         */
+        created: string;
+        /**
+         * RSA exponent.
+         */
+        e: string;
+        /**
+         * Date the key expires.
+         */
+        expiresAt: string;
+        /**
+         * Key ID.
+         */
+        kid: string;
+        /**
+         * Identifies the cryptographic algorithm family used with the key.
+         */
+        kty: string;
+        /**
+         * Date the key was last updated.
+         */
+        lastUpdated: string;
+        /**
+         * RSA modulus.
+         */
+        n: string;
+        /**
+         * Intended use of the public key.
+         */
+        use: string;
+        /**
+         * X.509 certificate chain.
+         */
+        x5cs: string[];
+        /**
+         * X.509 certificate SHA-256 thumbprint.
+         */
+        x5tS256: string;
     }
 
     export interface SamlUser {
@@ -595,6 +643,7 @@ export namespace deprecated {
 
     export interface OauthAppGroupsClaim {
         filterType?: string;
+        issuerMode: string;
         name: string;
         type: string;
         value: string;
@@ -621,6 +670,19 @@ export namespace deprecated {
         namespace?: string;
         type?: string;
         values?: string[];
+    }
+
+    export interface SamlAppKey {
+        created: string;
+        e: string;
+        expiresAt: string;
+        kid: string;
+        kty: string;
+        lastUpdated: string;
+        n: string;
+        use: string;
+        x5cs: string[];
+        x5tS256: string;
     }
 
     export interface SamlAppUser {
@@ -874,140 +936,140 @@ export namespace user {
          */
         adminRoles: string[];
         /**
-         * user profile property.
+         * City or locality component of user's address.
          */
         city: string;
         /**
-         * user profile property.
+         * Name of a cost center assigned to user.
          */
         costCenter: string;
         /**
-         * user profile property.
+         * Country name component of user's address.
          */
         countryCode: string;
         /**
-         * raw JSON containing all custom profile attributes.
+         * Raw JSON containing all custom profile attributes.
          */
         customProfileAttributes: string;
         /**
-         * user profile property.
+         * Name of user's department.
          */
         department: string;
         /**
-         * user profile property.
+         * Name of the user, suitable for display to end users.
          */
         displayName: string;
         /**
-         * user profile property.
+         * Name of user's division.
          */
         division: string;
         /**
-         * user profile property.
+         * Primary email address of user.
          */
         email: string;
         /**
-         * user profile property.
+         * Organization or company assigned unique identifier for the user.
          */
         employeeNumber: string;
         /**
-         * user profile property.
+         * Given name of the user.
          */
         firstName: string;
         /**
-         * user profile property.
+         * Groups user belongs to.
          */
         groupMemberships: string[];
         /**
-         * user profile property.
+         * Honorific prefix(es) of the user, or title in most Western languages.
          */
         honorificPrefix: string;
         /**
-         * user profile property.
+         * Honorific suffix(es) of the user.
          */
         honorificSuffix: string;
         id: string;
         /**
-         * user profile property.
+         * Family name of the user.
          */
         lastName: string;
         /**
-         * user profile property.
+         * User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
          */
         locale: string;
         /**
-         * user profile property.
+         * Unique identifier for the user.
          */
         login: string;
         /**
-         * user profile property.
+         * Display name of the user's manager.
          */
         manager: string;
         /**
-         * user profile property.
+         * `id` of a user's manager.
          */
         managerId: string;
         /**
-         * user profile property.
+         * Middle name(s) of the user.
          */
         middleName: string;
         /**
-         * user profile property.
+         * Mobile phone number of user.
          */
         mobilePhone: string;
         /**
-         * user profile property.
+         * Casual way to address the user in real life.
          */
         nickName: string;
         /**
-         * user profile property.
+         * Name of user's organization.
          */
         organization: string;
         /**
-         * user profile property.
+         * Mailing address component of user's address.
          */
         postalAddress: string;
         /**
-         * user profile property.
+         * User's preferred written or spoken languages.
          */
         preferredLanguage: string;
         /**
-         * user profile property.
+         * Primary phone number of user such as home number.
          */
         primaryPhone: string;
         /**
-         * user profile property.
+         * URL of user's online profile (e.g. a web page).
          */
         profileUrl: string;
         /**
-         * user profile property.
+         * Secondary email address of user typically used for account recovery.
          */
         secondEmail: string;
         /**
-         * user profile property.
+         * State or region component of user's address (region).
          */
         state: string;
         /**
-         * user profile property.
+         * Current status of user.
          */
         status: string;
         /**
-         * user profile property.
+         * Full street address component of user's address.
          */
         streetAddress: string;
         /**
-         * user profile property.
+         * User's time zone.
          */
         timezone: string;
         /**
-         * user profile property.
+         * User's title, such as "Vice President".
          */
         title: string;
         /**
-         * user profile property.
+         * Used to describe the organization to user relationship such as "Employee" or "Contractor".
          */
         userType: string;
         /**
-         * user profile property.
+         * Zipcode or postal code component of user's address (postalCode)
          */
         zipCode: string;
     }

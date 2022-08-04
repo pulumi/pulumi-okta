@@ -26,7 +26,7 @@ namespace Pulumi.Okta.TrustedOrigin
     ///     {
     ///         var example = new Okta.TrustedOrigin.Origin("example", new Okta.TrustedOrigin.OriginArgs
     ///         {
-    ///             Origin = "https://example.com",
+    ///             OriginName = "https://example.com",
     ///             Scopes = 
     ///             {
     ///                 "CORS",

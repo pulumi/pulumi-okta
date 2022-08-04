@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.GetAppSignonPolicy(ctx, &GetAppSignonPolicyArgs{
+// 		_, err := okta.LookupAppSignonPolicy(ctx, &GetAppSignonPolicyArgs{
 // 			AppId: "app_id",
 // 		}, nil)
 // 		if err != nil {
@@ -36,8 +36,8 @@ import (
 // 	})
 // }
 // ```
-func GetAppSignonPolicy(ctx *pulumi.Context, args *GetAppSignonPolicyArgs, opts ...pulumi.InvokeOption) (*GetAppSignonPolicyResult, error) {
-	var rv GetAppSignonPolicyResult
+func LookupAppSignonPolicy(ctx *pulumi.Context, args *LookupAppSignonPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAppSignonPolicyResult, error) {
+	var rv LookupAppSignonPolicyResult
 	err := ctx.Invoke("okta:index/getAppSignonPolicy:getAppSignonPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -46,70 +46,70 @@ func GetAppSignonPolicy(ctx *pulumi.Context, args *GetAppSignonPolicyArgs, opts 
 }
 
 // A collection of arguments for invoking getAppSignonPolicy.
-type GetAppSignonPolicyArgs struct {
+type LookupAppSignonPolicyArgs struct {
 	// The application ID.
 	AppId string `pulumi:"appId"`
 }
 
 // A collection of values returned by getAppSignonPolicy.
-type GetAppSignonPolicyResult struct {
+type LookupAppSignonPolicyResult struct {
 	AppId string `pulumi:"appId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
 
-func GetAppSignonPolicyOutput(ctx *pulumi.Context, args GetAppSignonPolicyOutputArgs, opts ...pulumi.InvokeOption) GetAppSignonPolicyResultOutput {
+func LookupAppSignonPolicyOutput(ctx *pulumi.Context, args LookupAppSignonPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAppSignonPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAppSignonPolicyResult, error) {
-			args := v.(GetAppSignonPolicyArgs)
-			r, err := GetAppSignonPolicy(ctx, &args, opts...)
-			var s GetAppSignonPolicyResult
+		ApplyT(func(v interface{}) (LookupAppSignonPolicyResult, error) {
+			args := v.(LookupAppSignonPolicyArgs)
+			r, err := LookupAppSignonPolicy(ctx, &args, opts...)
+			var s LookupAppSignonPolicyResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetAppSignonPolicyResultOutput)
+		}).(LookupAppSignonPolicyResultOutput)
 }
 
 // A collection of arguments for invoking getAppSignonPolicy.
-type GetAppSignonPolicyOutputArgs struct {
+type LookupAppSignonPolicyOutputArgs struct {
 	// The application ID.
 	AppId pulumi.StringInput `pulumi:"appId"`
 }
 
-func (GetAppSignonPolicyOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAppSignonPolicyArgs)(nil)).Elem()
+func (LookupAppSignonPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppSignonPolicyArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getAppSignonPolicy.
-type GetAppSignonPolicyResultOutput struct{ *pulumi.OutputState }
+type LookupAppSignonPolicyResultOutput struct{ *pulumi.OutputState }
 
-func (GetAppSignonPolicyResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAppSignonPolicyResult)(nil)).Elem()
+func (LookupAppSignonPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppSignonPolicyResult)(nil)).Elem()
 }
 
-func (o GetAppSignonPolicyResultOutput) ToGetAppSignonPolicyResultOutput() GetAppSignonPolicyResultOutput {
+func (o LookupAppSignonPolicyResultOutput) ToLookupAppSignonPolicyResultOutput() LookupAppSignonPolicyResultOutput {
 	return o
 }
 
-func (o GetAppSignonPolicyResultOutput) ToGetAppSignonPolicyResultOutputWithContext(ctx context.Context) GetAppSignonPolicyResultOutput {
+func (o LookupAppSignonPolicyResultOutput) ToLookupAppSignonPolicyResultOutputWithContext(ctx context.Context) LookupAppSignonPolicyResultOutput {
 	return o
 }
 
-func (o GetAppSignonPolicyResultOutput) AppId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAppSignonPolicyResult) string { return v.AppId }).(pulumi.StringOutput)
+func (o LookupAppSignonPolicyResultOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppSignonPolicyResult) string { return v.AppId }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetAppSignonPolicyResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAppSignonPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAppSignonPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppSignonPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetAppSignonPolicyResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAppSignonPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupAppSignonPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppSignonPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetAppSignonPolicyResultOutput{})
+	pulumi.RegisterOutputType(LookupAppSignonPolicyResultOutput{})
 }

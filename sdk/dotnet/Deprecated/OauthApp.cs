@@ -50,6 +50,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> AppSettingsJson { get; private set; } = null!;
 
         /// <summary>
+        /// Id of this apps authentication policy
+        /// </summary>
+        [Output("authenticationPolicy")]
+        public Output<string?> AuthenticationPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Requested key rotation mode.
         /// </summary>
         [Output("autoKeyRotation")]
@@ -413,6 +419,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
+        /// Id of this apps authentication policy
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
+
+        /// <summary>
         /// Requested key rotation mode.
         /// </summary>
         [Input("autoKeyRotation")]
@@ -760,6 +772,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("appSettingsJson")]
         public Input<string>? AppSettingsJson { get; set; }
+
+        /// <summary>
+        /// Id of this apps authentication policy
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
         /// Requested key rotation mode.

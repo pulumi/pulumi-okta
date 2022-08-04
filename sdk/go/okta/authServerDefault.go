@@ -57,7 +57,7 @@ type AuthServerDefault struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
-	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid pulumi.StringOutput `pulumi:"kid"`
@@ -108,7 +108,7 @@ type authServerDefaultState struct {
 	Description *string `pulumi:"description"`
 	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer *string `pulumi:"issuer"`
-	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode *string `pulumi:"issuerMode"`
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid *string `pulumi:"kid"`
@@ -131,7 +131,7 @@ type AuthServerDefaultState struct {
 	Description pulumi.StringPtrInput
 	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer pulumi.StringPtrInput
-	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode pulumi.StringPtrInput
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid pulumi.StringPtrInput
@@ -152,7 +152,7 @@ type authServerDefaultArgs struct {
 	CredentialsRotationMode *string `pulumi:"credentialsRotationMode"`
 	// The description of the authorization server.
 	Description *string `pulumi:"description"`
-	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode *string `pulumi:"issuerMode"`
 	// The name of the authorization server.
 	Name *string `pulumi:"name"`
@@ -168,7 +168,7 @@ type AuthServerDefaultArgs struct {
 	CredentialsRotationMode pulumi.StringPtrInput
 	// The description of the authorization server.
 	Description pulumi.StringPtrInput
-	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode pulumi.StringPtrInput
 	// The name of the authorization server.
 	Name pulumi.StringPtrInput
@@ -293,7 +293,7 @@ func (o AuthServerDefaultOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 func (o AuthServerDefaultOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }

@@ -238,6 +238,10 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly audience!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     */
+    public readonly authenticationPolicy!: pulumi.Output<string | undefined>;
+    /**
      * Identifies the SAML authentication context class for the assertion’s authentication statement.
      */
     public readonly authnContextClassRef!: pulumi.Output<string | undefined>;
@@ -262,6 +266,10 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly digestAlgorithm!: pulumi.Output<string | undefined>;
     /**
+     * The url that can be used to embed this application in other portals.
+     */
+    public /*out*/ readonly embedUrl!: pulumi.Output<string>;
+    /**
      * Application notes for end users.
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
@@ -279,7 +287,6 @@ export class Saml extends pulumi.CustomResource {
     public readonly features!: pulumi.Output<string[] | undefined>;
     /**
      * Groups associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -309,7 +316,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly idpIssuer!: pulumi.Output<string | undefined>;
     /**
-     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
      */
     public readonly implicitAssignment!: pulumi.Output<boolean | undefined>;
     /**
@@ -328,6 +335,10 @@ export class Saml extends pulumi.CustomResource {
      * Number of years the certificate is valid (2 - 10 years).
      */
     public readonly keyYearsValid!: pulumi.Output<number | undefined>;
+    /**
+     * An array of all key credentials for the application. Format of each entry is as follows:
+     */
+    public /*out*/ readonly keys!: pulumi.Output<outputs.app.SamlKey[]>;
     /**
      * label of application.
      */
@@ -355,15 +366,6 @@ export class Saml extends pulumi.CustomResource {
     /**
      * name of application from the Okta Integration Network, if not included a custom app will be created.  
      * If not provided the following arguments are required:
-     * - `ssoUrl`
-     * - `recipient`
-     * - `destination`
-     * - `audience`
-     * - `subjectNameIdTemplate`
-     * - `subjectNameIdFormat`
-     * - `signatureAlgorithm`
-     * - `digestAlgorithm`
-     * - `authnContextClassRef`
      */
     public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
     /**
@@ -449,7 +451,6 @@ export class Saml extends pulumi.CustomResource {
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
      * Users associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
@@ -478,12 +479,14 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["assertionSigned"] = state ? state.assertionSigned : undefined;
             resourceInputs["attributeStatements"] = state ? state.attributeStatements : undefined;
             resourceInputs["audience"] = state ? state.audience : undefined;
+            resourceInputs["authenticationPolicy"] = state ? state.authenticationPolicy : undefined;
             resourceInputs["authnContextClassRef"] = state ? state.authnContextClassRef : undefined;
             resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             resourceInputs["certificate"] = state ? state.certificate : undefined;
             resourceInputs["defaultRelayState"] = state ? state.defaultRelayState : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
             resourceInputs["digestAlgorithm"] = state ? state.digestAlgorithm : undefined;
+            resourceInputs["embedUrl"] = state ? state.embedUrl : undefined;
             resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
             resourceInputs["entityKey"] = state ? state.entityKey : undefined;
             resourceInputs["entityUrl"] = state ? state.entityUrl : undefined;
@@ -500,6 +503,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["keyId"] = state ? state.keyId : undefined;
             resourceInputs["keyName"] = state ? state.keyName : undefined;
             resourceInputs["keyYearsValid"] = state ? state.keyYearsValid : undefined;
+            resourceInputs["keys"] = state ? state.keys : undefined;
             resourceInputs["label"] = state ? state.label : undefined;
             resourceInputs["logo"] = state ? state.logo : undefined;
             resourceInputs["logoUrl"] = state ? state.logoUrl : undefined;
@@ -543,6 +547,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["assertionSigned"] = args ? args.assertionSigned : undefined;
             resourceInputs["attributeStatements"] = args ? args.attributeStatements : undefined;
             resourceInputs["audience"] = args ? args.audience : undefined;
+            resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
             resourceInputs["authnContextClassRef"] = args ? args.authnContextClassRef : undefined;
             resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             resourceInputs["defaultRelayState"] = args ? args.defaultRelayState : undefined;
@@ -583,11 +588,13 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             resourceInputs["users"] = args ? args.users : undefined;
             resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["embedUrl"] = undefined /*out*/;
             resourceInputs["entityKey"] = undefined /*out*/;
             resourceInputs["entityUrl"] = undefined /*out*/;
             resourceInputs["httpPostBinding"] = undefined /*out*/;
             resourceInputs["httpRedirectBinding"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
+            resourceInputs["keys"] = undefined /*out*/;
             resourceInputs["logoUrl"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["metadataUrl"] = undefined /*out*/;
@@ -644,6 +651,10 @@ export interface SamlState {
      */
     audience?: pulumi.Input<string>;
     /**
+     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     */
+    authenticationPolicy?: pulumi.Input<string>;
+    /**
      * Identifies the SAML authentication context class for the assertion’s authentication statement.
      */
     authnContextClassRef?: pulumi.Input<string>;
@@ -668,6 +679,10 @@ export interface SamlState {
      */
     digestAlgorithm?: pulumi.Input<string>;
     /**
+     * The url that can be used to embed this application in other portals.
+     */
+    embedUrl?: pulumi.Input<string>;
+    /**
      * Application notes for end users.
      */
     enduserNote?: pulumi.Input<string>;
@@ -685,7 +700,6 @@ export interface SamlState {
     features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -715,7 +729,7 @@ export interface SamlState {
      */
     idpIssuer?: pulumi.Input<string>;
     /**
-     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
      */
     implicitAssignment?: pulumi.Input<boolean>;
     /**
@@ -734,6 +748,10 @@ export interface SamlState {
      * Number of years the certificate is valid (2 - 10 years).
      */
     keyYearsValid?: pulumi.Input<number>;
+    /**
+     * An array of all key credentials for the application. Format of each entry is as follows:
+     */
+    keys?: pulumi.Input<pulumi.Input<inputs.app.SamlKey>[]>;
     /**
      * label of application.
      */
@@ -761,15 +779,6 @@ export interface SamlState {
     /**
      * name of application from the Okta Integration Network, if not included a custom app will be created.  
      * If not provided the following arguments are required:
-     * - `ssoUrl`
-     * - `recipient`
-     * - `destination`
-     * - `audience`
-     * - `subjectNameIdTemplate`
-     * - `subjectNameIdFormat`
-     * - `signatureAlgorithm`
-     * - `digestAlgorithm`
-     * - `authnContextClassRef`
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
@@ -855,7 +864,6 @@ export interface SamlState {
     userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
@@ -907,6 +915,10 @@ export interface SamlArgs {
      */
     audience?: pulumi.Input<string>;
     /**
+     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     */
+    authenticationPolicy?: pulumi.Input<string>;
+    /**
      * Identifies the SAML authentication context class for the assertion’s authentication statement.
      */
     authnContextClassRef?: pulumi.Input<string>;
@@ -936,7 +948,6 @@ export interface SamlArgs {
     features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -958,7 +969,7 @@ export interface SamlArgs {
      */
     idpIssuer?: pulumi.Input<string>;
     /**
-     * *Early Access Property*. Enables Federation Broker Mode. When this mode is enabled, `users` and `groups` arguments are ignored.
+     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
      */
     implicitAssignment?: pulumi.Input<boolean>;
     /**
@@ -984,15 +995,6 @@ export interface SamlArgs {
     /**
      * name of application from the Okta Integration Network, if not included a custom app will be created.  
      * If not provided the following arguments are required:
-     * - `ssoUrl`
-     * - `recipient`
-     * - `destination`
-     * - `audience`
-     * - `subjectNameIdTemplate`
-     * - `subjectNameIdFormat`
-     * - `signatureAlgorithm`
-     * - `digestAlgorithm`
-     * - `authnContextClassRef`
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
@@ -1074,7 +1076,6 @@ export interface SamlArgs {
     userNameTemplateType?: pulumi.Input<string>;
     /**
      * Users associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */

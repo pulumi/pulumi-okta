@@ -58,6 +58,7 @@ import (
 // 		_ = user.GetUsersOutput(ctx, user.GetUsersOutputArgs{
 // 			GroupId:       exampleGroup.ID(),
 // 			IncludeGroups: pulumi.Bool(true),
+// 			IncludeRoles:  pulumi.Bool(true),
 // 		}, nil)
 // 		return nil
 // 	})
@@ -76,10 +77,14 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 type GetUsersArgs struct {
 	// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
 	CompoundSearchOperator *string `pulumi:"compoundSearchOperator"`
+	// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
+	DelayReadSeconds *string `pulumi:"delayReadSeconds"`
 	// Id of group used to find users based on membership.
 	GroupId *string `pulumi:"groupId"`
 	// Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
 	IncludeGroups *bool `pulumi:"includeGroups"`
+	// Fetch each user's administrator roles. Defaults to `false`, in which case the `adminRoles` user attribute will be empty.
+	IncludeRoles *bool `pulumi:"includeRoles"`
 	// Map of search criteria. It supports the following properties.
 	Searches []GetUsersSearch `pulumi:"searches"`
 }
@@ -87,10 +92,12 @@ type GetUsersArgs struct {
 // A collection of values returned by getUsers.
 type GetUsersResult struct {
 	CompoundSearchOperator *string `pulumi:"compoundSearchOperator"`
+	DelayReadSeconds       *string `pulumi:"delayReadSeconds"`
 	GroupId                *string `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id            string           `pulumi:"id"`
 	IncludeGroups *bool            `pulumi:"includeGroups"`
+	IncludeRoles  *bool            `pulumi:"includeRoles"`
 	Searches      []GetUsersSearch `pulumi:"searches"`
 	// collection of users retrieved from Okta with the following properties.
 	Users []GetUsersUser `pulumi:"users"`
@@ -113,10 +120,14 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 type GetUsersOutputArgs struct {
 	// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
 	CompoundSearchOperator pulumi.StringPtrInput `pulumi:"compoundSearchOperator"`
+	// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
+	DelayReadSeconds pulumi.StringPtrInput `pulumi:"delayReadSeconds"`
 	// Id of group used to find users based on membership.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
 	// Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
 	IncludeGroups pulumi.BoolPtrInput `pulumi:"includeGroups"`
+	// Fetch each user's administrator roles. Defaults to `false`, in which case the `adminRoles` user attribute will be empty.
+	IncludeRoles pulumi.BoolPtrInput `pulumi:"includeRoles"`
 	// Map of search criteria. It supports the following properties.
 	Searches GetUsersSearchArrayInput `pulumi:"searches"`
 }
@@ -144,6 +155,10 @@ func (o GetUsersResultOutput) CompoundSearchOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *string { return v.CompoundSearchOperator }).(pulumi.StringPtrOutput)
 }
 
+func (o GetUsersResultOutput) DelayReadSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUsersResult) *string { return v.DelayReadSeconds }).(pulumi.StringPtrOutput)
+}
+
 func (o GetUsersResultOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
@@ -155,6 +170,10 @@ func (o GetUsersResultOutput) Id() pulumi.StringOutput {
 
 func (o GetUsersResultOutput) IncludeGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *bool { return v.IncludeGroups }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetUsersResultOutput) IncludeRoles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetUsersResult) *bool { return v.IncludeRoles }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetUsersResultOutput) Searches() GetUsersSearchArrayOutput {

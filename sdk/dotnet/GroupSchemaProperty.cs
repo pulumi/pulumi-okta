@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Creates a Group Schema property.
-    /// 
-    /// This resource allows you to create and configure a custom group schema property.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

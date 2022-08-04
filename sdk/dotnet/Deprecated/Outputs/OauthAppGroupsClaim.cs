@@ -14,6 +14,7 @@ namespace Pulumi.Okta.Deprecated.Outputs
     public sealed class OauthAppGroupsClaim
     {
         public readonly string? FilterType;
+        public readonly string? IssuerMode;
         public readonly string Name;
         public readonly string Type;
         public readonly string Value;
@@ -22,6 +23,8 @@ namespace Pulumi.Okta.Deprecated.Outputs
         private OauthAppGroupsClaim(
             string? filterType,
 
+            string? issuerMode,
+
             string name,
 
             string type,
@@ -29,6 +32,7 @@ namespace Pulumi.Okta.Deprecated.Outputs
             string value)
         {
             FilterType = filterType;
+            IssuerMode = issuerMode;
             Name = name;
             Type = type;
             Value = value;

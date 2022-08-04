@@ -13,58 +13,12 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Use this data source to retrieve a behavior from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Okta.GetBehaviour.InvokeAsync(new Okta.GetBehaviourArgs
-        ///         {
-        ///             Label = "New City",
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetBehaviourResult> InvokeAsync(GetBehaviourArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a behavior from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Okta.GetBehaviour.InvokeAsync(new Okta.GetBehaviourArgs
-        ///         {
-        ///             Label = "New City",
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetBehaviourResult> Invoke(GetBehaviourInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourInvokeArgs(), options.WithDefaults());

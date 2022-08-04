@@ -59,6 +59,7 @@ namespace Pulumi.Okta.User
         ///         {
         ///             GroupId = exampleGroup.Id,
         ///             IncludeGroups = true,
+        ///             IncludeRoles = true,
         ///         });
         ///     }
         /// 
@@ -118,6 +119,7 @@ namespace Pulumi.Okta.User
         ///         {
         ///             GroupId = exampleGroup.Id,
         ///             IncludeGroups = true,
+        ///             IncludeRoles = true,
         ///         });
         ///     }
         /// 
@@ -140,6 +142,12 @@ namespace Pulumi.Okta.User
         public string? CompoundSearchOperator { get; set; }
 
         /// <summary>
+        /// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
+        /// </summary>
+        [Input("delayReadSeconds")]
+        public string? DelayReadSeconds { get; set; }
+
+        /// <summary>
         /// Id of group used to find users based on membership.
         /// </summary>
         [Input("groupId")]
@@ -150,6 +158,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("includeGroups")]
         public bool? IncludeGroups { get; set; }
+
+        /// <summary>
+        /// Fetch each user's administrator roles. Defaults to `false`, in which case the `admin_roles` user attribute will be empty.
+        /// </summary>
+        [Input("includeRoles")]
+        public bool? IncludeRoles { get; set; }
 
         [Input("searches")]
         private List<Inputs.GetUsersSearchArgs>? _searches;
@@ -177,6 +191,12 @@ namespace Pulumi.Okta.User
         public Input<string>? CompoundSearchOperator { get; set; }
 
         /// <summary>
+        /// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
+        /// </summary>
+        [Input("delayReadSeconds")]
+        public Input<string>? DelayReadSeconds { get; set; }
+
+        /// <summary>
         /// Id of group used to find users based on membership.
         /// </summary>
         [Input("groupId")]
@@ -187,6 +207,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("includeGroups")]
         public Input<bool>? IncludeGroups { get; set; }
+
+        /// <summary>
+        /// Fetch each user's administrator roles. Defaults to `false`, in which case the `admin_roles` user attribute will be empty.
+        /// </summary>
+        [Input("includeRoles")]
+        public Input<bool>? IncludeRoles { get; set; }
 
         [Input("searches")]
         private InputList<Inputs.GetUsersSearchInputArgs>? _searches;
@@ -210,12 +236,14 @@ namespace Pulumi.Okta.User
     public sealed class GetUsersResult
     {
         public readonly string? CompoundSearchOperator;
+        public readonly string? DelayReadSeconds;
         public readonly string? GroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly bool? IncludeGroups;
+        public readonly bool? IncludeRoles;
         public readonly ImmutableArray<Outputs.GetUsersSearchResult> Searches;
         /// <summary>
         /// collection of users retrieved from Okta with the following properties.
@@ -226,20 +254,26 @@ namespace Pulumi.Okta.User
         private GetUsersResult(
             string? compoundSearchOperator,
 
+            string? delayReadSeconds,
+
             string? groupId,
 
             string id,
 
             bool? includeGroups,
 
+            bool? includeRoles,
+
             ImmutableArray<Outputs.GetUsersSearchResult> searches,
 
             ImmutableArray<Outputs.GetUsersUserResult> users)
         {
             CompoundSearchOperator = compoundSearchOperator;
+            DelayReadSeconds = delayReadSeconds;
             GroupId = groupId;
             Id = id;
             IncludeGroups = includeGroups;
+            IncludeRoles = includeRoles;
             Searches = searches;
             Users = users;
         }

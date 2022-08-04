@@ -26,6 +26,10 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
+     * Bearer token granting privileges to Okta API.
+     */
+    public readonly accessToken!: pulumi.Output<string | undefined>;
+    /**
      * API Token granting privileges to Okta API.
      */
     public readonly apiToken!: pulumi.Output<string | undefined>;
@@ -38,6 +42,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly clientId!: pulumi.Output<string | undefined>;
     /**
+     * Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
+     */
+    public readonly httpProxy!: pulumi.Output<string | undefined>;
+    /**
      * The organization to manage in Okta.
      */
     public readonly orgName!: pulumi.Output<string | undefined>;
@@ -45,6 +53,10 @@ export class Provider extends pulumi.ProviderResource {
      * API Token granting privileges to Okta API.
      */
     public readonly privateKey!: pulumi.Output<string | undefined>;
+    /**
+     * API Token Id granting privileges to Okta API.
+     */
+    public readonly privateKeyId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -57,10 +69,12 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
+            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
             resourceInputs["apiToken"] = args ? args.apiToken : undefined;
             resourceInputs["backoff"] = pulumi.output(args ? args.backoff : undefined).apply(JSON.stringify);
             resourceInputs["baseUrl"] = args ? args.baseUrl : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["httpProxy"] = args ? args.httpProxy : undefined;
             resourceInputs["logLevel"] = pulumi.output(args ? args.logLevel : undefined).apply(JSON.stringify);
             resourceInputs["maxApiCapacity"] = pulumi.output(args ? args.maxApiCapacity : undefined).apply(JSON.stringify);
             resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
@@ -69,6 +83,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["orgName"] = args ? args.orgName : undefined;
             resourceInputs["parallelism"] = pulumi.output(args ? args.parallelism : undefined).apply(JSON.stringify);
             resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["privateKeyId"] = args ? args.privateKeyId : undefined;
             resourceInputs["requestTimeout"] = pulumi.output(args ? args.requestTimeout : undefined).apply(JSON.stringify);
             resourceInputs["scopes"] = pulumi.output(args ? args.scopes : undefined).apply(JSON.stringify);
         }
@@ -81,6 +96,10 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
+    /**
+     * Bearer token granting privileges to Okta API.
+     */
+    accessToken?: pulumi.Input<string>;
     /**
      * API Token granting privileges to Okta API.
      */
@@ -97,6 +116,10 @@ export interface ProviderArgs {
      * API Token granting privileges to Okta API.
      */
     clientId?: pulumi.Input<string>;
+    /**
+     * Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
+     */
+    httpProxy?: pulumi.Input<string>;
     /**
      * providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
      */
@@ -132,6 +155,10 @@ export interface ProviderArgs {
      * API Token granting privileges to Okta API.
      */
     privateKey?: pulumi.Input<string>;
+    /**
+     * API Token Id granting privileges to Okta API.
+     */
+    privateKeyId?: pulumi.Input<string>;
     /**
      * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
      * value can be `300`.
