@@ -19,20 +19,18 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Okta.GetAppGroupAssignments.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Okta.GetAppGroupAssignments.InvokeAsync(new Okta.GetAppGroupAssignmentsArgs
-        ///         {
-        ///             Id = okta_app_oauth.Test.Id,
-        ///         }));
-        ///     }
+        ///         Id = okta_app_oauth.Test.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Okta.GetAppGroupAssignments.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Okta.GetAppGroupAssignments.InvokeAsync(new Okta.GetAppGroupAssignmentsArgs
-        ///         {
-        ///             Id = okta_app_oauth.Test.Id,
-        ///         }));
-        ///     }
+        ///         Id = okta_app_oauth.Test.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetAppGroupAssignmentsArgs : Pulumi.InvokeArgs
+    public sealed class GetAppGroupAssignmentsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Okta application you want to retrieve the groups for.
@@ -82,9 +78,10 @@ namespace Pulumi.Okta
         public GetAppGroupAssignmentsArgs()
         {
         }
+        public static new GetAppGroupAssignmentsArgs Empty => new GetAppGroupAssignmentsArgs();
     }
 
-    public sealed class GetAppGroupAssignmentsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppGroupAssignmentsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Okta application you want to retrieve the groups for.
@@ -95,6 +92,7 @@ namespace Pulumi.Okta
         public GetAppGroupAssignmentsInvokeArgs()
         {
         }
+        public static new GetAppGroupAssignmentsInvokeArgs Empty => new GetAppGroupAssignmentsInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy.Inputs
 {
 
-    public sealed class RuleIdpDiscoveryUserIdentifierPatternGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleIdpDiscoveryUserIdentifierPatternGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
@@ -27,5 +27,6 @@ namespace Pulumi.Okta.Policy.Inputs
         public RuleIdpDiscoveryUserIdentifierPatternGetArgs()
         {
         }
+        public static new RuleIdpDiscoveryUserIdentifierPatternGetArgs Empty => new RuleIdpDiscoveryUserIdentifierPatternGetArgs();
     }
 }

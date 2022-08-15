@@ -19,21 +19,19 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.GetRoleSubscription.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.GetRoleSubscription.InvokeAsync(new Okta.GetRoleSubscriptionArgs
-        ///         {
-        ///             NotificationType = "APP_IMPORT",
-        ///             RoleType = "SUPER_ADMIN",
-        ///         }));
-        ///     }
+        ///         NotificationType = "APP_IMPORT",
+        ///         RoleType = "SUPER_ADMIN",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.GetRoleSubscription.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.GetRoleSubscription.InvokeAsync(new Okta.GetRoleSubscriptionArgs
-        ///         {
-        ///             NotificationType = "APP_IMPORT",
-        ///             RoleType = "SUPER_ADMIN",
-        ///         }));
-        ///     }
+        ///         NotificationType = "APP_IMPORT",
+        ///         RoleType = "SUPER_ADMIN",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetRoleSubscriptionArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 
@@ -94,9 +90,10 @@ namespace Pulumi.Okta
         public GetRoleSubscriptionArgs()
         {
         }
+        public static new GetRoleSubscriptionArgs Empty => new GetRoleSubscriptionArgs();
     }
 
-    public sealed class GetRoleSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 
@@ -117,6 +114,7 @@ namespace Pulumi.Okta
         public GetRoleSubscriptionInvokeArgs()
         {
         }
+        public static new GetRoleSubscriptionInvokeArgs Empty => new GetRoleSubscriptionInvokeArgs();
     }
 
 

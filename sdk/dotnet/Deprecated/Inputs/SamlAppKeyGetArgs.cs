@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Deprecated.Inputs
 {
 
-    public sealed class SamlAppKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class SamlAppKeyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("created")]
         public Input<string>? Created { get; set; }
@@ -50,5 +50,6 @@ namespace Pulumi.Okta.Deprecated.Inputs
         public SamlAppKeyGetArgs()
         {
         }
+        public static new SamlAppKeyGetArgs Empty => new SamlAppKeyGetArgs();
     }
 }

@@ -15,37 +15,35 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.AppSharedCredentials("example", new()
     ///     {
-    ///         var example = new Okta.AppSharedCredentials("example", new Okta.AppSharedCredentialsArgs
-    ///         {
-    ///             AccessibilityErrorRedirectUrl = "https://example.com/redirect_url_1",
-    ///             AccessibilityLoginRedirectUrl = "https://example.com/redirect_url_2",
-    ///             AccessibilitySelfService = true,
-    ///             AutoSubmitToolbar = true,
-    ///             ButtonField = "btn-login",
-    ///             Checkbox = "checkbox_red",
-    ///             HideIos = true,
-    ///             Label = "Example App",
-    ///             PasswordField = "txtbox-password",
-    ///             RedirectUrl = "https://example.com/redirect_url",
-    ///             SharedPassword = "sharedpass",
-    ///             SharedUsername = "sharedusername",
-    ///             Status = "ACTIVE",
-    ///             Url = "https://example.com/login.html",
-    ///             UserNameTemplate = "user.firstName",
-    ///             UserNameTemplateSuffix = "hello",
-    ///             UserNameTemplateType = "CUSTOM",
-    ///             UsernameField = "txtbox-username",
-    ///         });
-    ///     }
+    ///         AccessibilityErrorRedirectUrl = "https://example.com/redirect_url_1",
+    ///         AccessibilityLoginRedirectUrl = "https://example.com/redirect_url_2",
+    ///         AccessibilitySelfService = true,
+    ///         AutoSubmitToolbar = true,
+    ///         ButtonField = "btn-login",
+    ///         Checkbox = "checkbox_red",
+    ///         HideIos = true,
+    ///         Label = "Example App",
+    ///         PasswordField = "txtbox-password",
+    ///         RedirectUrl = "https://example.com/redirect_url",
+    ///         SharedPassword = "sharedpass",
+    ///         SharedUsername = "sharedusername",
+    ///         Status = "ACTIVE",
+    ///         Url = "https://example.com/login.html",
+    ///         UserNameTemplate = "user.firstName",
+    ///         UserNameTemplateSuffix = "hello",
+    ///         UserNameTemplateType = "CUSTOM",
+    ///         UsernameField = "txtbox-username",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +69,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appSharedCredentials:AppSharedCredentials")]
-    public partial class AppSharedCredentials : Pulumi.CustomResource
+    public partial class AppSharedCredentials : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL.
@@ -317,7 +315,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AppSharedCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class AppSharedCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -518,9 +516,10 @@ namespace Pulumi.Okta
         public AppSharedCredentialsArgs()
         {
         }
+        public static new AppSharedCredentialsArgs Empty => new AppSharedCredentialsArgs();
     }
 
-    public sealed class AppSharedCredentialsState : Pulumi.ResourceArgs
+    public sealed class AppSharedCredentialsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -739,5 +738,6 @@ namespace Pulumi.Okta
         public AppSharedCredentialsState()
         {
         }
+        public static new AppSharedCredentialsState Empty => new AppSharedCredentialsState();
     }
 }

@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewBasicAuth(ctx, "example", &app.BasicAuthArgs{
-// 			AuthUrl: pulumi.String("https://example.com/auth.html"),
-// 			Label:   pulumi.String("Example"),
-// 			Url:     pulumi.String("https://example.com/login.html"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewBasicAuth(ctx, "example", &app.BasicAuthArgs{
+//				AuthUrl: pulumi.String("https://example.com/auth.html"),
+//				Label:   pulumi.String("Example"),
+//				Url:     pulumi.String("https://example.com/login.html"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,21 +46,29 @@ import (
 // A Basic Auth App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
+//
+//	$ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
+//
 // ```
 //
-//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//	It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users
+//
+//	$ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users/skip_groups
+//
+//	$ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users/skip_groups
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_groups
+//
+//	$ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_groups
+//
 // ```
 type BasicAuth struct {
 	pulumi.CustomResourceState
@@ -372,7 +383,7 @@ func (i *BasicAuth) ToBasicAuthOutputWithContext(ctx context.Context) BasicAuthO
 // BasicAuthArrayInput is an input type that accepts BasicAuthArray and BasicAuthArrayOutput values.
 // You can construct a concrete instance of `BasicAuthArrayInput` via:
 //
-//          BasicAuthArray{ BasicAuthArgs{...} }
+//	BasicAuthArray{ BasicAuthArgs{...} }
 type BasicAuthArrayInput interface {
 	pulumi.Input
 
@@ -397,7 +408,7 @@ func (i BasicAuthArray) ToBasicAuthArrayOutputWithContext(ctx context.Context) B
 // BasicAuthMapInput is an input type that accepts BasicAuthMap and BasicAuthMapOutput values.
 // You can construct a concrete instance of `BasicAuthMapInput` via:
 //
-//          BasicAuthMap{ "key": BasicAuthArgs{...} }
+//	BasicAuthMap{ "key": BasicAuthArgs{...} }
 type BasicAuthMapInput interface {
 	pulumi.Input
 

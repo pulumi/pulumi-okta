@@ -10,38 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Auth
 {
     /// <summary>
-    /// Creates an Authorization Server Policy Rule.
-    /// 
-    /// This resource allows you to create and configure an Authorization Server Policy Rule.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Auth.ServerPolicyRule("example", new()
     ///     {
-    ///         var example = new Okta.Auth.ServerPolicyRule("example", new Okta.Auth.ServerPolicyRuleArgs
+    ///         AuthServerId = "&lt;auth server id&gt;",
+    ///         GrantTypeWhitelists = new[]
     ///         {
-    ///             AuthServerId = "&lt;auth server id&gt;",
-    ///             GrantTypeWhitelists = 
-    ///             {
-    ///                 "implicit",
-    ///             },
-    ///             GroupWhitelists = 
-    ///             {
-    ///                 "&lt;group ids&gt;",
-    ///             },
-    ///             PolicyId = "&lt;auth server policy id&gt;",
-    ///             Priority = 1,
-    ///             Status = "ACTIVE",
-    ///         });
-    ///     }
+    ///             "implicit",
+    ///         },
+    ///         GroupWhitelists = new[]
+    ///         {
+    ///             "&lt;group ids&gt;",
+    ///         },
+    ///         PolicyId = "&lt;auth server policy id&gt;",
+    ///         Priority = 1,
+    ///         Status = "ACTIVE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +48,7 @@ namespace Pulumi.Okta.Auth
     /// </summary>
     [Obsolete(@"okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule")]
     [OktaResourceType("okta:auth/serverPolicyClaim:ServerPolicyClaim")]
-    public partial class ServerPolicyClaim : Pulumi.CustomResource
+    public partial class ServerPolicyClaim : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
@@ -199,7 +193,7 @@ namespace Pulumi.Okta.Auth
         }
     }
 
-    public sealed class ServerPolicyClaimArgs : Pulumi.ResourceArgs
+    public sealed class ServerPolicyClaimArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
@@ -339,9 +333,10 @@ namespace Pulumi.Okta.Auth
         public ServerPolicyClaimArgs()
         {
         }
+        public static new ServerPolicyClaimArgs Empty => new ServerPolicyClaimArgs();
     }
 
-    public sealed class ServerPolicyClaimState : Pulumi.ResourceArgs
+    public sealed class ServerPolicyClaimState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
@@ -481,5 +476,6 @@ namespace Pulumi.Okta.Auth
         public ServerPolicyClaimState()
         {
         }
+        public static new ServerPolicyClaimState Empty => new ServerPolicyClaimState();
     }
 }

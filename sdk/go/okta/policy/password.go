@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := policy.NewPassword(ctx, "example", &policy.PasswordArgs{
-// 			Description: pulumi.String("Example"),
-// 			GroupsIncludeds: pulumi.StringArray{
-// 				pulumi.Any(data.Okta_group.Everyone.Id),
-// 			},
-// 			PasswordHistoryCount: pulumi.Int(4),
-// 			Status:               pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.NewPassword(ctx, "example", &policy.PasswordArgs{
+//				Description: pulumi.String("Example"),
+//				GroupsIncludeds: pulumi.StringArray{
+//					pulumi.Any(data.Okta_group.Everyone.Id),
+//				},
+//				PasswordHistoryCount: pulumi.Int(4),
+//				Status:               pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // A Password Policy can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/password:Password example &#60;policy id&#62;
+//
+//	$ pulumi import okta:policy/password:Password example &#60;policy id&#62;
+//
 // ```
 type Password struct {
 	pulumi.CustomResourceState
@@ -425,7 +430,7 @@ func (i *Password) ToPasswordOutputWithContext(ctx context.Context) PasswordOutp
 // PasswordArrayInput is an input type that accepts PasswordArray and PasswordArrayOutput values.
 // You can construct a concrete instance of `PasswordArrayInput` via:
 //
-//          PasswordArray{ PasswordArgs{...} }
+//	PasswordArray{ PasswordArgs{...} }
 type PasswordArrayInput interface {
 	pulumi.Input
 
@@ -450,7 +455,7 @@ func (i PasswordArray) ToPasswordArrayOutputWithContext(ctx context.Context) Pas
 // PasswordMapInput is an input type that accepts PasswordMap and PasswordMapOutput values.
 // You can construct a concrete instance of `PasswordMapInput` via:
 //
-//          PasswordMap{ "key": PasswordArgs{...} }
+//	PasswordMap{ "key": PasswordArgs{...} }
 type PasswordMapInput interface {
 	pulumi.Input
 

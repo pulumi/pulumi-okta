@@ -19,21 +19,19 @@ namespace Pulumi.Okta.App
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.App.GetMetadataSaml.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.App.GetMetadataSaml.InvokeAsync(new Okta.App.GetMetadataSamlArgs
-        ///         {
-        ///             AppId = "&lt;app id&gt;",
-        ///             KeyId = "&lt;cert key id&gt;",
-        ///         }));
-        ///     }
+        ///         AppId = "&lt;app id&gt;",
+        ///         KeyId = "&lt;cert key id&gt;",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Okta.App
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.App.GetMetadataSaml.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.App.GetMetadataSaml.InvokeAsync(new Okta.App.GetMetadataSamlArgs
-        ///         {
-        ///             AppId = "&lt;app id&gt;",
-        ///             KeyId = "&lt;cert key id&gt;",
-        ///         }));
-        ///     }
+        ///         AppId = "&lt;app id&gt;",
+        ///         KeyId = "&lt;cert key id&gt;",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Okta.App
     }
 
 
-    public sealed class GetMetadataSamlArgs : Pulumi.InvokeArgs
+    public sealed class GetMetadataSamlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The application ID.
@@ -90,9 +86,10 @@ namespace Pulumi.Okta.App
         public GetMetadataSamlArgs()
         {
         }
+        public static new GetMetadataSamlArgs Empty => new GetMetadataSamlArgs();
     }
 
-    public sealed class GetMetadataSamlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMetadataSamlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The application ID.
@@ -109,6 +106,7 @@ namespace Pulumi.Okta.App
         public GetMetadataSamlInvokeArgs()
         {
         }
+        public static new GetMetadataSamlInvokeArgs Empty => new GetMetadataSamlInvokeArgs();
     }
 
 

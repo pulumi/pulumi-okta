@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App.Inputs
 {
 
-    public sealed class OAuthGroupsClaimGetArgs : Pulumi.ResourceArgs
+    public sealed class OAuthGroupsClaimGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
@@ -46,5 +46,6 @@ namespace Pulumi.Okta.App.Inputs
         public OAuthGroupsClaimGetArgs()
         {
         }
+        public static new OAuthGroupsClaimGetArgs Empty => new OAuthGroupsClaimGetArgs();
     }
 }

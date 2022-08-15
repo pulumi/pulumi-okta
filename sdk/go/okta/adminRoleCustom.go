@@ -21,25 +21,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewAdminRoleCustom(ctx, "example", &okta.AdminRoleCustomArgs{
-// 			Description: pulumi.String("This role allows app assignment management"),
-// 			Label:       pulumi.String("AppAssignmentManager"),
-// 			Permissions: pulumi.StringArray{
-// 				pulumi.String("okta.apps.assignment.manage"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAdminRoleCustom(ctx, "example", &okta.AdminRoleCustomArgs{
+//				Description: pulumi.String("This role allows app assignment management"),
+//				Label:       pulumi.String("AppAssignmentManager"),
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("okta.apps.assignment.manage"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Okta Custom Admin Role can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
+//
+//	$ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
+//
 // ```
 type AdminRoleCustom struct {
 	pulumi.CustomResourceState
@@ -321,7 +326,7 @@ func (i *AdminRoleCustom) ToAdminRoleCustomOutputWithContext(ctx context.Context
 // AdminRoleCustomArrayInput is an input type that accepts AdminRoleCustomArray and AdminRoleCustomArrayOutput values.
 // You can construct a concrete instance of `AdminRoleCustomArrayInput` via:
 //
-//          AdminRoleCustomArray{ AdminRoleCustomArgs{...} }
+//	AdminRoleCustomArray{ AdminRoleCustomArgs{...} }
 type AdminRoleCustomArrayInput interface {
 	pulumi.Input
 
@@ -346,7 +351,7 @@ func (i AdminRoleCustomArray) ToAdminRoleCustomArrayOutputWithContext(ctx contex
 // AdminRoleCustomMapInput is an input type that accepts AdminRoleCustomMap and AdminRoleCustomMapOutput values.
 // You can construct a concrete instance of `AdminRoleCustomMapInput` via:
 //
-//          AdminRoleCustomMap{ "key": AdminRoleCustomArgs{...} }
+//	AdminRoleCustomMap{ "key": AdminRoleCustomArgs{...} }
 type AdminRoleCustomMapInput interface {
 	pulumi.Input
 

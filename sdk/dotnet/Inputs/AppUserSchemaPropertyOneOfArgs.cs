@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Inputs
 {
 
-    public sealed class AppUserSchemaPropertyOneOfArgs : Pulumi.ResourceArgs
+    public sealed class AppUserSchemaPropertyOneOfArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// value mapping to member of `enum`.
@@ -27,5 +27,6 @@ namespace Pulumi.Okta.Inputs
         public AppUserSchemaPropertyOneOfArgs()
         {
         }
+        public static new AppUserSchemaPropertyOneOfArgs Empty => new AppUserSchemaPropertyOneOfArgs();
     }
 }

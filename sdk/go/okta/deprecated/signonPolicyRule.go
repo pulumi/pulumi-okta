@@ -342,7 +342,7 @@ func (i *SignonPolicyRule) ToSignonPolicyRuleOutputWithContext(ctx context.Conte
 // SignonPolicyRuleArrayInput is an input type that accepts SignonPolicyRuleArray and SignonPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `SignonPolicyRuleArrayInput` via:
 //
-//          SignonPolicyRuleArray{ SignonPolicyRuleArgs{...} }
+//	SignonPolicyRuleArray{ SignonPolicyRuleArgs{...} }
 type SignonPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -367,7 +367,7 @@ func (i SignonPolicyRuleArray) ToSignonPolicyRuleArrayOutputWithContext(ctx cont
 // SignonPolicyRuleMapInput is an input type that accepts SignonPolicyRuleMap and SignonPolicyRuleMapOutput values.
 // You can construct a concrete instance of `SignonPolicyRuleMapInput` via:
 //
-//          SignonPolicyRuleMap{ "key": SignonPolicyRuleArgs{...} }
+//	SignonPolicyRuleMap{ "key": SignonPolicyRuleArgs{...} }
 type SignonPolicyRuleMapInput interface {
 	pulumi.Input
 

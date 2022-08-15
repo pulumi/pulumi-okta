@@ -21,25 +21,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := user.NewBaseSchema(ctx, "example", &user.BaseSchemaArgs{
-// 			Index:    pulumi.String("customPropertyName"),
-// 			Master:   pulumi.String("OKTA"),
-// 			Title:    pulumi.String("customPropertyName"),
-// 			Type:     pulumi.String("string"),
-// 			UserType: pulumi.Any(data.Okta_user_type.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := user.NewBaseSchema(ctx, "example", &user.BaseSchemaArgs{
+//				Index:    pulumi.String("customPropertyName"),
+//				Master:   pulumi.String("OKTA"),
+//				Title:    pulumi.String("customPropertyName"),
+//				Type:     pulumi.String("string"),
+//				UserType: pulumi.Any(data.Okta_user_type.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,13 +50,17 @@ import (
 // User schema property of default user type can be imported via the property index.
 //
 // ```sh
-//  $ pulumi import okta:user/baseSchema:BaseSchema example &#60;property name&#62;
+//
+//	$ pulumi import okta:user/baseSchema:BaseSchema example &#60;property name&#62;
+//
 // ```
 //
-//  User schema property of custom user type can be imported via user type id and property index
+//	User schema property of custom user type can be imported via user type id and property index
 //
 // ```sh
-//  $ pulumi import okta:user/baseSchema:BaseSchema example &#60;user type id&#62;.&#60;property name&#62;
+//
+//	$ pulumi import okta:user/baseSchema:BaseSchema example &#60;user type id&#62;.&#60;property name&#62;
+//
 // ```
 type BaseSchema struct {
 	pulumi.CustomResourceState
@@ -220,7 +227,7 @@ func (i *BaseSchema) ToBaseSchemaOutputWithContext(ctx context.Context) BaseSche
 // BaseSchemaArrayInput is an input type that accepts BaseSchemaArray and BaseSchemaArrayOutput values.
 // You can construct a concrete instance of `BaseSchemaArrayInput` via:
 //
-//          BaseSchemaArray{ BaseSchemaArgs{...} }
+//	BaseSchemaArray{ BaseSchemaArgs{...} }
 type BaseSchemaArrayInput interface {
 	pulumi.Input
 
@@ -245,7 +252,7 @@ func (i BaseSchemaArray) ToBaseSchemaArrayOutputWithContext(ctx context.Context)
 // BaseSchemaMapInput is an input type that accepts BaseSchemaMap and BaseSchemaMapOutput values.
 // You can construct a concrete instance of `BaseSchemaMapInput` via:
 //
-//          BaseSchemaMap{ "key": BaseSchemaArgs{...} }
+//	BaseSchemaMap{ "key": BaseSchemaArgs{...} }
 type BaseSchemaMapInput interface {
 	pulumi.Input
 

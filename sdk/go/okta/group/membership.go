@@ -17,22 +17,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := group.NewMembership(ctx, "example", &group.MembershipArgs{
-// 			GroupId: pulumi.String("00g1mana0vCrxzQY84x7"),
-// 			UserId:  pulumi.String("00u1manxvp7QBAGgk4x7"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := group.NewMembership(ctx, "example", &group.MembershipArgs{
+//				GroupId: pulumi.String("00g1mana0vCrxzQY84x7"),
+//				UserId:  pulumi.String("00u1manxvp7QBAGgk4x7"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Membership struct {
 	pulumi.CustomResourceState
@@ -136,7 +139,7 @@ func (i *Membership) ToMembershipOutputWithContext(ctx context.Context) Membersh
 // MembershipArrayInput is an input type that accepts MembershipArray and MembershipArrayOutput values.
 // You can construct a concrete instance of `MembershipArrayInput` via:
 //
-//          MembershipArray{ MembershipArgs{...} }
+//	MembershipArray{ MembershipArgs{...} }
 type MembershipArrayInput interface {
 	pulumi.Input
 
@@ -161,7 +164,7 @@ func (i MembershipArray) ToMembershipArrayOutputWithContext(ctx context.Context)
 // MembershipMapInput is an input type that accepts MembershipMap and MembershipMapOutput values.
 // You can construct a concrete instance of `MembershipMapInput` via:
 //
-//          MembershipMap{ "key": MembershipArgs{...} }
+//	MembershipMap{ "key": MembershipArgs{...} }
 type MembershipMapInput interface {
 	pulumi.Input
 

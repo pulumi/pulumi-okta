@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Deprecated.Inputs
 {
 
-    public sealed class SwaAppUserGetArgs : Pulumi.ResourceArgs
+    public sealed class SwaAppUserGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Okta.Deprecated.Inputs
         public SwaAppUserGetArgs()
         {
         }
+        public static new SwaAppUserGetArgs Empty => new SwaAppUserGetArgs();
     }
 }

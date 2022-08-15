@@ -19,20 +19,18 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.GetGroups.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.GetGroups.InvokeAsync(new Okta.GetGroupsArgs
-        ///         {
-        ///             Q = "Engineering - ",
-        ///         }));
-        ///     }
+        ///         Q = "Engineering - ",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.GetGroups.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.GetGroups.InvokeAsync(new Okta.GetGroupsArgs
-        ///         {
-        ///             Q = "Engineering - ",
-        ///         }));
-        ///     }
+        ///         Q = "Engineering - ",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetGroupsArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Searches the name property of groups for matching value.
@@ -98,9 +94,10 @@ namespace Pulumi.Okta
         public GetGroupsArgs()
         {
         }
+        public static new GetGroupsArgs Empty => new GetGroupsArgs();
     }
 
-    public sealed class GetGroupsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Searches the name property of groups for matching value.
@@ -127,6 +124,7 @@ namespace Pulumi.Okta
         public GetGroupsInvokeArgs()
         {
         }
+        public static new GetGroupsInvokeArgs Empty => new GetGroupsInvokeArgs();
     }
 
 

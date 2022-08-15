@@ -17,25 +17,23 @@ namespace Pulumi.Okta.Policy
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Policy.Signon("example", new()
     ///     {
-    ///         var example = new Okta.Policy.Signon("example", new Okta.Policy.SignonArgs
+    ///         Description = "Example",
+    ///         GroupsIncludeds = new[]
     ///         {
-    ///             Description = "Example",
-    ///             GroupsIncludeds = 
-    ///             {
-    ///                 data.Okta_group.Everyone.Id,
-    ///             },
-    ///             Status = "ACTIVE",
-    ///         });
-    ///     }
+    ///             data.Okta_group.Everyone.Id,
+    ///         },
+    ///         Status = "ACTIVE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Okta.Policy
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/signon:Signon")]
-    public partial class Signon : Pulumi.CustomResource
+    public partial class Signon : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Policy Description.
@@ -123,7 +121,7 @@ namespace Pulumi.Okta.Policy
         }
     }
 
-    public sealed class SignonArgs : Pulumi.ResourceArgs
+    public sealed class SignonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Description.
@@ -164,9 +162,10 @@ namespace Pulumi.Okta.Policy
         public SignonArgs()
         {
         }
+        public static new SignonArgs Empty => new SignonArgs();
     }
 
-    public sealed class SignonState : Pulumi.ResourceArgs
+    public sealed class SignonState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Description.
@@ -207,5 +206,6 @@ namespace Pulumi.Okta.Policy
         public SignonState()
         {
         }
+        public static new SignonState Empty => new SignonState();
     }
 }

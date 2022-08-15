@@ -17,33 +17,31 @@ namespace Pulumi.Okta.Inline
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Inline.Hook("example", new()
     ///     {
-    ///         var example = new Okta.Inline.Hook("example", new Okta.Inline.HookArgs
+    ///         Auth = 
     ///         {
-    ///             Auth = 
-    ///             {
-    ///                 { "key", "Authorization" },
-    ///                 { "type", "HEADER" },
-    ///                 { "value", "secret" },
-    ///             },
-    ///             Channel = 
-    ///             {
-    ///                 { "method", "POST" },
-    ///                 { "uri", "https://example.com/test" },
-    ///                 { "version", "1.0.0" },
-    ///             },
-    ///             Type = "com.okta.oauth2.tokens.transform",
-    ///             Version = "1.0.0",
-    ///         });
-    ///     }
+    ///             { "key", "Authorization" },
+    ///             { "type", "HEADER" },
+    ///             { "value", "secret" },
+    ///         },
+    ///         Channel = 
+    ///         {
+    ///             { "method", "POST" },
+    ///             { "uri", "https://example.com/test" },
+    ///             { "version", "1.0.0" },
+    ///         },
+    ///         Type = "com.okta.oauth2.tokens.transform",
+    ///         Version = "1.0.0",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Okta.Inline
     /// ```
     /// </summary>
     [OktaResourceType("okta:inline/hook:Hook")]
-    public partial class Hook : Pulumi.CustomResource
+    public partial class Hook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Authentication required for inline hook request.
@@ -140,7 +138,7 @@ namespace Pulumi.Okta.Inline
         }
     }
 
-    public sealed class HookArgs : Pulumi.ResourceArgs
+    public sealed class HookArgs : global::Pulumi.ResourceArgs
     {
         [Input("auth")]
         private InputMap<string>? _auth;
@@ -202,9 +200,10 @@ namespace Pulumi.Okta.Inline
         public HookArgs()
         {
         }
+        public static new HookArgs Empty => new HookArgs();
     }
 
-    public sealed class HookState : Pulumi.ResourceArgs
+    public sealed class HookState : global::Pulumi.ResourceArgs
     {
         [Input("auth")]
         private InputMap<string>? _auth;
@@ -266,5 +265,6 @@ namespace Pulumi.Okta.Inline
         public HookState()
         {
         }
+        public static new HookState Empty => new HookState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy.Inputs
 {
 
-    public sealed class RuleMfaAppExcludeArgs : Pulumi.ResourceArgs
+    public sealed class RuleMfaAppExcludeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Use if `type` is `"APP"` to indicate the application id to include.
@@ -33,5 +33,6 @@ namespace Pulumi.Okta.Policy.Inputs
         public RuleMfaAppExcludeArgs()
         {
         }
+        public static new RuleMfaAppExcludeArgs Empty => new RuleMfaAppExcludeArgs();
     }
 }

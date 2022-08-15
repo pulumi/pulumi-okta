@@ -18,54 +18,50 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleCaptcha = new Okta.Captcha("exampleCaptcha", new()
     ///     {
-    ///         var exampleCaptcha = new Okta.Captcha("exampleCaptcha", new Okta.CaptchaArgs
-    ///         {
-    ///             Type = "HCAPTCHA",
-    ///             SiteKey = "some_key",
-    ///             SecretKey = "some_secret_key",
-    ///         });
-    ///         var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", new Okta.CaptchaOrgWideSettingsArgs
-    ///         {
-    ///             CaptchaId = okta_captcha.Test.Id,
-    ///             EnabledFors = 
-    ///             {
-    ///                 "SSR",
-    ///             },
-    ///         });
-    ///     }
+    ///         Type = "HCAPTCHA",
+    ///         SiteKey = "some_key",
+    ///         SecretKey = "some_secret_key",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", new()
+    ///     {
+    ///         CaptchaId = okta_captcha.Test.Id,
+    ///         EnabledFors = new[]
+    ///         {
+    ///             "SSR",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// The following example disables org-wide CAPTCHA.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleCaptcha = new Okta.Captcha("exampleCaptcha", new()
     ///     {
-    ///         var exampleCaptcha = new Okta.Captcha("exampleCaptcha", new Okta.CaptchaArgs
-    ///         {
-    ///             SecretKey = "some_secret_key",
-    ///             SiteKey = "some_key",
-    ///             Type = "HCAPTCHA",
-    ///         });
-    ///         var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", new Okta.CaptchaOrgWideSettingsArgs
-    ///         {
-    ///         });
-    ///     }
+    ///         SecretKey = "some_secret_key",
+    ///         SiteKey = "some_key",
+    ///         Type = "HCAPTCHA",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings");
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +73,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings")]
-    public partial class CaptchaOrgWideSettings : Pulumi.CustomResource
+    public partial class CaptchaOrgWideSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the CAPTCHA.
@@ -135,7 +131,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class CaptchaOrgWideSettingsArgs : Pulumi.ResourceArgs
+    public sealed class CaptchaOrgWideSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the CAPTCHA.
@@ -158,9 +154,10 @@ namespace Pulumi.Okta
         public CaptchaOrgWideSettingsArgs()
         {
         }
+        public static new CaptchaOrgWideSettingsArgs Empty => new CaptchaOrgWideSettingsArgs();
     }
 
-    public sealed class CaptchaOrgWideSettingsState : Pulumi.ResourceArgs
+    public sealed class CaptchaOrgWideSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the CAPTCHA.
@@ -183,5 +180,6 @@ namespace Pulumi.Okta
         public CaptchaOrgWideSettingsState()
         {
         }
+        public static new CaptchaOrgWideSettingsState Empty => new CaptchaOrgWideSettingsState();
     }
 }

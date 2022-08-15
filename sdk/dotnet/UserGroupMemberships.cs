@@ -13,36 +13,35 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testUser = new Okta.User.User("testUser", new()
     ///     {
-    ///         var testUser = new Okta.User.User("testUser", new Okta.User.UserArgs
-    ///         {
-    ///             FirstName = "TestAcc",
-    ///             LastName = "Smith",
-    ///             Login = "testAcc-replace_with_uuid@example.com",
-    ///             Email = "testAcc-replace_with_uuid@example.com",
-    ///         });
-    ///         var testUserGroupMemberships = new Okta.UserGroupMemberships("testUserGroupMemberships", new Okta.UserGroupMembershipsArgs
-    ///         {
-    ///             UserId = testUser.Id,
-    ///             Groups = 
-    ///             {
-    ///                 okta_group.Test_1.Id,
-    ///                 okta_group.Test_2.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         FirstName = "TestAcc",
+    ///         LastName = "Smith",
+    ///         Login = "testAcc-replace_with_uuid@example.com",
+    ///         Email = "testAcc-replace_with_uuid@example.com",
+    ///     });
     /// 
-    /// }
+    ///     var testUserGroupMemberships = new Okta.UserGroupMemberships("testUserGroupMemberships", new()
+    ///     {
+    ///         UserId = testUser.Id,
+    ///         Groups = new[]
+    ///         {
+    ///             okta_group.Test_1.Id,
+    ///             okta_group.Test_2.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/userGroupMemberships:UserGroupMemberships")]
-    public partial class UserGroupMemberships : Pulumi.CustomResource
+    public partial class UserGroupMemberships : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of Okta group IDs which the user should have membership managed for.
@@ -100,7 +99,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class UserGroupMembershipsArgs : Pulumi.ResourceArgs
+    public sealed class UserGroupMembershipsArgs : global::Pulumi.ResourceArgs
     {
         [Input("groups", required: true)]
         private InputList<string>? _groups;
@@ -123,9 +122,10 @@ namespace Pulumi.Okta
         public UserGroupMembershipsArgs()
         {
         }
+        public static new UserGroupMembershipsArgs Empty => new UserGroupMembershipsArgs();
     }
 
-    public sealed class UserGroupMembershipsState : Pulumi.ResourceArgs
+    public sealed class UserGroupMembershipsState : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
         private InputList<string>? _groups;
@@ -148,5 +148,6 @@ namespace Pulumi.Okta
         public UserGroupMembershipsState()
         {
         }
+        public static new UserGroupMembershipsState Empty => new UserGroupMembershipsState();
     }
 }

@@ -13,25 +13,23 @@ namespace Pulumi.Okta.Group
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Group.Membership("example", new()
     ///     {
-    ///         var example = new Okta.Group.Membership("example", new Okta.Group.MembershipArgs
-    ///         {
-    ///             GroupId = "00g1mana0vCrxzQY84x7",
-    ///             UserId = "00u1manxvp7QBAGgk4x7",
-    ///         });
-    ///     }
+    ///         GroupId = "00g1mana0vCrxzQY84x7",
+    ///         UserId = "00u1manxvp7QBAGgk4x7",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [OktaResourceType("okta:group/membership:Membership")]
-    public partial class Membership : Pulumi.CustomResource
+    public partial class Membership : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Okta Group.
@@ -89,7 +87,7 @@ namespace Pulumi.Okta.Group
         }
     }
 
-    public sealed class MembershipArgs : Pulumi.ResourceArgs
+    public sealed class MembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Okta Group.
@@ -106,9 +104,10 @@ namespace Pulumi.Okta.Group
         public MembershipArgs()
         {
         }
+        public static new MembershipArgs Empty => new MembershipArgs();
     }
 
-    public sealed class MembershipState : Pulumi.ResourceArgs
+    public sealed class MembershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Okta Group.
@@ -125,5 +124,6 @@ namespace Pulumi.Okta.Group
         public MembershipState()
         {
         }
+        public static new MembershipState Empty => new MembershipState();
     }
 }

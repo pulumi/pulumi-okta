@@ -15,22 +15,20 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.EmailSender("example", new()
     ///     {
-    ///         var example = new Okta.EmailSender("example", new Okta.EmailSenderArgs
-    ///         {
-    ///             FromAddress = "no-reply@caladan.planet",
-    ///             FromName = "Paul Atreides",
-    ///             Subdomain = "mail",
-    ///         });
-    ///     }
+    ///         FromAddress = "no-reply@caladan.planet",
+    ///         FromName = "Paul Atreides",
+    ///         Subdomain = "mail",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/emailSender:EmailSender")]
-    public partial class EmailSender : Pulumi.CustomResource
+    public partial class EmailSender : global::Pulumi.CustomResource
     {
         /// <summary>
         /// TXT and CNAME records to be registered for the domain.
@@ -118,7 +116,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class EmailSenderArgs : Pulumi.ResourceArgs
+    public sealed class EmailSenderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email address to send from.
@@ -141,9 +139,10 @@ namespace Pulumi.Okta
         public EmailSenderArgs()
         {
         }
+        public static new EmailSenderArgs Empty => new EmailSenderArgs();
     }
 
-    public sealed class EmailSenderState : Pulumi.ResourceArgs
+    public sealed class EmailSenderState : global::Pulumi.ResourceArgs
     {
         [Input("dnsRecords")]
         private InputList<Inputs.EmailSenderDnsRecordGetArgs>? _dnsRecords;
@@ -184,5 +183,6 @@ namespace Pulumi.Okta
         public EmailSenderState()
         {
         }
+        public static new EmailSenderState Empty => new EmailSenderState();
     }
 }

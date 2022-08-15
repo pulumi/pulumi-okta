@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App.Inputs
 {
 
-    public sealed class AutoLoginUserArgs : Pulumi.ResourceArgs
+    public sealed class AutoLoginUserArgs : global::Pulumi.ResourceArgs
     {
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Okta.App.Inputs
         public AutoLoginUserArgs()
         {
         }
+        public static new AutoLoginUserArgs Empty => new AutoLoginUserArgs();
     }
 }

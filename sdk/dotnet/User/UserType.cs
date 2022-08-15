@@ -17,21 +17,19 @@ namespace Pulumi.Okta.User
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.User.UserType("example", new()
     ///     {
-    ///         var example = new Okta.User.UserType("example", new Okta.User.UserTypeArgs
-    ///         {
-    ///             Description = "example",
-    ///             DisplayName = "example",
-    ///         });
-    ///     }
+    ///         Description = "example",
+    ///         DisplayName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Okta.User
     /// ```
     /// </summary>
     [OktaResourceType("okta:user/userType:UserType")]
-    public partial class UserType : Pulumi.CustomResource
+    public partial class UserType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the User Type.
@@ -107,7 +105,7 @@ namespace Pulumi.Okta.User
         }
     }
 
-    public sealed class UserTypeArgs : Pulumi.ResourceArgs
+    public sealed class UserTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the User Type.
@@ -130,9 +128,10 @@ namespace Pulumi.Okta.User
         public UserTypeArgs()
         {
         }
+        public static new UserTypeArgs Empty => new UserTypeArgs();
     }
 
-    public sealed class UserTypeState : Pulumi.ResourceArgs
+    public sealed class UserTypeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the User Type.
@@ -155,5 +154,6 @@ namespace Pulumi.Okta.User
         public UserTypeState()
         {
         }
+        public static new UserTypeState Empty => new UserTypeState();
     }
 }

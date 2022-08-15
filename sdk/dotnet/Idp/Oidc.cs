@@ -17,35 +17,33 @@ namespace Pulumi.Okta.Idp
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Idp.Oidc("example", new()
     ///     {
-    ///         var example = new Okta.Idp.Oidc("example", new Okta.Idp.OidcArgs
+    ///         AuthorizationBinding = "HTTP-REDIRECT",
+    ///         AuthorizationUrl = "https://idp.example.com/authorize",
+    ///         ClientId = "efg456",
+    ///         ClientSecret = "efg456",
+    ///         IssuerUrl = "https://id.example.com",
+    ///         JwksBinding = "HTTP-REDIRECT",
+    ///         JwksUrl = "https://idp.example.com/keys",
+    ///         Scopes = new[]
     ///         {
-    ///             AuthorizationBinding = "HTTP-REDIRECT",
-    ///             AuthorizationUrl = "https://idp.example.com/authorize",
-    ///             ClientId = "efg456",
-    ///             ClientSecret = "efg456",
-    ///             IssuerUrl = "https://id.example.com",
-    ///             JwksBinding = "HTTP-REDIRECT",
-    ///             JwksUrl = "https://idp.example.com/keys",
-    ///             Scopes = 
-    ///             {
-    ///                 "openid",
-    ///             },
-    ///             TokenBinding = "HTTP-POST",
-    ///             TokenUrl = "https://idp.example.com/token",
-    ///             UserInfoBinding = "HTTP-REDIRECT",
-    ///             UserInfoUrl = "https://idp.example.com/userinfo",
-    ///             UsernameTemplate = "idpuser.email",
-    ///         });
-    ///     }
+    ///             "openid",
+    ///         },
+    ///         TokenBinding = "HTTP-POST",
+    ///         TokenUrl = "https://idp.example.com/token",
+    ///         UserInfoBinding = "HTTP-REDIRECT",
+    ///         UserInfoUrl = "https://idp.example.com/userinfo",
+    ///         UsernameTemplate = "idpuser.email",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +55,7 @@ namespace Pulumi.Okta.Idp
     /// ```
     /// </summary>
     [OktaResourceType("okta:idp/oidc:Oidc")]
-    public partial class Oidc : Pulumi.CustomResource
+    public partial class Oidc : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the account linking action for an IdP user.
@@ -304,7 +302,7 @@ namespace Pulumi.Okta.Idp
         }
     }
 
-    public sealed class OidcArgs : Pulumi.ResourceArgs
+    public sealed class OidcArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the account linking action for an IdP user.
@@ -522,9 +520,10 @@ namespace Pulumi.Okta.Idp
         public OidcArgs()
         {
         }
+        public static new OidcArgs Empty => new OidcArgs();
     }
 
-    public sealed class OidcState : Pulumi.ResourceArgs
+    public sealed class OidcState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the account linking action for an IdP user.
@@ -754,5 +753,6 @@ namespace Pulumi.Okta.Idp
         public OidcState()
         {
         }
+        public static new OidcState Empty => new OidcState();
     }
 }

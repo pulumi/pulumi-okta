@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use policy.RuleSignon instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/signonPolicyRule:SignonPolicyRule")]
-    public partial class SignonPolicyRule : Pulumi.CustomResource
+    public partial class SignonPolicyRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
@@ -200,7 +200,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class SignonPolicyRuleArgs : Pulumi.ResourceArgs
+    public sealed class SignonPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
@@ -383,9 +383,10 @@ namespace Pulumi.Okta.Deprecated
         public SignonPolicyRuleArgs()
         {
         }
+        public static new SignonPolicyRuleArgs Empty => new SignonPolicyRuleArgs();
     }
 
-    public sealed class SignonPolicyRuleState : Pulumi.ResourceArgs
+    public sealed class SignonPolicyRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
@@ -568,5 +569,6 @@ namespace Pulumi.Okta.Deprecated
         public SignonPolicyRuleState()
         {
         }
+        public static new SignonPolicyRuleState Empty => new SignonPolicyRuleState();
     }
 }

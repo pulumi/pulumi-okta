@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use idp.* instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/idp:Idp")]
-    public partial class Idp : Pulumi.CustomResource
+    public partial class Idp : global::Pulumi.CustomResource
     {
         [Output("accountLinkAction")]
         public Output<string?> AccountLinkAction { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class IdpArgs : Pulumi.ResourceArgs
+    public sealed class IdpArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountLinkAction")]
         public Input<string>? AccountLinkAction { get; set; }
@@ -304,9 +304,10 @@ namespace Pulumi.Okta.Deprecated
         public IdpArgs()
         {
         }
+        public static new IdpArgs Empty => new IdpArgs();
     }
 
-    public sealed class IdpState : Pulumi.ResourceArgs
+    public sealed class IdpState : global::Pulumi.ResourceArgs
     {
         [Input("accountLinkAction")]
         public Input<string>? AccountLinkAction { get; set; }
@@ -445,5 +446,6 @@ namespace Pulumi.Okta.Deprecated
         public IdpState()
         {
         }
+        public static new IdpState Empty => new IdpState();
     }
 }

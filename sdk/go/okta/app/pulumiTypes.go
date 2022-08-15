@@ -20,7 +20,7 @@ type AutoLoginUser struct {
 // AutoLoginUserInput is an input type that accepts AutoLoginUserArgs and AutoLoginUserOutput values.
 // You can construct a concrete instance of `AutoLoginUserInput` via:
 //
-//          AutoLoginUserArgs{...}
+//	AutoLoginUserArgs{...}
 type AutoLoginUserInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i AutoLoginUserArgs) ToAutoLoginUserOutputWithContext(ctx context.Context)
 // AutoLoginUserArrayInput is an input type that accepts AutoLoginUserArray and AutoLoginUserArrayOutput values.
 // You can construct a concrete instance of `AutoLoginUserArrayInput` via:
 //
-//          AutoLoginUserArray{ AutoLoginUserArgs{...} }
+//	AutoLoginUserArray{ AutoLoginUserArgs{...} }
 type AutoLoginUserArrayInput interface {
 	pulumi.Input
 
@@ -133,7 +133,7 @@ type BasicAuthUser struct {
 // BasicAuthUserInput is an input type that accepts BasicAuthUserArgs and BasicAuthUserOutput values.
 // You can construct a concrete instance of `BasicAuthUserInput` via:
 //
-//          BasicAuthUserArgs{...}
+//	BasicAuthUserArgs{...}
 type BasicAuthUserInput interface {
 	pulumi.Input
 
@@ -164,7 +164,7 @@ func (i BasicAuthUserArgs) ToBasicAuthUserOutputWithContext(ctx context.Context)
 // BasicAuthUserArrayInput is an input type that accepts BasicAuthUserArray and BasicAuthUserArrayOutput values.
 // You can construct a concrete instance of `BasicAuthUserArrayInput` via:
 //
-//          BasicAuthUserArray{ BasicAuthUserArgs{...} }
+//	BasicAuthUserArray{ BasicAuthUserArgs{...} }
 type BasicAuthUserArrayInput interface {
 	pulumi.Input
 
@@ -248,7 +248,7 @@ type BookmarkUser struct {
 // BookmarkUserInput is an input type that accepts BookmarkUserArgs and BookmarkUserOutput values.
 // You can construct a concrete instance of `BookmarkUserInput` via:
 //
-//          BookmarkUserArgs{...}
+//	BookmarkUserArgs{...}
 type BookmarkUserInput interface {
 	pulumi.Input
 
@@ -279,7 +279,7 @@ func (i BookmarkUserArgs) ToBookmarkUserOutputWithContext(ctx context.Context) B
 // BookmarkUserArrayInput is an input type that accepts BookmarkUserArray and BookmarkUserArrayOutput values.
 // You can construct a concrete instance of `BookmarkUserArrayInput` via:
 //
-//          BookmarkUserArray{ BookmarkUserArgs{...} }
+//	BookmarkUserArray{ BookmarkUserArgs{...} }
 type BookmarkUserArrayInput interface {
 	pulumi.Input
 
@@ -369,7 +369,7 @@ type OAuthGroupsClaim struct {
 // OAuthGroupsClaimInput is an input type that accepts OAuthGroupsClaimArgs and OAuthGroupsClaimOutput values.
 // You can construct a concrete instance of `OAuthGroupsClaimInput` via:
 //
-//          OAuthGroupsClaimArgs{...}
+//	OAuthGroupsClaimArgs{...}
 type OAuthGroupsClaimInput interface {
 	pulumi.Input
 
@@ -414,11 +414,11 @@ func (i OAuthGroupsClaimArgs) ToOAuthGroupsClaimPtrOutputWithContext(ctx context
 // OAuthGroupsClaimPtrInput is an input type that accepts OAuthGroupsClaimArgs, OAuthGroupsClaimPtr and OAuthGroupsClaimPtrOutput values.
 // You can construct a concrete instance of `OAuthGroupsClaimPtrInput` via:
 //
-//          OAuthGroupsClaimArgs{...}
+//	        OAuthGroupsClaimArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OAuthGroupsClaimPtrInput interface {
 	pulumi.Input
 
@@ -579,7 +579,7 @@ type OAuthJwk struct {
 // OAuthJwkInput is an input type that accepts OAuthJwkArgs and OAuthJwkOutput values.
 // You can construct a concrete instance of `OAuthJwkInput` via:
 //
-//          OAuthJwkArgs{...}
+//	OAuthJwkArgs{...}
 type OAuthJwkInput interface {
 	pulumi.Input
 
@@ -609,7 +609,7 @@ func (i OAuthJwkArgs) ToOAuthJwkOutputWithContext(ctx context.Context) OAuthJwkO
 // OAuthJwkArrayInput is an input type that accepts OAuthJwkArray and OAuthJwkArrayOutput values.
 // You can construct a concrete instance of `OAuthJwkArrayInput` via:
 //
-//          OAuthJwkArray{ OAuthJwkArgs{...} }
+//	OAuthJwkArray{ OAuthJwkArgs{...} }
 type OAuthJwkArrayInput interface {
 	pulumi.Input
 
@@ -692,7 +692,7 @@ type OAuthUser struct {
 // OAuthUserInput is an input type that accepts OAuthUserArgs and OAuthUserOutput values.
 // You can construct a concrete instance of `OAuthUserInput` via:
 //
-//          OAuthUserArgs{...}
+//	OAuthUserArgs{...}
 type OAuthUserInput interface {
 	pulumi.Input
 
@@ -723,7 +723,7 @@ func (i OAuthUserArgs) ToOAuthUserOutputWithContext(ctx context.Context) OAuthUs
 // OAuthUserArrayInput is an input type that accepts OAuthUserArray and OAuthUserArrayOutput values.
 // You can construct a concrete instance of `OAuthUserArrayInput` via:
 //
-//          OAuthUserArray{ OAuthUserArgs{...} }
+//	OAuthUserArray{ OAuthUserArgs{...} }
 type OAuthUserArrayInput interface {
 	pulumi.Input
 
@@ -814,7 +814,7 @@ type SamlAttributeStatement struct {
 // SamlAttributeStatementInput is an input type that accepts SamlAttributeStatementArgs and SamlAttributeStatementOutput values.
 // You can construct a concrete instance of `SamlAttributeStatementInput` via:
 //
-//          SamlAttributeStatementArgs{...}
+//	SamlAttributeStatementArgs{...}
 type SamlAttributeStatementInput interface {
 	pulumi.Input
 
@@ -852,7 +852,7 @@ func (i SamlAttributeStatementArgs) ToSamlAttributeStatementOutputWithContext(ct
 // SamlAttributeStatementArrayInput is an input type that accepts SamlAttributeStatementArray and SamlAttributeStatementArrayOutput values.
 // You can construct a concrete instance of `SamlAttributeStatementArrayInput` via:
 //
-//          SamlAttributeStatementArray{ SamlAttributeStatementArgs{...} }
+//	SamlAttributeStatementArray{ SamlAttributeStatementArgs{...} }
 type SamlAttributeStatementArrayInput interface {
 	pulumi.Input
 
@@ -964,7 +964,7 @@ type SamlKey struct {
 // SamlKeyInput is an input type that accepts SamlKeyArgs and SamlKeyOutput values.
 // You can construct a concrete instance of `SamlKeyInput` via:
 //
-//          SamlKeyArgs{...}
+//	SamlKeyArgs{...}
 type SamlKeyInput interface {
 	pulumi.Input
 
@@ -1010,7 +1010,7 @@ func (i SamlKeyArgs) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutp
 // SamlKeyArrayInput is an input type that accepts SamlKeyArray and SamlKeyArrayOutput values.
 // You can construct a concrete instance of `SamlKeyArrayInput` via:
 //
-//          SamlKeyArray{ SamlKeyArgs{...} }
+//	SamlKeyArray{ SamlKeyArgs{...} }
 type SamlKeyArrayInput interface {
 	pulumi.Input
 
@@ -1127,7 +1127,7 @@ type SamlUser struct {
 // SamlUserInput is an input type that accepts SamlUserArgs and SamlUserOutput values.
 // You can construct a concrete instance of `SamlUserInput` via:
 //
-//          SamlUserArgs{...}
+//	SamlUserArgs{...}
 type SamlUserInput interface {
 	pulumi.Input
 
@@ -1158,7 +1158,7 @@ func (i SamlUserArgs) ToSamlUserOutputWithContext(ctx context.Context) SamlUserO
 // SamlUserArrayInput is an input type that accepts SamlUserArray and SamlUserArrayOutput values.
 // You can construct a concrete instance of `SamlUserArrayInput` via:
 //
-//          SamlUserArray{ SamlUserArgs{...} }
+//	SamlUserArray{ SamlUserArgs{...} }
 type SamlUserArrayInput interface {
 	pulumi.Input
 
@@ -1241,7 +1241,7 @@ type SecurePasswordStoreUser struct {
 // SecurePasswordStoreUserInput is an input type that accepts SecurePasswordStoreUserArgs and SecurePasswordStoreUserOutput values.
 // You can construct a concrete instance of `SecurePasswordStoreUserInput` via:
 //
-//          SecurePasswordStoreUserArgs{...}
+//	SecurePasswordStoreUserArgs{...}
 type SecurePasswordStoreUserInput interface {
 	pulumi.Input
 
@@ -1271,7 +1271,7 @@ func (i SecurePasswordStoreUserArgs) ToSecurePasswordStoreUserOutputWithContext(
 // SecurePasswordStoreUserArrayInput is an input type that accepts SecurePasswordStoreUserArray and SecurePasswordStoreUserArrayOutput values.
 // You can construct a concrete instance of `SecurePasswordStoreUserArrayInput` via:
 //
-//          SecurePasswordStoreUserArray{ SecurePasswordStoreUserArgs{...} }
+//	SecurePasswordStoreUserArray{ SecurePasswordStoreUserArgs{...} }
 type SecurePasswordStoreUserArrayInput interface {
 	pulumi.Input
 
@@ -1353,7 +1353,7 @@ type SwaUser struct {
 // SwaUserInput is an input type that accepts SwaUserArgs and SwaUserOutput values.
 // You can construct a concrete instance of `SwaUserInput` via:
 //
-//          SwaUserArgs{...}
+//	SwaUserArgs{...}
 type SwaUserInput interface {
 	pulumi.Input
 
@@ -1383,7 +1383,7 @@ func (i SwaUserArgs) ToSwaUserOutputWithContext(ctx context.Context) SwaUserOutp
 // SwaUserArrayInput is an input type that accepts SwaUserArray and SwaUserArrayOutput values.
 // You can construct a concrete instance of `SwaUserArrayInput` via:
 //
-//          SwaUserArray{ SwaUserArgs{...} }
+//	SwaUserArray{ SwaUserArgs{...} }
 type SwaUserArrayInput interface {
 	pulumi.Input
 
@@ -1465,7 +1465,7 @@ type ThreeFieldUser struct {
 // ThreeFieldUserInput is an input type that accepts ThreeFieldUserArgs and ThreeFieldUserOutput values.
 // You can construct a concrete instance of `ThreeFieldUserInput` via:
 //
-//          ThreeFieldUserArgs{...}
+//	ThreeFieldUserArgs{...}
 type ThreeFieldUserInput interface {
 	pulumi.Input
 
@@ -1495,7 +1495,7 @@ func (i ThreeFieldUserArgs) ToThreeFieldUserOutputWithContext(ctx context.Contex
 // ThreeFieldUserArrayInput is an input type that accepts ThreeFieldUserArray and ThreeFieldUserArrayOutput values.
 // You can construct a concrete instance of `ThreeFieldUserArrayInput` via:
 //
-//          ThreeFieldUserArray{ ThreeFieldUserArgs{...} }
+//	ThreeFieldUserArray{ ThreeFieldUserArgs{...} }
 type ThreeFieldUserArrayInput interface {
 	pulumi.Input
 
@@ -1577,7 +1577,7 @@ type UserSchemaArrayOneOf struct {
 // UserSchemaArrayOneOfInput is an input type that accepts UserSchemaArrayOneOfArgs and UserSchemaArrayOneOfOutput values.
 // You can construct a concrete instance of `UserSchemaArrayOneOfInput` via:
 //
-//          UserSchemaArrayOneOfArgs{...}
+//	UserSchemaArrayOneOfArgs{...}
 type UserSchemaArrayOneOfInput interface {
 	pulumi.Input
 
@@ -1607,7 +1607,7 @@ func (i UserSchemaArrayOneOfArgs) ToUserSchemaArrayOneOfOutputWithContext(ctx co
 // UserSchemaArrayOneOfArrayInput is an input type that accepts UserSchemaArrayOneOfArray and UserSchemaArrayOneOfArrayOutput values.
 // You can construct a concrete instance of `UserSchemaArrayOneOfArrayInput` via:
 //
-//          UserSchemaArrayOneOfArray{ UserSchemaArrayOneOfArgs{...} }
+//	UserSchemaArrayOneOfArray{ UserSchemaArrayOneOfArgs{...} }
 type UserSchemaArrayOneOfArrayInput interface {
 	pulumi.Input
 
@@ -1683,7 +1683,7 @@ type UserSchemaOneOf struct {
 // UserSchemaOneOfInput is an input type that accepts UserSchemaOneOfArgs and UserSchemaOneOfOutput values.
 // You can construct a concrete instance of `UserSchemaOneOfInput` via:
 //
-//          UserSchemaOneOfArgs{...}
+//	UserSchemaOneOfArgs{...}
 type UserSchemaOneOfInput interface {
 	pulumi.Input
 
@@ -1713,7 +1713,7 @@ func (i UserSchemaOneOfArgs) ToUserSchemaOneOfOutputWithContext(ctx context.Cont
 // UserSchemaOneOfArrayInput is an input type that accepts UserSchemaOneOfArray and UserSchemaOneOfArrayOutput values.
 // You can construct a concrete instance of `UserSchemaOneOfArrayInput` via:
 //
-//          UserSchemaOneOfArray{ UserSchemaOneOfArgs{...} }
+//	UserSchemaOneOfArray{ UserSchemaOneOfArgs{...} }
 type UserSchemaOneOfArrayInput interface {
 	pulumi.Input
 
@@ -1797,7 +1797,7 @@ type GetSamlAttributeStatement struct {
 // GetSamlAttributeStatementInput is an input type that accepts GetSamlAttributeStatementArgs and GetSamlAttributeStatementOutput values.
 // You can construct a concrete instance of `GetSamlAttributeStatementInput` via:
 //
-//          GetSamlAttributeStatementArgs{...}
+//	GetSamlAttributeStatementArgs{...}
 type GetSamlAttributeStatementInput interface {
 	pulumi.Input
 
@@ -1835,7 +1835,7 @@ func (i GetSamlAttributeStatementArgs) ToGetSamlAttributeStatementOutputWithCont
 // GetSamlAttributeStatementArrayInput is an input type that accepts GetSamlAttributeStatementArray and GetSamlAttributeStatementArrayOutput values.
 // You can construct a concrete instance of `GetSamlAttributeStatementArrayInput` via:
 //
-//          GetSamlAttributeStatementArray{ GetSamlAttributeStatementArgs{...} }
+//	GetSamlAttributeStatementArray{ GetSamlAttributeStatementArgs{...} }
 type GetSamlAttributeStatementArrayInput interface {
 	pulumi.Input
 

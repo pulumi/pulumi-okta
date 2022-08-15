@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Inputs
 {
 
-    public sealed class AppGroupAssignmentsGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class AppGroupAssignmentsGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the group to assign.
@@ -33,5 +33,6 @@ namespace Pulumi.Okta.Inputs
         public AppGroupAssignmentsGroupGetArgs()
         {
         }
+        public static new AppGroupAssignmentsGroupGetArgs Empty => new AppGroupAssignmentsGroupGetArgs();
     }
 }

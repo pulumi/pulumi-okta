@@ -17,22 +17,20 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Captcha("example", new()
     ///     {
-    ///         var example = new Okta.Captcha("example", new Okta.CaptchaArgs
-    ///         {
-    ///             SecretKey = "some_secret_key",
-    ///             SiteKey = "some_key",
-    ///             Type = "HCAPTCHA",
-    ///         });
-    ///     }
+    ///         SecretKey = "some_secret_key",
+    ///         SiteKey = "some_key",
+    ///         Type = "HCAPTCHA",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/captcha:Captcha")]
-    public partial class Captcha : Pulumi.CustomResource
+    public partial class Captcha : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the captcha.
@@ -114,7 +112,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class CaptchaArgs : Pulumi.ResourceArgs
+    public sealed class CaptchaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the captcha.
@@ -143,9 +141,10 @@ namespace Pulumi.Okta
         public CaptchaArgs()
         {
         }
+        public static new CaptchaArgs Empty => new CaptchaArgs();
     }
 
-    public sealed class CaptchaState : Pulumi.ResourceArgs
+    public sealed class CaptchaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the captcha.
@@ -174,5 +173,6 @@ namespace Pulumi.Okta
         public CaptchaState()
         {
         }
+        public static new CaptchaState Empty => new CaptchaState();
     }
 }

@@ -20,25 +20,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewSecurityNotificationEmails(ctx, "example", &okta.SecurityNotificationEmailsArgs{
-// 			ReportSuspiciousActivityEnabled:     pulumi.Bool(true),
-// 			SendEmailForFactorEnrollmentEnabled: pulumi.Bool(true),
-// 			SendEmailForFactorResetEnabled:      pulumi.Bool(true),
-// 			SendEmailForNewDeviceEnabled:        pulumi.Bool(true),
-// 			SendEmailForPasswordChangedEnabled:  pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewSecurityNotificationEmails(ctx, "example", &okta.SecurityNotificationEmailsArgs{
+//				ReportSuspiciousActivityEnabled:     pulumi.Bool(true),
+//				SendEmailForFactorEnrollmentEnabled: pulumi.Bool(true),
+//				SendEmailForFactorResetEnabled:      pulumi.Bool(true),
+//				SendEmailForNewDeviceEnabled:        pulumi.Bool(true),
+//				SendEmailForPasswordChangedEnabled:  pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Security Notification Emails can be imported without any parameters.
 //
 // ```sh
-//  $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
+//
+//	$ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
+//
 // ```
 type SecurityNotificationEmails struct {
 	pulumi.CustomResourceState
@@ -174,7 +179,7 @@ func (i *SecurityNotificationEmails) ToSecurityNotificationEmailsOutputWithConte
 // SecurityNotificationEmailsArrayInput is an input type that accepts SecurityNotificationEmailsArray and SecurityNotificationEmailsArrayOutput values.
 // You can construct a concrete instance of `SecurityNotificationEmailsArrayInput` via:
 //
-//          SecurityNotificationEmailsArray{ SecurityNotificationEmailsArgs{...} }
+//	SecurityNotificationEmailsArray{ SecurityNotificationEmailsArgs{...} }
 type SecurityNotificationEmailsArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +204,7 @@ func (i SecurityNotificationEmailsArray) ToSecurityNotificationEmailsArrayOutput
 // SecurityNotificationEmailsMapInput is an input type that accepts SecurityNotificationEmailsMap and SecurityNotificationEmailsMapOutput values.
 // You can construct a concrete instance of `SecurityNotificationEmailsMapInput` via:
 //
-//          SecurityNotificationEmailsMap{ "key": SecurityNotificationEmailsArgs{...} }
+//	SecurityNotificationEmailsMap{ "key": SecurityNotificationEmailsArgs{...} }
 type SecurityNotificationEmailsMapInput interface {
 	pulumi.Input
 

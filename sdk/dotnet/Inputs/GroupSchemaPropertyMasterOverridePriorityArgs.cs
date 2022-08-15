@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Inputs
 {
 
-    public sealed class GroupSchemaPropertyMasterOverridePriorityArgs : Pulumi.ResourceArgs
+    public sealed class GroupSchemaPropertyMasterOverridePriorityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - Type of profile source.
@@ -27,5 +27,6 @@ namespace Pulumi.Okta.Inputs
         public GroupSchemaPropertyMasterOverridePriorityArgs()
         {
         }
+        public static new GroupSchemaPropertyMasterOverridePriorityArgs Empty => new GroupSchemaPropertyMasterOverridePriorityArgs();
     }
 }

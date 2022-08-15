@@ -22,7 +22,9 @@ import (
 // An Okta Brand can be imported via the ID.
 //
 // ```sh
-//  $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
+//
+//	$ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
+//
 // ```
 type Theme struct {
 	pulumi.CustomResourceState
@@ -262,7 +264,7 @@ func (i *Theme) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 // ThemeArrayInput is an input type that accepts ThemeArray and ThemeArrayOutput values.
 // You can construct a concrete instance of `ThemeArrayInput` via:
 //
-//          ThemeArray{ ThemeArgs{...} }
+//	ThemeArray{ ThemeArgs{...} }
 type ThemeArrayInput interface {
 	pulumi.Input
 
@@ -287,7 +289,7 @@ func (i ThemeArray) ToThemeArrayOutputWithContext(ctx context.Context) ThemeArra
 // ThemeMapInput is an input type that accepts ThemeMap and ThemeMapOutput values.
 // You can construct a concrete instance of `ThemeMapInput` via:
 //
-//          ThemeMap{ "key": ThemeArgs{...} }
+//	ThemeMap{ "key": ThemeArgs{...} }
 type ThemeMapInput interface {
 	pulumi.Input
 

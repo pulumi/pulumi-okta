@@ -21,48 +21,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/factor"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/factor"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUser, err := user.NewUser(ctx, "exampleUser", &user.UserArgs{
-// 			FirstName: pulumi.String("John"),
-// 			LastName:  pulumi.String("Smith"),
-// 			Login:     pulumi.String("john.smith@example.com"),
-// 			Email:     pulumi.String("john.smith@example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserSecurityQuestions := okta.GetUserSecurityQuestionsOutput(ctx, GetUserSecurityQuestionsOutputArgs{
-// 			UserId: exampleUser.ID(),
-// 		}, nil)
-// 		exampleFactor, err := factor.NewFactor(ctx, "exampleFactor", &factor.FactorArgs{
-// 			ProviderId: pulumi.String("okta_question"),
-// 			Active:     pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewUserFactorQuestion(ctx, "exampleUserFactorQuestion", &okta.UserFactorQuestionArgs{
-// 			UserId: exampleUser.ID(),
-// 			Key: exampleUserSecurityQuestions.ApplyT(func(exampleUserSecurityQuestions GetUserSecurityQuestionsResult) (string, error) {
-// 				return exampleUserSecurityQuestions.Questions[0].Key, nil
-// 			}).(pulumi.StringOutput),
-// 			Answer: pulumi.String("meatball"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleFactor,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUser, err := user.NewUser(ctx, "exampleUser", &user.UserArgs{
+//				FirstName: pulumi.String("John"),
+//				LastName:  pulumi.String("Smith"),
+//				Login:     pulumi.String("john.smith@example.com"),
+//				Email:     pulumi.String("john.smith@example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserSecurityQuestions := okta.GetUserSecurityQuestionsOutput(ctx, GetUserSecurityQuestionsOutputArgs{
+//				UserId: exampleUser.ID(),
+//			}, nil)
+//			exampleFactor, err := factor.NewFactor(ctx, "exampleFactor", &factor.FactorArgs{
+//				ProviderId: pulumi.String("okta_question"),
+//				Active:     pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewUserFactorQuestion(ctx, "exampleUserFactorQuestion", &okta.UserFactorQuestionArgs{
+//				UserId: exampleUser.ID(),
+//				Key: exampleUserSecurityQuestions.ApplyT(func(exampleUserSecurityQuestions GetUserSecurityQuestionsResult) (string, error) {
+//					return exampleUserSecurityQuestions.Questions[0].Key, nil
+//				}).(pulumi.StringOutput),
+//				Answer: pulumi.String("meatball"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleFactor,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // Security question factor for a user can be imported via the `user_id` and the `factor_id`.
 //
 // ```sh
-//  $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
+//
+//	$ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
+//
 // ```
 type UserFactorQuestion struct {
 	pulumi.CustomResourceState
@@ -199,7 +204,7 @@ func (i *UserFactorQuestion) ToUserFactorQuestionOutputWithContext(ctx context.C
 // UserFactorQuestionArrayInput is an input type that accepts UserFactorQuestionArray and UserFactorQuestionArrayOutput values.
 // You can construct a concrete instance of `UserFactorQuestionArrayInput` via:
 //
-//          UserFactorQuestionArray{ UserFactorQuestionArgs{...} }
+//	UserFactorQuestionArray{ UserFactorQuestionArgs{...} }
 type UserFactorQuestionArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +229,7 @@ func (i UserFactorQuestionArray) ToUserFactorQuestionArrayOutputWithContext(ctx 
 // UserFactorQuestionMapInput is an input type that accepts UserFactorQuestionMap and UserFactorQuestionMapOutput values.
 // You can construct a concrete instance of `UserFactorQuestionMapInput` via:
 //
-//          UserFactorQuestionMap{ "key": UserFactorQuestionArgs{...} }
+//	UserFactorQuestionMap{ "key": UserFactorQuestionArgs{...} }
 type UserFactorQuestionMapInput interface {
 	pulumi.Input
 

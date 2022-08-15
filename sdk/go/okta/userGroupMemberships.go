@@ -17,35 +17,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testUser, err := user.NewUser(ctx, "testUser", &user.UserArgs{
-// 			FirstName: pulumi.String("TestAcc"),
-// 			LastName:  pulumi.String("Smith"),
-// 			Login:     pulumi.String("testAcc-replace_with_uuid@example.com"),
-// 			Email:     pulumi.String("testAcc-replace_with_uuid@example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewUserGroupMemberships(ctx, "testUserGroupMemberships", &okta.UserGroupMembershipsArgs{
-// 			UserId: testUser.ID(),
-// 			Groups: pulumi.StringArray{
-// 				pulumi.Any(okta_group.Test_1.Id),
-// 				pulumi.Any(okta_group.Test_2.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testUser, err := user.NewUser(ctx, "testUser", &user.UserArgs{
+//				FirstName: pulumi.String("TestAcc"),
+//				LastName:  pulumi.String("Smith"),
+//				Login:     pulumi.String("testAcc-replace_with_uuid@example.com"),
+//				Email:     pulumi.String("testAcc-replace_with_uuid@example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewUserGroupMemberships(ctx, "testUserGroupMemberships", &okta.UserGroupMembershipsArgs{
+//				UserId: testUser.ID(),
+//				Groups: pulumi.StringArray{
+//					pulumi.Any(okta_group.Test_1.Id),
+//					pulumi.Any(okta_group.Test_2.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type UserGroupMemberships struct {
 	pulumi.CustomResourceState
@@ -149,7 +152,7 @@ func (i *UserGroupMemberships) ToUserGroupMembershipsOutputWithContext(ctx conte
 // UserGroupMembershipsArrayInput is an input type that accepts UserGroupMembershipsArray and UserGroupMembershipsArrayOutput values.
 // You can construct a concrete instance of `UserGroupMembershipsArrayInput` via:
 //
-//          UserGroupMembershipsArray{ UserGroupMembershipsArgs{...} }
+//	UserGroupMembershipsArray{ UserGroupMembershipsArgs{...} }
 type UserGroupMembershipsArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +177,7 @@ func (i UserGroupMembershipsArray) ToUserGroupMembershipsArrayOutputWithContext(
 // UserGroupMembershipsMapInput is an input type that accepts UserGroupMembershipsMap and UserGroupMembershipsMapOutput values.
 // You can construct a concrete instance of `UserGroupMembershipsMapInput` via:
 //
-//          UserGroupMembershipsMap{ "key": UserGroupMembershipsArgs{...} }
+//	UserGroupMembershipsMap{ "key": UserGroupMembershipsArgs{...} }
 type UserGroupMembershipsMapInput interface {
 	pulumi.Input
 

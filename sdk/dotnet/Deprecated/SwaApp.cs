@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use app.Swa instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/swaApp:SwaApp")]
-    public partial class SwaApp : Pulumi.CustomResource
+    public partial class SwaApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL
@@ -243,7 +243,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class SwaAppArgs : Pulumi.ResourceArgs
+    public sealed class SwaAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -430,9 +430,10 @@ namespace Pulumi.Okta.Deprecated
         public SwaAppArgs()
         {
         }
+        public static new SwaAppArgs Empty => new SwaAppArgs();
     }
 
-    public sealed class SwaAppState : Pulumi.ResourceArgs
+    public sealed class SwaAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -637,5 +638,6 @@ namespace Pulumi.Okta.Deprecated
         public SwaAppState()
         {
         }
+        public static new SwaAppState Empty => new SwaAppState();
     }
 }

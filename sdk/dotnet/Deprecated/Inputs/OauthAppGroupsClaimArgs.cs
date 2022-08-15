@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Deprecated.Inputs
 {
 
-    public sealed class OauthAppGroupsClaimArgs : Pulumi.ResourceArgs
+    public sealed class OauthAppGroupsClaimArgs : global::Pulumi.ResourceArgs
     {
         [Input("filterType")]
         public Input<string>? FilterType { get; set; }
@@ -30,5 +30,6 @@ namespace Pulumi.Okta.Deprecated.Inputs
         public OauthAppGroupsClaimArgs()
         {
         }
+        public static new OauthAppGroupsClaimArgs Empty => new OauthAppGroupsClaimArgs();
     }
 }

@@ -17,46 +17,45 @@ namespace Pulumi.Okta.Profile
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var user = Output.Create(Okta.User.GetUserProfileMappingSource.InvokeAsync());
-    ///         var example = new Okta.Profile.Mapping("example", new Okta.Profile.MappingArgs
-    ///         {
-    ///             DeleteWhenAbsent = true,
-    ///             Mappings = 
-    ///             {
-    ///                 new Okta.Profile.Inputs.MappingMappingArgs
-    ///                 {
-    ///                     Expression = "appuser.firstName",
-    ///                     Id = "firstName",
-    ///                 },
-    ///                 new Okta.Profile.Inputs.MappingMappingArgs
-    ///                 {
-    ///                     Expression = "appuser.lastName",
-    ///                     Id = "lastName",
-    ///                 },
-    ///                 new Okta.Profile.Inputs.MappingMappingArgs
-    ///                 {
-    ///                     Expression = "appuser.email",
-    ///                     Id = "email",
-    ///                 },
-    ///                 new Okta.Profile.Inputs.MappingMappingArgs
-    ///                 {
-    ///                     Expression = "appuser.email",
-    ///                     Id = "login",
-    ///                 },
-    ///             },
-    ///             SourceId = "&lt;source id&gt;",
-    ///             TargetId = user.Apply(user =&gt; user.Id),
-    ///         });
-    ///     }
+    ///     var user = Okta.User.GetUserProfileMappingSource.Invoke();
     /// 
-    /// }
+    ///     var example = new Okta.Profile.Mapping("example", new()
+    ///     {
+    ///         DeleteWhenAbsent = true,
+    ///         Mappings = new[]
+    ///         {
+    ///             new Okta.Profile.Inputs.MappingMappingArgs
+    ///             {
+    ///                 Expression = "appuser.firstName",
+    ///                 Id = "firstName",
+    ///             },
+    ///             new Okta.Profile.Inputs.MappingMappingArgs
+    ///             {
+    ///                 Expression = "appuser.lastName",
+    ///                 Id = "lastName",
+    ///             },
+    ///             new Okta.Profile.Inputs.MappingMappingArgs
+    ///             {
+    ///                 Expression = "appuser.email",
+    ///                 Id = "email",
+    ///             },
+    ///             new Okta.Profile.Inputs.MappingMappingArgs
+    ///             {
+    ///                 Expression = "appuser.email",
+    ///                 Id = "login",
+    ///             },
+    ///         },
+    ///         SourceId = "&lt;source id&gt;",
+    ///         TargetId = user.Apply(getUserProfileMappingSourceResult =&gt; getUserProfileMappingSourceResult.Id),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +63,7 @@ namespace Pulumi.Okta.Profile
     /// There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Mind here, once the source is deleted this resources will no longer exist.
     /// </summary>
     [OktaResourceType("okta:profile/mapping:Mapping")]
-    public partial class Mapping : Pulumi.CustomResource
+    public partial class Mapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
@@ -164,7 +163,7 @@ namespace Pulumi.Okta.Profile
         }
     }
 
-    public sealed class MappingArgs : Pulumi.ResourceArgs
+    public sealed class MappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
@@ -205,9 +204,10 @@ namespace Pulumi.Okta.Profile
         public MappingArgs()
         {
         }
+        public static new MappingArgs Empty => new MappingArgs();
     }
 
-    public sealed class MappingState : Pulumi.ResourceArgs
+    public sealed class MappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
@@ -272,5 +272,6 @@ namespace Pulumi.Okta.Profile
         public MappingState()
         {
         }
+        public static new MappingState Empty => new MappingState();
     }
 }

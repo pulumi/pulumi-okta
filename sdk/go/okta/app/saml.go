@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewSaml(ctx, "example", &app.SamlArgs{
-// 			AttributeStatements: app.SamlAttributeStatementArray{
-// 				&app.SamlAttributeStatementArgs{
-// 					FilterType:  pulumi.String("REGEX"),
-// 					FilterValue: pulumi.String(".*"),
-// 					Name:        pulumi.String("groups"),
-// 					Type:        pulumi.String("GROUP"),
-// 				},
-// 			},
-// 			Audience:              pulumi.String("https://example.com/audience"),
-// 			AuthnContextClassRef:  pulumi.String("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"),
-// 			Destination:           pulumi.String("https://example.com"),
-// 			DigestAlgorithm:       pulumi.String("SHA256"),
-// 			HonorForceAuthn:       pulumi.Bool(false),
-// 			Label:                 pulumi.String("example"),
-// 			Recipient:             pulumi.String("https://example.com"),
-// 			ResponseSigned:        pulumi.Bool(true),
-// 			SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
-// 			SsoUrl:                pulumi.String("https://example.com"),
-// 			SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
-// 			SubjectNameIdTemplate: pulumi.Any(user.UserName),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewSaml(ctx, "example", &app.SamlArgs{
+//				AttributeStatements: app.SamlAttributeStatementArray{
+//					&app.SamlAttributeStatementArgs{
+//						FilterType:  pulumi.String("REGEX"),
+//						FilterValue: pulumi.String(".*"),
+//						Name:        pulumi.String("groups"),
+//						Type:        pulumi.String("GROUP"),
+//					},
+//				},
+//				Audience:              pulumi.String("https://example.com/audience"),
+//				AuthnContextClassRef:  pulumi.String("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"),
+//				Destination:           pulumi.String("https://example.com"),
+//				DigestAlgorithm:       pulumi.String("SHA256"),
+//				HonorForceAuthn:       pulumi.Bool(false),
+//				Label:                 pulumi.String("example"),
+//				Recipient:             pulumi.String("https://example.com"),
+//				ResponseSigned:        pulumi.Bool(true),
+//				SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
+//				SsoUrl:                pulumi.String("https://example.com"),
+//				SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
+//				SubjectNameIdTemplate: pulumi.Any(user.UserName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With inline hook
 //
@@ -60,63 +63,66 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testHook, err := inline.NewHook(ctx, "testHook", &inline.HookArgs{
-// 			Status:  pulumi.String("ACTIVE"),
-// 			Type:    pulumi.String("com.okta.saml.tokens.transform"),
-// 			Version: pulumi.String("1.0.2"),
-// 			Channel: pulumi.StringMap{
-// 				"type":    pulumi.String("HTTP"),
-// 				"version": pulumi.String("1.0.0"),
-// 				"uri":     pulumi.String("https://example.com/test1"),
-// 				"method":  pulumi.String("POST"),
-// 			},
-// 			Auth: pulumi.StringMap{
-// 				"key":   pulumi.String("Authorization"),
-// 				"type":  pulumi.String("HEADER"),
-// 				"value": pulumi.String("secret"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = app.NewSaml(ctx, "testSaml", &app.SamlArgs{
-// 			Label:                 pulumi.String("testAcc_replace_with_uuid"),
-// 			SsoUrl:                pulumi.String("https://google.com"),
-// 			Recipient:             pulumi.String("https://here.com"),
-// 			Destination:           pulumi.String("https://its-about-the-journey.com"),
-// 			Audience:              pulumi.String("https://audience.com"),
-// 			SubjectNameIdTemplate: pulumi.Any(user.UserName),
-// 			SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
-// 			ResponseSigned:        pulumi.Bool(true),
-// 			SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
-// 			DigestAlgorithm:       pulumi.String("SHA256"),
-// 			HonorForceAuthn:       pulumi.Bool(false),
-// 			AuthnContextClassRef:  pulumi.String("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"),
-// 			InlineHookId:          testHook.ID(),
-// 			AttributeStatements: app.SamlAttributeStatementArray{
-// 				&app.SamlAttributeStatementArgs{
-// 					Type:        pulumi.String("GROUP"),
-// 					Name:        pulumi.String("groups"),
-// 					FilterType:  pulumi.String("REGEX"),
-// 					FilterValue: pulumi.String(".*"),
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			testHook,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testHook, err := inline.NewHook(ctx, "testHook", &inline.HookArgs{
+//				Status:  pulumi.String("ACTIVE"),
+//				Type:    pulumi.String("com.okta.saml.tokens.transform"),
+//				Version: pulumi.String("1.0.2"),
+//				Channel: pulumi.StringMap{
+//					"type":    pulumi.String("HTTP"),
+//					"version": pulumi.String("1.0.0"),
+//					"uri":     pulumi.String("https://example.com/test1"),
+//					"method":  pulumi.String("POST"),
+//				},
+//				Auth: pulumi.StringMap{
+//					"key":   pulumi.String("Authorization"),
+//					"type":  pulumi.String("HEADER"),
+//					"value": pulumi.String("secret"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = app.NewSaml(ctx, "testSaml", &app.SamlArgs{
+//				Label:                 pulumi.String("testAcc_replace_with_uuid"),
+//				SsoUrl:                pulumi.String("https://google.com"),
+//				Recipient:             pulumi.String("https://here.com"),
+//				Destination:           pulumi.String("https://its-about-the-journey.com"),
+//				Audience:              pulumi.String("https://audience.com"),
+//				SubjectNameIdTemplate: pulumi.Any(user.UserName),
+//				SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
+//				ResponseSigned:        pulumi.Bool(true),
+//				SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
+//				DigestAlgorithm:       pulumi.String("SHA256"),
+//				HonorForceAuthn:       pulumi.Bool(false),
+//				AuthnContextClassRef:  pulumi.String("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"),
+//				InlineHookId:          testHook.ID(),
+//				AttributeStatements: app.SamlAttributeStatementArray{
+//					&app.SamlAttributeStatementArgs{
+//						Type:        pulumi.String("GROUP"),
+//						Name:        pulumi.String("groups"),
+//						FilterType:  pulumi.String("REGEX"),
+//						FilterValue: pulumi.String(".*"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				testHook,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Pre-configured app with SAML 1.1 sign-on mode
 //
@@ -124,29 +130,32 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewSaml(ctx, "test", &app.SamlArgs{
-// 			AppSettingsJson:      pulumi.String(fmt.Sprintf("{\n    \"groupFilter\": \"app1.*\",\n    \"siteURL\": \"https://www.okta.com\"\n}\n\n")),
-// 			Label:                pulumi.String("SharePoint (On-Premise)"),
-// 			PreconfiguredApp:     pulumi.String("sharepoint_onpremise"),
-// 			SamlVersion:          pulumi.String("1.1"),
-// 			Status:               pulumi.String("ACTIVE"),
-// 			UserNameTemplate:     pulumi.Any(source.Login),
-// 			UserNameTemplateType: pulumi.String("BUILT_IN"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewSaml(ctx, "test", &app.SamlArgs{
+//				AppSettingsJson:      pulumi.String(fmt.Sprintf("{\n    \"groupFilter\": \"app1.*\",\n    \"siteURL\": \"https://www.okta.com\"\n}\n\n")),
+//				Label:                pulumi.String("SharePoint (On-Premise)"),
+//				PreconfiguredApp:     pulumi.String("sharepoint_onpremise"),
+//				SamlVersion:          pulumi.String("1.1"),
+//				Status:               pulumi.String("ACTIVE"),
+//				UserNameTemplate:     pulumi.Any(source.Login),
+//				UserNameTemplateType: pulumi.String("BUILT_IN"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Pre-configured app with SAML 1.1 sign-on mode, `appSettingsJson` and `appLinksJson`
 //
@@ -154,60 +163,65 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewSaml(ctx, "office365", &app.SamlArgs{
-// 			AppLinksJson: pulumi.String(fmt.Sprintf(`  {
-//       "calendar": false,
-//       "crm": false,
-//       "delve": false,
-//       "excel": false,
-//       "forms": false,
-//       "mail": false,
-//       "newsfeed": false,
-//       "onedrive": false,
-//       "people": false,
-//       "planner": false,
-//       "powerbi": false,
-//       "powerpoint": false,
-//       "sites": false,
-//       "sway": false,
-//       "tasks": false,
-//       "teams": false,
-//       "video": false,
-//       "word": false,
-//       "yammer": false,
-//       "login": true
-//   }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewSaml(ctx, "office365", &app.SamlArgs{
+//				AppLinksJson: pulumi.String(fmt.Sprintf(`  {
+//	      "calendar": false,
+//	      "crm": false,
+//	      "delve": false,
+//	      "excel": false,
+//	      "forms": false,
+//	      "mail": false,
+//	      "newsfeed": false,
+//	      "onedrive": false,
+//	      "people": false,
+//	      "planner": false,
+//	      "powerbi": false,
+//	      "powerpoint": false,
+//	      "sites": false,
+//	      "sway": false,
+//	      "tasks": false,
+//	      "teams": false,
+//	      "video": false,
+//	      "word": false,
+//	      "yammer": false,
+//	      "login": true
+//	  }
 //
 // `)),
-// 			AppSettingsJson: pulumi.String(fmt.Sprintf(`    {
-//        "wsFedConfigureType": "AUTO",
-//        "windowsTransportEnabled": false,
-//        "domain": "okta.com",
-//        "msftTenant": "okta",
-//        "domains": [],
-//        "requireAdminConsent": false
-//     }
+//
+//				AppSettingsJson: pulumi.String(fmt.Sprintf(`    {
+//	       "wsFedConfigureType": "AUTO",
+//	       "windowsTransportEnabled": false,
+//	       "domain": "okta.com",
+//	       "msftTenant": "okta",
+//	       "domains": [],
+//	       "requireAdminConsent": false
+//	    }
 //
 // `)),
-// 			Label:            pulumi.String("Microsoft Office 365"),
-// 			PreconfiguredApp: pulumi.String("office365"),
-// 			SamlVersion:      pulumi.String("1.1"),
-// 			Status:           pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				Label:            pulumi.String("Microsoft Office 365"),
+//				PreconfiguredApp: pulumi.String("office365"),
+//				SamlVersion:      pulumi.String("1.1"),
+//				Status:           pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -215,21 +229,29 @@ import (
 // A SAML App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
+//
+//	$ pulumi import okta:app/saml:Saml example &#60;app id&#62;
+//
 // ```
 //
-//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//	It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users
+//
+//	$ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users/skip_groups
+//
+//	$ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users/skip_groups
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_groups
+//
+//	$ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_groups
+//
 // ```
 type Saml struct {
 	pulumi.CustomResourceState
@@ -918,7 +940,7 @@ func (i *Saml) ToSamlOutputWithContext(ctx context.Context) SamlOutput {
 // SamlArrayInput is an input type that accepts SamlArray and SamlArrayOutput values.
 // You can construct a concrete instance of `SamlArrayInput` via:
 //
-//          SamlArray{ SamlArgs{...} }
+//	SamlArray{ SamlArgs{...} }
 type SamlArrayInput interface {
 	pulumi.Input
 
@@ -943,7 +965,7 @@ func (i SamlArray) ToSamlArrayOutputWithContext(ctx context.Context) SamlArrayOu
 // SamlMapInput is an input type that accepts SamlMap and SamlMapOutput values.
 // You can construct a concrete instance of `SamlMapInput` via:
 //
-//          SamlMap{ "key": SamlArgs{...} }
+//	SamlMap{ "key": SamlArgs{...} }
 type SamlMapInput interface {
 	pulumi.Input
 

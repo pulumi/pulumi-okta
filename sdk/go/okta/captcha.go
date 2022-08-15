@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewCaptcha(ctx, "example", &okta.CaptchaArgs{
-// 			SecretKey: pulumi.String("some_secret_key"),
-// 			SiteKey:   pulumi.String("some_key"),
-// 			Type:      pulumi.String("HCAPTCHA"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewCaptcha(ctx, "example", &okta.CaptchaArgs{
+//				SecretKey: pulumi.String("some_secret_key"),
+//				SiteKey:   pulumi.String("some_key"),
+//				Type:      pulumi.String("HCAPTCHA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // Behavior can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
+//
+//	$ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
+//
 // ```
 type Captcha struct {
 	pulumi.CustomResourceState
@@ -172,7 +177,7 @@ func (i *Captcha) ToCaptchaOutputWithContext(ctx context.Context) CaptchaOutput 
 // CaptchaArrayInput is an input type that accepts CaptchaArray and CaptchaArrayOutput values.
 // You can construct a concrete instance of `CaptchaArrayInput` via:
 //
-//          CaptchaArray{ CaptchaArgs{...} }
+//	CaptchaArray{ CaptchaArgs{...} }
 type CaptchaArrayInput interface {
 	pulumi.Input
 
@@ -197,7 +202,7 @@ func (i CaptchaArray) ToCaptchaArrayOutputWithContext(ctx context.Context) Captc
 // CaptchaMapInput is an input type that accepts CaptchaMap and CaptchaMapOutput values.
 // You can construct a concrete instance of `CaptchaMapInput` via:
 //
-//          CaptchaMap{ "key": CaptchaArgs{...} }
+//	CaptchaMap{ "key": CaptchaArgs{...} }
 type CaptchaMapInput interface {
 	pulumi.Input
 

@@ -21,31 +21,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/idp"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/idp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := idp.NewSocial(ctx, "example", &idp.SocialArgs{
-// 			ClientId:       pulumi.String("abcd123"),
-// 			ClientSecret:   pulumi.String("abcd123"),
-// 			MatchAttribute: pulumi.String("customfieldId"),
-// 			MatchType:      pulumi.String("CUSTOM_ATTRIBUTE"),
-// 			ProtocolType:   pulumi.String("OAUTH2"),
-// 			Scopes: pulumi.StringArray{
-// 				pulumi.String("public_profile"),
-// 				pulumi.String("email"),
-// 			},
-// 			Type:             pulumi.String("FACEBOOK"),
-// 			UsernameTemplate: pulumi.String("idpuser.email"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := idp.NewSocial(ctx, "example", &idp.SocialArgs{
+//				ClientId:       pulumi.String("abcd123"),
+//				ClientSecret:   pulumi.String("abcd123"),
+//				MatchAttribute: pulumi.String("customfieldId"),
+//				MatchType:      pulumi.String("CUSTOM_ATTRIBUTE"),
+//				ProtocolType:   pulumi.String("OAUTH2"),
+//				Scopes: pulumi.StringArray{
+//					pulumi.String("public_profile"),
+//					pulumi.String("email"),
+//				},
+//				Type:             pulumi.String("FACEBOOK"),
+//				UsernameTemplate: pulumi.String("idpuser.email"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // A Social IdP can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:idp/social:Social example &#60;idp id&#62;
+//
+//	$ pulumi import okta:idp/social:Social example &#60;idp id&#62;
+//
 // ```
 type Social struct {
 	pulumi.CustomResourceState
@@ -441,7 +446,7 @@ func (i *Social) ToSocialOutputWithContext(ctx context.Context) SocialOutput {
 // SocialArrayInput is an input type that accepts SocialArray and SocialArrayOutput values.
 // You can construct a concrete instance of `SocialArrayInput` via:
 //
-//          SocialArray{ SocialArgs{...} }
+//	SocialArray{ SocialArgs{...} }
 type SocialArrayInput interface {
 	pulumi.Input
 
@@ -466,7 +471,7 @@ func (i SocialArray) ToSocialArrayOutputWithContext(ctx context.Context) SocialA
 // SocialMapInput is an input type that accepts SocialMap and SocialMapOutput values.
 // You can construct a concrete instance of `SocialMapInput` via:
 //
-//          SocialMap{ "key": SocialArgs{...} }
+//	SocialMap{ "key": SocialArgs{...} }
 type SocialMapInput interface {
 	pulumi.Input
 

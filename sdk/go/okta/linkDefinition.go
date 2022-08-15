@@ -22,26 +22,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewLinkDefinition(ctx, "example", &okta.LinkDefinitionArgs{
-// 			AssociatedDescription: pulumi.String("Elite military force member"),
-// 			AssociatedName:        pulumi.String("sardaukar"),
-// 			AssociatedTitle:       pulumi.String("Sardaukar"),
-// 			PrimaryDescription:    pulumi.String("Hereditary ruler of the Imperium and the Known Universe"),
-// 			PrimaryName:           pulumi.String("emperor"),
-// 			PrimaryTitle:          pulumi.String("Emperor"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewLinkDefinition(ctx, "example", &okta.LinkDefinitionArgs{
+//				AssociatedDescription: pulumi.String("Elite military force member"),
+//				AssociatedName:        pulumi.String("sardaukar"),
+//				AssociatedTitle:       pulumi.String("Sardaukar"),
+//				PrimaryDescription:    pulumi.String("Hereditary ruler of the Imperium and the Known Universe"),
+//				PrimaryName:           pulumi.String("emperor"),
+//				PrimaryTitle:          pulumi.String("Emperor"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Okta Link Definition can be imported via the Okta Primary Link Name.
 //
 // ```sh
-//  $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
+//
+//	$ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
+//
 // ```
 type LinkDefinition struct {
 	pulumi.CustomResourceState
@@ -205,7 +210,7 @@ func (i *LinkDefinition) ToLinkDefinitionOutputWithContext(ctx context.Context) 
 // LinkDefinitionArrayInput is an input type that accepts LinkDefinitionArray and LinkDefinitionArrayOutput values.
 // You can construct a concrete instance of `LinkDefinitionArrayInput` via:
 //
-//          LinkDefinitionArray{ LinkDefinitionArgs{...} }
+//	LinkDefinitionArray{ LinkDefinitionArgs{...} }
 type LinkDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +235,7 @@ func (i LinkDefinitionArray) ToLinkDefinitionArrayOutputWithContext(ctx context.
 // LinkDefinitionMapInput is an input type that accepts LinkDefinitionMap and LinkDefinitionMapOutput values.
 // You can construct a concrete instance of `LinkDefinitionMapInput` via:
 //
-//          LinkDefinitionMap{ "key": LinkDefinitionArgs{...} }
+//	LinkDefinitionMap{ "key": LinkDefinitionArgs{...} }
 type LinkDefinitionMapInput interface {
 	pulumi.Input
 

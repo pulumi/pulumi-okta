@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App.Inputs
 {
 
-    public sealed class SamlAttributeStatementGetArgs : Pulumi.ResourceArgs
+    public sealed class SamlAttributeStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
@@ -57,5 +57,6 @@ namespace Pulumi.Okta.App.Inputs
         public SamlAttributeStatementGetArgs()
         {
         }
+        public static new SamlAttributeStatementGetArgs Empty => new SamlAttributeStatementGetArgs();
     }
 }

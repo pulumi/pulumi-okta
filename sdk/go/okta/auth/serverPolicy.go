@@ -21,27 +21,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := auth.NewServerPolicy(ctx, "example", &auth.ServerPolicyArgs{
-// 			AuthServerId: pulumi.String("<auth server id>"),
-// 			ClientWhitelists: pulumi.StringArray{
-// 				pulumi.String("ALL_CLIENTS"),
-// 			},
-// 			Description: pulumi.String("example"),
-// 			Priority:    pulumi.Int(1),
-// 			Status:      pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := auth.NewServerPolicy(ctx, "example", &auth.ServerPolicyArgs{
+//				AuthServerId: pulumi.String("<auth server id>"),
+//				ClientWhitelists: pulumi.StringArray{
+//					pulumi.String("ALL_CLIENTS"),
+//				},
+//				Description: pulumi.String("example"),
+//				Priority:    pulumi.Int(1),
+//				Status:      pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
 //
 // ```sh
-//  $ pulumi import okta:auth/serverPolicy:ServerPolicy example &#60;auth server id&#62;/&#60;policy id&#62;
+//
+//	$ pulumi import okta:auth/serverPolicy:ServerPolicy example &#60;auth server id&#62;/&#60;policy id&#62;
+//
 // ```
 type ServerPolicy struct {
 	pulumi.CustomResourceState
@@ -219,7 +224,7 @@ func (i *ServerPolicy) ToServerPolicyOutputWithContext(ctx context.Context) Serv
 // ServerPolicyArrayInput is an input type that accepts ServerPolicyArray and ServerPolicyArrayOutput values.
 // You can construct a concrete instance of `ServerPolicyArrayInput` via:
 //
-//          ServerPolicyArray{ ServerPolicyArgs{...} }
+//	ServerPolicyArray{ ServerPolicyArgs{...} }
 type ServerPolicyArrayInput interface {
 	pulumi.Input
 
@@ -244,7 +249,7 @@ func (i ServerPolicyArray) ToServerPolicyArrayOutputWithContext(ctx context.Cont
 // ServerPolicyMapInput is an input type that accepts ServerPolicyMap and ServerPolicyMapOutput values.
 // You can construct a concrete instance of `ServerPolicyMapInput` via:
 //
-//          ServerPolicyMap{ "key": ServerPolicyArgs{...} }
+//	ServerPolicyMap{ "key": ServerPolicyArgs{...} }
 type ServerPolicyMapInput interface {
 	pulumi.Input
 

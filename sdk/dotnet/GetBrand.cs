@@ -25,7 +25,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetBrandArgs : Pulumi.InvokeArgs
+    public sealed class GetBrandArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Brand ID
@@ -36,9 +36,10 @@ namespace Pulumi.Okta
         public GetBrandArgs()
         {
         }
+        public static new GetBrandArgs Empty => new GetBrandArgs();
     }
 
-    public sealed class GetBrandInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBrandInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Brand ID
@@ -49,6 +50,7 @@ namespace Pulumi.Okta
         public GetBrandInvokeArgs()
         {
         }
+        public static new GetBrandInvokeArgs Empty => new GetBrandInvokeArgs();
     }
 
 

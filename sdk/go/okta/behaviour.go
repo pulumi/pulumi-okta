@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewBehaviour(ctx, "myLocation", &okta.BehaviourArgs{
-// 			LocationGranularityType: pulumi.String("LAT_LONG"),
-// 			NumberOfAuthentications: pulumi.Int(50),
-// 			RadiusFromLocation:      pulumi.Int(20),
-// 			Type:                    pulumi.String("ANOMALOUS_LOCATION"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewBehaviour(ctx, "myCity", &okta.BehaviourArgs{
-// 			LocationGranularityType: pulumi.String("CITY"),
-// 			NumberOfAuthentications: pulumi.Int(50),
-// 			Type:                    pulumi.String("ANOMALOUS_LOCATION"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewBehaviour(ctx, "myDevice", &okta.BehaviourArgs{
-// 			NumberOfAuthentications: pulumi.Int(50),
-// 			Type:                    pulumi.String("ANOMALOUS_DEVICE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewBehaviour(ctx, "myIp", &okta.BehaviourArgs{
-// 			NumberOfAuthentications: pulumi.Int(50),
-// 			Type:                    pulumi.String("ANOMALOUS_IP"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewBehaviour(ctx, "myVelocity", &okta.BehaviourArgs{
-// 			Type:     pulumi.String("VELOCITY"),
-// 			Velocity: pulumi.Int(25),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewBehaviour(ctx, "myLocation", &okta.BehaviourArgs{
+//				LocationGranularityType: pulumi.String("LAT_LONG"),
+//				NumberOfAuthentications: pulumi.Int(50),
+//				RadiusFromLocation:      pulumi.Int(20),
+//				Type:                    pulumi.String("ANOMALOUS_LOCATION"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewBehaviour(ctx, "myCity", &okta.BehaviourArgs{
+//				LocationGranularityType: pulumi.String("CITY"),
+//				NumberOfAuthentications: pulumi.Int(50),
+//				Type:                    pulumi.String("ANOMALOUS_LOCATION"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewBehaviour(ctx, "myDevice", &okta.BehaviourArgs{
+//				NumberOfAuthentications: pulumi.Int(50),
+//				Type:                    pulumi.String("ANOMALOUS_DEVICE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewBehaviour(ctx, "myIp", &okta.BehaviourArgs{
+//				NumberOfAuthentications: pulumi.Int(50),
+//				Type:                    pulumi.String("ANOMALOUS_IP"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewBehaviour(ctx, "myVelocity", &okta.BehaviourArgs{
+//				Type:     pulumi.String("VELOCITY"),
+//				Velocity: pulumi.Int(25),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Behavior can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
+//
+//	$ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
+//
 // ```
 type Behaviour struct {
 	pulumi.CustomResourceState
@@ -254,7 +259,7 @@ func (i *Behaviour) ToBehaviourOutputWithContext(ctx context.Context) BehaviourO
 // BehaviourArrayInput is an input type that accepts BehaviourArray and BehaviourArrayOutput values.
 // You can construct a concrete instance of `BehaviourArrayInput` via:
 //
-//          BehaviourArray{ BehaviourArgs{...} }
+//	BehaviourArray{ BehaviourArgs{...} }
 type BehaviourArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +284,7 @@ func (i BehaviourArray) ToBehaviourArrayOutputWithContext(ctx context.Context) B
 // BehaviourMapInput is an input type that accepts BehaviourMap and BehaviourMapOutput values.
 // You can construct a concrete instance of `BehaviourMapInput` via:
 //
-//          BehaviourMap{ "key": BehaviourArgs{...} }
+//	BehaviourMap{ "key": BehaviourArgs{...} }
 type BehaviourMapInput interface {
 	pulumi.Input
 

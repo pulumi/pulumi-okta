@@ -23,23 +23,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewRateLimiting(ctx, "example", &okta.RateLimitingArgs{
-// 			Authorize:             pulumi.String("ENFORCE"),
-// 			CommunicationsEnabled: pulumi.Bool(true),
-// 			Login:                 pulumi.String("ENFORCE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewRateLimiting(ctx, "example", &okta.RateLimitingArgs{
+//				Authorize:             pulumi.String("ENFORCE"),
+//				CommunicationsEnabled: pulumi.Bool(true),
+//				Login:                 pulumi.String("ENFORCE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Rate limit settings can be imported without any parameters.
 //
 // ```sh
-//  $ pulumi import okta:index/rateLimiting:RateLimiting example .
+//
+//	$ pulumi import okta:index/rateLimiting:RateLimiting example .
+//
 // ```
 type RateLimiting struct {
 	pulumi.CustomResourceState
@@ -171,7 +176,7 @@ func (i *RateLimiting) ToRateLimitingOutputWithContext(ctx context.Context) Rate
 // RateLimitingArrayInput is an input type that accepts RateLimitingArray and RateLimitingArrayOutput values.
 // You can construct a concrete instance of `RateLimitingArrayInput` via:
 //
-//          RateLimitingArray{ RateLimitingArgs{...} }
+//	RateLimitingArray{ RateLimitingArgs{...} }
 type RateLimitingArrayInput interface {
 	pulumi.Input
 
@@ -196,7 +201,7 @@ func (i RateLimitingArray) ToRateLimitingArrayOutputWithContext(ctx context.Cont
 // RateLimitingMapInput is an input type that accepts RateLimitingMap and RateLimitingMapOutput values.
 // You can construct a concrete instance of `RateLimitingMapInput` via:
 //
-//          RateLimitingMap{ "key": RateLimitingArgs{...} }
+//	RateLimitingMap{ "key": RateLimitingArgs{...} }
 type RateLimitingMapInput interface {
 	pulumi.Input
 

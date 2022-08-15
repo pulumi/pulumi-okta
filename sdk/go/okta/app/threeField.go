@@ -18,21 +18,29 @@ import (
 // A Three Field App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
+//
+//	$ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
+//
 // ```
 //
-//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//	It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users
+//
+//	$ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users/skip_groups
+//
+//	$ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users/skip_groups
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_groups
+//
+//	$ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_groups
+//
 // ```
 type ThreeField struct {
 	pulumi.CustomResourceState
@@ -489,7 +497,7 @@ func (i *ThreeField) ToThreeFieldOutputWithContext(ctx context.Context) ThreeFie
 // ThreeFieldArrayInput is an input type that accepts ThreeFieldArray and ThreeFieldArrayOutput values.
 // You can construct a concrete instance of `ThreeFieldArrayInput` via:
 //
-//          ThreeFieldArray{ ThreeFieldArgs{...} }
+//	ThreeFieldArray{ ThreeFieldArgs{...} }
 type ThreeFieldArrayInput interface {
 	pulumi.Input
 
@@ -514,7 +522,7 @@ func (i ThreeFieldArray) ToThreeFieldArrayOutputWithContext(ctx context.Context)
 // ThreeFieldMapInput is an input type that accepts ThreeFieldMap and ThreeFieldMapOutput values.
 // You can construct a concrete instance of `ThreeFieldMapInput` via:
 //
-//          ThreeFieldMap{ "key": ThreeFieldArgs{...} }
+//	ThreeFieldMap{ "key": ThreeFieldArgs{...} }
 type ThreeFieldMapInput interface {
 	pulumi.Input
 

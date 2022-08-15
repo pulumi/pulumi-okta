@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use idp.SamlKey instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey")]
-    public partial class SamlIdpSigningKey : Pulumi.CustomResource
+    public partial class SamlIdpSigningKey : global::Pulumi.CustomResource
     {
         [Output("created")]
         public Output<string> Created { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class SamlIdpSigningKeyArgs : Pulumi.ResourceArgs
+    public sealed class SamlIdpSigningKeyArgs : global::Pulumi.ResourceArgs
     {
         [Input("x5cs", required: true)]
         private InputList<string>? _x5cs;
@@ -98,9 +98,10 @@ namespace Pulumi.Okta.Deprecated
         public SamlIdpSigningKeyArgs()
         {
         }
+        public static new SamlIdpSigningKeyArgs Empty => new SamlIdpSigningKeyArgs();
     }
 
-    public sealed class SamlIdpSigningKeyState : Pulumi.ResourceArgs
+    public sealed class SamlIdpSigningKeyState : global::Pulumi.ResourceArgs
     {
         [Input("created")]
         public Input<string>? Created { get; set; }
@@ -135,5 +136,6 @@ namespace Pulumi.Okta.Deprecated
         public SamlIdpSigningKeyState()
         {
         }
+        public static new SamlIdpSigningKeyState Empty => new SamlIdpSigningKeyState();
     }
 }

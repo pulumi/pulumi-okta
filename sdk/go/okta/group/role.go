@@ -22,30 +22,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := group.NewRole(ctx, "example", &group.RoleArgs{
-// 			GroupId:  pulumi.String("<group id>"),
-// 			RoleType: pulumi.String("READ_ONLY_ADMIN"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := group.NewRole(ctx, "example", &group.RoleArgs{
+//				GroupId:  pulumi.String("<group id>"),
+//				RoleType: pulumi.String("READ_ONLY_ADMIN"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// Individual admin role assignment can be imported by passing the group and role assignment IDs as follows
+// # Individual admin role assignment can be imported by passing the group and role assignment IDs as follows
 //
 // ```sh
-//  $ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
+//
+//	$ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
+//
 // ```
 type Role struct {
 	pulumi.CustomResourceState
@@ -214,7 +219,7 @@ func (i *Role) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 // RoleArrayInput is an input type that accepts RoleArray and RoleArrayOutput values.
 // You can construct a concrete instance of `RoleArrayInput` via:
 //
-//          RoleArray{ RoleArgs{...} }
+//	RoleArray{ RoleArgs{...} }
 type RoleArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +244,7 @@ func (i RoleArray) ToRoleArrayOutputWithContext(ctx context.Context) RoleArrayOu
 // RoleMapInput is an input type that accepts RoleMap and RoleMapOutput values.
 // You can construct a concrete instance of `RoleMapInput` via:
 //
-//          RoleMap{ "key": RoleArgs{...} }
+//	RoleMap{ "key": RoleArgs{...} }
 type RoleMapInput interface {
 	pulumi.Input
 

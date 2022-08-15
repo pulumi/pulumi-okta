@@ -17,31 +17,29 @@ namespace Pulumi.Okta.Idp
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Idp.Social("example", new()
     ///     {
-    ///         var example = new Okta.Idp.Social("example", new Okta.Idp.SocialArgs
+    ///         ClientId = "abcd123",
+    ///         ClientSecret = "abcd123",
+    ///         MatchAttribute = "customfieldId",
+    ///         MatchType = "CUSTOM_ATTRIBUTE",
+    ///         ProtocolType = "OAUTH2",
+    ///         Scopes = new[]
     ///         {
-    ///             ClientId = "abcd123",
-    ///             ClientSecret = "abcd123",
-    ///             MatchAttribute = "customfieldId",
-    ///             MatchType = "CUSTOM_ATTRIBUTE",
-    ///             ProtocolType = "OAUTH2",
-    ///             Scopes = 
-    ///             {
-    ///                 "public_profile",
-    ///                 "email",
-    ///             },
-    ///             Type = "FACEBOOK",
-    ///             UsernameTemplate = "idpuser.email",
-    ///         });
-    ///     }
+    ///             "public_profile",
+    ///             "email",
+    ///         },
+    ///         Type = "FACEBOOK",
+    ///         UsernameTemplate = "idpuser.email",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Okta.Idp
     /// ```
     /// </summary>
     [OktaResourceType("okta:idp/social:Social")]
-    public partial class Social : Pulumi.CustomResource
+    public partial class Social : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the account linking action for an IdP user.
@@ -281,7 +279,7 @@ namespace Pulumi.Okta.Idp
         }
     }
 
-    public sealed class SocialArgs : Pulumi.ResourceArgs
+    public sealed class SocialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the account linking action for an IdP user.
@@ -468,9 +466,10 @@ namespace Pulumi.Okta.Idp
         public SocialArgs()
         {
         }
+        public static new SocialArgs Empty => new SocialArgs();
     }
 
-    public sealed class SocialState : Pulumi.ResourceArgs
+    public sealed class SocialState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the account linking action for an IdP user.
@@ -681,5 +680,6 @@ namespace Pulumi.Okta.Idp
         public SocialState()
         {
         }
+        public static new SocialState Empty => new SocialState();
     }
 }

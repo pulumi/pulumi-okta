@@ -13,22 +13,20 @@ namespace Pulumi.Okta.App
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.App.User("example", new()
     ///     {
-    ///         var example = new Okta.App.User("example", new Okta.App.UserArgs
-    ///         {
-    ///             AppId = "&lt;app_id&gt;",
-    ///             UserId = "&lt;user id&gt;",
-    ///             Username = "example",
-    ///         });
-    ///     }
+    ///         AppId = "&lt;app_id&gt;",
+    ///         UserId = "&lt;user id&gt;",
+    ///         Username = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// App to associate user with.
@@ -126,7 +124,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// App to associate user with.
@@ -168,9 +166,10 @@ namespace Pulumi.Okta.App
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// App to associate user with.
@@ -215,5 +214,6 @@ namespace Pulumi.Okta.App
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

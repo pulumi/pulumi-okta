@@ -21,21 +21,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/factor"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/factor"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := factor.NewFactor(ctx, "example", &factor.FactorArgs{
-// 			ProviderId: pulumi.String("google_otp"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := factor.NewFactor(ctx, "example", &factor.FactorArgs{
+//				ProviderId: pulumi.String("google_otp"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Factor struct {
 	pulumi.CustomResourceState
@@ -141,7 +144,7 @@ func (i *Factor) ToFactorOutputWithContext(ctx context.Context) FactorOutput {
 // FactorArrayInput is an input type that accepts FactorArray and FactorArrayOutput values.
 // You can construct a concrete instance of `FactorArrayInput` via:
 //
-//          FactorArray{ FactorArgs{...} }
+//	FactorArray{ FactorArgs{...} }
 type FactorArrayInput interface {
 	pulumi.Input
 
@@ -166,7 +169,7 @@ func (i FactorArray) ToFactorArrayOutputWithContext(ctx context.Context) FactorA
 // FactorMapInput is an input type that accepts FactorMap and FactorMapOutput values.
 // You can construct a concrete instance of `FactorMapInput` via:
 //
-//          FactorMap{ "key": FactorArgs{...} }
+//	FactorMap{ "key": FactorArgs{...} }
 type FactorMapInput interface {
 	pulumi.Input
 

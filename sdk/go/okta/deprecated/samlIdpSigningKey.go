@@ -119,7 +119,7 @@ func (i *SamlIdpSigningKey) ToSamlIdpSigningKeyOutputWithContext(ctx context.Con
 // SamlIdpSigningKeyArrayInput is an input type that accepts SamlIdpSigningKeyArray and SamlIdpSigningKeyArrayOutput values.
 // You can construct a concrete instance of `SamlIdpSigningKeyArrayInput` via:
 //
-//          SamlIdpSigningKeyArray{ SamlIdpSigningKeyArgs{...} }
+//	SamlIdpSigningKeyArray{ SamlIdpSigningKeyArgs{...} }
 type SamlIdpSigningKeyArrayInput interface {
 	pulumi.Input
 
@@ -144,7 +144,7 @@ func (i SamlIdpSigningKeyArray) ToSamlIdpSigningKeyArrayOutputWithContext(ctx co
 // SamlIdpSigningKeyMapInput is an input type that accepts SamlIdpSigningKeyMap and SamlIdpSigningKeyMapOutput values.
 // You can construct a concrete instance of `SamlIdpSigningKeyMapInput` via:
 //
-//          SamlIdpSigningKeyMap{ "key": SamlIdpSigningKeyArgs{...} }
+//	SamlIdpSigningKeyMap{ "key": SamlIdpSigningKeyArgs{...} }
 type SamlIdpSigningKeyMapInput interface {
 	pulumi.Input
 

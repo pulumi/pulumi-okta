@@ -19,50 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := user.GetUsers(ctx, &user.GetUsersArgs{
-// 			Searches: []user.GetUsersSearch{
-// 				user.GetUsersSearch{
-// 					Expression: pulumi.StringRef("profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"),
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := user.GetUsers(ctx, &user.GetUsersArgs{
+//				Searches: []user.GetUsersSearch{
+//					user.GetUsersSearch{
+//						Expression: pulumi.StringRef("profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"),
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Lookup Users by Group Membership
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGroup, err := group.NewGroup(ctx, "exampleGroup", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_ = user.GetUsersOutput(ctx, user.GetUsersOutputArgs{
-// 			GroupId:       exampleGroup.ID(),
-// 			IncludeGroups: pulumi.Bool(true),
-// 			IncludeRoles:  pulumi.Bool(true),
-// 		}, nil)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGroup, err := group.NewGroup(ctx, "exampleGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_ = user.GetUsersOutput(ctx, user.GetUsersOutputArgs{
+//				GroupId:       exampleGroup.ID(),
+//				IncludeGroups: pulumi.Bool(true),
+//				IncludeRoles:  pulumi.Bool(true),
+//			}, nil)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	var rv GetUsersResult

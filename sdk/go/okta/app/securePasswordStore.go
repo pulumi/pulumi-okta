@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewSecurePasswordStore(ctx, "example", &app.SecurePasswordStoreArgs{
-// 			CredentialsScheme: pulumi.String("ADMIN_SETS_CREDENTIALS"),
-// 			Label:             pulumi.String("example"),
-// 			PasswordField:     pulumi.String("pass"),
-// 			Url:               pulumi.String("https://test.com"),
-// 			UsernameField:     pulumi.String("user"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewSecurePasswordStore(ctx, "example", &app.SecurePasswordStoreArgs{
+//				CredentialsScheme: pulumi.String("ADMIN_SETS_CREDENTIALS"),
+//				Label:             pulumi.String("example"),
+//				PasswordField:     pulumi.String("pass"),
+//				Url:               pulumi.String("https://test.com"),
+//				UsernameField:     pulumi.String("user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,21 +48,29 @@ import (
 // Secure Password Store Application can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;
+//
+//	$ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;
+//
 // ```
 //
-//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//	It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;/skip_users
+//
+//	$ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;/skip_users
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;/skip_users/skip_groups
+//
+//	$ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;/skip_users/skip_groups
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;/skip_groups
+//
+//	$ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;/skip_groups
+//
 // ```
 type SecurePasswordStore struct {
 	pulumi.CustomResourceState
@@ -527,7 +538,7 @@ func (i *SecurePasswordStore) ToSecurePasswordStoreOutputWithContext(ctx context
 // SecurePasswordStoreArrayInput is an input type that accepts SecurePasswordStoreArray and SecurePasswordStoreArrayOutput values.
 // You can construct a concrete instance of `SecurePasswordStoreArrayInput` via:
 //
-//          SecurePasswordStoreArray{ SecurePasswordStoreArgs{...} }
+//	SecurePasswordStoreArray{ SecurePasswordStoreArgs{...} }
 type SecurePasswordStoreArrayInput interface {
 	pulumi.Input
 
@@ -552,7 +563,7 @@ func (i SecurePasswordStoreArray) ToSecurePasswordStoreArrayOutputWithContext(ct
 // SecurePasswordStoreMapInput is an input type that accepts SecurePasswordStoreMap and SecurePasswordStoreMapOutput values.
 // You can construct a concrete instance of `SecurePasswordStoreMapInput` via:
 //
-//          SecurePasswordStoreMap{ "key": SecurePasswordStoreArgs{...} }
+//	SecurePasswordStoreMap{ "key": SecurePasswordStoreArgs{...} }
 type SecurePasswordStoreMapInput interface {
 	pulumi.Input
 

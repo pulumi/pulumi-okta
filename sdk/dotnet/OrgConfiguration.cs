@@ -17,21 +17,19 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.OrgConfiguration("example", new()
     ///     {
-    ///         var example = new Okta.OrgConfiguration("example", new Okta.OrgConfigurationArgs
-    ///         {
-    ///             CompanyName = "Umbrella Corporation",
-    ///             Website = "https://terraform.io",
-    ///         });
-    ///     }
+    ///         CompanyName = "Umbrella Corporation",
+    ///         Website = "https://terraform.io",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/orgConfiguration:OrgConfiguration")]
-    public partial class OrgConfiguration : Pulumi.CustomResource
+    public partial class OrgConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Primary address of org
@@ -191,7 +189,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class OrgConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OrgConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Primary address of org
@@ -286,9 +284,10 @@ namespace Pulumi.Okta
         public OrgConfigurationArgs()
         {
         }
+        public static new OrgConfigurationArgs Empty => new OrgConfigurationArgs();
     }
 
-    public sealed class OrgConfigurationState : Pulumi.ResourceArgs
+    public sealed class OrgConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Primary address of org
@@ -395,5 +394,6 @@ namespace Pulumi.Okta
         public OrgConfigurationState()
         {
         }
+        public static new OrgConfigurationState Empty => new OrgConfigurationState();
     }
 }

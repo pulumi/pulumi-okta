@@ -15,22 +15,20 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Domain("example");
+    /// 
+    ///     var test = new Okta.DomainCertificate("test", new()
     ///     {
-    ///         var example = new Okta.Domain("example", new Okta.DomainArgs
-    ///         {
-    ///         });
-    ///         var test = new Okta.DomainCertificate("test", new Okta.DomainCertificateArgs
-    ///         {
-    ///             DomainId = okta_domain.Test.Id,
-    ///             Type = "PEM",
-    ///             Certificate = @"-----BEGIN CERTIFICATE-----
+    ///         DomainId = okta_domain.Test.Id,
+    ///         Type = "PEM",
+    ///         Certificate = @"-----BEGIN CERTIFICATE-----
     /// MIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA
     /// MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD
     /// EwJSMzAeFw0yMTAyMTAwNTEzMDVaFw0yMTA1MTEwNTEzMDVaMCQxIjAgBgNVBAMT
@@ -60,7 +58,7 @@ namespace Pulumi.Okta
     /// YQ0qYpP9wt2qR+DGaRUBG8i1XLnZS8pkyxtKhVw/a5Fowt+NqCpEBjjJiWJRSGnG
     /// NSgRtSXq11j8O4JONi8EXe7cEtvzUiLR5PL3itsK2svtrZ9jIwQ95wOPaA==
     /// -----END CERTIFICATE-----",
-    ///             PrivateKey = @"-----BEGIN PRIVATE KEY-----
+    ///         PrivateKey = @"-----BEGIN PRIVATE KEY-----
     /// MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC5cyk6x63iBJSW
     /// vtgsOBqIxfO8euPHcRnyWsL9dsvnbNyOnyvcqFWxdiW3sh2cItzYtoN1Zfgj5lWG
     /// OVXbHxP0VaNG9fHVX3+NHP6LFHQz92BzAYQmpqi9zaP/aKJklk6LdPFbVLGhuZfm
@@ -88,11 +86,10 @@ namespace Pulumi.Okta
     /// 0zBc7/CMOsMEBaNXuKL8Qj4enJXMtub4waQ/ywqHIdc50YaPI5Ax8dD/10h9M6Qc
     /// nUFLNE8pXSnsqb0eOL74f3uQ
     /// -----END PRIVATE KEY-----",
-    ///             CertificateChain = File.ReadAllText("www.example.com/fullchain.pem"),
-    ///         });
-    ///     }
+    ///         CertificateChain = File.ReadAllText("www.example.com/fullchain.pem"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -100,7 +97,7 @@ namespace Pulumi.Okta
     /// This resource does not support importing.
     /// </summary>
     [OktaResourceType("okta:index/domainCertificate:DomainCertificate")]
-    public partial class DomainCertificate : Pulumi.CustomResource
+    public partial class DomainCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Certificate content.
@@ -176,7 +173,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class DomainCertificateArgs : Pulumi.ResourceArgs
+    public sealed class DomainCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate content.
@@ -211,9 +208,10 @@ namespace Pulumi.Okta
         public DomainCertificateArgs()
         {
         }
+        public static new DomainCertificateArgs Empty => new DomainCertificateArgs();
     }
 
-    public sealed class DomainCertificateState : Pulumi.ResourceArgs
+    public sealed class DomainCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Certificate content.
@@ -248,5 +246,6 @@ namespace Pulumi.Okta
         public DomainCertificateState()
         {
         }
+        public static new DomainCertificateState Empty => new DomainCertificateState();
     }
 }

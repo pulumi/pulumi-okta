@@ -19,14 +19,17 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Example Usage
@@ -35,26 +38,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewAppOauthApiScope(ctx, "example", &okta.AppOauthApiScopeArgs{
-// 			AppId:  pulumi.String("<application_id>"),
-// 			Issuer: pulumi.String("<your org domain>"),
-// 			Scopes: pulumi.StringArray{
-// 				pulumi.String("okta.users.read"),
-// 				pulumi.String("okta.users.manage"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAppOauthApiScope(ctx, "example", &okta.AppOauthApiScopeArgs{
+//				AppId:  pulumi.String("<application_id>"),
+//				Issuer: pulumi.String("<your org domain>"),
+//				Scopes: pulumi.StringArray{
+//					pulumi.String("okta.users.read"),
+//					pulumi.String("okta.users.manage"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +68,9 @@ import (
 // OAuth API scopes can be imported via the Okta Application ID.
 //
 // ```sh
-//  $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62;
+//
+//	$ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62;
+//
 // ```
 type AppOauthApiScope struct {
 	pulumi.CustomResourceState
@@ -179,7 +187,7 @@ func (i *AppOauthApiScope) ToAppOauthApiScopeOutputWithContext(ctx context.Conte
 // AppOauthApiScopeArrayInput is an input type that accepts AppOauthApiScopeArray and AppOauthApiScopeArrayOutput values.
 // You can construct a concrete instance of `AppOauthApiScopeArrayInput` via:
 //
-//          AppOauthApiScopeArray{ AppOauthApiScopeArgs{...} }
+//	AppOauthApiScopeArray{ AppOauthApiScopeArgs{...} }
 type AppOauthApiScopeArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +212,7 @@ func (i AppOauthApiScopeArray) ToAppOauthApiScopeArrayOutputWithContext(ctx cont
 // AppOauthApiScopeMapInput is an input type that accepts AppOauthApiScopeMap and AppOauthApiScopeMapOutput values.
 // You can construct a concrete instance of `AppOauthApiScopeMapInput` via:
 //
-//          AppOauthApiScopeMap{ "key": AppOauthApiScopeArgs{...} }
+//	AppOauthApiScopeMap{ "key": AppOauthApiScopeArgs{...} }
 type AppOauthApiScopeMapInput interface {
 	pulumi.Input
 

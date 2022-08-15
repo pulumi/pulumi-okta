@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewBookmark(ctx, "example", &app.BookmarkArgs{
-// 			Label: pulumi.String("Example"),
-// 			Url:   pulumi.String("https://example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewBookmark(ctx, "example", &app.BookmarkArgs{
+//				Label: pulumi.String("Example"),
+//				Url:   pulumi.String("https://example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,21 +45,29 @@ import (
 // A Bookmark App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;
+//
+//	$ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;
+//
 // ```
 //
-//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//	It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_users
+//
+//	$ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_users
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_users/skip_groups
+//
+//	$ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_users/skip_groups
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_groups
+//
+//	$ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_groups
+//
 // ```
 type Bookmark struct {
 	pulumi.CustomResourceState
@@ -368,7 +379,7 @@ func (i *Bookmark) ToBookmarkOutputWithContext(ctx context.Context) BookmarkOutp
 // BookmarkArrayInput is an input type that accepts BookmarkArray and BookmarkArrayOutput values.
 // You can construct a concrete instance of `BookmarkArrayInput` via:
 //
-//          BookmarkArray{ BookmarkArgs{...} }
+//	BookmarkArray{ BookmarkArgs{...} }
 type BookmarkArrayInput interface {
 	pulumi.Input
 
@@ -393,7 +404,7 @@ func (i BookmarkArray) ToBookmarkArrayOutputWithContext(ctx context.Context) Boo
 // BookmarkMapInput is an input type that accepts BookmarkMap and BookmarkMapOutput values.
 // You can construct a concrete instance of `BookmarkMapInput` via:
 //
-//          BookmarkMap{ "key": BookmarkArgs{...} }
+//	BookmarkMap{ "key": BookmarkArgs{...} }
 type BookmarkMapInput interface {
 	pulumi.Input
 

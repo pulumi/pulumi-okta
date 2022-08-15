@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use policy.RuleMfa instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/mfaPolicyRule:MfaPolicyRule")]
-    public partial class MfaPolicyRule : Pulumi.CustomResource
+    public partial class MfaPolicyRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Applications to exclude
@@ -130,7 +130,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class MfaPolicyRuleArgs : Pulumi.ResourceArgs
+    public sealed class MfaPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("appExcludes")]
         private InputList<Inputs.MfaPolicyRuleAppExcludeArgs>? _appExcludes;
@@ -238,9 +238,10 @@ namespace Pulumi.Okta.Deprecated
         public MfaPolicyRuleArgs()
         {
         }
+        public static new MfaPolicyRuleArgs Empty => new MfaPolicyRuleArgs();
     }
 
-    public sealed class MfaPolicyRuleState : Pulumi.ResourceArgs
+    public sealed class MfaPolicyRuleState : global::Pulumi.ResourceArgs
     {
         [Input("appExcludes")]
         private InputList<Inputs.MfaPolicyRuleAppExcludeGetArgs>? _appExcludes;
@@ -348,5 +349,6 @@ namespace Pulumi.Okta.Deprecated
         public MfaPolicyRuleState()
         {
         }
+        public static new MfaPolicyRuleState Empty => new MfaPolicyRuleState();
     }
 }

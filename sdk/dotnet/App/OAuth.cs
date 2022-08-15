@@ -15,70 +15,66 @@ namespace Pulumi.Okta.App
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.App.OAuth("example", new()
     ///     {
-    ///         var example = new Okta.App.OAuth("example", new Okta.App.OAuthArgs
+    ///         GrantTypes = new[]
     ///         {
-    ///             GrantTypes = 
-    ///             {
-    ///                 "authorization_code",
-    ///             },
-    ///             Label = "example",
-    ///             RedirectUris = 
-    ///             {
-    ///                 "https://example.com/",
-    ///             },
-    ///             ResponseTypes = 
-    ///             {
-    ///                 "code",
-    ///             },
-    ///             Type = "web",
-    ///         });
-    ///     }
+    ///             "authorization_code",
+    ///         },
+    ///         Label = "example",
+    ///         RedirectUris = new[]
+    ///         {
+    ///             "https://example.com/",
+    ///         },
+    ///         ResponseTypes = new[]
+    ///         {
+    ///             "code",
+    ///         },
+    ///         Type = "web",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.App.OAuth("example", new()
     ///     {
-    ///         var example = new Okta.App.OAuth("example", new Okta.App.OAuthArgs
+    ///         GrantTypes = new[]
     ///         {
-    ///             GrantTypes = 
+    ///             "client_credentials",
+    ///         },
+    ///         Jwks = new[]
+    ///         {
+    ///             new Okta.App.Inputs.OAuthJwkArgs
     ///             {
-    ///                 "client_credentials",
+    ///                 E = "AQAB",
+    ///                 Kid = "SIGNING_KEY",
+    ///                 Kty = "RSA",
+    ///                 N = "xyz",
     ///             },
-    ///             Jwks = 
-    ///             {
-    ///                 new Okta.App.Inputs.OAuthJwkArgs
-    ///                 {
-    ///                     E = "AQAB",
-    ///                     Kid = "SIGNING_KEY",
-    ///                     Kty = "RSA",
-    ///                     N = "xyz",
-    ///                 },
-    ///             },
-    ///             Label = "example",
-    ///             ResponseTypes = 
-    ///             {
-    ///                 "token",
-    ///             },
-    ///             TokenEndpointAuthMethod = "private_key_jwt",
-    ///             Type = "service",
-    ///         });
-    ///     }
+    ///         },
+    ///         Label = "example",
+    ///         ResponseTypes = new[]
+    ///         {
+    ///             "token",
+    ///         },
+    ///         TokenEndpointAuthMethod = "private_key_jwt",
+    ///         Type = "service",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Etc.
     /// 
@@ -108,7 +104,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/oAuth:OAuth")]
-    public partial class OAuth : Pulumi.CustomResource
+    public partial class OAuth : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL.
@@ -479,7 +475,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class OAuthArgs : Pulumi.ResourceArgs
+    public sealed class OAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -835,9 +831,10 @@ namespace Pulumi.Okta.App
         public OAuthArgs()
         {
         }
+        public static new OAuthArgs Empty => new OAuthArgs();
     }
 
-    public sealed class OAuthState : Pulumi.ResourceArgs
+    public sealed class OAuthState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -1217,5 +1214,6 @@ namespace Pulumi.Okta.App
         public OAuthState()
         {
         }
+        public static new OAuthState Empty => new OAuthState();
     }
 }

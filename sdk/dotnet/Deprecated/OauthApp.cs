@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use app.OAuth instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/oauthApp:OauthApp")]
-    public partial class OauthApp : Pulumi.CustomResource
+    public partial class OauthApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL
@@ -380,7 +380,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class OauthAppArgs : Pulumi.ResourceArgs
+    public sealed class OauthAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -733,9 +733,10 @@ namespace Pulumi.Okta.Deprecated
         public OauthAppArgs()
         {
         }
+        public static new OauthAppArgs Empty => new OauthAppArgs();
     }
 
-    public sealed class OauthAppState : Pulumi.ResourceArgs
+    public sealed class OauthAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -1112,5 +1113,6 @@ namespace Pulumi.Okta.Deprecated
         public OauthAppState()
         {
         }
+        public static new OauthAppState Empty => new OauthAppState();
     }
 }

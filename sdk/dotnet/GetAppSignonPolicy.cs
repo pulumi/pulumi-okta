@@ -21,20 +21,18 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.GetAppSignonPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.GetAppSignonPolicy.InvokeAsync(new Okta.GetAppSignonPolicyArgs
-        ///         {
-        ///             AppId = "app_id",
-        ///         }));
-        ///     }
+        ///         AppId = "app_id",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.GetAppSignonPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.GetAppSignonPolicy.InvokeAsync(new Okta.GetAppSignonPolicyArgs
-        ///         {
-        ///             AppId = "app_id",
-        ///         }));
-        ///     }
+        ///         AppId = "app_id",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetAppSignonPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetAppSignonPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The application ID.
@@ -86,9 +82,10 @@ namespace Pulumi.Okta
         public GetAppSignonPolicyArgs()
         {
         }
+        public static new GetAppSignonPolicyArgs Empty => new GetAppSignonPolicyArgs();
     }
 
-    public sealed class GetAppSignonPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppSignonPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The application ID.
@@ -99,6 +96,7 @@ namespace Pulumi.Okta
         public GetAppSignonPolicyInvokeArgs()
         {
         }
+        public static new GetAppSignonPolicyInvokeArgs Empty => new GetAppSignonPolicyInvokeArgs();
     }
 
 

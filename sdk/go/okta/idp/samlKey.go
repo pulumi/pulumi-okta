@@ -16,7 +16,9 @@ import (
 // A SAML IdP Signing Key can be imported via the key id.
 //
 // ```sh
-//  $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
+//
+//	$ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
+//
 // ```
 type SamlKey struct {
 	pulumi.CustomResourceState
@@ -143,7 +145,7 @@ func (i *SamlKey) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput 
 // SamlKeyArrayInput is an input type that accepts SamlKeyArray and SamlKeyArrayOutput values.
 // You can construct a concrete instance of `SamlKeyArrayInput` via:
 //
-//          SamlKeyArray{ SamlKeyArgs{...} }
+//	SamlKeyArray{ SamlKeyArgs{...} }
 type SamlKeyArrayInput interface {
 	pulumi.Input
 
@@ -168,7 +170,7 @@ func (i SamlKeyArray) ToSamlKeyArrayOutputWithContext(ctx context.Context) SamlK
 // SamlKeyMapInput is an input type that accepts SamlKeyMap and SamlKeyMapOutput values.
 // You can construct a concrete instance of `SamlKeyMapInput` via:
 //
-//          SamlKeyMap{ "key": SamlKeyArgs{...} }
+//	SamlKeyMap{ "key": SamlKeyArgs{...} }
 type SamlKeyMapInput interface {
 	pulumi.Input
 

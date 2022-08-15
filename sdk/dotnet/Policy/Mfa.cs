@@ -21,52 +21,51 @@ namespace Pulumi.Okta.Policy
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var classicExample = new Okta.Policy.Mfa("classicExample", new()
     ///     {
-    ///         var classicExample = new Okta.Policy.Mfa("classicExample", new Okta.Policy.MfaArgs
+    ///         Description = "Example MFA policy using Okta Classic engine with factors.",
+    ///         GroupsIncludeds = new[]
     ///         {
-    ///             Description = "Example MFA policy using Okta Classic engine with factors.",
-    ///             GroupsIncludeds = 
-    ///             {
-    ///                 data.Okta_group.Everyone.Id,
-    ///             },
-    ///             IsOie = false,
-    ///             OktaOtp = 
-    ///             {
-    ///                 { "enroll", "REQUIRED" },
-    ///             },
-    ///             OktaPassword = 
-    ///             {
-    ///                 { "enroll", "REQUIRED" },
-    ///             },
-    ///             Status = "ACTIVE",
-    ///         });
-    ///         var oieExample = new Okta.Policy.Mfa("oieExample", new Okta.Policy.MfaArgs
+    ///             data.Okta_group.Everyone.Id,
+    ///         },
+    ///         IsOie = false,
+    ///         OktaOtp = 
     ///         {
-    ///             Description = "Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
-    ///             GroupsIncludeds = 
-    ///             {
-    ///                 data.Okta_group.Everyone.Id,
-    ///             },
-    ///             IsOie = true,
-    ///             OktaPassword = 
-    ///             {
-    ///                 { "enroll", "REQUIRED" },
-    ///             },
-    ///             OktaVerify = 
-    ///             {
-    ///                 { "enroll", "REQUIRED" },
-    ///             },
-    ///             Status = "ACTIVE",
-    ///         });
-    ///     }
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///         OktaPassword = 
+    ///         {
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///         Status = "ACTIVE",
+    ///     });
     /// 
-    /// }
+    ///     var oieExample = new Okta.Policy.Mfa("oieExample", new()
+    ///     {
+    ///         Description = "Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
+    ///         GroupsIncludeds = new[]
+    ///         {
+    ///             data.Okta_group.Everyone.Id,
+    ///         },
+    ///         IsOie = true,
+    ///         OktaPassword = 
+    ///         {
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///         OktaVerify = 
+    ///         {
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///         Status = "ACTIVE",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +77,7 @@ namespace Pulumi.Okta.Policy
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/mfa:Mfa")]
-    public partial class Mfa : Pulumi.CustomResource
+    public partial class Mfa : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Policy Description.
@@ -287,7 +286,7 @@ namespace Pulumi.Okta.Policy
         }
     }
 
-    public sealed class MfaArgs : Pulumi.ResourceArgs
+    public sealed class MfaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Description.
@@ -587,9 +586,10 @@ namespace Pulumi.Okta.Policy
         public MfaArgs()
         {
         }
+        public static new MfaArgs Empty => new MfaArgs();
     }
 
-    public sealed class MfaState : Pulumi.ResourceArgs
+    public sealed class MfaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Description.
@@ -889,5 +889,6 @@ namespace Pulumi.Okta.Policy
         public MfaState()
         {
         }
+        public static new MfaState Empty => new MfaState();
     }
 }

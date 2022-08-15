@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := auth.NewServerScope(ctx, "example", &auth.ServerScopeArgs{
-// 			AuthServerId:    pulumi.String("<auth server id>"),
-// 			Consent:         pulumi.String("IMPLICIT"),
-// 			MetadataPublish: pulumi.String("NO_CLIENTS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := auth.NewServerScope(ctx, "example", &auth.ServerScopeArgs{
+//				AuthServerId:    pulumi.String("<auth server id>"),
+//				Consent:         pulumi.String("IMPLICIT"),
+//				MetadataPublish: pulumi.String("NO_CLIENTS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
 //
 // ```sh
-//  $ pulumi import okta:auth/serverScope:ServerScope example &#60;auth server id&#62;/&#60;scope id&#62;
+//
+//	$ pulumi import okta:auth/serverScope:ServerScope example &#60;auth server id&#62;/&#60;scope id&#62;
+//
 // ```
 type ServerScope struct {
 	pulumi.CustomResourceState
@@ -202,7 +207,7 @@ func (i *ServerScope) ToServerScopeOutputWithContext(ctx context.Context) Server
 // ServerScopeArrayInput is an input type that accepts ServerScopeArray and ServerScopeArrayOutput values.
 // You can construct a concrete instance of `ServerScopeArrayInput` via:
 //
-//          ServerScopeArray{ ServerScopeArgs{...} }
+//	ServerScopeArray{ ServerScopeArgs{...} }
 type ServerScopeArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i ServerScopeArray) ToServerScopeArrayOutputWithContext(ctx context.Contex
 // ServerScopeMapInput is an input type that accepts ServerScopeMap and ServerScopeMapOutput values.
 // You can construct a concrete instance of `ServerScopeMapInput` via:
 //
-//          ServerScopeMap{ "key": ServerScopeArgs{...} }
+//	ServerScopeMap{ "key": ServerScopeArgs{...} }
 type ServerScopeMapInput interface {
 	pulumi.Input
 

@@ -20,7 +20,7 @@ type SchemaArrayOneOf struct {
 // SchemaArrayOneOfInput is an input type that accepts SchemaArrayOneOfArgs and SchemaArrayOneOfOutput values.
 // You can construct a concrete instance of `SchemaArrayOneOfInput` via:
 //
-//          SchemaArrayOneOfArgs{...}
+//	SchemaArrayOneOfArgs{...}
 type SchemaArrayOneOfInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i SchemaArrayOneOfArgs) ToSchemaArrayOneOfOutputWithContext(ctx context.Co
 // SchemaArrayOneOfArrayInput is an input type that accepts SchemaArrayOneOfArray and SchemaArrayOneOfArrayOutput values.
 // You can construct a concrete instance of `SchemaArrayOneOfArrayInput` via:
 //
-//          SchemaArrayOneOfArray{ SchemaArrayOneOfArgs{...} }
+//	SchemaArrayOneOfArray{ SchemaArrayOneOfArgs{...} }
 type SchemaArrayOneOfArrayInput interface {
 	pulumi.Input
 
@@ -126,7 +126,7 @@ type SchemaMasterOverridePriority struct {
 // SchemaMasterOverridePriorityInput is an input type that accepts SchemaMasterOverridePriorityArgs and SchemaMasterOverridePriorityOutput values.
 // You can construct a concrete instance of `SchemaMasterOverridePriorityInput` via:
 //
-//          SchemaMasterOverridePriorityArgs{...}
+//	SchemaMasterOverridePriorityArgs{...}
 type SchemaMasterOverridePriorityInput interface {
 	pulumi.Input
 
@@ -156,7 +156,7 @@ func (i SchemaMasterOverridePriorityArgs) ToSchemaMasterOverridePriorityOutputWi
 // SchemaMasterOverridePriorityArrayInput is an input type that accepts SchemaMasterOverridePriorityArray and SchemaMasterOverridePriorityArrayOutput values.
 // You can construct a concrete instance of `SchemaMasterOverridePriorityArrayInput` via:
 //
-//          SchemaMasterOverridePriorityArray{ SchemaMasterOverridePriorityArgs{...} }
+//	SchemaMasterOverridePriorityArray{ SchemaMasterOverridePriorityArgs{...} }
 type SchemaMasterOverridePriorityArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +232,7 @@ type SchemaOneOf struct {
 // SchemaOneOfInput is an input type that accepts SchemaOneOfArgs and SchemaOneOfOutput values.
 // You can construct a concrete instance of `SchemaOneOfInput` via:
 //
-//          SchemaOneOfArgs{...}
+//	SchemaOneOfArgs{...}
 type SchemaOneOfInput interface {
 	pulumi.Input
 
@@ -262,7 +262,7 @@ func (i SchemaOneOfArgs) ToSchemaOneOfOutputWithContext(ctx context.Context) Sch
 // SchemaOneOfArrayInput is an input type that accepts SchemaOneOfArray and SchemaOneOfArrayOutput values.
 // You can construct a concrete instance of `SchemaOneOfArrayInput` via:
 //
-//          SchemaOneOfArray{ SchemaOneOfArgs{...} }
+//	SchemaOneOfArray{ SchemaOneOfArgs{...} }
 type SchemaOneOfArrayInput interface {
 	pulumi.Input
 
@@ -347,7 +347,7 @@ type UserPasswordHash struct {
 // UserPasswordHashInput is an input type that accepts UserPasswordHashArgs and UserPasswordHashOutput values.
 // You can construct a concrete instance of `UserPasswordHashInput` via:
 //
-//          UserPasswordHashArgs{...}
+//	UserPasswordHashArgs{...}
 type UserPasswordHashInput interface {
 	pulumi.Input
 
@@ -394,11 +394,11 @@ func (i UserPasswordHashArgs) ToUserPasswordHashPtrOutputWithContext(ctx context
 // UserPasswordHashPtrInput is an input type that accepts UserPasswordHashArgs, UserPasswordHashPtr and UserPasswordHashPtrOutput values.
 // You can construct a concrete instance of `UserPasswordHashPtrInput` via:
 //
-//          UserPasswordHashArgs{...}
+//	        UserPasswordHashArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UserPasswordHashPtrInput interface {
 	pulumi.Input
 
@@ -567,7 +567,7 @@ type GetUserSearch struct {
 // GetUserSearchInput is an input type that accepts GetUserSearchArgs and GetUserSearchOutput values.
 // You can construct a concrete instance of `GetUserSearchInput` via:
 //
-//          GetUserSearchArgs{...}
+//	GetUserSearchArgs{...}
 type GetUserSearchInput interface {
 	pulumi.Input
 
@@ -601,7 +601,7 @@ func (i GetUserSearchArgs) ToGetUserSearchOutputWithContext(ctx context.Context)
 // GetUserSearchArrayInput is an input type that accepts GetUserSearchArray and GetUserSearchArrayOutput values.
 // You can construct a concrete instance of `GetUserSearchArrayInput` via:
 //
-//          GetUserSearchArray{ GetUserSearchArgs{...} }
+//	GetUserSearchArray{ GetUserSearchArgs{...} }
 type GetUserSearchArrayInput interface {
 	pulumi.Input
 
@@ -691,7 +691,7 @@ type GetUsersSearch struct {
 // GetUsersSearchInput is an input type that accepts GetUsersSearchArgs and GetUsersSearchOutput values.
 // You can construct a concrete instance of `GetUsersSearchInput` via:
 //
-//          GetUsersSearchArgs{...}
+//	GetUsersSearchArgs{...}
 type GetUsersSearchInput interface {
 	pulumi.Input
 
@@ -725,7 +725,7 @@ func (i GetUsersSearchArgs) ToGetUsersSearchOutputWithContext(ctx context.Contex
 // GetUsersSearchArrayInput is an input type that accepts GetUsersSearchArray and GetUsersSearchArrayOutput values.
 // You can construct a concrete instance of `GetUsersSearchArrayInput` via:
 //
-//          GetUsersSearchArray{ GetUsersSearchArgs{...} }
+//	GetUsersSearchArray{ GetUsersSearchArgs{...} }
 type GetUsersSearchArrayInput interface {
 	pulumi.Input
 
@@ -878,7 +878,7 @@ type GetUsersUser struct {
 // GetUsersUserInput is an input type that accepts GetUsersUserArgs and GetUsersUserOutput values.
 // You can construct a concrete instance of `GetUsersUserInput` via:
 //
-//          GetUsersUserArgs{...}
+//	GetUsersUserArgs{...}
 type GetUsersUserInput interface {
 	pulumi.Input
 
@@ -975,7 +975,7 @@ func (i GetUsersUserArgs) ToGetUsersUserOutputWithContext(ctx context.Context) G
 // GetUsersUserArrayInput is an input type that accepts GetUsersUserArray and GetUsersUserArrayOutput values.
 // You can construct a concrete instance of `GetUsersUserArrayInput` via:
 //
-//          GetUsersUserArray{ GetUsersUserArgs{...} }
+//	GetUsersUserArray{ GetUsersUserArgs{...} }
 type GetUsersUserArrayInput interface {
 	pulumi.Input
 

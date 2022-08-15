@@ -17,27 +17,25 @@ namespace Pulumi.Okta.Auth
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Auth.ServerPolicy("example", new()
     ///     {
-    ///         var example = new Okta.Auth.ServerPolicy("example", new Okta.Auth.ServerPolicyArgs
+    ///         AuthServerId = "&lt;auth server id&gt;",
+    ///         ClientWhitelists = new[]
     ///         {
-    ///             AuthServerId = "&lt;auth server id&gt;",
-    ///             ClientWhitelists = 
-    ///             {
-    ///                 "ALL_CLIENTS",
-    ///             },
-    ///             Description = "example",
-    ///             Priority = 1,
-    ///             Status = "ACTIVE",
-    ///         });
-    ///     }
+    ///             "ALL_CLIENTS",
+    ///         },
+    ///         Description = "example",
+    ///         Priority = 1,
+    ///         Status = "ACTIVE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Okta.Auth
     /// ```
     /// </summary>
     [OktaResourceType("okta:auth/serverPolicy:ServerPolicy")]
-    public partial class ServerPolicy : Pulumi.CustomResource
+    public partial class ServerPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Auth Server.
@@ -137,7 +135,7 @@ namespace Pulumi.Okta.Auth
         }
     }
 
-    public sealed class ServerPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ServerPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Auth Server.
@@ -190,9 +188,10 @@ namespace Pulumi.Okta.Auth
         public ServerPolicyArgs()
         {
         }
+        public static new ServerPolicyArgs Empty => new ServerPolicyArgs();
     }
 
-    public sealed class ServerPolicyState : Pulumi.ResourceArgs
+    public sealed class ServerPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Auth Server.
@@ -245,5 +244,6 @@ namespace Pulumi.Okta.Auth
         public ServerPolicyState()
         {
         }
+        public static new ServerPolicyState Empty => new ServerPolicyState();
     }
 }

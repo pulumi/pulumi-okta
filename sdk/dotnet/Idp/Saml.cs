@@ -17,28 +17,26 @@ namespace Pulumi.Okta.Idp
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Idp.Saml("example", new()
     ///     {
-    ///         var example = new Okta.Idp.Saml("example", new Okta.Idp.SamlArgs
-    ///         {
-    ///             AcsType = "INSTANCE",
-    ///             Issuer = "https://idp.example.com",
-    ///             Kid = okta_idp_saml_key.Test.Id,
-    ///             RequestSignatureScope = "REQUEST",
-    ///             ResponseSignatureScope = "ANY",
-    ///             SsoBinding = "HTTP-POST",
-    ///             SsoDestination = "https://idp.example.com",
-    ///             SsoUrl = "https://idp.example.com",
-    ///             UsernameTemplate = "idpuser.email",
-    ///         });
-    ///     }
+    ///         AcsType = "INSTANCE",
+    ///         Issuer = "https://idp.example.com",
+    ///         Kid = okta_idp_saml_key.Test.Id,
+    ///         RequestSignatureScope = "REQUEST",
+    ///         ResponseSignatureScope = "ANY",
+    ///         SsoBinding = "HTTP-POST",
+    ///         SsoDestination = "https://idp.example.com",
+    ///         SsoUrl = "https://idp.example.com",
+    ///         UsernameTemplate = "idpuser.email",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Okta.Idp
     /// ```
     /// </summary>
     [OktaResourceType("okta:idp/saml:Saml")]
-    public partial class Saml : Pulumi.CustomResource
+    public partial class Saml : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the account linking action for an IdP user.
@@ -297,7 +295,7 @@ namespace Pulumi.Okta.Idp
         }
     }
 
-    public sealed class SamlArgs : Pulumi.ResourceArgs
+    public sealed class SamlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the account linking action for an IdP user.
@@ -509,9 +507,10 @@ namespace Pulumi.Okta.Idp
         public SamlArgs()
         {
         }
+        public static new SamlArgs Empty => new SamlArgs();
     }
 
-    public sealed class SamlState : Pulumi.ResourceArgs
+    public sealed class SamlState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the account linking action for an IdP user.
@@ -741,5 +740,6 @@ namespace Pulumi.Okta.Idp
         public SamlState()
         {
         }
+        public static new SamlState Empty => new SamlState();
     }
 }

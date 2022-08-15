@@ -25,7 +25,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetBehaviourArgs : Pulumi.InvokeArgs
+    public sealed class GetBehaviourArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// `id` of behavior to retrieve, conflicts with `name`.
@@ -43,9 +43,10 @@ namespace Pulumi.Okta
         public GetBehaviourArgs()
         {
         }
+        public static new GetBehaviourArgs Empty => new GetBehaviourArgs();
     }
 
-    public sealed class GetBehaviourInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBehaviourInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// `id` of behavior to retrieve, conflicts with `name`.
@@ -63,6 +64,7 @@ namespace Pulumi.Okta
         public GetBehaviourInvokeArgs()
         {
         }
+        public static new GetBehaviourInvokeArgs Empty => new GetBehaviourInvokeArgs();
     }
 
 

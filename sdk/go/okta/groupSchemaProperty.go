@@ -17,26 +17,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewGroupSchemaProperty(ctx, "example", &okta.GroupSchemaPropertyArgs{
-// 			Description: pulumi.String("My custom property name"),
-// 			Index:       pulumi.String("customPropertyName"),
-// 			Master:      pulumi.String("OKTA"),
-// 			Scope:       pulumi.String("SELF"),
-// 			Title:       pulumi.String("customPropertyName"),
-// 			Type:        pulumi.String("string"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewGroupSchemaProperty(ctx, "example", &okta.GroupSchemaPropertyArgs{
+//				Description: pulumi.String("My custom property name"),
+//				Index:       pulumi.String("customPropertyName"),
+//				Master:      pulumi.String("OKTA"),
+//				Scope:       pulumi.String("SELF"),
+//				Title:       pulumi.String("customPropertyName"),
+//				Type:        pulumi.String("string"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Group schema property can be imported via the property index.
 //
 // ```sh
-//  $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
+//
+//	$ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
+//
 // ```
 type GroupSchemaProperty struct {
 	pulumi.CustomResourceState
@@ -321,7 +326,7 @@ func (i *GroupSchemaProperty) ToGroupSchemaPropertyOutputWithContext(ctx context
 // GroupSchemaPropertyArrayInput is an input type that accepts GroupSchemaPropertyArray and GroupSchemaPropertyArrayOutput values.
 // You can construct a concrete instance of `GroupSchemaPropertyArrayInput` via:
 //
-//          GroupSchemaPropertyArray{ GroupSchemaPropertyArgs{...} }
+//	GroupSchemaPropertyArray{ GroupSchemaPropertyArgs{...} }
 type GroupSchemaPropertyArrayInput interface {
 	pulumi.Input
 
@@ -346,7 +351,7 @@ func (i GroupSchemaPropertyArray) ToGroupSchemaPropertyArrayOutputWithContext(ct
 // GroupSchemaPropertyMapInput is an input type that accepts GroupSchemaPropertyMap and GroupSchemaPropertyMapOutput values.
 // You can construct a concrete instance of `GroupSchemaPropertyMapInput` via:
 //
-//          GroupSchemaPropertyMap{ "key": GroupSchemaPropertyArgs{...} }
+//	GroupSchemaPropertyMap{ "key": GroupSchemaPropertyArgs{...} }
 type GroupSchemaPropertyMapInput interface {
 	pulumi.Input
 

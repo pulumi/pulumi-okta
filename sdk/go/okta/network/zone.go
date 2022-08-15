@@ -21,29 +21,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewZone(ctx, "example", &network.ZoneArgs{
-// 			Gateways: pulumi.StringArray{
-// 				pulumi.String("1.2.3.4/24"),
-// 				pulumi.String("2.3.4.5-2.3.4.15"),
-// 			},
-// 			Proxies: pulumi.StringArray{
-// 				pulumi.String("2.2.3.4/24"),
-// 				pulumi.String("3.3.4.5-3.3.4.15"),
-// 			},
-// 			Type: pulumi.String("IP"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := network.NewZone(ctx, "example", &network.ZoneArgs{
+//				Gateways: pulumi.StringArray{
+//					pulumi.String("1.2.3.4/24"),
+//					pulumi.String("2.3.4.5-2.3.4.15"),
+//				},
+//				Proxies: pulumi.StringArray{
+//					pulumi.String("2.2.3.4/24"),
+//					pulumi.String("3.3.4.5-3.3.4.15"),
+//				},
+//				Type: pulumi.String("IP"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Dynamic Tor Blocker
 //
@@ -51,23 +54,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewZone(ctx, "example", &network.ZoneArgs{
-// 			DynamicProxyType: pulumi.String("TorAnonymizer"),
-// 			Type:             pulumi.String("DYNAMIC"),
-// 			Usage:            pulumi.String("BLOCKLIST"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := network.NewZone(ctx, "example", &network.ZoneArgs{
+//				DynamicProxyType: pulumi.String("TorAnonymizer"),
+//				Type:             pulumi.String("DYNAMIC"),
+//				Usage:            pulumi.String("BLOCKLIST"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +81,9 @@ import (
 // Okta Network Zone can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
+//
+//	$ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
+//
 // ```
 type Zone struct {
 	pulumi.CustomResourceState
@@ -241,7 +249,7 @@ func (i *Zone) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 // ZoneArrayInput is an input type that accepts ZoneArray and ZoneArrayOutput values.
 // You can construct a concrete instance of `ZoneArrayInput` via:
 //
-//          ZoneArray{ ZoneArgs{...} }
+//	ZoneArray{ ZoneArgs{...} }
 type ZoneArrayInput interface {
 	pulumi.Input
 
@@ -266,7 +274,7 @@ func (i ZoneArray) ToZoneArrayOutputWithContext(ctx context.Context) ZoneArrayOu
 // ZoneMapInput is an input type that accepts ZoneMap and ZoneMapOutput values.
 // You can construct a concrete instance of `ZoneMapInput` via:
 //
-//          ZoneMap{ "key": ZoneArgs{...} }
+//	ZoneMap{ "key": ZoneArgs{...} }
 type ZoneMapInput interface {
 	pulumi.Input
 

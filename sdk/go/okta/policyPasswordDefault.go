@@ -20,19 +20,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewPolicyPasswordDefault(ctx, "default", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewPolicyPasswordDefault(ctx, "default", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,7 +43,9 @@ import (
 // Default Password Policy can be imported without providing Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
+//
+//	$ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
+//
 // ```
 type PolicyPasswordDefault struct {
 	pulumi.CustomResourceState
@@ -414,7 +419,7 @@ func (i *PolicyPasswordDefault) ToPolicyPasswordDefaultOutputWithContext(ctx con
 // PolicyPasswordDefaultArrayInput is an input type that accepts PolicyPasswordDefaultArray and PolicyPasswordDefaultArrayOutput values.
 // You can construct a concrete instance of `PolicyPasswordDefaultArrayInput` via:
 //
-//          PolicyPasswordDefaultArray{ PolicyPasswordDefaultArgs{...} }
+//	PolicyPasswordDefaultArray{ PolicyPasswordDefaultArgs{...} }
 type PolicyPasswordDefaultArrayInput interface {
 	pulumi.Input
 
@@ -439,7 +444,7 @@ func (i PolicyPasswordDefaultArray) ToPolicyPasswordDefaultArrayOutputWithContex
 // PolicyPasswordDefaultMapInput is an input type that accepts PolicyPasswordDefaultMap and PolicyPasswordDefaultMapOutput values.
 // You can construct a concrete instance of `PolicyPasswordDefaultMapInput` via:
 //
-//          PolicyPasswordDefaultMap{ "key": PolicyPasswordDefaultArgs{...} }
+//	PolicyPasswordDefaultMap{ "key": PolicyPasswordDefaultArgs{...} }
 type PolicyPasswordDefaultMapInput interface {
 	pulumi.Input
 

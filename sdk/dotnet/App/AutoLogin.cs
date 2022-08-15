@@ -15,49 +15,45 @@ namespace Pulumi.Okta.App
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.App.AutoLogin("example", new()
     ///     {
-    ///         var example = new Okta.App.AutoLogin("example", new Okta.App.AutoLoginArgs
-    ///         {
-    ///             CredentialsScheme = "EDIT_USERNAME_AND_PASSWORD",
-    ///             Label = "Example App",
-    ///             RevealPassword = true,
-    ///             SignOnRedirectUrl = "https://example.com",
-    ///             SignOnUrl = "https://example.com/login.html",
-    ///         });
-    ///     }
+    ///         CredentialsScheme = "EDIT_USERNAME_AND_PASSWORD",
+    ///         Label = "Example App",
+    ///         RevealPassword = true,
+    ///         SignOnRedirectUrl = "https://example.com",
+    ///         SignOnUrl = "https://example.com/login.html",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Pre-configured application
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.App.AutoLogin("example", new()
     ///     {
-    ///         var example = new Okta.App.AutoLogin("example", new Okta.App.AutoLoginArgs
-    ///         {
-    ///             AppSettingsJson = @"{
+    ///         AppSettingsJson = @"{
     ///     ""domain"": ""okta"",
     ///     ""afwOnly"": false
     /// }
     /// 
     /// ",
-    ///             Label = "Google Example App",
-    ///             PreconfiguredApp = "google",
-    ///             Status = "ACTIVE",
-    ///         });
-    ///     }
+    ///         Label = "Google Example App",
+    ///         PreconfiguredApp = "google",
+    ///         Status = "ACTIVE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -83,7 +79,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/autoLogin:AutoLogin")]
-    public partial class AutoLogin : Pulumi.CustomResource
+    public partial class AutoLogin : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL.
@@ -317,7 +313,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class AutoLoginArgs : Pulumi.ResourceArgs
+    public sealed class AutoLoginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -506,9 +502,10 @@ namespace Pulumi.Okta.App
         public AutoLoginArgs()
         {
         }
+        public static new AutoLoginArgs Empty => new AutoLoginArgs();
     }
 
-    public sealed class AutoLoginState : Pulumi.ResourceArgs
+    public sealed class AutoLoginState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -715,5 +712,6 @@ namespace Pulumi.Okta.App
         public AutoLoginState()
         {
         }
+        public static new AutoLoginState Empty => new AutoLoginState();
     }
 }

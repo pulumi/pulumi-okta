@@ -16,109 +16,109 @@ namespace Pulumi.Okta.Policy
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Okta.Policy.Signon("test", new()
     ///     {
-    ///         var test = new Okta.Policy.Signon("test", new Okta.Policy.SignonArgs
+    ///         Status = "ACTIVE",
+    ///         Description = "Example Policy",
+    ///     });
+    /// 
+    ///     var newCity = Okta.GetBehaviour.Invoke(new()
+    ///     {
+    ///         Name = "New City",
+    ///     });
+    /// 
+    ///     var example = new Okta.Policy.RuleSignon("example", new()
+    ///     {
+    ///         Access = "CHALLENGE",
+    ///         Authtype = "RADIUS",
+    ///         NetworkConnection = "ANYWHERE",
+    ///         PolicyId = okta_policy_signon.Example.Id,
+    ///         Status = "ACTIVE",
+    ///         RiscLevel = "HIGH",
+    ///         Behaviors = new[]
     ///         {
-    ///             Status = "ACTIVE",
-    ///             Description = "Example Policy",
-    ///         });
-    ///         var newCity = Output.Create(Okta.GetBehaviour.InvokeAsync(new Okta.GetBehaviourArgs
+    ///             newCity.Apply(getBehaviourResult =&gt; getBehaviourResult.Id),
+    ///         },
+    ///         FactorSequences = new[]
     ///         {
-    ///             Name = "New City",
-    ///         }));
-    ///         var example = new Okta.Policy.RuleSignon("example", new Okta.Policy.RuleSignonArgs
-    ///         {
-    ///             Access = "CHALLENGE",
-    ///             Authtype = "RADIUS",
-    ///             NetworkConnection = "ANYWHERE",
-    ///             PolicyId = okta_policy_signon.Example.Id,
-    ///             Status = "ACTIVE",
-    ///             RiscLevel = "HIGH",
-    ///             Behaviors = 
+    ///             new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs
     ///             {
-    ///                 newCity.Apply(newCity =&gt; newCity.Id),
-    ///             },
-    ///             FactorSequences = 
-    ///             {
-    ///                 new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs
+    ///                 PrimaryCriteriaFactorType = "token:hotp",
+    ///                 PrimaryCriteriaProvider = "CUSTOM",
+    ///                 SecondaryCriterias = new[]
     ///                 {
-    ///                     PrimaryCriteriaFactorType = "token:hotp",
-    ///                     PrimaryCriteriaProvider = "CUSTOM",
-    ///                     SecondaryCriterias = 
+    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
     ///                     {
-    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                         {
-    ///                             FactorType = "token:software:totp",
-    ///                             Provider = "OKTA",
-    ///                         },
-    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                         {
-    ///                             FactorType = "push",
-    ///                             Provider = "OKTA",
-    ///                         },
-    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                         {
-    ///                             FactorType = "password",
-    ///                             Provider = "OKTA",
-    ///                         },
-    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                         {
-    ///                             FactorType = "question",
-    ///                             Provider = "OKTA",
-    ///                         },
-    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                         {
-    ///                             FactorType = "sms",
-    ///                             Provider = "OKTA",
-    ///                         },
-    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                         {
-    ///                             FactorType = "token:software:totp",
-    ///                             Provider = "GOOGLE",
-    ///                         },
-    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                         {
-    ///                             FactorType = "email",
-    ///                             Provider = "OKTA",
-    ///                         },
-    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                         {
-    ///                             FactorType = "call",
-    ///                             Provider = "OKTA",
-    ///                         },
-    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                         {
-    ///                             FactorType = "webauthn",
-    ///                             Provider = "FIDO",
-    ///                         },
-    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                         {
-    ///                             FactorType = "token",
-    ///                             Provider = "RSA",
-    ///                         },
-    ///                         new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                         {
-    ///                             FactorType = "token",
-    ///                             Provider = "SYMANTEC",
-    ///                         },
+    ///                         FactorType = "token:software:totp",
+    ///                         Provider = "OKTA",
+    ///                     },
+    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                     {
+    ///                         FactorType = "push",
+    ///                         Provider = "OKTA",
+    ///                     },
+    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                     {
+    ///                         FactorType = "password",
+    ///                         Provider = "OKTA",
+    ///                     },
+    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                     {
+    ///                         FactorType = "question",
+    ///                         Provider = "OKTA",
+    ///                     },
+    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                     {
+    ///                         FactorType = "sms",
+    ///                         Provider = "OKTA",
+    ///                     },
+    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                     {
+    ///                         FactorType = "token:software:totp",
+    ///                         Provider = "GOOGLE",
+    ///                     },
+    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                     {
+    ///                         FactorType = "email",
+    ///                         Provider = "OKTA",
+    ///                     },
+    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                     {
+    ///                         FactorType = "call",
+    ///                         Provider = "OKTA",
+    ///                     },
+    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                     {
+    ///                         FactorType = "webauthn",
+    ///                         Provider = "FIDO",
+    ///                     },
+    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                     {
+    ///                         FactorType = "token",
+    ///                         Provider = "RSA",
+    ///                     },
+    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
+    ///                     {
+    ///                         FactorType = "token",
+    ///                         Provider = "SYMANTEC",
     ///                     },
     ///                 },
-    ///                 new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs
-    ///                 {
-    ///                     PrimaryCriteriaFactorType = "token:software:totp",
-    ///                     PrimaryCriteriaProvider = "OKTA",
-    ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs
+    ///             {
+    ///                 PrimaryCriteriaFactorType = "token:software:totp",
+    ///                 PrimaryCriteriaProvider = "OKTA",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -130,7 +130,7 @@ namespace Pulumi.Okta.Policy
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/ruleSignon:RuleSignon")]
-    public partial class RuleSignon : Pulumi.CustomResource
+    public partial class RuleSignon : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
@@ -322,7 +322,7 @@ namespace Pulumi.Okta.Policy
         }
     }
 
-    public sealed class RuleSignonArgs : Pulumi.ResourceArgs
+    public sealed class RuleSignonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
@@ -509,9 +509,10 @@ namespace Pulumi.Okta.Policy
         public RuleSignonArgs()
         {
         }
+        public static new RuleSignonArgs Empty => new RuleSignonArgs();
     }
 
-    public sealed class RuleSignonState : Pulumi.ResourceArgs
+    public sealed class RuleSignonState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
@@ -698,5 +699,6 @@ namespace Pulumi.Okta.Policy
         public RuleSignonState()
         {
         }
+        public static new RuleSignonState Empty => new RuleSignonState();
     }
 }

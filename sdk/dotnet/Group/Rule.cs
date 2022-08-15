@@ -17,26 +17,24 @@ namespace Pulumi.Okta.Group
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Group.Rule("example", new()
     ///     {
-    ///         var example = new Okta.Group.Rule("example", new Okta.Group.RuleArgs
+    ///         ExpressionType = "urn:okta:expression:1.0",
+    ///         ExpressionValue = "String.startsWith(user.firstName,\"andy\")",
+    ///         GroupAssignments = new[]
     ///         {
-    ///             ExpressionType = "urn:okta:expression:1.0",
-    ///             ExpressionValue = "String.startsWith(user.firstName,\"andy\")",
-    ///             GroupAssignments = 
-    ///             {
-    ///                 "&lt;group id&gt;",
-    ///             },
-    ///             Status = "ACTIVE",
-    ///         });
-    ///     }
+    ///             "&lt;group id&gt;",
+    ///         },
+    ///         Status = "ACTIVE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Okta.Group
     /// ```
     /// </summary>
     [OktaResourceType("okta:group/rule:Rule")]
-    public partial class Rule : Pulumi.CustomResource
+    public partial class Rule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The expression type to use to invoke the rule. The default
@@ -138,7 +136,7 @@ namespace Pulumi.Okta.Group
         }
     }
 
-    public sealed class RuleArgs : Pulumi.ResourceArgs
+    public sealed class RuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The expression type to use to invoke the rule. The default
@@ -199,9 +197,10 @@ namespace Pulumi.Okta.Group
         public RuleArgs()
         {
         }
+        public static new RuleArgs Empty => new RuleArgs();
     }
 
-    public sealed class RuleState : Pulumi.ResourceArgs
+    public sealed class RuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The expression type to use to invoke the rule. The default
@@ -262,5 +261,6 @@ namespace Pulumi.Okta.Group
         public RuleState()
         {
         }
+        public static new RuleState Empty => new RuleState();
     }
 }

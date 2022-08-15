@@ -22,52 +22,45 @@ namespace Pulumi.Okta
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.AppGroupAssignments("example", new()
     ///     {
-    ///         var example = new Okta.AppGroupAssignments("example", new Okta.AppGroupAssignmentsArgs
+    ///         AppId = "&lt;app id&gt;",
+    ///         Groups = new[]
     ///         {
-    ///             AppId = "&lt;app id&gt;",
-    ///             Groups = 
+    ///             new Okta.Inputs.AppGroupAssignmentsGroupArgs
     ///             {
-    ///                 new Okta.Inputs.AppGroupAssignmentsGroupArgs
-    ///                 {
-    ///                     Id = "&lt;group id&gt;",
-    ///                     Priority = 1,
-    ///                 },
-    ///                 new Okta.Inputs.AppGroupAssignmentsGroupArgs
-    ///                 {
-    ///                     Id = "&lt;another group id&gt;",
-    ///                     Priority = 2,
-    ///                     Profile = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "application profile field", "application profile value" },
-    ///                     }),
-    ///                 },
+    ///                 Id = "&lt;group id&gt;",
+    ///                 Priority = 1,
     ///             },
-    ///         });
-    ///     }
+    ///             new Okta.Inputs.AppGroupAssignmentsGroupArgs
+    ///             {
+    ///                 Id = "&lt;another group id&gt;",
+    ///                 Priority = 2,
+    ///                 Profile = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["application profile field"] = "application profile value",
+    ///                 }),
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// !&gt; **NOTE** When using this resource in conjunction with other application resources (e.g. `okta.app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var app = new Okta.App.OAuth("app", new Okta.App.OAuthArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var app = new Okta.App.OAuth("app");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// &gt; **IMPORTANT:** When using `okta.AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
@@ -81,7 +74,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appGroupAssignments:AppGroupAssignments")]
-    public partial class AppGroupAssignments : Pulumi.CustomResource
+    public partial class AppGroupAssignments : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the application to assign a group to.
@@ -139,7 +132,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AppGroupAssignmentsArgs : Pulumi.ResourceArgs
+    public sealed class AppGroupAssignmentsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the application to assign a group to.
@@ -162,9 +155,10 @@ namespace Pulumi.Okta
         public AppGroupAssignmentsArgs()
         {
         }
+        public static new AppGroupAssignmentsArgs Empty => new AppGroupAssignmentsArgs();
     }
 
-    public sealed class AppGroupAssignmentsState : Pulumi.ResourceArgs
+    public sealed class AppGroupAssignmentsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the application to assign a group to.
@@ -187,5 +181,6 @@ namespace Pulumi.Okta
         public AppGroupAssignmentsState()
         {
         }
+        public static new AppGroupAssignmentsState Empty => new AppGroupAssignmentsState();
     }
 }

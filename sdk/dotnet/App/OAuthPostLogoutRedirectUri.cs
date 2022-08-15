@@ -15,42 +15,41 @@ namespace Pulumi.Okta.App
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testOAuth = new Okta.App.OAuth("testOAuth", new()
     ///     {
-    ///         var testOAuth = new Okta.App.OAuth("testOAuth", new Okta.App.OAuthArgs
+    ///         Label = "testAcc_replace_with_uuid",
+    ///         Type = "web",
+    ///         GrantTypes = new[]
     ///         {
-    ///             Label = "testAcc_replace_with_uuid",
-    ///             Type = "web",
-    ///             GrantTypes = 
-    ///             {
-    ///                 "authorization_code",
-    ///             },
-    ///             ResponseTypes = 
-    ///             {
-    ///                 "code",
-    ///             },
-    ///             RedirectUris = 
-    ///             {
-    ///                 "myapp://callback",
-    ///             },
-    ///             PostLogoutRedirectUris = 
-    ///             {
-    ///                 "https://www.example.com",
-    ///             },
-    ///         });
-    ///         var testOAuthPostLogoutRedirectUri = new Okta.App.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri", new Okta.App.OAuthPostLogoutRedirectUriArgs
+    ///             "authorization_code",
+    ///         },
+    ///         ResponseTypes = new[]
     ///         {
-    ///             AppId = testOAuth.Id,
-    ///             Uri = "https://www.example.com",
-    ///         });
-    ///     }
+    ///             "code",
+    ///         },
+    ///         RedirectUris = new[]
+    ///         {
+    ///             "myapp://callback",
+    ///         },
+    ///         PostLogoutRedirectUris = new[]
+    ///         {
+    ///             "https://www.example.com",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var testOAuthPostLogoutRedirectUri = new Okta.App.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri", new()
+    ///     {
+    ///         AppId = testOAuth.Id,
+    ///         Uri = "https://www.example.com",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +61,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri")]
-    public partial class OAuthPostLogoutRedirectUri : Pulumi.CustomResource
+    public partial class OAuthPostLogoutRedirectUri : global::Pulumi.CustomResource
     {
         /// <summary>
         /// OAuth application ID.
@@ -120,7 +119,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class OAuthPostLogoutRedirectUriArgs : Pulumi.ResourceArgs
+    public sealed class OAuthPostLogoutRedirectUriArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// OAuth application ID.
@@ -137,9 +136,10 @@ namespace Pulumi.Okta.App
         public OAuthPostLogoutRedirectUriArgs()
         {
         }
+        public static new OAuthPostLogoutRedirectUriArgs Empty => new OAuthPostLogoutRedirectUriArgs();
     }
 
-    public sealed class OAuthPostLogoutRedirectUriState : Pulumi.ResourceArgs
+    public sealed class OAuthPostLogoutRedirectUriState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// OAuth application ID.
@@ -156,5 +156,6 @@ namespace Pulumi.Okta.App
         public OAuthPostLogoutRedirectUriState()
         {
         }
+        public static new OAuthPostLogoutRedirectUriState Empty => new OAuthPostLogoutRedirectUriState();
     }
 }

@@ -17,44 +17,45 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleUser = new Okta.User.User("exampleUser", new()
     ///     {
-    ///         var exampleUser = new Okta.User.User("exampleUser", new Okta.User.UserArgs
-    ///         {
-    ///             FirstName = "John",
-    ///             LastName = "Smith",
-    ///             Login = "john.smith@example.com",
-    ///             Email = "john.smith@example.com",
-    ///         });
-    ///         var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new Okta.GetUserSecurityQuestionsInvokeArgs
-    ///         {
-    ///             UserId = exampleUser.Id,
-    ///         });
-    ///         var exampleFactor = new Okta.Factor.Factor("exampleFactor", new Okta.Factor.FactorArgs
-    ///         {
-    ///             ProviderId = "okta_question",
-    ///             Active = true,
-    ///         });
-    ///         var exampleUserFactorQuestion = new Okta.UserFactorQuestion("exampleUserFactorQuestion", new Okta.UserFactorQuestionArgs
-    ///         {
-    ///             UserId = exampleUser.Id,
-    ///             Key = exampleUserSecurityQuestions.Apply(exampleUserSecurityQuestions =&gt; exampleUserSecurityQuestions.Questions?[0]?.Key),
-    ///             Answer = "meatball",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleFactor,
-    ///             },
-    ///         });
-    ///     }
+    ///         FirstName = "John",
+    ///         LastName = "Smith",
+    ///         Login = "john.smith@example.com",
+    ///         Email = "john.smith@example.com",
+    ///     });
     /// 
-    /// }
+    ///     var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new()
+    ///     {
+    ///         UserId = exampleUser.Id,
+    ///     });
+    /// 
+    ///     var exampleFactor = new Okta.Factor.Factor("exampleFactor", new()
+    ///     {
+    ///         ProviderId = "okta_question",
+    ///         Active = true,
+    ///     });
+    /// 
+    ///     var exampleUserFactorQuestion = new Okta.UserFactorQuestion("exampleUserFactorQuestion", new()
+    ///     {
+    ///         UserId = exampleUser.Id,
+    ///         Key = exampleUserSecurityQuestions.Apply(getUserSecurityQuestionsResult =&gt; getUserSecurityQuestionsResult.Questions[0]?.Key),
+    ///         Answer = "meatball",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleFactor,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +67,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/userFactorQuestion:UserFactorQuestion")]
-    public partial class UserFactorQuestion : Pulumi.CustomResource
+    public partial class UserFactorQuestion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Security question answer. Note here that answer won't be set during the resource import.
@@ -142,7 +143,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class UserFactorQuestionArgs : Pulumi.ResourceArgs
+    public sealed class UserFactorQuestionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Security question answer. Note here that answer won't be set during the resource import.
@@ -165,9 +166,10 @@ namespace Pulumi.Okta
         public UserFactorQuestionArgs()
         {
         }
+        public static new UserFactorQuestionArgs Empty => new UserFactorQuestionArgs();
     }
 
-    public sealed class UserFactorQuestionState : Pulumi.ResourceArgs
+    public sealed class UserFactorQuestionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Security question answer. Note here that answer won't be set during the resource import.
@@ -202,5 +204,6 @@ namespace Pulumi.Okta
         public UserFactorQuestionState()
         {
         }
+        public static new UserFactorQuestionState Empty => new UserFactorQuestionState();
     }
 }

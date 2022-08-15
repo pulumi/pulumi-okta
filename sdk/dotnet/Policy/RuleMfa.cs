@@ -15,217 +15,212 @@ namespace Pulumi.Okta.Policy
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDefaultPolicy = Okta.Policy.GetDefaultPolicy.Invoke(new()
     ///     {
-    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
-    ///         {
-    ///             Type = "MFA_ENROLL",
-    ///         }));
-    ///         var exampleOAuth = new Okta.App.OAuth("exampleOAuth", new Okta.App.OAuthArgs
-    ///         {
-    ///             Label = "My App",
-    ///             Type = "web",
-    ///             GrantTypes = 
-    ///             {
-    ///                 "authorization_code",
-    ///             },
-    ///             RedirectUris = 
-    ///             {
-    ///                 "http://localhost:8000",
-    ///             },
-    ///             ResponseTypes = 
-    ///             {
-    ///                 "code",
-    ///             },
-    ///             SkipGroups = true,
-    ///         });
-    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
-    ///         {
-    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
-    ///             Status = "ACTIVE",
-    ///             Enroll = "LOGIN",
-    ///             AppIncludes = 
-    ///             {
-    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
-    ///                 {
-    ///                     Id = exampleOAuth.Id,
-    ///                     Type = "APP",
-    ///                 },
-    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
-    ///                 {
-    ///                     Type = "APP_TYPE",
-    ///                     Name = "yahoo_mail",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Type = "MFA_ENROLL",
+    ///     });
     /// 
-    /// }
+    ///     var exampleOAuth = new Okta.App.OAuth("exampleOAuth", new()
+    ///     {
+    ///         Label = "My App",
+    ///         Type = "web",
+    ///         GrantTypes = new[]
+    ///         {
+    ///             "authorization_code",
+    ///         },
+    ///         RedirectUris = new[]
+    ///         {
+    ///             "http://localhost:8000",
+    ///         },
+    ///         ResponseTypes = new[]
+    ///         {
+    ///             "code",
+    ///         },
+    ///         SkipGroups = true,
+    ///     });
+    /// 
+    ///     var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new()
+    ///     {
+    ///         PolicyId = exampleDefaultPolicy.Apply(getDefaultPolicyResult =&gt; getDefaultPolicyResult.Id),
+    ///         Status = "ACTIVE",
+    ///         Enroll = "LOGIN",
+    ///         AppIncludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///             {
+    ///                 Id = exampleOAuth.Id,
+    ///                 Type = "APP",
+    ///             },
+    ///             new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///             {
+    ///                 Type = "APP_TYPE",
+    ///                 Name = "yahoo_mail",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDefaultPolicy = Okta.Policy.GetDefaultPolicy.Invoke(new()
     ///     {
-    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
-    ///         {
-    ///             Type = "MFA_ENROLL",
-    ///         }));
-    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
-    ///         {
-    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
-    ///             AppExcludes = 
-    ///             {
-    ///                 new Okta.Policy.Inputs.RuleMfaAppExcludeArgs
-    ///                 {
-    ///                     Name = "okta",
-    ///                     Type = "APP_TYPE",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Type = "MFA_ENROLL",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new()
+    ///     {
+    ///         PolicyId = exampleDefaultPolicy.Apply(getDefaultPolicyResult =&gt; getDefaultPolicyResult.Id),
+    ///         AppExcludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleMfaAppExcludeArgs
+    ///             {
+    ///                 Name = "okta",
+    ///                 Type = "APP_TYPE",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDefaultPolicy = Okta.Policy.GetDefaultPolicy.Invoke(new()
     ///     {
-    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
-    ///         {
-    ///             Type = "MFA_ENROLL",
-    ///         }));
-    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
-    ///         {
-    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
-    ///             AppExcludes = 
-    ///             {
-    ///                 new Okta.Policy.Inputs.RuleMfaAppExcludeArgs
-    ///                 {
-    ///                     Name = "okta",
-    ///                     Type = "APP_TYPE",
-    ///                 },
-    ///             },
-    ///             AppIncludes = 
-    ///             {
-    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
-    ///                 {
-    ///                     Id = "some_app_id",
-    ///                     Type = "APP",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Type = "MFA_ENROLL",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new()
+    ///     {
+    ///         PolicyId = exampleDefaultPolicy.Apply(getDefaultPolicyResult =&gt; getDefaultPolicyResult.Id),
+    ///         AppExcludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleMfaAppExcludeArgs
+    ///             {
+    ///                 Name = "okta",
+    ///                 Type = "APP_TYPE",
+    ///             },
+    ///         },
+    ///         AppIncludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///             {
+    ///                 Id = "some_app_id",
+    ///                 Type = "APP",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDefaultPolicy = Okta.Policy.GetDefaultPolicy.Invoke(new()
     ///     {
-    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
-    ///         {
-    ///             Type = "MFA_ENROLL",
-    ///         }));
-    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
-    ///         {
-    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
-    ///             AppIncludes = 
-    ///             {
-    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
-    ///                 {
-    ///                     Name = "okta",
-    ///                     Type = "APP_TYPE",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Type = "MFA_ENROLL",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new()
+    ///     {
+    ///         PolicyId = exampleDefaultPolicy.Apply(getDefaultPolicyResult =&gt; getDefaultPolicyResult.Id),
+    ///         AppIncludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///             {
+    ///                 Name = "okta",
+    ///                 Type = "APP_TYPE",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDefaultPolicy = Okta.Policy.GetDefaultPolicy.Invoke(new()
     ///     {
-    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
-    ///         {
-    ///             Type = "MFA_ENROLL",
-    ///         }));
-    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
-    ///         {
-    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
-    ///         });
-    ///     }
+    ///         Type = "MFA_ENROLL",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new()
+    ///     {
+    ///         PolicyId = exampleDefaultPolicy.Apply(getDefaultPolicyResult =&gt; getDefaultPolicyResult.Id),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDefaultPolicy = Okta.Policy.GetDefaultPolicy.Invoke(new()
     ///     {
-    ///         var exampleDefaultPolicy = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
-    ///         {
-    ///             Type = "MFA_ENROLL",
-    ///         }));
-    ///         var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new Okta.Policy.RuleMfaArgs
-    ///         {
-    ///             PolicyId = exampleDefaultPolicy.Apply(exampleDefaultPolicy =&gt; exampleDefaultPolicy.Id),
-    ///             AppIncludes = 
-    ///             {
-    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
-    ///                 {
-    ///                     Name = "okta",
-    ///                     Type = "APP_TYPE",
-    ///                 },
-    ///                 new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
-    ///                 {
-    ///                     Id = "some_app_id",
-    ///                     Type = "APP",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Type = "MFA_ENROLL",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRuleMfa = new Okta.Policy.RuleMfa("exampleRuleMfa", new()
+    ///     {
+    ///         PolicyId = exampleDefaultPolicy.Apply(getDefaultPolicyResult =&gt; getDefaultPolicyResult.Id),
+    ///         AppIncludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///             {
+    ///                 Name = "okta",
+    ///                 Type = "APP_TYPE",
+    ///             },
+    ///             new Okta.Policy.Inputs.RuleMfaAppIncludeArgs
+    ///             {
+    ///                 Id = "some_app_id",
+    ///                 Type = "APP",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -237,7 +232,7 @@ namespace Pulumi.Okta.Policy
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/ruleMfa:RuleMfa")]
-    public partial class RuleMfa : Pulumi.CustomResource
+    public partial class RuleMfa : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Applications to exclude
@@ -355,7 +350,7 @@ namespace Pulumi.Okta.Policy
         }
     }
 
-    public sealed class RuleMfaArgs : Pulumi.ResourceArgs
+    public sealed class RuleMfaArgs : global::Pulumi.ResourceArgs
     {
         [Input("appExcludes")]
         private InputList<Inputs.RuleMfaAppExcludeArgs>? _appExcludes;
@@ -462,9 +457,10 @@ namespace Pulumi.Okta.Policy
         public RuleMfaArgs()
         {
         }
+        public static new RuleMfaArgs Empty => new RuleMfaArgs();
     }
 
-    public sealed class RuleMfaState : Pulumi.ResourceArgs
+    public sealed class RuleMfaState : global::Pulumi.ResourceArgs
     {
         [Input("appExcludes")]
         private InputList<Inputs.RuleMfaAppExcludeGetArgs>? _appExcludes;
@@ -571,5 +567,6 @@ namespace Pulumi.Okta.Policy
         public RuleMfaState()
         {
         }
+        public static new RuleMfaState Empty => new RuleMfaState();
     }
 }

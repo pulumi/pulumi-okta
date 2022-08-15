@@ -17,25 +17,23 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.AdminRoleCustom("example", new()
     ///     {
-    ///         var example = new Okta.AdminRoleCustom("example", new Okta.AdminRoleCustomArgs
+    ///         Description = "This role allows app assignment management",
+    ///         Label = "AppAssignmentManager",
+    ///         Permissions = new[]
     ///         {
-    ///             Description = "This role allows app assignment management",
-    ///             Label = "AppAssignmentManager",
-    ///             Permissions = 
-    ///             {
-    ///                 "okta.apps.assignment.manage",
-    ///             },
-    ///         });
-    ///     }
+    ///             "okta.apps.assignment.manage",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/adminRoleCustom:AdminRoleCustom")]
-    public partial class AdminRoleCustom : Pulumi.CustomResource
+    public partial class AdminRoleCustom : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A human-readable description of the new Role.
@@ -143,7 +141,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AdminRoleCustomArgs : Pulumi.ResourceArgs
+    public sealed class AdminRoleCustomArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A human-readable description of the new Role.
@@ -204,9 +202,10 @@ namespace Pulumi.Okta
         public AdminRoleCustomArgs()
         {
         }
+        public static new AdminRoleCustomArgs Empty => new AdminRoleCustomArgs();
     }
 
-    public sealed class AdminRoleCustomState : Pulumi.ResourceArgs
+    public sealed class AdminRoleCustomState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A human-readable description of the new Role.
@@ -267,5 +266,6 @@ namespace Pulumi.Okta
         public AdminRoleCustomState()
         {
         }
+        public static new AdminRoleCustomState Empty => new AdminRoleCustomState();
     }
 }

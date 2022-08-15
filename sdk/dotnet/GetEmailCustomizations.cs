@@ -29,7 +29,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetEmailCustomizationsArgs : Pulumi.InvokeArgs
+    public sealed class GetEmailCustomizationsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Brand ID
@@ -46,9 +46,10 @@ namespace Pulumi.Okta
         public GetEmailCustomizationsArgs()
         {
         }
+        public static new GetEmailCustomizationsArgs Empty => new GetEmailCustomizationsArgs();
     }
 
-    public sealed class GetEmailCustomizationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEmailCustomizationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Brand ID
@@ -65,6 +66,7 @@ namespace Pulumi.Okta
         public GetEmailCustomizationsInvokeArgs()
         {
         }
+        public static new GetEmailCustomizationsInvokeArgs Empty => new GetEmailCustomizationsInvokeArgs();
     }
 
 

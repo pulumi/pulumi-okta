@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use app.Saml instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/samlApp:SamlApp")]
-    public partial class SamlApp : Pulumi.CustomResource
+    public partial class SamlApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL
@@ -432,7 +432,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class SamlAppArgs : Pulumi.ResourceArgs
+    public sealed class SamlAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -765,9 +765,10 @@ namespace Pulumi.Okta.Deprecated
         public SamlAppArgs()
         {
         }
+        public static new SamlAppArgs Empty => new SamlAppArgs();
     }
 
-    public sealed class SamlAppState : Pulumi.ResourceArgs
+    public sealed class SamlAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -1184,5 +1185,6 @@ namespace Pulumi.Okta.Deprecated
         public SamlAppState()
         {
         }
+        public static new SamlAppState Empty => new SamlAppState();
     }
 }

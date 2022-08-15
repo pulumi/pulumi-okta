@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use policy.Signon instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/signonPolicy:SignonPolicy")]
-    public partial class SignonPolicy : Pulumi.CustomResource
+    public partial class SignonPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Policy Description
@@ -88,7 +88,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class SignonPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SignonPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Description
@@ -130,9 +130,10 @@ namespace Pulumi.Okta.Deprecated
         public SignonPolicyArgs()
         {
         }
+        public static new SignonPolicyArgs Empty => new SignonPolicyArgs();
     }
 
-    public sealed class SignonPolicyState : Pulumi.ResourceArgs
+    public sealed class SignonPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Description
@@ -174,5 +175,6 @@ namespace Pulumi.Okta.Deprecated
         public SignonPolicyState()
         {
         }
+        public static new SignonPolicyState Empty => new SignonPolicyState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy.Inputs
 {
 
-    public sealed class RuleSignonFactorSequenceGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleSignonFactorSequenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Primary factor type of the auth section.
@@ -39,5 +39,6 @@ namespace Pulumi.Okta.Policy.Inputs
         public RuleSignonFactorSequenceGetArgs()
         {
         }
+        public static new RuleSignonFactorSequenceGetArgs Empty => new RuleSignonFactorSequenceGetArgs();
     }
 }

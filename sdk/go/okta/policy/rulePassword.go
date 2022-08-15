@@ -19,7 +19,9 @@ import (
 // A Policy Rule can be imported via the Policy and Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/rulePassword:RulePassword example &#60;policy id&#62;/&#60;rule id&#62;
+//
+//	$ pulumi import okta:policy/rulePassword:RulePassword example &#60;policy id&#62;/&#60;rule id&#62;
+//
 // ```
 type RulePassword struct {
 	pulumi.CustomResourceState
@@ -227,7 +229,7 @@ func (i *RulePassword) ToRulePasswordOutputWithContext(ctx context.Context) Rule
 // RulePasswordArrayInput is an input type that accepts RulePasswordArray and RulePasswordArrayOutput values.
 // You can construct a concrete instance of `RulePasswordArrayInput` via:
 //
-//          RulePasswordArray{ RulePasswordArgs{...} }
+//	RulePasswordArray{ RulePasswordArgs{...} }
 type RulePasswordArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +254,7 @@ func (i RulePasswordArray) ToRulePasswordArrayOutputWithContext(ctx context.Cont
 // RulePasswordMapInput is an input type that accepts RulePasswordMap and RulePasswordMapOutput values.
 // You can construct a concrete instance of `RulePasswordMapInput` via:
 //
-//          RulePasswordMap{ "key": RulePasswordArgs{...} }
+//	RulePasswordMap{ "key": RulePasswordArgs{...} }
 type RulePasswordMapInput interface {
 	pulumi.Input
 

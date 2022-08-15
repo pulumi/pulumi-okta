@@ -16,7 +16,7 @@ namespace Pulumi.Okta
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [OktaResourceType("pulumi:providers:okta")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// Bearer token granting privileges to Okta API.
@@ -92,7 +92,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bearer token granting privileges to Okta API.
@@ -209,5 +209,6 @@ namespace Pulumi.Okta
         public ProviderArgs()
         {
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

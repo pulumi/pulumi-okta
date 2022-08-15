@@ -32,7 +32,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/resourceSet:ResourceSet")]
-    public partial class ResourceSet : Pulumi.CustomResource
+    public partial class ResourceSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the Resource Set.
@@ -97,7 +97,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class ResourceSetArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the Resource Set.
@@ -127,9 +127,10 @@ namespace Pulumi.Okta
         public ResourceSetArgs()
         {
         }
+        public static new ResourceSetArgs Empty => new ResourceSetArgs();
     }
 
-    public sealed class ResourceSetState : Pulumi.ResourceArgs
+    public sealed class ResourceSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the Resource Set.
@@ -159,5 +160,6 @@ namespace Pulumi.Okta
         public ResourceSetState()
         {
         }
+        public static new ResourceSetState Empty => new ResourceSetState();
     }
 }

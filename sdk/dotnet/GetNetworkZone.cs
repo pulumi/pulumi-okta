@@ -19,20 +19,18 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.GetNetworkZone.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.GetNetworkZone.InvokeAsync(new Okta.GetNetworkZoneArgs
-        ///         {
-        ///             Name = "Block Antarctica",
-        ///         }));
-        ///     }
+        ///         Name = "Block Antarctica",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.GetNetworkZone.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.GetNetworkZone.InvokeAsync(new Okta.GetNetworkZoneArgs
-        ///         {
-        ///             Name = "Block Antarctica",
-        ///         }));
-        ///     }
+        ///         Name = "Block Antarctica",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetNetworkZoneArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the network zone to retrieve, conflicts with `name`.
@@ -88,9 +84,10 @@ namespace Pulumi.Okta
         public GetNetworkZoneArgs()
         {
         }
+        public static new GetNetworkZoneArgs Empty => new GetNetworkZoneArgs();
     }
 
-    public sealed class GetNetworkZoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the network zone to retrieve, conflicts with `name`.
@@ -107,6 +104,7 @@ namespace Pulumi.Okta
         public GetNetworkZoneInvokeArgs()
         {
         }
+        public static new GetNetworkZoneInvokeArgs Empty => new GetNetworkZoneInvokeArgs();
     }
 
 

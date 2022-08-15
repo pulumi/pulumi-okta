@@ -15,24 +15,22 @@ namespace Pulumi.Okta.App
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.App.Swa("example", new()
     ///     {
-    ///         var example = new Okta.App.Swa("example", new Okta.App.SwaArgs
-    ///         {
-    ///             ButtonField = "btn-login",
-    ///             Label = "example",
-    ///             PasswordField = "txtbox-password",
-    ///             Url = "https://example.com/login.html",
-    ///             UsernameField = "txtbox-username",
-    ///         });
-    ///     }
+    ///         ButtonField = "btn-login",
+    ///         Label = "example",
+    ///         PasswordField = "txtbox-password",
+    ///         Url = "https://example.com/login.html",
+    ///         UsernameField = "txtbox-username",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/swa:Swa")]
-    public partial class Swa : Pulumi.CustomResource
+    public partial class Swa : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL.
@@ -292,7 +290,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class SwaArgs : Pulumi.ResourceArgs
+    public sealed class SwaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -481,9 +479,10 @@ namespace Pulumi.Okta.App
         public SwaArgs()
         {
         }
+        public static new SwaArgs Empty => new SwaArgs();
     }
 
-    public sealed class SwaState : Pulumi.ResourceArgs
+    public sealed class SwaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -690,5 +689,6 @@ namespace Pulumi.Okta.App
         public SwaState()
         {
         }
+        public static new SwaState Empty => new SwaState();
     }
 }

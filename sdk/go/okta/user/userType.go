@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := user.NewUserType(ctx, "example", &user.UserTypeArgs{
-// 			Description: pulumi.String("example"),
-// 			DisplayName: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := user.NewUserType(ctx, "example", &user.UserTypeArgs{
+//				Description: pulumi.String("example"),
+//				DisplayName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // A User Type can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
+//
+//	$ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
+//
 // ```
 type UserType struct {
 	pulumi.CustomResourceState
@@ -158,7 +163,7 @@ func (i *UserType) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutp
 // UserTypeArrayInput is an input type that accepts UserTypeArray and UserTypeArrayOutput values.
 // You can construct a concrete instance of `UserTypeArrayInput` via:
 //
-//          UserTypeArray{ UserTypeArgs{...} }
+//	UserTypeArray{ UserTypeArgs{...} }
 type UserTypeArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +188,7 @@ func (i UserTypeArray) ToUserTypeArrayOutputWithContext(ctx context.Context) Use
 // UserTypeMapInput is an input type that accepts UserTypeMap and UserTypeMapOutput values.
 // You can construct a concrete instance of `UserTypeMapInput` via:
 //
-//          UserTypeMap{ "key": UserTypeArgs{...} }
+//	UserTypeMap{ "key": UserTypeArgs{...} }
 type UserTypeMapInput interface {
 	pulumi.Input
 

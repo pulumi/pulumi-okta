@@ -19,7 +19,7 @@ namespace Pulumi.Okta.Idp
     /// ```
     /// </summary>
     [OktaResourceType("okta:idp/samlKey:SamlKey")]
-    public partial class SamlKey : Pulumi.CustomResource
+    public partial class SamlKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Date created.
@@ -107,7 +107,7 @@ namespace Pulumi.Okta.Idp
         }
     }
 
-    public sealed class SamlKeyArgs : Pulumi.ResourceArgs
+    public sealed class SamlKeyArgs : global::Pulumi.ResourceArgs
     {
         [Input("x5cs", required: true)]
         private InputList<string>? _x5cs;
@@ -124,9 +124,10 @@ namespace Pulumi.Okta.Idp
         public SamlKeyArgs()
         {
         }
+        public static new SamlKeyArgs Empty => new SamlKeyArgs();
     }
 
-    public sealed class SamlKeyState : Pulumi.ResourceArgs
+    public sealed class SamlKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date created.
@@ -179,5 +180,6 @@ namespace Pulumi.Okta.Idp
         public SamlKeyState()
         {
         }
+        public static new SamlKeyState Empty => new SamlKeyState();
     }
 }

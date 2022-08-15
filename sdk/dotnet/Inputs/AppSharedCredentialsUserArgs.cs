@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Inputs
 {
 
-    public sealed class AppSharedCredentialsUserArgs : Pulumi.ResourceArgs
+    public sealed class AppSharedCredentialsUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of an app.
@@ -30,5 +30,6 @@ namespace Pulumi.Okta.Inputs
         public AppSharedCredentialsUserArgs()
         {
         }
+        public static new AppSharedCredentialsUserArgs Empty => new AppSharedCredentialsUserArgs();
     }
 }

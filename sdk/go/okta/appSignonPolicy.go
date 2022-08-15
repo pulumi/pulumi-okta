@@ -23,42 +23,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		myAppPolicy, err := okta.NewAppSignonPolicy(ctx, "myAppPolicy", &okta.AppSignonPolicyArgs{
-// 			Description: pulumi.String("Authentication Policy to be used on my app."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = app.NewOAuth(ctx, "myApp", &app.OAuthArgs{
-// 			Label: pulumi.String("My App"),
-// 			Type:  pulumi.String("web"),
-// 			GrantTypes: pulumi.StringArray{
-// 				pulumi.String("authorization_code"),
-// 			},
-// 			RedirectUris: pulumi.StringArray{
-// 				pulumi.String("http://localhost:3000"),
-// 			},
-// 			PostLogoutRedirectUris: pulumi.StringArray{
-// 				pulumi.String("http://localhost:3000"),
-// 			},
-// 			ResponseTypes: pulumi.StringArray{
-// 				pulumi.String("code"),
-// 			},
-// 			AuthenticationPolicy: myAppPolicy.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myAppPolicy, err := okta.NewAppSignonPolicy(ctx, "myAppPolicy", &okta.AppSignonPolicyArgs{
+//				Description: pulumi.String("Authentication Policy to be used on my app."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = app.NewOAuth(ctx, "myApp", &app.OAuthArgs{
+//				Label: pulumi.String("My App"),
+//				Type:  pulumi.String("web"),
+//				GrantTypes: pulumi.StringArray{
+//					pulumi.String("authorization_code"),
+//				},
+//				RedirectUris: pulumi.StringArray{
+//					pulumi.String("http://localhost:3000"),
+//				},
+//				PostLogoutRedirectUris: pulumi.StringArray{
+//					pulumi.String("http://localhost:3000"),
+//				},
+//				ResponseTypes: pulumi.StringArray{
+//					pulumi.String("code"),
+//				},
+//				AuthenticationPolicy: myAppPolicy.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // \_The same mechanism is in place for `app.OAuth` and `app.Saml`.
@@ -69,45 +72,48 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewAppSignonPolicy(ctx, "myAppPolicy", &okta.AppSignonPolicyArgs{
-// 			Description: pulumi.String("Authentication Policy to be used on my app."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"knowledge": map[string]interface{}{
-// 				"types": []string{
-// 					"password",
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = okta.NewAppSignonPolicyRule(ctx, "someRule", &okta.AppSignonPolicyRuleArgs{
-// 			PolicyId:                  pulumi.Any(resource.Okta_app_signon_policy.My_app_policy.Id),
-// 			FactorMode:                pulumi.String("1FA"),
-// 			ReAuthenticationFrequency: pulumi.String("PT43800H"),
-// 			Constraints: pulumi.StringArray{
-// 				pulumi.String(json0),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAppSignonPolicy(ctx, "myAppPolicy", &okta.AppSignonPolicyArgs{
+//				Description: pulumi.String("Authentication Policy to be used on my app."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"knowledge": map[string]interface{}{
+//					"types": []string{
+//						"password",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = okta.NewAppSignonPolicyRule(ctx, "someRule", &okta.AppSignonPolicyRuleArgs{
+//				PolicyId:                  pulumi.Any(resource.Okta_app_signon_policy.My_app_policy.Id),
+//				FactorMode:                pulumi.String("1FA"),
+//				ReAuthenticationFrequency: pulumi.String("PT43800H"),
+//				Constraints: pulumi.StringArray{
+//					pulumi.String(json0),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type AppSignonPolicy struct {
 	pulumi.CustomResourceState
@@ -208,7 +214,7 @@ func (i *AppSignonPolicy) ToAppSignonPolicyOutputWithContext(ctx context.Context
 // AppSignonPolicyArrayInput is an input type that accepts AppSignonPolicyArray and AppSignonPolicyArrayOutput values.
 // You can construct a concrete instance of `AppSignonPolicyArrayInput` via:
 //
-//          AppSignonPolicyArray{ AppSignonPolicyArgs{...} }
+//	AppSignonPolicyArray{ AppSignonPolicyArgs{...} }
 type AppSignonPolicyArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +239,7 @@ func (i AppSignonPolicyArray) ToAppSignonPolicyArrayOutputWithContext(ctx contex
 // AppSignonPolicyMapInput is an input type that accepts AppSignonPolicyMap and AppSignonPolicyMapOutput values.
 // You can construct a concrete instance of `AppSignonPolicyMapInput` via:
 //
-//          AppSignonPolicyMap{ "key": AppSignonPolicyArgs{...} }
+//	AppSignonPolicyMap{ "key": AppSignonPolicyArgs{...} }
 type AppSignonPolicyMapInput interface {
 	pulumi.Input
 

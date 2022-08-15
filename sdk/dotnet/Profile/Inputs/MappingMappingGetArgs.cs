@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Profile.Inputs
 {
 
-    public sealed class MappingMappingGetArgs : Pulumi.ResourceArgs
+    public sealed class MappingMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Combination or single source properties that will be mapped to the target property.
@@ -33,5 +33,6 @@ namespace Pulumi.Okta.Profile.Inputs
         public MappingMappingGetArgs()
         {
         }
+        public static new MappingMappingGetArgs Empty => new MappingMappingGetArgs();
     }
 }

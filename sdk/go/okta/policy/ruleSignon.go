@@ -19,99 +19,102 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := policy.NewSignon(ctx, "test", &policy.SignonArgs{
-// 			Status:      pulumi.String("ACTIVE"),
-// 			Description: pulumi.String("Example Policy"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		newCity, err := okta.LookupBehaviour(ctx, &GetBehaviourArgs{
-// 			Name: pulumi.StringRef("New City"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = policy.NewRuleSignon(ctx, "example", &policy.RuleSignonArgs{
-// 			Access:            pulumi.String("CHALLENGE"),
-// 			Authtype:          pulumi.String("RADIUS"),
-// 			NetworkConnection: pulumi.String("ANYWHERE"),
-// 			PolicyId:          pulumi.Any(okta_policy_signon.Example.Id),
-// 			Status:            pulumi.String("ACTIVE"),
-// 			RiscLevel:         pulumi.String("HIGH"),
-// 			Behaviors: pulumi.StringArray{
-// 				pulumi.String(newCity.Id),
-// 			},
-// 			FactorSequences: policy.RuleSignonFactorSequenceArray{
-// 				&policy.RuleSignonFactorSequenceArgs{
-// 					PrimaryCriteriaFactorType: pulumi.String("token:hotp"),
-// 					PrimaryCriteriaProvider:   pulumi.String("CUSTOM"),
-// 					SecondaryCriterias: policy.RuleSignonFactorSequenceSecondaryCriteriaArray{
-// 						&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
-// 							FactorType: pulumi.String("token:software:totp"),
-// 							Provider:   pulumi.String("OKTA"),
-// 						},
-// 						&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
-// 							FactorType: pulumi.String("push"),
-// 							Provider:   pulumi.String("OKTA"),
-// 						},
-// 						&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
-// 							FactorType: pulumi.String("password"),
-// 							Provider:   pulumi.String("OKTA"),
-// 						},
-// 						&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
-// 							FactorType: pulumi.String("question"),
-// 							Provider:   pulumi.String("OKTA"),
-// 						},
-// 						&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
-// 							FactorType: pulumi.String("sms"),
-// 							Provider:   pulumi.String("OKTA"),
-// 						},
-// 						&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
-// 							FactorType: pulumi.String("token:software:totp"),
-// 							Provider:   pulumi.String("GOOGLE"),
-// 						},
-// 						&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
-// 							FactorType: pulumi.String("email"),
-// 							Provider:   pulumi.String("OKTA"),
-// 						},
-// 						&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
-// 							FactorType: pulumi.String("call"),
-// 							Provider:   pulumi.String("OKTA"),
-// 						},
-// 						&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
-// 							FactorType: pulumi.String("webauthn"),
-// 							Provider:   pulumi.String("FIDO"),
-// 						},
-// 						&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
-// 							FactorType: pulumi.String("token"),
-// 							Provider:   pulumi.String("RSA"),
-// 						},
-// 						&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
-// 							FactorType: pulumi.String("token"),
-// 							Provider:   pulumi.String("SYMANTEC"),
-// 						},
-// 					},
-// 				},
-// 				&policy.RuleSignonFactorSequenceArgs{
-// 					PrimaryCriteriaFactorType: pulumi.String("token:software:totp"),
-// 					PrimaryCriteriaProvider:   pulumi.String("OKTA"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.NewSignon(ctx, "test", &policy.SignonArgs{
+//				Status:      pulumi.String("ACTIVE"),
+//				Description: pulumi.String("Example Policy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			newCity, err := okta.LookupBehaviour(ctx, &GetBehaviourArgs{
+//				Name: pulumi.StringRef("New City"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewRuleSignon(ctx, "example", &policy.RuleSignonArgs{
+//				Access:            pulumi.String("CHALLENGE"),
+//				Authtype:          pulumi.String("RADIUS"),
+//				NetworkConnection: pulumi.String("ANYWHERE"),
+//				PolicyId:          pulumi.Any(okta_policy_signon.Example.Id),
+//				Status:            pulumi.String("ACTIVE"),
+//				RiscLevel:         pulumi.String("HIGH"),
+//				Behaviors: pulumi.StringArray{
+//					pulumi.String(newCity.Id),
+//				},
+//				FactorSequences: policy.RuleSignonFactorSequenceArray{
+//					&policy.RuleSignonFactorSequenceArgs{
+//						PrimaryCriteriaFactorType: pulumi.String("token:hotp"),
+//						PrimaryCriteriaProvider:   pulumi.String("CUSTOM"),
+//						SecondaryCriterias: policy.RuleSignonFactorSequenceSecondaryCriteriaArray{
+//							&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
+//								FactorType: pulumi.String("token:software:totp"),
+//								Provider:   pulumi.String("OKTA"),
+//							},
+//							&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
+//								FactorType: pulumi.String("push"),
+//								Provider:   pulumi.String("OKTA"),
+//							},
+//							&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
+//								FactorType: pulumi.String("password"),
+//								Provider:   pulumi.String("OKTA"),
+//							},
+//							&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
+//								FactorType: pulumi.String("question"),
+//								Provider:   pulumi.String("OKTA"),
+//							},
+//							&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
+//								FactorType: pulumi.String("sms"),
+//								Provider:   pulumi.String("OKTA"),
+//							},
+//							&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
+//								FactorType: pulumi.String("token:software:totp"),
+//								Provider:   pulumi.String("GOOGLE"),
+//							},
+//							&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
+//								FactorType: pulumi.String("email"),
+//								Provider:   pulumi.String("OKTA"),
+//							},
+//							&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
+//								FactorType: pulumi.String("call"),
+//								Provider:   pulumi.String("OKTA"),
+//							},
+//							&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
+//								FactorType: pulumi.String("webauthn"),
+//								Provider:   pulumi.String("FIDO"),
+//							},
+//							&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
+//								FactorType: pulumi.String("token"),
+//								Provider:   pulumi.String("RSA"),
+//							},
+//							&policy.RuleSignonFactorSequenceSecondaryCriteriaArgs{
+//								FactorType: pulumi.String("token"),
+//								Provider:   pulumi.String("SYMANTEC"),
+//							},
+//						},
+//					},
+//					&policy.RuleSignonFactorSequenceArgs{
+//						PrimaryCriteriaFactorType: pulumi.String("token:software:totp"),
+//						PrimaryCriteriaProvider:   pulumi.String("OKTA"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -119,7 +122,9 @@ import (
 // A Policy Rule can be imported via the Policy and Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/ruleSignon:RuleSignon example &#60;policy id&#62;/&#60;rule id&#62;
+//
+//	$ pulumi import okta:policy/ruleSignon:RuleSignon example &#60;policy id&#62;/&#60;rule id&#62;
+//
 // ```
 type RuleSignon struct {
 	pulumi.CustomResourceState
@@ -457,7 +462,7 @@ func (i *RuleSignon) ToRuleSignonOutputWithContext(ctx context.Context) RuleSign
 // RuleSignonArrayInput is an input type that accepts RuleSignonArray and RuleSignonArrayOutput values.
 // You can construct a concrete instance of `RuleSignonArrayInput` via:
 //
-//          RuleSignonArray{ RuleSignonArgs{...} }
+//	RuleSignonArray{ RuleSignonArgs{...} }
 type RuleSignonArrayInput interface {
 	pulumi.Input
 
@@ -482,7 +487,7 @@ func (i RuleSignonArray) ToRuleSignonArrayOutputWithContext(ctx context.Context)
 // RuleSignonMapInput is an input type that accepts RuleSignonMap and RuleSignonMapOutput values.
 // You can construct a concrete instance of `RuleSignonMapInput` via:
 //
-//          RuleSignonMap{ "key": RuleSignonArgs{...} }
+//	RuleSignonMap{ "key": RuleSignonArgs{...} }
 type RuleSignonMapInput interface {
 	pulumi.Input
 

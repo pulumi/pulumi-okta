@@ -21,29 +21,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/idp"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/idp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := idp.NewSaml(ctx, "example", &idp.SamlArgs{
-// 			AcsType:                pulumi.String("INSTANCE"),
-// 			Issuer:                 pulumi.String("https://idp.example.com"),
-// 			Kid:                    pulumi.Any(okta_idp_saml_key.Test.Id),
-// 			RequestSignatureScope:  pulumi.String("REQUEST"),
-// 			ResponseSignatureScope: pulumi.String("ANY"),
-// 			SsoBinding:             pulumi.String("HTTP-POST"),
-// 			SsoDestination:         pulumi.String("https://idp.example.com"),
-// 			SsoUrl:                 pulumi.String("https://idp.example.com"),
-// 			UsernameTemplate:       pulumi.String("idpuser.email"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := idp.NewSaml(ctx, "example", &idp.SamlArgs{
+//				AcsType:                pulumi.String("INSTANCE"),
+//				Issuer:                 pulumi.String("https://idp.example.com"),
+//				Kid:                    pulumi.Any(okta_idp_saml_key.Test.Id),
+//				RequestSignatureScope:  pulumi.String("REQUEST"),
+//				ResponseSignatureScope: pulumi.String("ANY"),
+//				SsoBinding:             pulumi.String("HTTP-POST"),
+//				SsoDestination:         pulumi.String("https://idp.example.com"),
+//				SsoUrl:                 pulumi.String("https://idp.example.com"),
+//				UsernameTemplate:       pulumi.String("idpuser.email"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // An SAML IdP can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:idp/saml:Saml example &#60;idp id&#62;
+//
+//	$ pulumi import okta:idp/saml:Saml example &#60;idp id&#62;
+//
 // ```
 type Saml struct {
 	pulumi.CustomResourceState
@@ -466,7 +471,7 @@ func (i *Saml) ToSamlOutputWithContext(ctx context.Context) SamlOutput {
 // SamlArrayInput is an input type that accepts SamlArray and SamlArrayOutput values.
 // You can construct a concrete instance of `SamlArrayInput` via:
 //
-//          SamlArray{ SamlArgs{...} }
+//	SamlArray{ SamlArgs{...} }
 type SamlArrayInput interface {
 	pulumi.Input
 
@@ -491,7 +496,7 @@ func (i SamlArray) ToSamlArrayOutputWithContext(ctx context.Context) SamlArrayOu
 // SamlMapInput is an input type that accepts SamlMap and SamlMapOutput values.
 // You can construct a concrete instance of `SamlMapInput` via:
 //
-//          SamlMap{ "key": SamlArgs{...} }
+//	SamlMap{ "key": SamlArgs{...} }
 type SamlMapInput interface {
 	pulumi.Input
 

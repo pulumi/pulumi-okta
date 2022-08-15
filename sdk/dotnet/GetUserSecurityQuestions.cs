@@ -19,27 +19,26 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleUser = new Okta.User.User("exampleUser", new()
         ///     {
-        ///         var exampleUser = new Okta.User.User("exampleUser", new Okta.User.UserArgs
-        ///         {
-        ///             FirstName = "John",
-        ///             LastName = "Smith",
-        ///             Login = "john.smith@example.com",
-        ///             Email = "john.smith@example.com",
-        ///         });
-        ///         var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new Okta.GetUserSecurityQuestionsInvokeArgs
-        ///         {
-        ///             UserId = exampleUser.Id,
-        ///         });
-        ///     }
+        ///         FirstName = "John",
+        ///         LastName = "Smith",
+        ///         Login = "john.smith@example.com",
+        ///         Email = "john.smith@example.com",
+        ///     });
         /// 
-        /// }
+        ///     var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new()
+        ///     {
+        ///         UserId = exampleUser.Id,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,27 +54,26 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleUser = new Okta.User.User("exampleUser", new()
         ///     {
-        ///         var exampleUser = new Okta.User.User("exampleUser", new Okta.User.UserArgs
-        ///         {
-        ///             FirstName = "John",
-        ///             LastName = "Smith",
-        ///             Login = "john.smith@example.com",
-        ///             Email = "john.smith@example.com",
-        ///         });
-        ///         var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new Okta.GetUserSecurityQuestionsInvokeArgs
-        ///         {
-        ///             UserId = exampleUser.Id,
-        ///         });
-        ///     }
+        ///         FirstName = "John",
+        ///         LastName = "Smith",
+        ///         Login = "john.smith@example.com",
+        ///         Email = "john.smith@example.com",
+        ///     });
         /// 
-        /// }
+        ///     var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new()
+        ///     {
+        ///         UserId = exampleUser.Id,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,7 +83,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetUserSecurityQuestionsArgs : Pulumi.InvokeArgs
+    public sealed class GetUserSecurityQuestionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// User ID.
@@ -96,9 +94,10 @@ namespace Pulumi.Okta
         public GetUserSecurityQuestionsArgs()
         {
         }
+        public static new GetUserSecurityQuestionsArgs Empty => new GetUserSecurityQuestionsArgs();
     }
 
-    public sealed class GetUserSecurityQuestionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserSecurityQuestionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// User ID.
@@ -109,6 +108,7 @@ namespace Pulumi.Okta
         public GetUserSecurityQuestionsInvokeArgs()
         {
         }
+        public static new GetUserSecurityQuestionsInvokeArgs Empty => new GetUserSecurityQuestionsInvokeArgs();
     }
 
 

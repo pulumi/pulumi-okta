@@ -22,7 +22,7 @@ type AppGroupAssignmentsGroup struct {
 // AppGroupAssignmentsGroupInput is an input type that accepts AppGroupAssignmentsGroupArgs and AppGroupAssignmentsGroupOutput values.
 // You can construct a concrete instance of `AppGroupAssignmentsGroupInput` via:
 //
-//          AppGroupAssignmentsGroupArgs{...}
+//	AppGroupAssignmentsGroupArgs{...}
 type AppGroupAssignmentsGroupInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i AppGroupAssignmentsGroupArgs) ToAppGroupAssignmentsGroupOutputWithContex
 // AppGroupAssignmentsGroupArrayInput is an input type that accepts AppGroupAssignmentsGroupArray and AppGroupAssignmentsGroupArrayOutput values.
 // You can construct a concrete instance of `AppGroupAssignmentsGroupArrayInput` via:
 //
-//          AppGroupAssignmentsGroupArray{ AppGroupAssignmentsGroupArgs{...} }
+//	AppGroupAssignmentsGroupArray{ AppGroupAssignmentsGroupArgs{...} }
 type AppGroupAssignmentsGroupArrayInput interface {
 	pulumi.Input
 
@@ -136,7 +136,7 @@ type AppSharedCredentialsUser struct {
 // AppSharedCredentialsUserInput is an input type that accepts AppSharedCredentialsUserArgs and AppSharedCredentialsUserOutput values.
 // You can construct a concrete instance of `AppSharedCredentialsUserInput` via:
 //
-//          AppSharedCredentialsUserArgs{...}
+//	AppSharedCredentialsUserArgs{...}
 type AppSharedCredentialsUserInput interface {
 	pulumi.Input
 
@@ -167,7 +167,7 @@ func (i AppSharedCredentialsUserArgs) ToAppSharedCredentialsUserOutputWithContex
 // AppSharedCredentialsUserArrayInput is an input type that accepts AppSharedCredentialsUserArray and AppSharedCredentialsUserArrayOutput values.
 // You can construct a concrete instance of `AppSharedCredentialsUserArrayInput` via:
 //
-//          AppSharedCredentialsUserArray{ AppSharedCredentialsUserArgs{...} }
+//	AppSharedCredentialsUserArray{ AppSharedCredentialsUserArgs{...} }
 type AppSharedCredentialsUserArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +252,7 @@ type AppSignonPolicyRulePlatformInclude struct {
 // AppSignonPolicyRulePlatformIncludeInput is an input type that accepts AppSignonPolicyRulePlatformIncludeArgs and AppSignonPolicyRulePlatformIncludeOutput values.
 // You can construct a concrete instance of `AppSignonPolicyRulePlatformIncludeInput` via:
 //
-//          AppSignonPolicyRulePlatformIncludeArgs{...}
+//	AppSignonPolicyRulePlatformIncludeArgs{...}
 type AppSignonPolicyRulePlatformIncludeInput interface {
 	pulumi.Input
 
@@ -284,7 +284,7 @@ func (i AppSignonPolicyRulePlatformIncludeArgs) ToAppSignonPolicyRulePlatformInc
 // AppSignonPolicyRulePlatformIncludeArrayInput is an input type that accepts AppSignonPolicyRulePlatformIncludeArray and AppSignonPolicyRulePlatformIncludeArrayOutput values.
 // You can construct a concrete instance of `AppSignonPolicyRulePlatformIncludeArrayInput` via:
 //
-//          AppSignonPolicyRulePlatformIncludeArray{ AppSignonPolicyRulePlatformIncludeArgs{...} }
+//	AppSignonPolicyRulePlatformIncludeArray{ AppSignonPolicyRulePlatformIncludeArgs{...} }
 type AppSignonPolicyRulePlatformIncludeArrayInput interface {
 	pulumi.Input
 
@@ -365,7 +365,7 @@ type AppUserSchemaPropertyArrayOneOf struct {
 // AppUserSchemaPropertyArrayOneOfInput is an input type that accepts AppUserSchemaPropertyArrayOneOfArgs and AppUserSchemaPropertyArrayOneOfOutput values.
 // You can construct a concrete instance of `AppUserSchemaPropertyArrayOneOfInput` via:
 //
-//          AppUserSchemaPropertyArrayOneOfArgs{...}
+//	AppUserSchemaPropertyArrayOneOfArgs{...}
 type AppUserSchemaPropertyArrayOneOfInput interface {
 	pulumi.Input
 
@@ -395,7 +395,7 @@ func (i AppUserSchemaPropertyArrayOneOfArgs) ToAppUserSchemaPropertyArrayOneOfOu
 // AppUserSchemaPropertyArrayOneOfArrayInput is an input type that accepts AppUserSchemaPropertyArrayOneOfArray and AppUserSchemaPropertyArrayOneOfArrayOutput values.
 // You can construct a concrete instance of `AppUserSchemaPropertyArrayOneOfArrayInput` via:
 //
-//          AppUserSchemaPropertyArrayOneOfArray{ AppUserSchemaPropertyArrayOneOfArgs{...} }
+//	AppUserSchemaPropertyArrayOneOfArray{ AppUserSchemaPropertyArrayOneOfArgs{...} }
 type AppUserSchemaPropertyArrayOneOfArrayInput interface {
 	pulumi.Input
 
@@ -471,7 +471,7 @@ type AppUserSchemaPropertyOneOf struct {
 // AppUserSchemaPropertyOneOfInput is an input type that accepts AppUserSchemaPropertyOneOfArgs and AppUserSchemaPropertyOneOfOutput values.
 // You can construct a concrete instance of `AppUserSchemaPropertyOneOfInput` via:
 //
-//          AppUserSchemaPropertyOneOfArgs{...}
+//	AppUserSchemaPropertyOneOfArgs{...}
 type AppUserSchemaPropertyOneOfInput interface {
 	pulumi.Input
 
@@ -501,7 +501,7 @@ func (i AppUserSchemaPropertyOneOfArgs) ToAppUserSchemaPropertyOneOfOutputWithCo
 // AppUserSchemaPropertyOneOfArrayInput is an input type that accepts AppUserSchemaPropertyOneOfArray and AppUserSchemaPropertyOneOfArrayOutput values.
 // You can construct a concrete instance of `AppUserSchemaPropertyOneOfArrayInput` via:
 //
-//          AppUserSchemaPropertyOneOfArray{ AppUserSchemaPropertyOneOfArgs{...} }
+//	AppUserSchemaPropertyOneOfArray{ AppUserSchemaPropertyOneOfArgs{...} }
 type AppUserSchemaPropertyOneOfArrayInput interface {
 	pulumi.Input
 
@@ -581,7 +581,7 @@ type DomainDnsRecord struct {
 // DomainDnsRecordInput is an input type that accepts DomainDnsRecordArgs and DomainDnsRecordOutput values.
 // You can construct a concrete instance of `DomainDnsRecordInput` via:
 //
-//          DomainDnsRecordArgs{...}
+//	DomainDnsRecordArgs{...}
 type DomainDnsRecordInput interface {
 	pulumi.Input
 
@@ -615,7 +615,7 @@ func (i DomainDnsRecordArgs) ToDomainDnsRecordOutputWithContext(ctx context.Cont
 // DomainDnsRecordArrayInput is an input type that accepts DomainDnsRecordArray and DomainDnsRecordArrayOutput values.
 // You can construct a concrete instance of `DomainDnsRecordArrayInput` via:
 //
-//          DomainDnsRecordArray{ DomainDnsRecordArgs{...} }
+//	DomainDnsRecordArray{ DomainDnsRecordArgs{...} }
 type DomainDnsRecordArrayInput interface {
 	pulumi.Input
 
@@ -703,7 +703,7 @@ type EmailSenderDnsRecord struct {
 // EmailSenderDnsRecordInput is an input type that accepts EmailSenderDnsRecordArgs and EmailSenderDnsRecordOutput values.
 // You can construct a concrete instance of `EmailSenderDnsRecordInput` via:
 //
-//          EmailSenderDnsRecordArgs{...}
+//	EmailSenderDnsRecordArgs{...}
 type EmailSenderDnsRecordInput interface {
 	pulumi.Input
 
@@ -735,7 +735,7 @@ func (i EmailSenderDnsRecordArgs) ToEmailSenderDnsRecordOutputWithContext(ctx co
 // EmailSenderDnsRecordArrayInput is an input type that accepts EmailSenderDnsRecordArray and EmailSenderDnsRecordArrayOutput values.
 // You can construct a concrete instance of `EmailSenderDnsRecordArrayInput` via:
 //
-//          EmailSenderDnsRecordArray{ EmailSenderDnsRecordArgs{...} }
+//	EmailSenderDnsRecordArray{ EmailSenderDnsRecordArgs{...} }
 type EmailSenderDnsRecordArrayInput interface {
 	pulumi.Input
 
@@ -816,7 +816,7 @@ type EventHookHeader struct {
 // EventHookHeaderInput is an input type that accepts EventHookHeaderArgs and EventHookHeaderOutput values.
 // You can construct a concrete instance of `EventHookHeaderInput` via:
 //
-//          EventHookHeaderArgs{...}
+//	EventHookHeaderArgs{...}
 type EventHookHeaderInput interface {
 	pulumi.Input
 
@@ -846,7 +846,7 @@ func (i EventHookHeaderArgs) ToEventHookHeaderOutputWithContext(ctx context.Cont
 // EventHookHeaderArrayInput is an input type that accepts EventHookHeaderArray and EventHookHeaderArrayOutput values.
 // You can construct a concrete instance of `EventHookHeaderArrayInput` via:
 //
-//          EventHookHeaderArray{ EventHookHeaderArgs{...} }
+//	EventHookHeaderArray{ EventHookHeaderArgs{...} }
 type EventHookHeaderArrayInput interface {
 	pulumi.Input
 
@@ -922,7 +922,7 @@ type GroupSchemaPropertyArrayOneOf struct {
 // GroupSchemaPropertyArrayOneOfInput is an input type that accepts GroupSchemaPropertyArrayOneOfArgs and GroupSchemaPropertyArrayOneOfOutput values.
 // You can construct a concrete instance of `GroupSchemaPropertyArrayOneOfInput` via:
 //
-//          GroupSchemaPropertyArrayOneOfArgs{...}
+//	GroupSchemaPropertyArrayOneOfArgs{...}
 type GroupSchemaPropertyArrayOneOfInput interface {
 	pulumi.Input
 
@@ -952,7 +952,7 @@ func (i GroupSchemaPropertyArrayOneOfArgs) ToGroupSchemaPropertyArrayOneOfOutput
 // GroupSchemaPropertyArrayOneOfArrayInput is an input type that accepts GroupSchemaPropertyArrayOneOfArray and GroupSchemaPropertyArrayOneOfArrayOutput values.
 // You can construct a concrete instance of `GroupSchemaPropertyArrayOneOfArrayInput` via:
 //
-//          GroupSchemaPropertyArrayOneOfArray{ GroupSchemaPropertyArrayOneOfArgs{...} }
+//	GroupSchemaPropertyArrayOneOfArray{ GroupSchemaPropertyArrayOneOfArgs{...} }
 type GroupSchemaPropertyArrayOneOfArrayInput interface {
 	pulumi.Input
 
@@ -1028,7 +1028,7 @@ type GroupSchemaPropertyMasterOverridePriority struct {
 // GroupSchemaPropertyMasterOverridePriorityInput is an input type that accepts GroupSchemaPropertyMasterOverridePriorityArgs and GroupSchemaPropertyMasterOverridePriorityOutput values.
 // You can construct a concrete instance of `GroupSchemaPropertyMasterOverridePriorityInput` via:
 //
-//          GroupSchemaPropertyMasterOverridePriorityArgs{...}
+//	GroupSchemaPropertyMasterOverridePriorityArgs{...}
 type GroupSchemaPropertyMasterOverridePriorityInput interface {
 	pulumi.Input
 
@@ -1058,7 +1058,7 @@ func (i GroupSchemaPropertyMasterOverridePriorityArgs) ToGroupSchemaPropertyMast
 // GroupSchemaPropertyMasterOverridePriorityArrayInput is an input type that accepts GroupSchemaPropertyMasterOverridePriorityArray and GroupSchemaPropertyMasterOverridePriorityArrayOutput values.
 // You can construct a concrete instance of `GroupSchemaPropertyMasterOverridePriorityArrayInput` via:
 //
-//          GroupSchemaPropertyMasterOverridePriorityArray{ GroupSchemaPropertyMasterOverridePriorityArgs{...} }
+//	GroupSchemaPropertyMasterOverridePriorityArray{ GroupSchemaPropertyMasterOverridePriorityArgs{...} }
 type GroupSchemaPropertyMasterOverridePriorityArrayInput interface {
 	pulumi.Input
 
@@ -1134,7 +1134,7 @@ type GroupSchemaPropertyOneOf struct {
 // GroupSchemaPropertyOneOfInput is an input type that accepts GroupSchemaPropertyOneOfArgs and GroupSchemaPropertyOneOfOutput values.
 // You can construct a concrete instance of `GroupSchemaPropertyOneOfInput` via:
 //
-//          GroupSchemaPropertyOneOfArgs{...}
+//	GroupSchemaPropertyOneOfArgs{...}
 type GroupSchemaPropertyOneOfInput interface {
 	pulumi.Input
 
@@ -1164,7 +1164,7 @@ func (i GroupSchemaPropertyOneOfArgs) ToGroupSchemaPropertyOneOfOutputWithContex
 // GroupSchemaPropertyOneOfArrayInput is an input type that accepts GroupSchemaPropertyOneOfArray and GroupSchemaPropertyOneOfArrayOutput values.
 // You can construct a concrete instance of `GroupSchemaPropertyOneOfArrayInput` via:
 //
-//          GroupSchemaPropertyOneOfArray{ GroupSchemaPropertyOneOfArgs{...} }
+//	GroupSchemaPropertyOneOfArray{ GroupSchemaPropertyOneOfArgs{...} }
 type GroupSchemaPropertyOneOfArrayInput interface {
 	pulumi.Input
 
@@ -1242,7 +1242,7 @@ type PolicyRuleProfileEnrollmentProfileAttribute struct {
 // PolicyRuleProfileEnrollmentProfileAttributeInput is an input type that accepts PolicyRuleProfileEnrollmentProfileAttributeArgs and PolicyRuleProfileEnrollmentProfileAttributeOutput values.
 // You can construct a concrete instance of `PolicyRuleProfileEnrollmentProfileAttributeInput` via:
 //
-//          PolicyRuleProfileEnrollmentProfileAttributeArgs{...}
+//	PolicyRuleProfileEnrollmentProfileAttributeArgs{...}
 type PolicyRuleProfileEnrollmentProfileAttributeInput interface {
 	pulumi.Input
 
@@ -1274,7 +1274,7 @@ func (i PolicyRuleProfileEnrollmentProfileAttributeArgs) ToPolicyRuleProfileEnro
 // PolicyRuleProfileEnrollmentProfileAttributeArrayInput is an input type that accepts PolicyRuleProfileEnrollmentProfileAttributeArray and PolicyRuleProfileEnrollmentProfileAttributeArrayOutput values.
 // You can construct a concrete instance of `PolicyRuleProfileEnrollmentProfileAttributeArrayInput` via:
 //
-//          PolicyRuleProfileEnrollmentProfileAttributeArray{ PolicyRuleProfileEnrollmentProfileAttributeArgs{...} }
+//	PolicyRuleProfileEnrollmentProfileAttributeArray{ PolicyRuleProfileEnrollmentProfileAttributeArgs{...} }
 type PolicyRuleProfileEnrollmentProfileAttributeArrayInput interface {
 	pulumi.Input
 
@@ -1355,7 +1355,7 @@ type TemplateSmsTranslation struct {
 // TemplateSmsTranslationInput is an input type that accepts TemplateSmsTranslationArgs and TemplateSmsTranslationOutput values.
 // You can construct a concrete instance of `TemplateSmsTranslationInput` via:
 //
-//          TemplateSmsTranslationArgs{...}
+//	TemplateSmsTranslationArgs{...}
 type TemplateSmsTranslationInput interface {
 	pulumi.Input
 
@@ -1385,7 +1385,7 @@ func (i TemplateSmsTranslationArgs) ToTemplateSmsTranslationOutputWithContext(ct
 // TemplateSmsTranslationArrayInput is an input type that accepts TemplateSmsTranslationArray and TemplateSmsTranslationArrayOutput values.
 // You can construct a concrete instance of `TemplateSmsTranslationArrayInput` via:
 //
-//          TemplateSmsTranslationArray{ TemplateSmsTranslationArgs{...} }
+//	TemplateSmsTranslationArray{ TemplateSmsTranslationArgs{...} }
 type TemplateSmsTranslationArrayInput interface {
 	pulumi.Input
 
@@ -1461,7 +1461,7 @@ type UserSchemaPropertyArrayOneOf struct {
 // UserSchemaPropertyArrayOneOfInput is an input type that accepts UserSchemaPropertyArrayOneOfArgs and UserSchemaPropertyArrayOneOfOutput values.
 // You can construct a concrete instance of `UserSchemaPropertyArrayOneOfInput` via:
 //
-//          UserSchemaPropertyArrayOneOfArgs{...}
+//	UserSchemaPropertyArrayOneOfArgs{...}
 type UserSchemaPropertyArrayOneOfInput interface {
 	pulumi.Input
 
@@ -1491,7 +1491,7 @@ func (i UserSchemaPropertyArrayOneOfArgs) ToUserSchemaPropertyArrayOneOfOutputWi
 // UserSchemaPropertyArrayOneOfArrayInput is an input type that accepts UserSchemaPropertyArrayOneOfArray and UserSchemaPropertyArrayOneOfArrayOutput values.
 // You can construct a concrete instance of `UserSchemaPropertyArrayOneOfArrayInput` via:
 //
-//          UserSchemaPropertyArrayOneOfArray{ UserSchemaPropertyArrayOneOfArgs{...} }
+//	UserSchemaPropertyArrayOneOfArray{ UserSchemaPropertyArrayOneOfArgs{...} }
 type UserSchemaPropertyArrayOneOfArrayInput interface {
 	pulumi.Input
 
@@ -1567,7 +1567,7 @@ type UserSchemaPropertyMasterOverridePriority struct {
 // UserSchemaPropertyMasterOverridePriorityInput is an input type that accepts UserSchemaPropertyMasterOverridePriorityArgs and UserSchemaPropertyMasterOverridePriorityOutput values.
 // You can construct a concrete instance of `UserSchemaPropertyMasterOverridePriorityInput` via:
 //
-//          UserSchemaPropertyMasterOverridePriorityArgs{...}
+//	UserSchemaPropertyMasterOverridePriorityArgs{...}
 type UserSchemaPropertyMasterOverridePriorityInput interface {
 	pulumi.Input
 
@@ -1597,7 +1597,7 @@ func (i UserSchemaPropertyMasterOverridePriorityArgs) ToUserSchemaPropertyMaster
 // UserSchemaPropertyMasterOverridePriorityArrayInput is an input type that accepts UserSchemaPropertyMasterOverridePriorityArray and UserSchemaPropertyMasterOverridePriorityArrayOutput values.
 // You can construct a concrete instance of `UserSchemaPropertyMasterOverridePriorityArrayInput` via:
 //
-//          UserSchemaPropertyMasterOverridePriorityArray{ UserSchemaPropertyMasterOverridePriorityArgs{...} }
+//	UserSchemaPropertyMasterOverridePriorityArray{ UserSchemaPropertyMasterOverridePriorityArgs{...} }
 type UserSchemaPropertyMasterOverridePriorityArrayInput interface {
 	pulumi.Input
 
@@ -1673,7 +1673,7 @@ type UserSchemaPropertyOneOf struct {
 // UserSchemaPropertyOneOfInput is an input type that accepts UserSchemaPropertyOneOfArgs and UserSchemaPropertyOneOfOutput values.
 // You can construct a concrete instance of `UserSchemaPropertyOneOfInput` via:
 //
-//          UserSchemaPropertyOneOfArgs{...}
+//	UserSchemaPropertyOneOfArgs{...}
 type UserSchemaPropertyOneOfInput interface {
 	pulumi.Input
 
@@ -1703,7 +1703,7 @@ func (i UserSchemaPropertyOneOfArgs) ToUserSchemaPropertyOneOfOutputWithContext(
 // UserSchemaPropertyOneOfArrayInput is an input type that accepts UserSchemaPropertyOneOfArray and UserSchemaPropertyOneOfArrayOutput values.
 // You can construct a concrete instance of `UserSchemaPropertyOneOfArrayInput` via:
 //
-//          UserSchemaPropertyOneOfArray{ UserSchemaPropertyOneOfArgs{...} }
+//	UserSchemaPropertyOneOfArray{ UserSchemaPropertyOneOfArgs{...} }
 type UserSchemaPropertyOneOfArrayInput interface {
 	pulumi.Input
 
@@ -1791,7 +1791,7 @@ type GetAuthServerClaimsClaim struct {
 // GetAuthServerClaimsClaimInput is an input type that accepts GetAuthServerClaimsClaimArgs and GetAuthServerClaimsClaimOutput values.
 // You can construct a concrete instance of `GetAuthServerClaimsClaimInput` via:
 //
-//          GetAuthServerClaimsClaimArgs{...}
+//	GetAuthServerClaimsClaimArgs{...}
 type GetAuthServerClaimsClaimInput interface {
 	pulumi.Input
 
@@ -1833,7 +1833,7 @@ func (i GetAuthServerClaimsClaimArgs) ToGetAuthServerClaimsClaimOutputWithContex
 // GetAuthServerClaimsClaimArrayInput is an input type that accepts GetAuthServerClaimsClaimArray and GetAuthServerClaimsClaimArrayOutput values.
 // You can construct a concrete instance of `GetAuthServerClaimsClaimArrayInput` via:
 //
-//          GetAuthServerClaimsClaimArray{ GetAuthServerClaimsClaimArgs{...} }
+//	GetAuthServerClaimsClaimArray{ GetAuthServerClaimsClaimArgs{...} }
 type GetAuthServerClaimsClaimArrayInput interface {
 	pulumi.Input
 
@@ -1945,7 +1945,7 @@ type GetBehavioursBehavior struct {
 // GetBehavioursBehaviorInput is an input type that accepts GetBehavioursBehaviorArgs and GetBehavioursBehaviorOutput values.
 // You can construct a concrete instance of `GetBehavioursBehaviorInput` via:
 //
-//          GetBehavioursBehaviorArgs{...}
+//	GetBehavioursBehaviorArgs{...}
 type GetBehavioursBehaviorInput interface {
 	pulumi.Input
 
@@ -1981,7 +1981,7 @@ func (i GetBehavioursBehaviorArgs) ToGetBehavioursBehaviorOutputWithContext(ctx 
 // GetBehavioursBehaviorArrayInput is an input type that accepts GetBehavioursBehaviorArray and GetBehavioursBehaviorArrayOutput values.
 // You can construct a concrete instance of `GetBehavioursBehaviorArrayInput` via:
 //
-//          GetBehavioursBehaviorArray{ GetBehavioursBehaviorArgs{...} }
+//	GetBehavioursBehaviorArray{ GetBehavioursBehaviorArgs{...} }
 type GetBehavioursBehaviorArrayInput interface {
 	pulumi.Input
 
@@ -2072,7 +2072,7 @@ type GetBrandsBrand struct {
 // GetBrandsBrandInput is an input type that accepts GetBrandsBrandArgs and GetBrandsBrandOutput values.
 // You can construct a concrete instance of `GetBrandsBrandInput` via:
 //
-//          GetBrandsBrandArgs{...}
+//	GetBrandsBrandArgs{...}
 type GetBrandsBrandInput interface {
 	pulumi.Input
 
@@ -2102,7 +2102,7 @@ func (i GetBrandsBrandArgs) ToGetBrandsBrandOutputWithContext(ctx context.Contex
 // GetBrandsBrandArrayInput is an input type that accepts GetBrandsBrandArray and GetBrandsBrandArrayOutput values.
 // You can construct a concrete instance of `GetBrandsBrandArrayInput` via:
 //
-//          GetBrandsBrandArray{ GetBrandsBrandArgs{...} }
+//	GetBrandsBrandArray{ GetBrandsBrandArgs{...} }
 type GetBrandsBrandArrayInput interface {
 	pulumi.Input
 
@@ -2186,7 +2186,7 @@ type GetEmailCustomizationsEmailCustomization struct {
 // GetEmailCustomizationsEmailCustomizationInput is an input type that accepts GetEmailCustomizationsEmailCustomizationArgs and GetEmailCustomizationsEmailCustomizationOutput values.
 // You can construct a concrete instance of `GetEmailCustomizationsEmailCustomizationInput` via:
 //
-//          GetEmailCustomizationsEmailCustomizationArgs{...}
+//	GetEmailCustomizationsEmailCustomizationArgs{...}
 type GetEmailCustomizationsEmailCustomizationInput interface {
 	pulumi.Input
 
@@ -2218,7 +2218,7 @@ func (i GetEmailCustomizationsEmailCustomizationArgs) ToGetEmailCustomizationsEm
 // GetEmailCustomizationsEmailCustomizationArrayInput is an input type that accepts GetEmailCustomizationsEmailCustomizationArray and GetEmailCustomizationsEmailCustomizationArrayOutput values.
 // You can construct a concrete instance of `GetEmailCustomizationsEmailCustomizationArrayInput` via:
 //
-//          GetEmailCustomizationsEmailCustomizationArray{ GetEmailCustomizationsEmailCustomizationArgs{...} }
+//	GetEmailCustomizationsEmailCustomizationArray{ GetEmailCustomizationsEmailCustomizationArgs{...} }
 type GetEmailCustomizationsEmailCustomizationArrayInput interface {
 	pulumi.Input
 
@@ -2315,7 +2315,7 @@ type GetGroupsGroup struct {
 // GetGroupsGroupInput is an input type that accepts GetGroupsGroupArgs and GetGroupsGroupOutput values.
 // You can construct a concrete instance of `GetGroupsGroupInput` via:
 //
-//          GetGroupsGroupArgs{...}
+//	GetGroupsGroupArgs{...}
 type GetGroupsGroupInput interface {
 	pulumi.Input
 
@@ -2352,7 +2352,7 @@ func (i GetGroupsGroupArgs) ToGetGroupsGroupOutputWithContext(ctx context.Contex
 // GetGroupsGroupArrayInput is an input type that accepts GetGroupsGroupArray and GetGroupsGroupArrayOutput values.
 // You can construct a concrete instance of `GetGroupsGroupArrayInput` via:
 //
-//          GetGroupsGroupArray{ GetGroupsGroupArgs{...} }
+//	GetGroupsGroupArray{ GetGroupsGroupArgs{...} }
 type GetGroupsGroupArrayInput interface {
 	pulumi.Input
 
@@ -2442,7 +2442,7 @@ type GetTemplatesEmailTemplate struct {
 // GetTemplatesEmailTemplateInput is an input type that accepts GetTemplatesEmailTemplateArgs and GetTemplatesEmailTemplateOutput values.
 // You can construct a concrete instance of `GetTemplatesEmailTemplateInput` via:
 //
-//          GetTemplatesEmailTemplateArgs{...}
+//	GetTemplatesEmailTemplateArgs{...}
 type GetTemplatesEmailTemplateInput interface {
 	pulumi.Input
 
@@ -2470,7 +2470,7 @@ func (i GetTemplatesEmailTemplateArgs) ToGetTemplatesEmailTemplateOutputWithCont
 // GetTemplatesEmailTemplateArrayInput is an input type that accepts GetTemplatesEmailTemplateArray and GetTemplatesEmailTemplateArrayOutput values.
 // You can construct a concrete instance of `GetTemplatesEmailTemplateArrayInput` via:
 //
-//          GetTemplatesEmailTemplateArray{ GetTemplatesEmailTemplateArgs{...} }
+//	GetTemplatesEmailTemplateArray{ GetTemplatesEmailTemplateArgs{...} }
 type GetTemplatesEmailTemplateArrayInput interface {
 	pulumi.Input
 
@@ -2553,7 +2553,7 @@ type GetThemesTheme struct {
 // GetThemesThemeInput is an input type that accepts GetThemesThemeArgs and GetThemesThemeOutput values.
 // You can construct a concrete instance of `GetThemesThemeInput` via:
 //
-//          GetThemesThemeArgs{...}
+//	GetThemesThemeArgs{...}
 type GetThemesThemeInput interface {
 	pulumi.Input
 
@@ -2592,7 +2592,7 @@ func (i GetThemesThemeArgs) ToGetThemesThemeOutputWithContext(ctx context.Contex
 // GetThemesThemeArrayInput is an input type that accepts GetThemesThemeArray and GetThemesThemeArrayOutput values.
 // You can construct a concrete instance of `GetThemesThemeArrayInput` via:
 //
-//          GetThemesThemeArray{ GetThemesThemeArgs{...} }
+//	GetThemesThemeArray{ GetThemesThemeArgs{...} }
 type GetThemesThemeArrayInput interface {
 	pulumi.Input
 
@@ -2716,7 +2716,7 @@ type GetTrustedOriginsTrustedOrigin struct {
 // GetTrustedOriginsTrustedOriginInput is an input type that accepts GetTrustedOriginsTrustedOriginArgs and GetTrustedOriginsTrustedOriginOutput values.
 // You can construct a concrete instance of `GetTrustedOriginsTrustedOriginInput` via:
 //
-//          GetTrustedOriginsTrustedOriginArgs{...}
+//	GetTrustedOriginsTrustedOriginArgs{...}
 type GetTrustedOriginsTrustedOriginInput interface {
 	pulumi.Input
 
@@ -2752,7 +2752,7 @@ func (i GetTrustedOriginsTrustedOriginArgs) ToGetTrustedOriginsTrustedOriginOutp
 // GetTrustedOriginsTrustedOriginArrayInput is an input type that accepts GetTrustedOriginsTrustedOriginArray and GetTrustedOriginsTrustedOriginArrayOutput values.
 // You can construct a concrete instance of `GetTrustedOriginsTrustedOriginArrayInput` via:
 //
-//          GetTrustedOriginsTrustedOriginArray{ GetTrustedOriginsTrustedOriginArgs{...} }
+//	GetTrustedOriginsTrustedOriginArray{ GetTrustedOriginsTrustedOriginArgs{...} }
 type GetTrustedOriginsTrustedOriginArrayInput interface {
 	pulumi.Input
 
@@ -2843,7 +2843,7 @@ type GetUserSecurityQuestionsQuestion struct {
 // GetUserSecurityQuestionsQuestionInput is an input type that accepts GetUserSecurityQuestionsQuestionArgs and GetUserSecurityQuestionsQuestionOutput values.
 // You can construct a concrete instance of `GetUserSecurityQuestionsQuestionInput` via:
 //
-//          GetUserSecurityQuestionsQuestionArgs{...}
+//	GetUserSecurityQuestionsQuestionArgs{...}
 type GetUserSecurityQuestionsQuestionInput interface {
 	pulumi.Input
 
@@ -2873,7 +2873,7 @@ func (i GetUserSecurityQuestionsQuestionArgs) ToGetUserSecurityQuestionsQuestion
 // GetUserSecurityQuestionsQuestionArrayInput is an input type that accepts GetUserSecurityQuestionsQuestionArray and GetUserSecurityQuestionsQuestionArrayOutput values.
 // You can construct a concrete instance of `GetUserSecurityQuestionsQuestionArrayInput` via:
 //
-//          GetUserSecurityQuestionsQuestionArray{ GetUserSecurityQuestionsQuestionArgs{...} }
+//	GetUserSecurityQuestionsQuestionArray{ GetUserSecurityQuestionsQuestionArgs{...} }
 type GetUserSecurityQuestionsQuestionArrayInput interface {
 	pulumi.Input
 

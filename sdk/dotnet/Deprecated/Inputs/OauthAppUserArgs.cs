@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Deprecated.Inputs
 {
 
-    public sealed class OauthAppUserArgs : Pulumi.ResourceArgs
+    public sealed class OauthAppUserArgs : global::Pulumi.ResourceArgs
     {
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Okta.Deprecated.Inputs
         public OauthAppUserArgs()
         {
         }
+        public static new OauthAppUserArgs Empty => new OauthAppUserArgs();
     }
 }

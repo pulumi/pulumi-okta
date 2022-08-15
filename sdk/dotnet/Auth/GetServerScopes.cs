@@ -19,20 +19,18 @@ namespace Pulumi.Okta.Auth
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Okta.Auth.GetServerScopes.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Okta.Auth.GetServerScopes.InvokeAsync(new Okta.Auth.GetServerScopesArgs
-        ///         {
-        ///             AuthServerId = "default",
-        ///         }));
-        ///     }
+        ///         AuthServerId = "default",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta.Auth
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Okta.Auth.GetServerScopes.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Okta.Auth.GetServerScopes.InvokeAsync(new Okta.Auth.GetServerScopesArgs
-        ///         {
-        ///             AuthServerId = "default",
-        ///         }));
-        ///     }
+        ///         AuthServerId = "default",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta.Auth
     }
 
 
-    public sealed class GetServerScopesArgs : Pulumi.InvokeArgs
+    public sealed class GetServerScopesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Auth server ID.
@@ -82,9 +78,10 @@ namespace Pulumi.Okta.Auth
         public GetServerScopesArgs()
         {
         }
+        public static new GetServerScopesArgs Empty => new GetServerScopesArgs();
     }
 
-    public sealed class GetServerScopesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerScopesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Auth server ID.
@@ -95,6 +92,7 @@ namespace Pulumi.Okta.Auth
         public GetServerScopesInvokeArgs()
         {
         }
+        public static new GetServerScopesInvokeArgs Empty => new GetServerScopesInvokeArgs();
     }
 
 

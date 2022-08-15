@@ -30,45 +30,38 @@ namespace Pulumi.Okta
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Okta.AppSignonPolicyRule("test", new()
     ///     {
-    ///         var test = new Okta.AppSignonPolicyRule("test", new Okta.AppSignonPolicyRuleArgs
+    ///         PolicyId = data.Okta_app_signon_policy.Test.Id,
+    ///         Constraints = new[]
     ///         {
-    ///             PolicyId = data.Okta_app_signon_policy.Test.Id,
-    ///             Constraints = 
+    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 ["knowledge"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "knowledge", new Dictionary&lt;string, object?&gt;
+    ///                     ["types"] = new[]
     ///                     {
-    ///                         { "types", new[]
-    ///                             {
-    ///                                 "password",
-    ///                             }
-    ///                          },
-    ///                     } },
-    ///                 }),
-    ///             },
-    ///         });
-    ///     }
+    ///                         "password",
+    ///                     },
+    ///                 },
+    ///             }),
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// This will create an app sign-on policy rule with the following `THEN` block:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///     }
-    /// 
-    /// }
+    /// });
     /// ```
     /// ### Example 2:
     /// 
@@ -78,51 +71,44 @@ namespace Pulumi.Okta
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Okta.AppSignonPolicyRule("test", new()
     ///     {
-    ///         var test = new Okta.AppSignonPolicyRule("test", new Okta.AppSignonPolicyRuleArgs
+    ///         PolicyId = data.Okta_app_signon_policy.Test.Id,
+    ///         Constraints = new[]
     ///         {
-    ///             PolicyId = data.Okta_app_signon_policy.Test.Id,
-    ///             Constraints = 
+    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 ["knowledge"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "knowledge", new Dictionary&lt;string, object?&gt;
+    ///                     ["reauthenticateIn"] = "PT2H",
+    ///                     ["types"] = new[]
     ///                     {
-    ///                         { "reauthenticateIn", "PT2H" },
-    ///                         { "types", new[]
-    ///                             {
-    ///                                 "password",
-    ///                             }
-    ///                          },
-    ///                     } },
-    ///                     { "possession", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "deviceBound", "REQUIRED" },
-    ///                         { "hardwareProtection", "REQUIRED" },
-    ///                     } },
-    ///                 }),
-    ///             },
-    ///         });
-    ///     }
+    ///                         "password",
+    ///                     },
+    ///                 },
+    ///                 ["possession"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["deviceBound"] = "REQUIRED",
+    ///                     ["hardwareProtection"] = "REQUIRED",
+    ///                 },
+    ///             }),
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// This will create an app sign-on policy rule with the following `THEN` block:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///     }
-    /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// More examples can be
@@ -135,27 +121,25 @@ namespace Pulumi.Okta
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testSaml = new Okta.App.Saml("testSaml", new()
     ///     {
-    ///         var testSaml = new Okta.App.Saml("testSaml", new Okta.App.SamlArgs
-    ///         {
-    ///             Label = "testAcc_replace_with_uuid",
-    ///             SsoUrl = "https://google.com",
-    ///             Recipient = "https://here.com",
-    ///             Destination = "https://its-about-the-journey.com",
-    ///             Audience = "https://audience.com",
-    ///             SubjectNameIdTemplate = user.UserName,
-    ///             SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-    ///             ResponseSigned = true,
-    ///             SignatureAlgorithm = "RSA_SHA256",
-    ///             DigestAlgorithm = "SHA256",
-    ///             HonorForceAuthn = false,
-    ///             AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-    ///             SingleLogoutIssuer = "https://dunshire.okta.com",
-    ///             SingleLogoutUrl = "https://dunshire.okta.com/logout",
-    ///             SingleLogoutCertificate = @"MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV
+    ///         Label = "testAcc_replace_with_uuid",
+    ///         SsoUrl = "https://google.com",
+    ///         Recipient = "https://here.com",
+    ///         Destination = "https://its-about-the-journey.com",
+    ///         Audience = "https://audience.com",
+    ///         SubjectNameIdTemplate = user.UserName,
+    ///         SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+    ///         ResponseSigned = true,
+    ///         SignatureAlgorithm = "RSA_SHA256",
+    ///         DigestAlgorithm = "SHA256",
+    ///         HonorForceAuthn = false,
+    ///         AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+    ///         SingleLogoutIssuer = "https://dunshire.okta.com",
+    ///         SingleLogoutUrl = "https://dunshire.okta.com/logout",
+    ///         SingleLogoutCertificate = @"MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV
     /// BAgMBU1haW5lMRAwDgYDVQQHDAdDYXJpYm91MRcwFQYDVQQKDA5Tbm93bWFrZXJzIEluYzEUMBIG
     /// A1UECwwLRW5naW5lZXJpbmcxDTALBgNVBAMMBFNub3cxIDAeBgkqhkiG9w0BCQEWEWVtYWlsQGV4
     /// YW1wbGUuY29tMB4XDTIwMTIwMzIyNDY0M1oXDTMwMTIwMTIyNDY0M1owgY8xCzAJBgNVBAYTAlVT
@@ -182,176 +166,179 @@ namespace Pulumi.Okta
     /// JtbyK3F2UvoJoLsm3pIcvMak9KwMjSTGJB47ABUP1+w+zGcNk0D5Co3IJ6QekiLfWJyQ+kKsWLKt
     /// zOYQQatrnBagM7MI2/T4
     /// ",
-    ///             AttributeStatements = 
-    ///             {
-    ///                 new Okta.App.Inputs.SamlAttributeStatementArgs
-    ///                 {
-    ///                     Type = "GROUP",
-    ///                     Name = "groups",
-    ///                     FilterType = "REGEX",
-    ///                     FilterValue = ".*",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var testAppSignonPolicy = Okta.GetAppSignonPolicy.Invoke(new Okta.GetAppSignonPolicyInvokeArgs
+    ///         AttributeStatements = new[]
     ///         {
-    ///             AppId = testSaml.Id,
-    ///         });
-    ///         var testUser = new List&lt;Okta.User.User&gt;();
-    ///         for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
-    ///         {
-    ///             var range = new { Value = rangeIndex };
-    ///             testUser.Add(new Okta.User.User($"testUser-{range.Value}", new Okta.User.UserArgs
+    ///             new Okta.App.Inputs.SamlAttributeStatementArgs
     ///             {
-    ///                 FirstName = "TestAcc",
-    ///                 LastName = "Smith",
-    ///                 Login = $"testAcc_{range.Value}@example.com",
-    ///                 Email = $"testAcc_{range.Value}@example.com",
-    ///             }));
-    ///         }
-    ///         var @this = new List&lt;Okta.Group.Group&gt;();
-    ///         for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
-    ///         {
-    ///             var range = new { Value = rangeIndex };
-    ///             @this.Add(new Okta.Group.Group($"this-{range.Value}", new Okta.Group.GroupArgs
-    ///             {
-    ///                 Description = $"testAcc_{range.Value}",
-    ///             }));
-    ///         }
-    ///         var testUserType = new Okta.User.UserType("testUserType", new Okta.User.UserTypeArgs
-    ///         {
-    ///             DisplayName = "Terraform Acceptance Test User Type Updated",
-    ///             Description = "Terraform Acceptance Test User Type Updated",
-    ///         });
-    ///         var testZone = new Okta.Network.Zone("testZone", new Okta.Network.ZoneArgs
-    ///         {
-    ///             Type = "IP",
-    ///             Gateways = 
-    ///             {
-    ///                 "1.2.3.4/24",
-    ///                 "2.3.4.5-2.3.4.15",
+    ///                 Type = "GROUP",
+    ///                 Name = "groups",
+    ///                 FilterType = "REGEX",
+    ///                 FilterValue = ".*",
     ///             },
-    ///             Proxies = 
-    ///             {
-    ///                 "2.2.3.4/24",
-    ///                 "3.3.4.5-3.3.4.15",
-    ///             },
-    ///         });
-    ///         var @default = Output.Create(Okta.User.GetUserType.InvokeAsync(new Okta.User.GetUserTypeArgs
-    ///         {
-    ///             Name = "user",
-    ///         }));
-    ///         var testAppSignonPolicyRule = new Okta.AppSignonPolicyRule("testAppSignonPolicyRule", new Okta.AppSignonPolicyRuleArgs
-    ///         {
-    ///             PolicyId = testAppSignonPolicy.Apply(testAppSignonPolicy =&gt; testAppSignonPolicy.Id),
-    ///             Access = "ALLOW",
-    ///             CustomExpression = "user.status == \"ACTIVE\"",
-    ///             DeviceIsManaged = false,
-    ///             DeviceIsRegistered = true,
-    ///             FactorMode = "2FA",
-    ///             GroupsExcludeds = 
-    ///             {
-    ///                 @this[2].Id,
-    ///                 @this[3].Id,
-    ///                 @this[4].Id,
-    ///             },
-    ///             GroupsIncludeds = 
-    ///             {
-    ///                 @this[0].Id,
-    ///                 @this[1].Id,
-    ///             },
-    ///             NetworkConnection = "ZONE",
-    ///             NetworkIncludes = 
-    ///             {
-    ///                 testZone.Id,
-    ///             },
-    ///             PlatformIncludes = 
-    ///             {
-    ///                 new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///                 {
-    ///                     OsType = "ANDROID",
-    ///                     Type = "MOBILE",
-    ///                 },
-    ///                 new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///                 {
-    ///                     OsType = "IOS",
-    ///                     Type = "MOBILE",
-    ///                 },
-    ///                 new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///                 {
-    ///                     OsType = "MACOS",
-    ///                     Type = "DESKTOP",
-    ///                 },
-    ///                 new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///                 {
-    ///                     OsType = "OTHER",
-    ///                     Type = "DESKTOP",
-    ///                 },
-    ///                 new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///                 {
-    ///                     OsType = "OTHER",
-    ///                     Type = "MOBILE",
-    ///                 },
-    ///                 new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///                 {
-    ///                     OsType = "WINDOWS",
-    ///                     Type = "DESKTOP",
-    ///                 },
-    ///             },
-    ///             Priority = 98,
-    ///             ReAuthenticationFrequency = "PT43800H",
-    ///             Type = "ASSURANCE",
-    ///             UserTypesExcludeds = 
-    ///             {
-    ///                 testUserType.Id,
-    ///             },
-    ///             UserTypesIncludeds = 
-    ///             {
-    ///                 @default.Apply(@default =&gt; @default.Id),
-    ///             },
-    ///             UsersExcludeds = 
-    ///             {
-    ///                 testUser[2].Id,
-    ///                 testUser[3].Id,
-    ///                 testUser[4].Id,
-    ///             },
-    ///             UsersIncludeds = 
-    ///             {
-    ///                 testUser[0].Id,
-    ///                 testUser[1].Id,
-    ///             },
-    ///             Constraints = 
-    ///             {
-    ///                 JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "knowledge", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "reauthenticateIn", "PT2H" },
-    ///                         { "types", new[]
-    ///                             {
-    ///                                 "password",
-    ///                             }
-    ///                          },
-    ///                     } },
-    ///                     { "possession", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "deviceBound", "REQUIRED" },
-    ///                     } },
-    ///                 }),
-    ///                 JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "possession", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "deviceBound", "REQUIRED" },
-    ///                         { "hardwareProtection", "REQUIRED" },
-    ///                         { "userPresence", "OPTIONAL" },
-    ///                     } },
-    ///                 }),
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var testAppSignonPolicy = Okta.GetAppSignonPolicy.Invoke(new()
+    ///     {
+    ///         AppId = testSaml.Id,
+    ///     });
+    /// 
+    ///     var testUser = new List&lt;Okta.User.User&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         testUser.Add(new Okta.User.User($"testUser-{range.Value}", new()
+    ///         {
+    ///             FirstName = "TestAcc",
+    ///             LastName = "Smith",
+    ///             Login = $"testAcc_{range.Value}@example.com",
+    ///             Email = $"testAcc_{range.Value}@example.com",
+    ///         }));
+    ///     }
+    ///     var @this = new List&lt;Okta.Group.Group&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         @this.Add(new Okta.Group.Group($"this-{range.Value}", new()
+    ///         {
+    ///             Description = $"testAcc_{range.Value}",
+    ///         }));
+    ///     }
+    ///     var testUserType = new Okta.User.UserType("testUserType", new()
+    ///     {
+    ///         DisplayName = "Terraform Acceptance Test User Type Updated",
+    ///         Description = "Terraform Acceptance Test User Type Updated",
+    ///     });
+    /// 
+    ///     var testZone = new Okta.Network.Zone("testZone", new()
+    ///     {
+    ///         Type = "IP",
+    ///         Gateways = new[]
+    ///         {
+    ///             "1.2.3.4/24",
+    ///             "2.3.4.5-2.3.4.15",
+    ///         },
+    ///         Proxies = new[]
+    ///         {
+    ///             "2.2.3.4/24",
+    ///             "3.3.4.5-3.3.4.15",
+    ///         },
+    ///     });
+    /// 
+    ///     var @default = Okta.User.GetUserType.Invoke(new()
+    ///     {
+    ///         Name = "user",
+    ///     });
+    /// 
+    ///     var testAppSignonPolicyRule = new Okta.AppSignonPolicyRule("testAppSignonPolicyRule", new()
+    ///     {
+    ///         PolicyId = testAppSignonPolicy.Apply(getAppSignonPolicyResult =&gt; getAppSignonPolicyResult.Id),
+    ///         Access = "ALLOW",
+    ///         CustomExpression = "user.status == \"ACTIVE\"",
+    ///         DeviceIsManaged = false,
+    ///         DeviceIsRegistered = true,
+    ///         FactorMode = "2FA",
+    ///         GroupsExcludeds = new[]
+    ///         {
+    ///             @this[2].Id,
+    ///             @this[3].Id,
+    ///             @this[4].Id,
+    ///         },
+    ///         GroupsIncludeds = new[]
+    ///         {
+    ///             @this[0].Id,
+    ///             @this[1].Id,
+    ///         },
+    ///         NetworkConnection = "ZONE",
+    ///         NetworkIncludes = new[]
+    ///         {
+    ///             testZone.Id,
+    ///         },
+    ///         PlatformIncludes = new[]
+    ///         {
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "ANDROID",
+    ///                 Type = "MOBILE",
+    ///             },
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "IOS",
+    ///                 Type = "MOBILE",
+    ///             },
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "MACOS",
+    ///                 Type = "DESKTOP",
+    ///             },
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "OTHER",
+    ///                 Type = "DESKTOP",
+    ///             },
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "OTHER",
+    ///                 Type = "MOBILE",
+    ///             },
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "WINDOWS",
+    ///                 Type = "DESKTOP",
+    ///             },
+    ///         },
+    ///         Priority = 98,
+    ///         ReAuthenticationFrequency = "PT43800H",
+    ///         Type = "ASSURANCE",
+    ///         UserTypesExcludeds = new[]
+    ///         {
+    ///             testUserType.Id,
+    ///         },
+    ///         UserTypesIncludeds = new[]
+    ///         {
+    ///             @default.Apply(getUserTypeResult =&gt; getUserTypeResult).Apply(@default =&gt; @default.Apply(getUserTypeResult =&gt; getUserTypeResult.Id)),
+    ///         },
+    ///         UsersExcludeds = new[]
+    ///         {
+    ///             testUser[2].Id,
+    ///             testUser[3].Id,
+    ///             testUser[4].Id,
+    ///         },
+    ///         UsersIncludeds = new[]
+    ///         {
+    ///             testUser[0].Id,
+    ///             testUser[1].Id,
+    ///         },
+    ///         Constraints = new[]
+    ///         {
+    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["knowledge"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["reauthenticateIn"] = "PT2H",
+    ///                     ["types"] = new[]
+    ///                     {
+    ///                         "password",
+    ///                     },
+    ///                 },
+    ///                 ["possession"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["deviceBound"] = "REQUIRED",
+    ///                 },
+    ///             }),
+    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["possession"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["deviceBound"] = "REQUIRED",
+    ///                     ["hardwareProtection"] = "REQUIRED",
+    ///                     ["userPresence"] = "OPTIONAL",
+    ///                 },
+    ///             }),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -363,7 +350,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appSignonPolicyRule:AppSignonPolicyRule")]
-    public partial class AppSignonPolicyRule : Pulumi.CustomResource
+    public partial class AppSignonPolicyRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
@@ -549,7 +536,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AppSignonPolicyRuleArgs : Pulumi.ResourceArgs
+    public sealed class AppSignonPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
@@ -754,9 +741,10 @@ namespace Pulumi.Okta
         public AppSignonPolicyRuleArgs()
         {
         }
+        public static new AppSignonPolicyRuleArgs Empty => new AppSignonPolicyRuleArgs();
     }
 
-    public sealed class AppSignonPolicyRuleState : Pulumi.ResourceArgs
+    public sealed class AppSignonPolicyRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
@@ -961,5 +949,6 @@ namespace Pulumi.Okta
         public AppSignonPolicyRuleState()
         {
         }
+        public static new AppSignonPolicyRuleState Empty => new AppSignonPolicyRuleState();
     }
 }

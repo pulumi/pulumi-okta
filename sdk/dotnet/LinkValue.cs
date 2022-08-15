@@ -19,54 +19,53 @@ namespace Pulumi.Okta
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var padishah = new Okta.LinkDefinition("padishah", new()
     ///     {
-    ///         var padishah = new Okta.LinkDefinition("padishah", new Okta.LinkDefinitionArgs
-    ///         {
-    ///             PrimaryName = "emperor",
-    ///             PrimaryTitle = "Emperor",
-    ///             PrimaryDescription = "Hereditary ruler of the Imperium and the Known Universe",
-    ///             AssociatedName = "sardaukar",
-    ///             AssociatedTitle = "Sardaukar",
-    ///             AssociatedDescription = "Elite military force member",
-    ///         });
-    ///         var emperor = new Okta.User.User("emperor", new Okta.User.UserArgs
-    ///         {
-    ///             FirstName = "Shaddam",
-    ///             LastName = "Corrino IV",
-    ///             Login = "shaddam.corrino.iv@salusa-secundus.planet",
-    ///             Email = "shaddam.corrino.iv@salusa-secundus.planet",
-    ///         });
-    ///         var sardaukars = new List&lt;Okta.User.User&gt;();
-    ///         for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
-    ///         {
-    ///             var range = new { Value = rangeIndex };
-    ///             sardaukars.Add(new Okta.User.User($"sardaukars-{range.Value}", new Okta.User.UserArgs
-    ///             {
-    ///                 FirstName = "Amrit",
-    ///                 LastName = $"Sardaukar_{range.Value}",
-    ///                 Login = $"amritsardaukar_{range.Value}@salusa-secundus.planet",
-    ///                 Email = $"amritsardaukar_{range.Value}@salusa-secundus.planet",
-    ///             }));
-    ///         }
-    ///         var example = new Okta.LinkValue("example", new Okta.LinkValueArgs
-    ///         {
-    ///             PrimaryName = padishah.PrimaryName,
-    ///             PrimaryUserId = emperor.Id,
-    ///             AssociatedUserIds = 
-    ///             {
-    ///                 sardaukars[0].Id,
-    ///                 sardaukars[1].Id,
-    ///                 sardaukars[2].Id,
-    ///                 sardaukars[3].Id,
-    ///                 sardaukars[4].Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         PrimaryName = "emperor",
+    ///         PrimaryTitle = "Emperor",
+    ///         PrimaryDescription = "Hereditary ruler of the Imperium and the Known Universe",
+    ///         AssociatedName = "sardaukar",
+    ///         AssociatedTitle = "Sardaukar",
+    ///         AssociatedDescription = "Elite military force member",
+    ///     });
     /// 
-    /// }
+    ///     var emperor = new Okta.User.User("emperor", new()
+    ///     {
+    ///         FirstName = "Shaddam",
+    ///         LastName = "Corrino IV",
+    ///         Login = "shaddam.corrino.iv@salusa-secundus.planet",
+    ///         Email = "shaddam.corrino.iv@salusa-secundus.planet",
+    ///     });
+    /// 
+    ///     var sardaukars = new List&lt;Okta.User.User&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         sardaukars.Add(new Okta.User.User($"sardaukars-{range.Value}", new()
+    ///         {
+    ///             FirstName = "Amrit",
+    ///             LastName = $"Sardaukar_{range.Value}",
+    ///             Login = $"amritsardaukar_{range.Value}@salusa-secundus.planet",
+    ///             Email = $"amritsardaukar_{range.Value}@salusa-secundus.planet",
+    ///         }));
+    ///     }
+    ///     var example = new Okta.LinkValue("example", new()
+    ///     {
+    ///         PrimaryName = padishah.PrimaryName,
+    ///         PrimaryUserId = emperor.Id,
+    ///         AssociatedUserIds = new[]
+    ///         {
+    ///             sardaukars[0].Id,
+    ///             sardaukars[1].Id,
+    ///             sardaukars[2].Id,
+    ///             sardaukars[3].Id,
+    ///             sardaukars[4].Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +77,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/linkValue:LinkValue")]
-    public partial class LinkValue : Pulumi.CustomResource
+    public partial class LinkValue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Set of User IDs or login values of the users to be assigned the 'associated' relationship.
@@ -142,7 +141,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class LinkValueArgs : Pulumi.ResourceArgs
+    public sealed class LinkValueArgs : global::Pulumi.ResourceArgs
     {
         [Input("associatedUserIds")]
         private InputList<string>? _associatedUserIds;
@@ -171,9 +170,10 @@ namespace Pulumi.Okta
         public LinkValueArgs()
         {
         }
+        public static new LinkValueArgs Empty => new LinkValueArgs();
     }
 
-    public sealed class LinkValueState : Pulumi.ResourceArgs
+    public sealed class LinkValueState : global::Pulumi.ResourceArgs
     {
         [Input("associatedUserIds")]
         private InputList<string>? _associatedUserIds;
@@ -202,5 +202,6 @@ namespace Pulumi.Okta
         public LinkValueState()
         {
         }
+        public static new LinkValueState Empty => new LinkValueState();
     }
 }

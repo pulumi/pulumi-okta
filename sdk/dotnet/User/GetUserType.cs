@@ -19,20 +19,18 @@ namespace Pulumi.Okta.User
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.User.GetUserType.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.User.GetUserType.InvokeAsync(new Okta.User.GetUserTypeArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta.User
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.User.GetUserType.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.User.GetUserType.InvokeAsync(new Okta.User.GetUserTypeArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta.User
     }
 
 
-    public sealed class GetUserTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// name of user type to retrieve.
@@ -82,9 +78,10 @@ namespace Pulumi.Okta.User
         public GetUserTypeArgs()
         {
         }
+        public static new GetUserTypeArgs Empty => new GetUserTypeArgs();
     }
 
-    public sealed class GetUserTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// name of user type to retrieve.
@@ -95,6 +92,7 @@ namespace Pulumi.Okta.User
         public GetUserTypeInvokeArgs()
         {
         }
+        public static new GetUserTypeInvokeArgs Empty => new GetUserTypeInvokeArgs();
     }
 
 

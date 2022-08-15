@@ -21,32 +21,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewCaptcha(ctx, "exampleCaptcha", &okta.CaptchaArgs{
-// 			Type:      pulumi.String("HCAPTCHA"),
-// 			SiteKey:   pulumi.String("some_key"),
-// 			SecretKey: pulumi.String("some_secret_key"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewCaptchaOrgWideSettings(ctx, "exampleCaptchaOrgWideSettings", &okta.CaptchaOrgWideSettingsArgs{
-// 			CaptchaId: pulumi.Any(okta_captcha.Test.Id),
-// 			EnabledFors: pulumi.StringArray{
-// 				pulumi.String("SSR"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewCaptcha(ctx, "exampleCaptcha", &okta.CaptchaArgs{
+//				Type:      pulumi.String("HCAPTCHA"),
+//				SiteKey:   pulumi.String("some_key"),
+//				SecretKey: pulumi.String("some_secret_key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewCaptchaOrgWideSettings(ctx, "exampleCaptchaOrgWideSettings", &okta.CaptchaOrgWideSettingsArgs{
+//				CaptchaId: pulumi.Any(okta_captcha.Test.Id),
+//				EnabledFors: pulumi.StringArray{
+//					pulumi.String("SSR"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // The following example disables org-wide CAPTCHA.
@@ -55,27 +58,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewCaptcha(ctx, "exampleCaptcha", &okta.CaptchaArgs{
-// 			SecretKey: pulumi.String("some_secret_key"),
-// 			SiteKey:   pulumi.String("some_key"),
-// 			Type:      pulumi.String("HCAPTCHA"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewCaptchaOrgWideSettings(ctx, "exampleCaptchaOrgWideSettings", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewCaptcha(ctx, "exampleCaptcha", &okta.CaptchaArgs{
+//				SecretKey: pulumi.String("some_secret_key"),
+//				SiteKey:   pulumi.String("some_key"),
+//				Type:      pulumi.String("HCAPTCHA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewCaptchaOrgWideSettings(ctx, "exampleCaptchaOrgWideSettings", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +89,9 @@ import (
 // Org-Wide CAPTCHA settings can be imported without any parameters.
 //
 // ```sh
-//  $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
+//
+//	$ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
+//
 // ```
 type CaptchaOrgWideSettings struct {
 	pulumi.CustomResourceState
@@ -181,7 +189,7 @@ func (i *CaptchaOrgWideSettings) ToCaptchaOrgWideSettingsOutputWithContext(ctx c
 // CaptchaOrgWideSettingsArrayInput is an input type that accepts CaptchaOrgWideSettingsArray and CaptchaOrgWideSettingsArrayOutput values.
 // You can construct a concrete instance of `CaptchaOrgWideSettingsArrayInput` via:
 //
-//          CaptchaOrgWideSettingsArray{ CaptchaOrgWideSettingsArgs{...} }
+//	CaptchaOrgWideSettingsArray{ CaptchaOrgWideSettingsArgs{...} }
 type CaptchaOrgWideSettingsArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +214,7 @@ func (i CaptchaOrgWideSettingsArray) ToCaptchaOrgWideSettingsArrayOutputWithCont
 // CaptchaOrgWideSettingsMapInput is an input type that accepts CaptchaOrgWideSettingsMap and CaptchaOrgWideSettingsMapOutput values.
 // You can construct a concrete instance of `CaptchaOrgWideSettingsMapInput` via:
 //
-//          CaptchaOrgWideSettingsMap{ "key": CaptchaOrgWideSettingsArgs{...} }
+//	CaptchaOrgWideSettingsMap{ "key": CaptchaOrgWideSettingsArgs{...} }
 type CaptchaOrgWideSettingsMapInput interface {
 	pulumi.Input
 

@@ -19,20 +19,18 @@ namespace Pulumi.Okta.Idp
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Idp.GetSocial.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Idp.GetSocial.InvokeAsync(new Okta.Idp.GetSocialArgs
-        ///         {
-        ///             Name = "My Facebook IdP",
-        ///         }));
-        ///     }
+        ///         Name = "My Facebook IdP",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta.Idp
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Idp.GetSocial.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Idp.GetSocial.InvokeAsync(new Okta.Idp.GetSocialArgs
-        ///         {
-        ///             Name = "My Facebook IdP",
-        ///         }));
-        ///     }
+        ///         Name = "My Facebook IdP",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta.Idp
     }
 
 
-    public sealed class GetSocialArgs : Pulumi.InvokeArgs
+    public sealed class GetSocialArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the social idp to retrieve, conflicts with `name`.
@@ -88,9 +84,10 @@ namespace Pulumi.Okta.Idp
         public GetSocialArgs()
         {
         }
+        public static new GetSocialArgs Empty => new GetSocialArgs();
     }
 
-    public sealed class GetSocialInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSocialInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the social idp to retrieve, conflicts with `name`.
@@ -107,6 +104,7 @@ namespace Pulumi.Okta.Idp
         public GetSocialInvokeArgs()
         {
         }
+        public static new GetSocialInvokeArgs Empty => new GetSocialInvokeArgs();
     }
 
 

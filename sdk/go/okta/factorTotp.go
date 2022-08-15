@@ -23,25 +23,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewFactorTotp(ctx, "example", &okta.FactorTotpArgs{
-// 			ClockDriftInterval:   pulumi.Int(10),
-// 			HmacAlgorithm:        pulumi.String("HMacSHA256"),
-// 			OtpLength:            pulumi.Int(10),
-// 			SharedSecretEncoding: pulumi.String("hexadecimal"),
-// 			TimeStep:             pulumi.Int(30),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewFactorTotp(ctx, "example", &okta.FactorTotpArgs{
+//				ClockDriftInterval:   pulumi.Int(10),
+//				HmacAlgorithm:        pulumi.String("HMacSHA256"),
+//				OtpLength:            pulumi.Int(10),
+//				SharedSecretEncoding: pulumi.String("hexadecimal"),
+//				TimeStep:             pulumi.Int(30),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type FactorTotp struct {
 	pulumi.CustomResourceState
@@ -194,7 +197,7 @@ func (i *FactorTotp) ToFactorTotpOutputWithContext(ctx context.Context) FactorTo
 // FactorTotpArrayInput is an input type that accepts FactorTotpArray and FactorTotpArrayOutput values.
 // You can construct a concrete instance of `FactorTotpArrayInput` via:
 //
-//          FactorTotpArray{ FactorTotpArgs{...} }
+//	FactorTotpArray{ FactorTotpArgs{...} }
 type FactorTotpArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +222,7 @@ func (i FactorTotpArray) ToFactorTotpArrayOutputWithContext(ctx context.Context)
 // FactorTotpMapInput is an input type that accepts FactorTotpMap and FactorTotpMapOutput values.
 // You can construct a concrete instance of `FactorTotpMapInput` via:
 //
-//          FactorTotpMap{ "key": FactorTotpArgs{...} }
+//	FactorTotpMap{ "key": FactorTotpArgs{...} }
 type FactorTotpMapInput interface {
 	pulumi.Input
 
@@ -255,14 +258,14 @@ func (o FactorTotpOutput) ToFactorTotpOutputWithContext(ctx context.Context) Fac
 	return o
 }
 
-// - Clock drift interval. This setting allows you to build in tolerance for any
-//   drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
+//   - Clock drift interval. This setting allows you to build in tolerance for any
+//     drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
 func (o FactorTotpOutput) ClockDriftInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FactorTotp) pulumi.IntPtrOutput { return v.ClockDriftInterval }).(pulumi.IntPtrOutput)
 }
 
-// - HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
-//   is `"HMacSHA512"`.
+//   - HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
+//     is `"HMacSHA512"`.
 func (o FactorTotpOutput) HmacAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactorTotp) pulumi.StringPtrOutput { return v.HmacAlgorithm }).(pulumi.StringPtrOutput)
 }
@@ -277,8 +280,8 @@ func (o FactorTotpOutput) OtpLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FactorTotp) pulumi.IntPtrOutput { return v.OtpLength }).(pulumi.IntPtrOutput)
 }
 
-// - Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
-//   Default is `"base32"`.
+//   - Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
+//     Default is `"base32"`.
 func (o FactorTotpOutput) SharedSecretEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactorTotp) pulumi.StringPtrOutput { return v.SharedSecretEncoding }).(pulumi.StringPtrOutput)
 }

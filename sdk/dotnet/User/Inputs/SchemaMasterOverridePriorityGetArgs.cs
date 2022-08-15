@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.User.Inputs
 {
 
-    public sealed class SchemaMasterOverridePriorityGetArgs : Pulumi.ResourceArgs
+    public sealed class SchemaMasterOverridePriorityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - Type of profile source.
@@ -27,5 +27,6 @@ namespace Pulumi.Okta.User.Inputs
         public SchemaMasterOverridePriorityGetArgs()
         {
         }
+        public static new SchemaMasterOverridePriorityGetArgs Empty => new SchemaMasterOverridePriorityGetArgs();
     }
 }

@@ -20,28 +20,26 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.FactorTotp("example", new()
     ///     {
-    ///         var example = new Okta.FactorTotp("example", new Okta.FactorTotpArgs
-    ///         {
-    ///             ClockDriftInterval = 10,
-    ///             HmacAlgorithm = "HMacSHA256",
-    ///             OtpLength = 10,
-    ///             SharedSecretEncoding = "hexadecimal",
-    ///             TimeStep = 30,
-    ///         });
-    ///     }
+    ///         ClockDriftInterval = 10,
+    ///         HmacAlgorithm = "HMacSHA256",
+    ///         OtpLength = 10,
+    ///         SharedSecretEncoding = "hexadecimal",
+    ///         TimeStep = 30,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/factorTotp:FactorTotp")]
-    public partial class FactorTotp : Pulumi.CustomResource
+    public partial class FactorTotp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// - Clock drift interval. This setting allows you to build in tolerance for any
@@ -126,7 +124,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class FactorTotpArgs : Pulumi.ResourceArgs
+    public sealed class FactorTotpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - Clock drift interval. This setting allows you to build in tolerance for any
@@ -170,9 +168,10 @@ namespace Pulumi.Okta
         public FactorTotpArgs()
         {
         }
+        public static new FactorTotpArgs Empty => new FactorTotpArgs();
     }
 
-    public sealed class FactorTotpState : Pulumi.ResourceArgs
+    public sealed class FactorTotpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - Clock drift interval. This setting allows you to build in tolerance for any
@@ -216,5 +215,6 @@ namespace Pulumi.Okta
         public FactorTotpState()
         {
         }
+        public static new FactorTotpState Empty => new FactorTotpState();
     }
 }

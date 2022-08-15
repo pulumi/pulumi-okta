@@ -17,19 +17,15 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Okta.AuthServerDefault("example", new Okta.AuthServerDefaultArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Okta.AuthServerDefault("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +37,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/authServerDefault:AuthServerDefault")]
-    public partial class AuthServerDefault : Pulumi.CustomResource
+    public partial class AuthServerDefault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
@@ -147,7 +143,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AuthServerDefaultArgs : Pulumi.ResourceArgs
+    public sealed class AuthServerDefaultArgs : global::Pulumi.ResourceArgs
     {
         [Input("audiences")]
         private InputList<string>? _audiences;
@@ -194,9 +190,10 @@ namespace Pulumi.Okta
         public AuthServerDefaultArgs()
         {
         }
+        public static new AuthServerDefaultArgs Empty => new AuthServerDefaultArgs();
     }
 
-    public sealed class AuthServerDefaultState : Pulumi.ResourceArgs
+    public sealed class AuthServerDefaultState : global::Pulumi.ResourceArgs
     {
         [Input("audiences")]
         private InputList<string>? _audiences;
@@ -267,5 +264,6 @@ namespace Pulumi.Okta
         public AuthServerDefaultState()
         {
         }
+        public static new AuthServerDefaultState Empty => new AuthServerDefaultState();
     }
 }

@@ -19,20 +19,18 @@ namespace Pulumi.Okta.Idp
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Idp.GetMetadataSaml.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Idp.GetMetadataSaml.InvokeAsync(new Okta.Idp.GetMetadataSamlArgs
-        ///         {
-        ///             IdpId = "&lt;idp id&gt;",
-        ///         }));
-        ///     }
+        ///         IdpId = "&lt;idp id&gt;",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta.Idp
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Idp.GetMetadataSaml.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Idp.GetMetadataSaml.InvokeAsync(new Okta.Idp.GetMetadataSamlArgs
-        ///         {
-        ///             IdpId = "&lt;idp id&gt;",
-        ///         }));
-        ///     }
+        ///         IdpId = "&lt;idp id&gt;",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta.Idp
     }
 
 
-    public sealed class GetMetadataSamlArgs : Pulumi.InvokeArgs
+    public sealed class GetMetadataSamlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the IdP to retrieve metadata for.
@@ -82,9 +78,10 @@ namespace Pulumi.Okta.Idp
         public GetMetadataSamlArgs()
         {
         }
+        public static new GetMetadataSamlArgs Empty => new GetMetadataSamlArgs();
     }
 
-    public sealed class GetMetadataSamlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMetadataSamlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the IdP to retrieve metadata for.
@@ -95,6 +92,7 @@ namespace Pulumi.Okta.Idp
         public GetMetadataSamlInvokeArgs()
         {
         }
+        public static new GetMetadataSamlInvokeArgs Empty => new GetMetadataSamlInvokeArgs();
     }
 
 

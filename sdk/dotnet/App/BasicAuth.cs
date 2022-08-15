@@ -15,22 +15,20 @@ namespace Pulumi.Okta.App
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.App.BasicAuth("example", new()
     ///     {
-    ///         var example = new Okta.App.BasicAuth("example", new Okta.App.BasicAuthArgs
-    ///         {
-    ///             AuthUrl = "https://example.com/auth.html",
-    ///             Label = "Example",
-    ///             Url = "https://example.com/login.html",
-    ///         });
-    ///     }
+    ///         AuthUrl = "https://example.com/auth.html",
+    ///         Label = "Example",
+    ///         Url = "https://example.com/login.html",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +54,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/basicAuth:BasicAuth")]
-    public partial class BasicAuth : Pulumi.CustomResource
+    public partial class BasicAuth : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL.
@@ -230,7 +228,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class BasicAuthArgs : Pulumi.ResourceArgs
+    public sealed class BasicAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -359,9 +357,10 @@ namespace Pulumi.Okta.App
         public BasicAuthArgs()
         {
         }
+        public static new BasicAuthArgs Empty => new BasicAuthArgs();
     }
 
-    public sealed class BasicAuthState : Pulumi.ResourceArgs
+    public sealed class BasicAuthState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -508,5 +507,6 @@ namespace Pulumi.Okta.App
         public BasicAuthState()
         {
         }
+        public static new BasicAuthState Empty => new BasicAuthState();
     }
 }

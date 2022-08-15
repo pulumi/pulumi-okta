@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewSwa(ctx, "example", &app.SwaArgs{
-// 			ButtonField:   pulumi.String("btn-login"),
-// 			Label:         pulumi.String("example"),
-// 			PasswordField: pulumi.String("txtbox-password"),
-// 			Url:           pulumi.String("https://example.com/login.html"),
-// 			UsernameField: pulumi.String("txtbox-username"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewSwa(ctx, "example", &app.SwaArgs{
+//				ButtonField:   pulumi.String("btn-login"),
+//				Label:         pulumi.String("example"),
+//				PasswordField: pulumi.String("txtbox-password"),
+//				Url:           pulumi.String("https://example.com/login.html"),
+//				UsernameField: pulumi.String("txtbox-username"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,21 +48,29 @@ import (
 // Okta SWA App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
+//
+//	$ pulumi import okta:app/swa:Swa example &#60;app id&#62;
+//
 // ```
 //
-//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//	It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users
+//
+//	$ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users/skip_groups
+//
+//	$ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users/skip_groups
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_groups
+//
+//	$ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_groups
+//
 // ```
 type Swa struct {
 	pulumi.CustomResourceState
@@ -468,7 +479,7 @@ func (i *Swa) ToSwaOutputWithContext(ctx context.Context) SwaOutput {
 // SwaArrayInput is an input type that accepts SwaArray and SwaArrayOutput values.
 // You can construct a concrete instance of `SwaArrayInput` via:
 //
-//          SwaArray{ SwaArgs{...} }
+//	SwaArray{ SwaArgs{...} }
 type SwaArrayInput interface {
 	pulumi.Input
 
@@ -493,7 +504,7 @@ func (i SwaArray) ToSwaArrayOutputWithContext(ctx context.Context) SwaArrayOutpu
 // SwaMapInput is an input type that accepts SwaMap and SwaMapOutput values.
 // You can construct a concrete instance of `SwaMapInput` via:
 //
-//          SwaMap{ "key": SwaArgs{...} }
+//	SwaMap{ "key": SwaArgs{...} }
 type SwaMapInput interface {
 	pulumi.Input
 

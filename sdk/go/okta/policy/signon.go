@@ -20,25 +20,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := policy.NewSignon(ctx, "example", &policy.SignonArgs{
-// 			Description: pulumi.String("Example"),
-// 			GroupsIncludeds: pulumi.StringArray{
-// 				pulumi.Any(data.Okta_group.Everyone.Id),
-// 			},
-// 			Status: pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.NewSignon(ctx, "example", &policy.SignonArgs{
+//				Description: pulumi.String("Example"),
+//				GroupsIncludeds: pulumi.StringArray{
+//					pulumi.Any(data.Okta_group.Everyone.Id),
+//				},
+//				Status: pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // A Sign On Policy can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
+//
+//	$ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
+//
 // ```
 type Signon struct {
 	pulumi.CustomResourceState
@@ -174,7 +179,7 @@ func (i *Signon) ToSignonOutputWithContext(ctx context.Context) SignonOutput {
 // SignonArrayInput is an input type that accepts SignonArray and SignonArrayOutput values.
 // You can construct a concrete instance of `SignonArrayInput` via:
 //
-//          SignonArray{ SignonArgs{...} }
+//	SignonArray{ SignonArgs{...} }
 type SignonArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +204,7 @@ func (i SignonArray) ToSignonArrayOutputWithContext(ctx context.Context) SignonA
 // SignonMapInput is an input type that accepts SignonMap and SignonMapOutput values.
 // You can construct a concrete instance of `SignonMapInput` via:
 //
-//          SignonMap{ "key": SignonArgs{...} }
+//	SignonMap{ "key": SignonArgs{...} }
 type SignonMapInput interface {
 	pulumi.Input
 

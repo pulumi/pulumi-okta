@@ -19,20 +19,18 @@ namespace Pulumi.Okta.App
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.App.GetSaml.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.App.GetSaml.InvokeAsync(new Okta.App.GetSamlArgs
-        ///         {
-        ///             Label = "Example App",
-        ///         }));
-        ///     }
+        ///         Label = "Example App",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta.App
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.App.GetSaml.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.App.GetSaml.InvokeAsync(new Okta.App.GetSamlArgs
-        ///         {
-        ///             Label = "Example App",
-        ///         }));
-        ///     }
+        ///         Label = "Example App",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta.App
     }
 
 
-    public sealed class GetSamlArgs : Pulumi.InvokeArgs
+    public sealed class GetSamlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// tells the provider to query for only `ACTIVE` applications.
@@ -121,9 +117,10 @@ namespace Pulumi.Okta.App
         public GetSamlArgs()
         {
         }
+        public static new GetSamlArgs Empty => new GetSamlArgs();
     }
 
-    public sealed class GetSamlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSamlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// tells the provider to query for only `ACTIVE` applications.
@@ -173,6 +170,7 @@ namespace Pulumi.Okta.App
         public GetSamlInvokeArgs()
         {
         }
+        public static new GetSamlInvokeArgs Empty => new GetSamlInvokeArgs();
     }
 
 

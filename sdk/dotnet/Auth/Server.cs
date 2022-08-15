@@ -17,26 +17,24 @@ namespace Pulumi.Okta.Auth
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Auth.Server("example", new()
     ///     {
-    ///         var example = new Okta.Auth.Server("example", new Okta.Auth.ServerArgs
+    ///         Audiences = new[]
     ///         {
-    ///             Audiences = 
-    ///             {
-    ///                 "api://example",
-    ///             },
-    ///             Description = "My Example Auth Server",
-    ///             IssuerMode = "CUSTOM_URL",
-    ///             Status = "ACTIVE",
-    ///         });
-    ///     }
+    ///             "api://example",
+    ///         },
+    ///         Description = "My Example Auth Server",
+    ///         IssuerMode = "CUSTOM_URL",
+    ///         Status = "ACTIVE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Okta.Auth
     /// ```
     /// </summary>
     [OktaResourceType("okta:auth/server:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
@@ -154,7 +152,7 @@ namespace Pulumi.Okta.Auth
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         [Input("audiences", required: true)]
         private InputList<string>? _audiences;
@@ -201,9 +199,10 @@ namespace Pulumi.Okta.Auth
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 
-    public sealed class ServerState : Pulumi.ResourceArgs
+    public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         [Input("audiences")]
         private InputList<string>? _audiences;
@@ -274,5 +273,6 @@ namespace Pulumi.Okta.Auth
         public ServerState()
         {
         }
+        public static new ServerState Empty => new ServerState();
     }
 }

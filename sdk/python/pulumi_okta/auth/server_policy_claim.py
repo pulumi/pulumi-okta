@@ -575,10 +575,6 @@ class ServerPolicyClaim(pulumi.CustomResource):
                  user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Creates an Authorization Server Policy Rule.
-
-        This resource allows you to create and configure an Authorization Server Policy Rule.
-
         ## Example Usage
 
         ```python
@@ -631,10 +627,6 @@ class ServerPolicyClaim(pulumi.CustomResource):
                  args: ServerPolicyClaimArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an Authorization Server Policy Rule.
-
-        This resource allows you to create and configure an Authorization Server Policy Rule.
-
         ## Example Usage
 
         ```python

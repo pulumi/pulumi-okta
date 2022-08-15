@@ -21,24 +21,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := group.NewRoles(ctx, "example", &group.RolesArgs{
-// 			AdminRoles: pulumi.StringArray{
-// 				pulumi.String("SUPER_ADMIN"),
-// 			},
-// 			GroupId: pulumi.String("<group id>"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := group.NewRoles(ctx, "example", &group.RolesArgs{
+//				AdminRoles: pulumi.StringArray{
+//					pulumi.String("SUPER_ADMIN"),
+//				},
+//				GroupId: pulumi.String("<group id>"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Group Role Assignment can be imported via the Okta Group ID.
 //
 // ```sh
-//  $ pulumi import okta:group/roles:Roles example &#60;group id&#62;
+//
+//	$ pulumi import okta:group/roles:Roles example &#60;group id&#62;
+//
 // ```
 type Roles struct {
 	pulumi.CustomResourceState
@@ -147,7 +152,7 @@ func (i *Roles) ToRolesOutputWithContext(ctx context.Context) RolesOutput {
 // RolesArrayInput is an input type that accepts RolesArray and RolesArrayOutput values.
 // You can construct a concrete instance of `RolesArrayInput` via:
 //
-//          RolesArray{ RolesArgs{...} }
+//	RolesArray{ RolesArgs{...} }
 type RolesArrayInput interface {
 	pulumi.Input
 
@@ -172,7 +177,7 @@ func (i RolesArray) ToRolesArrayOutputWithContext(ctx context.Context) RolesArra
 // RolesMapInput is an input type that accepts RolesMap and RolesMapOutput values.
 // You can construct a concrete instance of `RolesMapInput` via:
 //
-//          RolesMap{ "key": RolesArgs{...} }
+//	RolesMap{ "key": RolesArgs{...} }
 type RolesMapInput interface {
 	pulumi.Input
 

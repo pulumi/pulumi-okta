@@ -17,22 +17,20 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Okta.RoleSubscription("test", new()
     ///     {
-    ///         var test = new Okta.RoleSubscription("test", new Okta.RoleSubscriptionArgs
-    ///         {
-    ///             NotificationType = "APP_IMPORT",
-    ///             RoleType = "SUPER_ADMIN",
-    ///             Status = "unsubscribed",
-    ///         });
-    ///     }
+    ///         NotificationType = "APP_IMPORT",
+    ///         RoleType = "SUPER_ADMIN",
+    ///         Status = "unsubscribed",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/roleSubscription:RoleSubscription")]
-    public partial class RoleSubscription : Pulumi.CustomResource
+    public partial class RoleSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Type of the notification. Valid values:
@@ -109,7 +107,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class RoleSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class RoleSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the notification. Valid values:
@@ -133,9 +131,10 @@ namespace Pulumi.Okta
         public RoleSubscriptionArgs()
         {
         }
+        public static new RoleSubscriptionArgs Empty => new RoleSubscriptionArgs();
     }
 
-    public sealed class RoleSubscriptionState : Pulumi.ResourceArgs
+    public sealed class RoleSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the notification. Valid values:
@@ -159,5 +158,6 @@ namespace Pulumi.Okta
         public RoleSubscriptionState()
         {
         }
+        public static new RoleSubscriptionState Empty => new RoleSubscriptionState();
     }
 }

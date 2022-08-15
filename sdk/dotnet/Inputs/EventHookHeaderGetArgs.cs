@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Inputs
 {
 
-    public sealed class EventHookHeaderGetArgs : Pulumi.ResourceArgs
+    public sealed class EventHookHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key to use for authentication, usually the header name, for example `"Authorization"`.
@@ -27,5 +27,6 @@ namespace Pulumi.Okta.Inputs
         public EventHookHeaderGetArgs()
         {
         }
+        public static new EventHookHeaderGetArgs Empty => new EventHookHeaderGetArgs();
     }
 }

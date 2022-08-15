@@ -20,48 +20,51 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testSaml, err := app.NewSaml(ctx, "testSaml", &app.SamlArgs{
-// 			PreconfiguredApp: pulumi.String("amazon_aws"),
-// 			Label:            pulumi.String("Amazon AWS"),
-// 			Status:           pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"appFilter":          "okta",
-// 			"awsEnvironmentType": "aws.amazon",
-// 			"groupFilter":        "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)",
-// 			"joinAllRoles":       false,
-// 			"loginURL":           "https://console.aws.amazon.com/ec2/home",
-// 			"roleValuePattern":   fmt.Sprintf("arn:aws:iam::%v:saml-provider/OKTA,arn:aws:iam::%v:role/%v", accountid, accountid, role),
-// 			"sessionDuration":    3200,
-// 			"useGroupMapping":    false,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = okta.NewAppSamlAppSettings(ctx, "testAppSamlAppSettings", &okta.AppSamlAppSettingsArgs{
-// 			AppId:    testSaml.ID(),
-// 			Settings: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testSaml, err := app.NewSaml(ctx, "testSaml", &app.SamlArgs{
+//				PreconfiguredApp: pulumi.String("amazon_aws"),
+//				Label:            pulumi.String("Amazon AWS"),
+//				Status:           pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"appFilter":          "okta",
+//				"awsEnvironmentType": "aws.amazon",
+//				"groupFilter":        "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)",
+//				"joinAllRoles":       false,
+//				"loginURL":           "https://console.aws.amazon.com/ec2/home",
+//				"roleValuePattern":   fmt.Sprintf("arn:aws:iam::%v:saml-provider/OKTA,arn:aws:iam::%v:role/%v", accountid, accountid, role),
+//				"sessionDuration":    3200,
+//				"useGroupMapping":    false,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = okta.NewAppSamlAppSettings(ctx, "testAppSamlAppSettings", &okta.AppSamlAppSettingsArgs{
+//				AppId:    testSaml.ID(),
+//				Settings: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // A settings for the SAML App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
+//
+//	$ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
+//
 // ```
 type AppSamlAppSettings struct {
 	pulumi.CustomResourceState
@@ -173,7 +178,7 @@ func (i *AppSamlAppSettings) ToAppSamlAppSettingsOutputWithContext(ctx context.C
 // AppSamlAppSettingsArrayInput is an input type that accepts AppSamlAppSettingsArray and AppSamlAppSettingsArrayOutput values.
 // You can construct a concrete instance of `AppSamlAppSettingsArrayInput` via:
 //
-//          AppSamlAppSettingsArray{ AppSamlAppSettingsArgs{...} }
+//	AppSamlAppSettingsArray{ AppSamlAppSettingsArgs{...} }
 type AppSamlAppSettingsArrayInput interface {
 	pulumi.Input
 
@@ -198,7 +203,7 @@ func (i AppSamlAppSettingsArray) ToAppSamlAppSettingsArrayOutputWithContext(ctx 
 // AppSamlAppSettingsMapInput is an input type that accepts AppSamlAppSettingsMap and AppSamlAppSettingsMapOutput values.
 // You can construct a concrete instance of `AppSamlAppSettingsMapInput` via:
 //
-//          AppSamlAppSettingsMap{ "key": AppSamlAppSettingsArgs{...} }
+//	AppSamlAppSettingsMap{ "key": AppSamlAppSettingsArgs{...} }
 type AppSamlAppSettingsMapInput interface {
 	pulumi.Input
 

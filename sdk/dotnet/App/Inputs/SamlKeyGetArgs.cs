@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App.Inputs
 {
 
-    public sealed class SamlKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class SamlKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date created.
@@ -81,5 +81,6 @@ namespace Pulumi.Okta.App.Inputs
         public SamlKeyGetArgs()
         {
         }
+        public static new SamlKeyGetArgs Empty => new SamlKeyGetArgs();
     }
 }

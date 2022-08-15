@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewEmailSender(ctx, "example", &okta.EmailSenderArgs{
-// 			FromAddress: pulumi.String("no-reply@caladan.planet"),
-// 			FromName:    pulumi.String("Paul Atreides"),
-// 			Subdomain:   pulumi.String("mail"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewEmailSender(ctx, "example", &okta.EmailSenderArgs{
+//				FromAddress: pulumi.String("no-reply@caladan.planet"),
+//				FromName:    pulumi.String("Paul Atreides"),
+//				Subdomain:   pulumi.String("mail"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Custom email sender can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/emailSender:EmailSender example &#60;sender id&#62;
+//
+//	$ pulumi import okta:index/emailSender:EmailSender example &#60;sender id&#62;
+//
 // ```
 type EmailSender struct {
 	pulumi.CustomResourceState
@@ -172,7 +177,7 @@ func (i *EmailSender) ToEmailSenderOutputWithContext(ctx context.Context) EmailS
 // EmailSenderArrayInput is an input type that accepts EmailSenderArray and EmailSenderArrayOutput values.
 // You can construct a concrete instance of `EmailSenderArrayInput` via:
 //
-//          EmailSenderArray{ EmailSenderArgs{...} }
+//	EmailSenderArray{ EmailSenderArgs{...} }
 type EmailSenderArrayInput interface {
 	pulumi.Input
 
@@ -197,7 +202,7 @@ func (i EmailSenderArray) ToEmailSenderArrayOutputWithContext(ctx context.Contex
 // EmailSenderMapInput is an input type that accepts EmailSenderMap and EmailSenderMapOutput values.
 // You can construct a concrete instance of `EmailSenderMapInput` via:
 //
-//          EmailSenderMap{ "key": EmailSenderArgs{...} }
+//	EmailSenderMap{ "key": EmailSenderArgs{...} }
 type EmailSenderMapInput interface {
 	pulumi.Input
 

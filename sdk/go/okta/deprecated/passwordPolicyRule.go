@@ -222,7 +222,7 @@ func (i *PasswordPolicyRule) ToPasswordPolicyRuleOutputWithContext(ctx context.C
 // PasswordPolicyRuleArrayInput is an input type that accepts PasswordPolicyRuleArray and PasswordPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `PasswordPolicyRuleArrayInput` via:
 //
-//          PasswordPolicyRuleArray{ PasswordPolicyRuleArgs{...} }
+//	PasswordPolicyRuleArray{ PasswordPolicyRuleArgs{...} }
 type PasswordPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +247,7 @@ func (i PasswordPolicyRuleArray) ToPasswordPolicyRuleArrayOutputWithContext(ctx 
 // PasswordPolicyRuleMapInput is an input type that accepts PasswordPolicyRuleMap and PasswordPolicyRuleMapOutput values.
 // You can construct a concrete instance of `PasswordPolicyRuleMapInput` via:
 //
-//          PasswordPolicyRuleMap{ "key": PasswordPolicyRuleArgs{...} }
+//	PasswordPolicyRuleMap{ "key": PasswordPolicyRuleArgs{...} }
 type PasswordPolicyRuleMapInput interface {
 	pulumi.Input
 

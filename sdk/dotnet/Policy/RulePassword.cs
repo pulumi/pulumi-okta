@@ -23,7 +23,7 @@ namespace Pulumi.Okta.Policy
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/rulePassword:RulePassword")]
-    public partial class RulePassword : Pulumi.CustomResource
+    public partial class RulePassword : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Policy Rule Name.
@@ -141,7 +141,7 @@ namespace Pulumi.Okta.Policy
         }
     }
 
-    public sealed class RulePasswordArgs : Pulumi.ResourceArgs
+    public sealed class RulePasswordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Rule Name.
@@ -236,9 +236,10 @@ namespace Pulumi.Okta.Policy
         public RulePasswordArgs()
         {
         }
+        public static new RulePasswordArgs Empty => new RulePasswordArgs();
     }
 
-    public sealed class RulePasswordState : Pulumi.ResourceArgs
+    public sealed class RulePasswordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Rule Name.
@@ -333,5 +334,6 @@ namespace Pulumi.Okta.Policy
         public RulePasswordState()
         {
         }
+        public static new RulePasswordState Empty => new RulePasswordState();
     }
 }

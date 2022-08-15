@@ -21,32 +21,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := inline.NewHook(ctx, "example", &inline.HookArgs{
-// 			Auth: pulumi.StringMap{
-// 				"key":   pulumi.String("Authorization"),
-// 				"type":  pulumi.String("HEADER"),
-// 				"value": pulumi.String("secret"),
-// 			},
-// 			Channel: pulumi.StringMap{
-// 				"method":  pulumi.String("POST"),
-// 				"uri":     pulumi.String("https://example.com/test"),
-// 				"version": pulumi.String("1.0.0"),
-// 			},
-// 			Type:    pulumi.String("com.okta.oauth2.tokens.transform"),
-// 			Version: pulumi.String("1.0.0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := inline.NewHook(ctx, "example", &inline.HookArgs{
+//				Auth: pulumi.StringMap{
+//					"key":   pulumi.String("Authorization"),
+//					"type":  pulumi.String("HEADER"),
+//					"value": pulumi.String("secret"),
+//				},
+//				Channel: pulumi.StringMap{
+//					"method":  pulumi.String("POST"),
+//					"uri":     pulumi.String("https://example.com/test"),
+//					"version": pulumi.String("1.0.0"),
+//				},
+//				Type:    pulumi.String("com.okta.oauth2.tokens.transform"),
+//				Version: pulumi.String("1.0.0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // An inline hook can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
+//
+//	$ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
+//
 // ```
 type Hook struct {
 	pulumi.CustomResourceState
@@ -206,7 +211,7 @@ func (i *Hook) ToHookOutputWithContext(ctx context.Context) HookOutput {
 // HookArrayInput is an input type that accepts HookArray and HookArrayOutput values.
 // You can construct a concrete instance of `HookArrayInput` via:
 //
-//          HookArray{ HookArgs{...} }
+//	HookArray{ HookArgs{...} }
 type HookArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +236,7 @@ func (i HookArray) ToHookArrayOutputWithContext(ctx context.Context) HookArrayOu
 // HookMapInput is an input type that accepts HookMap and HookMapOutput values.
 // You can construct a concrete instance of `HookMapInput` via:
 //
-//          HookMap{ "key": HookArgs{...} }
+//	HookMap{ "key": HookArgs{...} }
 type HookMapInput interface {
 	pulumi.Input
 

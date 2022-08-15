@@ -19,20 +19,18 @@ namespace Pulumi.Okta.Auth
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Auth.GetServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Auth.GetServer.InvokeAsync(new Okta.Auth.GetServerArgs
-        ///         {
-        ///             Name = "Example Auth",
-        ///         }));
-        ///     }
+        ///         Name = "Example Auth",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta.Auth
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Auth.GetServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Auth.GetServer.InvokeAsync(new Okta.Auth.GetServerArgs
-        ///         {
-        ///             Name = "Example Auth",
-        ///         }));
-        ///     }
+        ///         Name = "Example Auth",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta.Auth
     }
 
 
-    public sealed class GetServerArgs : Pulumi.InvokeArgs
+    public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the auth server to retrieve.
@@ -82,9 +78,10 @@ namespace Pulumi.Okta.Auth
         public GetServerArgs()
         {
         }
+        public static new GetServerArgs Empty => new GetServerArgs();
     }
 
-    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the auth server to retrieve.
@@ -95,6 +92,7 @@ namespace Pulumi.Okta.Auth
         public GetServerInvokeArgs()
         {
         }
+        public static new GetServerInvokeArgs Empty => new GetServerInvokeArgs();
     }
 
 

@@ -18,21 +18,19 @@ namespace Pulumi.Okta.Group
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Group.Role("example", new()
     ///     {
-    ///         var example = new Okta.Group.Role("example", new Okta.Group.RoleArgs
-    ///         {
-    ///             GroupId = "&lt;group id&gt;",
-    ///             RoleType = "READ_ONLY_ADMIN",
-    ///         });
-    ///     }
+    ///         GroupId = "&lt;group id&gt;",
+    ///         RoleType = "READ_ONLY_ADMIN",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Okta.Group
     /// ```
     /// </summary>
     [OktaResourceType("okta:group/role:Role")]
-    public partial class Role : Pulumi.CustomResource
+    public partial class Role : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When this setting is enabled, the admins won't receive any of the default Okta
@@ -127,7 +125,7 @@ namespace Pulumi.Okta.Group
         }
     }
 
-    public sealed class RoleArgs : Pulumi.ResourceArgs
+    public sealed class RoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When this setting is enabled, the admins won't receive any of the default Okta
@@ -181,9 +179,10 @@ namespace Pulumi.Okta.Group
         public RoleArgs()
         {
         }
+        public static new RoleArgs Empty => new RoleArgs();
     }
 
-    public sealed class RoleState : Pulumi.ResourceArgs
+    public sealed class RoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When this setting is enabled, the admins won't receive any of the default Okta
@@ -237,5 +236,6 @@ namespace Pulumi.Okta.Group
         public RoleState()
         {
         }
+        public static new RoleState Empty => new RoleState();
     }
 }

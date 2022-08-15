@@ -21,40 +21,39 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var classicExample = new Okta.PolicyMfaDefault("classicExample", new()
     ///     {
-    ///         var classicExample = new Okta.PolicyMfaDefault("classicExample", new Okta.PolicyMfaDefaultArgs
+    ///         IsOie = false,
+    ///         OktaOtp = 
     ///         {
-    ///             IsOie = false,
-    ///             OktaOtp = 
-    ///             {
-    ///                 { "enroll", "REQUIRED" },
-    ///             },
-    ///             OktaPassword = 
-    ///             {
-    ///                 { "enroll", "REQUIRED" },
-    ///             },
-    ///         });
-    ///         var oieExample = new Okta.PolicyMfaDefault("oieExample", new Okta.PolicyMfaDefaultArgs
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///         OktaPassword = 
     ///         {
-    ///             IsOie = true,
-    ///             OktaPassword = 
-    ///             {
-    ///                 { "enroll", "REQUIRED" },
-    ///             },
-    ///             OktaVerify = 
-    ///             {
-    ///                 { "enroll", "REQUIRED" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var oieExample = new Okta.PolicyMfaDefault("oieExample", new()
+    ///     {
+    ///         IsOie = true,
+    ///         OktaPassword = 
+    ///         {
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///         OktaVerify = 
+    ///         {
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// &gt; If the `okta.PolicyMfaDefault` is used in conjunction with `okta.policy.Mfa` resources, ensure to use a `depends_on` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.
@@ -68,7 +67,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/policyMfaDefault:PolicyMfaDefault")]
-    public partial class PolicyMfaDefault : Pulumi.CustomResource
+    public partial class PolicyMfaDefault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the default Okta group.
@@ -277,7 +276,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class PolicyMfaDefaultArgs : Pulumi.ResourceArgs
+    public sealed class PolicyMfaDefaultArgs : global::Pulumi.ResourceArgs
     {
         [Input("duo")]
         private InputMap<string>? _duo;
@@ -541,9 +540,10 @@ namespace Pulumi.Okta
         public PolicyMfaDefaultArgs()
         {
         }
+        public static new PolicyMfaDefaultArgs Empty => new PolicyMfaDefaultArgs();
     }
 
-    public sealed class PolicyMfaDefaultState : Pulumi.ResourceArgs
+    public sealed class PolicyMfaDefaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the default Okta group.
@@ -837,5 +837,6 @@ namespace Pulumi.Okta
         public PolicyMfaDefaultState()
         {
         }
+        public static new PolicyMfaDefaultState Empty => new PolicyMfaDefaultState();
     }
 }

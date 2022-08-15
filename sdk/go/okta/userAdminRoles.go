@@ -24,34 +24,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testUser, err := user.NewUser(ctx, "testUser", &user.UserArgs{
-// 			FirstName: pulumi.String("TestAcc"),
-// 			LastName:  pulumi.String("Smith"),
-// 			Login:     pulumi.String("testAcc-replace_with_uuid@example.com"),
-// 			Email:     pulumi.String("testAcc-replace_with_uuid@example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewUserAdminRoles(ctx, "testUserAdminRoles", &okta.UserAdminRolesArgs{
-// 			UserId: testUser.ID(),
-// 			AdminRoles: pulumi.StringArray{
-// 				pulumi.String("APP_ADMIN"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testUser, err := user.NewUser(ctx, "testUser", &user.UserArgs{
+//				FirstName: pulumi.String("TestAcc"),
+//				LastName:  pulumi.String("Smith"),
+//				Login:     pulumi.String("testAcc-replace_with_uuid@example.com"),
+//				Email:     pulumi.String("testAcc-replace_with_uuid@example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewUserAdminRoles(ctx, "testUserAdminRoles", &okta.UserAdminRolesArgs{
+//				UserId: testUser.ID(),
+//				AdminRoles: pulumi.StringArray{
+//					pulumi.String("APP_ADMIN"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Existing user admin roles can be imported via the Okta User ID.
 //
 // ```sh
-//  $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &#60;user id&#62;
+//
+//	$ pulumi import okta:index/userAdminRoles:UserAdminRoles example &#60;user id&#62;
+//
 // ```
 type UserAdminRoles struct {
 	pulumi.CustomResourceState
@@ -178,7 +183,7 @@ func (i *UserAdminRoles) ToUserAdminRolesOutputWithContext(ctx context.Context) 
 // UserAdminRolesArrayInput is an input type that accepts UserAdminRolesArray and UserAdminRolesArrayOutput values.
 // You can construct a concrete instance of `UserAdminRolesArrayInput` via:
 //
-//          UserAdminRolesArray{ UserAdminRolesArgs{...} }
+//	UserAdminRolesArray{ UserAdminRolesArgs{...} }
 type UserAdminRolesArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +208,7 @@ func (i UserAdminRolesArray) ToUserAdminRolesArrayOutputWithContext(ctx context.
 // UserAdminRolesMapInput is an input type that accepts UserAdminRolesMap and UserAdminRolesMapOutput values.
 // You can construct a concrete instance of `UserAdminRolesMapInput` via:
 //
-//          UserAdminRolesMap{ "key": UserAdminRolesArgs{...} }
+//	UserAdminRolesMap{ "key": UserAdminRolesArgs{...} }
 type UserAdminRolesMapInput interface {
 	pulumi.Input
 

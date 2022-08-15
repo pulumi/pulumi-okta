@@ -17,24 +17,22 @@ namespace Pulumi.Okta.TrustedOrigin
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.TrustedOrigin.Origin("example", new()
     ///     {
-    ///         var example = new Okta.TrustedOrigin.Origin("example", new Okta.TrustedOrigin.OriginArgs
+    ///         OriginName = "https://example.com",
+    ///         Scopes = new[]
     ///         {
-    ///             OriginName = "https://example.com",
-    ///             Scopes = 
-    ///             {
-    ///                 "CORS",
-    ///             },
-    ///         });
-    ///     }
+    ///             "CORS",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Okta.TrustedOrigin
     /// ```
     /// </summary>
     [OktaResourceType("okta:trustedorigin/origin:Origin")]
-    public partial class Origin : Pulumi.CustomResource
+    public partial class Origin : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
@@ -116,7 +114,7 @@ namespace Pulumi.Okta.TrustedOrigin
         }
     }
 
-    public sealed class OriginArgs : Pulumi.ResourceArgs
+    public sealed class OriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
@@ -151,9 +149,10 @@ namespace Pulumi.Okta.TrustedOrigin
         public OriginArgs()
         {
         }
+        public static new OriginArgs Empty => new OriginArgs();
     }
 
-    public sealed class OriginState : Pulumi.ResourceArgs
+    public sealed class OriginState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
@@ -188,5 +187,6 @@ namespace Pulumi.Okta.TrustedOrigin
         public OriginState()
         {
         }
+        public static new OriginState Empty => new OriginState();
     }
 }

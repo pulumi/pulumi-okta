@@ -19,68 +19,74 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewOAuth(ctx, "example", &app.OAuthArgs{
-// 			GrantTypes: pulumi.StringArray{
-// 				pulumi.String("authorization_code"),
-// 			},
-// 			Label: pulumi.String("example"),
-// 			RedirectUris: pulumi.StringArray{
-// 				pulumi.String("https://example.com/"),
-// 			},
-// 			ResponseTypes: pulumi.StringArray{
-// 				pulumi.String("code"),
-// 			},
-// 			Type: pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewOAuth(ctx, "example", &app.OAuthArgs{
+//				GrantTypes: pulumi.StringArray{
+//					pulumi.String("authorization_code"),
+//				},
+//				Label: pulumi.String("example"),
+//				RedirectUris: pulumi.StringArray{
+//					pulumi.String("https://example.com/"),
+//				},
+//				ResponseTypes: pulumi.StringArray{
+//					pulumi.String("code"),
+//				},
+//				Type: pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewOAuth(ctx, "example", &app.OAuthArgs{
-// 			GrantTypes: pulumi.StringArray{
-// 				pulumi.String("client_credentials"),
-// 			},
-// 			Jwks: app.OAuthJwkArray{
-// 				&app.OAuthJwkArgs{
-// 					E:   pulumi.String("AQAB"),
-// 					Kid: pulumi.String("SIGNING_KEY"),
-// 					Kty: pulumi.String("RSA"),
-// 					N:   pulumi.String("xyz"),
-// 				},
-// 			},
-// 			Label: pulumi.String("example"),
-// 			ResponseTypes: pulumi.StringArray{
-// 				pulumi.String("token"),
-// 			},
-// 			TokenEndpointAuthMethod: pulumi.String("private_key_jwt"),
-// 			Type:                    pulumi.String("service"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewOAuth(ctx, "example", &app.OAuthArgs{
+//				GrantTypes: pulumi.StringArray{
+//					pulumi.String("client_credentials"),
+//				},
+//				Jwks: app.OAuthJwkArray{
+//					&app.OAuthJwkArgs{
+//						E:   pulumi.String("AQAB"),
+//						Kid: pulumi.String("SIGNING_KEY"),
+//						Kty: pulumi.String("RSA"),
+//						N:   pulumi.String("xyz"),
+//					},
+//				},
+//				Label: pulumi.String("example"),
+//				ResponseTypes: pulumi.StringArray{
+//					pulumi.String("token"),
+//				},
+//				TokenEndpointAuthMethod: pulumi.String("private_key_jwt"),
+//				Type:                    pulumi.String("service"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Etc.
 //
@@ -92,21 +98,29 @@ import (
 // An OIDC Application can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
+//
+//	$ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
+//
 // ```
 //
-//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//	It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users
+//
+//	$ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users/skip_groups
+//
+//	$ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users/skip_groups
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_groups
+//
+//	$ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_groups
+//
 // ```
 type OAuth struct {
 	pulumi.CustomResourceState
@@ -769,7 +783,7 @@ func (i *OAuth) ToOAuthOutputWithContext(ctx context.Context) OAuthOutput {
 // OAuthArrayInput is an input type that accepts OAuthArray and OAuthArrayOutput values.
 // You can construct a concrete instance of `OAuthArrayInput` via:
 //
-//          OAuthArray{ OAuthArgs{...} }
+//	OAuthArray{ OAuthArgs{...} }
 type OAuthArrayInput interface {
 	pulumi.Input
 
@@ -794,7 +808,7 @@ func (i OAuthArray) ToOAuthArrayOutputWithContext(ctx context.Context) OAuthArra
 // OAuthMapInput is an input type that accepts OAuthMap and OAuthMapOutput values.
 // You can construct a concrete instance of `OAuthMapInput` via:
 //
-//          OAuthMap{ "key": OAuthArgs{...} }
+//	OAuthMap{ "key": OAuthArgs{...} }
 type OAuthMapInput interface {
 	pulumi.Input
 

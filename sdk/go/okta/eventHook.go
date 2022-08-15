@@ -21,34 +21,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewEventHook(ctx, "example", &okta.EventHookArgs{
-// 			Auth: pulumi.StringMap{
-// 				"key":   pulumi.String("Authorization"),
-// 				"type":  pulumi.String("HEADER"),
-// 				"value": pulumi.String("123"),
-// 			},
-// 			Channel: pulumi.StringMap{
-// 				"type":    pulumi.String("HTTP"),
-// 				"uri":     pulumi.String("https://example.com/test"),
-// 				"version": pulumi.String("1.0.0"),
-// 			},
-// 			Events: pulumi.StringArray{
-// 				pulumi.String("user.lifecycle.create"),
-// 				pulumi.String("user.lifecycle.delete.initiated"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewEventHook(ctx, "example", &okta.EventHookArgs{
+//				Auth: pulumi.StringMap{
+//					"key":   pulumi.String("Authorization"),
+//					"type":  pulumi.String("HEADER"),
+//					"value": pulumi.String("123"),
+//				},
+//				Channel: pulumi.StringMap{
+//					"type":    pulumi.String("HTTP"),
+//					"uri":     pulumi.String("https://example.com/test"),
+//					"version": pulumi.String("1.0.0"),
+//				},
+//				Events: pulumi.StringArray{
+//					pulumi.String("user.lifecycle.create"),
+//					pulumi.String("user.lifecycle.delete.initiated"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // An event hook can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
+//
+//	$ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
+//
 // ```
 type EventHook struct {
 	pulumi.CustomResourceState
@@ -195,7 +200,7 @@ func (i *EventHook) ToEventHookOutputWithContext(ctx context.Context) EventHookO
 // EventHookArrayInput is an input type that accepts EventHookArray and EventHookArrayOutput values.
 // You can construct a concrete instance of `EventHookArrayInput` via:
 //
-//          EventHookArray{ EventHookArgs{...} }
+//	EventHookArray{ EventHookArgs{...} }
 type EventHookArrayInput interface {
 	pulumi.Input
 
@@ -220,7 +225,7 @@ func (i EventHookArray) ToEventHookArrayOutputWithContext(ctx context.Context) E
 // EventHookMapInput is an input type that accepts EventHookMap and EventHookMapOutput values.
 // You can construct a concrete instance of `EventHookMapInput` via:
 //
-//          EventHookMap{ "key": EventHookArgs{...} }
+//	EventHookMap{ "key": EventHookArgs{...} }
 type EventHookMapInput interface {
 	pulumi.Input
 

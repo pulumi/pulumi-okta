@@ -17,22 +17,20 @@ namespace Pulumi.Okta.Auth
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Auth.ServerScope("example", new()
     ///     {
-    ///         var example = new Okta.Auth.ServerScope("example", new Okta.Auth.ServerScopeArgs
-    ///         {
-    ///             AuthServerId = "&lt;auth server id&gt;",
-    ///             Consent = "IMPLICIT",
-    ///             MetadataPublish = "NO_CLIENTS",
-    ///         });
-    ///     }
+    ///         AuthServerId = "&lt;auth server id&gt;",
+    ///         Consent = "IMPLICIT",
+    ///         MetadataPublish = "NO_CLIENTS",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Okta.Auth
     /// ```
     /// </summary>
     [OktaResourceType("okta:auth/serverScope:ServerScope")]
-    public partial class ServerScope : Pulumi.CustomResource
+    public partial class ServerScope : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Auth Server ID.
@@ -138,7 +136,7 @@ namespace Pulumi.Okta.Auth
         }
     }
 
-    public sealed class ServerScopeArgs : Pulumi.ResourceArgs
+    public sealed class ServerScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Auth Server ID.
@@ -185,9 +183,10 @@ namespace Pulumi.Okta.Auth
         public ServerScopeArgs()
         {
         }
+        public static new ServerScopeArgs Empty => new ServerScopeArgs();
     }
 
-    public sealed class ServerScopeState : Pulumi.ResourceArgs
+    public sealed class ServerScopeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Auth Server ID.
@@ -240,5 +239,6 @@ namespace Pulumi.Okta.Auth
         public ServerScopeState()
         {
         }
+        public static new ServerScopeState Empty => new ServerScopeState();
     }
 }

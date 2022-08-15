@@ -17,23 +17,20 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleDomain = new Okta.Domain("exampleDomain", new Okta.DomainArgs
-    ///         {
-    ///         });
-    ///         var exampleDomainVerification = new Okta.DomainVerification("exampleDomainVerification", new Okta.DomainVerificationArgs
-    ///         {
-    ///             DomainId = okta_domain.Test.Id,
-    ///         });
-    ///     }
+    ///     var exampleDomain = new Okta.Domain("exampleDomain");
     /// 
-    /// }
+    ///     var exampleDomainVerification = new Okta.DomainVerification("exampleDomainVerification", new()
+    ///     {
+    ///         DomainId = okta_domain.Test.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +38,7 @@ namespace Pulumi.Okta
     /// This resource does not support importing.
     /// </summary>
     [OktaResourceType("okta:index/domainVerification:DomainVerification")]
-    public partial class DomainVerification : Pulumi.CustomResource
+    public partial class DomainVerification : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Domain ID.
@@ -93,7 +90,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class DomainVerificationArgs : Pulumi.ResourceArgs
+    public sealed class DomainVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Domain ID.
@@ -104,9 +101,10 @@ namespace Pulumi.Okta
         public DomainVerificationArgs()
         {
         }
+        public static new DomainVerificationArgs Empty => new DomainVerificationArgs();
     }
 
-    public sealed class DomainVerificationState : Pulumi.ResourceArgs
+    public sealed class DomainVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Domain ID.
@@ -117,5 +115,6 @@ namespace Pulumi.Okta
         public DomainVerificationState()
         {
         }
+        public static new DomainVerificationState Empty => new DomainVerificationState();
     }
 }

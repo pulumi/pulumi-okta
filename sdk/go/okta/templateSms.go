@@ -21,34 +21,37 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewTemplateSms(ctx, "example", &okta.TemplateSmsArgs{
-// 			Template: pulumi.String(fmt.Sprintf("Your %v code is: %v", org.Name, code)),
-// 			Translations: TemplateSmsTranslationArray{
-// 				&TemplateSmsTranslationArgs{
-// 					Language: pulumi.String("en"),
-// 					Template: pulumi.String(fmt.Sprintf("Your %v code is: %v", org.Name, code)),
-// 				},
-// 				&TemplateSmsTranslationArgs{
-// 					Language: pulumi.String("es"),
-// 					Template: pulumi.String(fmt.Sprintf("Tu código de %v es: %v.", org.Name, code)),
-// 				},
-// 			},
-// 			Type: pulumi.String("SMS_VERIFY_CODE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewTemplateSms(ctx, "example", &okta.TemplateSmsArgs{
+//				Template: pulumi.String(fmt.Sprintf("Your %v code is: %v", org.Name, code)),
+//				Translations: TemplateSmsTranslationArray{
+//					&TemplateSmsTranslationArgs{
+//						Language: pulumi.String("en"),
+//						Template: pulumi.String(fmt.Sprintf("Your %v code is: %v", org.Name, code)),
+//					},
+//					&TemplateSmsTranslationArgs{
+//						Language: pulumi.String("es"),
+//						Template: pulumi.String(fmt.Sprintf("Tu código de %v es: %v.", org.Name, code)),
+//					},
+//				},
+//				Type: pulumi.String("SMS_VERIFY_CODE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // An Okta SMS Template can be imported via the template type.
 //
 // ```sh
-//  $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
+//
+//	$ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
+//
 // ```
 type TemplateSms struct {
 	pulumi.CustomResourceState
@@ -170,7 +175,7 @@ func (i *TemplateSms) ToTemplateSmsOutputWithContext(ctx context.Context) Templa
 // TemplateSmsArrayInput is an input type that accepts TemplateSmsArray and TemplateSmsArrayOutput values.
 // You can construct a concrete instance of `TemplateSmsArrayInput` via:
 //
-//          TemplateSmsArray{ TemplateSmsArgs{...} }
+//	TemplateSmsArray{ TemplateSmsArgs{...} }
 type TemplateSmsArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +200,7 @@ func (i TemplateSmsArray) ToTemplateSmsArrayOutputWithContext(ctx context.Contex
 // TemplateSmsMapInput is an input type that accepts TemplateSmsMap and TemplateSmsMapOutput values.
 // You can construct a concrete instance of `TemplateSmsMapInput` via:
 //
-//          TemplateSmsMap{ "key": TemplateSmsArgs{...} }
+//	TemplateSmsMap{ "key": TemplateSmsArgs{...} }
 type TemplateSmsMapInput interface {
 	pulumi.Input
 

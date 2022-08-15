@@ -409,7 +409,7 @@ func (i *SwaApp) ToSwaAppOutputWithContext(ctx context.Context) SwaAppOutput {
 // SwaAppArrayInput is an input type that accepts SwaAppArray and SwaAppArrayOutput values.
 // You can construct a concrete instance of `SwaAppArrayInput` via:
 //
-//          SwaAppArray{ SwaAppArgs{...} }
+//	SwaAppArray{ SwaAppArgs{...} }
 type SwaAppArrayInput interface {
 	pulumi.Input
 
@@ -434,7 +434,7 @@ func (i SwaAppArray) ToSwaAppArrayOutputWithContext(ctx context.Context) SwaAppA
 // SwaAppMapInput is an input type that accepts SwaAppMap and SwaAppMapOutput values.
 // You can construct a concrete instance of `SwaAppMapInput` via:
 //
-//          SwaAppMap{ "key": SwaAppArgs{...} }
+//	SwaAppMap{ "key": SwaAppArgs{...} }
 type SwaAppMapInput interface {
 	pulumi.Input
 

@@ -15,40 +15,35 @@ namespace Pulumi.Okta
     /// This resource allows you to grant or revoke API scopes for OAuth2 applications within your organization.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///     }
-    /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.AppOauthApiScope("example", new()
     ///     {
-    ///         var example = new Okta.AppOauthApiScope("example", new Okta.AppOauthApiScopeArgs
+    ///         AppId = "&lt;application_id&gt;",
+    ///         Issuer = "&lt;your org domain&gt;",
+    ///         Scopes = new[]
     ///         {
-    ///             AppId = "&lt;application_id&gt;",
-    ///             Issuer = "&lt;your org domain&gt;",
-    ///             Scopes = 
-    ///             {
-    ///                 "okta.users.read",
-    ///                 "okta.users.manage",
-    ///             },
-    ///         });
-    ///     }
+    ///             "okta.users.read",
+    ///             "okta.users.manage",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +55,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appOauthApiScope:AppOauthApiScope")]
-    public partial class AppOauthApiScope : Pulumi.CustomResource
+    public partial class AppOauthApiScope : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the application.
@@ -124,7 +119,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AppOauthApiScopeArgs : Pulumi.ResourceArgs
+    public sealed class AppOauthApiScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the application.
@@ -153,9 +148,10 @@ namespace Pulumi.Okta
         public AppOauthApiScopeArgs()
         {
         }
+        public static new AppOauthApiScopeArgs Empty => new AppOauthApiScopeArgs();
     }
 
-    public sealed class AppOauthApiScopeState : Pulumi.ResourceArgs
+    public sealed class AppOauthApiScopeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the application.
@@ -184,5 +180,6 @@ namespace Pulumi.Okta
         public AppOauthApiScopeState()
         {
         }
+        public static new AppOauthApiScopeState Empty => new AppOauthApiScopeState();
     }
 }

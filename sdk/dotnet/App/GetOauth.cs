@@ -19,20 +19,18 @@ namespace Pulumi.Okta.App
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Okta.App.GetOauth.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Okta.App.GetOauth.InvokeAsync(new Okta.App.GetOauthArgs
-        ///         {
-        ///             Label = "Example App",
-        ///         }));
-        ///     }
+        ///         Label = "Example App",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta.App
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Okta.App.GetOauth.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Okta.App.GetOauth.InvokeAsync(new Okta.App.GetOauthArgs
-        ///         {
-        ///             Label = "Example App",
-        ///         }));
-        ///     }
+        ///         Label = "Example App",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta.App
     }
 
 
-    public sealed class GetOauthArgs : Pulumi.InvokeArgs
+    public sealed class GetOauthArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// tells the provider to query for only `ACTIVE` applications.
@@ -115,9 +111,10 @@ namespace Pulumi.Okta.App
         public GetOauthArgs()
         {
         }
+        public static new GetOauthArgs Empty => new GetOauthArgs();
     }
 
-    public sealed class GetOauthInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOauthInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// tells the provider to query for only `ACTIVE` applications.
@@ -161,6 +158,7 @@ namespace Pulumi.Okta.App
         public GetOauthInvokeArgs()
         {
         }
+        public static new GetOauthInvokeArgs Empty => new GetOauthInvokeArgs();
     }
 
 

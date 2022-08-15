@@ -18,10 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates an Authorization Server Policy Rule.
- * 
- * This resource allows you to create and configure an Authorization Server Policy Rule.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

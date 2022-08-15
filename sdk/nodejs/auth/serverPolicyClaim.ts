@@ -5,10 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates an Authorization Server Policy Rule.
- *
- * This resource allows you to create and configure an Authorization Server Policy Rule.
- *
  * ## Example Usage
  *
  * ```typescript

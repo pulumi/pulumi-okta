@@ -18,26 +18,24 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.AdminRoleTargets("example", new()
     ///     {
-    ///         var example = new Okta.AdminRoleTargets("example", new Okta.AdminRoleTargetsArgs
+    ///         Apps = new[]
     ///         {
-    ///             Apps = 
-    ///             {
-    ///                 "oidc_client.&lt;app_id&gt;",
-    ///                 "facebook",
-    ///             },
-    ///             RoleType = "APP_ADMIN",
-    ///             UserId = "&lt;user_id&gt;",
-    ///         });
-    ///     }
+    ///             "oidc_client.&lt;app_id&gt;",
+    ///             "facebook",
+    ///         },
+    ///         RoleType = "APP_ADMIN",
+    ///         UserId = "&lt;user_id&gt;",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/adminRoleTargets:AdminRoleTargets")]
-    public partial class AdminRoleTargets : Pulumi.CustomResource
+    public partial class AdminRoleTargets : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
@@ -125,7 +123,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AdminRoleTargetsArgs : Pulumi.ResourceArgs
+    public sealed class AdminRoleTargetsArgs : global::Pulumi.ResourceArgs
     {
         [Input("apps")]
         private InputList<string>? _apps;
@@ -166,9 +164,10 @@ namespace Pulumi.Okta
         public AdminRoleTargetsArgs()
         {
         }
+        public static new AdminRoleTargetsArgs Empty => new AdminRoleTargetsArgs();
     }
 
-    public sealed class AdminRoleTargetsState : Pulumi.ResourceArgs
+    public sealed class AdminRoleTargetsState : global::Pulumi.ResourceArgs
     {
         [Input("apps")]
         private InputList<string>? _apps;
@@ -215,5 +214,6 @@ namespace Pulumi.Okta
         public AdminRoleTargetsState()
         {
         }
+        public static new AdminRoleTargetsState Empty => new AdminRoleTargetsState();
     }
 }

@@ -19,7 +19,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/groupAssignment:GroupAssignment")]
-    public partial class GroupAssignment : Pulumi.CustomResource
+    public partial class GroupAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the application to assign a group to.
@@ -95,7 +95,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class GroupAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class GroupAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the application to assign a group to.
@@ -130,9 +130,10 @@ namespace Pulumi.Okta.App
         public GroupAssignmentArgs()
         {
         }
+        public static new GroupAssignmentArgs Empty => new GroupAssignmentArgs();
     }
 
-    public sealed class GroupAssignmentState : Pulumi.ResourceArgs
+    public sealed class GroupAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the application to assign a group to.
@@ -167,5 +168,6 @@ namespace Pulumi.Okta.App
         public GroupAssignmentState()
         {
         }
+        public static new GroupAssignmentState Empty => new GroupAssignmentState();
     }
 }

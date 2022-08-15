@@ -17,24 +17,22 @@ namespace Pulumi.Okta.Group
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Group.Roles("example", new()
     ///     {
-    ///         var example = new Okta.Group.Roles("example", new Okta.Group.RolesArgs
+    ///         AdminRoles = new[]
     ///         {
-    ///             AdminRoles = 
-    ///             {
-    ///                 "SUPER_ADMIN",
-    ///             },
-    ///             GroupId = "&lt;group id&gt;",
-    ///         });
-    ///     }
+    ///             "SUPER_ADMIN",
+    ///         },
+    ///         GroupId = "&lt;group id&gt;",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Okta.Group
     /// ```
     /// </summary>
     [OktaResourceType("okta:group/roles:Roles")]
-    public partial class Roles : Pulumi.CustomResource
+    public partial class Roles : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
@@ -104,7 +102,7 @@ namespace Pulumi.Okta.Group
         }
     }
 
-    public sealed class RolesArgs : Pulumi.ResourceArgs
+    public sealed class RolesArgs : global::Pulumi.ResourceArgs
     {
         [Input("adminRoles")]
         private InputList<string>? _adminRoles;
@@ -127,9 +125,10 @@ namespace Pulumi.Okta.Group
         public RolesArgs()
         {
         }
+        public static new RolesArgs Empty => new RolesArgs();
     }
 
-    public sealed class RolesState : Pulumi.ResourceArgs
+    public sealed class RolesState : global::Pulumi.ResourceArgs
     {
         [Input("adminRoles")]
         private InputList<string>? _adminRoles;
@@ -152,5 +151,6 @@ namespace Pulumi.Okta.Group
         public RolesState()
         {
         }
+        public static new RolesState Empty => new RolesState();
     }
 }

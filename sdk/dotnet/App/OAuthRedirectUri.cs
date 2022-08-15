@@ -15,38 +15,37 @@ namespace Pulumi.Okta.App
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testOAuth = new Okta.App.OAuth("testOAuth", new()
     ///     {
-    ///         var testOAuth = new Okta.App.OAuth("testOAuth", new Okta.App.OAuthArgs
+    ///         Label = "testAcc_replace_with_uuid",
+    ///         Type = "web",
+    ///         GrantTypes = new[]
     ///         {
-    ///             Label = "testAcc_replace_with_uuid",
-    ///             Type = "web",
-    ///             GrantTypes = 
-    ///             {
-    ///                 "authorization_code",
-    ///             },
-    ///             ResponseTypes = 
-    ///             {
-    ///                 "code",
-    ///             },
-    ///             RedirectUris = 
-    ///             {
-    ///                 "myapp://callback",
-    ///             },
-    ///         });
-    ///         var testOAuthRedirectUri = new Okta.App.OAuthRedirectUri("testOAuthRedirectUri", new Okta.App.OAuthRedirectUriArgs
+    ///             "authorization_code",
+    ///         },
+    ///         ResponseTypes = new[]
     ///         {
-    ///             AppId = testOAuth.Id,
-    ///             Uri = "http://google.com",
-    ///         });
-    ///     }
+    ///             "code",
+    ///         },
+    ///         RedirectUris = new[]
+    ///         {
+    ///             "myapp://callback",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var testOAuthRedirectUri = new Okta.App.OAuthRedirectUri("testOAuthRedirectUri", new()
+    ///     {
+    ///         AppId = testOAuth.Id,
+    ///         Uri = "http://google.com",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +57,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/oAuthRedirectUri:OAuthRedirectUri")]
-    public partial class OAuthRedirectUri : Pulumi.CustomResource
+    public partial class OAuthRedirectUri : global::Pulumi.CustomResource
     {
         /// <summary>
         /// OAuth application ID.
@@ -116,7 +115,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class OAuthRedirectUriArgs : Pulumi.ResourceArgs
+    public sealed class OAuthRedirectUriArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// OAuth application ID.
@@ -133,9 +132,10 @@ namespace Pulumi.Okta.App
         public OAuthRedirectUriArgs()
         {
         }
+        public static new OAuthRedirectUriArgs Empty => new OAuthRedirectUriArgs();
     }
 
-    public sealed class OAuthRedirectUriState : Pulumi.ResourceArgs
+    public sealed class OAuthRedirectUriState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// OAuth application ID.
@@ -152,5 +152,6 @@ namespace Pulumi.Okta.App
         public OAuthRedirectUriState()
         {
         }
+        public static new OAuthRedirectUriState Empty => new OAuthRedirectUriState();
     }
 }
