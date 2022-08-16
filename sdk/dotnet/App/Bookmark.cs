@@ -15,21 +15,19 @@ namespace Pulumi.Okta.App
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.App.Bookmark("example", new()
     ///     {
-    ///         var example = new Okta.App.Bookmark("example", new Okta.App.BookmarkArgs
-    ///         {
-    ///             Label = "Example",
-    ///             Url = "https://example.com",
-    ///         });
-    ///     }
+    ///         Label = "Example",
+    ///         Url = "https://example.com",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/bookmark:Bookmark")]
-    public partial class Bookmark : Pulumi.CustomResource
+    public partial class Bookmark : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL.
@@ -229,7 +227,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class BookmarkArgs : Pulumi.ResourceArgs
+    public sealed class BookmarkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -358,9 +356,10 @@ namespace Pulumi.Okta.App
         public BookmarkArgs()
         {
         }
+        public static new BookmarkArgs Empty => new BookmarkArgs();
     }
 
-    public sealed class BookmarkState : Pulumi.ResourceArgs
+    public sealed class BookmarkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -507,5 +506,6 @@ namespace Pulumi.Okta.App
         public BookmarkState()
         {
         }
+        public static new BookmarkState Empty => new BookmarkState();
     }
 }

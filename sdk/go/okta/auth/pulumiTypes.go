@@ -32,7 +32,7 @@ type GetServerScopesScope struct {
 // GetServerScopesScopeInput is an input type that accepts GetServerScopesScopeArgs and GetServerScopesScopeOutput values.
 // You can construct a concrete instance of `GetServerScopesScopeInput` via:
 //
-//          GetServerScopesScopeArgs{...}
+//	GetServerScopesScopeArgs{...}
 type GetServerScopesScopeInput interface {
 	pulumi.Input
 
@@ -74,7 +74,7 @@ func (i GetServerScopesScopeArgs) ToGetServerScopesScopeOutputWithContext(ctx co
 // GetServerScopesScopeArrayInput is an input type that accepts GetServerScopesScopeArray and GetServerScopesScopeArrayOutput values.
 // You can construct a concrete instance of `GetServerScopesScopeArrayInput` via:
 //
-//          GetServerScopesScopeArray{ GetServerScopesScopeArgs{...} }
+//	GetServerScopesScopeArray{ GetServerScopesScopeArgs{...} }
 type GetServerScopesScopeArrayInput interface {
 	pulumi.Input
 

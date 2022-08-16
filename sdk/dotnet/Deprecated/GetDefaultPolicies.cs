@@ -20,7 +20,7 @@ namespace Pulumi.Okta.Deprecated
     }
 
 
-    public sealed class GetDefaultPoliciesArgs : Pulumi.InvokeArgs
+    public sealed class GetDefaultPoliciesArgs : global::Pulumi.InvokeArgs
     {
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
@@ -28,9 +28,10 @@ namespace Pulumi.Okta.Deprecated
         public GetDefaultPoliciesArgs()
         {
         }
+        public static new GetDefaultPoliciesArgs Empty => new GetDefaultPoliciesArgs();
     }
 
-    public sealed class GetDefaultPoliciesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDefaultPoliciesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -38,6 +39,7 @@ namespace Pulumi.Okta.Deprecated
         public GetDefaultPoliciesInvokeArgs()
         {
         }
+        public static new GetDefaultPoliciesInvokeArgs Empty => new GetDefaultPoliciesInvokeArgs();
     }
 
 

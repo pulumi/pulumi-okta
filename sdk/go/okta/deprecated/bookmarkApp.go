@@ -302,7 +302,7 @@ func (i *BookmarkApp) ToBookmarkAppOutputWithContext(ctx context.Context) Bookma
 // BookmarkAppArrayInput is an input type that accepts BookmarkAppArray and BookmarkAppArrayOutput values.
 // You can construct a concrete instance of `BookmarkAppArrayInput` via:
 //
-//          BookmarkAppArray{ BookmarkAppArgs{...} }
+//	BookmarkAppArray{ BookmarkAppArgs{...} }
 type BookmarkAppArrayInput interface {
 	pulumi.Input
 
@@ -327,7 +327,7 @@ func (i BookmarkAppArray) ToBookmarkAppArrayOutputWithContext(ctx context.Contex
 // BookmarkAppMapInput is an input type that accepts BookmarkAppMap and BookmarkAppMapOutput values.
 // You can construct a concrete instance of `BookmarkAppMapInput` via:
 //
-//          BookmarkAppMap{ "key": BookmarkAppArgs{...} }
+//	BookmarkAppMap{ "key": BookmarkAppArgs{...} }
 type BookmarkAppMapInput interface {
 	pulumi.Input
 

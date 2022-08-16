@@ -19,26 +19,24 @@ namespace Pulumi.Okta.User
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.User.GetUser.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.User.GetUser.InvokeAsync(new Okta.User.GetUserArgs
+        ///         Searches = new[]
         ///         {
-        ///             Searches = 
+        ///             new Okta.User.Inputs.GetUserSearchInputArgs
         ///             {
-        ///                 new Okta.User.Inputs.GetUserSearchArgs
-        ///                 {
-        ///                     Expression = "profile.firstName eq \"John\"",
-        ///                 },
+        ///                 Expression = "profile.firstName eq \"John\"",
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +52,24 @@ namespace Pulumi.Okta.User
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.User.GetUser.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.User.GetUser.InvokeAsync(new Okta.User.GetUserArgs
+        ///         Searches = new[]
         ///         {
-        ///             Searches = 
+        ///             new Okta.User.Inputs.GetUserSearchInputArgs
         ///             {
-        ///                 new Okta.User.Inputs.GetUserSearchArgs
-        ///                 {
-        ///                     Expression = "profile.firstName eq \"John\"",
-        ///                 },
+        ///                 Expression = "profile.firstName eq \"John\"",
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +79,7 @@ namespace Pulumi.Okta.User
     }
 
 
-    public sealed class GetUserArgs : Pulumi.InvokeArgs
+    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
@@ -130,9 +126,10 @@ namespace Pulumi.Okta.User
         public GetUserArgs()
         {
         }
+        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
@@ -179,6 +176,7 @@ namespace Pulumi.Okta.User
         public GetUserInvokeArgs()
         {
         }
+        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

@@ -21,26 +21,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := group.NewRule(ctx, "example", &group.RuleArgs{
-// 			ExpressionType:  pulumi.String("urn:okta:expression:1.0"),
-// 			ExpressionValue: pulumi.String("String.startsWith(user.firstName,\"andy\")"),
-// 			GroupAssignments: pulumi.StringArray{
-// 				pulumi.String("<group id>"),
-// 			},
-// 			Status: pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := group.NewRule(ctx, "example", &group.RuleArgs{
+//				ExpressionType:  pulumi.String("urn:okta:expression:1.0"),
+//				ExpressionValue: pulumi.String("String.startsWith(user.firstName,\"andy\")"),
+//				GroupAssignments: pulumi.StringArray{
+//					pulumi.String("<group id>"),
+//				},
+//				Status: pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // An Okta Group Rule can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
+//
+//	$ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
+//
 // ```
 type Rule struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *Rule) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 // RuleArrayInput is an input type that accepts RuleArray and RuleArrayOutput values.
 // You can construct a concrete instance of `RuleArrayInput` via:
 //
-//          RuleArray{ RuleArgs{...} }
+//	RuleArray{ RuleArgs{...} }
 type RuleArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i RuleArray) ToRuleArrayOutputWithContext(ctx context.Context) RuleArrayOu
 // RuleMapInput is an input type that accepts RuleMap and RuleMapOutput values.
 // You can construct a concrete instance of `RuleMapInput` via:
 //
-//          RuleMap{ "key": RuleArgs{...} }
+//	RuleMap{ "key": RuleArgs{...} }
 type RuleMapInput interface {
 	pulumi.Input
 

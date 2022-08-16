@@ -22,7 +22,7 @@ type RuleIdpDiscoveryAppExclude struct {
 // RuleIdpDiscoveryAppExcludeInput is an input type that accepts RuleIdpDiscoveryAppExcludeArgs and RuleIdpDiscoveryAppExcludeOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryAppExcludeInput` via:
 //
-//          RuleIdpDiscoveryAppExcludeArgs{...}
+//	RuleIdpDiscoveryAppExcludeArgs{...}
 type RuleIdpDiscoveryAppExcludeInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i RuleIdpDiscoveryAppExcludeArgs) ToRuleIdpDiscoveryAppExcludeOutputWithCo
 // RuleIdpDiscoveryAppExcludeArrayInput is an input type that accepts RuleIdpDiscoveryAppExcludeArray and RuleIdpDiscoveryAppExcludeArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryAppExcludeArrayInput` via:
 //
-//          RuleIdpDiscoveryAppExcludeArray{ RuleIdpDiscoveryAppExcludeArgs{...} }
+//	RuleIdpDiscoveryAppExcludeArray{ RuleIdpDiscoveryAppExcludeArgs{...} }
 type RuleIdpDiscoveryAppExcludeArrayInput interface {
 	pulumi.Input
 
@@ -137,7 +137,7 @@ type RuleIdpDiscoveryAppInclude struct {
 // RuleIdpDiscoveryAppIncludeInput is an input type that accepts RuleIdpDiscoveryAppIncludeArgs and RuleIdpDiscoveryAppIncludeOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryAppIncludeInput` via:
 //
-//          RuleIdpDiscoveryAppIncludeArgs{...}
+//	RuleIdpDiscoveryAppIncludeArgs{...}
 type RuleIdpDiscoveryAppIncludeInput interface {
 	pulumi.Input
 
@@ -169,7 +169,7 @@ func (i RuleIdpDiscoveryAppIncludeArgs) ToRuleIdpDiscoveryAppIncludeOutputWithCo
 // RuleIdpDiscoveryAppIncludeArrayInput is an input type that accepts RuleIdpDiscoveryAppIncludeArray and RuleIdpDiscoveryAppIncludeArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryAppIncludeArrayInput` via:
 //
-//          RuleIdpDiscoveryAppIncludeArray{ RuleIdpDiscoveryAppIncludeArgs{...} }
+//	RuleIdpDiscoveryAppIncludeArray{ RuleIdpDiscoveryAppIncludeArgs{...} }
 type RuleIdpDiscoveryAppIncludeArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +252,7 @@ type RuleIdpDiscoveryPlatformInclude struct {
 // RuleIdpDiscoveryPlatformIncludeInput is an input type that accepts RuleIdpDiscoveryPlatformIncludeArgs and RuleIdpDiscoveryPlatformIncludeOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryPlatformIncludeInput` via:
 //
-//          RuleIdpDiscoveryPlatformIncludeArgs{...}
+//	RuleIdpDiscoveryPlatformIncludeArgs{...}
 type RuleIdpDiscoveryPlatformIncludeInput interface {
 	pulumi.Input
 
@@ -284,7 +284,7 @@ func (i RuleIdpDiscoveryPlatformIncludeArgs) ToRuleIdpDiscoveryPlatformIncludeOu
 // RuleIdpDiscoveryPlatformIncludeArrayInput is an input type that accepts RuleIdpDiscoveryPlatformIncludeArray and RuleIdpDiscoveryPlatformIncludeArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryPlatformIncludeArrayInput` via:
 //
-//          RuleIdpDiscoveryPlatformIncludeArray{ RuleIdpDiscoveryPlatformIncludeArgs{...} }
+//	RuleIdpDiscoveryPlatformIncludeArray{ RuleIdpDiscoveryPlatformIncludeArgs{...} }
 type RuleIdpDiscoveryPlatformIncludeArrayInput interface {
 	pulumi.Input
 
@@ -365,7 +365,7 @@ type RuleIdpDiscoveryUserIdentifierPattern struct {
 // RuleIdpDiscoveryUserIdentifierPatternInput is an input type that accepts RuleIdpDiscoveryUserIdentifierPatternArgs and RuleIdpDiscoveryUserIdentifierPatternOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryUserIdentifierPatternInput` via:
 //
-//          RuleIdpDiscoveryUserIdentifierPatternArgs{...}
+//	RuleIdpDiscoveryUserIdentifierPatternArgs{...}
 type RuleIdpDiscoveryUserIdentifierPatternInput interface {
 	pulumi.Input
 
@@ -395,7 +395,7 @@ func (i RuleIdpDiscoveryUserIdentifierPatternArgs) ToRuleIdpDiscoveryUserIdentif
 // RuleIdpDiscoveryUserIdentifierPatternArrayInput is an input type that accepts RuleIdpDiscoveryUserIdentifierPatternArray and RuleIdpDiscoveryUserIdentifierPatternArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryUserIdentifierPatternArrayInput` via:
 //
-//          RuleIdpDiscoveryUserIdentifierPatternArray{ RuleIdpDiscoveryUserIdentifierPatternArgs{...} }
+//	RuleIdpDiscoveryUserIdentifierPatternArray{ RuleIdpDiscoveryUserIdentifierPatternArgs{...} }
 type RuleIdpDiscoveryUserIdentifierPatternArrayInput interface {
 	pulumi.Input
 
@@ -473,7 +473,7 @@ type RuleMfaAppExclude struct {
 // RuleMfaAppExcludeInput is an input type that accepts RuleMfaAppExcludeArgs and RuleMfaAppExcludeOutput values.
 // You can construct a concrete instance of `RuleMfaAppExcludeInput` via:
 //
-//          RuleMfaAppExcludeArgs{...}
+//	RuleMfaAppExcludeArgs{...}
 type RuleMfaAppExcludeInput interface {
 	pulumi.Input
 
@@ -505,7 +505,7 @@ func (i RuleMfaAppExcludeArgs) ToRuleMfaAppExcludeOutputWithContext(ctx context.
 // RuleMfaAppExcludeArrayInput is an input type that accepts RuleMfaAppExcludeArray and RuleMfaAppExcludeArrayOutput values.
 // You can construct a concrete instance of `RuleMfaAppExcludeArrayInput` via:
 //
-//          RuleMfaAppExcludeArray{ RuleMfaAppExcludeArgs{...} }
+//	RuleMfaAppExcludeArray{ RuleMfaAppExcludeArgs{...} }
 type RuleMfaAppExcludeArrayInput interface {
 	pulumi.Input
 
@@ -588,7 +588,7 @@ type RuleMfaAppInclude struct {
 // RuleMfaAppIncludeInput is an input type that accepts RuleMfaAppIncludeArgs and RuleMfaAppIncludeOutput values.
 // You can construct a concrete instance of `RuleMfaAppIncludeInput` via:
 //
-//          RuleMfaAppIncludeArgs{...}
+//	RuleMfaAppIncludeArgs{...}
 type RuleMfaAppIncludeInput interface {
 	pulumi.Input
 
@@ -620,7 +620,7 @@ func (i RuleMfaAppIncludeArgs) ToRuleMfaAppIncludeOutputWithContext(ctx context.
 // RuleMfaAppIncludeArrayInput is an input type that accepts RuleMfaAppIncludeArray and RuleMfaAppIncludeArrayOutput values.
 // You can construct a concrete instance of `RuleMfaAppIncludeArrayInput` via:
 //
-//          RuleMfaAppIncludeArray{ RuleMfaAppIncludeArgs{...} }
+//	RuleMfaAppIncludeArray{ RuleMfaAppIncludeArgs{...} }
 type RuleMfaAppIncludeArrayInput interface {
 	pulumi.Input
 
@@ -703,7 +703,7 @@ type RuleSignonFactorSequence struct {
 // RuleSignonFactorSequenceInput is an input type that accepts RuleSignonFactorSequenceArgs and RuleSignonFactorSequenceOutput values.
 // You can construct a concrete instance of `RuleSignonFactorSequenceInput` via:
 //
-//          RuleSignonFactorSequenceArgs{...}
+//	RuleSignonFactorSequenceArgs{...}
 type RuleSignonFactorSequenceInput interface {
 	pulumi.Input
 
@@ -735,7 +735,7 @@ func (i RuleSignonFactorSequenceArgs) ToRuleSignonFactorSequenceOutputWithContex
 // RuleSignonFactorSequenceArrayInput is an input type that accepts RuleSignonFactorSequenceArray and RuleSignonFactorSequenceArrayOutput values.
 // You can construct a concrete instance of `RuleSignonFactorSequenceArrayInput` via:
 //
-//          RuleSignonFactorSequenceArray{ RuleSignonFactorSequenceArgs{...} }
+//	RuleSignonFactorSequenceArray{ RuleSignonFactorSequenceArgs{...} }
 type RuleSignonFactorSequenceArrayInput interface {
 	pulumi.Input
 
@@ -818,7 +818,7 @@ type RuleSignonFactorSequenceSecondaryCriteria struct {
 // RuleSignonFactorSequenceSecondaryCriteriaInput is an input type that accepts RuleSignonFactorSequenceSecondaryCriteriaArgs and RuleSignonFactorSequenceSecondaryCriteriaOutput values.
 // You can construct a concrete instance of `RuleSignonFactorSequenceSecondaryCriteriaInput` via:
 //
-//          RuleSignonFactorSequenceSecondaryCriteriaArgs{...}
+//	RuleSignonFactorSequenceSecondaryCriteriaArgs{...}
 type RuleSignonFactorSequenceSecondaryCriteriaInput interface {
 	pulumi.Input
 
@@ -848,7 +848,7 @@ func (i RuleSignonFactorSequenceSecondaryCriteriaArgs) ToRuleSignonFactorSequenc
 // RuleSignonFactorSequenceSecondaryCriteriaArrayInput is an input type that accepts RuleSignonFactorSequenceSecondaryCriteriaArray and RuleSignonFactorSequenceSecondaryCriteriaArrayOutput values.
 // You can construct a concrete instance of `RuleSignonFactorSequenceSecondaryCriteriaArrayInput` via:
 //
-//          RuleSignonFactorSequenceSecondaryCriteriaArray{ RuleSignonFactorSequenceSecondaryCriteriaArgs{...} }
+//	RuleSignonFactorSequenceSecondaryCriteriaArray{ RuleSignonFactorSequenceSecondaryCriteriaArgs{...} }
 type RuleSignonFactorSequenceSecondaryCriteriaArrayInput interface {
 	pulumi.Input
 

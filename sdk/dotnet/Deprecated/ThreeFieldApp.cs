@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use app.ThreeField instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/threeFieldApp:ThreeFieldApp")]
-    public partial class ThreeFieldApp : Pulumi.CustomResource
+    public partial class ThreeFieldApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL
@@ -261,7 +261,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class ThreeFieldAppArgs : Pulumi.ResourceArgs
+    public sealed class ThreeFieldAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -466,9 +466,10 @@ namespace Pulumi.Okta.Deprecated
         public ThreeFieldAppArgs()
         {
         }
+        public static new ThreeFieldAppArgs Empty => new ThreeFieldAppArgs();
     }
 
-    public sealed class ThreeFieldAppState : Pulumi.ResourceArgs
+    public sealed class ThreeFieldAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -691,5 +692,6 @@ namespace Pulumi.Okta.Deprecated
         public ThreeFieldAppState()
         {
         }
+        public static new ThreeFieldAppState Empty => new ThreeFieldAppState();
     }
 }

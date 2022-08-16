@@ -15,44 +15,46 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myLocation = new Okta.Behaviour("myLocation", new()
     ///     {
-    ///         var myLocation = new Okta.Behaviour("myLocation", new Okta.BehaviourArgs
-    ///         {
-    ///             LocationGranularityType = "LAT_LONG",
-    ///             NumberOfAuthentications = 50,
-    ///             RadiusFromLocation = 20,
-    ///             Type = "ANOMALOUS_LOCATION",
-    ///         });
-    ///         var myCity = new Okta.Behaviour("myCity", new Okta.BehaviourArgs
-    ///         {
-    ///             LocationGranularityType = "CITY",
-    ///             NumberOfAuthentications = 50,
-    ///             Type = "ANOMALOUS_LOCATION",
-    ///         });
-    ///         var myDevice = new Okta.Behaviour("myDevice", new Okta.BehaviourArgs
-    ///         {
-    ///             NumberOfAuthentications = 50,
-    ///             Type = "ANOMALOUS_DEVICE",
-    ///         });
-    ///         var myIp = new Okta.Behaviour("myIp", new Okta.BehaviourArgs
-    ///         {
-    ///             NumberOfAuthentications = 50,
-    ///             Type = "ANOMALOUS_IP",
-    ///         });
-    ///         var myVelocity = new Okta.Behaviour("myVelocity", new Okta.BehaviourArgs
-    ///         {
-    ///             Type = "VELOCITY",
-    ///             Velocity = 25,
-    ///         });
-    ///     }
+    ///         LocationGranularityType = "LAT_LONG",
+    ///         NumberOfAuthentications = 50,
+    ///         RadiusFromLocation = 20,
+    ///         Type = "ANOMALOUS_LOCATION",
+    ///     });
     /// 
-    /// }
+    ///     var myCity = new Okta.Behaviour("myCity", new()
+    ///     {
+    ///         LocationGranularityType = "CITY",
+    ///         NumberOfAuthentications = 50,
+    ///         Type = "ANOMALOUS_LOCATION",
+    ///     });
+    /// 
+    ///     var myDevice = new Okta.Behaviour("myDevice", new()
+    ///     {
+    ///         NumberOfAuthentications = 50,
+    ///         Type = "ANOMALOUS_DEVICE",
+    ///     });
+    /// 
+    ///     var myIp = new Okta.Behaviour("myIp", new()
+    ///     {
+    ///         NumberOfAuthentications = 50,
+    ///         Type = "ANOMALOUS_IP",
+    ///     });
+    /// 
+    ///     var myVelocity = new Okta.Behaviour("myVelocity", new()
+    ///     {
+    ///         Type = "VELOCITY",
+    ///         Velocity = 25,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +66,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/behaviour:Behaviour")]
-    public partial class Behaviour : Pulumi.CustomResource
+    public partial class Behaviour : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Determines the method and level of detail used to evaluate the behavior.
@@ -158,7 +160,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class BehaviourArgs : Pulumi.ResourceArgs
+    public sealed class BehaviourArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the method and level of detail used to evaluate the behavior.
@@ -211,9 +213,10 @@ namespace Pulumi.Okta
         public BehaviourArgs()
         {
         }
+        public static new BehaviourArgs Empty => new BehaviourArgs();
     }
 
-    public sealed class BehaviourState : Pulumi.ResourceArgs
+    public sealed class BehaviourState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the method and level of detail used to evaluate the behavior.
@@ -266,5 +269,6 @@ namespace Pulumi.Okta
         public BehaviourState()
         {
         }
+        public static new BehaviourState Empty => new BehaviourState();
     }
 }

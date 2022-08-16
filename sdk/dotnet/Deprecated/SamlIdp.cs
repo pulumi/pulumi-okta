@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use idp.Saml instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/samlIdp:SamlIdp")]
-    public partial class SamlIdp : Pulumi.CustomResource
+    public partial class SamlIdp : global::Pulumi.CustomResource
     {
         [Output("accountLinkAction")]
         public Output<string?> AccountLinkAction { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class SamlIdpArgs : Pulumi.ResourceArgs
+    public sealed class SamlIdpArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountLinkAction")]
         public Input<string>? AccountLinkAction { get; set; }
@@ -313,9 +313,10 @@ namespace Pulumi.Okta.Deprecated
         public SamlIdpArgs()
         {
         }
+        public static new SamlIdpArgs Empty => new SamlIdpArgs();
     }
 
-    public sealed class SamlIdpState : Pulumi.ResourceArgs
+    public sealed class SamlIdpState : global::Pulumi.ResourceArgs
     {
         [Input("accountLinkAction")]
         public Input<string>? AccountLinkAction { get; set; }
@@ -460,5 +461,6 @@ namespace Pulumi.Okta.Deprecated
         public SamlIdpState()
         {
         }
+        public static new SamlIdpState Empty => new SamlIdpState();
     }
 }

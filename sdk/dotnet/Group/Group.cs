@@ -17,39 +17,35 @@ namespace Pulumi.Okta.Group
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Group.Group("example", new()
     ///     {
-    ///         var example = new Okta.Group.Group("example", new Okta.Group.GroupArgs
-    ///         {
-    ///             Description = "My Example Group",
-    ///         });
-    ///     }
+    ///         Description = "My Example Group",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Ignore users sync
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleSkip = new Okta.Group.Group("exampleSkip", new()
     ///     {
-    ///         var exampleSkip = new Okta.Group.Group("exampleSkip", new Okta.Group.GroupArgs
-    ///         {
-    ///             Description = "My Example Group",
-    ///             SkipUsers = true,
-    ///         });
-    ///     }
+    ///         Description = "My Example Group",
+    ///         SkipUsers = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Custom profile attributes
@@ -59,23 +55,20 @@ namespace Pulumi.Okta.Group
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Group.Group("example", new()
     ///     {
-    ///         var example = new Okta.Group.Group("example", new Okta.Group.GroupArgs
+    ///         Description = "My Example Group",
+    ///         CustomProfileAttributes = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             Description = "My Example Group",
-    ///             CustomProfileAttributes = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "example1", "testing1234" },
-    ///                 { "example2", true },
-    ///                 { "example3", 54321 },
-    ///             }),
-    ///         });
-    ///     }
+    ///             ["example1"] = "testing1234",
+    ///             ["example2"] = true,
+    ///             ["example3"] = 54321,
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -93,7 +86,7 @@ namespace Pulumi.Okta.Group
     /// ```
     /// </summary>
     [OktaResourceType("okta:group/group:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// raw JSON containing all custom profile attributes.
@@ -170,7 +163,7 @@ namespace Pulumi.Okta.Group
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// raw JSON containing all custom profile attributes.
@@ -213,9 +206,10 @@ namespace Pulumi.Okta.Group
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 
-    public sealed class GroupState : Pulumi.ResourceArgs
+    public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// raw JSON containing all custom profile attributes.
@@ -258,5 +252,6 @@ namespace Pulumi.Okta.Group
         public GroupState()
         {
         }
+        public static new GroupState Empty => new GroupState();
     }
 }

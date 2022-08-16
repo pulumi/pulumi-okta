@@ -17,40 +17,39 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleEventHook = new Okta.EventHook("exampleEventHook", new()
     ///     {
-    ///         var exampleEventHook = new Okta.EventHook("exampleEventHook", new Okta.EventHookArgs
+    ///         Events = new[]
     ///         {
-    ///             Events = 
-    ///             {
-    ///                 "user.lifecycle.create",
-    ///                 "user.lifecycle.delete.initiated",
-    ///             },
-    ///             Channel = 
-    ///             {
-    ///                 { "type", "HTTP" },
-    ///                 { "version", "1.0.0" },
-    ///                 { "uri", "https://example.com/test" },
-    ///             },
-    ///             Auth = 
-    ///             {
-    ///                 { "type", "HEADER" },
-    ///                 { "key", "Authorization" },
-    ///                 { "value", "123" },
-    ///             },
-    ///         });
-    ///         var exampleEventHookVerification = new Okta.EventHookVerification("exampleEventHookVerification", new Okta.EventHookVerificationArgs
+    ///             "user.lifecycle.create",
+    ///             "user.lifecycle.delete.initiated",
+    ///         },
+    ///         Channel = 
     ///         {
-    ///             EventHookId = exampleEventHook.Id,
-    ///         });
-    ///     }
+    ///             { "type", "HTTP" },
+    ///             { "version", "1.0.0" },
+    ///             { "uri", "https://example.com/test" },
+    ///         },
+    ///         Auth = 
+    ///         {
+    ///             { "type", "HEADER" },
+    ///             { "key", "Authorization" },
+    ///             { "value", "123" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleEventHookVerification = new Okta.EventHookVerification("exampleEventHookVerification", new()
+    ///     {
+    ///         EventHookId = exampleEventHook.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +57,7 @@ namespace Pulumi.Okta
     /// This resource does not support importing.
     /// </summary>
     [OktaResourceType("okta:index/eventHookVerification:EventHookVerification")]
-    public partial class EventHookVerification : Pulumi.CustomResource
+    public partial class EventHookVerification : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Event Hook ID.
@@ -110,7 +109,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class EventHookVerificationArgs : Pulumi.ResourceArgs
+    public sealed class EventHookVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Event Hook ID.
@@ -121,9 +120,10 @@ namespace Pulumi.Okta
         public EventHookVerificationArgs()
         {
         }
+        public static new EventHookVerificationArgs Empty => new EventHookVerificationArgs();
     }
 
-    public sealed class EventHookVerificationState : Pulumi.ResourceArgs
+    public sealed class EventHookVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Event Hook ID.
@@ -134,5 +134,6 @@ namespace Pulumi.Okta
         public EventHookVerificationState()
         {
         }
+        public static new EventHookVerificationState Empty => new EventHookVerificationState();
     }
 }

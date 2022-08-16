@@ -18,67 +18,70 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		idpDiscoveryPolicy, err := policy.GetPolicy(ctx, &policy.GetPolicyArgs{
-// 			Name: "Idp Discovery Policy",
-// 			Type: "IDP_DISCOVERY",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = policy.NewRuleIdpDiscovery(ctx, "example", &policy.RuleIdpDiscoveryArgs{
-// 			PolicyId:                pulumi.String(idpDiscoveryPolicy.Id),
-// 			IdpId:                   pulumi.String("<idp id>"),
-// 			IdpType:                 pulumi.String("OIDC"),
-// 			NetworkConnection:       pulumi.String("ANYWHERE"),
-// 			Priority:                pulumi.Int(1),
-// 			Status:                  pulumi.String("ACTIVE"),
-// 			UserIdentifierType:      pulumi.String("ATTRIBUTE"),
-// 			UserIdentifierAttribute: pulumi.String("company"),
-// 			AppExcludes: policy.RuleIdpDiscoveryAppExcludeArray{
-// 				&policy.RuleIdpDiscoveryAppExcludeArgs{
-// 					Id:   pulumi.String("<app id>"),
-// 					Type: pulumi.String("APP"),
-// 				},
-// 				&policy.RuleIdpDiscoveryAppExcludeArgs{
-// 					Name: pulumi.String("yahoo_mail"),
-// 					Type: pulumi.String("APP_TYPE"),
-// 				},
-// 			},
-// 			AppIncludes: policy.RuleIdpDiscoveryAppIncludeArray{
-// 				&policy.RuleIdpDiscoveryAppIncludeArgs{
-// 					Id:   pulumi.String("<app id>"),
-// 					Type: pulumi.String("APP"),
-// 				},
-// 				&policy.RuleIdpDiscoveryAppIncludeArgs{
-// 					Name: pulumi.String("<app type name>"),
-// 					Type: pulumi.String("APP_TYPE"),
-// 				},
-// 			},
-// 			PlatformIncludes: policy.RuleIdpDiscoveryPlatformIncludeArray{
-// 				&policy.RuleIdpDiscoveryPlatformIncludeArgs{
-// 					Type:   pulumi.String("MOBILE"),
-// 					OsType: pulumi.String("OSX"),
-// 				},
-// 			},
-// 			UserIdentifierPatterns: policy.RuleIdpDiscoveryUserIdentifierPatternArray{
-// 				&policy.RuleIdpDiscoveryUserIdentifierPatternArgs{
-// 					MatchType: pulumi.String("EQUALS"),
-// 					Value:     pulumi.String("Articulate"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			idpDiscoveryPolicy, err := policy.GetPolicy(ctx, &policy.GetPolicyArgs{
+//				Name: "Idp Discovery Policy",
+//				Type: "IDP_DISCOVERY",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewRuleIdpDiscovery(ctx, "example", &policy.RuleIdpDiscoveryArgs{
+//				PolicyId:                pulumi.String(idpDiscoveryPolicy.Id),
+//				IdpId:                   pulumi.String("<idp id>"),
+//				IdpType:                 pulumi.String("OIDC"),
+//				NetworkConnection:       pulumi.String("ANYWHERE"),
+//				Priority:                pulumi.Int(1),
+//				Status:                  pulumi.String("ACTIVE"),
+//				UserIdentifierType:      pulumi.String("ATTRIBUTE"),
+//				UserIdentifierAttribute: pulumi.String("company"),
+//				AppExcludes: policy.RuleIdpDiscoveryAppExcludeArray{
+//					&policy.RuleIdpDiscoveryAppExcludeArgs{
+//						Id:   pulumi.String("<app id>"),
+//						Type: pulumi.String("APP"),
+//					},
+//					&policy.RuleIdpDiscoveryAppExcludeArgs{
+//						Name: pulumi.String("yahoo_mail"),
+//						Type: pulumi.String("APP_TYPE"),
+//					},
+//				},
+//				AppIncludes: policy.RuleIdpDiscoveryAppIncludeArray{
+//					&policy.RuleIdpDiscoveryAppIncludeArgs{
+//						Id:   pulumi.String("<app id>"),
+//						Type: pulumi.String("APP"),
+//					},
+//					&policy.RuleIdpDiscoveryAppIncludeArgs{
+//						Name: pulumi.String("<app type name>"),
+//						Type: pulumi.String("APP_TYPE"),
+//					},
+//				},
+//				PlatformIncludes: policy.RuleIdpDiscoveryPlatformIncludeArray{
+//					&policy.RuleIdpDiscoveryPlatformIncludeArgs{
+//						Type:   pulumi.String("MOBILE"),
+//						OsType: pulumi.String("OSX"),
+//					},
+//				},
+//				UserIdentifierPatterns: policy.RuleIdpDiscoveryUserIdentifierPatternArray{
+//					&policy.RuleIdpDiscoveryUserIdentifierPatternArgs{
+//						MatchType: pulumi.String("EQUALS"),
+//						Value:     pulumi.String("Articulate"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -86,7 +89,9 @@ import (
 // A Policy Rule can be imported via the Policy and Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &#60;policy id&#62;/&#60;rule id&#62;
+//
+//	$ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &#60;policy id&#62;/&#60;rule id&#62;
+//
 // ```
 type RuleIdpDiscovery struct {
 	pulumi.CustomResourceState
@@ -329,7 +334,7 @@ func (i *RuleIdpDiscovery) ToRuleIdpDiscoveryOutputWithContext(ctx context.Conte
 // RuleIdpDiscoveryArrayInput is an input type that accepts RuleIdpDiscoveryArray and RuleIdpDiscoveryArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryArrayInput` via:
 //
-//          RuleIdpDiscoveryArray{ RuleIdpDiscoveryArgs{...} }
+//	RuleIdpDiscoveryArray{ RuleIdpDiscoveryArgs{...} }
 type RuleIdpDiscoveryArrayInput interface {
 	pulumi.Input
 
@@ -354,7 +359,7 @@ func (i RuleIdpDiscoveryArray) ToRuleIdpDiscoveryArrayOutputWithContext(ctx cont
 // RuleIdpDiscoveryMapInput is an input type that accepts RuleIdpDiscoveryMap and RuleIdpDiscoveryMapOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryMapInput` via:
 //
-//          RuleIdpDiscoveryMap{ "key": RuleIdpDiscoveryArgs{...} }
+//	RuleIdpDiscoveryMap{ "key": RuleIdpDiscoveryArgs{...} }
 type RuleIdpDiscoveryMapInput interface {
 	pulumi.Input
 

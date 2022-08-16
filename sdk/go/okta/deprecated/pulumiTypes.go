@@ -20,7 +20,7 @@ type AuthLoginAppUser struct {
 // AuthLoginAppUserInput is an input type that accepts AuthLoginAppUserArgs and AuthLoginAppUserOutput values.
 // You can construct a concrete instance of `AuthLoginAppUserInput` via:
 //
-//          AuthLoginAppUserArgs{...}
+//	AuthLoginAppUserArgs{...}
 type AuthLoginAppUserInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i AuthLoginAppUserArgs) ToAuthLoginAppUserOutputWithContext(ctx context.Co
 // AuthLoginAppUserArrayInput is an input type that accepts AuthLoginAppUserArray and AuthLoginAppUserArrayOutput values.
 // You can construct a concrete instance of `AuthLoginAppUserArrayInput` via:
 //
-//          AuthLoginAppUserArray{ AuthLoginAppUserArgs{...} }
+//	AuthLoginAppUserArray{ AuthLoginAppUserArgs{...} }
 type AuthLoginAppUserArrayInput interface {
 	pulumi.Input
 
@@ -132,7 +132,7 @@ type BookmarkAppUser struct {
 // BookmarkAppUserInput is an input type that accepts BookmarkAppUserArgs and BookmarkAppUserOutput values.
 // You can construct a concrete instance of `BookmarkAppUserInput` via:
 //
-//          BookmarkAppUserArgs{...}
+//	BookmarkAppUserArgs{...}
 type BookmarkAppUserInput interface {
 	pulumi.Input
 
@@ -162,7 +162,7 @@ func (i BookmarkAppUserArgs) ToBookmarkAppUserOutputWithContext(ctx context.Cont
 // BookmarkAppUserArrayInput is an input type that accepts BookmarkAppUserArray and BookmarkAppUserArrayOutput values.
 // You can construct a concrete instance of `BookmarkAppUserArrayInput` via:
 //
-//          BookmarkAppUserArray{ BookmarkAppUserArgs{...} }
+//	BookmarkAppUserArray{ BookmarkAppUserArgs{...} }
 type BookmarkAppUserArrayInput interface {
 	pulumi.Input
 
@@ -243,7 +243,7 @@ type MfaPolicyRuleAppExclude struct {
 // MfaPolicyRuleAppExcludeInput is an input type that accepts MfaPolicyRuleAppExcludeArgs and MfaPolicyRuleAppExcludeOutput values.
 // You can construct a concrete instance of `MfaPolicyRuleAppExcludeInput` via:
 //
-//          MfaPolicyRuleAppExcludeArgs{...}
+//	MfaPolicyRuleAppExcludeArgs{...}
 type MfaPolicyRuleAppExcludeInput interface {
 	pulumi.Input
 
@@ -272,7 +272,7 @@ func (i MfaPolicyRuleAppExcludeArgs) ToMfaPolicyRuleAppExcludeOutputWithContext(
 // MfaPolicyRuleAppExcludeArrayInput is an input type that accepts MfaPolicyRuleAppExcludeArray and MfaPolicyRuleAppExcludeArrayOutput values.
 // You can construct a concrete instance of `MfaPolicyRuleAppExcludeArrayInput` via:
 //
-//          MfaPolicyRuleAppExcludeArray{ MfaPolicyRuleAppExcludeArgs{...} }
+//	MfaPolicyRuleAppExcludeArray{ MfaPolicyRuleAppExcludeArgs{...} }
 type MfaPolicyRuleAppExcludeArrayInput interface {
 	pulumi.Input
 
@@ -349,7 +349,7 @@ type MfaPolicyRuleAppInclude struct {
 // MfaPolicyRuleAppIncludeInput is an input type that accepts MfaPolicyRuleAppIncludeArgs and MfaPolicyRuleAppIncludeOutput values.
 // You can construct a concrete instance of `MfaPolicyRuleAppIncludeInput` via:
 //
-//          MfaPolicyRuleAppIncludeArgs{...}
+//	MfaPolicyRuleAppIncludeArgs{...}
 type MfaPolicyRuleAppIncludeInput interface {
 	pulumi.Input
 
@@ -378,7 +378,7 @@ func (i MfaPolicyRuleAppIncludeArgs) ToMfaPolicyRuleAppIncludeOutputWithContext(
 // MfaPolicyRuleAppIncludeArrayInput is an input type that accepts MfaPolicyRuleAppIncludeArray and MfaPolicyRuleAppIncludeArrayOutput values.
 // You can construct a concrete instance of `MfaPolicyRuleAppIncludeArrayInput` via:
 //
-//          MfaPolicyRuleAppIncludeArray{ MfaPolicyRuleAppIncludeArgs{...} }
+//	MfaPolicyRuleAppIncludeArray{ MfaPolicyRuleAppIncludeArgs{...} }
 type MfaPolicyRuleAppIncludeArrayInput interface {
 	pulumi.Input
 
@@ -457,7 +457,7 @@ type OauthAppGroupsClaim struct {
 // OauthAppGroupsClaimInput is an input type that accepts OauthAppGroupsClaimArgs and OauthAppGroupsClaimOutput values.
 // You can construct a concrete instance of `OauthAppGroupsClaimInput` via:
 //
-//          OauthAppGroupsClaimArgs{...}
+//	OauthAppGroupsClaimArgs{...}
 type OauthAppGroupsClaimInput interface {
 	pulumi.Input
 
@@ -496,11 +496,11 @@ func (i OauthAppGroupsClaimArgs) ToOauthAppGroupsClaimPtrOutputWithContext(ctx c
 // OauthAppGroupsClaimPtrInput is an input type that accepts OauthAppGroupsClaimArgs, OauthAppGroupsClaimPtr and OauthAppGroupsClaimPtrOutput values.
 // You can construct a concrete instance of `OauthAppGroupsClaimPtrInput` via:
 //
-//          OauthAppGroupsClaimArgs{...}
+//	        OauthAppGroupsClaimArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OauthAppGroupsClaimPtrInput interface {
 	pulumi.Input
 
@@ -649,7 +649,7 @@ type OauthAppJwk struct {
 // OauthAppJwkInput is an input type that accepts OauthAppJwkArgs and OauthAppJwkOutput values.
 // You can construct a concrete instance of `OauthAppJwkInput` via:
 //
-//          OauthAppJwkArgs{...}
+//	OauthAppJwkArgs{...}
 type OauthAppJwkInput interface {
 	pulumi.Input
 
@@ -679,7 +679,7 @@ func (i OauthAppJwkArgs) ToOauthAppJwkOutputWithContext(ctx context.Context) Oau
 // OauthAppJwkArrayInput is an input type that accepts OauthAppJwkArray and OauthAppJwkArrayOutput values.
 // You can construct a concrete instance of `OauthAppJwkArrayInput` via:
 //
-//          OauthAppJwkArray{ OauthAppJwkArgs{...} }
+//	OauthAppJwkArray{ OauthAppJwkArgs{...} }
 type OauthAppJwkArrayInput interface {
 	pulumi.Input
 
@@ -761,7 +761,7 @@ type OauthAppUser struct {
 // OauthAppUserInput is an input type that accepts OauthAppUserArgs and OauthAppUserOutput values.
 // You can construct a concrete instance of `OauthAppUserInput` via:
 //
-//          OauthAppUserArgs{...}
+//	OauthAppUserArgs{...}
 type OauthAppUserInput interface {
 	pulumi.Input
 
@@ -791,7 +791,7 @@ func (i OauthAppUserArgs) ToOauthAppUserOutputWithContext(ctx context.Context) O
 // OauthAppUserArrayInput is an input type that accepts OauthAppUserArray and OauthAppUserArrayOutput values.
 // You can construct a concrete instance of `OauthAppUserArrayInput` via:
 //
-//          OauthAppUserArray{ OauthAppUserArgs{...} }
+//	OauthAppUserArray{ OauthAppUserArgs{...} }
 type OauthAppUserArrayInput interface {
 	pulumi.Input
 
@@ -875,7 +875,7 @@ type SamlAppAttributeStatement struct {
 // SamlAppAttributeStatementInput is an input type that accepts SamlAppAttributeStatementArgs and SamlAppAttributeStatementOutput values.
 // You can construct a concrete instance of `SamlAppAttributeStatementInput` via:
 //
-//          SamlAppAttributeStatementArgs{...}
+//	SamlAppAttributeStatementArgs{...}
 type SamlAppAttributeStatementInput interface {
 	pulumi.Input
 
@@ -907,7 +907,7 @@ func (i SamlAppAttributeStatementArgs) ToSamlAppAttributeStatementOutputWithCont
 // SamlAppAttributeStatementArrayInput is an input type that accepts SamlAppAttributeStatementArray and SamlAppAttributeStatementArrayOutput values.
 // You can construct a concrete instance of `SamlAppAttributeStatementArrayInput` via:
 //
-//          SamlAppAttributeStatementArray{ SamlAppAttributeStatementArgs{...} }
+//	SamlAppAttributeStatementArray{ SamlAppAttributeStatementArgs{...} }
 type SamlAppAttributeStatementArrayInput interface {
 	pulumi.Input
 
@@ -1003,7 +1003,7 @@ type SamlAppKey struct {
 // SamlAppKeyInput is an input type that accepts SamlAppKeyArgs and SamlAppKeyOutput values.
 // You can construct a concrete instance of `SamlAppKeyInput` via:
 //
-//          SamlAppKeyArgs{...}
+//	SamlAppKeyArgs{...}
 type SamlAppKeyInput interface {
 	pulumi.Input
 
@@ -1039,7 +1039,7 @@ func (i SamlAppKeyArgs) ToSamlAppKeyOutputWithContext(ctx context.Context) SamlA
 // SamlAppKeyArrayInput is an input type that accepts SamlAppKeyArray and SamlAppKeyArrayOutput values.
 // You can construct a concrete instance of `SamlAppKeyArrayInput` via:
 //
-//          SamlAppKeyArray{ SamlAppKeyArgs{...} }
+//	SamlAppKeyArray{ SamlAppKeyArgs{...} }
 type SamlAppKeyArrayInput interface {
 	pulumi.Input
 
@@ -1145,7 +1145,7 @@ type SamlAppUser struct {
 // SamlAppUserInput is an input type that accepts SamlAppUserArgs and SamlAppUserOutput values.
 // You can construct a concrete instance of `SamlAppUserInput` via:
 //
-//          SamlAppUserArgs{...}
+//	SamlAppUserArgs{...}
 type SamlAppUserInput interface {
 	pulumi.Input
 
@@ -1175,7 +1175,7 @@ func (i SamlAppUserArgs) ToSamlAppUserOutputWithContext(ctx context.Context) Sam
 // SamlAppUserArrayInput is an input type that accepts SamlAppUserArray and SamlAppUserArrayOutput values.
 // You can construct a concrete instance of `SamlAppUserArrayInput` via:
 //
-//          SamlAppUserArray{ SamlAppUserArgs{...} }
+//	SamlAppUserArray{ SamlAppUserArgs{...} }
 type SamlAppUserArrayInput interface {
 	pulumi.Input
 
@@ -1257,7 +1257,7 @@ type SecurePasswordStoreAppUser struct {
 // SecurePasswordStoreAppUserInput is an input type that accepts SecurePasswordStoreAppUserArgs and SecurePasswordStoreAppUserOutput values.
 // You can construct a concrete instance of `SecurePasswordStoreAppUserInput` via:
 //
-//          SecurePasswordStoreAppUserArgs{...}
+//	SecurePasswordStoreAppUserArgs{...}
 type SecurePasswordStoreAppUserInput interface {
 	pulumi.Input
 
@@ -1287,7 +1287,7 @@ func (i SecurePasswordStoreAppUserArgs) ToSecurePasswordStoreAppUserOutputWithCo
 // SecurePasswordStoreAppUserArrayInput is an input type that accepts SecurePasswordStoreAppUserArray and SecurePasswordStoreAppUserArrayOutput values.
 // You can construct a concrete instance of `SecurePasswordStoreAppUserArrayInput` via:
 //
-//          SecurePasswordStoreAppUserArray{ SecurePasswordStoreAppUserArgs{...} }
+//	SecurePasswordStoreAppUserArray{ SecurePasswordStoreAppUserArgs{...} }
 type SecurePasswordStoreAppUserArrayInput interface {
 	pulumi.Input
 
@@ -1368,7 +1368,7 @@ type SignonPolicyRuleFactorSequence struct {
 // SignonPolicyRuleFactorSequenceInput is an input type that accepts SignonPolicyRuleFactorSequenceArgs and SignonPolicyRuleFactorSequenceOutput values.
 // You can construct a concrete instance of `SignonPolicyRuleFactorSequenceInput` via:
 //
-//          SignonPolicyRuleFactorSequenceArgs{...}
+//	SignonPolicyRuleFactorSequenceArgs{...}
 type SignonPolicyRuleFactorSequenceInput interface {
 	pulumi.Input
 
@@ -1397,7 +1397,7 @@ func (i SignonPolicyRuleFactorSequenceArgs) ToSignonPolicyRuleFactorSequenceOutp
 // SignonPolicyRuleFactorSequenceArrayInput is an input type that accepts SignonPolicyRuleFactorSequenceArray and SignonPolicyRuleFactorSequenceArrayOutput values.
 // You can construct a concrete instance of `SignonPolicyRuleFactorSequenceArrayInput` via:
 //
-//          SignonPolicyRuleFactorSequenceArray{ SignonPolicyRuleFactorSequenceArgs{...} }
+//	SignonPolicyRuleFactorSequenceArray{ SignonPolicyRuleFactorSequenceArgs{...} }
 type SignonPolicyRuleFactorSequenceArrayInput interface {
 	pulumi.Input
 
@@ -1475,7 +1475,7 @@ type SignonPolicyRuleFactorSequenceSecondaryCriteria struct {
 // SignonPolicyRuleFactorSequenceSecondaryCriteriaInput is an input type that accepts SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs and SignonPolicyRuleFactorSequenceSecondaryCriteriaOutput values.
 // You can construct a concrete instance of `SignonPolicyRuleFactorSequenceSecondaryCriteriaInput` via:
 //
-//          SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs{...}
+//	SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs{...}
 type SignonPolicyRuleFactorSequenceSecondaryCriteriaInput interface {
 	pulumi.Input
 
@@ -1503,7 +1503,7 @@ func (i SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs) ToSignonPolicyRuleF
 // SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayInput is an input type that accepts SignonPolicyRuleFactorSequenceSecondaryCriteriaArray and SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayOutput values.
 // You can construct a concrete instance of `SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayInput` via:
 //
-//          SignonPolicyRuleFactorSequenceSecondaryCriteriaArray{ SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs{...} }
+//	SignonPolicyRuleFactorSequenceSecondaryCriteriaArray{ SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs{...} }
 type SignonPolicyRuleFactorSequenceSecondaryCriteriaArrayInput interface {
 	pulumi.Input
 
@@ -1577,7 +1577,7 @@ type SwaAppUser struct {
 // SwaAppUserInput is an input type that accepts SwaAppUserArgs and SwaAppUserOutput values.
 // You can construct a concrete instance of `SwaAppUserInput` via:
 //
-//          SwaAppUserArgs{...}
+//	SwaAppUserArgs{...}
 type SwaAppUserInput interface {
 	pulumi.Input
 
@@ -1607,7 +1607,7 @@ func (i SwaAppUserArgs) ToSwaAppUserOutputWithContext(ctx context.Context) SwaAp
 // SwaAppUserArrayInput is an input type that accepts SwaAppUserArray and SwaAppUserArrayOutput values.
 // You can construct a concrete instance of `SwaAppUserArrayInput` via:
 //
-//          SwaAppUserArray{ SwaAppUserArgs{...} }
+//	SwaAppUserArray{ SwaAppUserArgs{...} }
 type SwaAppUserArrayInput interface {
 	pulumi.Input
 
@@ -1689,7 +1689,7 @@ type ThreeFieldAppUser struct {
 // ThreeFieldAppUserInput is an input type that accepts ThreeFieldAppUserArgs and ThreeFieldAppUserOutput values.
 // You can construct a concrete instance of `ThreeFieldAppUserInput` via:
 //
-//          ThreeFieldAppUserArgs{...}
+//	ThreeFieldAppUserArgs{...}
 type ThreeFieldAppUserInput interface {
 	pulumi.Input
 
@@ -1719,7 +1719,7 @@ func (i ThreeFieldAppUserArgs) ToThreeFieldAppUserOutputWithContext(ctx context.
 // ThreeFieldAppUserArrayInput is an input type that accepts ThreeFieldAppUserArray and ThreeFieldAppUserArrayOutput values.
 // You can construct a concrete instance of `ThreeFieldAppUserArrayInput` via:
 //
-//          ThreeFieldAppUserArray{ ThreeFieldAppUserArgs{...} }
+//	ThreeFieldAppUserArray{ ThreeFieldAppUserArgs{...} }
 type ThreeFieldAppUserArrayInput interface {
 	pulumi.Input
 

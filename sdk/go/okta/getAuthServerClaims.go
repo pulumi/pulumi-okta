@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.GetAuthServerClaims(ctx, &GetAuthServerClaimsArgs{
-// 			AuthServerId: "default",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetAuthServerClaims(ctx, &GetAuthServerClaimsArgs{
+//				AuthServerId: "default",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetAuthServerClaims(ctx *pulumi.Context, args *GetAuthServerClaimsArgs, opts ...pulumi.InvokeOption) (*GetAuthServerClaimsResult, error) {
 	var rv GetAuthServerClaimsResult

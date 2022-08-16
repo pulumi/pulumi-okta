@@ -19,20 +19,18 @@ namespace Pulumi.Okta.Policy
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Policy.GetDefaultPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
-        ///         {
-        ///             Type = "PASSWORD",
-        ///         }));
-        ///     }
+        ///         Type = "PASSWORD",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta.Policy
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Policy.GetDefaultPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Policy.GetDefaultPolicy.InvokeAsync(new Okta.Policy.GetDefaultPolicyArgs
-        ///         {
-        ///             Type = "PASSWORD",
-        ///         }));
-        ///     }
+        ///         Type = "PASSWORD",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta.Policy
     }
 
 
-    public sealed class GetDefaultPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetDefaultPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
@@ -83,9 +79,10 @@ namespace Pulumi.Okta.Policy
         public GetDefaultPolicyArgs()
         {
         }
+        public static new GetDefaultPolicyArgs Empty => new GetDefaultPolicyArgs();
     }
 
-    public sealed class GetDefaultPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDefaultPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
@@ -97,6 +94,7 @@ namespace Pulumi.Okta.Policy
         public GetDefaultPolicyInvokeArgs()
         {
         }
+        public static new GetDefaultPolicyInvokeArgs Empty => new GetDefaultPolicyInvokeArgs();
     }
 
 

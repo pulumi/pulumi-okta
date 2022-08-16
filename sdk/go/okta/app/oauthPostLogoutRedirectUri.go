@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testOAuth, err := app.NewOAuth(ctx, "testOAuth", &app.OAuthArgs{
-// 			Label: pulumi.String("testAcc_replace_with_uuid"),
-// 			Type:  pulumi.String("web"),
-// 			GrantTypes: pulumi.StringArray{
-// 				pulumi.String("authorization_code"),
-// 			},
-// 			ResponseTypes: pulumi.StringArray{
-// 				pulumi.String("code"),
-// 			},
-// 			RedirectUris: pulumi.StringArray{
-// 				pulumi.String("myapp://callback"),
-// 			},
-// 			PostLogoutRedirectUris: pulumi.StringArray{
-// 				pulumi.String("https://www.example.com"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = app.NewOAuthPostLogoutRedirectUri(ctx, "testOAuthPostLogoutRedirectUri", &app.OAuthPostLogoutRedirectUriArgs{
-// 			AppId: testOAuth.ID(),
-// 			Uri:   pulumi.String("https://www.example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testOAuth, err := app.NewOAuth(ctx, "testOAuth", &app.OAuthArgs{
+//				Label: pulumi.String("testAcc_replace_with_uuid"),
+//				Type:  pulumi.String("web"),
+//				GrantTypes: pulumi.StringArray{
+//					pulumi.String("authorization_code"),
+//				},
+//				ResponseTypes: pulumi.StringArray{
+//					pulumi.String("code"),
+//				},
+//				RedirectUris: pulumi.StringArray{
+//					pulumi.String("myapp://callback"),
+//				},
+//				PostLogoutRedirectUris: pulumi.StringArray{
+//					pulumi.String("https://www.example.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = app.NewOAuthPostLogoutRedirectUri(ctx, "testOAuthPostLogoutRedirectUri", &app.OAuthPostLogoutRedirectUriArgs{
+//				AppId: testOAuth.ID(),
+//				Uri:   pulumi.String("https://www.example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // A post logout redirect URI can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+//
+//	$ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+//
 // ```
 type OAuthPostLogoutRedirectUri struct {
 	pulumi.CustomResourceState
@@ -165,7 +170,7 @@ func (i *OAuthPostLogoutRedirectUri) ToOAuthPostLogoutRedirectUriOutputWithConte
 // OAuthPostLogoutRedirectUriArrayInput is an input type that accepts OAuthPostLogoutRedirectUriArray and OAuthPostLogoutRedirectUriArrayOutput values.
 // You can construct a concrete instance of `OAuthPostLogoutRedirectUriArrayInput` via:
 //
-//          OAuthPostLogoutRedirectUriArray{ OAuthPostLogoutRedirectUriArgs{...} }
+//	OAuthPostLogoutRedirectUriArray{ OAuthPostLogoutRedirectUriArgs{...} }
 type OAuthPostLogoutRedirectUriArrayInput interface {
 	pulumi.Input
 
@@ -190,7 +195,7 @@ func (i OAuthPostLogoutRedirectUriArray) ToOAuthPostLogoutRedirectUriArrayOutput
 // OAuthPostLogoutRedirectUriMapInput is an input type that accepts OAuthPostLogoutRedirectUriMap and OAuthPostLogoutRedirectUriMapOutput values.
 // You can construct a concrete instance of `OAuthPostLogoutRedirectUriMapInput` via:
 //
-//          OAuthPostLogoutRedirectUriMap{ "key": OAuthPostLogoutRedirectUriArgs{...} }
+//	OAuthPostLogoutRedirectUriMap{ "key": OAuthPostLogoutRedirectUriArgs{...} }
 type OAuthPostLogoutRedirectUriMapInput interface {
 	pulumi.Input
 

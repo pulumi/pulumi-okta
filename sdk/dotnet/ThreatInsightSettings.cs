@@ -15,38 +15,37 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ipNetworkZoneExample = new Okta.Network.Zone("ipNetworkZoneExample", new()
     ///     {
-    ///         var ipNetworkZoneExample = new Okta.Network.Zone("ipNetworkZoneExample", new Okta.Network.ZoneArgs
+    ///         Type = "IP",
+    ///         Gateways = new[]
     ///         {
-    ///             Type = "IP",
-    ///             Gateways = 
-    ///             {
-    ///                 "1.2.3.4/24",
-    ///                 "2.3.4.5-2.3.4.15",
-    ///             },
-    ///             Proxies = 
-    ///             {
-    ///                 "2.2.3.4/24",
-    ///                 "3.3.4.5-3.3.4.15",
-    ///             },
-    ///         });
-    ///         var example = new Okta.ThreatInsightSettings("example", new Okta.ThreatInsightSettingsArgs
+    ///             "1.2.3.4/24",
+    ///             "2.3.4.5-2.3.4.15",
+    ///         },
+    ///         Proxies = new[]
     ///         {
-    ///             Action = "block",
-    ///             NetworkExcludes = 
-    ///             {
-    ///                 ipNetworkZoneExample.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             "2.2.3.4/24",
+    ///             "3.3.4.5-3.3.4.15",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var example = new Okta.ThreatInsightSettings("example", new()
+    ///     {
+    ///         Action = "block",
+    ///         NetworkExcludes = new[]
+    ///         {
+    ///             ipNetworkZoneExample.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +57,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/threatInsightSettings:ThreatInsightSettings")]
-    public partial class ThreatInsightSettings : Pulumi.CustomResource
+    public partial class ThreatInsightSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values 
@@ -121,7 +120,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class ThreatInsightSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ThreatInsightSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values 
@@ -149,9 +148,10 @@ namespace Pulumi.Okta
         public ThreatInsightSettingsArgs()
         {
         }
+        public static new ThreatInsightSettingsArgs Empty => new ThreatInsightSettingsArgs();
     }
 
-    public sealed class ThreatInsightSettingsState : Pulumi.ResourceArgs
+    public sealed class ThreatInsightSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values 
@@ -179,5 +179,6 @@ namespace Pulumi.Okta
         public ThreatInsightSettingsState()
         {
         }
+        public static new ThreatInsightSettingsState Empty => new ThreatInsightSettingsState();
     }
 }

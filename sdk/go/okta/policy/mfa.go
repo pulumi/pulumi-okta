@@ -24,49 +24,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := policy.NewMfa(ctx, "classicExample", &policy.MfaArgs{
-// 			Description: pulumi.String("Example MFA policy using Okta Classic engine with factors."),
-// 			GroupsIncludeds: pulumi.StringArray{
-// 				pulumi.Any(data.Okta_group.Everyone.Id),
-// 			},
-// 			IsOie: pulumi.Bool(false),
-// 			OktaOtp: pulumi.StringMap{
-// 				"enroll": pulumi.String("REQUIRED"),
-// 			},
-// 			OktaPassword: pulumi.StringMap{
-// 				"enroll": pulumi.String("REQUIRED"),
-// 			},
-// 			Status: pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = policy.NewMfa(ctx, "oieExample", &policy.MfaArgs{
-// 			Description: pulumi.String("Example MFA policy that uses Okta Identity Engine (OIE) with authenticators"),
-// 			GroupsIncludeds: pulumi.StringArray{
-// 				pulumi.Any(data.Okta_group.Everyone.Id),
-// 			},
-// 			IsOie: pulumi.Bool(true),
-// 			OktaPassword: pulumi.StringMap{
-// 				"enroll": pulumi.String("REQUIRED"),
-// 			},
-// 			OktaVerify: pulumi.StringMap{
-// 				"enroll": pulumi.String("REQUIRED"),
-// 			},
-// 			Status: pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.NewMfa(ctx, "classicExample", &policy.MfaArgs{
+//				Description: pulumi.String("Example MFA policy using Okta Classic engine with factors."),
+//				GroupsIncludeds: pulumi.StringArray{
+//					pulumi.Any(data.Okta_group.Everyone.Id),
+//				},
+//				IsOie: pulumi.Bool(false),
+//				OktaOtp: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//				OktaPassword: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//				Status: pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewMfa(ctx, "oieExample", &policy.MfaArgs{
+//				Description: pulumi.String("Example MFA policy that uses Okta Identity Engine (OIE) with authenticators"),
+//				GroupsIncludeds: pulumi.StringArray{
+//					pulumi.Any(data.Okta_group.Everyone.Id),
+//				},
+//				IsOie: pulumi.Bool(true),
+//				OktaPassword: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//				OktaVerify: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//				Status: pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +77,9 @@ import (
 // An MFA Policy can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/mfa:Mfa example &#60;policy id&#62;
+//
+//	$ pulumi import okta:policy/mfa:Mfa example &#60;policy id&#62;
+//
 // ```
 type Mfa struct {
 	pulumi.CustomResourceState
@@ -427,7 +432,7 @@ func (i *Mfa) ToMfaOutputWithContext(ctx context.Context) MfaOutput {
 // MfaArrayInput is an input type that accepts MfaArray and MfaArrayOutput values.
 // You can construct a concrete instance of `MfaArrayInput` via:
 //
-//          MfaArray{ MfaArgs{...} }
+//	MfaArray{ MfaArgs{...} }
 type MfaArrayInput interface {
 	pulumi.Input
 
@@ -452,7 +457,7 @@ func (i MfaArray) ToMfaArrayOutputWithContext(ctx context.Context) MfaArrayOutpu
 // MfaMapInput is an input type that accepts MfaMap and MfaMapOutput values.
 // You can construct a concrete instance of `MfaMapInput` via:
 //
-//          MfaMap{ "key": MfaArgs{...} }
+//	MfaMap{ "key": MfaArgs{...} }
 type MfaMapInput interface {
 	pulumi.Input
 

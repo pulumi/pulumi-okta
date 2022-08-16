@@ -22,26 +22,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewAdminRoleTargets(ctx, "example", &okta.AdminRoleTargetsArgs{
-// 			Apps: pulumi.StringArray{
-// 				pulumi.String("oidc_client.<app_id>"),
-// 				pulumi.String("facebook"),
-// 			},
-// 			RoleType: pulumi.String("APP_ADMIN"),
-// 			UserId:   pulumi.String("<user_id>"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAdminRoleTargets(ctx, "example", &okta.AdminRoleTargetsArgs{
+//				Apps: pulumi.StringArray{
+//					pulumi.String("oidc_client.<app_id>"),
+//					pulumi.String("facebook"),
+//				},
+//				RoleType: pulumi.String("APP_ADMIN"),
+//				UserId:   pulumi.String("<user_id>"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Okta Admin Role Targets can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &#60;user id&#62;/&#60;role type&#62;
+//
+//	$ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &#60;user id&#62;/&#60;role type&#62;
+//
 // ```
 type AdminRoleTargets struct {
 	pulumi.CustomResourceState
@@ -179,7 +184,7 @@ func (i *AdminRoleTargets) ToAdminRoleTargetsOutputWithContext(ctx context.Conte
 // AdminRoleTargetsArrayInput is an input type that accepts AdminRoleTargetsArray and AdminRoleTargetsArrayOutput values.
 // You can construct a concrete instance of `AdminRoleTargetsArrayInput` via:
 //
-//          AdminRoleTargetsArray{ AdminRoleTargetsArgs{...} }
+//	AdminRoleTargetsArray{ AdminRoleTargetsArgs{...} }
 type AdminRoleTargetsArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +209,7 @@ func (i AdminRoleTargetsArray) ToAdminRoleTargetsArrayOutputWithContext(ctx cont
 // AdminRoleTargetsMapInput is an input type that accepts AdminRoleTargetsMap and AdminRoleTargetsMapOutput values.
 // You can construct a concrete instance of `AdminRoleTargetsMapInput` via:
 //
-//          AdminRoleTargetsMap{ "key": AdminRoleTargetsArgs{...} }
+//	AdminRoleTargetsMap{ "key": AdminRoleTargetsArgs{...} }
 type AdminRoleTargetsMapInput interface {
 	pulumi.Input
 

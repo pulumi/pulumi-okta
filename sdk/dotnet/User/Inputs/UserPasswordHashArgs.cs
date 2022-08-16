@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.User.Inputs
 {
 
-    public sealed class UserPasswordHashArgs : Pulumi.ResourceArgs
+    public sealed class UserPasswordHashArgs : global::Pulumi.ResourceArgs
     {
         [Input("algorithm", required: true)]
         public Input<string> Algorithm { get; set; } = null!;
@@ -46,5 +46,6 @@ namespace Pulumi.Okta.User.Inputs
         public UserPasswordHashArgs()
         {
         }
+        public static new UserPasswordHashArgs Empty => new UserPasswordHashArgs();
     }
 }

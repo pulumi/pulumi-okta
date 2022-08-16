@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		ipNetworkZoneExample, err := network.NewZone(ctx, "ipNetworkZoneExample", &network.ZoneArgs{
-// 			Type: pulumi.String("IP"),
-// 			Gateways: pulumi.StringArray{
-// 				pulumi.String("1.2.3.4/24"),
-// 				pulumi.String("2.3.4.5-2.3.4.15"),
-// 			},
-// 			Proxies: pulumi.StringArray{
-// 				pulumi.String("2.2.3.4/24"),
-// 				pulumi.String("3.3.4.5-3.3.4.15"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewThreatInsightSettings(ctx, "example", &okta.ThreatInsightSettingsArgs{
-// 			Action: pulumi.String("block"),
-// 			NetworkExcludes: pulumi.StringArray{
-// 				ipNetworkZoneExample.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ipNetworkZoneExample, err := network.NewZone(ctx, "ipNetworkZoneExample", &network.ZoneArgs{
+//				Type: pulumi.String("IP"),
+//				Gateways: pulumi.StringArray{
+//					pulumi.String("1.2.3.4/24"),
+//					pulumi.String("2.3.4.5-2.3.4.15"),
+//				},
+//				Proxies: pulumi.StringArray{
+//					pulumi.String("2.2.3.4/24"),
+//					pulumi.String("3.3.4.5-3.3.4.15"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewThreatInsightSettings(ctx, "example", &okta.ThreatInsightSettingsArgs{
+//				Action: pulumi.String("block"),
+//				NetworkExcludes: pulumi.StringArray{
+//					ipNetworkZoneExample.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Threat Insight Settings can be imported without any parameters.
 //
 // ```sh
-//  $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
+//
+//	$ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
+//
 // ```
 type ThreatInsightSettings struct {
 	pulumi.CustomResourceState
@@ -185,7 +190,7 @@ func (i *ThreatInsightSettings) ToThreatInsightSettingsOutputWithContext(ctx con
 // ThreatInsightSettingsArrayInput is an input type that accepts ThreatInsightSettingsArray and ThreatInsightSettingsArrayOutput values.
 // You can construct a concrete instance of `ThreatInsightSettingsArrayInput` via:
 //
-//          ThreatInsightSettingsArray{ ThreatInsightSettingsArgs{...} }
+//	ThreatInsightSettingsArray{ ThreatInsightSettingsArgs{...} }
 type ThreatInsightSettingsArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +215,7 @@ func (i ThreatInsightSettingsArray) ToThreatInsightSettingsArrayOutputWithContex
 // ThreatInsightSettingsMapInput is an input type that accepts ThreatInsightSettingsMap and ThreatInsightSettingsMapOutput values.
 // You can construct a concrete instance of `ThreatInsightSettingsMapInput` via:
 //
-//          ThreatInsightSettingsMap{ "key": ThreatInsightSettingsArgs{...} }
+//	ThreatInsightSettingsMap{ "key": ThreatInsightSettingsArgs{...} }
 type ThreatInsightSettingsMapInput interface {
 	pulumi.Input
 

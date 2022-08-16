@@ -684,7 +684,7 @@ func (i *SamlApp) ToSamlAppOutputWithContext(ctx context.Context) SamlAppOutput 
 // SamlAppArrayInput is an input type that accepts SamlAppArray and SamlAppArrayOutput values.
 // You can construct a concrete instance of `SamlAppArrayInput` via:
 //
-//          SamlAppArray{ SamlAppArgs{...} }
+//	SamlAppArray{ SamlAppArgs{...} }
 type SamlAppArrayInput interface {
 	pulumi.Input
 
@@ -709,7 +709,7 @@ func (i SamlAppArray) ToSamlAppArrayOutputWithContext(ctx context.Context) SamlA
 // SamlAppMapInput is an input type that accepts SamlAppMap and SamlAppMapOutput values.
 // You can construct a concrete instance of `SamlAppMapInput` via:
 //
-//          SamlAppMap{ "key": SamlAppArgs{...} }
+//	SamlAppMap{ "key": SamlAppArgs{...} }
 type SamlAppMapInput interface {
 	pulumi.Input
 

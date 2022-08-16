@@ -21,46 +21,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/profile"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/profile"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		user, err := user.GetUserProfileMappingSource(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = profile.NewMapping(ctx, "example", &profile.MappingArgs{
-// 			DeleteWhenAbsent: pulumi.Bool(true),
-// 			Mappings: profile.MappingMappingArray{
-// 				&profile.MappingMappingArgs{
-// 					Expression: pulumi.String("appuser.firstName"),
-// 					Id:         pulumi.String("firstName"),
-// 				},
-// 				&profile.MappingMappingArgs{
-// 					Expression: pulumi.String("appuser.lastName"),
-// 					Id:         pulumi.String("lastName"),
-// 				},
-// 				&profile.MappingMappingArgs{
-// 					Expression: pulumi.String("appuser.email"),
-// 					Id:         pulumi.String("email"),
-// 				},
-// 				&profile.MappingMappingArgs{
-// 					Expression: pulumi.String("appuser.email"),
-// 					Id:         pulumi.String("login"),
-// 				},
-// 			},
-// 			SourceId: pulumi.String("<source id>"),
-// 			TargetId: pulumi.String(user.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			user, err := user.GetUserProfileMappingSource(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = profile.NewMapping(ctx, "example", &profile.MappingArgs{
+//				DeleteWhenAbsent: pulumi.Bool(true),
+//				Mappings: profile.MappingMappingArray{
+//					&profile.MappingMappingArgs{
+//						Expression: pulumi.String("appuser.firstName"),
+//						Id:         pulumi.String("firstName"),
+//					},
+//					&profile.MappingMappingArgs{
+//						Expression: pulumi.String("appuser.lastName"),
+//						Id:         pulumi.String("lastName"),
+//					},
+//					&profile.MappingMappingArgs{
+//						Expression: pulumi.String("appuser.email"),
+//						Id:         pulumi.String("email"),
+//					},
+//					&profile.MappingMappingArgs{
+//						Expression: pulumi.String("appuser.email"),
+//						Id:         pulumi.String("login"),
+//					},
+//				},
+//				SourceId: pulumi.String("<source id>"),
+//				TargetId: pulumi.String(user.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -222,7 +225,7 @@ func (i *Mapping) ToMappingOutputWithContext(ctx context.Context) MappingOutput 
 // MappingArrayInput is an input type that accepts MappingArray and MappingArrayOutput values.
 // You can construct a concrete instance of `MappingArrayInput` via:
 //
-//          MappingArray{ MappingArgs{...} }
+//	MappingArray{ MappingArgs{...} }
 type MappingArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +250,7 @@ func (i MappingArray) ToMappingArrayOutputWithContext(ctx context.Context) Mappi
 // MappingMapInput is an input type that accepts MappingMap and MappingMapOutput values.
 // You can construct a concrete instance of `MappingMapInput` via:
 //
-//          MappingMap{ "key": MappingArgs{...} }
+//	MappingMap{ "key": MappingArgs{...} }
 type MappingMapInput interface {
 	pulumi.Input
 

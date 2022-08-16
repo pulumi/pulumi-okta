@@ -17,24 +17,22 @@ namespace Pulumi.Okta.User
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.User.BaseSchema("example", new()
     ///     {
-    ///         var example = new Okta.User.BaseSchema("example", new Okta.User.BaseSchemaArgs
-    ///         {
-    ///             Index = "customPropertyName",
-    ///             Master = "OKTA",
-    ///             Title = "customPropertyName",
-    ///             Type = "string",
-    ///             UserType = data.Okta_user_type.Example.Id,
-    ///         });
-    ///     }
+    ///         Index = "customPropertyName",
+    ///         Master = "OKTA",
+    ///         Title = "customPropertyName",
+    ///         Type = "string",
+    ///         UserType = data.Okta_user_type.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Okta.User
     /// ```
     /// </summary>
     [OktaResourceType("okta:user/baseSchema:BaseSchema")]
-    public partial class BaseSchema : Pulumi.CustomResource
+    public partial class BaseSchema : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The property name.
@@ -146,7 +144,7 @@ namespace Pulumi.Okta.User
         }
     }
 
-    public sealed class BaseSchemaArgs : Pulumi.ResourceArgs
+    public sealed class BaseSchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The property name.
@@ -199,9 +197,10 @@ namespace Pulumi.Okta.User
         public BaseSchemaArgs()
         {
         }
+        public static new BaseSchemaArgs Empty => new BaseSchemaArgs();
     }
 
-    public sealed class BaseSchemaState : Pulumi.ResourceArgs
+    public sealed class BaseSchemaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The property name.
@@ -254,5 +253,6 @@ namespace Pulumi.Okta.User
         public BaseSchemaState()
         {
         }
+        public static new BaseSchemaState Empty => new BaseSchemaState();
     }
 }

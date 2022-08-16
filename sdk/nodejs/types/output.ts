@@ -355,6 +355,7 @@ export interface UserSchemaPropertyOneOf {
      */
     title: string;
 }
+
 export namespace app {
     export interface AutoLoginUser {
         id?: string;
@@ -1130,5 +1131,4 @@ export namespace user {
          */
         workFactor?: number;
     }
-
 }

@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use app.OAuthRedirectUri instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/oauthAppRedirectUri:OauthAppRedirectUri")]
-    public partial class OauthAppRedirectUri : Pulumi.CustomResource
+    public partial class OauthAppRedirectUri : global::Pulumi.CustomResource
     {
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class OauthAppRedirectUriArgs : Pulumi.ResourceArgs
+    public sealed class OauthAppRedirectUriArgs : global::Pulumi.ResourceArgs
     {
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
@@ -80,9 +80,10 @@ namespace Pulumi.Okta.Deprecated
         public OauthAppRedirectUriArgs()
         {
         }
+        public static new OauthAppRedirectUriArgs Empty => new OauthAppRedirectUriArgs();
     }
 
-    public sealed class OauthAppRedirectUriState : Pulumi.ResourceArgs
+    public sealed class OauthAppRedirectUriState : global::Pulumi.ResourceArgs
     {
         [Input("appId")]
         public Input<string>? AppId { get; set; }
@@ -96,5 +97,6 @@ namespace Pulumi.Okta.Deprecated
         public OauthAppRedirectUriState()
         {
         }
+        public static new OauthAppRedirectUriState Empty => new OauthAppRedirectUriState();
     }
 }

@@ -20,31 +20,30 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testUser = new Okta.User.User("testUser", new()
     ///     {
-    ///         var testUser = new Okta.User.User("testUser", new Okta.User.UserArgs
-    ///         {
-    ///             FirstName = "TestAcc",
-    ///             LastName = "Smith",
-    ///             Login = "testAcc-replace_with_uuid@example.com",
-    ///             Email = "testAcc-replace_with_uuid@example.com",
-    ///         });
-    ///         var testUserAdminRoles = new Okta.UserAdminRoles("testUserAdminRoles", new Okta.UserAdminRolesArgs
-    ///         {
-    ///             UserId = testUser.Id,
-    ///             AdminRoles = 
-    ///             {
-    ///                 "APP_ADMIN",
-    ///             },
-    ///         });
-    ///     }
+    ///         FirstName = "TestAcc",
+    ///         LastName = "Smith",
+    ///         Login = "testAcc-replace_with_uuid@example.com",
+    ///         Email = "testAcc-replace_with_uuid@example.com",
+    ///     });
     /// 
-    /// }
+    ///     var testUserAdminRoles = new Okta.UserAdminRoles("testUserAdminRoles", new()
+    ///     {
+    ///         UserId = testUser.Id,
+    ///         AdminRoles = new[]
+    ///         {
+    ///             "APP_ADMIN",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +55,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/userAdminRoles:UserAdminRoles")]
-    public partial class UserAdminRoles : Pulumi.CustomResource
+    public partial class UserAdminRoles : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
@@ -121,7 +120,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class UserAdminRolesArgs : Pulumi.ResourceArgs
+    public sealed class UserAdminRolesArgs : global::Pulumi.ResourceArgs
     {
         [Input("adminRoles", required: true)]
         private InputList<string>? _adminRoles;
@@ -151,9 +150,10 @@ namespace Pulumi.Okta
         public UserAdminRolesArgs()
         {
         }
+        public static new UserAdminRolesArgs Empty => new UserAdminRolesArgs();
     }
 
-    public sealed class UserAdminRolesState : Pulumi.ResourceArgs
+    public sealed class UserAdminRolesState : global::Pulumi.ResourceArgs
     {
         [Input("adminRoles")]
         private InputList<string>? _adminRoles;
@@ -183,5 +183,6 @@ namespace Pulumi.Okta
         public UserAdminRolesState()
         {
         }
+        public static new UserAdminRolesState Empty => new UserAdminRolesState();
     }
 }

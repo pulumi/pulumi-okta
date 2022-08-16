@@ -19,20 +19,18 @@ namespace Pulumi.Okta.App
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.App.GetApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.App.GetApp.InvokeAsync(new Okta.App.GetAppArgs
-        ///         {
-        ///             Label = "Example App",
-        ///         }));
-        ///     }
+        ///         Label = "Example App",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta.App
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.App.GetApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.App.GetApp.InvokeAsync(new Okta.App.GetAppArgs
-        ///         {
-        ///             Label = "Example App",
-        ///         }));
-        ///     }
+        ///         Label = "Example App",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta.App
     }
 
 
-    public sealed class GetAppArgs : Pulumi.InvokeArgs
+    public sealed class GetAppArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// tells the provider to query for only `ACTIVE` applications.
@@ -117,9 +113,10 @@ namespace Pulumi.Okta.App
         public GetAppArgs()
         {
         }
+        public static new GetAppArgs Empty => new GetAppArgs();
     }
 
-    public sealed class GetAppInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// tells the provider to query for only `ACTIVE` applications.
@@ -165,6 +162,7 @@ namespace Pulumi.Okta.App
         public GetAppInvokeArgs()
         {
         }
+        public static new GetAppInvokeArgs Empty => new GetAppInvokeArgs();
     }
 
 

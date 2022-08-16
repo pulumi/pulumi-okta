@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewOrgSupport(ctx, "example", &okta.OrgSupportArgs{
-// 			ExtendBy: pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewOrgSupport(ctx, "example", &okta.OrgSupportArgs{
+//				ExtendBy: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -137,7 +140,7 @@ func (i *OrgSupport) ToOrgSupportOutputWithContext(ctx context.Context) OrgSuppo
 // OrgSupportArrayInput is an input type that accepts OrgSupportArray and OrgSupportArrayOutput values.
 // You can construct a concrete instance of `OrgSupportArrayInput` via:
 //
-//          OrgSupportArray{ OrgSupportArgs{...} }
+//	OrgSupportArray{ OrgSupportArgs{...} }
 type OrgSupportArrayInput interface {
 	pulumi.Input
 
@@ -162,7 +165,7 @@ func (i OrgSupportArray) ToOrgSupportArrayOutputWithContext(ctx context.Context)
 // OrgSupportMapInput is an input type that accepts OrgSupportMap and OrgSupportMapOutput values.
 // You can construct a concrete instance of `OrgSupportMapInput` via:
 //
-//          OrgSupportMap{ "key": OrgSupportArgs{...} }
+//	OrgSupportMap{ "key": OrgSupportArgs{...} }
 type OrgSupportMapInput interface {
 	pulumi.Input
 

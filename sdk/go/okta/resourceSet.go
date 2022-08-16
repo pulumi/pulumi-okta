@@ -14,13 +14,13 @@ import (
 // This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use
 // Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
 // The `resources` field supports the following:
-//  - Apps
-//  - Groups
-//  - All Users within a Group
-//  - All Users within the org
-//  - All Groups within the org
-//  - All Apps within the org
-//  - All Apps of the same type
+//   - Apps
+//   - Groups
+//   - All Users within a Group
+//   - All Users within the org
+//   - All Groups within the org
+//   - All Apps within the org
+//   - All Apps of the same type
 //
 // > **NOTE:** This an `Early Access` feature.
 //
@@ -29,7 +29,9 @@ import (
 // Okta Resource Set can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
+//
+//	$ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
+//
 // ```
 type ResourceSet struct {
 	pulumi.CustomResourceState
@@ -148,7 +150,7 @@ func (i *ResourceSet) ToResourceSetOutputWithContext(ctx context.Context) Resour
 // ResourceSetArrayInput is an input type that accepts ResourceSetArray and ResourceSetArrayOutput values.
 // You can construct a concrete instance of `ResourceSetArrayInput` via:
 //
-//          ResourceSetArray{ ResourceSetArgs{...} }
+//	ResourceSetArray{ ResourceSetArgs{...} }
 type ResourceSetArrayInput interface {
 	pulumi.Input
 
@@ -173,7 +175,7 @@ func (i ResourceSetArray) ToResourceSetArrayOutputWithContext(ctx context.Contex
 // ResourceSetMapInput is an input type that accepts ResourceSetMap and ResourceSetMapOutput values.
 // You can construct a concrete instance of `ResourceSetMapInput` via:
 //
-//          ResourceSetMap{ "key": ResourceSetArgs{...} }
+//	ResourceSetMap{ "key": ResourceSetArgs{...} }
 type ResourceSetMapInput interface {
 	pulumi.Input
 

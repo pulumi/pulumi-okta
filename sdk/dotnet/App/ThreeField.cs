@@ -35,7 +35,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/threeField:ThreeField")]
-    public partial class ThreeField : Pulumi.CustomResource
+    public partial class ThreeField : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL.
@@ -287,7 +287,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class ThreeFieldArgs : Pulumi.ResourceArgs
+    public sealed class ThreeFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -494,9 +494,10 @@ namespace Pulumi.Okta.App
         public ThreeFieldArgs()
         {
         }
+        public static new ThreeFieldArgs Empty => new ThreeFieldArgs();
     }
 
-    public sealed class ThreeFieldState : Pulumi.ResourceArgs
+    public sealed class ThreeFieldState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -721,5 +722,6 @@ namespace Pulumi.Okta.App
         public ThreeFieldState()
         {
         }
+        public static new ThreeFieldState Empty => new ThreeFieldState();
     }
 }

@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use policy.Password instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/passwordPolicy:PasswordPolicy")]
-    public partial class PasswordPolicy : Pulumi.CustomResource
+    public partial class PasswordPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
@@ -239,7 +239,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class PasswordPolicyArgs : Pulumi.ResourceArgs
+    public sealed class PasswordPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
@@ -438,9 +438,10 @@ namespace Pulumi.Okta.Deprecated
         public PasswordPolicyArgs()
         {
         }
+        public static new PasswordPolicyArgs Empty => new PasswordPolicyArgs();
     }
 
-    public sealed class PasswordPolicyState : Pulumi.ResourceArgs
+    public sealed class PasswordPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
@@ -639,5 +640,6 @@ namespace Pulumi.Okta.Deprecated
         public PasswordPolicyState()
         {
         }
+        public static new PasswordPolicyState Empty => new PasswordPolicyState();
     }
 }

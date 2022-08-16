@@ -24,39 +24,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewPolicyMfaDefault(ctx, "classicExample", &okta.PolicyMfaDefaultArgs{
-// 			IsOie: pulumi.Bool(false),
-// 			OktaOtp: pulumi.StringMap{
-// 				"enroll": pulumi.String("REQUIRED"),
-// 			},
-// 			OktaPassword: pulumi.StringMap{
-// 				"enroll": pulumi.String("REQUIRED"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewPolicyMfaDefault(ctx, "oieExample", &okta.PolicyMfaDefaultArgs{
-// 			IsOie: pulumi.Bool(true),
-// 			OktaPassword: pulumi.StringMap{
-// 				"enroll": pulumi.String("REQUIRED"),
-// 			},
-// 			OktaVerify: pulumi.StringMap{
-// 				"enroll": pulumi.String("REQUIRED"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewPolicyMfaDefault(ctx, "classicExample", &okta.PolicyMfaDefaultArgs{
+//				IsOie: pulumi.Bool(false),
+//				OktaOtp: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//				OktaPassword: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewPolicyMfaDefault(ctx, "oieExample", &okta.PolicyMfaDefaultArgs{
+//				IsOie: pulumi.Bool(true),
+//				OktaPassword: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//				OktaVerify: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // > If the `PolicyMfaDefault` is used in conjunction with `policy.Mfa` resources, ensure to use a `dependsOn` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.
@@ -66,7 +69,9 @@ import (
 // Default MFA Policy can be imported without providing Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .
+//
+//	$ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .
+//
 // ```
 type PolicyMfaDefault struct {
 	pulumi.CustomResourceState
@@ -399,7 +404,7 @@ func (i *PolicyMfaDefault) ToPolicyMfaDefaultOutputWithContext(ctx context.Conte
 // PolicyMfaDefaultArrayInput is an input type that accepts PolicyMfaDefaultArray and PolicyMfaDefaultArrayOutput values.
 // You can construct a concrete instance of `PolicyMfaDefaultArrayInput` via:
 //
-//          PolicyMfaDefaultArray{ PolicyMfaDefaultArgs{...} }
+//	PolicyMfaDefaultArray{ PolicyMfaDefaultArgs{...} }
 type PolicyMfaDefaultArrayInput interface {
 	pulumi.Input
 
@@ -424,7 +429,7 @@ func (i PolicyMfaDefaultArray) ToPolicyMfaDefaultArrayOutputWithContext(ctx cont
 // PolicyMfaDefaultMapInput is an input type that accepts PolicyMfaDefaultMap and PolicyMfaDefaultMapOutput values.
 // You can construct a concrete instance of `PolicyMfaDefaultMapInput` via:
 //
-//          PolicyMfaDefaultMap{ "key": PolicyMfaDefaultArgs{...} }
+//	PolicyMfaDefaultMap{ "key": PolicyMfaDefaultArgs{...} }
 type PolicyMfaDefaultMapInput interface {
 	pulumi.Input
 

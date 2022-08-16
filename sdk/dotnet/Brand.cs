@@ -18,24 +18,22 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // resource has been imported into current state
+    ///     // $ terraform import okta_brand.example &lt;brand id&gt;
+    ///     var example = new Okta.Brand("example", new()
     ///     {
-    ///         // resource has been imported into current state
-    ///         // $ terraform import okta_brand.example &lt;brand id&gt;
-    ///         var example = new Okta.Brand("example", new Okta.BrandArgs
-    ///         {
-    ///             AgreeToCustomPrivacyPolicy = true,
-    ///             CustomPrivacyPolicyUrl = "https://example.com/privacy-policy",
-    ///             RemovePoweredByOkta = true,
-    ///         });
-    ///     }
+    ///         AgreeToCustomPrivacyPolicy = true,
+    ///         CustomPrivacyPolicyUrl = "https://example.com/privacy-policy",
+    ///         RemovePoweredByOkta = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/brand:Brand")]
-    public partial class Brand : Pulumi.CustomResource
+    public partial class Brand : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
@@ -123,7 +121,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class BrandArgs : Pulumi.ResourceArgs
+    public sealed class BrandArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
@@ -152,9 +150,10 @@ namespace Pulumi.Okta
         public BrandArgs()
         {
         }
+        public static new BrandArgs Empty => new BrandArgs();
     }
 
-    public sealed class BrandState : Pulumi.ResourceArgs
+    public sealed class BrandState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
@@ -189,5 +188,6 @@ namespace Pulumi.Okta
         public BrandState()
         {
         }
+        public static new BrandState Empty => new BrandState();
     }
 }

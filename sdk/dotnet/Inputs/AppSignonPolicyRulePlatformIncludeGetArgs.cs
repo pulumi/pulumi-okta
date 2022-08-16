@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Inputs
 {
 
-    public sealed class AppSignonPolicyRulePlatformIncludeGetArgs : Pulumi.ResourceArgs
+    public sealed class AppSignonPolicyRulePlatformIncludeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Only available when using `os_type = "OTHER"`
@@ -33,5 +33,6 @@ namespace Pulumi.Okta.Inputs
         public AppSignonPolicyRulePlatformIncludeGetArgs()
         {
         }
+        public static new AppSignonPolicyRulePlatformIncludeGetArgs Empty => new AppSignonPolicyRulePlatformIncludeGetArgs();
     }
 }

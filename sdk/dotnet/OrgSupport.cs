@@ -16,20 +16,18 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.OrgSupport("example", new()
     ///     {
-    ///         var example = new Okta.OrgSupport("example", new Okta.OrgSupportArgs
-    ///         {
-    ///             ExtendBy = 1,
-    ///         });
-    ///     }
+    ///         ExtendBy = 1,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -37,7 +35,7 @@ namespace Pulumi.Okta
     /// This resource does not support importing.
     /// </summary>
     [OktaResourceType("okta:index/orgSupport:OrgSupport")]
-    public partial class OrgSupport : Pulumi.CustomResource
+    public partial class OrgSupport : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Expiration of Okta Support
@@ -101,7 +99,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class OrgSupportArgs : Pulumi.ResourceArgs
+    public sealed class OrgSupportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of days the support should be extended by in addition to the standard eight hours.
@@ -112,9 +110,10 @@ namespace Pulumi.Okta
         public OrgSupportArgs()
         {
         }
+        public static new OrgSupportArgs Empty => new OrgSupportArgs();
     }
 
-    public sealed class OrgSupportState : Pulumi.ResourceArgs
+    public sealed class OrgSupportState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Expiration of Okta Support
@@ -137,5 +136,6 @@ namespace Pulumi.Okta
         public OrgSupportState()
         {
         }
+        public static new OrgSupportState Empty => new OrgSupportState();
     }
 }

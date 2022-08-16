@@ -18,22 +18,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.LookupRoleSubscription(ctx, &GetRoleSubscriptionArgs{
-// 			NotificationType: "APP_IMPORT",
-// 			RoleType:         "SUPER_ADMIN",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.LookupRoleSubscription(ctx, &GetRoleSubscriptionArgs{
+//				NotificationType: "APP_IMPORT",
+//				RoleType:         "SUPER_ADMIN",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupRoleSubscription(ctx *pulumi.Context, args *LookupRoleSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupRoleSubscriptionResult, error) {
 	var rv LookupRoleSubscriptionResult

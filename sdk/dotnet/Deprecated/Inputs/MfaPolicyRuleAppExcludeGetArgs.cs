@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Deprecated.Inputs
 {
 
-    public sealed class MfaPolicyRuleAppExcludeGetArgs : Pulumi.ResourceArgs
+    public sealed class MfaPolicyRuleAppExcludeGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Okta.Deprecated.Inputs
         public MfaPolicyRuleAppExcludeGetArgs()
         {
         }
+        public static new MfaPolicyRuleAppExcludeGetArgs Empty => new MfaPolicyRuleAppExcludeGetArgs();
     }
 }

@@ -21,25 +21,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewDomain(ctx, "exampleDomain", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewDomainVerification(ctx, "exampleDomainVerification", &okta.DomainVerificationArgs{
-// 			DomainId: pulumi.Any(okta_domain.Test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewDomain(ctx, "exampleDomain", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewDomainVerification(ctx, "exampleDomainVerification", &okta.DomainVerificationArgs{
+//				DomainId: pulumi.Any(okta_domain.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -134,7 +137,7 @@ func (i *DomainVerification) ToDomainVerificationOutputWithContext(ctx context.C
 // DomainVerificationArrayInput is an input type that accepts DomainVerificationArray and DomainVerificationArrayOutput values.
 // You can construct a concrete instance of `DomainVerificationArrayInput` via:
 //
-//          DomainVerificationArray{ DomainVerificationArgs{...} }
+//	DomainVerificationArray{ DomainVerificationArgs{...} }
 type DomainVerificationArrayInput interface {
 	pulumi.Input
 
@@ -159,7 +162,7 @@ func (i DomainVerificationArray) ToDomainVerificationArrayOutputWithContext(ctx 
 // DomainVerificationMapInput is an input type that accepts DomainVerificationMap and DomainVerificationMapOutput values.
 // You can construct a concrete instance of `DomainVerificationMapInput` via:
 //
-//          DomainVerificationMap{ "key": DomainVerificationArgs{...} }
+//	DomainVerificationMap{ "key": DomainVerificationArgs{...} }
 type DomainVerificationMapInput interface {
 	pulumi.Input
 

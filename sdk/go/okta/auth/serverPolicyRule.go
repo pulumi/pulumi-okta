@@ -11,40 +11,39 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Authorization Server Policy Rule.
-//
-// This resource allows you to create and configure an Authorization Server Policy Rule.
-//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := auth.NewServerPolicyRule(ctx, "example", &auth.ServerPolicyRuleArgs{
-// 			AuthServerId: pulumi.String("<auth server id>"),
-// 			GrantTypeWhitelists: pulumi.StringArray{
-// 				pulumi.String("implicit"),
-// 			},
-// 			GroupWhitelists: pulumi.StringArray{
-// 				pulumi.String("<group ids>"),
-// 			},
-// 			PolicyId: pulumi.String("<auth server policy id>"),
-// 			Priority: pulumi.Int(1),
-// 			Status:   pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := auth.NewServerPolicyRule(ctx, "example", &auth.ServerPolicyRuleArgs{
+//				AuthServerId: pulumi.String("<auth server id>"),
+//				GrantTypeWhitelists: pulumi.StringArray{
+//					pulumi.String("implicit"),
+//				},
+//				GroupWhitelists: pulumi.StringArray{
+//					pulumi.String("<group ids>"),
+//				},
+//				PolicyId: pulumi.String("<auth server policy id>"),
+//				Priority: pulumi.Int(1),
+//				Status:   pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +51,9 @@ import (
 // Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
+//
+//	$ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
+//
 // ```
 type ServerPolicyRule struct {
 	pulumi.CustomResourceState
@@ -323,7 +324,7 @@ func (i *ServerPolicyRule) ToServerPolicyRuleOutputWithContext(ctx context.Conte
 // ServerPolicyRuleArrayInput is an input type that accepts ServerPolicyRuleArray and ServerPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `ServerPolicyRuleArrayInput` via:
 //
-//          ServerPolicyRuleArray{ ServerPolicyRuleArgs{...} }
+//	ServerPolicyRuleArray{ ServerPolicyRuleArgs{...} }
 type ServerPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -348,7 +349,7 @@ func (i ServerPolicyRuleArray) ToServerPolicyRuleArrayOutputWithContext(ctx cont
 // ServerPolicyRuleMapInput is an input type that accepts ServerPolicyRuleMap and ServerPolicyRuleMapOutput values.
 // You can construct a concrete instance of `ServerPolicyRuleMapInput` via:
 //
-//          ServerPolicyRuleMap{ "key": ServerPolicyRuleArgs{...} }
+//	ServerPolicyRuleMap{ "key": ServerPolicyRuleArgs{...} }
 type ServerPolicyRuleMapInput interface {
 	pulumi.Input
 

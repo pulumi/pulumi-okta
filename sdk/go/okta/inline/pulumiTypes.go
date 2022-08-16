@@ -20,7 +20,7 @@ type HookHeader struct {
 // HookHeaderInput is an input type that accepts HookHeaderArgs and HookHeaderOutput values.
 // You can construct a concrete instance of `HookHeaderInput` via:
 //
-//          HookHeaderArgs{...}
+//	HookHeaderArgs{...}
 type HookHeaderInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i HookHeaderArgs) ToHookHeaderOutputWithContext(ctx context.Context) HookH
 // HookHeaderArrayInput is an input type that accepts HookHeaderArray and HookHeaderArrayOutput values.
 // You can construct a concrete instance of `HookHeaderArrayInput` via:
 //
-//          HookHeaderArray{ HookHeaderArgs{...} }
+//	HookHeaderArray{ HookHeaderArgs{...} }
 type HookHeaderArrayInput interface {
 	pulumi.Input
 

@@ -15,24 +15,22 @@ namespace Pulumi.Okta.App
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.App.SecurePasswordStore("example", new()
     ///     {
-    ///         var example = new Okta.App.SecurePasswordStore("example", new Okta.App.SecurePasswordStoreArgs
-    ///         {
-    ///             CredentialsScheme = "ADMIN_SETS_CREDENTIALS",
-    ///             Label = "example",
-    ///             PasswordField = "pass",
-    ///             Url = "https://test.com",
-    ///             UsernameField = "user",
-    ///         });
-    ///     }
+    ///         CredentialsScheme = "ADMIN_SETS_CREDENTIALS",
+    ///         Label = "example",
+    ///         PasswordField = "pass",
+    ///         Url = "https://test.com",
+    ///         UsernameField = "user",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/securePasswordStore:SecurePasswordStore")]
-    public partial class SecurePasswordStore : Pulumi.CustomResource
+    public partial class SecurePasswordStore : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL.
@@ -322,7 +320,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class SecurePasswordStoreArgs : Pulumi.ResourceArgs
+    public sealed class SecurePasswordStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -541,9 +539,10 @@ namespace Pulumi.Okta.App
         public SecurePasswordStoreArgs()
         {
         }
+        public static new SecurePasswordStoreArgs Empty => new SecurePasswordStoreArgs();
     }
 
-    public sealed class SecurePasswordStoreState : Pulumi.ResourceArgs
+    public sealed class SecurePasswordStoreState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL.
@@ -780,5 +779,6 @@ namespace Pulumi.Okta.App
         public SecurePasswordStoreState()
         {
         }
+        public static new SecurePasswordStoreState Empty => new SecurePasswordStoreState();
     }
 }

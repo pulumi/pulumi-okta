@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Deprecated.Inputs
 {
 
-    public sealed class SecurePasswordStoreAppUserArgs : Pulumi.ResourceArgs
+    public sealed class SecurePasswordStoreAppUserArgs : global::Pulumi.ResourceArgs
     {
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Okta.Deprecated.Inputs
         public SecurePasswordStoreAppUserArgs()
         {
         }
+        public static new SecurePasswordStoreAppUserArgs Empty => new SecurePasswordStoreAppUserArgs();
     }
 }

@@ -16,9 +16,9 @@ import (
 // This resource allows you to manage the apps in the Profile Enrollment Policy.
 //
 // **Important Notes:**
-//  - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
-//  - When re-assigning the app to another policy, please use `dependsOn` in the policy to which the app will be assigned. This is necessary to avoid
-//      unexpected behavior, since if the app is unassigned from the policy it is just assigned to the `Default` one.
+//   - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
+//   - When re-assigning the app to another policy, please use `dependsOn` in the policy to which the app will be assigned. This is necessary to avoid
+//     unexpected behavior, since if the app is unassigned from the policy it is just assigned to the `Default` one.
 //
 // ## Example Usage
 //
@@ -26,39 +26,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := policy.GetPolicy(ctx, &policy.GetPolicyArgs{
-// 			Name: "My Policy",
-// 			Type: "PROFILE_ENROLLMENT",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = app.GetApp(ctx, &app.GetAppArgs{
-// 			Label: pulumi.StringRef("My App"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewPolicyProfileEnrollmentApps(ctx, "examplePolicyProfileEnrollmentApps", &okta.PolicyProfileEnrollmentAppsArgs{
-// 			PolicyId: pulumi.Any(okta_policy.Example.Id),
-// 			Apps: pulumi.StringArray{
-// 				pulumi.Any(data.Okta_app.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.GetPolicy(ctx, &policy.GetPolicyArgs{
+//				Name: "My Policy",
+//				Type: "PROFILE_ENROLLMENT",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = app.GetApp(ctx, &app.GetAppArgs{
+//				Label: pulumi.StringRef("My App"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewPolicyProfileEnrollmentApps(ctx, "examplePolicyProfileEnrollmentApps", &okta.PolicyProfileEnrollmentAppsArgs{
+//				PolicyId: pulumi.Any(okta_policy.Example.Id),
+//				Apps: pulumi.StringArray{
+//					pulumi.Any(data.Okta_app.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // A Profile Enrollment Policy Apps can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &#60;policy id&#62;
+//
+//	$ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &#60;policy id&#62;
+//
 // ```
 type PolicyProfileEnrollmentApps struct {
 	pulumi.CustomResourceState
@@ -173,7 +178,7 @@ func (i *PolicyProfileEnrollmentApps) ToPolicyProfileEnrollmentAppsOutputWithCon
 // PolicyProfileEnrollmentAppsArrayInput is an input type that accepts PolicyProfileEnrollmentAppsArray and PolicyProfileEnrollmentAppsArrayOutput values.
 // You can construct a concrete instance of `PolicyProfileEnrollmentAppsArrayInput` via:
 //
-//          PolicyProfileEnrollmentAppsArray{ PolicyProfileEnrollmentAppsArgs{...} }
+//	PolicyProfileEnrollmentAppsArray{ PolicyProfileEnrollmentAppsArgs{...} }
 type PolicyProfileEnrollmentAppsArrayInput interface {
 	pulumi.Input
 
@@ -198,7 +203,7 @@ func (i PolicyProfileEnrollmentAppsArray) ToPolicyProfileEnrollmentAppsArrayOutp
 // PolicyProfileEnrollmentAppsMapInput is an input type that accepts PolicyProfileEnrollmentAppsMap and PolicyProfileEnrollmentAppsMapOutput values.
 // You can construct a concrete instance of `PolicyProfileEnrollmentAppsMapInput` via:
 //
-//          PolicyProfileEnrollmentAppsMap{ "key": PolicyProfileEnrollmentAppsArgs{...} }
+//	PolicyProfileEnrollmentAppsMap{ "key": PolicyProfileEnrollmentAppsArgs{...} }
 type PolicyProfileEnrollmentAppsMapInput interface {
 	pulumi.Input
 

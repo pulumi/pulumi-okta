@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use idp.Social instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/socialIdp:SocialIdp")]
-    public partial class SocialIdp : Pulumi.CustomResource
+    public partial class SocialIdp : global::Pulumi.CustomResource
     {
         [Output("accountLinkAction")]
         public Output<string?> AccountLinkAction { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class SocialIdpArgs : Pulumi.ResourceArgs
+    public sealed class SocialIdpArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountLinkAction")]
         public Input<string>? AccountLinkAction { get; set; }
@@ -286,9 +286,10 @@ namespace Pulumi.Okta.Deprecated
         public SocialIdpArgs()
         {
         }
+        public static new SocialIdpArgs Empty => new SocialIdpArgs();
     }
 
-    public sealed class SocialIdpState : Pulumi.ResourceArgs
+    public sealed class SocialIdpState : global::Pulumi.ResourceArgs
     {
         [Input("accountLinkAction")]
         public Input<string>? AccountLinkAction { get; set; }
@@ -421,5 +422,6 @@ namespace Pulumi.Okta.Deprecated
         public SocialIdpState()
         {
         }
+        public static new SocialIdpState Empty => new SocialIdpState();
     }
 }

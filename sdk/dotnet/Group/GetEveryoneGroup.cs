@@ -20,17 +20,15 @@ namespace Pulumi.Okta.Group
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Okta.Group.GetEveryoneGroup.InvokeAsync());
-        ///     }
+        ///     var example = Okta.Group.GetEveryoneGroup.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -47,17 +45,15 @@ namespace Pulumi.Okta.Group
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Okta.Group.GetEveryoneGroup.InvokeAsync());
-        ///     }
+        ///     var example = Okta.Group.GetEveryoneGroup.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,7 +63,7 @@ namespace Pulumi.Okta.Group
     }
 
 
-    public sealed class GetEveryoneGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetEveryoneGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// whether to retrieve all member ids.
@@ -78,9 +74,10 @@ namespace Pulumi.Okta.Group
         public GetEveryoneGroupArgs()
         {
         }
+        public static new GetEveryoneGroupArgs Empty => new GetEveryoneGroupArgs();
     }
 
-    public sealed class GetEveryoneGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEveryoneGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// whether to retrieve all member ids.
@@ -91,6 +88,7 @@ namespace Pulumi.Okta.Group
         public GetEveryoneGroupInvokeArgs()
         {
         }
+        public static new GetEveryoneGroupInvokeArgs Empty => new GetEveryoneGroupInvokeArgs();
     }
 
 

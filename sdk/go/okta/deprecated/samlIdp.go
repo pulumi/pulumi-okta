@@ -296,7 +296,7 @@ func (i *SamlIdp) ToSamlIdpOutputWithContext(ctx context.Context) SamlIdpOutput 
 // SamlIdpArrayInput is an input type that accepts SamlIdpArray and SamlIdpArrayOutput values.
 // You can construct a concrete instance of `SamlIdpArrayInput` via:
 //
-//          SamlIdpArray{ SamlIdpArgs{...} }
+//	SamlIdpArray{ SamlIdpArgs{...} }
 type SamlIdpArrayInput interface {
 	pulumi.Input
 
@@ -321,7 +321,7 @@ func (i SamlIdpArray) ToSamlIdpArrayOutputWithContext(ctx context.Context) SamlI
 // SamlIdpMapInput is an input type that accepts SamlIdpMap and SamlIdpMapOutput values.
 // You can construct a concrete instance of `SamlIdpMapInput` via:
 //
-//          SamlIdpMap{ "key": SamlIdpArgs{...} }
+//	SamlIdpMap{ "key": SamlIdpArgs{...} }
 type SamlIdpMapInput interface {
 	pulumi.Input
 

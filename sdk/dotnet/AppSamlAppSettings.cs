@@ -21,34 +21,32 @@ namespace Pulumi.Okta
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testSaml = new Okta.App.Saml("testSaml", new()
     ///     {
-    ///         var testSaml = new Okta.App.Saml("testSaml", new Okta.App.SamlArgs
-    ///         {
-    ///             PreconfiguredApp = "amazon_aws",
-    ///             Label = "Amazon AWS",
-    ///             Status = "ACTIVE",
-    ///         });
-    ///         var testAppSamlAppSettings = new Okta.AppSamlAppSettings("testAppSamlAppSettings", new Okta.AppSamlAppSettingsArgs
-    ///         {
-    ///             AppId = testSaml.Id,
-    ///             Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "appFilter", "okta" },
-    ///                 { "awsEnvironmentType", "aws.amazon" },
-    ///                 { "groupFilter", "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)" },
-    ///                 { "joinAllRoles", false },
-    ///                 { "loginURL", "https://console.aws.amazon.com/ec2/home" },
-    ///                 { "roleValuePattern", $"arn:aws:iam::{accountid}:saml-provider/OKTA,arn:aws:iam::{accountid}:role/{role}" },
-    ///                 { "sessionDuration", 3200 },
-    ///                 { "useGroupMapping", false },
-    ///             }),
-    ///         });
-    ///     }
+    ///         PreconfiguredApp = "amazon_aws",
+    ///         Label = "Amazon AWS",
+    ///         Status = "ACTIVE",
+    ///     });
     /// 
-    /// }
+    ///     var testAppSamlAppSettings = new Okta.AppSamlAppSettings("testAppSamlAppSettings", new()
+    ///     {
+    ///         AppId = testSaml.Id,
+    ///         Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["appFilter"] = "okta",
+    ///             ["awsEnvironmentType"] = "aws.amazon",
+    ///             ["groupFilter"] = "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)",
+    ///             ["joinAllRoles"] = false,
+    ///             ["loginURL"] = "https://console.aws.amazon.com/ec2/home",
+    ///             ["roleValuePattern"] = $"arn:aws:iam::{accountid}:saml-provider/OKTA,arn:aws:iam::{accountid}:role/{role}",
+    ///             ["sessionDuration"] = 3200,
+    ///             ["useGroupMapping"] = false,
+    ///         }),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +58,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appSamlAppSettings:AppSamlAppSettings")]
-    public partial class AppSamlAppSettings : Pulumi.CustomResource
+    public partial class AppSamlAppSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the application.
@@ -118,7 +116,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AppSamlAppSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AppSamlAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the application.
@@ -135,9 +133,10 @@ namespace Pulumi.Okta
         public AppSamlAppSettingsArgs()
         {
         }
+        public static new AppSamlAppSettingsArgs Empty => new AppSamlAppSettingsArgs();
     }
 
-    public sealed class AppSamlAppSettingsState : Pulumi.ResourceArgs
+    public sealed class AppSamlAppSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the application.
@@ -154,5 +153,6 @@ namespace Pulumi.Okta
         public AppSamlAppSettingsState()
         {
         }
+        public static new AppSamlAppSettingsState Empty => new AppSamlAppSettingsState();
     }
 }

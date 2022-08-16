@@ -276,7 +276,7 @@ func (i *SocialIdp) ToSocialIdpOutputWithContext(ctx context.Context) SocialIdpO
 // SocialIdpArrayInput is an input type that accepts SocialIdpArray and SocialIdpArrayOutput values.
 // You can construct a concrete instance of `SocialIdpArrayInput` via:
 //
-//          SocialIdpArray{ SocialIdpArgs{...} }
+//	SocialIdpArray{ SocialIdpArgs{...} }
 type SocialIdpArrayInput interface {
 	pulumi.Input
 
@@ -301,7 +301,7 @@ func (i SocialIdpArray) ToSocialIdpArrayOutputWithContext(ctx context.Context) S
 // SocialIdpMapInput is an input type that accepts SocialIdpMap and SocialIdpMapOutput values.
 // You can construct a concrete instance of `SocialIdpMapInput` via:
 //
-//          SocialIdpMap{ "key": SocialIdpArgs{...} }
+//	SocialIdpMap{ "key": SocialIdpArgs{...} }
 type SocialIdpMapInput interface {
 	pulumi.Input
 

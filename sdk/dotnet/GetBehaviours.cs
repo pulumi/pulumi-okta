@@ -19,20 +19,18 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.GetBehaviours.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.GetBehaviours.InvokeAsync(new Okta.GetBehavioursArgs
-        ///         {
-        ///             Q = "New",
-        ///         }));
-        ///     }
+        ///         Q = "New",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.GetBehaviours.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.GetBehaviours.InvokeAsync(new Okta.GetBehavioursArgs
-        ///         {
-        ///             Q = "New",
-        ///         }));
-        ///     }
+        ///         Q = "New",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetBehavioursArgs : Pulumi.InvokeArgs
+    public sealed class GetBehavioursArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Searches query to look up behaviors.
@@ -82,9 +78,10 @@ namespace Pulumi.Okta
         public GetBehavioursArgs()
         {
         }
+        public static new GetBehavioursArgs Empty => new GetBehavioursArgs();
     }
 
-    public sealed class GetBehavioursInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBehavioursInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Searches query to look up behaviors.
@@ -95,6 +92,7 @@ namespace Pulumi.Okta
         public GetBehavioursInvokeArgs()
         {
         }
+        public static new GetBehavioursInvokeArgs Empty => new GetBehavioursInvokeArgs();
     }
 
 

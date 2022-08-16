@@ -21,26 +21,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := auth.NewServerClaim(ctx, "example", &auth.ServerClaimArgs{
-// 			AuthServerId: pulumi.String("<auth server id>"),
-// 			ClaimType:    pulumi.String("IDENTITY"),
-// 			Scopes: pulumi.StringArray{
-// 				pulumi.Any(okta_auth_server_scope.Example.Name),
-// 			},
-// 			Value: pulumi.String("String.substringAfter(user.email, \"@\") == \"example.com\""),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := auth.NewServerClaim(ctx, "example", &auth.ServerClaimArgs{
+//				AuthServerId: pulumi.String("<auth server id>"),
+//				ClaimType:    pulumi.String("IDENTITY"),
+//				Scopes: pulumi.StringArray{
+//					pulumi.Any(okta_auth_server_scope.Example.Name),
+//				},
+//				Value: pulumi.String("String.substringAfter(user.email, \"@\") == \"example.com\""),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
 //
 // ```sh
-//  $ pulumi import okta:auth/serverClaim:ServerClaim example &#60;auth server id&#62;/&#60;claim id&#62;
+//
+//	$ pulumi import okta:auth/serverClaim:ServerClaim example &#60;auth server id&#62;/&#60;claim id&#62;
+//
 // ```
 type ServerClaim struct {
 	pulumi.CustomResourceState
@@ -225,7 +230,7 @@ func (i *ServerClaim) ToServerClaimOutputWithContext(ctx context.Context) Server
 // ServerClaimArrayInput is an input type that accepts ServerClaimArray and ServerClaimArrayOutput values.
 // You can construct a concrete instance of `ServerClaimArrayInput` via:
 //
-//          ServerClaimArray{ ServerClaimArgs{...} }
+//	ServerClaimArray{ ServerClaimArgs{...} }
 type ServerClaimArrayInput interface {
 	pulumi.Input
 
@@ -250,7 +255,7 @@ func (i ServerClaimArray) ToServerClaimArrayOutputWithContext(ctx context.Contex
 // ServerClaimMapInput is an input type that accepts ServerClaimMap and ServerClaimMapOutput values.
 // You can construct a concrete instance of `ServerClaimMapInput` via:
 //
-//          ServerClaimMap{ "key": ServerClaimArgs{...} }
+//	ServerClaimMap{ "key": ServerClaimArgs{...} }
 type ServerClaimMapInput interface {
 	pulumi.Input
 

@@ -19,20 +19,18 @@ namespace Pulumi.Okta.Idp
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Idp.GetSaml.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Idp.GetSaml.InvokeAsync(new Okta.Idp.GetSamlArgs
-        ///         {
-        ///             Name = "Example App",
-        ///         }));
-        ///     }
+        ///         Name = "Example App",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Okta.Idp
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Idp.GetSaml.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Idp.GetSaml.InvokeAsync(new Okta.Idp.GetSamlArgs
-        ///         {
-        ///             Name = "Example App",
-        ///         }));
-        ///     }
+        ///         Name = "Example App",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Okta.Idp
     }
 
 
-    public sealed class GetSamlArgs : Pulumi.InvokeArgs
+    public sealed class GetSamlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the idp to retrieve, conflicts with `name`.
@@ -88,9 +84,10 @@ namespace Pulumi.Okta.Idp
         public GetSamlArgs()
         {
         }
+        public static new GetSamlArgs Empty => new GetSamlArgs();
     }
 
-    public sealed class GetSamlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSamlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the idp to retrieve, conflicts with `name`.
@@ -107,6 +104,7 @@ namespace Pulumi.Okta.Idp
         public GetSamlInvokeArgs()
         {
         }
+        public static new GetSamlInvokeArgs Empty => new GetSamlInvokeArgs();
     }
 
 

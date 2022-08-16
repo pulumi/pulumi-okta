@@ -21,25 +21,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewAppUserBaseSchemaProperty(ctx, "example", &okta.AppUserBaseSchemaPropertyArgs{
-// 			AppId:  pulumi.String("<app id>"),
-// 			Index:  pulumi.String("customPropertyName"),
-// 			Master: pulumi.String("OKTA"),
-// 			Title:  pulumi.String("customPropertyName"),
-// 			Type:   pulumi.String("string"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAppUserBaseSchemaProperty(ctx, "example", &okta.AppUserBaseSchemaPropertyArgs{
+//				AppId:  pulumi.String("<app id>"),
+//				Index:  pulumi.String("customPropertyName"),
+//				Master: pulumi.String("OKTA"),
+//				Title:  pulumi.String("customPropertyName"),
+//				Type:   pulumi.String("string"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // App user base schema property can be imported via the property index and app id.
 //
 // ```sh
-//  $ pulumi import okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
+//
+//	$ pulumi import okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
+//
 // ```
 type AppUserBaseSchemaProperty struct {
 	pulumi.CustomResourceState
@@ -227,7 +232,7 @@ func (i *AppUserBaseSchemaProperty) ToAppUserBaseSchemaPropertyOutputWithContext
 // AppUserBaseSchemaPropertyArrayInput is an input type that accepts AppUserBaseSchemaPropertyArray and AppUserBaseSchemaPropertyArrayOutput values.
 // You can construct a concrete instance of `AppUserBaseSchemaPropertyArrayInput` via:
 //
-//          AppUserBaseSchemaPropertyArray{ AppUserBaseSchemaPropertyArgs{...} }
+//	AppUserBaseSchemaPropertyArray{ AppUserBaseSchemaPropertyArgs{...} }
 type AppUserBaseSchemaPropertyArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +257,7 @@ func (i AppUserBaseSchemaPropertyArray) ToAppUserBaseSchemaPropertyArrayOutputWi
 // AppUserBaseSchemaPropertyMapInput is an input type that accepts AppUserBaseSchemaPropertyMap and AppUserBaseSchemaPropertyMapOutput values.
 // You can construct a concrete instance of `AppUserBaseSchemaPropertyMapInput` via:
 //
-//          AppUserBaseSchemaPropertyMap{ "key": AppUserBaseSchemaPropertyArgs{...} }
+//	AppUserBaseSchemaPropertyMap{ "key": AppUserBaseSchemaPropertyArgs{...} }
 type AppUserBaseSchemaPropertyMapInput interface {
 	pulumi.Input
 

@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use app.Bookmark instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/bookmarkApp:BookmarkApp")]
-    public partial class BookmarkApp : Pulumi.CustomResource
+    public partial class BookmarkApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL
@@ -177,7 +177,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class BookmarkAppArgs : Pulumi.ResourceArgs
+    public sealed class BookmarkAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -298,9 +298,10 @@ namespace Pulumi.Okta.Deprecated
         public BookmarkAppArgs()
         {
         }
+        public static new BookmarkAppArgs Empty => new BookmarkAppArgs();
     }
 
-    public sealed class BookmarkAppState : Pulumi.ResourceArgs
+    public sealed class BookmarkAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -439,5 +440,6 @@ namespace Pulumi.Okta.Deprecated
         public BookmarkAppState()
         {
         }
+        public static new BookmarkAppState Empty => new BookmarkAppState();
     }
 }

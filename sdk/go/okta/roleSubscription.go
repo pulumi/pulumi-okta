@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewRoleSubscription(ctx, "test", &okta.RoleSubscriptionArgs{
-// 			NotificationType: pulumi.String("APP_IMPORT"),
-// 			RoleType:         pulumi.String("SUPER_ADMIN"),
-// 			Status:           pulumi.String("unsubscribed"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewRoleSubscription(ctx, "test", &okta.RoleSubscriptionArgs{
+//				NotificationType: pulumi.String("APP_IMPORT"),
+//				RoleType:         pulumi.String("SUPER_ADMIN"),
+//				Status:           pulumi.String("unsubscribed"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // A role subscription can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/roleSubscription:RoleSubscription example &#60;role_type&#62;/&#60;notification_type&#62;
+//
+//	$ pulumi import okta:index/roleSubscription:RoleSubscription example &#60;role_type&#62;/&#60;notification_type&#62;
+//
 // ```
 type RoleSubscription struct {
 	pulumi.CustomResourceState
@@ -164,7 +169,7 @@ func (i *RoleSubscription) ToRoleSubscriptionOutputWithContext(ctx context.Conte
 // RoleSubscriptionArrayInput is an input type that accepts RoleSubscriptionArray and RoleSubscriptionArrayOutput values.
 // You can construct a concrete instance of `RoleSubscriptionArrayInput` via:
 //
-//          RoleSubscriptionArray{ RoleSubscriptionArgs{...} }
+//	RoleSubscriptionArray{ RoleSubscriptionArgs{...} }
 type RoleSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -189,7 +194,7 @@ func (i RoleSubscriptionArray) ToRoleSubscriptionArrayOutputWithContext(ctx cont
 // RoleSubscriptionMapInput is an input type that accepts RoleSubscriptionMap and RoleSubscriptionMapOutput values.
 // You can construct a concrete instance of `RoleSubscriptionMapInput` via:
 //
-//          RoleSubscriptionMap{ "key": RoleSubscriptionArgs{...} }
+//	RoleSubscriptionMap{ "key": RoleSubscriptionArgs{...} }
 type RoleSubscriptionMapInput interface {
 	pulumi.Input
 

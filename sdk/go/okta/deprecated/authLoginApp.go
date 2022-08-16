@@ -409,7 +409,7 @@ func (i *AuthLoginApp) ToAuthLoginAppOutputWithContext(ctx context.Context) Auth
 // AuthLoginAppArrayInput is an input type that accepts AuthLoginAppArray and AuthLoginAppArrayOutput values.
 // You can construct a concrete instance of `AuthLoginAppArrayInput` via:
 //
-//          AuthLoginAppArray{ AuthLoginAppArgs{...} }
+//	AuthLoginAppArray{ AuthLoginAppArgs{...} }
 type AuthLoginAppArrayInput interface {
 	pulumi.Input
 
@@ -434,7 +434,7 @@ func (i AuthLoginAppArray) ToAuthLoginAppArrayOutputWithContext(ctx context.Cont
 // AuthLoginAppMapInput is an input type that accepts AuthLoginAppMap and AuthLoginAppMapOutput values.
 // You can construct a concrete instance of `AuthLoginAppMapInput` via:
 //
-//          AuthLoginAppMap{ "key": AuthLoginAppArgs{...} }
+//	AuthLoginAppMap{ "key": AuthLoginAppArgs{...} }
 type AuthLoginAppMapInput interface {
 	pulumi.Input
 

@@ -162,7 +162,7 @@ func (i *EmailCustomization) ToEmailCustomizationOutputWithContext(ctx context.C
 // EmailCustomizationArrayInput is an input type that accepts EmailCustomizationArray and EmailCustomizationArrayOutput values.
 // You can construct a concrete instance of `EmailCustomizationArrayInput` via:
 //
-//          EmailCustomizationArray{ EmailCustomizationArgs{...} }
+//	EmailCustomizationArray{ EmailCustomizationArgs{...} }
 type EmailCustomizationArrayInput interface {
 	pulumi.Input
 
@@ -187,7 +187,7 @@ func (i EmailCustomizationArray) ToEmailCustomizationArrayOutputWithContext(ctx 
 // EmailCustomizationMapInput is an input type that accepts EmailCustomizationMap and EmailCustomizationMapOutput values.
 // You can construct a concrete instance of `EmailCustomizationMapInput` via:
 //
-//          EmailCustomizationMap{ "key": EmailCustomizationArgs{...} }
+//	EmailCustomizationMap{ "key": EmailCustomizationArgs{...} }
 type EmailCustomizationMapInput interface {
 	pulumi.Input
 

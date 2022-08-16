@@ -18,28 +18,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUser, err := user.NewUser(ctx, "exampleUser", &user.UserArgs{
-// 			FirstName: pulumi.String("John"),
-// 			LastName:  pulumi.String("Smith"),
-// 			Login:     pulumi.String("john.smith@example.com"),
-// 			Email:     pulumi.String("john.smith@example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_ = okta.GetUserSecurityQuestionsOutput(ctx, GetUserSecurityQuestionsOutputArgs{
-// 			UserId: exampleUser.ID(),
-// 		}, nil)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUser, err := user.NewUser(ctx, "exampleUser", &user.UserArgs{
+//				FirstName: pulumi.String("John"),
+//				LastName:  pulumi.String("Smith"),
+//				Login:     pulumi.String("john.smith@example.com"),
+//				Email:     pulumi.String("john.smith@example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = okta.GetUserSecurityQuestionsOutput(ctx, GetUserSecurityQuestionsOutputArgs{
+//				UserId: exampleUser.ID(),
+//			}, nil)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetUserSecurityQuestions(ctx *pulumi.Context, args *GetUserSecurityQuestionsArgs, opts ...pulumi.InvokeOption) (*GetUserSecurityQuestionsResult, error) {
 	var rv GetUserSecurityQuestionsResult

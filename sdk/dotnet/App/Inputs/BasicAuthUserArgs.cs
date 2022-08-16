@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App.Inputs
 {
 
-    public sealed class BasicAuthUserArgs : Pulumi.ResourceArgs
+    public sealed class BasicAuthUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Application.
@@ -30,5 +30,6 @@ namespace Pulumi.Okta.App.Inputs
         public BasicAuthUserArgs()
         {
         }
+        public static new BasicAuthUserArgs Empty => new BasicAuthUserArgs();
     }
 }

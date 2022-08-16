@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App.Inputs
 {
 
-    public sealed class ThreeFieldUserGetArgs : Pulumi.ResourceArgs
+    public sealed class ThreeFieldUserGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Okta.App.Inputs
         public ThreeFieldUserGetArgs()
         {
         }
+        public static new ThreeFieldUserGetArgs Empty => new ThreeFieldUserGetArgs();
     }
 }

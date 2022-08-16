@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App.Inputs
 {
 
-    public sealed class BookmarkUserGetArgs : Pulumi.ResourceArgs
+    public sealed class BookmarkUserGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Application.
@@ -30,5 +30,6 @@ namespace Pulumi.Okta.App.Inputs
         public BookmarkUserGetArgs()
         {
         }
+        public static new BookmarkUserGetArgs Empty => new BookmarkUserGetArgs();
     }
 }

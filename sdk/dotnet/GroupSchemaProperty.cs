@@ -13,25 +13,23 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.GroupSchemaProperty("example", new()
     ///     {
-    ///         var example = new Okta.GroupSchemaProperty("example", new Okta.GroupSchemaPropertyArgs
-    ///         {
-    ///             Description = "My custom property name",
-    ///             Index = "customPropertyName",
-    ///             Master = "OKTA",
-    ///             Scope = "SELF",
-    ///             Title = "customPropertyName",
-    ///             Type = "string",
-    ///         });
-    ///     }
+    ///         Description = "My custom property name",
+    ///         Index = "customPropertyName",
+    ///         Master = "OKTA",
+    ///         Scope = "SELF",
+    ///         Title = "customPropertyName",
+    ///         Type = "string",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/groupSchemaProperty:GroupSchemaProperty")]
-    public partial class GroupSchemaProperty : Pulumi.CustomResource
+    public partial class GroupSchemaProperty : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Array of values that an array property's items can be set to.
@@ -203,7 +201,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class GroupSchemaPropertyArgs : Pulumi.ResourceArgs
+    public sealed class GroupSchemaPropertyArgs : global::Pulumi.ResourceArgs
     {
         [Input("arrayEnums")]
         private InputList<string>? _arrayEnums;
@@ -352,9 +350,10 @@ namespace Pulumi.Okta
         public GroupSchemaPropertyArgs()
         {
         }
+        public static new GroupSchemaPropertyArgs Empty => new GroupSchemaPropertyArgs();
     }
 
-    public sealed class GroupSchemaPropertyState : Pulumi.ResourceArgs
+    public sealed class GroupSchemaPropertyState : global::Pulumi.ResourceArgs
     {
         [Input("arrayEnums")]
         private InputList<string>? _arrayEnums;
@@ -503,5 +502,6 @@ namespace Pulumi.Okta
         public GroupSchemaPropertyState()
         {
         }
+        public static new GroupSchemaPropertyState Empty => new GroupSchemaPropertyState();
     }
 }

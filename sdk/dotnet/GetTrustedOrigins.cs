@@ -19,17 +19,15 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var all = Output.Create(Okta.GetTrustedOrigins.InvokeAsync());
-        ///     }
+        ///     var all = Okta.GetTrustedOrigins.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,17 +43,15 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var all = Output.Create(Okta.GetTrustedOrigins.InvokeAsync());
-        ///     }
+        ///     var all = Okta.GetTrustedOrigins.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -65,7 +61,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetTrustedOriginsArgs : Pulumi.InvokeArgs
+    public sealed class GetTrustedOriginsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
@@ -76,9 +72,10 @@ namespace Pulumi.Okta
         public GetTrustedOriginsArgs()
         {
         }
+        public static new GetTrustedOriginsArgs Empty => new GetTrustedOriginsArgs();
     }
 
-    public sealed class GetTrustedOriginsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTrustedOriginsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
@@ -89,6 +86,7 @@ namespace Pulumi.Okta
         public GetTrustedOriginsInvokeArgs()
         {
         }
+        public static new GetTrustedOriginsInvokeArgs Empty => new GetTrustedOriginsInvokeArgs();
     }
 
 

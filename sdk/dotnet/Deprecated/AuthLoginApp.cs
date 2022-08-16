@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use app.AutoLogin instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/authLoginApp:AuthLoginApp")]
-    public partial class AuthLoginApp : Pulumi.CustomResource
+    public partial class AuthLoginApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL
@@ -243,7 +243,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class AuthLoginAppArgs : Pulumi.ResourceArgs
+    public sealed class AuthLoginAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -430,9 +430,10 @@ namespace Pulumi.Okta.Deprecated
         public AuthLoginAppArgs()
         {
         }
+        public static new AuthLoginAppArgs Empty => new AuthLoginAppArgs();
     }
 
-    public sealed class AuthLoginAppState : Pulumi.ResourceArgs
+    public sealed class AuthLoginAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -637,5 +638,6 @@ namespace Pulumi.Okta.Deprecated
         public AuthLoginAppState()
         {
         }
+        public static new AuthLoginAppState Empty => new AuthLoginAppState();
     }
 }

@@ -17,19 +17,15 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var @default = new Okta.PolicyPasswordDefault("default", new Okta.PolicyPasswordDefaultArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var @default = new Okta.PolicyPasswordDefault("default");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +37,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/policyPasswordDefault:PolicyPasswordDefault")]
-    public partial class PolicyPasswordDefault : Pulumi.CustomResource
+    public partial class PolicyPasswordDefault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
@@ -271,7 +267,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class PolicyPasswordDefaultArgs : Pulumi.ResourceArgs
+    public sealed class PolicyPasswordDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
@@ -430,9 +426,10 @@ namespace Pulumi.Okta
         public PolicyPasswordDefaultArgs()
         {
         }
+        public static new PolicyPasswordDefaultArgs Empty => new PolicyPasswordDefaultArgs();
     }
 
-    public sealed class PolicyPasswordDefaultState : Pulumi.ResourceArgs
+    public sealed class PolicyPasswordDefaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
@@ -627,5 +624,6 @@ namespace Pulumi.Okta
         public PolicyPasswordDefaultState()
         {
         }
+        public static new PolicyPasswordDefaultState Empty => new PolicyPasswordDefaultState();
     }
 }

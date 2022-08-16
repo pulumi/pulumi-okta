@@ -19,35 +19,33 @@ namespace Pulumi.Okta.Template
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Template.Email("example", new()
     ///     {
-    ///         var example = new Okta.Template.Email("example", new Okta.Template.EmailArgs
+    ///         Translations = new[]
     ///         {
-    ///             Translations = 
+    ///             new Okta.Template.Inputs.EmailTranslationArgs
     ///             {
-    ///                 new Okta.Template.Inputs.EmailTranslationArgs
-    ///                 {
-    ///                     Language = "en",
-    ///                     Subject = "Stuff",
-    ///                     Template = "Hi $user.firstName,&lt;br/&gt;&lt;br/&gt;Blah blah $resetPasswordLink",
-    ///                 },
-    ///                 new Okta.Template.Inputs.EmailTranslationArgs
-    ///                 {
-    ///                     Language = "es",
-    ///                     Subject = "Cosas",
-    ///                     Template = "Hola $user.firstName,&lt;br/&gt;&lt;br/&gt;Puedo ir al bano $resetPasswordLink",
-    ///                 },
+    ///                 Language = "en",
+    ///                 Subject = "Stuff",
+    ///                 Template = "Hi $user.firstName,&lt;br/&gt;&lt;br/&gt;Blah blah $resetPasswordLink",
     ///             },
-    ///             Type = "email.forgotPassword",
-    ///         });
-    ///     }
+    ///             new Okta.Template.Inputs.EmailTranslationArgs
+    ///             {
+    ///                 Language = "es",
+    ///                 Subject = "Cosas",
+    ///                 Template = "Hola $user.firstName,&lt;br/&gt;&lt;br/&gt;Puedo ir al bano $resetPasswordLink",
+    ///             },
+    ///         },
+    ///         Type = "email.forgotPassword",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +57,7 @@ namespace Pulumi.Okta.Template
     /// ```
     /// </summary>
     [OktaResourceType("okta:template/email:Email")]
-    public partial class Email : Pulumi.CustomResource
+    public partial class Email : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The default language, by default is set to `"en"`.
@@ -123,7 +121,7 @@ namespace Pulumi.Okta.Template
         }
     }
 
-    public sealed class EmailArgs : Pulumi.ResourceArgs
+    public sealed class EmailArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default language, by default is set to `"en"`.
@@ -152,9 +150,10 @@ namespace Pulumi.Okta.Template
         public EmailArgs()
         {
         }
+        public static new EmailArgs Empty => new EmailArgs();
     }
 
-    public sealed class EmailState : Pulumi.ResourceArgs
+    public sealed class EmailState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default language, by default is set to `"en"`.
@@ -183,5 +182,6 @@ namespace Pulumi.Okta.Template
         public EmailState()
         {
         }
+        public static new EmailState Empty => new EmailState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Inputs
 {
 
-    public sealed class DomainDnsRecordArgs : Pulumi.ResourceArgs
+    public sealed class DomainDnsRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// TXT record expiration.
@@ -45,5 +45,6 @@ namespace Pulumi.Okta.Inputs
         public DomainDnsRecordArgs()
         {
         }
+        public static new DomainDnsRecordArgs Empty => new DomainDnsRecordArgs();
     }
 }

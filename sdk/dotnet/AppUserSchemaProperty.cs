@@ -13,26 +13,24 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.AppUserSchemaProperty("example", new()
     ///     {
-    ///         var example = new Okta.AppUserSchemaProperty("example", new Okta.AppUserSchemaPropertyArgs
-    ///         {
-    ///             AppId = "&lt;app id&gt;",
-    ///             Description = "My custom property name",
-    ///             Index = "customPropertyName",
-    ///             Master = "OKTA",
-    ///             Scope = "SELF",
-    ///             Title = "customPropertyName",
-    ///             Type = "string",
-    ///         });
-    ///     }
+    ///         AppId = "&lt;app id&gt;",
+    ///         Description = "My custom property name",
+    ///         Index = "customPropertyName",
+    ///         Master = "OKTA",
+    ///         Scope = "SELF",
+    ///         Title = "customPropertyName",
+    ///         Type = "string",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appUserSchemaProperty:AppUserSchemaProperty")]
-    public partial class AppUserSchemaProperty : Pulumi.CustomResource
+    public partial class AppUserSchemaProperty : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Application's ID the user custom schema property should be assigned to.
@@ -216,7 +214,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AppUserSchemaPropertyArgs : Pulumi.ResourceArgs
+    public sealed class AppUserSchemaPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application's ID the user custom schema property should be assigned to.
@@ -371,9 +369,10 @@ namespace Pulumi.Okta
         public AppUserSchemaPropertyArgs()
         {
         }
+        public static new AppUserSchemaPropertyArgs Empty => new AppUserSchemaPropertyArgs();
     }
 
-    public sealed class AppUserSchemaPropertyState : Pulumi.ResourceArgs
+    public sealed class AppUserSchemaPropertyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application's ID the user custom schema property should be assigned to.
@@ -528,5 +527,6 @@ namespace Pulumi.Okta
         public AppUserSchemaPropertyState()
         {
         }
+        public static new AppUserSchemaPropertyState Empty => new AppUserSchemaPropertyState();
     }
 }

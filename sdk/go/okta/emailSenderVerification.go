@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewEmailSender(ctx, "exampleEmailSender", &okta.EmailSenderArgs{
-// 			FromName:    pulumi.String("Paul Atreides"),
-// 			FromAddress: pulumi.String("no-reply@caladan.planet"),
-// 			Subdomain:   pulumi.String("mail"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewEmailSenderVerification(ctx, "exampleEmailSenderVerification", &okta.EmailSenderVerificationArgs{
-// 			SenderId: pulumi.Any(okta_email_sender.Valid.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewEmailSender(ctx, "exampleEmailSender", &okta.EmailSenderArgs{
+//				FromName:    pulumi.String("Paul Atreides"),
+//				FromAddress: pulumi.String("no-reply@caladan.planet"),
+//				Subdomain:   pulumi.String("mail"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewEmailSenderVerification(ctx, "exampleEmailSenderVerification", &okta.EmailSenderVerificationArgs{
+//				SenderId: pulumi.Any(okta_email_sender.Valid.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -136,7 +139,7 @@ func (i *EmailSenderVerification) ToEmailSenderVerificationOutputWithContext(ctx
 // EmailSenderVerificationArrayInput is an input type that accepts EmailSenderVerificationArray and EmailSenderVerificationArrayOutput values.
 // You can construct a concrete instance of `EmailSenderVerificationArrayInput` via:
 //
-//          EmailSenderVerificationArray{ EmailSenderVerificationArgs{...} }
+//	EmailSenderVerificationArray{ EmailSenderVerificationArgs{...} }
 type EmailSenderVerificationArrayInput interface {
 	pulumi.Input
 
@@ -161,7 +164,7 @@ func (i EmailSenderVerificationArray) ToEmailSenderVerificationArrayOutputWithCo
 // EmailSenderVerificationMapInput is an input type that accepts EmailSenderVerificationMap and EmailSenderVerificationMapOutput values.
 // You can construct a concrete instance of `EmailSenderVerificationMapInput` via:
 //
-//          EmailSenderVerificationMap{ "key": EmailSenderVerificationArgs{...} }
+//	EmailSenderVerificationMap{ "key": EmailSenderVerificationArgs{...} }
 type EmailSenderVerificationMapInput interface {
 	pulumi.Input
 

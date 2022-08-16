@@ -21,26 +21,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := auth.NewServer(ctx, "example", &auth.ServerArgs{
-// 			Audiences: pulumi.StringArray{
-// 				pulumi.String("api://example"),
-// 			},
-// 			Description: pulumi.String("My Example Auth Server"),
-// 			IssuerMode:  pulumi.String("CUSTOM_URL"),
-// 			Status:      pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := auth.NewServer(ctx, "example", &auth.ServerArgs{
+//				Audiences: pulumi.StringArray{
+//					pulumi.String("api://example"),
+//				},
+//				Description: pulumi.String("My Example Auth Server"),
+//				IssuerMode:  pulumi.String("CUSTOM_URL"),
+//				Status:      pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Authorization Server can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:auth/server:Server example &#60;auth server id&#62;
+//
+//	$ pulumi import okta:auth/server:Server example &#60;auth server id&#62;
+//
 // ```
 type Server struct {
 	pulumi.CustomResourceState
@@ -213,7 +218,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 // ServerArrayInput is an input type that accepts ServerArray and ServerArrayOutput values.
 // You can construct a concrete instance of `ServerArrayInput` via:
 //
-//          ServerArray{ ServerArgs{...} }
+//	ServerArray{ ServerArgs{...} }
 type ServerArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +243,7 @@ func (i ServerArray) ToServerArrayOutputWithContext(ctx context.Context) ServerA
 // ServerMapInput is an input type that accepts ServerMap and ServerMapOutput values.
 // You can construct a concrete instance of `ServerMapInput` via:
 //
-//          ServerMap{ "key": ServerArgs{...} }
+//	ServerMap{ "key": ServerArgs{...} }
 type ServerMapInput interface {
 	pulumi.Input
 

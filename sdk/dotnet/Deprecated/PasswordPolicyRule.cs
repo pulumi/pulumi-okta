@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use policy.RulePassword instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/passwordPolicyRule:PasswordPolicyRule")]
-    public partial class PasswordPolicyRule : Pulumi.CustomResource
+    public partial class PasswordPolicyRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Policy Rule Name
@@ -130,7 +130,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class PasswordPolicyRuleArgs : Pulumi.ResourceArgs
+    public sealed class PasswordPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Rule Name
@@ -226,9 +226,10 @@ namespace Pulumi.Okta.Deprecated
         public PasswordPolicyRuleArgs()
         {
         }
+        public static new PasswordPolicyRuleArgs Empty => new PasswordPolicyRuleArgs();
     }
 
-    public sealed class PasswordPolicyRuleState : Pulumi.ResourceArgs
+    public sealed class PasswordPolicyRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Rule Name
@@ -324,5 +325,6 @@ namespace Pulumi.Okta.Deprecated
         public PasswordPolicyRuleState()
         {
         }
+        public static new PasswordPolicyRuleState Empty => new PasswordPolicyRuleState();
     }
 }

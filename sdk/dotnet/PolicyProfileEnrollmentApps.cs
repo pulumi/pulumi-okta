@@ -22,33 +22,33 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var examplePolicy = Okta.Policy.GetPolicy.Invoke(new()
     ///     {
-    ///         var examplePolicy = Output.Create(Okta.Policy.GetPolicy.InvokeAsync(new Okta.Policy.GetPolicyArgs
-    ///         {
-    ///             Name = "My Policy",
-    ///             Type = "PROFILE_ENROLLMENT",
-    ///         }));
-    ///         var test = Output.Create(Okta.App.GetApp.InvokeAsync(new Okta.App.GetAppArgs
-    ///         {
-    ///             Label = "My App",
-    ///         }));
-    ///         var examplePolicyProfileEnrollmentApps = new Okta.PolicyProfileEnrollmentApps("examplePolicyProfileEnrollmentApps", new Okta.PolicyProfileEnrollmentAppsArgs
-    ///         {
-    ///             PolicyId = okta_policy.Example.Id,
-    ///             Apps = 
-    ///             {
-    ///                 data.Okta_app.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "My Policy",
+    ///         Type = "PROFILE_ENROLLMENT",
+    ///     });
     /// 
-    /// }
+    ///     var test = Okta.App.GetApp.Invoke(new()
+    ///     {
+    ///         Label = "My App",
+    ///     });
+    /// 
+    ///     var examplePolicyProfileEnrollmentApps = new Okta.PolicyProfileEnrollmentApps("examplePolicyProfileEnrollmentApps", new()
+    ///     {
+    ///         PolicyId = okta_policy.Example.Id,
+    ///         Apps = new[]
+    ///         {
+    ///             data.Okta_app.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps")]
-    public partial class PolicyProfileEnrollmentApps : Pulumi.CustomResource
+    public partial class PolicyProfileEnrollmentApps : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of app IDs to be added to this policy.
@@ -124,7 +124,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class PolicyProfileEnrollmentAppsArgs : Pulumi.ResourceArgs
+    public sealed class PolicyProfileEnrollmentAppsArgs : global::Pulumi.ResourceArgs
     {
         [Input("apps")]
         private InputList<string>? _apps;
@@ -147,9 +147,10 @@ namespace Pulumi.Okta
         public PolicyProfileEnrollmentAppsArgs()
         {
         }
+        public static new PolicyProfileEnrollmentAppsArgs Empty => new PolicyProfileEnrollmentAppsArgs();
     }
 
-    public sealed class PolicyProfileEnrollmentAppsState : Pulumi.ResourceArgs
+    public sealed class PolicyProfileEnrollmentAppsState : global::Pulumi.ResourceArgs
     {
         [Input("apps")]
         private InputList<string>? _apps;
@@ -178,5 +179,6 @@ namespace Pulumi.Okta
         public PolicyProfileEnrollmentAppsState()
         {
         }
+        public static new PolicyProfileEnrollmentAppsState Empty => new PolicyProfileEnrollmentAppsState();
     }
 }

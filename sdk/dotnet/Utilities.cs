@@ -74,7 +74,7 @@ namespace Pulumi.Okta
         }
     }
 
-    internal sealed class OktaResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class OktaResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public OktaResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

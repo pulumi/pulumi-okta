@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.User.Inputs
 {
 
-    public sealed class GetUserSearchInputArgs : Pulumi.ResourceArgs
+    public sealed class GetUserSearchInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
@@ -39,5 +39,6 @@ namespace Pulumi.Okta.User.Inputs
         public GetUserSearchInputArgs()
         {
         }
+        public static new GetUserSearchInputArgs Empty => new GetUserSearchInputArgs();
     }
 }

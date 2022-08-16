@@ -222,7 +222,7 @@ func (i *MfaPolicyRule) ToMfaPolicyRuleOutputWithContext(ctx context.Context) Mf
 // MfaPolicyRuleArrayInput is an input type that accepts MfaPolicyRuleArray and MfaPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `MfaPolicyRuleArrayInput` via:
 //
-//          MfaPolicyRuleArray{ MfaPolicyRuleArgs{...} }
+//	MfaPolicyRuleArray{ MfaPolicyRuleArgs{...} }
 type MfaPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +247,7 @@ func (i MfaPolicyRuleArray) ToMfaPolicyRuleArrayOutputWithContext(ctx context.Co
 // MfaPolicyRuleMapInput is an input type that accepts MfaPolicyRuleMap and MfaPolicyRuleMapOutput values.
 // You can construct a concrete instance of `MfaPolicyRuleMapInput` via:
 //
-//          MfaPolicyRuleMap{ "key": MfaPolicyRuleArgs{...} }
+//	MfaPolicyRuleMap{ "key": MfaPolicyRuleArgs{...} }
 type MfaPolicyRuleMapInput interface {
 	pulumi.Input
 

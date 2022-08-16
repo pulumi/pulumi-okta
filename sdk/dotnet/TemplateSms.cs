@@ -17,34 +17,32 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.TemplateSms("example", new()
     ///     {
-    ///         var example = new Okta.TemplateSms("example", new Okta.TemplateSmsArgs
+    ///         Template = $"Your {org.Name} code is: {code}",
+    ///         Translations = new[]
     ///         {
-    ///             Template = $"Your {org.Name} code is: {code}",
-    ///             Translations = 
+    ///             new Okta.Inputs.TemplateSmsTranslationArgs
     ///             {
-    ///                 new Okta.Inputs.TemplateSmsTranslationArgs
-    ///                 {
-    ///                     Language = "en",
-    ///                     Template = $"Your {org.Name} code is: {code}",
-    ///                 },
-    ///                 new Okta.Inputs.TemplateSmsTranslationArgs
-    ///                 {
-    ///                     Language = "es",
-    ///                     Template = $"Tu código de {org.Name} es: {code}.",
-    ///                 },
+    ///                 Language = "en",
+    ///                 Template = $"Your {org.Name} code is: {code}",
     ///             },
-    ///             Type = "SMS_VERIFY_CODE",
-    ///         });
-    ///     }
+    ///             new Okta.Inputs.TemplateSmsTranslationArgs
+    ///             {
+    ///                 Language = "es",
+    ///                 Template = $"Tu código de {org.Name} es: {code}.",
+    ///             },
+    ///         },
+    ///         Type = "SMS_VERIFY_CODE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +54,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/templateSms:TemplateSms")]
-    public partial class TemplateSms : Pulumi.CustomResource
+    public partial class TemplateSms : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The SMS message.
@@ -120,7 +118,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class TemplateSmsArgs : Pulumi.ResourceArgs
+    public sealed class TemplateSmsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SMS message.
@@ -149,9 +147,10 @@ namespace Pulumi.Okta
         public TemplateSmsArgs()
         {
         }
+        public static new TemplateSmsArgs Empty => new TemplateSmsArgs();
     }
 
-    public sealed class TemplateSmsState : Pulumi.ResourceArgs
+    public sealed class TemplateSmsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SMS message.
@@ -180,5 +179,6 @@ namespace Pulumi.Okta
         public TemplateSmsState()
         {
         }
+        public static new TemplateSmsState Empty => new TemplateSmsState();
     }
 }

@@ -17,24 +17,22 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.SecurityNotificationEmails("example", new()
     ///     {
-    ///         var example = new Okta.SecurityNotificationEmails("example", new Okta.SecurityNotificationEmailsArgs
-    ///         {
-    ///             ReportSuspiciousActivityEnabled = true,
-    ///             SendEmailForFactorEnrollmentEnabled = true,
-    ///             SendEmailForFactorResetEnabled = true,
-    ///             SendEmailForNewDeviceEnabled = true,
-    ///             SendEmailForPasswordChangedEnabled = true,
-    ///         });
-    ///     }
+    ///         ReportSuspiciousActivityEnabled = true,
+    ///         SendEmailForFactorEnrollmentEnabled = true,
+    ///         SendEmailForFactorResetEnabled = true,
+    ///         SendEmailForNewDeviceEnabled = true,
+    ///         SendEmailForPasswordChangedEnabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/securityNotificationEmails:SecurityNotificationEmails")]
-    public partial class SecurityNotificationEmails : Pulumi.CustomResource
+    public partial class SecurityNotificationEmails : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
@@ -122,7 +120,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class SecurityNotificationEmailsArgs : Pulumi.ResourceArgs
+    public sealed class SecurityNotificationEmailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
@@ -157,9 +155,10 @@ namespace Pulumi.Okta
         public SecurityNotificationEmailsArgs()
         {
         }
+        public static new SecurityNotificationEmailsArgs Empty => new SecurityNotificationEmailsArgs();
     }
 
-    public sealed class SecurityNotificationEmailsState : Pulumi.ResourceArgs
+    public sealed class SecurityNotificationEmailsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
@@ -194,5 +193,6 @@ namespace Pulumi.Okta
         public SecurityNotificationEmailsState()
         {
         }
+        public static new SecurityNotificationEmailsState Empty => new SecurityNotificationEmailsState();
     }
 }

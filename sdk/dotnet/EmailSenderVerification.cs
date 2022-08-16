@@ -15,26 +15,25 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleEmailSender = new Okta.EmailSender("exampleEmailSender", new()
     ///     {
-    ///         var exampleEmailSender = new Okta.EmailSender("exampleEmailSender", new Okta.EmailSenderArgs
-    ///         {
-    ///             FromName = "Paul Atreides",
-    ///             FromAddress = "no-reply@caladan.planet",
-    ///             Subdomain = "mail",
-    ///         });
-    ///         var exampleEmailSenderVerification = new Okta.EmailSenderVerification("exampleEmailSenderVerification", new Okta.EmailSenderVerificationArgs
-    ///         {
-    ///             SenderId = okta_email_sender.Valid.Id,
-    ///         });
-    ///     }
+    ///         FromName = "Paul Atreides",
+    ///         FromAddress = "no-reply@caladan.planet",
+    ///         Subdomain = "mail",
+    ///     });
     /// 
-    /// }
+    ///     var exampleEmailSenderVerification = new Okta.EmailSenderVerification("exampleEmailSenderVerification", new()
+    ///     {
+    ///         SenderId = okta_email_sender.Valid.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +41,7 @@ namespace Pulumi.Okta
     /// This resource does not support importing.
     /// </summary>
     [OktaResourceType("okta:index/emailSenderVerification:EmailSenderVerification")]
-    public partial class EmailSenderVerification : Pulumi.CustomResource
+    public partial class EmailSenderVerification : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Email sender ID.
@@ -94,7 +93,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class EmailSenderVerificationArgs : Pulumi.ResourceArgs
+    public sealed class EmailSenderVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email sender ID.
@@ -105,9 +104,10 @@ namespace Pulumi.Okta
         public EmailSenderVerificationArgs()
         {
         }
+        public static new EmailSenderVerificationArgs Empty => new EmailSenderVerificationArgs();
     }
 
-    public sealed class EmailSenderVerificationState : Pulumi.ResourceArgs
+    public sealed class EmailSenderVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email sender ID.
@@ -118,5 +118,6 @@ namespace Pulumi.Okta
         public EmailSenderVerificationState()
         {
         }
+        public static new EmailSenderVerificationState Empty => new EmailSenderVerificationState();
     }
 }

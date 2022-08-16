@@ -20,21 +20,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.LookupAppSignonPolicy(ctx, &GetAppSignonPolicyArgs{
-// 			AppId: "app_id",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.LookupAppSignonPolicy(ctx, &GetAppSignonPolicyArgs{
+//				AppId: "app_id",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupAppSignonPolicy(ctx *pulumi.Context, args *LookupAppSignonPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAppSignonPolicyResult, error) {
 	var rv LookupAppSignonPolicyResult

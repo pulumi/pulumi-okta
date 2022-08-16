@@ -17,20 +17,18 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.PolicyProfileEnrollment("example", new()
     ///     {
-    ///         var example = new Okta.PolicyProfileEnrollment("example", new Okta.PolicyProfileEnrollmentArgs
-    ///         {
-    ///             Status = "ACTIVE",
-    ///         });
-    ///     }
+    ///         Status = "ACTIVE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/policyProfileEnrollment:PolicyProfileEnrollment")]
-    public partial class PolicyProfileEnrollment : Pulumi.CustomResource
+    public partial class PolicyProfileEnrollment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Policy Name.
@@ -100,7 +98,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class PolicyProfileEnrollmentArgs : Pulumi.ResourceArgs
+    public sealed class PolicyProfileEnrollmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Name.
@@ -117,9 +115,10 @@ namespace Pulumi.Okta
         public PolicyProfileEnrollmentArgs()
         {
         }
+        public static new PolicyProfileEnrollmentArgs Empty => new PolicyProfileEnrollmentArgs();
     }
 
-    public sealed class PolicyProfileEnrollmentState : Pulumi.ResourceArgs
+    public sealed class PolicyProfileEnrollmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Name.
@@ -136,5 +135,6 @@ namespace Pulumi.Okta
         public PolicyProfileEnrollmentState()
         {
         }
+        public static new PolicyProfileEnrollmentState Empty => new PolicyProfileEnrollmentState();
     }
 }

@@ -673,7 +673,7 @@ func (i *OauthApp) ToOauthAppOutputWithContext(ctx context.Context) OauthAppOutp
 // OauthAppArrayInput is an input type that accepts OauthAppArray and OauthAppArrayOutput values.
 // You can construct a concrete instance of `OauthAppArrayInput` via:
 //
-//          OauthAppArray{ OauthAppArgs{...} }
+//	OauthAppArray{ OauthAppArgs{...} }
 type OauthAppArrayInput interface {
 	pulumi.Input
 
@@ -698,7 +698,7 @@ func (i OauthAppArray) ToOauthAppArrayOutputWithContext(ctx context.Context) Oau
 // OauthAppMapInput is an input type that accepts OauthAppMap and OauthAppMapOutput values.
 // You can construct a concrete instance of `OauthAppMapInput` via:
 //
-//          OauthAppMap{ "key": OauthAppArgs{...} }
+//	OauthAppMap{ "key": OauthAppArgs{...} }
 type OauthAppMapInput interface {
 	pulumi.Input
 

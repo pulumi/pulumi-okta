@@ -17,27 +17,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewAppUserSchemaProperty(ctx, "example", &okta.AppUserSchemaPropertyArgs{
-// 			AppId:       pulumi.String("<app id>"),
-// 			Description: pulumi.String("My custom property name"),
-// 			Index:       pulumi.String("customPropertyName"),
-// 			Master:      pulumi.String("OKTA"),
-// 			Scope:       pulumi.String("SELF"),
-// 			Title:       pulumi.String("customPropertyName"),
-// 			Type:        pulumi.String("string"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAppUserSchemaProperty(ctx, "example", &okta.AppUserSchemaPropertyArgs{
+//				AppId:       pulumi.String("<app id>"),
+//				Description: pulumi.String("My custom property name"),
+//				Index:       pulumi.String("customPropertyName"),
+//				Master:      pulumi.String("OKTA"),
+//				Scope:       pulumi.String("SELF"),
+//				Title:       pulumi.String("customPropertyName"),
+//				Type:        pulumi.String("string"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // App user schema property can be imported via the property index and app id.
 //
 // ```sh
-//  $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
+//
+//	$ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
+//
 // ```
 type AppUserSchemaProperty struct {
 	pulumi.CustomResourceState
@@ -345,7 +350,7 @@ func (i *AppUserSchemaProperty) ToAppUserSchemaPropertyOutputWithContext(ctx con
 // AppUserSchemaPropertyArrayInput is an input type that accepts AppUserSchemaPropertyArray and AppUserSchemaPropertyArrayOutput values.
 // You can construct a concrete instance of `AppUserSchemaPropertyArrayInput` via:
 //
-//          AppUserSchemaPropertyArray{ AppUserSchemaPropertyArgs{...} }
+//	AppUserSchemaPropertyArray{ AppUserSchemaPropertyArgs{...} }
 type AppUserSchemaPropertyArrayInput interface {
 	pulumi.Input
 
@@ -370,7 +375,7 @@ func (i AppUserSchemaPropertyArray) ToAppUserSchemaPropertyArrayOutputWithContex
 // AppUserSchemaPropertyMapInput is an input type that accepts AppUserSchemaPropertyMap and AppUserSchemaPropertyMapOutput values.
 // You can construct a concrete instance of `AppUserSchemaPropertyMapInput` via:
 //
-//          AppUserSchemaPropertyMap{ "key": AppUserSchemaPropertyArgs{...} }
+//	AppUserSchemaPropertyMap{ "key": AppUserSchemaPropertyArgs{...} }
 type AppUserSchemaPropertyMapInput interface {
 	pulumi.Input
 

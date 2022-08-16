@@ -17,21 +17,19 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.AuthServerClaimDefault("example", new()
     ///     {
-    ///         var example = new Okta.AuthServerClaimDefault("example", new Okta.AuthServerClaimDefaultArgs
-    ///         {
-    ///             AuthServerId = "&lt;auth server id&gt;",
-    ///             Value = "(appuser != null) ? appuser.userName : app.clientId",
-    ///         });
-    ///     }
+    ///         AuthServerId = "&lt;auth server id&gt;",
+    ///         Value = "(appuser != null) ? appuser.userName : app.clientId",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/authServerClaimDefault:AuthServerClaimDefault")]
-    public partial class AuthServerClaimDefault : Pulumi.CustomResource
+    public partial class AuthServerClaimDefault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether to include claims in token.
@@ -145,7 +143,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AuthServerClaimDefaultArgs : Pulumi.ResourceArgs
+    public sealed class AuthServerClaimDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to include claims in token.
@@ -176,9 +174,10 @@ namespace Pulumi.Okta
         public AuthServerClaimDefaultArgs()
         {
         }
+        public static new AuthServerClaimDefaultArgs Empty => new AuthServerClaimDefaultArgs();
     }
 
-    public sealed class AuthServerClaimDefaultState : Pulumi.ResourceArgs
+    public sealed class AuthServerClaimDefaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to include claims in token.
@@ -239,5 +238,6 @@ namespace Pulumi.Okta
         public AuthServerClaimDefaultState()
         {
         }
+        public static new AuthServerClaimDefaultState Empty => new AuthServerClaimDefaultState();
     }
 }

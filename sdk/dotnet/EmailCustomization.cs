@@ -15,7 +15,7 @@ namespace Pulumi.Okta
     /// of an email template belonging to a brand in an Okta organization.
     /// </summary>
     [OktaResourceType("okta:index/emailCustomization:EmailCustomization")]
-    public partial class EmailCustomization : Pulumi.CustomResource
+    public partial class EmailCustomization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The body of the customization
@@ -103,7 +103,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class EmailCustomizationArgs : Pulumi.ResourceArgs
+    public sealed class EmailCustomizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The body of the customization
@@ -144,9 +144,10 @@ namespace Pulumi.Okta
         public EmailCustomizationArgs()
         {
         }
+        public static new EmailCustomizationArgs Empty => new EmailCustomizationArgs();
     }
 
-    public sealed class EmailCustomizationState : Pulumi.ResourceArgs
+    public sealed class EmailCustomizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The body of the customization
@@ -193,5 +194,6 @@ namespace Pulumi.Okta
         public EmailCustomizationState()
         {
         }
+        public static new EmailCustomizationState Empty => new EmailCustomizationState();
     }
 }

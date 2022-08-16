@@ -19,42 +19,41 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myAppPolicy = new Okta.AppSignonPolicy("myAppPolicy", new()
     ///     {
-    ///         var myAppPolicy = new Okta.AppSignonPolicy("myAppPolicy", new Okta.AppSignonPolicyArgs
-    ///         {
-    ///             Description = "Authentication Policy to be used on my app.",
-    ///         });
-    ///         var myApp = new Okta.App.OAuth("myApp", new Okta.App.OAuthArgs
-    ///         {
-    ///             Label = "My App",
-    ///             Type = "web",
-    ///             GrantTypes = 
-    ///             {
-    ///                 "authorization_code",
-    ///             },
-    ///             RedirectUris = 
-    ///             {
-    ///                 "http://localhost:3000",
-    ///             },
-    ///             PostLogoutRedirectUris = 
-    ///             {
-    ///                 "http://localhost:3000",
-    ///             },
-    ///             ResponseTypes = 
-    ///             {
-    ///                 "code",
-    ///             },
-    ///             AuthenticationPolicy = myAppPolicy.Id,
-    ///         });
-    ///     }
+    ///         Description = "Authentication Policy to be used on my app.",
+    ///     });
     /// 
-    /// }
+    ///     var myApp = new Okta.App.OAuth("myApp", new()
+    ///     {
+    ///         Label = "My App",
+    ///         Type = "web",
+    ///         GrantTypes = new[]
+    ///         {
+    ///             "authorization_code",
+    ///         },
+    ///         RedirectUris = new[]
+    ///         {
+    ///             "http://localhost:3000",
+    ///         },
+    ///         PostLogoutRedirectUris = new[]
+    ///         {
+    ///             "http://localhost:3000",
+    ///         },
+    ///         ResponseTypes = new[]
+    ///         {
+    ///             "code",
+    ///         },
+    ///         AuthenticationPolicy = myAppPolicy.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// \_The same mechanism is in place for `okta.app.OAuth` and `okta.app.Saml`.
@@ -67,41 +66,38 @@ namespace Pulumi.Okta
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myAppPolicy = new Okta.AppSignonPolicy("myAppPolicy", new()
     ///     {
-    ///         var myAppPolicy = new Okta.AppSignonPolicy("myAppPolicy", new Okta.AppSignonPolicyArgs
-    ///         {
-    ///             Description = "Authentication Policy to be used on my app.",
-    ///         });
-    ///         var someRule = new Okta.AppSignonPolicyRule("someRule", new Okta.AppSignonPolicyRuleArgs
-    ///         {
-    ///             PolicyId = resource.Okta_app_signon_policy.My_app_policy.Id,
-    ///             FactorMode = "1FA",
-    ///             ReAuthenticationFrequency = "PT43800H",
-    ///             Constraints = 
-    ///             {
-    ///                 JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "knowledge", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "types", new[]
-    ///                             {
-    ///                                 "password",
-    ///                             }
-    ///                          },
-    ///                     } },
-    ///                 }),
-    ///             },
-    ///         });
-    ///     }
+    ///         Description = "Authentication Policy to be used on my app.",
+    ///     });
     /// 
-    /// }
+    ///     var someRule = new Okta.AppSignonPolicyRule("someRule", new()
+    ///     {
+    ///         PolicyId = resource.Okta_app_signon_policy.My_app_policy.Id,
+    ///         FactorMode = "1FA",
+    ///         ReAuthenticationFrequency = "PT43800H",
+    ///         Constraints = new[]
+    ///         {
+    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["knowledge"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["types"] = new[]
+    ///                     {
+    ///                         "password",
+    ///                     },
+    ///                 },
+    ///             }),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appSignonPolicy:AppSignonPolicy")]
-    public partial class AppSignonPolicy : Pulumi.CustomResource
+    public partial class AppSignonPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the policy.
@@ -159,7 +155,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AppSignonPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AppSignonPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the policy.
@@ -176,9 +172,10 @@ namespace Pulumi.Okta
         public AppSignonPolicyArgs()
         {
         }
+        public static new AppSignonPolicyArgs Empty => new AppSignonPolicyArgs();
     }
 
-    public sealed class AppSignonPolicyState : Pulumi.ResourceArgs
+    public sealed class AppSignonPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the policy.
@@ -195,5 +192,6 @@ namespace Pulumi.Okta
         public AppSignonPolicyState()
         {
         }
+        public static new AppSignonPolicyState Empty => new AppSignonPolicyState();
     }
 }

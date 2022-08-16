@@ -17,26 +17,24 @@ namespace Pulumi.Okta.Policy
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Policy.Password("example", new()
     ///     {
-    ///         var example = new Okta.Policy.Password("example", new Okta.Policy.PasswordArgs
+    ///         Description = "Example",
+    ///         GroupsIncludeds = new[]
     ///         {
-    ///             Description = "Example",
-    ///             GroupsIncludeds = 
-    ///             {
-    ///                 data.Okta_group.Everyone.Id,
-    ///             },
-    ///             PasswordHistoryCount = 4,
-    ///             Status = "ACTIVE",
-    ///         });
-    ///     }
+    ///             data.Okta_group.Everyone.Id,
+    ///         },
+    ///         PasswordHistoryCount = 4,
+    ///         Status = "ACTIVE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Okta.Policy
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/password:Password")]
-    public partial class Password : Pulumi.CustomResource
+    public partial class Password : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
@@ -274,7 +272,7 @@ namespace Pulumi.Okta.Policy
         }
     }
 
-    public sealed class PasswordArgs : Pulumi.ResourceArgs
+    public sealed class PasswordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
@@ -471,9 +469,10 @@ namespace Pulumi.Okta.Policy
         public PasswordArgs()
         {
         }
+        public static new PasswordArgs Empty => new PasswordArgs();
     }
 
-    public sealed class PasswordState : Pulumi.ResourceArgs
+    public sealed class PasswordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
@@ -670,5 +669,6 @@ namespace Pulumi.Okta.Policy
         public PasswordState()
         {
         }
+        public static new PasswordState Empty => new PasswordState();
     }
 }

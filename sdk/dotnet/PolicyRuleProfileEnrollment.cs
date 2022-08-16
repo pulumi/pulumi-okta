@@ -17,66 +17,65 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var examplePolicyProfileEnrollment = new Okta.PolicyProfileEnrollment("examplePolicyProfileEnrollment", new Okta.PolicyProfileEnrollmentArgs
-    ///         {
-    ///         });
-    ///         var exampleHook = new Okta.Inline.Hook("exampleHook", new Okta.Inline.HookArgs
-    ///         {
-    ///             Status = "ACTIVE",
-    ///             Type = "com.okta.user.pre-registration",
-    ///             Version = "1.0.3",
-    ///             Channel = 
-    ///             {
-    ///                 { "type", "HTTP" },
-    ///                 { "version", "1.0.0" },
-    ///                 { "uri", "https://example.com/test2" },
-    ///                 { "method", "POST" },
-    ///             },
-    ///         });
-    ///         var exampleGroup = new Okta.Group.Group("exampleGroup", new Okta.Group.GroupArgs
-    ///         {
-    ///             Description = "Group of some users",
-    ///         });
-    ///         var examplePolicyRuleProfileEnrollment = new Okta.PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment", new Okta.PolicyRuleProfileEnrollmentArgs
-    ///         {
-    ///             PolicyId = examplePolicyProfileEnrollment.Id,
-    ///             InlineHookId = exampleHook.Id,
-    ///             TargetGroupId = exampleGroup.Id,
-    ///             UnknownUserAction = "REGISTER",
-    ///             EmailVerification = true,
-    ///             Access = "ALLOW",
-    ///             ProfileAttributes = 
-    ///             {
-    ///                 new Okta.Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs
-    ///                 {
-    ///                     Name = "email",
-    ///                     Label = "Email",
-    ///                     Required = true,
-    ///                 },
-    ///                 new Okta.Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs
-    ///                 {
-    ///                     Name = "name",
-    ///                     Label = "Name",
-    ///                     Required = true,
-    ///                 },
-    ///                 new Okta.Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs
-    ///                 {
-    ///                     Name = "t-shirt",
-    ///                     Label = "T-Shirt Size",
-    ///                     Required = false,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var examplePolicyProfileEnrollment = new Okta.PolicyProfileEnrollment("examplePolicyProfileEnrollment");
     /// 
-    /// }
+    ///     var exampleHook = new Okta.Inline.Hook("exampleHook", new()
+    ///     {
+    ///         Status = "ACTIVE",
+    ///         Type = "com.okta.user.pre-registration",
+    ///         Version = "1.0.3",
+    ///         Channel = 
+    ///         {
+    ///             { "type", "HTTP" },
+    ///             { "version", "1.0.0" },
+    ///             { "uri", "https://example.com/test2" },
+    ///             { "method", "POST" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleGroup = new Okta.Group.Group("exampleGroup", new()
+    ///     {
+    ///         Description = "Group of some users",
+    ///     });
+    /// 
+    ///     var examplePolicyRuleProfileEnrollment = new Okta.PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment", new()
+    ///     {
+    ///         PolicyId = examplePolicyProfileEnrollment.Id,
+    ///         InlineHookId = exampleHook.Id,
+    ///         TargetGroupId = exampleGroup.Id,
+    ///         UnknownUserAction = "REGISTER",
+    ///         EmailVerification = true,
+    ///         Access = "ALLOW",
+    ///         ProfileAttributes = new[]
+    ///         {
+    ///             new Okta.Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs
+    ///             {
+    ///                 Name = "email",
+    ///                 Label = "Email",
+    ///                 Required = true,
+    ///             },
+    ///             new Okta.Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs
+    ///             {
+    ///                 Name = "name",
+    ///                 Label = "Name",
+    ///                 Required = true,
+    ///             },
+    ///             new Okta.Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs
+    ///             {
+    ///                 Name = "t-shirt",
+    ///                 Label = "T-Shirt Size",
+    ///                 Required = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +87,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment")]
-    public partial class PolicyRuleProfileEnrollment : Pulumi.CustomResource
+    public partial class PolicyRuleProfileEnrollment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
@@ -188,7 +187,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class PolicyRuleProfileEnrollmentArgs : Pulumi.ResourceArgs
+    public sealed class PolicyRuleProfileEnrollmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
@@ -241,9 +240,10 @@ namespace Pulumi.Okta
         public PolicyRuleProfileEnrollmentArgs()
         {
         }
+        public static new PolicyRuleProfileEnrollmentArgs Empty => new PolicyRuleProfileEnrollmentArgs();
     }
 
-    public sealed class PolicyRuleProfileEnrollmentState : Pulumi.ResourceArgs
+    public sealed class PolicyRuleProfileEnrollmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
@@ -308,5 +308,6 @@ namespace Pulumi.Okta
         public PolicyRuleProfileEnrollmentState()
         {
         }
+        public static new PolicyRuleProfileEnrollmentState Empty => new PolicyRuleProfileEnrollmentState();
     }
 }

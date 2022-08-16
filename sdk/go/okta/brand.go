@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewBrand(ctx, "example", &okta.BrandArgs{
-// 			AgreeToCustomPrivacyPolicy: pulumi.Bool(true),
-// 			CustomPrivacyPolicyUrl:     pulumi.String("https://example.com/privacy-policy"),
-// 			RemovePoweredByOkta:        pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewBrand(ctx, "example", &okta.BrandArgs{
+//				AgreeToCustomPrivacyPolicy: pulumi.Bool(true),
+//				CustomPrivacyPolicyUrl:     pulumi.String("https://example.com/privacy-policy"),
+//				RemovePoweredByOkta:        pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // An Okta Brand can be imported via the ID.
 //
 // ```sh
-//  $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
+//
+//	$ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
+//
 // ```
 type Brand struct {
 	pulumi.CustomResourceState
@@ -169,7 +174,7 @@ func (i *Brand) ToBrandOutputWithContext(ctx context.Context) BrandOutput {
 // BrandArrayInput is an input type that accepts BrandArray and BrandArrayOutput values.
 // You can construct a concrete instance of `BrandArrayInput` via:
 //
-//          BrandArray{ BrandArgs{...} }
+//	BrandArray{ BrandArgs{...} }
 type BrandArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +199,7 @@ func (i BrandArray) ToBrandArrayOutputWithContext(ctx context.Context) BrandArra
 // BrandMapInput is an input type that accepts BrandMap and BrandMapOutput values.
 // You can construct a concrete instance of `BrandMapInput` via:
 //
-//          BrandMap{ "key": BrandArgs{...} }
+//	BrandMap{ "key": BrandArgs{...} }
 type BrandMapInput interface {
 	pulumi.Input
 

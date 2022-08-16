@@ -25,25 +25,23 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.UserBaseSchemaProperty("example", new()
     ///     {
-    ///         var example = new Okta.UserBaseSchemaProperty("example", new Okta.UserBaseSchemaPropertyArgs
-    ///         {
-    ///             Index = "firstName",
-    ///             Master = "OKTA",
-    ///             Required = true,
-    ///             Title = "First name",
-    ///             Type = "string",
-    ///             UserType = data.Okta_user_type.Example.Id,
-    ///         });
-    ///     }
+    ///         Index = "firstName",
+    ///         Master = "OKTA",
+    ///         Required = true,
+    ///         Title = "First name",
+    ///         Type = "string",
+    ///         UserType = data.Okta_user_type.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +59,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/userBaseSchemaProperty:UserBaseSchemaProperty")]
-    public partial class UserBaseSchemaProperty : Pulumi.CustomResource
+    public partial class UserBaseSchemaProperty : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The property name.
@@ -155,7 +153,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class UserBaseSchemaPropertyArgs : Pulumi.ResourceArgs
+    public sealed class UserBaseSchemaPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The property name.
@@ -208,9 +206,10 @@ namespace Pulumi.Okta
         public UserBaseSchemaPropertyArgs()
         {
         }
+        public static new UserBaseSchemaPropertyArgs Empty => new UserBaseSchemaPropertyArgs();
     }
 
-    public sealed class UserBaseSchemaPropertyState : Pulumi.ResourceArgs
+    public sealed class UserBaseSchemaPropertyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The property name.
@@ -263,5 +262,6 @@ namespace Pulumi.Okta
         public UserBaseSchemaPropertyState()
         {
         }
+        public static new UserBaseSchemaPropertyState Empty => new UserBaseSchemaPropertyState();
     }
 }

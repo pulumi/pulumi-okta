@@ -29,37 +29,40 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"knowledge": map[string]interface{}{
-// 				"types": []string{
-// 					"password",
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
-// 			PolicyId: pulumi.Any(data.Okta_app_signon_policy.Test.Id),
-// 			Constraints: pulumi.StringArray{
-// 				pulumi.String(json0),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"knowledge": map[string]interface{}{
+//					"types": []string{
+//						"password",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
+//				PolicyId: pulumi.Any(data.Okta_app_signon_policy.Test.Id),
+//				Constraints: pulumi.StringArray{
+//					pulumi.String(json0),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // This will create an app sign-on policy rule with the following `THEN` block:
@@ -68,14 +71,17 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Example 2:
 //
@@ -83,42 +89,45 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"knowledge": map[string]interface{}{
-// 				"reauthenticateIn": "PT2H",
-// 				"types": []string{
-// 					"password",
-// 				},
-// 			},
-// 			"possession": map[string]interface{}{
-// 				"deviceBound":        "REQUIRED",
-// 				"hardwareProtection": "REQUIRED",
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
-// 			PolicyId: pulumi.Any(data.Okta_app_signon_policy.Test.Id),
-// 			Constraints: pulumi.StringArray{
-// 				pulumi.String(json0),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"knowledge": map[string]interface{}{
+//					"reauthenticateIn": "PT2H",
+//					"types": []string{
+//						"password",
+//					},
+//				},
+//				"possession": map[string]interface{}{
+//					"deviceBound":        "REQUIRED",
+//					"hardwareProtection": "REQUIRED",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
+//				PolicyId: pulumi.Any(data.Okta_app_signon_policy.Test.Id),
+//				Constraints: pulumi.StringArray{
+//					pulumi.String(json0),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // This will create an app sign-on policy rule with the following `THEN` block:
@@ -127,14 +136,17 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // More examples can be
@@ -145,203 +157,206 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/network"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/network"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testSaml, err := app.NewSaml(ctx, "testSaml", &app.SamlArgs{
-// 			Label:                 pulumi.String("testAcc_replace_with_uuid"),
-// 			SsoUrl:                pulumi.String("https://google.com"),
-// 			Recipient:             pulumi.String("https://here.com"),
-// 			Destination:           pulumi.String("https://its-about-the-journey.com"),
-// 			Audience:              pulumi.String("https://audience.com"),
-// 			SubjectNameIdTemplate: pulumi.Any(user.UserName),
-// 			SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
-// 			ResponseSigned:        pulumi.Bool(true),
-// 			SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
-// 			DigestAlgorithm:       pulumi.String("SHA256"),
-// 			HonorForceAuthn:       pulumi.Bool(false),
-// 			AuthnContextClassRef:  pulumi.String("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"),
-// 			SingleLogoutIssuer:    pulumi.String("https://dunshire.okta.com"),
-// 			SingleLogoutUrl:       pulumi.String("https://dunshire.okta.com/logout"),
-// 			SingleLogoutCertificate: pulumi.String("MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV\nBAgMBU1haW5lMRAwDgYDVQQHDAdDYXJpYm91MRcwFQYDVQQKDA5Tbm93bWFrZXJzIEluYzEUMBIG\nA1UECwwLRW5naW5lZXJpbmcxDTALBgNVBAMMBFNub3cxIDAeBgkqhkiG9w0BCQEWEWVtYWlsQGV4\nYW1wbGUuY29tMB4XDTIwMTIwMzIyNDY0M1oXDTMwMTIwMTIyNDY0M1owgY8xCzAJBgNVBAYTAlVT\nMQ4wDAYDVQQIDAVNYWluZTEQMA4GA1UEBwwHQ2FyaWJvdTEXMBUGA1UECgwOU25vd21ha2VycyBJ\nbmMxFDASBgNVBAsMC0VuZ2luZWVyaW5nMQ0wCwYDVQQDDARTbm93MSAwHgYJKoZIhvcNAQkBFhFl\nbWFpbEBleGFtcGxlLmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBANMmWDjXPdoa\nPyzIENqeY9njLan2FqCbQPSestWUUcb6NhDsJVGSQ7XR+ozQA5TaJzbP7cAJUj8vCcbqMZsgOQAu\nO/pzYyQEKptLmrGvPn7xkJ1A1xLkp2NY18cpDTeUPueJUoidZ9EJwEuyUZIktzxNNU1pA1lGijiu\n2XNxs9d9JR/hm3tCu9Im8qLVB4JtX80YUa6QtlRjWR/H8a373AYCOASdoB3c57fIPD8ATDNy2w/c\nfCVGiyKDMFB+GA/WTsZpOP3iohRp8ltAncSuzypcztb2iE+jijtTsiC9kUA2abAJqqpoCJubNShi\nVff4822czpziS44MV2guC9wANi8u3Uyl5MKsU95j01jzadKRP5S+2f0K+n8n4UoV9fnqZFyuGAKd\nCJi9K6NlSAP+TgPe/JP9FOSuxQOHWJfmdLHdJD+evoKi9E55sr5lRFK0xU1Fj5Ld7zjC0pXPhtJf\nsgjEZzD433AsHnRzvRT1KSNCPkLYomznZo5n9rWYgCQ8HcytlQDTesmKE+s05E/VSWNtH84XdDrt\nieXwfwhHfaABSu+WjZYxi9CXdFCSvXhsgufUcK4FbYAHl/ga/cJxZc52yFC7Pcq0u9O2BSCjYPdQ\nDAHs9dhT1RhwVLM8RmoAzgxyyzau0gxnAlgSBD9FMW6dXqIHIp8yAAg9cRXhYRTNAgMBAAEwDQYJ\nKoZIhvcNAQELBQADggIBADofEC1SvG8qa7pmKCjB/E9Sxhk3mvUO9Gq43xzwVb721Ng3VYf4vGU3\nwLUwJeLt0wggnj26NJweN5T3q9T8UMxZhHSWvttEU3+S1nArRB0beti716HSlOCDx4wTmBu/D1MG\nt/kZYFJw+zuzvAcbYct2pK69AQhD8xAIbQvqADJI7cCK3yRry+aWtppc58P81KYabUlCfFXfhJ9E\nP72ffN4jVHpX3lxxYh7FKAdiKbY2FYzjsc7RdgKI1R3iAAZUCGBTvezNzaetGzTUjjl/g1tcVYij\nltH9ZOQBPlUMI88lxUxqgRTerpPmAJH00CACx4JFiZrweLM1trZyy06wNDQgLrqHr3EOagBF/O2h\nhfTehNdVr6iq3YhKWBo4/+RL0RCzHMh4u86VbDDnDn4Y6HzLuyIAtBFoikoKM6UHTOa0Pqv2bBr5\nwbkRkVUxl9yJJw/HmTCdfnsM9dTOJUKzEglnGF2184Gg+qJDZB6fSf0EAO1F6sTqiSswl+uHQZiy\nDaZzyU7Gg5seKOZ20zTRaX3Ihj9Zij/ORnrARE7eM/usKMECp+7syUwAUKxDCZkGiUdskmOhhBGL\nJtbyK3F2UvoJoLsm3pIcvMak9KwMjSTGJB47ABUP1+w+zGcNk0D5Co3IJ6QekiLfWJyQ+kKsWLKt\nzOYQQatrnBagM7MI2/T4\n"),
-// 			AttributeStatements: app.SamlAttributeStatementArray{
-// 				&app.SamlAttributeStatementArgs{
-// 					Type:        pulumi.String("GROUP"),
-// 					Name:        pulumi.String("groups"),
-// 					FilterType:  pulumi.String("REGEX"),
-// 					FilterValue: pulumi.String(".*"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testAppSignonPolicy := okta.LookupAppSignonPolicyOutput(ctx, GetAppSignonPolicyOutputArgs{
-// 			AppId: testSaml.ID(),
-// 		}, nil)
-// 		var testUser []*user.User
-// 		for key0, val0 := range 5 {
-// 			__res, err := user.NewUser(ctx, fmt.Sprintf("testUser-%v", key0), &user.UserArgs{
-// 				FirstName: pulumi.String("TestAcc"),
-// 				LastName:  pulumi.String("Smith"),
-// 				Login:     pulumi.String(fmt.Sprintf("testAcc_%v@example.com", val0)),
-// 				Email:     pulumi.String(fmt.Sprintf("testAcc_%v@example.com", val0)),
-// 			})
-// 			if err != nil {
-// 				return err
-// 			}
-// 			testUser = append(testUser, __res)
-// 		}
-// 		var this []*group.Group
-// 		for key0, val0 := range 5 {
-// 			__res, err := group.NewGroup(ctx, fmt.Sprintf("this-%v", key0), &group.GroupArgs{
-// 				Description: pulumi.String(fmt.Sprintf("testAcc_%v", val0)),
-// 			})
-// 			if err != nil {
-// 				return err
-// 			}
-// 			this = append(this, __res)
-// 		}
-// 		testUserType, err := user.NewUserType(ctx, "testUserType", &user.UserTypeArgs{
-// 			DisplayName: pulumi.String("Terraform Acceptance Test User Type Updated"),
-// 			Description: pulumi.String("Terraform Acceptance Test User Type Updated"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testZone, err := network.NewZone(ctx, "testZone", &network.ZoneArgs{
-// 			Type: pulumi.String("IP"),
-// 			Gateways: pulumi.StringArray{
-// 				pulumi.String("1.2.3.4/24"),
-// 				pulumi.String("2.3.4.5-2.3.4.15"),
-// 			},
-// 			Proxies: pulumi.StringArray{
-// 				pulumi.String("2.2.3.4/24"),
-// 				pulumi.String("3.3.4.5-3.3.4.15"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_default, err := user.LookupUserType(ctx, &user.LookupUserTypeArgs{
-// 			Name: "user",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"knowledge": map[string]interface{}{
-// 				"reauthenticateIn": "PT2H",
-// 				"types": []string{
-// 					"password",
-// 				},
-// 			},
-// 			"possession": map[string]interface{}{
-// 				"deviceBound": "REQUIRED",
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		tmpJSON1, err := json.Marshal(map[string]interface{}{
-// 			"possession": map[string]interface{}{
-// 				"deviceBound":        "REQUIRED",
-// 				"hardwareProtection": "REQUIRED",
-// 				"userPresence":       "OPTIONAL",
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json1 := string(tmpJSON1)
-// 		_, err = okta.NewAppSignonPolicyRule(ctx, "testAppSignonPolicyRule", &okta.AppSignonPolicyRuleArgs{
-// 			PolicyId: testAppSignonPolicy.ApplyT(func(testAppSignonPolicy GetAppSignonPolicyResult) (string, error) {
-// 				return testAppSignonPolicy.Id, nil
-// 			}).(pulumi.StringOutput),
-// 			Access:             pulumi.String("ALLOW"),
-// 			CustomExpression:   pulumi.String("user.status == \"ACTIVE\""),
-// 			DeviceIsManaged:    pulumi.Bool(false),
-// 			DeviceIsRegistered: pulumi.Bool(true),
-// 			FactorMode:         pulumi.String("2FA"),
-// 			GroupsExcludeds: pulumi.StringArray{
-// 				this[2].ID(),
-// 				this[3].ID(),
-// 				this[4].ID(),
-// 			},
-// 			GroupsIncludeds: pulumi.StringArray{
-// 				this[0].ID(),
-// 				this[1].ID(),
-// 			},
-// 			NetworkConnection: pulumi.String("ZONE"),
-// 			NetworkIncludes: pulumi.StringArray{
-// 				testZone.ID(),
-// 			},
-// 			PlatformIncludes: AppSignonPolicyRulePlatformIncludeArray{
-// 				&AppSignonPolicyRulePlatformIncludeArgs{
-// 					OsType: pulumi.String("ANDROID"),
-// 					Type:   pulumi.String("MOBILE"),
-// 				},
-// 				&AppSignonPolicyRulePlatformIncludeArgs{
-// 					OsType: pulumi.String("IOS"),
-// 					Type:   pulumi.String("MOBILE"),
-// 				},
-// 				&AppSignonPolicyRulePlatformIncludeArgs{
-// 					OsType: pulumi.String("MACOS"),
-// 					Type:   pulumi.String("DESKTOP"),
-// 				},
-// 				&AppSignonPolicyRulePlatformIncludeArgs{
-// 					OsType: pulumi.String("OTHER"),
-// 					Type:   pulumi.String("DESKTOP"),
-// 				},
-// 				&AppSignonPolicyRulePlatformIncludeArgs{
-// 					OsType: pulumi.String("OTHER"),
-// 					Type:   pulumi.String("MOBILE"),
-// 				},
-// 				&AppSignonPolicyRulePlatformIncludeArgs{
-// 					OsType: pulumi.String("WINDOWS"),
-// 					Type:   pulumi.String("DESKTOP"),
-// 				},
-// 			},
-// 			Priority:                  pulumi.Int(98),
-// 			ReAuthenticationFrequency: pulumi.String("PT43800H"),
-// 			Type:                      pulumi.String("ASSURANCE"),
-// 			UserTypesExcludeds: pulumi.StringArray{
-// 				testUserType.ID(),
-// 			},
-// 			UserTypesIncludeds: pulumi.StringArray{
-// 				pulumi.String(_default.Id),
-// 			},
-// 			UsersExcludeds: pulumi.StringArray{
-// 				testUser[2].ID(),
-// 				testUser[3].ID(),
-// 				testUser[4].ID(),
-// 			},
-// 			UsersIncludeds: pulumi.StringArray{
-// 				testUser[0].ID(),
-// 				testUser[1].ID(),
-// 			},
-// 			Constraints: pulumi.StringArray{
-// 				pulumi.String(json0),
-// 				pulumi.String(json1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testSaml, err := app.NewSaml(ctx, "testSaml", &app.SamlArgs{
+//				Label:                   pulumi.String("testAcc_replace_with_uuid"),
+//				SsoUrl:                  pulumi.String("https://google.com"),
+//				Recipient:               pulumi.String("https://here.com"),
+//				Destination:             pulumi.String("https://its-about-the-journey.com"),
+//				Audience:                pulumi.String("https://audience.com"),
+//				SubjectNameIdTemplate:   pulumi.Any(user.UserName),
+//				SubjectNameIdFormat:     pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
+//				ResponseSigned:          pulumi.Bool(true),
+//				SignatureAlgorithm:      pulumi.String("RSA_SHA256"),
+//				DigestAlgorithm:         pulumi.String("SHA256"),
+//				HonorForceAuthn:         pulumi.Bool(false),
+//				AuthnContextClassRef:    pulumi.String("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"),
+//				SingleLogoutIssuer:      pulumi.String("https://dunshire.okta.com"),
+//				SingleLogoutUrl:         pulumi.String("https://dunshire.okta.com/logout"),
+//				SingleLogoutCertificate: pulumi.String("MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV\nBAgMBU1haW5lMRAwDgYDVQQHDAdDYXJpYm91MRcwFQYDVQQKDA5Tbm93bWFrZXJzIEluYzEUMBIG\nA1UECwwLRW5naW5lZXJpbmcxDTALBgNVBAMMBFNub3cxIDAeBgkqhkiG9w0BCQEWEWVtYWlsQGV4\nYW1wbGUuY29tMB4XDTIwMTIwMzIyNDY0M1oXDTMwMTIwMTIyNDY0M1owgY8xCzAJBgNVBAYTAlVT\nMQ4wDAYDVQQIDAVNYWluZTEQMA4GA1UEBwwHQ2FyaWJvdTEXMBUGA1UECgwOU25vd21ha2VycyBJ\nbmMxFDASBgNVBAsMC0VuZ2luZWVyaW5nMQ0wCwYDVQQDDARTbm93MSAwHgYJKoZIhvcNAQkBFhFl\nbWFpbEBleGFtcGxlLmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBANMmWDjXPdoa\nPyzIENqeY9njLan2FqCbQPSestWUUcb6NhDsJVGSQ7XR+ozQA5TaJzbP7cAJUj8vCcbqMZsgOQAu\nO/pzYyQEKptLmrGvPn7xkJ1A1xLkp2NY18cpDTeUPueJUoidZ9EJwEuyUZIktzxNNU1pA1lGijiu\n2XNxs9d9JR/hm3tCu9Im8qLVB4JtX80YUa6QtlRjWR/H8a373AYCOASdoB3c57fIPD8ATDNy2w/c\nfCVGiyKDMFB+GA/WTsZpOP3iohRp8ltAncSuzypcztb2iE+jijtTsiC9kUA2abAJqqpoCJubNShi\nVff4822czpziS44MV2guC9wANi8u3Uyl5MKsU95j01jzadKRP5S+2f0K+n8n4UoV9fnqZFyuGAKd\nCJi9K6NlSAP+TgPe/JP9FOSuxQOHWJfmdLHdJD+evoKi9E55sr5lRFK0xU1Fj5Ld7zjC0pXPhtJf\nsgjEZzD433AsHnRzvRT1KSNCPkLYomznZo5n9rWYgCQ8HcytlQDTesmKE+s05E/VSWNtH84XdDrt\nieXwfwhHfaABSu+WjZYxi9CXdFCSvXhsgufUcK4FbYAHl/ga/cJxZc52yFC7Pcq0u9O2BSCjYPdQ\nDAHs9dhT1RhwVLM8RmoAzgxyyzau0gxnAlgSBD9FMW6dXqIHIp8yAAg9cRXhYRTNAgMBAAEwDQYJ\nKoZIhvcNAQELBQADggIBADofEC1SvG8qa7pmKCjB/E9Sxhk3mvUO9Gq43xzwVb721Ng3VYf4vGU3\nwLUwJeLt0wggnj26NJweN5T3q9T8UMxZhHSWvttEU3+S1nArRB0beti716HSlOCDx4wTmBu/D1MG\nt/kZYFJw+zuzvAcbYct2pK69AQhD8xAIbQvqADJI7cCK3yRry+aWtppc58P81KYabUlCfFXfhJ9E\nP72ffN4jVHpX3lxxYh7FKAdiKbY2FYzjsc7RdgKI1R3iAAZUCGBTvezNzaetGzTUjjl/g1tcVYij\nltH9ZOQBPlUMI88lxUxqgRTerpPmAJH00CACx4JFiZrweLM1trZyy06wNDQgLrqHr3EOagBF/O2h\nhfTehNdVr6iq3YhKWBo4/+RL0RCzHMh4u86VbDDnDn4Y6HzLuyIAtBFoikoKM6UHTOa0Pqv2bBr5\nwbkRkVUxl9yJJw/HmTCdfnsM9dTOJUKzEglnGF2184Gg+qJDZB6fSf0EAO1F6sTqiSswl+uHQZiy\nDaZzyU7Gg5seKOZ20zTRaX3Ihj9Zij/ORnrARE7eM/usKMECp+7syUwAUKxDCZkGiUdskmOhhBGL\nJtbyK3F2UvoJoLsm3pIcvMak9KwMjSTGJB47ABUP1+w+zGcNk0D5Co3IJ6QekiLfWJyQ+kKsWLKt\nzOYQQatrnBagM7MI2/T4\n"),
+//				AttributeStatements: app.SamlAttributeStatementArray{
+//					&app.SamlAttributeStatementArgs{
+//						Type:        pulumi.String("GROUP"),
+//						Name:        pulumi.String("groups"),
+//						FilterType:  pulumi.String("REGEX"),
+//						FilterValue: pulumi.String(".*"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testAppSignonPolicy := okta.LookupAppSignonPolicyOutput(ctx, GetAppSignonPolicyOutputArgs{
+//				AppId: testSaml.ID(),
+//			}, nil)
+//			var testUser []*user.User
+//			for key0, val0 := range 5 {
+//				__res, err := user.NewUser(ctx, fmt.Sprintf("testUser-%v", key0), &user.UserArgs{
+//					FirstName: pulumi.String("TestAcc"),
+//					LastName:  pulumi.String("Smith"),
+//					Login:     pulumi.String(fmt.Sprintf("testAcc_%v@example.com", val0)),
+//					Email:     pulumi.String(fmt.Sprintf("testAcc_%v@example.com", val0)),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				testUser = append(testUser, __res)
+//			}
+//			var this []*group.Group
+//			for key0, val0 := range 5 {
+//				__res, err := group.NewGroup(ctx, fmt.Sprintf("this-%v", key0), &group.GroupArgs{
+//					Description: pulumi.String(fmt.Sprintf("testAcc_%v", val0)),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				this = append(this, __res)
+//			}
+//			testUserType, err := user.NewUserType(ctx, "testUserType", &user.UserTypeArgs{
+//				DisplayName: pulumi.String("Terraform Acceptance Test User Type Updated"),
+//				Description: pulumi.String("Terraform Acceptance Test User Type Updated"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testZone, err := network.NewZone(ctx, "testZone", &network.ZoneArgs{
+//				Type: pulumi.String("IP"),
+//				Gateways: pulumi.StringArray{
+//					pulumi.String("1.2.3.4/24"),
+//					pulumi.String("2.3.4.5-2.3.4.15"),
+//				},
+//				Proxies: pulumi.StringArray{
+//					pulumi.String("2.2.3.4/24"),
+//					pulumi.String("3.3.4.5-3.3.4.15"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_default, err := user.LookupUserType(ctx, &user.LookupUserTypeArgs{
+//				Name: "user",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"knowledge": map[string]interface{}{
+//					"reauthenticateIn": "PT2H",
+//					"types": []string{
+//						"password",
+//					},
+//				},
+//				"possession": map[string]interface{}{
+//					"deviceBound": "REQUIRED",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"possession": map[string]interface{}{
+//					"deviceBound":        "REQUIRED",
+//					"hardwareProtection": "REQUIRED",
+//					"userPresence":       "OPTIONAL",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			_, err = okta.NewAppSignonPolicyRule(ctx, "testAppSignonPolicyRule", &okta.AppSignonPolicyRuleArgs{
+//				PolicyId: testAppSignonPolicy.ApplyT(func(testAppSignonPolicy GetAppSignonPolicyResult) (string, error) {
+//					return testAppSignonPolicy.Id, nil
+//				}).(pulumi.StringOutput),
+//				Access:             pulumi.String("ALLOW"),
+//				CustomExpression:   pulumi.String("user.status == \"ACTIVE\""),
+//				DeviceIsManaged:    pulumi.Bool(false),
+//				DeviceIsRegistered: pulumi.Bool(true),
+//				FactorMode:         pulumi.String("2FA"),
+//				GroupsExcludeds: pulumi.StringArray{
+//					this[2].ID(),
+//					this[3].ID(),
+//					this[4].ID(),
+//				},
+//				GroupsIncludeds: pulumi.StringArray{
+//					this[0].ID(),
+//					this[1].ID(),
+//				},
+//				NetworkConnection: pulumi.String("ZONE"),
+//				NetworkIncludes: pulumi.StringArray{
+//					testZone.ID(),
+//				},
+//				PlatformIncludes: AppSignonPolicyRulePlatformIncludeArray{
+//					&AppSignonPolicyRulePlatformIncludeArgs{
+//						OsType: pulumi.String("ANDROID"),
+//						Type:   pulumi.String("MOBILE"),
+//					},
+//					&AppSignonPolicyRulePlatformIncludeArgs{
+//						OsType: pulumi.String("IOS"),
+//						Type:   pulumi.String("MOBILE"),
+//					},
+//					&AppSignonPolicyRulePlatformIncludeArgs{
+//						OsType: pulumi.String("MACOS"),
+//						Type:   pulumi.String("DESKTOP"),
+//					},
+//					&AppSignonPolicyRulePlatformIncludeArgs{
+//						OsType: pulumi.String("OTHER"),
+//						Type:   pulumi.String("DESKTOP"),
+//					},
+//					&AppSignonPolicyRulePlatformIncludeArgs{
+//						OsType: pulumi.String("OTHER"),
+//						Type:   pulumi.String("MOBILE"),
+//					},
+//					&AppSignonPolicyRulePlatformIncludeArgs{
+//						OsType: pulumi.String("WINDOWS"),
+//						Type:   pulumi.String("DESKTOP"),
+//					},
+//				},
+//				Priority:                  pulumi.Int(98),
+//				ReAuthenticationFrequency: pulumi.String("PT43800H"),
+//				Type:                      pulumi.String("ASSURANCE"),
+//				UserTypesExcludeds: pulumi.StringArray{
+//					testUserType.ID(),
+//				},
+//				UserTypesIncludeds: pulumi.StringArray{
+//					pulumi.String(_default.Id),
+//				},
+//				UsersExcludeds: pulumi.StringArray{
+//					testUser[2].ID(),
+//					testUser[3].ID(),
+//					testUser[4].ID(),
+//				},
+//				UsersIncludeds: pulumi.StringArray{
+//					testUser[0].ID(),
+//					testUser[1].ID(),
+//				},
+//				Constraints: pulumi.StringArray{
+//					pulumi.String(json0),
+//					pulumi.String(json1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -349,7 +364,9 @@ import (
 // Okta app sign-on policy rule can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
+//
+//	$ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
+//
 // ```
 type AppSignonPolicyRule struct {
 	pulumi.CustomResourceState
@@ -670,7 +687,7 @@ func (i *AppSignonPolicyRule) ToAppSignonPolicyRuleOutputWithContext(ctx context
 // AppSignonPolicyRuleArrayInput is an input type that accepts AppSignonPolicyRuleArray and AppSignonPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `AppSignonPolicyRuleArrayInput` via:
 //
-//          AppSignonPolicyRuleArray{ AppSignonPolicyRuleArgs{...} }
+//	AppSignonPolicyRuleArray{ AppSignonPolicyRuleArgs{...} }
 type AppSignonPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -695,7 +712,7 @@ func (i AppSignonPolicyRuleArray) ToAppSignonPolicyRuleArrayOutputWithContext(ct
 // AppSignonPolicyRuleMapInput is an input type that accepts AppSignonPolicyRuleMap and AppSignonPolicyRuleMapOutput values.
 // You can construct a concrete instance of `AppSignonPolicyRuleMapInput` via:
 //
-//          AppSignonPolicyRuleMap{ "key": AppSignonPolicyRuleArgs{...} }
+//	AppSignonPolicyRuleMap{ "key": AppSignonPolicyRuleArgs{...} }
 type AppSignonPolicyRuleMapInput interface {
 	pulumi.Input
 

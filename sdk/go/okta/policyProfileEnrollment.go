@@ -20,21 +20,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewPolicyProfileEnrollment(ctx, "example", &okta.PolicyProfileEnrollmentArgs{
-// 			Status: pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewPolicyProfileEnrollment(ctx, "example", &okta.PolicyProfileEnrollmentArgs{
+//				Status: pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // A Profile Enrollment Policy can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
+//
+//	$ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
+//
 // ```
 type PolicyProfileEnrollment struct {
 	pulumi.CustomResourceState
@@ -140,7 +145,7 @@ func (i *PolicyProfileEnrollment) ToPolicyProfileEnrollmentOutputWithContext(ctx
 // PolicyProfileEnrollmentArrayInput is an input type that accepts PolicyProfileEnrollmentArray and PolicyProfileEnrollmentArrayOutput values.
 // You can construct a concrete instance of `PolicyProfileEnrollmentArrayInput` via:
 //
-//          PolicyProfileEnrollmentArray{ PolicyProfileEnrollmentArgs{...} }
+//	PolicyProfileEnrollmentArray{ PolicyProfileEnrollmentArgs{...} }
 type PolicyProfileEnrollmentArrayInput interface {
 	pulumi.Input
 
@@ -165,7 +170,7 @@ func (i PolicyProfileEnrollmentArray) ToPolicyProfileEnrollmentArrayOutputWithCo
 // PolicyProfileEnrollmentMapInput is an input type that accepts PolicyProfileEnrollmentMap and PolicyProfileEnrollmentMapOutput values.
 // You can construct a concrete instance of `PolicyProfileEnrollmentMapInput` via:
 //
-//          PolicyProfileEnrollmentMap{ "key": PolicyProfileEnrollmentArgs{...} }
+//	PolicyProfileEnrollmentMap{ "key": PolicyProfileEnrollmentArgs{...} }
 type PolicyProfileEnrollmentMapInput interface {
 	pulumi.Input
 

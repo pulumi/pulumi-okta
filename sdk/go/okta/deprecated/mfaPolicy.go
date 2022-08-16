@@ -257,7 +257,7 @@ func (i *MfaPolicy) ToMfaPolicyOutputWithContext(ctx context.Context) MfaPolicyO
 // MfaPolicyArrayInput is an input type that accepts MfaPolicyArray and MfaPolicyArrayOutput values.
 // You can construct a concrete instance of `MfaPolicyArrayInput` via:
 //
-//          MfaPolicyArray{ MfaPolicyArgs{...} }
+//	MfaPolicyArray{ MfaPolicyArgs{...} }
 type MfaPolicyArrayInput interface {
 	pulumi.Input
 
@@ -282,7 +282,7 @@ func (i MfaPolicyArray) ToMfaPolicyArrayOutputWithContext(ctx context.Context) M
 // MfaPolicyMapInput is an input type that accepts MfaPolicyMap and MfaPolicyMapOutput values.
 // You can construct a concrete instance of `MfaPolicyMapInput` via:
 //
-//          MfaPolicyMap{ "key": MfaPolicyArgs{...} }
+//	MfaPolicyMap{ "key": MfaPolicyArgs{...} }
 type MfaPolicyMapInput interface {
 	pulumi.Input
 

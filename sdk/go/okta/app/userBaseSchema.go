@@ -21,25 +21,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewUserBaseSchema(ctx, "example", &app.UserBaseSchemaArgs{
-// 			AppId:  pulumi.String("<app id>"),
-// 			Index:  pulumi.String("customPropertyName"),
-// 			Master: pulumi.String("OKTA"),
-// 			Title:  pulumi.String("customPropertyName"),
-// 			Type:   pulumi.String("string"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewUserBaseSchema(ctx, "example", &app.UserBaseSchemaArgs{
+//				AppId:  pulumi.String("<app id>"),
+//				Index:  pulumi.String("customPropertyName"),
+//				Master: pulumi.String("OKTA"),
+//				Title:  pulumi.String("customPropertyName"),
+//				Type:   pulumi.String("string"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // App user base schema property can be imported via the property index and app id.
 //
 // ```sh
-//  $ pulumi import okta:app/userBaseSchema:UserBaseSchema example &#60;app id&#62;/&#60;property name&#62;
+//
+//	$ pulumi import okta:app/userBaseSchema:UserBaseSchema example &#60;app id&#62;/&#60;property name&#62;
+//
 // ```
 type UserBaseSchema struct {
 	pulumi.CustomResourceState
@@ -227,7 +232,7 @@ func (i *UserBaseSchema) ToUserBaseSchemaOutputWithContext(ctx context.Context) 
 // UserBaseSchemaArrayInput is an input type that accepts UserBaseSchemaArray and UserBaseSchemaArrayOutput values.
 // You can construct a concrete instance of `UserBaseSchemaArrayInput` via:
 //
-//          UserBaseSchemaArray{ UserBaseSchemaArgs{...} }
+//	UserBaseSchemaArray{ UserBaseSchemaArgs{...} }
 type UserBaseSchemaArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +257,7 @@ func (i UserBaseSchemaArray) ToUserBaseSchemaArrayOutputWithContext(ctx context.
 // UserBaseSchemaMapInput is an input type that accepts UserBaseSchemaMap and UserBaseSchemaMapOutput values.
 // You can construct a concrete instance of `UserBaseSchemaMapInput` via:
 //
-//          UserBaseSchemaMap{ "key": UserBaseSchemaArgs{...} }
+//	UserBaseSchemaMap{ "key": UserBaseSchemaArgs{...} }
 type UserBaseSchemaMapInput interface {
 	pulumi.Input
 

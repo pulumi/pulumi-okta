@@ -17,50 +17,46 @@ namespace Pulumi.Okta.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Network.Zone("example", new()
     ///     {
-    ///         var example = new Okta.Network.Zone("example", new Okta.Network.ZoneArgs
+    ///         Gateways = new[]
     ///         {
-    ///             Gateways = 
-    ///             {
-    ///                 "1.2.3.4/24",
-    ///                 "2.3.4.5-2.3.4.15",
-    ///             },
-    ///             Proxies = 
-    ///             {
-    ///                 "2.2.3.4/24",
-    ///                 "3.3.4.5-3.3.4.15",
-    ///             },
-    ///             Type = "IP",
-    ///         });
-    ///     }
+    ///             "1.2.3.4/24",
+    ///             "2.3.4.5-2.3.4.15",
+    ///         },
+    ///         Proxies = new[]
+    ///         {
+    ///             "2.2.3.4/24",
+    ///             "3.3.4.5-3.3.4.15",
+    ///         },
+    ///         Type = "IP",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Dynamic Tor Blocker
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Network.Zone("example", new()
     ///     {
-    ///         var example = new Okta.Network.Zone("example", new Okta.Network.ZoneArgs
-    ///         {
-    ///             DynamicProxyType = "TorAnonymizer",
-    ///             Type = "DYNAMIC",
-    ///             Usage = "BLOCKLIST",
-    ///         });
-    ///     }
+    ///         DynamicProxyType = "TorAnonymizer",
+    ///         Type = "DYNAMIC",
+    ///         Usage = "BLOCKLIST",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +68,7 @@ namespace Pulumi.Okta.Network
     /// ```
     /// </summary>
     [OktaResourceType("okta:network/zone:Zone")]
-    public partial class Zone : Pulumi.CustomResource
+    public partial class Zone : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
@@ -167,7 +163,7 @@ namespace Pulumi.Okta.Network
         }
     }
 
-    public sealed class ZoneArgs : Pulumi.ResourceArgs
+    public sealed class ZoneArgs : global::Pulumi.ResourceArgs
     {
         [Input("asns")]
         private InputList<string>? _asns;
@@ -245,9 +241,10 @@ namespace Pulumi.Okta.Network
         public ZoneArgs()
         {
         }
+        public static new ZoneArgs Empty => new ZoneArgs();
     }
 
-    public sealed class ZoneState : Pulumi.ResourceArgs
+    public sealed class ZoneState : global::Pulumi.ResourceArgs
     {
         [Input("asns")]
         private InputList<string>? _asns;
@@ -325,5 +322,6 @@ namespace Pulumi.Okta.Network
         public ZoneState()
         {
         }
+        public static new ZoneState Empty => new ZoneState();
     }
 }

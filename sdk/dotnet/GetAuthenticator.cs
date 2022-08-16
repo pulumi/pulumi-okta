@@ -21,37 +21,33 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Okta.GetAuthenticator.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Okta.GetAuthenticator.InvokeAsync(new Okta.GetAuthenticatorArgs
-        ///         {
-        ///             Name = "Security Question",
-        ///         }));
-        ///     }
+        ///         Name = "Security Question",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Okta.GetAuthenticator.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Okta.GetAuthenticator.InvokeAsync(new Okta.GetAuthenticatorArgs
-        ///         {
-        ///             Key = "okta_email",
-        ///         }));
-        ///     }
+        ///         Key = "okta_email",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,37 +65,33 @@ namespace Pulumi.Okta
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Okta.GetAuthenticator.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Okta.GetAuthenticator.InvokeAsync(new Okta.GetAuthenticatorArgs
-        ///         {
-        ///             Name = "Security Question",
-        ///         }));
-        ///     }
+        ///         Name = "Security Question",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Okta.GetAuthenticator.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Okta.GetAuthenticator.InvokeAsync(new Okta.GetAuthenticatorArgs
-        ///         {
-        ///             Key = "okta_email",
-        ///         }));
-        ///     }
+        ///         Key = "okta_email",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -109,7 +101,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetAuthenticatorArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthenticatorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the authenticator.
@@ -132,9 +124,10 @@ namespace Pulumi.Okta
         public GetAuthenticatorArgs()
         {
         }
+        public static new GetAuthenticatorArgs Empty => new GetAuthenticatorArgs();
     }
 
-    public sealed class GetAuthenticatorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthenticatorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the authenticator.
@@ -157,6 +150,7 @@ namespace Pulumi.Okta
         public GetAuthenticatorInvokeArgs()
         {
         }
+        public static new GetAuthenticatorInvokeArgs Empty => new GetAuthenticatorInvokeArgs();
     }
 
 

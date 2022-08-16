@@ -18,57 +18,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-// 			Type: "MFA_ENROLL",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleOAuth, err := app.NewOAuth(ctx, "exampleOAuth", &app.OAuthArgs{
-// 			Label: pulumi.String("My App"),
-// 			Type:  pulumi.String("web"),
-// 			GrantTypes: pulumi.StringArray{
-// 				pulumi.String("authorization_code"),
-// 			},
-// 			RedirectUris: pulumi.StringArray{
-// 				pulumi.String("http://localhost:8000"),
-// 			},
-// 			ResponseTypes: pulumi.StringArray{
-// 				pulumi.String("code"),
-// 			},
-// 			SkipGroups: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-// 			PolicyId: pulumi.String(exampleDefaultPolicy.Id),
-// 			Status:   pulumi.String("ACTIVE"),
-// 			Enroll:   pulumi.String("LOGIN"),
-// 			AppIncludes: policy.RuleMfaAppIncludeArray{
-// 				&policy.RuleMfaAppIncludeArgs{
-// 					Id:   exampleOAuth.ID(),
-// 					Type: pulumi.String("APP"),
-// 				},
-// 				&policy.RuleMfaAppIncludeArgs{
-// 					Type: pulumi.String("APP_TYPE"),
-// 					Name: pulumi.String("yahoo_mail"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
+//				Type: "MFA_ENROLL",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleOAuth, err := app.NewOAuth(ctx, "exampleOAuth", &app.OAuthArgs{
+//				Label: pulumi.String("My App"),
+//				Type:  pulumi.String("web"),
+//				GrantTypes: pulumi.StringArray{
+//					pulumi.String("authorization_code"),
+//				},
+//				RedirectUris: pulumi.StringArray{
+//					pulumi.String("http://localhost:8000"),
+//				},
+//				ResponseTypes: pulumi.StringArray{
+//					pulumi.String("code"),
+//				},
+//				SkipGroups: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
+//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//				Status:   pulumi.String("ACTIVE"),
+//				Enroll:   pulumi.String("LOGIN"),
+//				AppIncludes: policy.RuleMfaAppIncludeArray{
+//					&policy.RuleMfaAppIncludeArgs{
+//						Id:   exampleOAuth.ID(),
+//						Type: pulumi.String("APP"),
+//					},
+//					&policy.RuleMfaAppIncludeArgs{
+//						Type: pulumi.String("APP_TYPE"),
+//						Name: pulumi.String("yahoo_mail"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
@@ -77,33 +80,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-// 			Type: "MFA_ENROLL",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-// 			PolicyId: pulumi.String(exampleDefaultPolicy.Id),
-// 			AppExcludes: policy.RuleMfaAppExcludeArray{
-// 				&policy.RuleMfaAppExcludeArgs{
-// 					Name: pulumi.String("okta"),
-// 					Type: pulumi.String("APP_TYPE"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
+//				Type: "MFA_ENROLL",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
+//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//				AppExcludes: policy.RuleMfaAppExcludeArray{
+//					&policy.RuleMfaAppExcludeArgs{
+//						Name: pulumi.String("okta"),
+//						Type: pulumi.String("APP_TYPE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
@@ -112,39 +118,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-// 			Type: "MFA_ENROLL",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-// 			PolicyId: pulumi.String(exampleDefaultPolicy.Id),
-// 			AppExcludes: policy.RuleMfaAppExcludeArray{
-// 				&policy.RuleMfaAppExcludeArgs{
-// 					Name: pulumi.String("okta"),
-// 					Type: pulumi.String("APP_TYPE"),
-// 				},
-// 			},
-// 			AppIncludes: policy.RuleMfaAppIncludeArray{
-// 				&policy.RuleMfaAppIncludeArgs{
-// 					Id:   pulumi.String("some_app_id"),
-// 					Type: pulumi.String("APP"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
+//				Type: "MFA_ENROLL",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
+//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//				AppExcludes: policy.RuleMfaAppExcludeArray{
+//					&policy.RuleMfaAppExcludeArgs{
+//						Name: pulumi.String("okta"),
+//						Type: pulumi.String("APP_TYPE"),
+//					},
+//				},
+//				AppIncludes: policy.RuleMfaAppIncludeArray{
+//					&policy.RuleMfaAppIncludeArgs{
+//						Id:   pulumi.String("some_app_id"),
+//						Type: pulumi.String("APP"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
@@ -153,33 +162,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-// 			Type: "MFA_ENROLL",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-// 			PolicyId: pulumi.String(exampleDefaultPolicy.Id),
-// 			AppIncludes: policy.RuleMfaAppIncludeArray{
-// 				&policy.RuleMfaAppIncludeArgs{
-// 					Name: pulumi.String("okta"),
-// 					Type: pulumi.String("APP_TYPE"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
+//				Type: "MFA_ENROLL",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
+//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//				AppIncludes: policy.RuleMfaAppIncludeArray{
+//					&policy.RuleMfaAppIncludeArgs{
+//						Name: pulumi.String("okta"),
+//						Type: pulumi.String("APP_TYPE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
@@ -188,27 +200,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-// 			Type: "MFA_ENROLL",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-// 			PolicyId: pulumi.String(exampleDefaultPolicy.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
+//				Type: "MFA_ENROLL",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
+//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
@@ -217,37 +232,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-// 			Type: "MFA_ENROLL",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-// 			PolicyId: pulumi.String(exampleDefaultPolicy.Id),
-// 			AppIncludes: policy.RuleMfaAppIncludeArray{
-// 				&policy.RuleMfaAppIncludeArgs{
-// 					Name: pulumi.String("okta"),
-// 					Type: pulumi.String("APP_TYPE"),
-// 				},
-// 				&policy.RuleMfaAppIncludeArgs{
-// 					Id:   pulumi.String("some_app_id"),
-// 					Type: pulumi.String("APP"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
+//				Type: "MFA_ENROLL",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
+//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//				AppIncludes: policy.RuleMfaAppIncludeArray{
+//					&policy.RuleMfaAppIncludeArgs{
+//						Name: pulumi.String("okta"),
+//						Type: pulumi.String("APP_TYPE"),
+//					},
+//					&policy.RuleMfaAppIncludeArgs{
+//						Id:   pulumi.String("some_app_id"),
+//						Type: pulumi.String("APP"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -255,7 +273,9 @@ import (
 // A Policy Rule can be imported via the Policy and Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:policy/ruleMfa:RuleMfa example &#60;policy id&#62;/&#60;rule id&#62;
+//
+//	$ pulumi import okta:policy/ruleMfa:RuleMfa example &#60;policy id&#62;/&#60;rule id&#62;
+//
 // ```
 type RuleMfa struct {
 	pulumi.CustomResourceState
@@ -463,7 +483,7 @@ func (i *RuleMfa) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOutput 
 // RuleMfaArrayInput is an input type that accepts RuleMfaArray and RuleMfaArrayOutput values.
 // You can construct a concrete instance of `RuleMfaArrayInput` via:
 //
-//          RuleMfaArray{ RuleMfaArgs{...} }
+//	RuleMfaArray{ RuleMfaArgs{...} }
 type RuleMfaArrayInput interface {
 	pulumi.Input
 
@@ -488,7 +508,7 @@ func (i RuleMfaArray) ToRuleMfaArrayOutputWithContext(ctx context.Context) RuleM
 // RuleMfaMapInput is an input type that accepts RuleMfaMap and RuleMfaMapOutput values.
 // You can construct a concrete instance of `RuleMfaMapInput` via:
 //
-//          RuleMfaMap{ "key": RuleMfaArgs{...} }
+//	RuleMfaMap{ "key": RuleMfaArgs{...} }
 type RuleMfaMapInput interface {
 	pulumi.Input
 

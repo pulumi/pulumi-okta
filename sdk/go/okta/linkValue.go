@@ -19,65 +19,68 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		padishah, err := okta.NewLinkDefinition(ctx, "padishah", &okta.LinkDefinitionArgs{
-// 			PrimaryName:           pulumi.String("emperor"),
-// 			PrimaryTitle:          pulumi.String("Emperor"),
-// 			PrimaryDescription:    pulumi.String("Hereditary ruler of the Imperium and the Known Universe"),
-// 			AssociatedName:        pulumi.String("sardaukar"),
-// 			AssociatedTitle:       pulumi.String("Sardaukar"),
-// 			AssociatedDescription: pulumi.String("Elite military force member"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		emperor, err := user.NewUser(ctx, "emperor", &user.UserArgs{
-// 			FirstName: pulumi.String("Shaddam"),
-// 			LastName:  pulumi.String("Corrino IV"),
-// 			Login:     pulumi.String("shaddam.corrino.iv@salusa-secundus.planet"),
-// 			Email:     pulumi.String("shaddam.corrino.iv@salusa-secundus.planet"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		var sardaukars []*user.User
-// 		for key0, val0 := range 5 {
-// 			__res, err := user.NewUser(ctx, fmt.Sprintf("sardaukars-%v", key0), &user.UserArgs{
-// 				FirstName: pulumi.String("Amrit"),
-// 				LastName:  pulumi.String(fmt.Sprintf("Sardaukar_%v", val0)),
-// 				Login:     pulumi.String(fmt.Sprintf("amritsardaukar_%v@salusa-secundus.planet", val0)),
-// 				Email:     pulumi.String(fmt.Sprintf("amritsardaukar_%v@salusa-secundus.planet", val0)),
-// 			})
-// 			if err != nil {
-// 				return err
-// 			}
-// 			sardaukars = append(sardaukars, __res)
-// 		}
-// 		_, err = okta.NewLinkValue(ctx, "example", &okta.LinkValueArgs{
-// 			PrimaryName:   padishah.PrimaryName,
-// 			PrimaryUserId: emperor.ID(),
-// 			AssociatedUserIds: pulumi.StringArray{
-// 				sardaukars[0].ID(),
-// 				sardaukars[1].ID(),
-// 				sardaukars[2].ID(),
-// 				sardaukars[3].ID(),
-// 				sardaukars[4].ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			padishah, err := okta.NewLinkDefinition(ctx, "padishah", &okta.LinkDefinitionArgs{
+//				PrimaryName:           pulumi.String("emperor"),
+//				PrimaryTitle:          pulumi.String("Emperor"),
+//				PrimaryDescription:    pulumi.String("Hereditary ruler of the Imperium and the Known Universe"),
+//				AssociatedName:        pulumi.String("sardaukar"),
+//				AssociatedTitle:       pulumi.String("Sardaukar"),
+//				AssociatedDescription: pulumi.String("Elite military force member"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			emperor, err := user.NewUser(ctx, "emperor", &user.UserArgs{
+//				FirstName: pulumi.String("Shaddam"),
+//				LastName:  pulumi.String("Corrino IV"),
+//				Login:     pulumi.String("shaddam.corrino.iv@salusa-secundus.planet"),
+//				Email:     pulumi.String("shaddam.corrino.iv@salusa-secundus.planet"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			var sardaukars []*user.User
+//			for key0, val0 := range 5 {
+//				__res, err := user.NewUser(ctx, fmt.Sprintf("sardaukars-%v", key0), &user.UserArgs{
+//					FirstName: pulumi.String("Amrit"),
+//					LastName:  pulumi.String(fmt.Sprintf("Sardaukar_%v", val0)),
+//					Login:     pulumi.String(fmt.Sprintf("amritsardaukar_%v@salusa-secundus.planet", val0)),
+//					Email:     pulumi.String(fmt.Sprintf("amritsardaukar_%v@salusa-secundus.planet", val0)),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				sardaukars = append(sardaukars, __res)
+//			}
+//			_, err = okta.NewLinkValue(ctx, "example", &okta.LinkValueArgs{
+//				PrimaryName:   padishah.PrimaryName,
+//				PrimaryUserId: emperor.ID(),
+//				AssociatedUserIds: pulumi.StringArray{
+//					sardaukars[0].ID(),
+//					sardaukars[1].ID(),
+//					sardaukars[2].ID(),
+//					sardaukars[3].ID(),
+//					sardaukars[4].ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -85,7 +88,9 @@ import (
 // Okta Link Value can be imported via Primary Name and Primary User ID.
 //
 // ```sh
-//  $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
+//
+//	$ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
+//
 // ```
 type LinkValue struct {
 	pulumi.CustomResourceState
@@ -199,7 +204,7 @@ func (i *LinkValue) ToLinkValueOutputWithContext(ctx context.Context) LinkValueO
 // LinkValueArrayInput is an input type that accepts LinkValueArray and LinkValueArrayOutput values.
 // You can construct a concrete instance of `LinkValueArrayInput` via:
 //
-//          LinkValueArray{ LinkValueArgs{...} }
+//	LinkValueArray{ LinkValueArgs{...} }
 type LinkValueArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +229,7 @@ func (i LinkValueArray) ToLinkValueArrayOutputWithContext(ctx context.Context) L
 // LinkValueMapInput is an input type that accepts LinkValueMap and LinkValueMapOutput values.
 // You can construct a concrete instance of `LinkValueMapInput` via:
 //
-//          LinkValueMap{ "key": LinkValueArgs{...} }
+//	LinkValueMap{ "key": LinkValueArgs{...} }
 type LinkValueMapInput interface {
 	pulumi.Input
 

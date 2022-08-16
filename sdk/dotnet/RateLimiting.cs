@@ -19,22 +19,20 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.RateLimiting("example", new()
     ///     {
-    ///         var example = new Okta.RateLimiting("example", new Okta.RateLimitingArgs
-    ///         {
-    ///             Authorize = "ENFORCE",
-    ///             CommunicationsEnabled = true,
-    ///             Login = "ENFORCE",
-    ///         });
-    ///     }
+    ///         Authorize = "ENFORCE",
+    ///         CommunicationsEnabled = true,
+    ///         Login = "ENFORCE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/rateLimiting:RateLimiting")]
-    public partial class RateLimiting : Pulumi.CustomResource
+    public partial class RateLimiting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
@@ -112,7 +110,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class RateLimitingArgs : Pulumi.ResourceArgs
+    public sealed class RateLimitingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
@@ -137,9 +135,10 @@ namespace Pulumi.Okta
         public RateLimitingArgs()
         {
         }
+        public static new RateLimitingArgs Empty => new RateLimitingArgs();
     }
 
-    public sealed class RateLimitingState : Pulumi.ResourceArgs
+    public sealed class RateLimitingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
@@ -164,5 +163,6 @@ namespace Pulumi.Okta
         public RateLimitingState()
         {
         }
+        public static new RateLimitingState Empty => new RateLimitingState();
     }
 }

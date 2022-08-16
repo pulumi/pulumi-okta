@@ -202,7 +202,6 @@ export interface UserSchemaPropertyOneOf {
      */
     title: pulumi.Input<string>;
 }
-
 export namespace app {
     export interface AutoLoginUser {
         id?: pulumi.Input<string>;
@@ -804,4 +803,5 @@ export namespace user {
          */
         workFactor?: pulumi.Input<number>;
     }
+
 }

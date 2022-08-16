@@ -17,36 +17,34 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.EventHook("example", new()
     ///     {
-    ///         var example = new Okta.EventHook("example", new Okta.EventHookArgs
+    ///         Auth = 
     ///         {
-    ///             Auth = 
-    ///             {
-    ///                 { "key", "Authorization" },
-    ///                 { "type", "HEADER" },
-    ///                 { "value", "123" },
-    ///             },
-    ///             Channel = 
-    ///             {
-    ///                 { "type", "HTTP" },
-    ///                 { "uri", "https://example.com/test" },
-    ///                 { "version", "1.0.0" },
-    ///             },
-    ///             Events = 
-    ///             {
-    ///                 "user.lifecycle.create",
-    ///                 "user.lifecycle.delete.initiated",
-    ///             },
-    ///         });
-    ///     }
+    ///             { "key", "Authorization" },
+    ///             { "type", "HEADER" },
+    ///             { "value", "123" },
+    ///         },
+    ///         Channel = 
+    ///         {
+    ///             { "type", "HTTP" },
+    ///             { "uri", "https://example.com/test" },
+    ///             { "version", "1.0.0" },
+    ///         },
+    ///         Events = new[]
+    ///         {
+    ///             "user.lifecycle.create",
+    ///             "user.lifecycle.delete.initiated",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/eventHook:EventHook")]
-    public partial class EventHook : Pulumi.CustomResource
+    public partial class EventHook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Authentication required for event hook request.
@@ -137,7 +135,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class EventHookArgs : Pulumi.ResourceArgs
+    public sealed class EventHookArgs : global::Pulumi.ResourceArgs
     {
         [Input("auth")]
         private InputMap<string>? _auth;
@@ -199,9 +197,10 @@ namespace Pulumi.Okta
         public EventHookArgs()
         {
         }
+        public static new EventHookArgs Empty => new EventHookArgs();
     }
 
-    public sealed class EventHookState : Pulumi.ResourceArgs
+    public sealed class EventHookState : global::Pulumi.ResourceArgs
     {
         [Input("auth")]
         private InputMap<string>? _auth;
@@ -263,5 +262,6 @@ namespace Pulumi.Okta
         public EventHookState()
         {
         }
+        public static new EventHookState Empty => new EventHookState();
     }
 }

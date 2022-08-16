@@ -20,19 +20,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewAuthServerDefault(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAuthServerDefault(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,7 +43,9 @@ import (
 // Authorization Server can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;auth server name&#62;
+//
+//	$ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;auth server name&#62;
+//
 // ```
 type AuthServerDefault struct {
 	pulumi.CustomResourceState
@@ -202,7 +207,7 @@ func (i *AuthServerDefault) ToAuthServerDefaultOutputWithContext(ctx context.Con
 // AuthServerDefaultArrayInput is an input type that accepts AuthServerDefaultArray and AuthServerDefaultArrayOutput values.
 // You can construct a concrete instance of `AuthServerDefaultArrayInput` via:
 //
-//          AuthServerDefaultArray{ AuthServerDefaultArgs{...} }
+//	AuthServerDefaultArray{ AuthServerDefaultArgs{...} }
 type AuthServerDefaultArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i AuthServerDefaultArray) ToAuthServerDefaultArrayOutputWithContext(ctx co
 // AuthServerDefaultMapInput is an input type that accepts AuthServerDefaultMap and AuthServerDefaultMapOutput values.
 // You can construct a concrete instance of `AuthServerDefaultMapInput` via:
 //
-//          AuthServerDefaultMap{ "key": AuthServerDefaultArgs{...} }
+//	AuthServerDefaultMap{ "key": AuthServerDefaultArgs{...} }
 type AuthServerDefaultMapInput interface {
 	pulumi.Input
 

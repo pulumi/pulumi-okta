@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewAppSharedCredentials(ctx, "example", &okta.AppSharedCredentialsArgs{
-// 			AccessibilityErrorRedirectUrl: pulumi.String("https://example.com/redirect_url_1"),
-// 			AccessibilityLoginRedirectUrl: pulumi.String("https://example.com/redirect_url_2"),
-// 			AccessibilitySelfService:      pulumi.Bool(true),
-// 			AutoSubmitToolbar:             pulumi.Bool(true),
-// 			ButtonField:                   pulumi.String("btn-login"),
-// 			Checkbox:                      pulumi.String("checkbox_red"),
-// 			HideIos:                       pulumi.Bool(true),
-// 			Label:                         pulumi.String("Example App"),
-// 			PasswordField:                 pulumi.String("txtbox-password"),
-// 			RedirectUrl:                   pulumi.String("https://example.com/redirect_url"),
-// 			SharedPassword:                pulumi.String("sharedpass"),
-// 			SharedUsername:                pulumi.String("sharedusername"),
-// 			Status:                        pulumi.String("ACTIVE"),
-// 			Url:                           pulumi.String("https://example.com/login.html"),
-// 			UserNameTemplate:              pulumi.String("user.firstName"),
-// 			UserNameTemplateSuffix:        pulumi.String("hello"),
-// 			UserNameTemplateType:          pulumi.String("CUSTOM"),
-// 			UsernameField:                 pulumi.String("txtbox-username"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAppSharedCredentials(ctx, "example", &okta.AppSharedCredentialsArgs{
+//				AccessibilityErrorRedirectUrl: pulumi.String("https://example.com/redirect_url_1"),
+//				AccessibilityLoginRedirectUrl: pulumi.String("https://example.com/redirect_url_2"),
+//				AccessibilitySelfService:      pulumi.Bool(true),
+//				AutoSubmitToolbar:             pulumi.Bool(true),
+//				ButtonField:                   pulumi.String("btn-login"),
+//				Checkbox:                      pulumi.String("checkbox_red"),
+//				HideIos:                       pulumi.Bool(true),
+//				Label:                         pulumi.String("Example App"),
+//				PasswordField:                 pulumi.String("txtbox-password"),
+//				RedirectUrl:                   pulumi.String("https://example.com/redirect_url"),
+//				SharedPassword:                pulumi.String("sharedpass"),
+//				SharedUsername:                pulumi.String("sharedusername"),
+//				Status:                        pulumi.String("ACTIVE"),
+//				Url:                           pulumi.String("https://example.com/login.html"),
+//				UserNameTemplate:              pulumi.String("user.firstName"),
+//				UserNameTemplateSuffix:        pulumi.String("hello"),
+//				UserNameTemplateType:          pulumi.String("CUSTOM"),
+//				UsernameField:                 pulumi.String("txtbox-username"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,21 +61,29 @@ import (
 // Okta SWA Shared Credentials App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;
+//
+//	$ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;
+//
 // ```
 //
-//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//	It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users
+//
+//	$ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users/skip_groups
+//
+//	$ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users/skip_groups
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_groups
+//
+//	$ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_groups
+//
 // ```
 type AppSharedCredentials struct {
 	pulumi.CustomResourceState
@@ -501,7 +512,7 @@ func (i *AppSharedCredentials) ToAppSharedCredentialsOutputWithContext(ctx conte
 // AppSharedCredentialsArrayInput is an input type that accepts AppSharedCredentialsArray and AppSharedCredentialsArrayOutput values.
 // You can construct a concrete instance of `AppSharedCredentialsArrayInput` via:
 //
-//          AppSharedCredentialsArray{ AppSharedCredentialsArgs{...} }
+//	AppSharedCredentialsArray{ AppSharedCredentialsArgs{...} }
 type AppSharedCredentialsArrayInput interface {
 	pulumi.Input
 
@@ -526,7 +537,7 @@ func (i AppSharedCredentialsArray) ToAppSharedCredentialsArrayOutputWithContext(
 // AppSharedCredentialsMapInput is an input type that accepts AppSharedCredentialsMap and AppSharedCredentialsMapOutput values.
 // You can construct a concrete instance of `AppSharedCredentialsMapInput` via:
 //
-//          AppSharedCredentialsMap{ "key": AppSharedCredentialsArgs{...} }
+//	AppSharedCredentialsMap{ "key": AppSharedCredentialsArgs{...} }
 type AppSharedCredentialsMapInput interface {
 	pulumi.Input
 

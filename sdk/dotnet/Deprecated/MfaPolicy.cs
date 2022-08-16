@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use policy.Mfa instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/mfaPolicy:MfaPolicy")]
-    public partial class MfaPolicy : Pulumi.CustomResource
+    public partial class MfaPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Policy Description
@@ -157,7 +157,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class MfaPolicyArgs : Pulumi.ResourceArgs
+    public sealed class MfaPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Description
@@ -373,9 +373,10 @@ namespace Pulumi.Okta.Deprecated
         public MfaPolicyArgs()
         {
         }
+        public static new MfaPolicyArgs Empty => new MfaPolicyArgs();
     }
 
-    public sealed class MfaPolicyState : Pulumi.ResourceArgs
+    public sealed class MfaPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy Description
@@ -591,5 +592,6 @@ namespace Pulumi.Okta.Deprecated
         public MfaPolicyState()
         {
         }
+        public static new MfaPolicyState Empty => new MfaPolicyState();
     }
 }

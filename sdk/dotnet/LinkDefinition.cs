@@ -18,25 +18,23 @@ namespace Pulumi.Okta
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.LinkDefinition("example", new()
     ///     {
-    ///         var example = new Okta.LinkDefinition("example", new Okta.LinkDefinitionArgs
-    ///         {
-    ///             AssociatedDescription = "Elite military force member",
-    ///             AssociatedName = "sardaukar",
-    ///             AssociatedTitle = "Sardaukar",
-    ///             PrimaryDescription = "Hereditary ruler of the Imperium and the Known Universe",
-    ///             PrimaryName = "emperor",
-    ///             PrimaryTitle = "Emperor",
-    ///         });
-    ///     }
+    ///         AssociatedDescription = "Elite military force member",
+    ///         AssociatedName = "sardaukar",
+    ///         AssociatedTitle = "Sardaukar",
+    ///         PrimaryDescription = "Hereditary ruler of the Imperium and the Known Universe",
+    ///         PrimaryName = "emperor",
+    ///         PrimaryTitle = "Emperor",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/linkDefinition:LinkDefinition")]
-    public partial class LinkDefinition : Pulumi.CustomResource
+    public partial class LinkDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the associated relationship.
@@ -130,7 +128,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class LinkDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class LinkDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the associated relationship.
@@ -171,9 +169,10 @@ namespace Pulumi.Okta
         public LinkDefinitionArgs()
         {
         }
+        public static new LinkDefinitionArgs Empty => new LinkDefinitionArgs();
     }
 
-    public sealed class LinkDefinitionState : Pulumi.ResourceArgs
+    public sealed class LinkDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the associated relationship.
@@ -214,5 +213,6 @@ namespace Pulumi.Okta
         public LinkDefinitionState()
         {
         }
+        public static new LinkDefinitionState Empty => new LinkDefinitionState();
     }
 }

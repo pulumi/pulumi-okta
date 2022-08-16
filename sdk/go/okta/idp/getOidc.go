@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/idp"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/idp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := idp.LookupOidc(ctx, &idp.LookupOidcArgs{
-// 			Name: pulumi.StringRef("Example Provider"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := idp.LookupOidc(ctx, &idp.LookupOidcArgs{
+//				Name: pulumi.StringRef("Example Provider"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupOidc(ctx *pulumi.Context, args *LookupOidcArgs, opts ...pulumi.InvokeOption) (*LookupOidcResult, error) {
 	var rv LookupOidcResult

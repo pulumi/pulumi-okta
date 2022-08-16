@@ -23,35 +23,38 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/template"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/template"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := template.NewEmail(ctx, "example", &template.EmailArgs{
-// 			Translations: template.EmailTranslationArray{
-// 				&template.EmailTranslationArgs{
-// 					Language: pulumi.String("en"),
-// 					Subject:  pulumi.String("Stuff"),
-// 					Template: pulumi.String(fmt.Sprintf("Hi $user.firstName,<br/><br/>Blah blah $resetPasswordLink")),
-// 				},
-// 				&template.EmailTranslationArgs{
-// 					Language: pulumi.String("es"),
-// 					Subject:  pulumi.String("Cosas"),
-// 					Template: pulumi.String(fmt.Sprintf("Hola $user.firstName,<br/><br/>Puedo ir al bano $resetPasswordLink")),
-// 				},
-// 			},
-// 			Type: pulumi.String("email.forgotPassword"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := template.NewEmail(ctx, "example", &template.EmailArgs{
+//				Translations: template.EmailTranslationArray{
+//					&template.EmailTranslationArgs{
+//						Language: pulumi.String("en"),
+//						Subject:  pulumi.String("Stuff"),
+//						Template: pulumi.String(fmt.Sprintf("Hi $user.firstName,<br/><br/>Blah blah $resetPasswordLink")),
+//					},
+//					&template.EmailTranslationArgs{
+//						Language: pulumi.String("es"),
+//						Subject:  pulumi.String("Cosas"),
+//						Template: pulumi.String(fmt.Sprintf("Hola $user.firstName,<br/><br/>Puedo ir al bano $resetPasswordLink")),
+//					},
+//				},
+//				Type: pulumi.String("email.forgotPassword"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // An Okta Email Template can be imported via the template type.
 //
 // ```sh
-//  $ pulumi import okta:template/email:Email example &#60;template type&#62;
+//
+//	$ pulumi import okta:template/email:Email example &#60;template type&#62;
+//
 // ```
 type Email struct {
 	pulumi.CustomResourceState
@@ -173,7 +178,7 @@ func (i *Email) ToEmailOutputWithContext(ctx context.Context) EmailOutput {
 // EmailArrayInput is an input type that accepts EmailArray and EmailArrayOutput values.
 // You can construct a concrete instance of `EmailArrayInput` via:
 //
-//          EmailArray{ EmailArgs{...} }
+//	EmailArray{ EmailArgs{...} }
 type EmailArrayInput interface {
 	pulumi.Input
 
@@ -198,7 +203,7 @@ func (i EmailArray) ToEmailArrayOutputWithContext(ctx context.Context) EmailArra
 // EmailMapInput is an input type that accepts EmailMap and EmailMapOutput values.
 // You can construct a concrete instance of `EmailMapInput` via:
 //
-//          EmailMap{ "key": EmailArgs{...} }
+//	EmailMap{ "key": EmailArgs{...} }
 type EmailMapInput interface {
 	pulumi.Input
 

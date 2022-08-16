@@ -22,7 +22,7 @@ type EmailTranslation struct {
 // EmailTranslationInput is an input type that accepts EmailTranslationArgs and EmailTranslationOutput values.
 // You can construct a concrete instance of `EmailTranslationInput` via:
 //
-//          EmailTranslationArgs{...}
+//	EmailTranslationArgs{...}
 type EmailTranslationInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i EmailTranslationArgs) ToEmailTranslationOutputWithContext(ctx context.Co
 // EmailTranslationArrayInput is an input type that accepts EmailTranslationArray and EmailTranslationArrayOutput values.
 // You can construct a concrete instance of `EmailTranslationArrayInput` via:
 //
-//          EmailTranslationArray{ EmailTranslationArgs{...} }
+//	EmailTranslationArray{ EmailTranslationArgs{...} }
 type EmailTranslationArrayInput interface {
 	pulumi.Input
 

@@ -21,24 +21,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/trustedorigin"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/trustedorigin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := trustedorigin.NewOrigin(ctx, "example", &trustedorigin.OriginArgs{
-// 			Origin: pulumi.String("https://example.com"),
-// 			Scopes: pulumi.StringArray{
-// 				pulumi.String("CORS"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := trustedorigin.NewOrigin(ctx, "example", &trustedorigin.OriginArgs{
+//				Origin: pulumi.String("https://example.com"),
+//				Scopes: pulumi.StringArray{
+//					pulumi.String("CORS"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // A Trusted Origin can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:trustedorigin/origin:Origin example &#60;trusted origin id&#62;
+//
+//	$ pulumi import okta:trustedorigin/origin:Origin example &#60;trusted origin id&#62;
+//
 // ```
 type Origin struct {
 	pulumi.CustomResourceState
@@ -170,7 +175,7 @@ func (i *Origin) ToOriginOutputWithContext(ctx context.Context) OriginOutput {
 // OriginArrayInput is an input type that accepts OriginArray and OriginArrayOutput values.
 // You can construct a concrete instance of `OriginArrayInput` via:
 //
-//          OriginArray{ OriginArgs{...} }
+//	OriginArray{ OriginArgs{...} }
 type OriginArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +200,7 @@ func (i OriginArray) ToOriginArrayOutputWithContext(ctx context.Context) OriginA
 // OriginMapInput is an input type that accepts OriginMap and OriginMapOutput values.
 // You can construct a concrete instance of `OriginMapInput` via:
 //
-//          OriginMap{ "key": OriginArgs{...} }
+//	OriginMap{ "key": OriginArgs{...} }
 type OriginMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Inputs
 {
 
-    public sealed class EmailSenderDnsRecordGetArgs : Pulumi.ResourceArgs
+    public sealed class EmailSenderDnsRecordGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DNS record name.
@@ -33,5 +33,6 @@ namespace Pulumi.Okta.Inputs
         public EmailSenderDnsRecordGetArgs()
         {
         }
+        public static new EmailSenderDnsRecordGetArgs Empty => new EmailSenderDnsRecordGetArgs();
     }
 }

@@ -21,17 +21,15 @@ namespace Pulumi.Okta.User
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Okta.User.GetUserProfileMappingSource.InvokeAsync());
-        ///     }
+        ///     var example = Okta.User.GetUserProfileMappingSource.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

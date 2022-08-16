@@ -23,31 +23,34 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"allowedFor": "recovery",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = okta.NewAuthenticator(ctx, "test", &okta.AuthenticatorArgs{
-// 			Key:      pulumi.String("security_question"),
-// 			Settings: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"allowedFor": "recovery",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = okta.NewAuthenticator(ctx, "test", &okta.AuthenticatorArgs{
+//				Key:      pulumi.String("security_question"),
+//				Settings: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // Okta authenticator can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
+//
+//	$ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
+//
 // ```
 type Authenticator struct {
 	pulumi.CustomResourceState
@@ -234,7 +239,7 @@ func (i *Authenticator) ToAuthenticatorOutputWithContext(ctx context.Context) Au
 // AuthenticatorArrayInput is an input type that accepts AuthenticatorArray and AuthenticatorArrayOutput values.
 // You can construct a concrete instance of `AuthenticatorArrayInput` via:
 //
-//          AuthenticatorArray{ AuthenticatorArgs{...} }
+//	AuthenticatorArray{ AuthenticatorArgs{...} }
 type AuthenticatorArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +264,7 @@ func (i AuthenticatorArray) ToAuthenticatorArrayOutputWithContext(ctx context.Co
 // AuthenticatorMapInput is an input type that accepts AuthenticatorMap and AuthenticatorMapOutput values.
 // You can construct a concrete instance of `AuthenticatorMapInput` via:
 //
-//          AuthenticatorMap{ "key": AuthenticatorArgs{...} }
+//	AuthenticatorMap{ "key": AuthenticatorArgs{...} }
 type AuthenticatorMapInput interface {
 	pulumi.Input
 

@@ -468,7 +468,7 @@ func (i *SecurePasswordStoreApp) ToSecurePasswordStoreAppOutputWithContext(ctx c
 // SecurePasswordStoreAppArrayInput is an input type that accepts SecurePasswordStoreAppArray and SecurePasswordStoreAppArrayOutput values.
 // You can construct a concrete instance of `SecurePasswordStoreAppArrayInput` via:
 //
-//          SecurePasswordStoreAppArray{ SecurePasswordStoreAppArgs{...} }
+//	SecurePasswordStoreAppArray{ SecurePasswordStoreAppArgs{...} }
 type SecurePasswordStoreAppArrayInput interface {
 	pulumi.Input
 
@@ -493,7 +493,7 @@ func (i SecurePasswordStoreAppArray) ToSecurePasswordStoreAppArrayOutputWithCont
 // SecurePasswordStoreAppMapInput is an input type that accepts SecurePasswordStoreAppMap and SecurePasswordStoreAppMapOutput values.
 // You can construct a concrete instance of `SecurePasswordStoreAppMapInput` via:
 //
-//          SecurePasswordStoreAppMap{ "key": SecurePasswordStoreAppArgs{...} }
+//	SecurePasswordStoreAppMap{ "key": SecurePasswordStoreAppArgs{...} }
 type SecurePasswordStoreAppMapInput interface {
 	pulumi.Input
 

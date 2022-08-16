@@ -25,7 +25,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/theme:Theme")]
-    public partial class Theme : Pulumi.CustomResource
+    public partial class Theme : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
@@ -174,7 +174,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class ThemeArgs : Pulumi.ResourceArgs
+    public sealed class ThemeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
@@ -258,9 +258,10 @@ namespace Pulumi.Okta
         public ThemeArgs()
         {
         }
+        public static new ThemeArgs Empty => new ThemeArgs();
     }
 
-    public sealed class ThemeState : Pulumi.ResourceArgs
+    public sealed class ThemeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
@@ -368,5 +369,6 @@ namespace Pulumi.Okta
         public ThemeState()
         {
         }
+        public static new ThemeState Empty => new ThemeState();
     }
 }

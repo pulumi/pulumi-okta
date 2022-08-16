@@ -21,69 +21,72 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplePolicyProfileEnrollment, err := okta.NewPolicyProfileEnrollment(ctx, "examplePolicyProfileEnrollment", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleHook, err := inline.NewHook(ctx, "exampleHook", &inline.HookArgs{
-// 			Status:  pulumi.String("ACTIVE"),
-// 			Type:    pulumi.String("com.okta.user.pre-registration"),
-// 			Version: pulumi.String("1.0.3"),
-// 			Channel: pulumi.StringMap{
-// 				"type":    pulumi.String("HTTP"),
-// 				"version": pulumi.String("1.0.0"),
-// 				"uri":     pulumi.String("https://example.com/test2"),
-// 				"method":  pulumi.String("POST"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGroup, err := group.NewGroup(ctx, "exampleGroup", &group.GroupArgs{
-// 			Description: pulumi.String("Group of some users"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewPolicyRuleProfileEnrollment(ctx, "examplePolicyRuleProfileEnrollment", &okta.PolicyRuleProfileEnrollmentArgs{
-// 			PolicyId:          examplePolicyProfileEnrollment.ID(),
-// 			InlineHookId:      exampleHook.ID(),
-// 			TargetGroupId:     exampleGroup.ID(),
-// 			UnknownUserAction: pulumi.String("REGISTER"),
-// 			EmailVerification: pulumi.Bool(true),
-// 			Access:            pulumi.String("ALLOW"),
-// 			ProfileAttributes: PolicyRuleProfileEnrollmentProfileAttributeArray{
-// 				&PolicyRuleProfileEnrollmentProfileAttributeArgs{
-// 					Name:     pulumi.String("email"),
-// 					Label:    pulumi.String("Email"),
-// 					Required: pulumi.Bool(true),
-// 				},
-// 				&PolicyRuleProfileEnrollmentProfileAttributeArgs{
-// 					Name:     pulumi.String("name"),
-// 					Label:    pulumi.String("Name"),
-// 					Required: pulumi.Bool(true),
-// 				},
-// 				&PolicyRuleProfileEnrollmentProfileAttributeArgs{
-// 					Name:     pulumi.String("t-shirt"),
-// 					Label:    pulumi.String("T-Shirt Size"),
-// 					Required: pulumi.Bool(false),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePolicyProfileEnrollment, err := okta.NewPolicyProfileEnrollment(ctx, "examplePolicyProfileEnrollment", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleHook, err := inline.NewHook(ctx, "exampleHook", &inline.HookArgs{
+//				Status:  pulumi.String("ACTIVE"),
+//				Type:    pulumi.String("com.okta.user.pre-registration"),
+//				Version: pulumi.String("1.0.3"),
+//				Channel: pulumi.StringMap{
+//					"type":    pulumi.String("HTTP"),
+//					"version": pulumi.String("1.0.0"),
+//					"uri":     pulumi.String("https://example.com/test2"),
+//					"method":  pulumi.String("POST"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGroup, err := group.NewGroup(ctx, "exampleGroup", &group.GroupArgs{
+//				Description: pulumi.String("Group of some users"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewPolicyRuleProfileEnrollment(ctx, "examplePolicyRuleProfileEnrollment", &okta.PolicyRuleProfileEnrollmentArgs{
+//				PolicyId:          examplePolicyProfileEnrollment.ID(),
+//				InlineHookId:      exampleHook.ID(),
+//				TargetGroupId:     exampleGroup.ID(),
+//				UnknownUserAction: pulumi.String("REGISTER"),
+//				EmailVerification: pulumi.Bool(true),
+//				Access:            pulumi.String("ALLOW"),
+//				ProfileAttributes: PolicyRuleProfileEnrollmentProfileAttributeArray{
+//					&PolicyRuleProfileEnrollmentProfileAttributeArgs{
+//						Name:     pulumi.String("email"),
+//						Label:    pulumi.String("Email"),
+//						Required: pulumi.Bool(true),
+//					},
+//					&PolicyRuleProfileEnrollmentProfileAttributeArgs{
+//						Name:     pulumi.String("name"),
+//						Label:    pulumi.String("Name"),
+//						Required: pulumi.Bool(true),
+//					},
+//					&PolicyRuleProfileEnrollmentProfileAttributeArgs{
+//						Name:     pulumi.String("t-shirt"),
+//						Label:    pulumi.String("T-Shirt Size"),
+//						Required: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -91,7 +94,9 @@ import (
 // A Policy Rule can be imported via the Policy and Rule ID.
 //
 // ```sh
-//  $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
+//
+//	$ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
+//
 // ```
 type PolicyRuleProfileEnrollment struct {
 	pulumi.CustomResourceState
@@ -257,7 +262,7 @@ func (i *PolicyRuleProfileEnrollment) ToPolicyRuleProfileEnrollmentOutputWithCon
 // PolicyRuleProfileEnrollmentArrayInput is an input type that accepts PolicyRuleProfileEnrollmentArray and PolicyRuleProfileEnrollmentArrayOutput values.
 // You can construct a concrete instance of `PolicyRuleProfileEnrollmentArrayInput` via:
 //
-//          PolicyRuleProfileEnrollmentArray{ PolicyRuleProfileEnrollmentArgs{...} }
+//	PolicyRuleProfileEnrollmentArray{ PolicyRuleProfileEnrollmentArgs{...} }
 type PolicyRuleProfileEnrollmentArrayInput interface {
 	pulumi.Input
 
@@ -282,7 +287,7 @@ func (i PolicyRuleProfileEnrollmentArray) ToPolicyRuleProfileEnrollmentArrayOutp
 // PolicyRuleProfileEnrollmentMapInput is an input type that accepts PolicyRuleProfileEnrollmentMap and PolicyRuleProfileEnrollmentMapOutput values.
 // You can construct a concrete instance of `PolicyRuleProfileEnrollmentMapInput` via:
 //
-//          PolicyRuleProfileEnrollmentMap{ "key": PolicyRuleProfileEnrollmentArgs{...} }
+//	PolicyRuleProfileEnrollmentMap{ "key": PolicyRuleProfileEnrollmentArgs{...} }
 type PolicyRuleProfileEnrollmentMapInput interface {
 	pulumi.Input
 

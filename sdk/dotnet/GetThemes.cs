@@ -29,7 +29,7 @@ namespace Pulumi.Okta
     }
 
 
-    public sealed class GetThemesArgs : Pulumi.InvokeArgs
+    public sealed class GetThemesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Brand ID
@@ -40,9 +40,10 @@ namespace Pulumi.Okta
         public GetThemesArgs()
         {
         }
+        public static new GetThemesArgs Empty => new GetThemesArgs();
     }
 
-    public sealed class GetThemesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetThemesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Brand ID
@@ -53,6 +54,7 @@ namespace Pulumi.Okta
         public GetThemesInvokeArgs()
         {
         }
+        public static new GetThemesInvokeArgs Empty => new GetThemesInvokeArgs();
     }
 
 

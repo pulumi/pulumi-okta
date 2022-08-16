@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewOrgConfiguration(ctx, "example", &okta.OrgConfigurationArgs{
-// 			CompanyName: pulumi.String("Umbrella Corporation"),
-// 			Website:     pulumi.String("https://terraform.io"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewOrgConfiguration(ctx, "example", &okta.OrgConfigurationArgs{
+//				CompanyName: pulumi.String("Umbrella Corporation"),
+//				Website:     pulumi.String("https://terraform.io"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Okta Org Configuration can be imported even without specifying the Org ID.
 //
 // ```sh
-//  $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
+//
+//	$ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
+//
 // ```
 type OrgConfiguration struct {
 	pulumi.CustomResourceState
@@ -287,7 +292,7 @@ func (i *OrgConfiguration) ToOrgConfigurationOutputWithContext(ctx context.Conte
 // OrgConfigurationArrayInput is an input type that accepts OrgConfigurationArray and OrgConfigurationArrayOutput values.
 // You can construct a concrete instance of `OrgConfigurationArrayInput` via:
 //
-//          OrgConfigurationArray{ OrgConfigurationArgs{...} }
+//	OrgConfigurationArray{ OrgConfigurationArgs{...} }
 type OrgConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -312,7 +317,7 @@ func (i OrgConfigurationArray) ToOrgConfigurationArrayOutputWithContext(ctx cont
 // OrgConfigurationMapInput is an input type that accepts OrgConfigurationMap and OrgConfigurationMapOutput values.
 // You can construct a concrete instance of `OrgConfigurationMapInput` via:
 //
-//          OrgConfigurationMap{ "key": OrgConfigurationArgs{...} }
+//	OrgConfigurationMap{ "key": OrgConfigurationArgs{...} }
 type OrgConfigurationMapInput interface {
 	pulumi.Input
 

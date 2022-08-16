@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy.Inputs
 {
 
-    public sealed class RuleSignonFactorSequenceSecondaryCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class RuleSignonFactorSequenceSecondaryCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Factor type of the additional authentication step.
@@ -27,5 +27,6 @@ namespace Pulumi.Okta.Policy.Inputs
         public RuleSignonFactorSequenceSecondaryCriteriaArgs()
         {
         }
+        public static new RuleSignonFactorSequenceSecondaryCriteriaArgs Empty => new RuleSignonFactorSequenceSecondaryCriteriaArgs();
     }
 }

@@ -21,41 +21,44 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"application profile field": "application profile value",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = okta.NewAppGroupAssignments(ctx, "example", &okta.AppGroupAssignmentsArgs{
-// 			AppId: pulumi.String("<app id>"),
-// 			Groups: AppGroupAssignmentsGroupArray{
-// 				&AppGroupAssignmentsGroupArgs{
-// 					Id:       pulumi.String("<group id>"),
-// 					Priority: pulumi.Int(1),
-// 				},
-// 				&AppGroupAssignmentsGroupArgs{
-// 					Id:       pulumi.String("<another group id>"),
-// 					Priority: pulumi.Int(2),
-// 					Profile:  pulumi.String(json0),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"application profile field": "application profile value",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = okta.NewAppGroupAssignments(ctx, "example", &okta.AppGroupAssignmentsArgs{
+//				AppId: pulumi.String("<app id>"),
+//				Groups: AppGroupAssignmentsGroupArray{
+//					&AppGroupAssignmentsGroupArgs{
+//						Id:       pulumi.String("<group id>"),
+//						Priority: pulumi.Int(1),
+//					},
+//					&AppGroupAssignmentsGroupArgs{
+//						Id:       pulumi.String("<another group id>"),
+//						Priority: pulumi.Int(2),
+//						Profile:  pulumi.String(json0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // !> **NOTE** When using this resource in conjunction with other application resources (e.g. `app.OAuth`) it is advisable to add the following `lifecycle` argument to the associated `app_*` resources to prevent the groups being unassigned on subsequent runs:
@@ -64,19 +67,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewOAuth(ctx, "app", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewOAuth(ctx, "app", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // > **IMPORTANT:** When using `AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
@@ -86,7 +92,9 @@ import (
 // An application's group assignments can be imported via `app_id`.
 //
 // ```sh
-//  $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
+//
+//	$ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
+//
 // ```
 type AppGroupAssignments struct {
 	pulumi.CustomResourceState
@@ -190,7 +198,7 @@ func (i *AppGroupAssignments) ToAppGroupAssignmentsOutputWithContext(ctx context
 // AppGroupAssignmentsArrayInput is an input type that accepts AppGroupAssignmentsArray and AppGroupAssignmentsArrayOutput values.
 // You can construct a concrete instance of `AppGroupAssignmentsArrayInput` via:
 //
-//          AppGroupAssignmentsArray{ AppGroupAssignmentsArgs{...} }
+//	AppGroupAssignmentsArray{ AppGroupAssignmentsArgs{...} }
 type AppGroupAssignmentsArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +223,7 @@ func (i AppGroupAssignmentsArray) ToAppGroupAssignmentsArrayOutputWithContext(ct
 // AppGroupAssignmentsMapInput is an input type that accepts AppGroupAssignmentsMap and AppGroupAssignmentsMapOutput values.
 // You can construct a concrete instance of `AppGroupAssignmentsMapInput` via:
 //
-//          AppGroupAssignmentsMap{ "key": AppGroupAssignmentsArgs{...} }
+//	AppGroupAssignmentsMap{ "key": AppGroupAssignmentsArgs{...} }
 type AppGroupAssignmentsMapInput interface {
 	pulumi.Input
 

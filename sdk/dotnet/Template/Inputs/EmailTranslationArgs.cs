@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Template.Inputs
 {
 
-    public sealed class EmailTranslationArgs : Pulumi.ResourceArgs
+    public sealed class EmailTranslationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The language to map the template to.
@@ -33,5 +33,6 @@ namespace Pulumi.Okta.Template.Inputs
         public EmailTranslationArgs()
         {
         }
+        public static new EmailTranslationArgs Empty => new EmailTranslationArgs();
     }
 }

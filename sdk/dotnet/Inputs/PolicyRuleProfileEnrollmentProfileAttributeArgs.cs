@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Inputs
 {
 
-    public sealed class PolicyRuleProfileEnrollmentProfileAttributeArgs : Pulumi.ResourceArgs
+    public sealed class PolicyRuleProfileEnrollmentProfileAttributeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A display-friendly label for this property
@@ -33,5 +33,6 @@ namespace Pulumi.Okta.Inputs
         public PolicyRuleProfileEnrollmentProfileAttributeArgs()
         {
         }
+        public static new PolicyRuleProfileEnrollmentProfileAttributeArgs Empty => new PolicyRuleProfileEnrollmentProfileAttributeArgs();
     }
 }

@@ -20,50 +20,45 @@ namespace Pulumi.Okta.User
         /// ### Lookup Users by Search Criteria
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.User.GetUsers.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.User.GetUsers.InvokeAsync(new Okta.User.GetUsersArgs
+        ///         Searches = new[]
         ///         {
-        ///             Searches = 
+        ///             new Okta.User.Inputs.GetUsersSearchInputArgs
         ///             {
-        ///                 new Okta.User.Inputs.GetUsersSearchArgs
-        ///                 {
-        ///                     Expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
-        ///                 },
+        ///                 Expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Lookup Users by Group Membership
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var exampleGroup = new Okta.Group.Group("exampleGroup", new Okta.Group.GroupArgs
-        ///         {
-        ///         });
-        ///         var exampleUsers = Okta.User.GetUsers.Invoke(new Okta.User.GetUsersInvokeArgs
-        ///         {
-        ///             GroupId = exampleGroup.Id,
-        ///             IncludeGroups = true,
-        ///             IncludeRoles = true,
-        ///         });
-        ///     }
+        ///     var exampleGroup = new Okta.Group.Group("exampleGroup");
         /// 
-        /// }
+        ///     var exampleUsers = Okta.User.GetUsers.Invoke(new()
+        ///     {
+        ///         GroupId = exampleGroup.Id,
+        ///         IncludeGroups = true,
+        ///         IncludeRoles = true,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -80,50 +75,45 @@ namespace Pulumi.Okta.User
         /// ### Lookup Users by Search Criteria
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.User.GetUsers.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.User.GetUsers.InvokeAsync(new Okta.User.GetUsersArgs
+        ///         Searches = new[]
         ///         {
-        ///             Searches = 
+        ///             new Okta.User.Inputs.GetUsersSearchInputArgs
         ///             {
-        ///                 new Okta.User.Inputs.GetUsersSearchArgs
-        ///                 {
-        ///                     Expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
-        ///                 },
+        ///                 Expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Lookup Users by Group Membership
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var exampleGroup = new Okta.Group.Group("exampleGroup", new Okta.Group.GroupArgs
-        ///         {
-        ///         });
-        ///         var exampleUsers = Okta.User.GetUsers.Invoke(new Okta.User.GetUsersInvokeArgs
-        ///         {
-        ///             GroupId = exampleGroup.Id,
-        ///             IncludeGroups = true,
-        ///             IncludeRoles = true,
-        ///         });
-        ///     }
+        ///     var exampleGroup = new Okta.Group.Group("exampleGroup");
         /// 
-        /// }
+        ///     var exampleUsers = Okta.User.GetUsers.Invoke(new()
+        ///     {
+        ///         GroupId = exampleGroup.Id,
+        ///         IncludeGroups = true,
+        ///         IncludeRoles = true,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -133,7 +123,7 @@ namespace Pulumi.Okta.User
     }
 
 
-    public sealed class GetUsersArgs : Pulumi.InvokeArgs
+    public sealed class GetUsersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
@@ -180,9 +170,10 @@ namespace Pulumi.Okta.User
         public GetUsersArgs()
         {
         }
+        public static new GetUsersArgs Empty => new GetUsersArgs();
     }
 
-    public sealed class GetUsersInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUsersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
@@ -229,6 +220,7 @@ namespace Pulumi.Okta.User
         public GetUsersInvokeArgs()
         {
         }
+        public static new GetUsersInvokeArgs Empty => new GetUsersInvokeArgs();
     }
 
 

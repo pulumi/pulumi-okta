@@ -304,7 +304,7 @@ func (i *Idp) ToIdpOutputWithContext(ctx context.Context) IdpOutput {
 // IdpArrayInput is an input type that accepts IdpArray and IdpArrayOutput values.
 // You can construct a concrete instance of `IdpArrayInput` via:
 //
-//          IdpArray{ IdpArgs{...} }
+//	IdpArray{ IdpArgs{...} }
 type IdpArrayInput interface {
 	pulumi.Input
 
@@ -329,7 +329,7 @@ func (i IdpArray) ToIdpArrayOutputWithContext(ctx context.Context) IdpArrayOutpu
 // IdpMapInput is an input type that accepts IdpMap and IdpMapOutput values.
 // You can construct a concrete instance of `IdpMapInput` via:
 //
-//          IdpMap{ "key": IdpArgs{...} }
+//	IdpMap{ "key": IdpArgs{...} }
 type IdpMapInput interface {
 	pulumi.Input
 

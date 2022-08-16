@@ -13,26 +13,24 @@ namespace Pulumi.Okta.User
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.User.Schema("example", new()
     ///     {
-    ///         var example = new Okta.User.Schema("example", new Okta.User.SchemaArgs
-    ///         {
-    ///             Description = "My custom property name",
-    ///             Index = "customPropertyName",
-    ///             Master = "OKTA",
-    ///             Scope = "SELF",
-    ///             Title = "customPropertyName",
-    ///             Type = "string",
-    ///             UserType = data.Okta_user_type.Example.Id,
-    ///         });
-    ///     }
+    ///         Description = "My custom property name",
+    ///         Index = "customPropertyName",
+    ///         Master = "OKTA",
+    ///         Scope = "SELF",
+    ///         Title = "customPropertyName",
+    ///         Type = "string",
+    ///         UserType = data.Okta_user_type.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Okta.User
     /// ```
     /// </summary>
     [OktaResourceType("okta:user/schema:Schema")]
-    public partial class Schema : Pulumi.CustomResource
+    public partial class Schema : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Array of values that an array property's items can be set to.
@@ -222,7 +220,7 @@ namespace Pulumi.Okta.User
         }
     }
 
-    public sealed class SchemaArgs : Pulumi.ResourceArgs
+    public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("arrayEnums")]
         private InputList<string>? _arrayEnums;
@@ -383,9 +381,10 @@ namespace Pulumi.Okta.User
         public SchemaArgs()
         {
         }
+        public static new SchemaArgs Empty => new SchemaArgs();
     }
 
-    public sealed class SchemaState : Pulumi.ResourceArgs
+    public sealed class SchemaState : global::Pulumi.ResourceArgs
     {
         [Input("arrayEnums")]
         private InputList<string>? _arrayEnums;
@@ -546,5 +545,6 @@ namespace Pulumi.Okta.User
         public SchemaState()
         {
         }
+        public static new SchemaState Empty => new SchemaState();
     }
 }

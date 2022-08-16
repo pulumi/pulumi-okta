@@ -457,7 +457,7 @@ func (i *ThreeFieldApp) ToThreeFieldAppOutputWithContext(ctx context.Context) Th
 // ThreeFieldAppArrayInput is an input type that accepts ThreeFieldAppArray and ThreeFieldAppArrayOutput values.
 // You can construct a concrete instance of `ThreeFieldAppArrayInput` via:
 //
-//          ThreeFieldAppArray{ ThreeFieldAppArgs{...} }
+//	ThreeFieldAppArray{ ThreeFieldAppArgs{...} }
 type ThreeFieldAppArrayInput interface {
 	pulumi.Input
 
@@ -482,7 +482,7 @@ func (i ThreeFieldAppArray) ToThreeFieldAppArrayOutputWithContext(ctx context.Co
 // ThreeFieldAppMapInput is an input type that accepts ThreeFieldAppMap and ThreeFieldAppMapOutput values.
 // You can construct a concrete instance of `ThreeFieldAppMapInput` via:
 //
-//          ThreeFieldAppMap{ "key": ThreeFieldAppArgs{...} }
+//	ThreeFieldAppMap{ "key": ThreeFieldAppArgs{...} }
 type ThreeFieldAppMapInput interface {
 	pulumi.Input
 

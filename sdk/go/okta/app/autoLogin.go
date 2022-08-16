@@ -19,51 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewAutoLogin(ctx, "example", &app.AutoLoginArgs{
-// 			CredentialsScheme: pulumi.String("EDIT_USERNAME_AND_PASSWORD"),
-// 			Label:             pulumi.String("Example App"),
-// 			RevealPassword:    pulumi.Bool(true),
-// 			SignOnRedirectUrl: pulumi.String("https://example.com"),
-// 			SignOnUrl:         pulumi.String("https://example.com/login.html"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewAutoLogin(ctx, "example", &app.AutoLoginArgs{
+//				CredentialsScheme: pulumi.String("EDIT_USERNAME_AND_PASSWORD"),
+//				Label:             pulumi.String("Example App"),
+//				RevealPassword:    pulumi.Bool(true),
+//				SignOnRedirectUrl: pulumi.String("https://example.com"),
+//				SignOnUrl:         pulumi.String("https://example.com/login.html"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Pre-configured application
 // ```go
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := app.NewAutoLogin(ctx, "example", &app.AutoLoginArgs{
-// 			AppSettingsJson:  pulumi.String(fmt.Sprintf("{\n    \"domain\": \"okta\",\n    \"afwOnly\": false\n}\n\n")),
-// 			Label:            pulumi.String("Google Example App"),
-// 			PreconfiguredApp: pulumi.String("google"),
-// 			Status:           pulumi.String("ACTIVE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewAutoLogin(ctx, "example", &app.AutoLoginArgs{
+//				AppSettingsJson:  pulumi.String(fmt.Sprintf("{\n    \"domain\": \"okta\",\n    \"afwOnly\": false\n}\n\n")),
+//				Label:            pulumi.String("Google Example App"),
+//				PreconfiguredApp: pulumi.String("google"),
+//				Status:           pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,21 +77,29 @@ import (
 // Okta Auto Login App can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
+//
+//	$ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
+//
 // ```
 //
-//  It's also possible to import app without groups or/and users. In this case ID may look like this
+//	It's also possible to import app without groups or/and users. In this case ID may look like this
 //
 // ```sh
-//  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users
+//
+//	$ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users/skip_groups
+//
+//	$ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users/skip_groups
+//
 // ```
 //
 // ```sh
-//  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_groups
+//
+//	$ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_groups
+//
 // ```
 type AutoLogin struct {
 	pulumi.CustomResourceState
@@ -494,7 +508,7 @@ func (i *AutoLogin) ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginO
 // AutoLoginArrayInput is an input type that accepts AutoLoginArray and AutoLoginArrayOutput values.
 // You can construct a concrete instance of `AutoLoginArrayInput` via:
 //
-//          AutoLoginArray{ AutoLoginArgs{...} }
+//	AutoLoginArray{ AutoLoginArgs{...} }
 type AutoLoginArrayInput interface {
 	pulumi.Input
 
@@ -519,7 +533,7 @@ func (i AutoLoginArray) ToAutoLoginArrayOutputWithContext(ctx context.Context) A
 // AutoLoginMapInput is an input type that accepts AutoLoginMap and AutoLoginMapOutput values.
 // You can construct a concrete instance of `AutoLoginMapInput` via:
 //
-//          AutoLoginMap{ "key": AutoLoginArgs{...} }
+//	AutoLoginMap{ "key": AutoLoginArgs{...} }
 type AutoLoginMapInput interface {
 	pulumi.Input
 

@@ -17,24 +17,22 @@ namespace Pulumi.Okta.Factor
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Factor.Factor("example", new()
     ///     {
-    ///         var example = new Okta.Factor.Factor("example", new Okta.Factor.FactorArgs
-    ///         {
-    ///             ProviderId = "google_otp",
-    ///         });
-    ///     }
+    ///         ProviderId = "google_otp",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [OktaResourceType("okta:factor/factor:Factor")]
-    public partial class Factor : Pulumi.CustomResource
+    public partial class Factor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether to activate the provider, by default, it is set to `true`.
@@ -93,7 +91,7 @@ namespace Pulumi.Okta.Factor
         }
     }
 
-    public sealed class FactorArgs : Pulumi.ResourceArgs
+    public sealed class FactorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to activate the provider, by default, it is set to `true`.
@@ -111,9 +109,10 @@ namespace Pulumi.Okta.Factor
         public FactorArgs()
         {
         }
+        public static new FactorArgs Empty => new FactorArgs();
     }
 
-    public sealed class FactorState : Pulumi.ResourceArgs
+    public sealed class FactorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to activate the provider, by default, it is set to `true`.
@@ -131,5 +130,6 @@ namespace Pulumi.Okta.Factor
         public FactorState()
         {
         }
+        public static new FactorState Empty => new FactorState();
     }
 }

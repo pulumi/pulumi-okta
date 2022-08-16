@@ -19,73 +19,69 @@ namespace Pulumi.Okta.User
     /// Full profile:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.User.User("example", new()
     ///     {
-    ///         var example = new Okta.User.User("example", new Okta.User.UserArgs
-    ///         {
-    ///             City = "New York",
-    ///             CostCenter = "10",
-    ///             CountryCode = "US",
-    ///             Department = "IT",
-    ///             DisplayName = "Dr. John Smith",
-    ///             Division = "Acquisitions",
-    ///             Email = "john.smith@example.com",
-    ///             EmployeeNumber = "111111",
-    ///             FirstName = "John",
-    ///             HonorificPrefix = "Dr.",
-    ///             HonorificSuffix = "Jr.",
-    ///             LastName = "Smith",
-    ///             Locale = "en_US",
-    ///             Login = "john.smith@example.com",
-    ///             Manager = "Jimbo",
-    ///             ManagerId = "222222",
-    ///             MiddleName = "John",
-    ///             MobilePhone = "1112223333",
-    ///             NickName = "Johnny",
-    ///             Organization = "Testing Inc.",
-    ///             PostalAddress = "1234 Testing St.",
-    ///             PreferredLanguage = "en-us",
-    ///             PrimaryPhone = "4445556666",
-    ///             ProfileUrl = "https://www.example.com/profile",
-    ///             SecondEmail = "john.smith.fun@example.com",
-    ///             State = "NY",
-    ///             StreetAddress = "5678 Testing Ave.",
-    ///             Timezone = "America/New_York",
-    ///             Title = "Director",
-    ///             UserType = "Employee",
-    ///             ZipCode = "11111",
-    ///         });
-    ///     }
+    ///         City = "New York",
+    ///         CostCenter = "10",
+    ///         CountryCode = "US",
+    ///         Department = "IT",
+    ///         DisplayName = "Dr. John Smith",
+    ///         Division = "Acquisitions",
+    ///         Email = "john.smith@example.com",
+    ///         EmployeeNumber = "111111",
+    ///         FirstName = "John",
+    ///         HonorificPrefix = "Dr.",
+    ///         HonorificSuffix = "Jr.",
+    ///         LastName = "Smith",
+    ///         Locale = "en_US",
+    ///         Login = "john.smith@example.com",
+    ///         Manager = "Jimbo",
+    ///         ManagerId = "222222",
+    ///         MiddleName = "John",
+    ///         MobilePhone = "1112223333",
+    ///         NickName = "Johnny",
+    ///         Organization = "Testing Inc.",
+    ///         PostalAddress = "1234 Testing St.",
+    ///         PreferredLanguage = "en-us",
+    ///         PrimaryPhone = "4445556666",
+    ///         ProfileUrl = "https://www.example.com/profile",
+    ///         SecondEmail = "john.smith.fun@example.com",
+    ///         State = "NY",
+    ///         StreetAddress = "5678 Testing Ave.",
+    ///         Timezone = "America/New_York",
+    ///         Title = "Director",
+    ///         UserType = "Employee",
+    ///         ZipCode = "11111",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// With Password Inline Hook:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test2 = new Okta.User.User("test2", new()
     ///     {
-    ///         var test2 = new Okta.User.User("test2", new Okta.User.UserArgs
-    ///         {
-    ///             Email = "example@example.com",
-    ///             FirstName = "John",
-    ///             LastName = "Smith",
-    ///             Login = "example@example.com",
-    ///             PasswordInlineHook = "default",
-    ///         });
-    ///     }
+    ///         Email = "example@example.com",
+    ///         FirstName = "John",
+    ///         LastName = "Smith",
+    ///         Login = "example@example.com",
+    ///         PasswordInlineHook = "default",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -97,7 +93,7 @@ namespace Pulumi.Okta.User
     /// ```
     /// </summary>
     [OktaResourceType("okta:user/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Administrator roles assigned to User.
@@ -408,7 +404,7 @@ namespace Pulumi.Okta.User
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         [Input("adminRoles")]
         private InputList<string>? _adminRoles;
@@ -686,9 +682,10 @@ namespace Pulumi.Okta.User
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         [Input("adminRoles")]
         private InputList<string>? _adminRoles;
@@ -972,5 +969,6 @@ namespace Pulumi.Okta.User
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

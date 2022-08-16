@@ -29,26 +29,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewUserBaseSchemaProperty(ctx, "example", &okta.UserBaseSchemaPropertyArgs{
-// 			Index:    pulumi.String("firstName"),
-// 			Master:   pulumi.String("OKTA"),
-// 			Required: pulumi.Bool(true),
-// 			Title:    pulumi.String("First name"),
-// 			Type:     pulumi.String("string"),
-// 			UserType: pulumi.Any(data.Okta_user_type.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewUserBaseSchemaProperty(ctx, "example", &okta.UserBaseSchemaPropertyArgs{
+//				Index:    pulumi.String("firstName"),
+//				Master:   pulumi.String("OKTA"),
+//				Required: pulumi.Bool(true),
+//				Title:    pulumi.String("First name"),
+//				Type:     pulumi.String("string"),
+//				UserType: pulumi.Any(data.Okta_user_type.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,13 +59,17 @@ import (
 // User schema property of default user type can be imported via the property index.
 //
 // ```sh
-//  $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;property name&#62;
+//
+//	$ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;property name&#62;
+//
 // ```
 //
-//  User schema property of custom user type can be imported via user type id and property index
+//	User schema property of custom user type can be imported via user type id and property index
 //
 // ```sh
-//  $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;user type id&#62;.&#60;property name&#62;
+//
+//	$ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;user type id&#62;.&#60;property name&#62;
+//
 // ```
 type UserBaseSchemaProperty struct {
 	pulumi.CustomResourceState
@@ -229,7 +236,7 @@ func (i *UserBaseSchemaProperty) ToUserBaseSchemaPropertyOutputWithContext(ctx c
 // UserBaseSchemaPropertyArrayInput is an input type that accepts UserBaseSchemaPropertyArray and UserBaseSchemaPropertyArrayOutput values.
 // You can construct a concrete instance of `UserBaseSchemaPropertyArrayInput` via:
 //
-//          UserBaseSchemaPropertyArray{ UserBaseSchemaPropertyArgs{...} }
+//	UserBaseSchemaPropertyArray{ UserBaseSchemaPropertyArgs{...} }
 type UserBaseSchemaPropertyArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +261,7 @@ func (i UserBaseSchemaPropertyArray) ToUserBaseSchemaPropertyArrayOutputWithCont
 // UserBaseSchemaPropertyMapInput is an input type that accepts UserBaseSchemaPropertyMap and UserBaseSchemaPropertyMapOutput values.
 // You can construct a concrete instance of `UserBaseSchemaPropertyMapInput` via:
 //
-//          UserBaseSchemaPropertyMap{ "key": UserBaseSchemaPropertyArgs{...} }
+//	UserBaseSchemaPropertyMap{ "key": UserBaseSchemaPropertyArgs{...} }
 type UserBaseSchemaPropertyMapInput interface {
 	pulumi.Input
 

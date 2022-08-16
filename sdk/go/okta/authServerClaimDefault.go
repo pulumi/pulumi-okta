@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := okta.NewAuthServerClaimDefault(ctx, "example", &okta.AuthServerClaimDefaultArgs{
-// 			AuthServerId: pulumi.String("<auth server id>"),
-// 			Value:        pulumi.String("(appuser != null) ? appuser.userName : app.clientId"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAuthServerClaimDefault(ctx, "example", &okta.AuthServerClaimDefaultArgs{
+//				AuthServerId: pulumi.String("<auth server id>"),
+//				Value:        pulumi.String("(appuser != null) ? appuser.userName : app.clientId"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,13 +47,17 @@ import (
 // Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
 //
 // ```sh
-//  $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim id&#62;
+//
+//	$ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim id&#62;
+//
 // ```
 //
-//  or
+//	or
 //
 // ```sh
-//  $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
+//
+//	$ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
+//
 // ```
 type AuthServerClaimDefault struct {
 	pulumi.CustomResourceState
@@ -205,7 +212,7 @@ func (i *AuthServerClaimDefault) ToAuthServerClaimDefaultOutputWithContext(ctx c
 // AuthServerClaimDefaultArrayInput is an input type that accepts AuthServerClaimDefaultArray and AuthServerClaimDefaultArrayOutput values.
 // You can construct a concrete instance of `AuthServerClaimDefaultArrayInput` via:
 //
-//          AuthServerClaimDefaultArray{ AuthServerClaimDefaultArgs{...} }
+//	AuthServerClaimDefaultArray{ AuthServerClaimDefaultArgs{...} }
 type AuthServerClaimDefaultArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +237,7 @@ func (i AuthServerClaimDefaultArray) ToAuthServerClaimDefaultArrayOutputWithCont
 // AuthServerClaimDefaultMapInput is an input type that accepts AuthServerClaimDefaultMap and AuthServerClaimDefaultMapOutput values.
 // You can construct a concrete instance of `AuthServerClaimDefaultMapInput` via:
 //
-//          AuthServerClaimDefaultMap{ "key": AuthServerClaimDefaultArgs{...} }
+//	AuthServerClaimDefaultMap{ "key": AuthServerClaimDefaultArgs{...} }
 type AuthServerClaimDefaultMapInput interface {
 	pulumi.Input
 

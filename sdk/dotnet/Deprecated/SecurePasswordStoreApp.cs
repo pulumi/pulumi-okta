@@ -11,7 +11,7 @@ namespace Pulumi.Okta.Deprecated
 {
     [Obsolete(@"Deprecated. Use app.SecurePasswordStore instead. This resource will be removed in version 4.0 of this provider.")]
     [OktaResourceType("okta:deprecated/securePasswordStoreApp:SecurePasswordStoreApp")]
-    public partial class SecurePasswordStoreApp : Pulumi.CustomResource
+    public partial class SecurePasswordStoreApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Custom error page URL
@@ -273,7 +273,7 @@ namespace Pulumi.Okta.Deprecated
         }
     }
 
-    public sealed class SecurePasswordStoreAppArgs : Pulumi.ResourceArgs
+    public sealed class SecurePasswordStoreAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -490,9 +490,10 @@ namespace Pulumi.Okta.Deprecated
         public SecurePasswordStoreAppArgs()
         {
         }
+        public static new SecurePasswordStoreAppArgs Empty => new SecurePasswordStoreAppArgs();
     }
 
-    public sealed class SecurePasswordStoreAppState : Pulumi.ResourceArgs
+    public sealed class SecurePasswordStoreAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom error page URL
@@ -727,5 +728,6 @@ namespace Pulumi.Okta.Deprecated
         public SecurePasswordStoreAppState()
         {
         }
+        public static new SecurePasswordStoreAppState Empty => new SecurePasswordStoreAppState();
     }
 }

@@ -21,40 +21,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleEventHook, err := okta.NewEventHook(ctx, "exampleEventHook", &okta.EventHookArgs{
-// 			Events: pulumi.StringArray{
-// 				pulumi.String("user.lifecycle.create"),
-// 				pulumi.String("user.lifecycle.delete.initiated"),
-// 			},
-// 			Channel: pulumi.StringMap{
-// 				"type":    pulumi.String("HTTP"),
-// 				"version": pulumi.String("1.0.0"),
-// 				"uri":     pulumi.String("https://example.com/test"),
-// 			},
-// 			Auth: pulumi.StringMap{
-// 				"type":  pulumi.String("HEADER"),
-// 				"key":   pulumi.String("Authorization"),
-// 				"value": pulumi.String("123"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = okta.NewEventHookVerification(ctx, "exampleEventHookVerification", &okta.EventHookVerificationArgs{
-// 			EventHookId: exampleEventHook.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleEventHook, err := okta.NewEventHook(ctx, "exampleEventHook", &okta.EventHookArgs{
+//				Events: pulumi.StringArray{
+//					pulumi.String("user.lifecycle.create"),
+//					pulumi.String("user.lifecycle.delete.initiated"),
+//				},
+//				Channel: pulumi.StringMap{
+//					"type":    pulumi.String("HTTP"),
+//					"version": pulumi.String("1.0.0"),
+//					"uri":     pulumi.String("https://example.com/test"),
+//				},
+//				Auth: pulumi.StringMap{
+//					"type":  pulumi.String("HEADER"),
+//					"key":   pulumi.String("Authorization"),
+//					"value": pulumi.String("123"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewEventHookVerification(ctx, "exampleEventHookVerification", &okta.EventHookVerificationArgs{
+//				EventHookId: exampleEventHook.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -149,7 +152,7 @@ func (i *EventHookVerification) ToEventHookVerificationOutputWithContext(ctx con
 // EventHookVerificationArrayInput is an input type that accepts EventHookVerificationArray and EventHookVerificationArrayOutput values.
 // You can construct a concrete instance of `EventHookVerificationArrayInput` via:
 //
-//          EventHookVerificationArray{ EventHookVerificationArgs{...} }
+//	EventHookVerificationArray{ EventHookVerificationArgs{...} }
 type EventHookVerificationArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +177,7 @@ func (i EventHookVerificationArray) ToEventHookVerificationArrayOutputWithContex
 // EventHookVerificationMapInput is an input type that accepts EventHookVerificationMap and EventHookVerificationMapOutput values.
 // You can construct a concrete instance of `EventHookVerificationMapInput` via:
 //
-//          EventHookVerificationMap{ "key": EventHookVerificationArgs{...} }
+//	EventHookVerificationMap{ "key": EventHookVerificationArgs{...} }
 type EventHookVerificationMapInput interface {
 	pulumi.Input
 

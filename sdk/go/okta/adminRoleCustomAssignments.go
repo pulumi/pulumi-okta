@@ -12,8 +12,8 @@ import (
 )
 
 // This resource allows the assignment and unassignment of Custom Roles. The `members` field supports these type of resources:
-//  - Groups
-//  - Users
+//   - Groups
+//   - Users
 //
 // > **NOTE:** This an `Early Access` feature.
 //
@@ -22,7 +22,9 @@ import (
 // Okta Custom Admin Role Assignments can be imported via the Okta ID.
 //
 // ```sh
-//  $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &#60;resource_set_id&#62;/&#60;custom_role_id&#62;
+//
+//	$ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &#60;resource_set_id&#62;/&#60;custom_role_id&#62;
+//
 // ```
 type AdminRoleCustomAssignments struct {
 	pulumi.CustomResourceState
@@ -141,7 +143,7 @@ func (i *AdminRoleCustomAssignments) ToAdminRoleCustomAssignmentsOutputWithConte
 // AdminRoleCustomAssignmentsArrayInput is an input type that accepts AdminRoleCustomAssignmentsArray and AdminRoleCustomAssignmentsArrayOutput values.
 // You can construct a concrete instance of `AdminRoleCustomAssignmentsArrayInput` via:
 //
-//          AdminRoleCustomAssignmentsArray{ AdminRoleCustomAssignmentsArgs{...} }
+//	AdminRoleCustomAssignmentsArray{ AdminRoleCustomAssignmentsArgs{...} }
 type AdminRoleCustomAssignmentsArrayInput interface {
 	pulumi.Input
 
@@ -166,7 +168,7 @@ func (i AdminRoleCustomAssignmentsArray) ToAdminRoleCustomAssignmentsArrayOutput
 // AdminRoleCustomAssignmentsMapInput is an input type that accepts AdminRoleCustomAssignmentsMap and AdminRoleCustomAssignmentsMapOutput values.
 // You can construct a concrete instance of `AdminRoleCustomAssignmentsMapInput` via:
 //
-//          AdminRoleCustomAssignmentsMap{ "key": AdminRoleCustomAssignmentsArgs{...} }
+//	AdminRoleCustomAssignmentsMap{ "key": AdminRoleCustomAssignmentsArgs{...} }
 type AdminRoleCustomAssignmentsMapInput interface {
 	pulumi.Input
 

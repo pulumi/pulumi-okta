@@ -16,7 +16,9 @@ import (
 // An application group assignment can be imported via the `app_id` and the `group_id`.
 //
 // ```sh
-//  $ pulumi import okta:app/groupAssignment:GroupAssignment example &#60;app_id&#62;/&#60;group_id&#62;
+//
+//	$ pulumi import okta:app/groupAssignment:GroupAssignment example &#60;app_id&#62;/&#60;group_id&#62;
+//
 // ```
 type GroupAssignment struct {
 	pulumi.CustomResourceState
@@ -150,7 +152,7 @@ func (i *GroupAssignment) ToGroupAssignmentOutputWithContext(ctx context.Context
 // GroupAssignmentArrayInput is an input type that accepts GroupAssignmentArray and GroupAssignmentArrayOutput values.
 // You can construct a concrete instance of `GroupAssignmentArrayInput` via:
 //
-//          GroupAssignmentArray{ GroupAssignmentArgs{...} }
+//	GroupAssignmentArray{ GroupAssignmentArgs{...} }
 type GroupAssignmentArrayInput interface {
 	pulumi.Input
 
@@ -175,7 +177,7 @@ func (i GroupAssignmentArray) ToGroupAssignmentArrayOutputWithContext(ctx contex
 // GroupAssignmentMapInput is an input type that accepts GroupAssignmentMap and GroupAssignmentMapOutput values.
 // You can construct a concrete instance of `GroupAssignmentMapInput` via:
 //
-//          GroupAssignmentMap{ "key": GroupAssignmentArgs{...} }
+//	GroupAssignmentMap{ "key": GroupAssignmentArgs{...} }
 type GroupAssignmentMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Deprecated.Inputs
 {
 
-    public sealed class SamlAppAttributeStatementArgs : Pulumi.ResourceArgs
+    public sealed class SamlAppAttributeStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("filterType")]
         public Input<string>? FilterType { get; set; }
@@ -38,5 +38,6 @@ namespace Pulumi.Okta.Deprecated.Inputs
         public SamlAppAttributeStatementArgs()
         {
         }
+        public static new SamlAppAttributeStatementArgs Empty => new SamlAppAttributeStatementArgs();
     }
 }

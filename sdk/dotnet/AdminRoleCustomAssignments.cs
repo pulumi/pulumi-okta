@@ -25,7 +25,7 @@ namespace Pulumi.Okta
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments")]
-    public partial class AdminRoleCustomAssignments : Pulumi.CustomResource
+    public partial class AdminRoleCustomAssignments : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the Custom Role.
@@ -90,7 +90,7 @@ namespace Pulumi.Okta
         }
     }
 
-    public sealed class AdminRoleCustomAssignmentsArgs : Pulumi.ResourceArgs
+    public sealed class AdminRoleCustomAssignmentsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Custom Role.
@@ -120,9 +120,10 @@ namespace Pulumi.Okta
         public AdminRoleCustomAssignmentsArgs()
         {
         }
+        public static new AdminRoleCustomAssignmentsArgs Empty => new AdminRoleCustomAssignmentsArgs();
     }
 
-    public sealed class AdminRoleCustomAssignmentsState : Pulumi.ResourceArgs
+    public sealed class AdminRoleCustomAssignmentsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Custom Role.
@@ -152,5 +153,6 @@ namespace Pulumi.Okta
         public AdminRoleCustomAssignmentsState()
         {
         }
+        public static new AdminRoleCustomAssignmentsState Empty => new AdminRoleCustomAssignmentsState();
     }
 }

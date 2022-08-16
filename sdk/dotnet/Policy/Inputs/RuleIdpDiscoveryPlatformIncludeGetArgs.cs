@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy.Inputs
 {
 
-    public sealed class RuleIdpDiscoveryPlatformIncludeGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleIdpDiscoveryPlatformIncludeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Only available when using `os_type = "OTHER"`
@@ -33,5 +33,6 @@ namespace Pulumi.Okta.Policy.Inputs
         public RuleIdpDiscoveryPlatformIncludeGetArgs()
         {
         }
+        public static new RuleIdpDiscoveryPlatformIncludeGetArgs Empty => new RuleIdpDiscoveryPlatformIncludeGetArgs();
     }
 }

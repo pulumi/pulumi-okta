@@ -17,26 +17,24 @@ namespace Pulumi.Okta.Auth
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.Auth.ServerClaim("example", new()
     ///     {
-    ///         var example = new Okta.Auth.ServerClaim("example", new Okta.Auth.ServerClaimArgs
+    ///         AuthServerId = "&lt;auth server id&gt;",
+    ///         ClaimType = "IDENTITY",
+    ///         Scopes = new[]
     ///         {
-    ///             AuthServerId = "&lt;auth server id&gt;",
-    ///             ClaimType = "IDENTITY",
-    ///             Scopes = 
-    ///             {
-    ///                 okta_auth_server_scope.Example.Name,
-    ///             },
-    ///             Value = "String.substringAfter(user.email, \"@\") == \"example.com\"",
-    ///         });
-    ///     }
+    ///             okta_auth_server_scope.Example.Name,
+    ///         },
+    ///         Value = "String.substringAfter(user.email, \"@\") == \"example.com\"",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Okta.Auth
     /// ```
     /// </summary>
     [OktaResourceType("okta:auth/serverClaim:ServerClaim")]
-    public partial class ServerClaim : Pulumi.CustomResource
+    public partial class ServerClaim : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether to include claims in token, by default it is set to `true`.
@@ -148,7 +146,7 @@ namespace Pulumi.Okta.Auth
         }
     }
 
-    public sealed class ServerClaimArgs : Pulumi.ResourceArgs
+    public sealed class ServerClaimArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to include claims in token, by default it is set to `true`.
@@ -213,9 +211,10 @@ namespace Pulumi.Okta.Auth
         public ServerClaimArgs()
         {
         }
+        public static new ServerClaimArgs Empty => new ServerClaimArgs();
     }
 
-    public sealed class ServerClaimState : Pulumi.ResourceArgs
+    public sealed class ServerClaimState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to include claims in token, by default it is set to `true`.
@@ -280,5 +279,6 @@ namespace Pulumi.Okta.Auth
         public ServerClaimState()
         {
         }
+        public static new ServerClaimState Empty => new ServerClaimState();
     }
 }

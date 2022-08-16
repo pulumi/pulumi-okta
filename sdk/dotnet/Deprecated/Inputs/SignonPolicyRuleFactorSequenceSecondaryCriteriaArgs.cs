@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Deprecated.Inputs
 {
 
-    public sealed class SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("factorType", required: true)]
         public Input<string> FactorType { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Okta.Deprecated.Inputs
         public SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs()
         {
         }
+        public static new SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs Empty => new SignonPolicyRuleFactorSequenceSecondaryCriteriaArgs();
     }
 }

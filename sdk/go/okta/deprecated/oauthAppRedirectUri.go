@@ -109,7 +109,7 @@ func (i *OauthAppRedirectUri) ToOauthAppRedirectUriOutputWithContext(ctx context
 // OauthAppRedirectUriArrayInput is an input type that accepts OauthAppRedirectUriArray and OauthAppRedirectUriArrayOutput values.
 // You can construct a concrete instance of `OauthAppRedirectUriArrayInput` via:
 //
-//          OauthAppRedirectUriArray{ OauthAppRedirectUriArgs{...} }
+//	OauthAppRedirectUriArray{ OauthAppRedirectUriArgs{...} }
 type OauthAppRedirectUriArrayInput interface {
 	pulumi.Input
 
@@ -134,7 +134,7 @@ func (i OauthAppRedirectUriArray) ToOauthAppRedirectUriArrayOutputWithContext(ct
 // OauthAppRedirectUriMapInput is an input type that accepts OauthAppRedirectUriMap and OauthAppRedirectUriMapOutput values.
 // You can construct a concrete instance of `OauthAppRedirectUriMapInput` via:
 //
-//          OauthAppRedirectUriMap{ "key": OauthAppRedirectUriArgs{...} }
+//	OauthAppRedirectUriMap{ "key": OauthAppRedirectUriArgs{...} }
 type OauthAppRedirectUriMapInput interface {
 	pulumi.Input
 

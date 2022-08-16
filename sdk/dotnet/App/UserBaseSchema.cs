@@ -17,24 +17,22 @@ namespace Pulumi.Okta.App
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Okta.App.UserBaseSchema("example", new()
     ///     {
-    ///         var example = new Okta.App.UserBaseSchema("example", new Okta.App.UserBaseSchemaArgs
-    ///         {
-    ///             AppId = "&lt;app id&gt;",
-    ///             Index = "customPropertyName",
-    ///             Master = "OKTA",
-    ///             Title = "customPropertyName",
-    ///             Type = "string",
-    ///         });
-    ///     }
+    ///         AppId = "&lt;app id&gt;",
+    ///         Index = "customPropertyName",
+    ///         Master = "OKTA",
+    ///         Title = "customPropertyName",
+    ///         Type = "string",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Okta.App
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/userBaseSchema:UserBaseSchema")]
-    public partial class UserBaseSchema : Pulumi.CustomResource
+    public partial class UserBaseSchema : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Application's ID the user schema property should be assigned to.
@@ -146,7 +144,7 @@ namespace Pulumi.Okta.App
         }
     }
 
-    public sealed class UserBaseSchemaArgs : Pulumi.ResourceArgs
+    public sealed class UserBaseSchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application's ID the user schema property should be assigned to.
@@ -205,9 +203,10 @@ namespace Pulumi.Okta.App
         public UserBaseSchemaArgs()
         {
         }
+        public static new UserBaseSchemaArgs Empty => new UserBaseSchemaArgs();
     }
 
-    public sealed class UserBaseSchemaState : Pulumi.ResourceArgs
+    public sealed class UserBaseSchemaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application's ID the user schema property should be assigned to.
@@ -266,5 +265,6 @@ namespace Pulumi.Okta.App
         public UserBaseSchemaState()
         {
         }
+        public static new UserBaseSchemaState Empty => new UserBaseSchemaState();
     }
 }

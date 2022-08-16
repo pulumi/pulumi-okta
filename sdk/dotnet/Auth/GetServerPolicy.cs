@@ -19,21 +19,19 @@ namespace Pulumi.Okta.Auth
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Auth.GetServerPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Auth.GetServerPolicy.InvokeAsync(new Okta.Auth.GetServerPolicyArgs
-        ///         {
-        ///             AuthServerId = "&lt;auth server id&gt;",
-        ///             Name = "staff",
-        ///         }));
-        ///     }
+        ///         AuthServerId = "&lt;auth server id&gt;",
+        ///         Name = "staff",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Okta.Auth
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Okta = Pulumi.Okta;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Okta.Auth.GetServerPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Okta.Auth.GetServerPolicy.InvokeAsync(new Okta.Auth.GetServerPolicyArgs
-        ///         {
-        ///             AuthServerId = "&lt;auth server id&gt;",
-        ///             Name = "staff",
-        ///         }));
-        ///     }
+        ///         AuthServerId = "&lt;auth server id&gt;",
+        ///         Name = "staff",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Okta.Auth
     }
 
 
-    public sealed class GetServerPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetServerPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Auth Server.
@@ -90,9 +86,10 @@ namespace Pulumi.Okta.Auth
         public GetServerPolicyArgs()
         {
         }
+        public static new GetServerPolicyArgs Empty => new GetServerPolicyArgs();
     }
 
-    public sealed class GetServerPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Auth Server.
@@ -109,6 +106,7 @@ namespace Pulumi.Okta.Auth
         public GetServerPolicyInvokeArgs()
         {
         }
+        public static new GetServerPolicyInvokeArgs Empty => new GetServerPolicyInvokeArgs();
     }
 
 
