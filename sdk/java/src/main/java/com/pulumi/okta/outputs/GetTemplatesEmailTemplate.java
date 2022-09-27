@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTemplatesEmailTemplate {
-    private final String links;
-    private final String name;
+    private String links;
+    private String name;
 
-    @CustomType.Constructor
-    private GetTemplatesEmailTemplate(
-        @CustomType.Parameter("links") String links,
-        @CustomType.Parameter("name") String name) {
-        this.links = links;
-        this.name = name;
-    }
-
+    private GetTemplatesEmailTemplate() {}
     public String links() {
         return this.links;
     }
@@ -34,30 +27,32 @@ public final class GetTemplatesEmailTemplate {
     public static Builder builder(GetTemplatesEmailTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String links;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTemplatesEmailTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.links = defaults.links;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder links(String links) {
             this.links = Objects.requireNonNull(links);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetTemplatesEmailTemplate build() {
-            return new GetTemplatesEmailTemplate(links, name);
+        }
+        public GetTemplatesEmailTemplate build() {
+            final var o = new GetTemplatesEmailTemplate();
+            o.links = links;
+            o.name = name;
+            return o;
         }
     }
 }

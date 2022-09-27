@@ -15,21 +15,14 @@ public final class SchemaMasterOverridePriority {
      * @return - Type of profile source.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return - ID of profile source.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private SchemaMasterOverridePriority(
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("value") String value) {
-        this.type = type;
-        this.value = value;
-    }
-
+    private SchemaMasterOverridePriority() {}
     /**
      * @return - Type of profile source.
      * 
@@ -52,30 +45,32 @@ public final class SchemaMasterOverridePriority {
     public static Builder builder(SchemaMasterOverridePriority defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SchemaMasterOverridePriority defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public SchemaMasterOverridePriority build() {
-            return new SchemaMasterOverridePriority(type, value);
+        }
+        public SchemaMasterOverridePriority build() {
+            final var o = new SchemaMasterOverridePriority();
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

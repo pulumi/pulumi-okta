@@ -13,21 +13,14 @@ public final class RuleSignonFactorSequenceSecondaryCriteria {
      * @return Factor type of the additional authentication step.
      * 
      */
-    private final String factorType;
+    private String factorType;
     /**
      * @return Provider of the additional authentication step.
      * 
      */
-    private final String provider;
+    private String provider;
 
-    @CustomType.Constructor
-    private RuleSignonFactorSequenceSecondaryCriteria(
-        @CustomType.Parameter("factorType") String factorType,
-        @CustomType.Parameter("provider") String provider) {
-        this.factorType = factorType;
-        this.provider = provider;
-    }
-
+    private RuleSignonFactorSequenceSecondaryCriteria() {}
     /**
      * @return Factor type of the additional authentication step.
      * 
@@ -50,30 +43,32 @@ public final class RuleSignonFactorSequenceSecondaryCriteria {
     public static Builder builder(RuleSignonFactorSequenceSecondaryCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String factorType;
         private String provider;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleSignonFactorSequenceSecondaryCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.factorType = defaults.factorType;
     	      this.provider = defaults.provider;
         }
 
+        @CustomType.Setter
         public Builder factorType(String factorType) {
             this.factorType = Objects.requireNonNull(factorType);
             return this;
         }
+        @CustomType.Setter
         public Builder provider(String provider) {
             this.provider = Objects.requireNonNull(provider);
             return this;
-        }        public RuleSignonFactorSequenceSecondaryCriteria build() {
-            return new RuleSignonFactorSequenceSecondaryCriteria(factorType, provider);
+        }
+        public RuleSignonFactorSequenceSecondaryCriteria build() {
+            final var o = new RuleSignonFactorSequenceSecondaryCriteria();
+            o.factorType = factorType;
+            o.provider = provider;
+            return o;
         }
     }
 }

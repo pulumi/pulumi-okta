@@ -13,27 +13,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOauthResult {
-    private final @Nullable Boolean activeOnly;
+    private @Nullable Boolean activeOnly;
     /**
      * @return Display auto submit toolbar.
      * 
      */
-    private final Boolean autoSubmitToolbar;
+    private Boolean autoSubmitToolbar;
     /**
      * @return OAuth client ID. If set during creation, app is created with this id.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return URI to a web page providing information about the client.
      * 
      */
-    private final String clientUri;
+    private String clientUri;
     /**
      * @return List of OAuth 2.0 grant types.
      * 
      */
-    private final List<String> grantTypes;
+    private List<String> grantTypes;
     /**
      * @return List of groups IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
@@ -43,90 +43,90 @@ public final class GetOauthResult {
      * 
      */
     @Deprecated /* The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments` */
-    private final List<String> groups;
+    private List<String> groups;
     /**
      * @return Do not display application icon on mobile app.
      * 
      */
-    private final Boolean hideIos;
+    private Boolean hideIos;
     /**
      * @return Do not display application icon to users.
      * 
      */
-    private final Boolean hideWeb;
+    private Boolean hideWeb;
     /**
      * @return ID of application.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Label of application.
      * 
      */
-    private final @Nullable String label;
-    private final @Nullable String labelPrefix;
+    private @Nullable String label;
+    private @Nullable String labelPrefix;
     /**
      * @return generic JSON containing discoverable resources related to the app
      * 
      */
-    private final String links;
+    private String links;
     /**
      * @return The type of Idp-Initiated login that the client supports, if any.
      * 
      */
-    private final String loginMode;
+    private String loginMode;
     /**
      * @return List of scopes to use for the request.
      * 
      */
-    private final List<String> loginScopes;
+    private List<String> loginScopes;
     /**
      * @return URI that initiates login.
      * 
      */
-    private final String loginUri;
+    private String loginUri;
     /**
      * @return URI that references a logo for the client.
      * 
      */
-    private final String logoUri;
+    private String logoUri;
     /**
      * @return Name of application.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return URI to web page providing client policy document.
      * 
      */
-    private final String policyUri;
+    private String policyUri;
     /**
      * @return List of URIs for redirection after logout.
      * 
      */
-    private final List<String> postLogoutRedirectUris;
+    private List<String> postLogoutRedirectUris;
     /**
      * @return List of URIs for use in the redirect-based flow.
      * 
      */
-    private final List<String> redirectUris;
+    private List<String> redirectUris;
     /**
      * @return List of OAuth 2.0 response type strings.
      * 
      */
-    private final List<String> responseTypes;
-    private final @Nullable Boolean skipGroups;
-    private final @Nullable Boolean skipUsers;
+    private List<String> responseTypes;
+    private @Nullable Boolean skipGroups;
+    private @Nullable Boolean skipUsers;
     /**
      * @return Status of application.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return The type of OAuth application.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return List of users IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
@@ -136,67 +136,10 @@ public final class GetOauthResult {
      * 
      */
     @Deprecated /* The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments` */
-    private final List<String> users;
-    private final String wildcardRedirect;
+    private List<String> users;
+    private String wildcardRedirect;
 
-    @CustomType.Constructor
-    private GetOauthResult(
-        @CustomType.Parameter("activeOnly") @Nullable Boolean activeOnly,
-        @CustomType.Parameter("autoSubmitToolbar") Boolean autoSubmitToolbar,
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientUri") String clientUri,
-        @CustomType.Parameter("grantTypes") List<String> grantTypes,
-        @CustomType.Parameter("groups") List<String> groups,
-        @CustomType.Parameter("hideIos") Boolean hideIos,
-        @CustomType.Parameter("hideWeb") Boolean hideWeb,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("label") @Nullable String label,
-        @CustomType.Parameter("labelPrefix") @Nullable String labelPrefix,
-        @CustomType.Parameter("links") String links,
-        @CustomType.Parameter("loginMode") String loginMode,
-        @CustomType.Parameter("loginScopes") List<String> loginScopes,
-        @CustomType.Parameter("loginUri") String loginUri,
-        @CustomType.Parameter("logoUri") String logoUri,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("policyUri") String policyUri,
-        @CustomType.Parameter("postLogoutRedirectUris") List<String> postLogoutRedirectUris,
-        @CustomType.Parameter("redirectUris") List<String> redirectUris,
-        @CustomType.Parameter("responseTypes") List<String> responseTypes,
-        @CustomType.Parameter("skipGroups") @Nullable Boolean skipGroups,
-        @CustomType.Parameter("skipUsers") @Nullable Boolean skipUsers,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("users") List<String> users,
-        @CustomType.Parameter("wildcardRedirect") String wildcardRedirect) {
-        this.activeOnly = activeOnly;
-        this.autoSubmitToolbar = autoSubmitToolbar;
-        this.clientId = clientId;
-        this.clientUri = clientUri;
-        this.grantTypes = grantTypes;
-        this.groups = groups;
-        this.hideIos = hideIos;
-        this.hideWeb = hideWeb;
-        this.id = id;
-        this.label = label;
-        this.labelPrefix = labelPrefix;
-        this.links = links;
-        this.loginMode = loginMode;
-        this.loginScopes = loginScopes;
-        this.loginUri = loginUri;
-        this.logoUri = logoUri;
-        this.name = name;
-        this.policyUri = policyUri;
-        this.postLogoutRedirectUris = postLogoutRedirectUris;
-        this.redirectUris = redirectUris;
-        this.responseTypes = responseTypes;
-        this.skipGroups = skipGroups;
-        this.skipUsers = skipUsers;
-        this.status = status;
-        this.type = type;
-        this.users = users;
-        this.wildcardRedirect = wildcardRedirect;
-    }
-
+    private GetOauthResult() {}
     public Optional<Boolean> activeOnly() {
         return Optional.ofNullable(this.activeOnly);
     }
@@ -384,7 +327,7 @@ public final class GetOauthResult {
     public static Builder builder(GetOauthResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean activeOnly;
         private Boolean autoSubmitToolbar;
@@ -413,11 +356,7 @@ public final class GetOauthResult {
         private String type;
         private List<String> users;
         private String wildcardRedirect;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOauthResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeOnly = defaults.activeOnly;
@@ -449,22 +388,27 @@ public final class GetOauthResult {
     	      this.wildcardRedirect = defaults.wildcardRedirect;
         }
 
+        @CustomType.Setter
         public Builder activeOnly(@Nullable Boolean activeOnly) {
             this.activeOnly = activeOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder autoSubmitToolbar(Boolean autoSubmitToolbar) {
             this.autoSubmitToolbar = Objects.requireNonNull(autoSubmitToolbar);
             return this;
         }
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientUri(String clientUri) {
             this.clientUri = Objects.requireNonNull(clientUri);
             return this;
         }
+        @CustomType.Setter
         public Builder grantTypes(List<String> grantTypes) {
             this.grantTypes = Objects.requireNonNull(grantTypes);
             return this;
@@ -472,6 +416,7 @@ public final class GetOauthResult {
         public Builder grantTypes(String... grantTypes) {
             return grantTypes(List.of(grantTypes));
         }
+        @CustomType.Setter
         public Builder groups(List<String> groups) {
             this.groups = Objects.requireNonNull(groups);
             return this;
@@ -479,34 +424,42 @@ public final class GetOauthResult {
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder hideIos(Boolean hideIos) {
             this.hideIos = Objects.requireNonNull(hideIos);
             return this;
         }
+        @CustomType.Setter
         public Builder hideWeb(Boolean hideWeb) {
             this.hideWeb = Objects.requireNonNull(hideWeb);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
         }
+        @CustomType.Setter
         public Builder labelPrefix(@Nullable String labelPrefix) {
             this.labelPrefix = labelPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder links(String links) {
             this.links = Objects.requireNonNull(links);
             return this;
         }
+        @CustomType.Setter
         public Builder loginMode(String loginMode) {
             this.loginMode = Objects.requireNonNull(loginMode);
             return this;
         }
+        @CustomType.Setter
         public Builder loginScopes(List<String> loginScopes) {
             this.loginScopes = Objects.requireNonNull(loginScopes);
             return this;
@@ -514,22 +467,27 @@ public final class GetOauthResult {
         public Builder loginScopes(String... loginScopes) {
             return loginScopes(List.of(loginScopes));
         }
+        @CustomType.Setter
         public Builder loginUri(String loginUri) {
             this.loginUri = Objects.requireNonNull(loginUri);
             return this;
         }
+        @CustomType.Setter
         public Builder logoUri(String logoUri) {
             this.logoUri = Objects.requireNonNull(logoUri);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder policyUri(String policyUri) {
             this.policyUri = Objects.requireNonNull(policyUri);
             return this;
         }
+        @CustomType.Setter
         public Builder postLogoutRedirectUris(List<String> postLogoutRedirectUris) {
             this.postLogoutRedirectUris = Objects.requireNonNull(postLogoutRedirectUris);
             return this;
@@ -537,6 +495,7 @@ public final class GetOauthResult {
         public Builder postLogoutRedirectUris(String... postLogoutRedirectUris) {
             return postLogoutRedirectUris(List.of(postLogoutRedirectUris));
         }
+        @CustomType.Setter
         public Builder redirectUris(List<String> redirectUris) {
             this.redirectUris = Objects.requireNonNull(redirectUris);
             return this;
@@ -544,6 +503,7 @@ public final class GetOauthResult {
         public Builder redirectUris(String... redirectUris) {
             return redirectUris(List.of(redirectUris));
         }
+        @CustomType.Setter
         public Builder responseTypes(List<String> responseTypes) {
             this.responseTypes = Objects.requireNonNull(responseTypes);
             return this;
@@ -551,22 +511,27 @@ public final class GetOauthResult {
         public Builder responseTypes(String... responseTypes) {
             return responseTypes(List.of(responseTypes));
         }
+        @CustomType.Setter
         public Builder skipGroups(@Nullable Boolean skipGroups) {
             this.skipGroups = skipGroups;
             return this;
         }
+        @CustomType.Setter
         public Builder skipUsers(@Nullable Boolean skipUsers) {
             this.skipUsers = skipUsers;
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder users(List<String> users) {
             this.users = Objects.requireNonNull(users);
             return this;
@@ -574,11 +539,41 @@ public final class GetOauthResult {
         public Builder users(String... users) {
             return users(List.of(users));
         }
+        @CustomType.Setter
         public Builder wildcardRedirect(String wildcardRedirect) {
             this.wildcardRedirect = Objects.requireNonNull(wildcardRedirect);
             return this;
-        }        public GetOauthResult build() {
-            return new GetOauthResult(activeOnly, autoSubmitToolbar, clientId, clientUri, grantTypes, groups, hideIos, hideWeb, id, label, labelPrefix, links, loginMode, loginScopes, loginUri, logoUri, name, policyUri, postLogoutRedirectUris, redirectUris, responseTypes, skipGroups, skipUsers, status, type, users, wildcardRedirect);
+        }
+        public GetOauthResult build() {
+            final var o = new GetOauthResult();
+            o.activeOnly = activeOnly;
+            o.autoSubmitToolbar = autoSubmitToolbar;
+            o.clientId = clientId;
+            o.clientUri = clientUri;
+            o.grantTypes = grantTypes;
+            o.groups = groups;
+            o.hideIos = hideIos;
+            o.hideWeb = hideWeb;
+            o.id = id;
+            o.label = label;
+            o.labelPrefix = labelPrefix;
+            o.links = links;
+            o.loginMode = loginMode;
+            o.loginScopes = loginScopes;
+            o.loginUri = loginUri;
+            o.logoUri = logoUri;
+            o.name = name;
+            o.policyUri = policyUri;
+            o.postLogoutRedirectUris = postLogoutRedirectUris;
+            o.redirectUris = redirectUris;
+            o.responseTypes = responseTypes;
+            o.skipGroups = skipGroups;
+            o.skipUsers = skipUsers;
+            o.status = status;
+            o.type = type;
+            o.users = users;
+            o.wildcardRedirect = wildcardRedirect;
+            return o;
         }
     }
 }

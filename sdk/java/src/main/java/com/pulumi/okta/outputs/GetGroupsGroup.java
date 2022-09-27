@@ -13,43 +13,30 @@ public final class GetGroupsGroup {
      * @return raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
      * 
      */
-    private final String customProfileAttributes;
+    private String customProfileAttributes;
     /**
      * @return Group description.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Group ID.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Group name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
      * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetGroupsGroup(
-        @CustomType.Parameter("customProfileAttributes") String customProfileAttributes,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type) {
-        this.customProfileAttributes = customProfileAttributes;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.type = type;
-    }
-
+    private GetGroupsGroup() {}
     /**
      * @return raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
      * 
@@ -94,18 +81,14 @@ public final class GetGroupsGroup {
     public static Builder builder(GetGroupsGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String customProfileAttributes;
         private String description;
         private String id;
         private String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGroupsGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customProfileAttributes = defaults.customProfileAttributes;
@@ -115,27 +98,39 @@ public final class GetGroupsGroup {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder customProfileAttributes(String customProfileAttributes) {
             this.customProfileAttributes = Objects.requireNonNull(customProfileAttributes);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetGroupsGroup build() {
-            return new GetGroupsGroup(customProfileAttributes, description, id, name, type);
+        }
+        public GetGroupsGroup build() {
+            final var o = new GetGroupsGroup();
+            o.customProfileAttributes = customProfileAttributes;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

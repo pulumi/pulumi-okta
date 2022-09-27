@@ -16,28 +16,19 @@ public final class PolicyRuleProfileEnrollmentProfileAttribute {
      * @return A display-friendly label for this property
      * 
      */
-    private final String label;
+    private String label;
     /**
      * @return The name of a User Profile property
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Indicates if this property is required for enrollment. Default is `false`.
      * 
      */
-    private final @Nullable Boolean required;
+    private @Nullable Boolean required;
 
-    @CustomType.Constructor
-    private PolicyRuleProfileEnrollmentProfileAttribute(
-        @CustomType.Parameter("label") String label,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("required") @Nullable Boolean required) {
-        this.label = label;
-        this.name = name;
-        this.required = required;
-    }
-
+    private PolicyRuleProfileEnrollmentProfileAttribute() {}
     /**
      * @return A display-friendly label for this property
      * 
@@ -67,16 +58,12 @@ public final class PolicyRuleProfileEnrollmentProfileAttribute {
     public static Builder builder(PolicyRuleProfileEnrollmentProfileAttribute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String label;
         private String name;
         private @Nullable Boolean required;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyRuleProfileEnrollmentProfileAttribute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.label = defaults.label;
@@ -84,19 +71,27 @@ public final class PolicyRuleProfileEnrollmentProfileAttribute {
     	      this.required = defaults.required;
         }
 
+        @CustomType.Setter
         public Builder label(String label) {
             this.label = Objects.requireNonNull(label);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder required(@Nullable Boolean required) {
             this.required = required;
             return this;
-        }        public PolicyRuleProfileEnrollmentProfileAttribute build() {
-            return new PolicyRuleProfileEnrollmentProfileAttribute(label, name, required);
+        }
+        public PolicyRuleProfileEnrollmentProfileAttribute build() {
+            final var o = new PolicyRuleProfileEnrollmentProfileAttribute();
+            o.label = label;
+            o.name = name;
+            o.required = required;
+            return o;
         }
     }
 }

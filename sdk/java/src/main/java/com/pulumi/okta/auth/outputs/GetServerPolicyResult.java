@@ -15,41 +15,26 @@ public final class GetServerPolicyResult {
      * @return list of clients this policy is assigned to. `[&#34;ALL_CLIENTS&#34;]` is a special value when policy is assigned to all clients.
      * 
      */
-    private final List<String> assignedClients;
-    private final String authServerId;
+    private List<String> assignedClients;
+    private String authServerId;
     /**
      * @return description of authorization server policy.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return the priority of the Auth Server Policy.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
 
-    @CustomType.Constructor
-    private GetServerPolicyResult(
-        @CustomType.Parameter("assignedClients") List<String> assignedClients,
-        @CustomType.Parameter("authServerId") String authServerId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") Integer priority) {
-        this.assignedClients = assignedClients;
-        this.authServerId = authServerId;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.priority = priority;
-    }
-
+    private GetServerPolicyResult() {}
     /**
      * @return list of clients this policy is assigned to. `[&#34;ALL_CLIENTS&#34;]` is a special value when policy is assigned to all clients.
      * 
@@ -92,7 +77,7 @@ public final class GetServerPolicyResult {
     public static Builder builder(GetServerPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> assignedClients;
         private String authServerId;
@@ -100,11 +85,7 @@ public final class GetServerPolicyResult {
         private String id;
         private String name;
         private Integer priority;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServerPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.assignedClients = defaults.assignedClients;
@@ -115,6 +96,7 @@ public final class GetServerPolicyResult {
     	      this.priority = defaults.priority;
         }
 
+        @CustomType.Setter
         public Builder assignedClients(List<String> assignedClients) {
             this.assignedClients = Objects.requireNonNull(assignedClients);
             return this;
@@ -122,27 +104,40 @@ public final class GetServerPolicyResult {
         public Builder assignedClients(String... assignedClients) {
             return assignedClients(List.of(assignedClients));
         }
+        @CustomType.Setter
         public Builder authServerId(String authServerId) {
             this.authServerId = Objects.requireNonNull(authServerId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
-        }        public GetServerPolicyResult build() {
-            return new GetServerPolicyResult(assignedClients, authServerId, description, id, name, priority);
+        }
+        public GetServerPolicyResult build() {
+            final var o = new GetServerPolicyResult();
+            o.assignedClients = assignedClients;
+            o.authServerId = authServerId;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.priority = priority;
+            return o;
         }
     }
 }

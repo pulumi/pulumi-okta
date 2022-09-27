@@ -16,35 +16,24 @@ public final class DomainDnsRecord {
      * @return TXT record expiration.
      * 
      */
-    private final @Nullable String expiration;
+    private @Nullable String expiration;
     /**
      * @return DNS record name.
      * 
      */
-    private final @Nullable String fqdn;
+    private @Nullable String fqdn;
     /**
      * @return Record type can be TXT or CNAME.
      * 
      */
-    private final @Nullable String recordType;
+    private @Nullable String recordType;
     /**
      * @return DNS verification value
      * 
      */
-    private final @Nullable List<String> values;
+    private @Nullable List<String> values;
 
-    @CustomType.Constructor
-    private DomainDnsRecord(
-        @CustomType.Parameter("expiration") @Nullable String expiration,
-        @CustomType.Parameter("fqdn") @Nullable String fqdn,
-        @CustomType.Parameter("recordType") @Nullable String recordType,
-        @CustomType.Parameter("values") @Nullable List<String> values) {
-        this.expiration = expiration;
-        this.fqdn = fqdn;
-        this.recordType = recordType;
-        this.values = values;
-    }
-
+    private DomainDnsRecord() {}
     /**
      * @return TXT record expiration.
      * 
@@ -81,17 +70,13 @@ public final class DomainDnsRecord {
     public static Builder builder(DomainDnsRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String expiration;
         private @Nullable String fqdn;
         private @Nullable String recordType;
         private @Nullable List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainDnsRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expiration = defaults.expiration;
@@ -100,26 +85,36 @@ public final class DomainDnsRecord {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder expiration(@Nullable String expiration) {
             this.expiration = expiration;
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
             this.fqdn = fqdn;
             return this;
         }
+        @CustomType.Setter
         public Builder recordType(@Nullable String recordType) {
             this.recordType = recordType;
             return this;
         }
+        @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
             this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public DomainDnsRecord build() {
-            return new DomainDnsRecord(expiration, fqdn, recordType, values);
+        }
+        public DomainDnsRecord build() {
+            final var o = new DomainDnsRecord();
+            o.expiration = expiration;
+            o.fqdn = fqdn;
+            o.recordType = recordType;
+            o.values = values;
+            return o;
         }
     }
 }

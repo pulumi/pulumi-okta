@@ -16,56 +16,31 @@ public final class GetAuthenticatorResult {
      * @return ID of the authenticator.
      * 
      */
-    private final @Nullable String id;
-    private final @Nullable String key;
+    private @Nullable String id;
+    private @Nullable String key;
     /**
      * @return Name of the authenticator.
      * 
      */
-    private final @Nullable String name;
-    private final Integer providerAuthPort;
-    private final String providerHostname;
-    private final String providerInstanceId;
-    private final String providerType;
-    private final String providerUserNameTemplate;
+    private @Nullable String name;
+    private Integer providerAuthPort;
+    private String providerHostname;
+    private String providerInstanceId;
+    private String providerType;
+    private String providerUserNameTemplate;
     /**
      * @return Settings for the authenticator.
      * 
      */
-    private final String settings;
-    private final String status;
+    private String settings;
+    private String status;
     /**
      * @return Type of the Authenticator.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetAuthenticatorResult(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("providerAuthPort") Integer providerAuthPort,
-        @CustomType.Parameter("providerHostname") String providerHostname,
-        @CustomType.Parameter("providerInstanceId") String providerInstanceId,
-        @CustomType.Parameter("providerType") String providerType,
-        @CustomType.Parameter("providerUserNameTemplate") String providerUserNameTemplate,
-        @CustomType.Parameter("settings") String settings,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.key = key;
-        this.name = name;
-        this.providerAuthPort = providerAuthPort;
-        this.providerHostname = providerHostname;
-        this.providerInstanceId = providerInstanceId;
-        this.providerType = providerType;
-        this.providerUserNameTemplate = providerUserNameTemplate;
-        this.settings = settings;
-        this.status = status;
-        this.type = type;
-    }
-
+    private GetAuthenticatorResult() {}
     /**
      * @return ID of the authenticator.
      * 
@@ -123,7 +98,7 @@ public final class GetAuthenticatorResult {
     public static Builder builder(GetAuthenticatorResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String key;
@@ -136,11 +111,7 @@ public final class GetAuthenticatorResult {
         private String settings;
         private String status;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAuthenticatorResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -156,51 +127,75 @@ public final class GetAuthenticatorResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder providerAuthPort(Integer providerAuthPort) {
             this.providerAuthPort = Objects.requireNonNull(providerAuthPort);
             return this;
         }
+        @CustomType.Setter
         public Builder providerHostname(String providerHostname) {
             this.providerHostname = Objects.requireNonNull(providerHostname);
             return this;
         }
+        @CustomType.Setter
         public Builder providerInstanceId(String providerInstanceId) {
             this.providerInstanceId = Objects.requireNonNull(providerInstanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder providerType(String providerType) {
             this.providerType = Objects.requireNonNull(providerType);
             return this;
         }
+        @CustomType.Setter
         public Builder providerUserNameTemplate(String providerUserNameTemplate) {
             this.providerUserNameTemplate = Objects.requireNonNull(providerUserNameTemplate);
             return this;
         }
+        @CustomType.Setter
         public Builder settings(String settings) {
             this.settings = Objects.requireNonNull(settings);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetAuthenticatorResult build() {
-            return new GetAuthenticatorResult(id, key, name, providerAuthPort, providerHostname, providerInstanceId, providerType, providerUserNameTemplate, settings, status, type);
+        }
+        public GetAuthenticatorResult build() {
+            final var o = new GetAuthenticatorResult();
+            o.id = id;
+            o.key = key;
+            o.name = name;
+            o.providerAuthPort = providerAuthPort;
+            o.providerHostname = providerHostname;
+            o.providerInstanceId = providerInstanceId;
+            o.providerType = providerType;
+            o.providerUserNameTemplate = providerUserNameTemplate;
+            o.settings = settings;
+            o.status = status;
+            o.type = type;
+            return o;
         }
     }
 }

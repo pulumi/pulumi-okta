@@ -9,50 +9,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemesTheme {
-    private final String backgroundImageUrl;
-    private final String emailTemplateTouchPointVariant;
-    private final String endUserDashboardTouchPointVariant;
-    private final String errorPageTouchPointVariant;
-    private final String faviconUrl;
-    private final String id;
-    private final String links;
-    private final String logoUrl;
-    private final String primaryColorContrastHex;
-    private final String primaryColorHex;
-    private final String secondaryColorContrastHex;
-    private final String secondaryColorHex;
-    private final String signInPageTouchPointVariant;
+    private String backgroundImageUrl;
+    private String emailTemplateTouchPointVariant;
+    private String endUserDashboardTouchPointVariant;
+    private String errorPageTouchPointVariant;
+    private String faviconUrl;
+    private String id;
+    private String links;
+    private String logoUrl;
+    private String primaryColorContrastHex;
+    private String primaryColorHex;
+    private String secondaryColorContrastHex;
+    private String secondaryColorHex;
+    private String signInPageTouchPointVariant;
 
-    @CustomType.Constructor
-    private GetThemesTheme(
-        @CustomType.Parameter("backgroundImageUrl") String backgroundImageUrl,
-        @CustomType.Parameter("emailTemplateTouchPointVariant") String emailTemplateTouchPointVariant,
-        @CustomType.Parameter("endUserDashboardTouchPointVariant") String endUserDashboardTouchPointVariant,
-        @CustomType.Parameter("errorPageTouchPointVariant") String errorPageTouchPointVariant,
-        @CustomType.Parameter("faviconUrl") String faviconUrl,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("links") String links,
-        @CustomType.Parameter("logoUrl") String logoUrl,
-        @CustomType.Parameter("primaryColorContrastHex") String primaryColorContrastHex,
-        @CustomType.Parameter("primaryColorHex") String primaryColorHex,
-        @CustomType.Parameter("secondaryColorContrastHex") String secondaryColorContrastHex,
-        @CustomType.Parameter("secondaryColorHex") String secondaryColorHex,
-        @CustomType.Parameter("signInPageTouchPointVariant") String signInPageTouchPointVariant) {
-        this.backgroundImageUrl = backgroundImageUrl;
-        this.emailTemplateTouchPointVariant = emailTemplateTouchPointVariant;
-        this.endUserDashboardTouchPointVariant = endUserDashboardTouchPointVariant;
-        this.errorPageTouchPointVariant = errorPageTouchPointVariant;
-        this.faviconUrl = faviconUrl;
-        this.id = id;
-        this.links = links;
-        this.logoUrl = logoUrl;
-        this.primaryColorContrastHex = primaryColorContrastHex;
-        this.primaryColorHex = primaryColorHex;
-        this.secondaryColorContrastHex = secondaryColorContrastHex;
-        this.secondaryColorHex = secondaryColorHex;
-        this.signInPageTouchPointVariant = signInPageTouchPointVariant;
-    }
-
+    private GetThemesTheme() {}
     public String backgroundImageUrl() {
         return this.backgroundImageUrl;
     }
@@ -100,7 +71,7 @@ public final class GetThemesTheme {
     public static Builder builder(GetThemesTheme defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String backgroundImageUrl;
         private String emailTemplateTouchPointVariant;
@@ -115,11 +86,7 @@ public final class GetThemesTheme {
         private String secondaryColorContrastHex;
         private String secondaryColorHex;
         private String signInPageTouchPointVariant;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetThemesTheme defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backgroundImageUrl = defaults.backgroundImageUrl;
@@ -137,59 +104,87 @@ public final class GetThemesTheme {
     	      this.signInPageTouchPointVariant = defaults.signInPageTouchPointVariant;
         }
 
+        @CustomType.Setter
         public Builder backgroundImageUrl(String backgroundImageUrl) {
             this.backgroundImageUrl = Objects.requireNonNull(backgroundImageUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder emailTemplateTouchPointVariant(String emailTemplateTouchPointVariant) {
             this.emailTemplateTouchPointVariant = Objects.requireNonNull(emailTemplateTouchPointVariant);
             return this;
         }
+        @CustomType.Setter
         public Builder endUserDashboardTouchPointVariant(String endUserDashboardTouchPointVariant) {
             this.endUserDashboardTouchPointVariant = Objects.requireNonNull(endUserDashboardTouchPointVariant);
             return this;
         }
+        @CustomType.Setter
         public Builder errorPageTouchPointVariant(String errorPageTouchPointVariant) {
             this.errorPageTouchPointVariant = Objects.requireNonNull(errorPageTouchPointVariant);
             return this;
         }
+        @CustomType.Setter
         public Builder faviconUrl(String faviconUrl) {
             this.faviconUrl = Objects.requireNonNull(faviconUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder links(String links) {
             this.links = Objects.requireNonNull(links);
             return this;
         }
+        @CustomType.Setter
         public Builder logoUrl(String logoUrl) {
             this.logoUrl = Objects.requireNonNull(logoUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryColorContrastHex(String primaryColorContrastHex) {
             this.primaryColorContrastHex = Objects.requireNonNull(primaryColorContrastHex);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryColorHex(String primaryColorHex) {
             this.primaryColorHex = Objects.requireNonNull(primaryColorHex);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryColorContrastHex(String secondaryColorContrastHex) {
             this.secondaryColorContrastHex = Objects.requireNonNull(secondaryColorContrastHex);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryColorHex(String secondaryColorHex) {
             this.secondaryColorHex = Objects.requireNonNull(secondaryColorHex);
             return this;
         }
+        @CustomType.Setter
         public Builder signInPageTouchPointVariant(String signInPageTouchPointVariant) {
             this.signInPageTouchPointVariant = Objects.requireNonNull(signInPageTouchPointVariant);
             return this;
-        }        public GetThemesTheme build() {
-            return new GetThemesTheme(backgroundImageUrl, emailTemplateTouchPointVariant, endUserDashboardTouchPointVariant, errorPageTouchPointVariant, faviconUrl, id, links, logoUrl, primaryColorContrastHex, primaryColorHex, secondaryColorContrastHex, secondaryColorHex, signInPageTouchPointVariant);
+        }
+        public GetThemesTheme build() {
+            final var o = new GetThemesTheme();
+            o.backgroundImageUrl = backgroundImageUrl;
+            o.emailTemplateTouchPointVariant = emailTemplateTouchPointVariant;
+            o.endUserDashboardTouchPointVariant = endUserDashboardTouchPointVariant;
+            o.errorPageTouchPointVariant = errorPageTouchPointVariant;
+            o.faviconUrl = faviconUrl;
+            o.id = id;
+            o.links = links;
+            o.logoUrl = logoUrl;
+            o.primaryColorContrastHex = primaryColorContrastHex;
+            o.primaryColorHex = primaryColorHex;
+            o.secondaryColorContrastHex = secondaryColorContrastHex;
+            o.secondaryColorHex = secondaryColorHex;
+            o.signInPageTouchPointVariant = signInPageTouchPointVariant;
+            return o;
         }
     }
 }

@@ -11,26 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OauthAppGroupsClaim {
-    private final @Nullable String filterType;
-    private final @Nullable String issuerMode;
-    private final String name;
-    private final String type;
-    private final String value;
+    private @Nullable String filterType;
+    private @Nullable String issuerMode;
+    private String name;
+    private String type;
+    private String value;
 
-    @CustomType.Constructor
-    private OauthAppGroupsClaim(
-        @CustomType.Parameter("filterType") @Nullable String filterType,
-        @CustomType.Parameter("issuerMode") @Nullable String issuerMode,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value) {
-        this.filterType = filterType;
-        this.issuerMode = issuerMode;
-        this.name = name;
-        this.type = type;
-        this.value = value;
-    }
-
+    private OauthAppGroupsClaim() {}
     public Optional<String> filterType() {
         return Optional.ofNullable(this.filterType);
     }
@@ -54,18 +41,14 @@ public final class OauthAppGroupsClaim {
     public static Builder builder(OauthAppGroupsClaim defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String filterType;
         private @Nullable String issuerMode;
         private String name;
         private String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OauthAppGroupsClaim defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filterType = defaults.filterType;
@@ -75,27 +58,39 @@ public final class OauthAppGroupsClaim {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder filterType(@Nullable String filterType) {
             this.filterType = filterType;
             return this;
         }
+        @CustomType.Setter
         public Builder issuerMode(@Nullable String issuerMode) {
             this.issuerMode = issuerMode;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public OauthAppGroupsClaim build() {
-            return new OauthAppGroupsClaim(filterType, issuerMode, name, type, value);
+        }
+        public OauthAppGroupsClaim build() {
+            final var o = new OauthAppGroupsClaim();
+            o.filterType = filterType;
+            o.issuerMode = issuerMode;
+            o.name = name;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

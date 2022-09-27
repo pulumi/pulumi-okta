@@ -14,42 +14,29 @@ public final class GetBehavioursBehavior {
      * @return Behavior ID.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Behavior name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Map of behavior settings.
      * 
      */
-    private final Map<String,String> settings;
+    private Map<String,String> settings;
     /**
      * @return Behavior status.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Behavior type.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetBehavioursBehavior(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("settings") Map<String,String> settings,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.name = name;
-        this.settings = settings;
-        this.status = status;
-        this.type = type;
-    }
-
+    private GetBehavioursBehavior() {}
     /**
      * @return Behavior ID.
      * 
@@ -93,18 +80,14 @@ public final class GetBehavioursBehavior {
     public static Builder builder(GetBehavioursBehavior defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
         private Map<String,String> settings;
         private String status;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBehavioursBehavior defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -114,27 +97,39 @@ public final class GetBehavioursBehavior {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder settings(Map<String,String> settings) {
             this.settings = Objects.requireNonNull(settings);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetBehavioursBehavior build() {
-            return new GetBehavioursBehavior(id, name, settings, status, type);
+        }
+        public GetBehavioursBehavior build() {
+            final var o = new GetBehavioursBehavior();
+            o.id = id;
+            o.name = name;
+            o.settings = settings;
+            o.status = status;
+            o.type = type;
+            return o;
         }
     }
 }

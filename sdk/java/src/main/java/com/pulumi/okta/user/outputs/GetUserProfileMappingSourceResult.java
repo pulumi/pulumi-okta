@@ -13,28 +13,19 @@ public final class GetUserProfileMappingSourceResult {
      * @return id of the source.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return name of source.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return type of source.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetUserProfileMappingSourceResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-    }
-
+    private GetUserProfileMappingSourceResult() {}
     /**
      * @return id of the source.
      * 
@@ -64,16 +55,12 @@ public final class GetUserProfileMappingSourceResult {
     public static Builder builder(GetUserProfileMappingSourceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserProfileMappingSourceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -81,19 +68,27 @@ public final class GetUserProfileMappingSourceResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetUserProfileMappingSourceResult build() {
-            return new GetUserProfileMappingSourceResult(id, name, type);
+        }
+        public GetUserProfileMappingSourceResult build() {
+            final var o = new GetUserProfileMappingSourceResult();
+            o.id = id;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

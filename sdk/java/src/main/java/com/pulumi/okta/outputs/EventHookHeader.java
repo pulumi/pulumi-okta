@@ -15,21 +15,14 @@ public final class EventHookHeader {
      * @return Key to use for authentication, usually the header name, for example `&#34;Authorization&#34;`.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return Authentication secret.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private EventHookHeader(
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.key = key;
-        this.value = value;
-    }
-
+    private EventHookHeader() {}
     /**
      * @return Key to use for authentication, usually the header name, for example `&#34;Authorization&#34;`.
      * 
@@ -52,30 +45,32 @@ public final class EventHookHeader {
     public static Builder builder(EventHookHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String key;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventHookHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public EventHookHeader build() {
-            return new EventHookHeader(key, value);
+        }
+        public EventHookHeader build() {
+            final var o = new EventHookHeader();
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

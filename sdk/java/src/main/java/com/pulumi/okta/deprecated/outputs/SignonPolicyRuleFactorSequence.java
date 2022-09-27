@@ -12,20 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SignonPolicyRuleFactorSequence {
-    private final String primaryCriteriaFactorType;
-    private final String primaryCriteriaProvider;
-    private final @Nullable List<SignonPolicyRuleFactorSequenceSecondaryCriteria> secondaryCriterias;
+    private String primaryCriteriaFactorType;
+    private String primaryCriteriaProvider;
+    private @Nullable List<SignonPolicyRuleFactorSequenceSecondaryCriteria> secondaryCriterias;
 
-    @CustomType.Constructor
-    private SignonPolicyRuleFactorSequence(
-        @CustomType.Parameter("primaryCriteriaFactorType") String primaryCriteriaFactorType,
-        @CustomType.Parameter("primaryCriteriaProvider") String primaryCriteriaProvider,
-        @CustomType.Parameter("secondaryCriterias") @Nullable List<SignonPolicyRuleFactorSequenceSecondaryCriteria> secondaryCriterias) {
-        this.primaryCriteriaFactorType = primaryCriteriaFactorType;
-        this.primaryCriteriaProvider = primaryCriteriaProvider;
-        this.secondaryCriterias = secondaryCriterias;
-    }
-
+    private SignonPolicyRuleFactorSequence() {}
     public String primaryCriteriaFactorType() {
         return this.primaryCriteriaFactorType;
     }
@@ -43,16 +34,12 @@ public final class SignonPolicyRuleFactorSequence {
     public static Builder builder(SignonPolicyRuleFactorSequence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String primaryCriteriaFactorType;
         private String primaryCriteriaProvider;
         private @Nullable List<SignonPolicyRuleFactorSequenceSecondaryCriteria> secondaryCriterias;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SignonPolicyRuleFactorSequence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.primaryCriteriaFactorType = defaults.primaryCriteriaFactorType;
@@ -60,22 +47,30 @@ public final class SignonPolicyRuleFactorSequence {
     	      this.secondaryCriterias = defaults.secondaryCriterias;
         }
 
+        @CustomType.Setter
         public Builder primaryCriteriaFactorType(String primaryCriteriaFactorType) {
             this.primaryCriteriaFactorType = Objects.requireNonNull(primaryCriteriaFactorType);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryCriteriaProvider(String primaryCriteriaProvider) {
             this.primaryCriteriaProvider = Objects.requireNonNull(primaryCriteriaProvider);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryCriterias(@Nullable List<SignonPolicyRuleFactorSequenceSecondaryCriteria> secondaryCriterias) {
             this.secondaryCriterias = secondaryCriterias;
             return this;
         }
         public Builder secondaryCriterias(SignonPolicyRuleFactorSequenceSecondaryCriteria... secondaryCriterias) {
             return secondaryCriterias(List.of(secondaryCriterias));
-        }        public SignonPolicyRuleFactorSequence build() {
-            return new SignonPolicyRuleFactorSequence(primaryCriteriaFactorType, primaryCriteriaProvider, secondaryCriterias);
+        }
+        public SignonPolicyRuleFactorSequence build() {
+            final var o = new SignonPolicyRuleFactorSequence();
+            o.primaryCriteriaFactorType = primaryCriteriaFactorType;
+            o.primaryCriteriaProvider = primaryCriteriaProvider;
+            o.secondaryCriterias = secondaryCriterias;
+            return o;
         }
     }
 }

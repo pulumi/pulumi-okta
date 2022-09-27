@@ -15,43 +15,24 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUsersResult {
-    private final @Nullable String compoundSearchOperator;
-    private final @Nullable String delayReadSeconds;
-    private final @Nullable String groupId;
+    private @Nullable String compoundSearchOperator;
+    private @Nullable String delayReadSeconds;
+    private @Nullable String groupId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean includeGroups;
-    private final @Nullable Boolean includeRoles;
-    private final @Nullable List<GetUsersSearch> searches;
+    private String id;
+    private @Nullable Boolean includeGroups;
+    private @Nullable Boolean includeRoles;
+    private @Nullable List<GetUsersSearch> searches;
     /**
      * @return collection of users retrieved from Okta with the following properties.
      * 
      */
-    private final List<GetUsersUser> users;
+    private List<GetUsersUser> users;
 
-    @CustomType.Constructor
-    private GetUsersResult(
-        @CustomType.Parameter("compoundSearchOperator") @Nullable String compoundSearchOperator,
-        @CustomType.Parameter("delayReadSeconds") @Nullable String delayReadSeconds,
-        @CustomType.Parameter("groupId") @Nullable String groupId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("includeGroups") @Nullable Boolean includeGroups,
-        @CustomType.Parameter("includeRoles") @Nullable Boolean includeRoles,
-        @CustomType.Parameter("searches") @Nullable List<GetUsersSearch> searches,
-        @CustomType.Parameter("users") List<GetUsersUser> users) {
-        this.compoundSearchOperator = compoundSearchOperator;
-        this.delayReadSeconds = delayReadSeconds;
-        this.groupId = groupId;
-        this.id = id;
-        this.includeGroups = includeGroups;
-        this.includeRoles = includeRoles;
-        this.searches = searches;
-        this.users = users;
-    }
-
+    private GetUsersResult() {}
     public Optional<String> compoundSearchOperator() {
         return Optional.ofNullable(this.compoundSearchOperator);
     }
@@ -92,7 +73,7 @@ public final class GetUsersResult {
     public static Builder builder(GetUsersResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String compoundSearchOperator;
         private @Nullable String delayReadSeconds;
@@ -102,11 +83,7 @@ public final class GetUsersResult {
         private @Nullable Boolean includeRoles;
         private @Nullable List<GetUsersSearch> searches;
         private List<GetUsersUser> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUsersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.compoundSearchOperator = defaults.compoundSearchOperator;
@@ -119,30 +96,37 @@ public final class GetUsersResult {
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder compoundSearchOperator(@Nullable String compoundSearchOperator) {
             this.compoundSearchOperator = compoundSearchOperator;
             return this;
         }
+        @CustomType.Setter
         public Builder delayReadSeconds(@Nullable String delayReadSeconds) {
             this.delayReadSeconds = delayReadSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder groupId(@Nullable String groupId) {
             this.groupId = groupId;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder includeGroups(@Nullable Boolean includeGroups) {
             this.includeGroups = includeGroups;
             return this;
         }
+        @CustomType.Setter
         public Builder includeRoles(@Nullable Boolean includeRoles) {
             this.includeRoles = includeRoles;
             return this;
         }
+        @CustomType.Setter
         public Builder searches(@Nullable List<GetUsersSearch> searches) {
             this.searches = searches;
             return this;
@@ -150,14 +134,25 @@ public final class GetUsersResult {
         public Builder searches(GetUsersSearch... searches) {
             return searches(List.of(searches));
         }
+        @CustomType.Setter
         public Builder users(List<GetUsersUser> users) {
             this.users = Objects.requireNonNull(users);
             return this;
         }
         public Builder users(GetUsersUser... users) {
             return users(List.of(users));
-        }        public GetUsersResult build() {
-            return new GetUsersResult(compoundSearchOperator, delayReadSeconds, groupId, id, includeGroups, includeRoles, searches, users);
+        }
+        public GetUsersResult build() {
+            final var o = new GetUsersResult();
+            o.compoundSearchOperator = compoundSearchOperator;
+            o.delayReadSeconds = delayReadSeconds;
+            o.groupId = groupId;
+            o.id = id;
+            o.includeGroups = includeGroups;
+            o.includeRoles = includeRoles;
+            o.searches = searches;
+            o.users = users;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class RuleSignonFactorSequence {
      * @return Primary factor type of the auth section.
      * 
      */
-    private final String primaryCriteriaFactorType;
+    private String primaryCriteriaFactorType;
     /**
      * @return Primary provider of the auth section.
      * 
      */
-    private final String primaryCriteriaProvider;
+    private String primaryCriteriaProvider;
     /**
      * @return Additional authentication steps.
      * 
      */
-    private final @Nullable List<RuleSignonFactorSequenceSecondaryCriteria> secondaryCriterias;
+    private @Nullable List<RuleSignonFactorSequenceSecondaryCriteria> secondaryCriterias;
 
-    @CustomType.Constructor
-    private RuleSignonFactorSequence(
-        @CustomType.Parameter("primaryCriteriaFactorType") String primaryCriteriaFactorType,
-        @CustomType.Parameter("primaryCriteriaProvider") String primaryCriteriaProvider,
-        @CustomType.Parameter("secondaryCriterias") @Nullable List<RuleSignonFactorSequenceSecondaryCriteria> secondaryCriterias) {
-        this.primaryCriteriaFactorType = primaryCriteriaFactorType;
-        this.primaryCriteriaProvider = primaryCriteriaProvider;
-        this.secondaryCriterias = secondaryCriterias;
-    }
-
+    private RuleSignonFactorSequence() {}
     /**
      * @return Primary factor type of the auth section.
      * 
@@ -67,16 +58,12 @@ public final class RuleSignonFactorSequence {
     public static Builder builder(RuleSignonFactorSequence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String primaryCriteriaFactorType;
         private String primaryCriteriaProvider;
         private @Nullable List<RuleSignonFactorSequenceSecondaryCriteria> secondaryCriterias;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleSignonFactorSequence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.primaryCriteriaFactorType = defaults.primaryCriteriaFactorType;
@@ -84,22 +71,30 @@ public final class RuleSignonFactorSequence {
     	      this.secondaryCriterias = defaults.secondaryCriterias;
         }
 
+        @CustomType.Setter
         public Builder primaryCriteriaFactorType(String primaryCriteriaFactorType) {
             this.primaryCriteriaFactorType = Objects.requireNonNull(primaryCriteriaFactorType);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryCriteriaProvider(String primaryCriteriaProvider) {
             this.primaryCriteriaProvider = Objects.requireNonNull(primaryCriteriaProvider);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryCriterias(@Nullable List<RuleSignonFactorSequenceSecondaryCriteria> secondaryCriterias) {
             this.secondaryCriterias = secondaryCriterias;
             return this;
         }
         public Builder secondaryCriterias(RuleSignonFactorSequenceSecondaryCriteria... secondaryCriterias) {
             return secondaryCriterias(List.of(secondaryCriterias));
-        }        public RuleSignonFactorSequence build() {
-            return new RuleSignonFactorSequence(primaryCriteriaFactorType, primaryCriteriaProvider, secondaryCriterias);
+        }
+        public RuleSignonFactorSequence build() {
+            final var o = new RuleSignonFactorSequence();
+            o.primaryCriteriaFactorType = primaryCriteriaFactorType;
+            o.primaryCriteriaProvider = primaryCriteriaProvider;
+            o.secondaryCriterias = secondaryCriterias;
+            return o;
         }
     }
 }

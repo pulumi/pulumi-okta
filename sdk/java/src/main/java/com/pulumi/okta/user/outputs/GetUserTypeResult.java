@@ -13,35 +13,24 @@ public final class GetUserTypeResult {
      * @return description of user type.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return display name of user type.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return name of user type.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetUserTypeResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.description = description;
-        this.displayName = displayName;
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetUserTypeResult() {}
     /**
      * @return description of user type.
      * 
@@ -78,17 +67,13 @@ public final class GetUserTypeResult {
     public static Builder builder(GetUserTypeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String displayName;
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserTypeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -97,23 +82,33 @@ public final class GetUserTypeResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetUserTypeResult build() {
-            return new GetUserTypeResult(description, displayName, id, name);
+        }
+        public GetUserTypeResult build() {
+            final var o = new GetUserTypeResult();
+            o.description = description;
+            o.displayName = displayName;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

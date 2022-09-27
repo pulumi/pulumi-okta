@@ -12,18 +12,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPasswordHash {
-    private final String algorithm;
+    private String algorithm;
     /**
      * @return Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
      * the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
      * 
      */
-    private final @Nullable String salt;
+    private @Nullable String salt;
     /**
      * @return Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
      * 
      */
-    private final @Nullable String saltOrder;
+    private @Nullable String saltOrder;
     /**
      * @return For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
      * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
@@ -31,27 +31,14 @@ public final class UserPasswordHash {
      * the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
      * 
      */
-    private final String value;
+    private String value;
     /**
      * @return Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
      * 
      */
-    private final @Nullable Integer workFactor;
+    private @Nullable Integer workFactor;
 
-    @CustomType.Constructor
-    private UserPasswordHash(
-        @CustomType.Parameter("algorithm") String algorithm,
-        @CustomType.Parameter("salt") @Nullable String salt,
-        @CustomType.Parameter("saltOrder") @Nullable String saltOrder,
-        @CustomType.Parameter("value") String value,
-        @CustomType.Parameter("workFactor") @Nullable Integer workFactor) {
-        this.algorithm = algorithm;
-        this.salt = salt;
-        this.saltOrder = saltOrder;
-        this.value = value;
-        this.workFactor = workFactor;
-    }
-
+    private UserPasswordHash() {}
     public String algorithm() {
         return this.algorithm;
     }
@@ -95,18 +82,14 @@ public final class UserPasswordHash {
     public static Builder builder(UserPasswordHash defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String algorithm;
         private @Nullable String salt;
         private @Nullable String saltOrder;
         private String value;
         private @Nullable Integer workFactor;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(UserPasswordHash defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.algorithm = defaults.algorithm;
@@ -116,27 +99,39 @@ public final class UserPasswordHash {
     	      this.workFactor = defaults.workFactor;
         }
 
+        @CustomType.Setter
         public Builder algorithm(String algorithm) {
             this.algorithm = Objects.requireNonNull(algorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder salt(@Nullable String salt) {
             this.salt = salt;
             return this;
         }
+        @CustomType.Setter
         public Builder saltOrder(@Nullable String saltOrder) {
             this.saltOrder = saltOrder;
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
         }
+        @CustomType.Setter
         public Builder workFactor(@Nullable Integer workFactor) {
             this.workFactor = workFactor;
             return this;
-        }        public UserPasswordHash build() {
-            return new UserPasswordHash(algorithm, salt, saltOrder, value, workFactor);
+        }
+        public UserPasswordHash build() {
+            final var o = new UserPasswordHash();
+            o.algorithm = algorithm;
+            o.salt = salt;
+            o.saltOrder = saltOrder;
+            o.value = value;
+            o.workFactor = workFactor;
+            return o;
         }
     }
 }

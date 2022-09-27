@@ -13,21 +13,14 @@ public final class TemplateSmsTranslation {
      * @return The language to map the template to.
      * 
      */
-    private final String language;
+    private String language;
     /**
      * @return The SMS message.
      * 
      */
-    private final String template;
+    private String template;
 
-    @CustomType.Constructor
-    private TemplateSmsTranslation(
-        @CustomType.Parameter("language") String language,
-        @CustomType.Parameter("template") String template) {
-        this.language = language;
-        this.template = template;
-    }
-
+    private TemplateSmsTranslation() {}
     /**
      * @return The language to map the template to.
      * 
@@ -50,30 +43,32 @@ public final class TemplateSmsTranslation {
     public static Builder builder(TemplateSmsTranslation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String language;
         private String template;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TemplateSmsTranslation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.language = defaults.language;
     	      this.template = defaults.template;
         }
 
+        @CustomType.Setter
         public Builder language(String language) {
             this.language = Objects.requireNonNull(language);
             return this;
         }
+        @CustomType.Setter
         public Builder template(String template) {
             this.template = Objects.requireNonNull(template);
             return this;
-        }        public TemplateSmsTranslation build() {
-            return new TemplateSmsTranslation(language, template);
+        }
+        public TemplateSmsTranslation build() {
+            final var o = new TemplateSmsTranslation();
+            o.language = language;
+            o.template = template;
+            return o;
         }
     }
 }

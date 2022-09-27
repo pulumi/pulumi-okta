@@ -14,84 +14,59 @@ public final class GetServerResult {
      * @return array of audiences.
      * 
      */
-    private final List<String> audiences;
+    private List<String> audiences;
     /**
      * @return last time credentials were rotated.
      * 
      */
-    private final String credentialsLastRotated;
+    private String credentialsLastRotated;
     /**
      * @return next time credentials will be rotated
      * 
      */
-    private final String credentialsNextRotation;
+    private String credentialsNextRotation;
     /**
      * @return mode of credential rotation, auto or manual.
      * 
      */
-    private final String credentialsRotationMode;
+    private String credentialsRotationMode;
     /**
      * @return description of Authorization server.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The complete URL of the authorization server. This becomes the `iss` claim in an access token.
      * 
      */
-    private final String issuer;
+    private String issuer;
     /**
      * @return Can be set to `&#34;CUSTOM_URL&#34;` or `&#34;ORG_URL&#34;`
      * 
      */
-    private final String issuerMode;
+    private String issuerMode;
     /**
      * @return auth server key id.
      * 
      */
-    private final String kid;
+    private String kid;
     /**
      * @return The name of the auth server.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return the activation status of the authorization server.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private GetServerResult(
-        @CustomType.Parameter("audiences") List<String> audiences,
-        @CustomType.Parameter("credentialsLastRotated") String credentialsLastRotated,
-        @CustomType.Parameter("credentialsNextRotation") String credentialsNextRotation,
-        @CustomType.Parameter("credentialsRotationMode") String credentialsRotationMode,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("issuer") String issuer,
-        @CustomType.Parameter("issuerMode") String issuerMode,
-        @CustomType.Parameter("kid") String kid,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("status") String status) {
-        this.audiences = audiences;
-        this.credentialsLastRotated = credentialsLastRotated;
-        this.credentialsNextRotation = credentialsNextRotation;
-        this.credentialsRotationMode = credentialsRotationMode;
-        this.description = description;
-        this.id = id;
-        this.issuer = issuer;
-        this.issuerMode = issuerMode;
-        this.kid = kid;
-        this.name = name;
-        this.status = status;
-    }
-
+    private GetServerResult() {}
     /**
      * @return array of audiences.
      * 
@@ -177,7 +152,7 @@ public final class GetServerResult {
     public static Builder builder(GetServerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> audiences;
         private String credentialsLastRotated;
@@ -190,11 +165,7 @@ public final class GetServerResult {
         private String kid;
         private String name;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audiences = defaults.audiences;
@@ -210,6 +181,7 @@ public final class GetServerResult {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder audiences(List<String> audiences) {
             this.audiences = Objects.requireNonNull(audiences);
             return this;
@@ -217,47 +189,70 @@ public final class GetServerResult {
         public Builder audiences(String... audiences) {
             return audiences(List.of(audiences));
         }
+        @CustomType.Setter
         public Builder credentialsLastRotated(String credentialsLastRotated) {
             this.credentialsLastRotated = Objects.requireNonNull(credentialsLastRotated);
             return this;
         }
+        @CustomType.Setter
         public Builder credentialsNextRotation(String credentialsNextRotation) {
             this.credentialsNextRotation = Objects.requireNonNull(credentialsNextRotation);
             return this;
         }
+        @CustomType.Setter
         public Builder credentialsRotationMode(String credentialsRotationMode) {
             this.credentialsRotationMode = Objects.requireNonNull(credentialsRotationMode);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             this.issuer = Objects.requireNonNull(issuer);
             return this;
         }
+        @CustomType.Setter
         public Builder issuerMode(String issuerMode) {
             this.issuerMode = Objects.requireNonNull(issuerMode);
             return this;
         }
+        @CustomType.Setter
         public Builder kid(String kid) {
             this.kid = Objects.requireNonNull(kid);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public GetServerResult build() {
-            return new GetServerResult(audiences, credentialsLastRotated, credentialsNextRotation, credentialsRotationMode, description, id, issuer, issuerMode, kid, name, status);
+        }
+        public GetServerResult build() {
+            final var o = new GetServerResult();
+            o.audiences = audiences;
+            o.credentialsLastRotated = credentialsLastRotated;
+            o.credentialsNextRotation = credentialsNextRotation;
+            o.credentialsRotationMode = credentialsRotationMode;
+            o.description = description;
+            o.id = id;
+            o.issuer = issuer;
+            o.issuerMode = issuerMode;
+            o.kid = kid;
+            o.name = name;
+            o.status = status;
+            return o;
         }
     }
 }

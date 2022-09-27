@@ -17,66 +17,45 @@ public final class GetAuthServerClaimResult {
      * @return Specifies whether to include Claims in the token.
      * 
      */
-    private final Boolean alwaysIncludeInToken;
-    private final String authServerId;
+    private Boolean alwaysIncludeInToken;
+    private String authServerId;
     /**
      * @return Specifies whether the Claim is for an access token (`&#34;RESOURCE&#34;`) or ID token (`&#34;IDENTITY&#34;`).
      * 
      */
-    private final String claimType;
+    private String claimType;
     /**
      * @return ID of the claim.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Name of the claim.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Specifies the scopes for this Claim.
      * 
      */
-    private final List<String> scopes;
+    private List<String> scopes;
     /**
      * @return Status of the claim.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Value of the claim
      * 
      */
-    private final String value;
+    private String value;
     /**
      * @return Specifies whether the Claim is an Okta EL expression (`&#34;EXPRESSION&#34;`), a set of groups (`&#34;GROUPS&#34;`), or a system claim (`&#34;SYSTEM&#34;`)
      * 
      */
-    private final String valueType;
+    private String valueType;
 
-    @CustomType.Constructor
-    private GetAuthServerClaimResult(
-        @CustomType.Parameter("alwaysIncludeInToken") Boolean alwaysIncludeInToken,
-        @CustomType.Parameter("authServerId") String authServerId,
-        @CustomType.Parameter("claimType") String claimType,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("scopes") List<String> scopes,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("value") String value,
-        @CustomType.Parameter("valueType") String valueType) {
-        this.alwaysIncludeInToken = alwaysIncludeInToken;
-        this.authServerId = authServerId;
-        this.claimType = claimType;
-        this.id = id;
-        this.name = name;
-        this.scopes = scopes;
-        this.status = status;
-        this.value = value;
-        this.valueType = valueType;
-    }
-
+    private GetAuthServerClaimResult() {}
     /**
      * @return Specifies whether to include Claims in the token.
      * 
@@ -144,7 +123,7 @@ public final class GetAuthServerClaimResult {
     public static Builder builder(GetAuthServerClaimResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean alwaysIncludeInToken;
         private String authServerId;
@@ -155,11 +134,7 @@ public final class GetAuthServerClaimResult {
         private String status;
         private String value;
         private String valueType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAuthServerClaimResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alwaysIncludeInToken = defaults.alwaysIncludeInToken;
@@ -173,26 +148,32 @@ public final class GetAuthServerClaimResult {
     	      this.valueType = defaults.valueType;
         }
 
+        @CustomType.Setter
         public Builder alwaysIncludeInToken(Boolean alwaysIncludeInToken) {
             this.alwaysIncludeInToken = Objects.requireNonNull(alwaysIncludeInToken);
             return this;
         }
+        @CustomType.Setter
         public Builder authServerId(String authServerId) {
             this.authServerId = Objects.requireNonNull(authServerId);
             return this;
         }
+        @CustomType.Setter
         public Builder claimType(String claimType) {
             this.claimType = Objects.requireNonNull(claimType);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder scopes(List<String> scopes) {
             this.scopes = Objects.requireNonNull(scopes);
             return this;
@@ -200,19 +181,33 @@ public final class GetAuthServerClaimResult {
         public Builder scopes(String... scopes) {
             return scopes(List.of(scopes));
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
         }
+        @CustomType.Setter
         public Builder valueType(String valueType) {
             this.valueType = Objects.requireNonNull(valueType);
             return this;
-        }        public GetAuthServerClaimResult build() {
-            return new GetAuthServerClaimResult(alwaysIncludeInToken, authServerId, claimType, id, name, scopes, status, value, valueType);
+        }
+        public GetAuthServerClaimResult build() {
+            final var o = new GetAuthServerClaimResult();
+            o.alwaysIncludeInToken = alwaysIncludeInToken;
+            o.authServerId = authServerId;
+            o.claimType = claimType;
+            o.id = id;
+            o.name = name;
+            o.scopes = scopes;
+            o.status = status;
+            o.value = value;
+            o.valueType = valueType;
+            return o;
         }
     }
 }

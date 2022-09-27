@@ -15,21 +15,14 @@ public final class GetBrandsResult {
      * @return List of `okta.Brand` belonging to the organization
      * 
      */
-    private final List<GetBrandsBrand> brands;
+    private List<GetBrandsBrand> brands;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetBrandsResult(
-        @CustomType.Parameter("brands") List<GetBrandsBrand> brands,
-        @CustomType.Parameter("id") String id) {
-        this.brands = brands;
-        this.id = id;
-    }
-
+    private GetBrandsResult() {}
     /**
      * @return List of `okta.Brand` belonging to the organization
      * 
@@ -52,21 +45,18 @@ public final class GetBrandsResult {
     public static Builder builder(GetBrandsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetBrandsBrand> brands;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrandsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.brands = defaults.brands;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder brands(List<GetBrandsBrand> brands) {
             this.brands = Objects.requireNonNull(brands);
             return this;
@@ -74,11 +64,16 @@ public final class GetBrandsResult {
         public Builder brands(GetBrandsBrand... brands) {
             return brands(List.of(brands));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetBrandsResult build() {
-            return new GetBrandsResult(brands, id);
+        }
+        public GetBrandsResult build() {
+            final var o = new GetBrandsResult();
+            o.brands = brands;
+            o.id = id;
+            return o;
         }
     }
 }

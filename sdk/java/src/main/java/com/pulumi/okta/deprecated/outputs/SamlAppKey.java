@@ -12,41 +12,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SamlAppKey {
-    private final @Nullable String created;
-    private final @Nullable String e;
-    private final @Nullable String expiresAt;
-    private final @Nullable String kid;
-    private final @Nullable String kty;
-    private final @Nullable String lastUpdated;
-    private final @Nullable String n;
-    private final @Nullable String use;
-    private final @Nullable List<String> x5cs;
-    private final @Nullable String x5tS256;
+    private @Nullable String created;
+    private @Nullable String e;
+    private @Nullable String expiresAt;
+    private @Nullable String kid;
+    private @Nullable String kty;
+    private @Nullable String lastUpdated;
+    private @Nullable String n;
+    private @Nullable String use;
+    private @Nullable List<String> x5cs;
+    private @Nullable String x5tS256;
 
-    @CustomType.Constructor
-    private SamlAppKey(
-        @CustomType.Parameter("created") @Nullable String created,
-        @CustomType.Parameter("e") @Nullable String e,
-        @CustomType.Parameter("expiresAt") @Nullable String expiresAt,
-        @CustomType.Parameter("kid") @Nullable String kid,
-        @CustomType.Parameter("kty") @Nullable String kty,
-        @CustomType.Parameter("lastUpdated") @Nullable String lastUpdated,
-        @CustomType.Parameter("n") @Nullable String n,
-        @CustomType.Parameter("use") @Nullable String use,
-        @CustomType.Parameter("x5cs") @Nullable List<String> x5cs,
-        @CustomType.Parameter("x5tS256") @Nullable String x5tS256) {
-        this.created = created;
-        this.e = e;
-        this.expiresAt = expiresAt;
-        this.kid = kid;
-        this.kty = kty;
-        this.lastUpdated = lastUpdated;
-        this.n = n;
-        this.use = use;
-        this.x5cs = x5cs;
-        this.x5tS256 = x5tS256;
-    }
-
+    private SamlAppKey() {}
     public Optional<String> created() {
         return Optional.ofNullable(this.created);
     }
@@ -85,7 +62,7 @@ public final class SamlAppKey {
     public static Builder builder(SamlAppKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String created;
         private @Nullable String e;
@@ -97,11 +74,7 @@ public final class SamlAppKey {
         private @Nullable String use;
         private @Nullable List<String> x5cs;
         private @Nullable String x5tS256;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SamlAppKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.created = defaults.created;
@@ -116,38 +89,47 @@ public final class SamlAppKey {
     	      this.x5tS256 = defaults.x5tS256;
         }
 
+        @CustomType.Setter
         public Builder created(@Nullable String created) {
             this.created = created;
             return this;
         }
+        @CustomType.Setter
         public Builder e(@Nullable String e) {
             this.e = e;
             return this;
         }
+        @CustomType.Setter
         public Builder expiresAt(@Nullable String expiresAt) {
             this.expiresAt = expiresAt;
             return this;
         }
+        @CustomType.Setter
         public Builder kid(@Nullable String kid) {
             this.kid = kid;
             return this;
         }
+        @CustomType.Setter
         public Builder kty(@Nullable String kty) {
             this.kty = kty;
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdated(@Nullable String lastUpdated) {
             this.lastUpdated = lastUpdated;
             return this;
         }
+        @CustomType.Setter
         public Builder n(@Nullable String n) {
             this.n = n;
             return this;
         }
+        @CustomType.Setter
         public Builder use(@Nullable String use) {
             this.use = use;
             return this;
         }
+        @CustomType.Setter
         public Builder x5cs(@Nullable List<String> x5cs) {
             this.x5cs = x5cs;
             return this;
@@ -155,11 +137,24 @@ public final class SamlAppKey {
         public Builder x5cs(String... x5cs) {
             return x5cs(List.of(x5cs));
         }
+        @CustomType.Setter
         public Builder x5tS256(@Nullable String x5tS256) {
             this.x5tS256 = x5tS256;
             return this;
-        }        public SamlAppKey build() {
-            return new SamlAppKey(created, e, expiresAt, kid, kty, lastUpdated, n, use, x5cs, x5tS256);
+        }
+        public SamlAppKey build() {
+            final var o = new SamlAppKey();
+            o.created = created;
+            o.e = e;
+            o.expiresAt = expiresAt;
+            o.kid = kid;
+            o.kty = kty;
+            o.lastUpdated = lastUpdated;
+            o.n = n;
+            o.use = use;
+            o.x5cs = x5cs;
+            o.x5tS256 = x5tS256;
+            return o;
         }
     }
 }

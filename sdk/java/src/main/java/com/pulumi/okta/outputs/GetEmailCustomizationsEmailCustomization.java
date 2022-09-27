@@ -10,29 +10,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEmailCustomizationsEmailCustomization {
-    private final String body;
-    private final String id;
-    private final Boolean isDefault;
-    private final String language;
-    private final String links;
-    private final String subject;
+    private String body;
+    private String id;
+    private Boolean isDefault;
+    private String language;
+    private String links;
+    private String subject;
 
-    @CustomType.Constructor
-    private GetEmailCustomizationsEmailCustomization(
-        @CustomType.Parameter("body") String body,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("isDefault") Boolean isDefault,
-        @CustomType.Parameter("language") String language,
-        @CustomType.Parameter("links") String links,
-        @CustomType.Parameter("subject") String subject) {
-        this.body = body;
-        this.id = id;
-        this.isDefault = isDefault;
-        this.language = language;
-        this.links = links;
-        this.subject = subject;
-    }
-
+    private GetEmailCustomizationsEmailCustomization() {}
     public String body() {
         return this.body;
     }
@@ -59,7 +44,7 @@ public final class GetEmailCustomizationsEmailCustomization {
     public static Builder builder(GetEmailCustomizationsEmailCustomization defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String body;
         private String id;
@@ -67,11 +52,7 @@ public final class GetEmailCustomizationsEmailCustomization {
         private String language;
         private String links;
         private String subject;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEmailCustomizationsEmailCustomization defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.body = defaults.body;
@@ -82,31 +63,45 @@ public final class GetEmailCustomizationsEmailCustomization {
     	      this.subject = defaults.subject;
         }
 
+        @CustomType.Setter
         public Builder body(String body) {
             this.body = Objects.requireNonNull(body);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder isDefault(Boolean isDefault) {
             this.isDefault = Objects.requireNonNull(isDefault);
             return this;
         }
+        @CustomType.Setter
         public Builder language(String language) {
             this.language = Objects.requireNonNull(language);
             return this;
         }
+        @CustomType.Setter
         public Builder links(String links) {
             this.links = Objects.requireNonNull(links);
             return this;
         }
+        @CustomType.Setter
         public Builder subject(String subject) {
             this.subject = Objects.requireNonNull(subject);
             return this;
-        }        public GetEmailCustomizationsEmailCustomization build() {
-            return new GetEmailCustomizationsEmailCustomization(body, id, isDefault, language, links, subject);
+        }
+        public GetEmailCustomizationsEmailCustomization build() {
+            final var o = new GetEmailCustomizationsEmailCustomization();
+            o.body = body;
+            o.id = id;
+            o.isDefault = isDefault;
+            o.language = language;
+            o.links = links;
+            o.subject = subject;
+            return o;
         }
     }
 }

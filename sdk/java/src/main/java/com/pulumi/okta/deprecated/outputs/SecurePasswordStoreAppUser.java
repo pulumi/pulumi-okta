@@ -11,23 +11,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SecurePasswordStoreAppUser {
-    private final @Nullable String id;
-    private final @Nullable String password;
-    private final @Nullable String scope;
-    private final @Nullable String username;
+    private @Nullable String id;
+    private @Nullable String password;
+    private @Nullable String scope;
+    private @Nullable String username;
 
-    @CustomType.Constructor
-    private SecurePasswordStoreAppUser(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("scope") @Nullable String scope,
-        @CustomType.Parameter("username") @Nullable String username) {
-        this.id = id;
-        this.password = password;
-        this.scope = scope;
-        this.username = username;
-    }
-
+    private SecurePasswordStoreAppUser() {}
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -48,17 +37,13 @@ public final class SecurePasswordStoreAppUser {
     public static Builder builder(SecurePasswordStoreAppUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String password;
         private @Nullable String scope;
         private @Nullable String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecurePasswordStoreAppUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -67,23 +52,33 @@ public final class SecurePasswordStoreAppUser {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder scope(@Nullable String scope) {
             this.scope = scope;
             return this;
         }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
             this.username = username;
             return this;
-        }        public SecurePasswordStoreAppUser build() {
-            return new SecurePasswordStoreAppUser(id, password, scope, username);
+        }
+        public SecurePasswordStoreAppUser build() {
+            final var o = new SecurePasswordStoreAppUser();
+            o.id = id;
+            o.password = password;
+            o.scope = scope;
+            o.username = username;
+            return o;
         }
     }
 }

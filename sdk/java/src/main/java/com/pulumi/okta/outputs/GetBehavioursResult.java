@@ -17,24 +17,15 @@ public final class GetBehavioursResult {
      * @return List of behaviors.
      * 
      */
-    private final List<GetBehavioursBehavior> behaviors;
+    private List<GetBehavioursBehavior> behaviors;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String q;
+    private String id;
+    private @Nullable String q;
 
-    @CustomType.Constructor
-    private GetBehavioursResult(
-        @CustomType.Parameter("behaviors") List<GetBehavioursBehavior> behaviors,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("q") @Nullable String q) {
-        this.behaviors = behaviors;
-        this.id = id;
-        this.q = q;
-    }
-
+    private GetBehavioursResult() {}
     /**
      * @return List of behaviors.
      * 
@@ -60,16 +51,12 @@ public final class GetBehavioursResult {
     public static Builder builder(GetBehavioursResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetBehavioursBehavior> behaviors;
         private String id;
         private @Nullable String q;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBehavioursResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.behaviors = defaults.behaviors;
@@ -77,6 +64,7 @@ public final class GetBehavioursResult {
     	      this.q = defaults.q;
         }
 
+        @CustomType.Setter
         public Builder behaviors(List<GetBehavioursBehavior> behaviors) {
             this.behaviors = Objects.requireNonNull(behaviors);
             return this;
@@ -84,15 +72,22 @@ public final class GetBehavioursResult {
         public Builder behaviors(GetBehavioursBehavior... behaviors) {
             return behaviors(List.of(behaviors));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder q(@Nullable String q) {
             this.q = q;
             return this;
-        }        public GetBehavioursResult build() {
-            return new GetBehavioursResult(behaviors, id, q);
+        }
+        public GetBehavioursResult build() {
+            final var o = new GetBehavioursResult();
+            o.behaviors = behaviors;
+            o.id = id;
+            o.q = q;
+            return o;
         }
     }
 }

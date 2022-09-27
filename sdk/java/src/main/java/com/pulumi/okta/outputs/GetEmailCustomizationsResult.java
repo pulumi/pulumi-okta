@@ -11,31 +11,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEmailCustomizationsResult {
-    private final String brandId;
+    private String brandId;
     /**
      * @return List of `okta.EmailCustomization` belonging to the named email template of the brand
      * 
      */
-    private final List<GetEmailCustomizationsEmailCustomization> emailCustomizations;
+    private List<GetEmailCustomizationsEmailCustomization> emailCustomizations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String templateName;
+    private String id;
+    private String templateName;
 
-    @CustomType.Constructor
-    private GetEmailCustomizationsResult(
-        @CustomType.Parameter("brandId") String brandId,
-        @CustomType.Parameter("emailCustomizations") List<GetEmailCustomizationsEmailCustomization> emailCustomizations,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("templateName") String templateName) {
-        this.brandId = brandId;
-        this.emailCustomizations = emailCustomizations;
-        this.id = id;
-        this.templateName = templateName;
-    }
-
+    private GetEmailCustomizationsResult() {}
     public String brandId() {
         return this.brandId;
     }
@@ -64,17 +53,13 @@ public final class GetEmailCustomizationsResult {
     public static Builder builder(GetEmailCustomizationsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String brandId;
         private List<GetEmailCustomizationsEmailCustomization> emailCustomizations;
         private String id;
         private String templateName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEmailCustomizationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.brandId = defaults.brandId;
@@ -83,10 +68,12 @@ public final class GetEmailCustomizationsResult {
     	      this.templateName = defaults.templateName;
         }
 
+        @CustomType.Setter
         public Builder brandId(String brandId) {
             this.brandId = Objects.requireNonNull(brandId);
             return this;
         }
+        @CustomType.Setter
         public Builder emailCustomizations(List<GetEmailCustomizationsEmailCustomization> emailCustomizations) {
             this.emailCustomizations = Objects.requireNonNull(emailCustomizations);
             return this;
@@ -94,15 +81,23 @@ public final class GetEmailCustomizationsResult {
         public Builder emailCustomizations(GetEmailCustomizationsEmailCustomization... emailCustomizations) {
             return emailCustomizations(List.of(emailCustomizations));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder templateName(String templateName) {
             this.templateName = Objects.requireNonNull(templateName);
             return this;
-        }        public GetEmailCustomizationsResult build() {
-            return new GetEmailCustomizationsResult(brandId, emailCustomizations, id, templateName);
+        }
+        public GetEmailCustomizationsResult build() {
+            final var o = new GetEmailCustomizationsResult();
+            o.brandId = brandId;
+            o.emailCustomizations = emailCustomizations;
+            o.id = id;
+            o.templateName = templateName;
+            return o;
         }
     }
 }

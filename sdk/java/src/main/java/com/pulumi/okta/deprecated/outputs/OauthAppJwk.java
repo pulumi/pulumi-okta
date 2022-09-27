@@ -11,23 +11,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OauthAppJwk {
-    private final @Nullable String e;
-    private final String kid;
-    private final String kty;
-    private final @Nullable String n;
+    private @Nullable String e;
+    private String kid;
+    private String kty;
+    private @Nullable String n;
 
-    @CustomType.Constructor
-    private OauthAppJwk(
-        @CustomType.Parameter("e") @Nullable String e,
-        @CustomType.Parameter("kid") String kid,
-        @CustomType.Parameter("kty") String kty,
-        @CustomType.Parameter("n") @Nullable String n) {
-        this.e = e;
-        this.kid = kid;
-        this.kty = kty;
-        this.n = n;
-    }
-
+    private OauthAppJwk() {}
     public Optional<String> e() {
         return Optional.ofNullable(this.e);
     }
@@ -48,17 +37,13 @@ public final class OauthAppJwk {
     public static Builder builder(OauthAppJwk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String e;
         private String kid;
         private String kty;
         private @Nullable String n;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OauthAppJwk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.e = defaults.e;
@@ -67,23 +52,33 @@ public final class OauthAppJwk {
     	      this.n = defaults.n;
         }
 
+        @CustomType.Setter
         public Builder e(@Nullable String e) {
             this.e = e;
             return this;
         }
+        @CustomType.Setter
         public Builder kid(String kid) {
             this.kid = Objects.requireNonNull(kid);
             return this;
         }
+        @CustomType.Setter
         public Builder kty(String kty) {
             this.kty = Objects.requireNonNull(kty);
             return this;
         }
+        @CustomType.Setter
         public Builder n(@Nullable String n) {
             this.n = n;
             return this;
-        }        public OauthAppJwk build() {
-            return new OauthAppJwk(e, kid, kty, n);
+        }
+        public OauthAppJwk build() {
+            final var o = new OauthAppJwk();
+            o.e = e;
+            o.kid = kid;
+            o.kty = kty;
+            o.n = n;
+            return o;
         }
     }
 }

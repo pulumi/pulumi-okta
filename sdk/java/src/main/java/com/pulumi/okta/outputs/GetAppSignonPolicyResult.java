@@ -9,24 +9,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAppSignonPolicyResult {
-    private final String appId;
+    private String appId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
 
-    @CustomType.Constructor
-    private GetAppSignonPolicyResult(
-        @CustomType.Parameter("appId") String appId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.appId = appId;
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetAppSignonPolicyResult() {}
     public String appId() {
         return this.appId;
     }
@@ -48,16 +39,12 @@ public final class GetAppSignonPolicyResult {
     public static Builder builder(GetAppSignonPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String appId;
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAppSignonPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appId = defaults.appId;
@@ -65,19 +52,27 @@ public final class GetAppSignonPolicyResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder appId(String appId) {
             this.appId = Objects.requireNonNull(appId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetAppSignonPolicyResult build() {
-            return new GetAppSignonPolicyResult(appId, id, name);
+        }
+        public GetAppSignonPolicyResult build() {
+            final var o = new GetAppSignonPolicyResult();
+            o.appId = appId;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

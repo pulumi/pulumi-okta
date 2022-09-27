@@ -14,49 +14,34 @@ public final class GetSamlAttributeStatement {
      * @return Type of group attribute filter.
      * 
      */
-    private final String filterType;
+    private String filterType;
     /**
      * @return Filter value to use.
      * 
      */
-    private final String filterValue;
+    private String filterValue;
     /**
      * @return The name of the attribute statement.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The attribute namespace.
      * 
      */
-    private final String namespace;
+    private String namespace;
     /**
      * @return The type of attribute statement value.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return Array of values to use.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private GetSamlAttributeStatement(
-        @CustomType.Parameter("filterType") String filterType,
-        @CustomType.Parameter("filterValue") String filterValue,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespace") String namespace,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("values") List<String> values) {
-        this.filterType = filterType;
-        this.filterValue = filterValue;
-        this.name = name;
-        this.namespace = namespace;
-        this.type = type;
-        this.values = values;
-    }
-
+    private GetSamlAttributeStatement() {}
     /**
      * @return Type of group attribute filter.
      * 
@@ -107,7 +92,7 @@ public final class GetSamlAttributeStatement {
     public static Builder builder(GetSamlAttributeStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String filterType;
         private String filterValue;
@@ -115,11 +100,7 @@ public final class GetSamlAttributeStatement {
         private String namespace;
         private String type;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSamlAttributeStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filterType = defaults.filterType;
@@ -130,34 +111,48 @@ public final class GetSamlAttributeStatement {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder filterType(String filterType) {
             this.filterType = Objects.requireNonNull(filterType);
             return this;
         }
+        @CustomType.Setter
         public Builder filterValue(String filterValue) {
             this.filterValue = Objects.requireNonNull(filterValue);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetSamlAttributeStatement build() {
-            return new GetSamlAttributeStatement(filterType, filterValue, name, namespace, type, values);
+        }
+        public GetSamlAttributeStatement build() {
+            final var o = new GetSamlAttributeStatement();
+            o.filterType = filterType;
+            o.filterValue = filterValue;
+            o.name = name;
+            o.namespace = namespace;
+            o.type = type;
+            o.values = values;
+            return o;
         }
     }
 }

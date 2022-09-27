@@ -18,74 +18,74 @@ public final class GetSamlResult {
      * @return Custom error page URL.
      * 
      */
-    private final String accessibilityErrorRedirectUrl;
+    private String accessibilityErrorRedirectUrl;
     /**
      * @return Custom login page URL.
      * 
      */
-    private final String accessibilityLoginRedirectUrl;
+    private String accessibilityLoginRedirectUrl;
     /**
      * @return Enable self-service.
      * 
      */
-    private final Boolean accessibilitySelfService;
+    private Boolean accessibilitySelfService;
     /**
      * @return An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      * 
      */
-    private final List<String> acsEndpoints;
-    private final @Nullable Boolean activeOnly;
+    private List<String> acsEndpoints;
+    private @Nullable Boolean activeOnly;
     /**
      * @return Application settings in JSON format.
      * 
      */
-    private final String appSettingsJson;
+    private String appSettingsJson;
     /**
      * @return Determines whether the SAML assertion is digitally signed.
      * 
      */
-    private final Boolean assertionSigned;
+    private Boolean assertionSigned;
     /**
      * @return List of SAML Attribute statements.
      * 
      */
-    private final List<GetSamlAttributeStatement> attributeStatements;
+    private List<GetSamlAttributeStatement> attributeStatements;
     /**
      * @return Audience restriction.
      * 
      */
-    private final String audience;
+    private String audience;
     /**
      * @return Identifies the SAML authentication context class for the assertion’s authentication
      * statement.
      * 
      */
-    private final String authnContextClassRef;
+    private String authnContextClassRef;
     /**
      * @return Display auto submit toolbar.
      * 
      */
-    private final Boolean autoSubmitToolbar;
+    private Boolean autoSubmitToolbar;
     /**
      * @return Identifies a specific application resource in an IDP initiated SSO scenario.
      * 
      */
-    private final String defaultRelayState;
+    private String defaultRelayState;
     /**
      * @return Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      * 
      */
-    private final String destination;
+    private String destination;
     /**
      * @return Determines the digest algorithm used to digitally sign the SAML assertion and response.
      * 
      */
-    private final String digestAlgorithm;
+    private String digestAlgorithm;
     /**
      * @return features enabled.
      * 
      */
-    private final List<String> features;
+    private List<String> features;
     /**
      * @return List of groups IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
@@ -95,140 +95,140 @@ public final class GetSamlResult {
      * 
      */
     @Deprecated /* The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments` */
-    private final List<String> groups;
+    private List<String> groups;
     /**
      * @return Do not display application icon on mobile app.
      * 
      */
-    private final Boolean hideIos;
+    private Boolean hideIos;
     /**
      * @return Do not display application icon to users
      * 
      */
-    private final Boolean hideWeb;
+    private Boolean hideWeb;
     /**
      * @return Prompt user to re-authenticate if SP asks for it.
      * 
      */
-    private final Boolean honorForceAuthn;
+    private Boolean honorForceAuthn;
     /**
      * @return id of application.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return SAML issuer ID.
      * 
      */
-    private final String idpIssuer;
+    private String idpIssuer;
     /**
      * @return Saml Inline Hook associated with the application.
      * 
      */
-    private final String inlineHookId;
+    private String inlineHookId;
     /**
      * @return Certificate key ID.
      * 
      */
-    private final String keyId;
+    private String keyId;
     /**
      * @return label of application.
      * 
      */
-    private final @Nullable String label;
-    private final @Nullable String labelPrefix;
+    private @Nullable String label;
+    private @Nullable String labelPrefix;
     /**
      * @return Generic JSON containing discoverable resources related to the app.
      * 
      */
-    private final String links;
+    private String links;
     /**
      * @return The name of the attribute statement.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The location where the app may present the SAML assertion.
      * 
      */
-    private final String recipient;
+    private String recipient;
     /**
      * @return Denotes whether the request is compressed or not.
      * 
      */
-    private final @Nullable Boolean requestCompressed;
+    private @Nullable Boolean requestCompressed;
     /**
      * @return Determines whether the SAML auth response message is digitally signed.
      * 
      */
-    private final Boolean responseSigned;
+    private Boolean responseSigned;
     /**
      * @return Signature algorithm used ot digitally sign the assertion and response.
      * 
      */
-    private final String signatureAlgorithm;
+    private String signatureAlgorithm;
     /**
      * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
      * 
      */
-    private final String singleLogoutCertificate;
+    private String singleLogoutCertificate;
     /**
      * @return The issuer of the Service Provider that generates the Single Logout request.
      * 
      */
-    private final String singleLogoutIssuer;
+    private String singleLogoutIssuer;
     /**
      * @return The location where the logout response is sent.
      * 
      */
-    private final String singleLogoutUrl;
-    private final @Nullable Boolean skipGroups;
-    private final @Nullable Boolean skipUsers;
+    private String singleLogoutUrl;
+    private @Nullable Boolean skipGroups;
+    private @Nullable Boolean skipUsers;
     /**
      * @return SAML service provider issuer.
      * 
      */
-    private final String spIssuer;
+    private String spIssuer;
     /**
      * @return Single Sign-on Url.
      * 
      */
-    private final String ssoUrl;
+    private String ssoUrl;
     /**
      * @return status of application.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Identifies the SAML processing rules.
      * 
      */
-    private final String subjectNameIdFormat;
+    private String subjectNameIdFormat;
     /**
      * @return Template for app user&#39;s username when a user is assigned to the app.
      * 
      */
-    private final String subjectNameIdTemplate;
+    private String subjectNameIdTemplate;
     /**
      * @return Username template.
      * 
      */
-    private final String userNameTemplate;
+    private String userNameTemplate;
     /**
      * @return Push username on update.
      * 
      */
-    private final String userNameTemplatePushStatus;
+    private String userNameTemplatePushStatus;
     /**
      * @return Username template suffix.
      * 
      */
-    private final String userNameTemplateSuffix;
+    private String userNameTemplateSuffix;
     /**
      * @return Username template type.
      * 
      */
-    private final String userNameTemplateType;
+    private String userNameTemplateType;
     /**
      * @return List of users IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
@@ -238,104 +238,9 @@ public final class GetSamlResult {
      * 
      */
     @Deprecated /* The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments` */
-    private final List<String> users;
+    private List<String> users;
 
-    @CustomType.Constructor
-    private GetSamlResult(
-        @CustomType.Parameter("accessibilityErrorRedirectUrl") String accessibilityErrorRedirectUrl,
-        @CustomType.Parameter("accessibilityLoginRedirectUrl") String accessibilityLoginRedirectUrl,
-        @CustomType.Parameter("accessibilitySelfService") Boolean accessibilitySelfService,
-        @CustomType.Parameter("acsEndpoints") List<String> acsEndpoints,
-        @CustomType.Parameter("activeOnly") @Nullable Boolean activeOnly,
-        @CustomType.Parameter("appSettingsJson") String appSettingsJson,
-        @CustomType.Parameter("assertionSigned") Boolean assertionSigned,
-        @CustomType.Parameter("attributeStatements") List<GetSamlAttributeStatement> attributeStatements,
-        @CustomType.Parameter("audience") String audience,
-        @CustomType.Parameter("authnContextClassRef") String authnContextClassRef,
-        @CustomType.Parameter("autoSubmitToolbar") Boolean autoSubmitToolbar,
-        @CustomType.Parameter("defaultRelayState") String defaultRelayState,
-        @CustomType.Parameter("destination") String destination,
-        @CustomType.Parameter("digestAlgorithm") String digestAlgorithm,
-        @CustomType.Parameter("features") List<String> features,
-        @CustomType.Parameter("groups") List<String> groups,
-        @CustomType.Parameter("hideIos") Boolean hideIos,
-        @CustomType.Parameter("hideWeb") Boolean hideWeb,
-        @CustomType.Parameter("honorForceAuthn") Boolean honorForceAuthn,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("idpIssuer") String idpIssuer,
-        @CustomType.Parameter("inlineHookId") String inlineHookId,
-        @CustomType.Parameter("keyId") String keyId,
-        @CustomType.Parameter("label") @Nullable String label,
-        @CustomType.Parameter("labelPrefix") @Nullable String labelPrefix,
-        @CustomType.Parameter("links") String links,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("recipient") String recipient,
-        @CustomType.Parameter("requestCompressed") @Nullable Boolean requestCompressed,
-        @CustomType.Parameter("responseSigned") Boolean responseSigned,
-        @CustomType.Parameter("signatureAlgorithm") String signatureAlgorithm,
-        @CustomType.Parameter("singleLogoutCertificate") String singleLogoutCertificate,
-        @CustomType.Parameter("singleLogoutIssuer") String singleLogoutIssuer,
-        @CustomType.Parameter("singleLogoutUrl") String singleLogoutUrl,
-        @CustomType.Parameter("skipGroups") @Nullable Boolean skipGroups,
-        @CustomType.Parameter("skipUsers") @Nullable Boolean skipUsers,
-        @CustomType.Parameter("spIssuer") String spIssuer,
-        @CustomType.Parameter("ssoUrl") String ssoUrl,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("subjectNameIdFormat") String subjectNameIdFormat,
-        @CustomType.Parameter("subjectNameIdTemplate") String subjectNameIdTemplate,
-        @CustomType.Parameter("userNameTemplate") String userNameTemplate,
-        @CustomType.Parameter("userNameTemplatePushStatus") String userNameTemplatePushStatus,
-        @CustomType.Parameter("userNameTemplateSuffix") String userNameTemplateSuffix,
-        @CustomType.Parameter("userNameTemplateType") String userNameTemplateType,
-        @CustomType.Parameter("users") List<String> users) {
-        this.accessibilityErrorRedirectUrl = accessibilityErrorRedirectUrl;
-        this.accessibilityLoginRedirectUrl = accessibilityLoginRedirectUrl;
-        this.accessibilitySelfService = accessibilitySelfService;
-        this.acsEndpoints = acsEndpoints;
-        this.activeOnly = activeOnly;
-        this.appSettingsJson = appSettingsJson;
-        this.assertionSigned = assertionSigned;
-        this.attributeStatements = attributeStatements;
-        this.audience = audience;
-        this.authnContextClassRef = authnContextClassRef;
-        this.autoSubmitToolbar = autoSubmitToolbar;
-        this.defaultRelayState = defaultRelayState;
-        this.destination = destination;
-        this.digestAlgorithm = digestAlgorithm;
-        this.features = features;
-        this.groups = groups;
-        this.hideIos = hideIos;
-        this.hideWeb = hideWeb;
-        this.honorForceAuthn = honorForceAuthn;
-        this.id = id;
-        this.idpIssuer = idpIssuer;
-        this.inlineHookId = inlineHookId;
-        this.keyId = keyId;
-        this.label = label;
-        this.labelPrefix = labelPrefix;
-        this.links = links;
-        this.name = name;
-        this.recipient = recipient;
-        this.requestCompressed = requestCompressed;
-        this.responseSigned = responseSigned;
-        this.signatureAlgorithm = signatureAlgorithm;
-        this.singleLogoutCertificate = singleLogoutCertificate;
-        this.singleLogoutIssuer = singleLogoutIssuer;
-        this.singleLogoutUrl = singleLogoutUrl;
-        this.skipGroups = skipGroups;
-        this.skipUsers = skipUsers;
-        this.spIssuer = spIssuer;
-        this.ssoUrl = ssoUrl;
-        this.status = status;
-        this.subjectNameIdFormat = subjectNameIdFormat;
-        this.subjectNameIdTemplate = subjectNameIdTemplate;
-        this.userNameTemplate = userNameTemplate;
-        this.userNameTemplatePushStatus = userNameTemplatePushStatus;
-        this.userNameTemplateSuffix = userNameTemplateSuffix;
-        this.userNameTemplateType = userNameTemplateType;
-        this.users = users;
-    }
-
+    private GetSamlResult() {}
     /**
      * @return Custom error page URL.
      * 
@@ -661,7 +566,7 @@ public final class GetSamlResult {
     public static Builder builder(GetSamlResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessibilityErrorRedirectUrl;
         private String accessibilityLoginRedirectUrl;
@@ -709,11 +614,7 @@ public final class GetSamlResult {
         private String userNameTemplateSuffix;
         private String userNameTemplateType;
         private List<String> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSamlResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessibilityErrorRedirectUrl = defaults.accessibilityErrorRedirectUrl;
@@ -764,18 +665,22 @@ public final class GetSamlResult {
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder accessibilityErrorRedirectUrl(String accessibilityErrorRedirectUrl) {
             this.accessibilityErrorRedirectUrl = Objects.requireNonNull(accessibilityErrorRedirectUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder accessibilityLoginRedirectUrl(String accessibilityLoginRedirectUrl) {
             this.accessibilityLoginRedirectUrl = Objects.requireNonNull(accessibilityLoginRedirectUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder accessibilitySelfService(Boolean accessibilitySelfService) {
             this.accessibilitySelfService = Objects.requireNonNull(accessibilitySelfService);
             return this;
         }
+        @CustomType.Setter
         public Builder acsEndpoints(List<String> acsEndpoints) {
             this.acsEndpoints = Objects.requireNonNull(acsEndpoints);
             return this;
@@ -783,18 +688,22 @@ public final class GetSamlResult {
         public Builder acsEndpoints(String... acsEndpoints) {
             return acsEndpoints(List.of(acsEndpoints));
         }
+        @CustomType.Setter
         public Builder activeOnly(@Nullable Boolean activeOnly) {
             this.activeOnly = activeOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder appSettingsJson(String appSettingsJson) {
             this.appSettingsJson = Objects.requireNonNull(appSettingsJson);
             return this;
         }
+        @CustomType.Setter
         public Builder assertionSigned(Boolean assertionSigned) {
             this.assertionSigned = Objects.requireNonNull(assertionSigned);
             return this;
         }
+        @CustomType.Setter
         public Builder attributeStatements(List<GetSamlAttributeStatement> attributeStatements) {
             this.attributeStatements = Objects.requireNonNull(attributeStatements);
             return this;
@@ -802,30 +711,37 @@ public final class GetSamlResult {
         public Builder attributeStatements(GetSamlAttributeStatement... attributeStatements) {
             return attributeStatements(List.of(attributeStatements));
         }
+        @CustomType.Setter
         public Builder audience(String audience) {
             this.audience = Objects.requireNonNull(audience);
             return this;
         }
+        @CustomType.Setter
         public Builder authnContextClassRef(String authnContextClassRef) {
             this.authnContextClassRef = Objects.requireNonNull(authnContextClassRef);
             return this;
         }
+        @CustomType.Setter
         public Builder autoSubmitToolbar(Boolean autoSubmitToolbar) {
             this.autoSubmitToolbar = Objects.requireNonNull(autoSubmitToolbar);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultRelayState(String defaultRelayState) {
             this.defaultRelayState = Objects.requireNonNull(defaultRelayState);
             return this;
         }
+        @CustomType.Setter
         public Builder destination(String destination) {
             this.destination = Objects.requireNonNull(destination);
             return this;
         }
+        @CustomType.Setter
         public Builder digestAlgorithm(String digestAlgorithm) {
             this.digestAlgorithm = Objects.requireNonNull(digestAlgorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder features(List<String> features) {
             this.features = Objects.requireNonNull(features);
             return this;
@@ -833,6 +749,7 @@ public final class GetSamlResult {
         public Builder features(String... features) {
             return features(List.of(features));
         }
+        @CustomType.Setter
         public Builder groups(List<String> groups) {
             this.groups = Objects.requireNonNull(groups);
             return this;
@@ -840,130 +757,208 @@ public final class GetSamlResult {
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder hideIos(Boolean hideIos) {
             this.hideIos = Objects.requireNonNull(hideIos);
             return this;
         }
+        @CustomType.Setter
         public Builder hideWeb(Boolean hideWeb) {
             this.hideWeb = Objects.requireNonNull(hideWeb);
             return this;
         }
+        @CustomType.Setter
         public Builder honorForceAuthn(Boolean honorForceAuthn) {
             this.honorForceAuthn = Objects.requireNonNull(honorForceAuthn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder idpIssuer(String idpIssuer) {
             this.idpIssuer = Objects.requireNonNull(idpIssuer);
             return this;
         }
+        @CustomType.Setter
         public Builder inlineHookId(String inlineHookId) {
             this.inlineHookId = Objects.requireNonNull(inlineHookId);
             return this;
         }
+        @CustomType.Setter
         public Builder keyId(String keyId) {
             this.keyId = Objects.requireNonNull(keyId);
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
         }
+        @CustomType.Setter
         public Builder labelPrefix(@Nullable String labelPrefix) {
             this.labelPrefix = labelPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder links(String links) {
             this.links = Objects.requireNonNull(links);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder recipient(String recipient) {
             this.recipient = Objects.requireNonNull(recipient);
             return this;
         }
+        @CustomType.Setter
         public Builder requestCompressed(@Nullable Boolean requestCompressed) {
             this.requestCompressed = requestCompressed;
             return this;
         }
+        @CustomType.Setter
         public Builder responseSigned(Boolean responseSigned) {
             this.responseSigned = Objects.requireNonNull(responseSigned);
             return this;
         }
+        @CustomType.Setter
         public Builder signatureAlgorithm(String signatureAlgorithm) {
             this.signatureAlgorithm = Objects.requireNonNull(signatureAlgorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder singleLogoutCertificate(String singleLogoutCertificate) {
             this.singleLogoutCertificate = Objects.requireNonNull(singleLogoutCertificate);
             return this;
         }
+        @CustomType.Setter
         public Builder singleLogoutIssuer(String singleLogoutIssuer) {
             this.singleLogoutIssuer = Objects.requireNonNull(singleLogoutIssuer);
             return this;
         }
+        @CustomType.Setter
         public Builder singleLogoutUrl(String singleLogoutUrl) {
             this.singleLogoutUrl = Objects.requireNonNull(singleLogoutUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder skipGroups(@Nullable Boolean skipGroups) {
             this.skipGroups = skipGroups;
             return this;
         }
+        @CustomType.Setter
         public Builder skipUsers(@Nullable Boolean skipUsers) {
             this.skipUsers = skipUsers;
             return this;
         }
+        @CustomType.Setter
         public Builder spIssuer(String spIssuer) {
             this.spIssuer = Objects.requireNonNull(spIssuer);
             return this;
         }
+        @CustomType.Setter
         public Builder ssoUrl(String ssoUrl) {
             this.ssoUrl = Objects.requireNonNull(ssoUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder subjectNameIdFormat(String subjectNameIdFormat) {
             this.subjectNameIdFormat = Objects.requireNonNull(subjectNameIdFormat);
             return this;
         }
+        @CustomType.Setter
         public Builder subjectNameIdTemplate(String subjectNameIdTemplate) {
             this.subjectNameIdTemplate = Objects.requireNonNull(subjectNameIdTemplate);
             return this;
         }
+        @CustomType.Setter
         public Builder userNameTemplate(String userNameTemplate) {
             this.userNameTemplate = Objects.requireNonNull(userNameTemplate);
             return this;
         }
+        @CustomType.Setter
         public Builder userNameTemplatePushStatus(String userNameTemplatePushStatus) {
             this.userNameTemplatePushStatus = Objects.requireNonNull(userNameTemplatePushStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder userNameTemplateSuffix(String userNameTemplateSuffix) {
             this.userNameTemplateSuffix = Objects.requireNonNull(userNameTemplateSuffix);
             return this;
         }
+        @CustomType.Setter
         public Builder userNameTemplateType(String userNameTemplateType) {
             this.userNameTemplateType = Objects.requireNonNull(userNameTemplateType);
             return this;
         }
+        @CustomType.Setter
         public Builder users(List<String> users) {
             this.users = Objects.requireNonNull(users);
             return this;
         }
         public Builder users(String... users) {
             return users(List.of(users));
-        }        public GetSamlResult build() {
-            return new GetSamlResult(accessibilityErrorRedirectUrl, accessibilityLoginRedirectUrl, accessibilitySelfService, acsEndpoints, activeOnly, appSettingsJson, assertionSigned, attributeStatements, audience, authnContextClassRef, autoSubmitToolbar, defaultRelayState, destination, digestAlgorithm, features, groups, hideIos, hideWeb, honorForceAuthn, id, idpIssuer, inlineHookId, keyId, label, labelPrefix, links, name, recipient, requestCompressed, responseSigned, signatureAlgorithm, singleLogoutCertificate, singleLogoutIssuer, singleLogoutUrl, skipGroups, skipUsers, spIssuer, ssoUrl, status, subjectNameIdFormat, subjectNameIdTemplate, userNameTemplate, userNameTemplatePushStatus, userNameTemplateSuffix, userNameTemplateType, users);
+        }
+        public GetSamlResult build() {
+            final var o = new GetSamlResult();
+            o.accessibilityErrorRedirectUrl = accessibilityErrorRedirectUrl;
+            o.accessibilityLoginRedirectUrl = accessibilityLoginRedirectUrl;
+            o.accessibilitySelfService = accessibilitySelfService;
+            o.acsEndpoints = acsEndpoints;
+            o.activeOnly = activeOnly;
+            o.appSettingsJson = appSettingsJson;
+            o.assertionSigned = assertionSigned;
+            o.attributeStatements = attributeStatements;
+            o.audience = audience;
+            o.authnContextClassRef = authnContextClassRef;
+            o.autoSubmitToolbar = autoSubmitToolbar;
+            o.defaultRelayState = defaultRelayState;
+            o.destination = destination;
+            o.digestAlgorithm = digestAlgorithm;
+            o.features = features;
+            o.groups = groups;
+            o.hideIos = hideIos;
+            o.hideWeb = hideWeb;
+            o.honorForceAuthn = honorForceAuthn;
+            o.id = id;
+            o.idpIssuer = idpIssuer;
+            o.inlineHookId = inlineHookId;
+            o.keyId = keyId;
+            o.label = label;
+            o.labelPrefix = labelPrefix;
+            o.links = links;
+            o.name = name;
+            o.recipient = recipient;
+            o.requestCompressed = requestCompressed;
+            o.responseSigned = responseSigned;
+            o.signatureAlgorithm = signatureAlgorithm;
+            o.singleLogoutCertificate = singleLogoutCertificate;
+            o.singleLogoutIssuer = singleLogoutIssuer;
+            o.singleLogoutUrl = singleLogoutUrl;
+            o.skipGroups = skipGroups;
+            o.skipUsers = skipUsers;
+            o.spIssuer = spIssuer;
+            o.ssoUrl = ssoUrl;
+            o.status = status;
+            o.subjectNameIdFormat = subjectNameIdFormat;
+            o.subjectNameIdTemplate = subjectNameIdTemplate;
+            o.userNameTemplate = userNameTemplate;
+            o.userNameTemplatePushStatus = userNameTemplatePushStatus;
+            o.userNameTemplateSuffix = userNameTemplateSuffix;
+            o.userNameTemplateType = userNameTemplateType;
+            o.users = users;
+            return o;
         }
     }
 }

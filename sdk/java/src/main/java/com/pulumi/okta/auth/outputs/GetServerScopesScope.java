@@ -14,63 +14,44 @@ public final class GetServerScopesScope {
      * @return Indicates whether a consent dialog is needed for the Scope
      * 
      */
-    private final String consent;
+    private String consent;
     /**
      * @return Whether the Scope is a default Scope
      * 
      */
-    private final Boolean default_;
+    private Boolean default_;
     /**
      * @return Description of the Scope
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Name of the end user displayed in a consent dialog box
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return ID of the Scope
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Whether the Scope should be included in the metadata
      * 
      */
-    private final String metadataPublish;
+    private String metadataPublish;
     /**
      * @return Name of the Scope
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Whether Okta created the Scope
      * 
      */
-    private final Boolean system;
+    private Boolean system;
 
-    @CustomType.Constructor
-    private GetServerScopesScope(
-        @CustomType.Parameter("consent") String consent,
-        @CustomType.Parameter("default") Boolean default_,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("metadataPublish") String metadataPublish,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("system") Boolean system) {
-        this.consent = consent;
-        this.default_ = default_;
-        this.description = description;
-        this.displayName = displayName;
-        this.id = id;
-        this.metadataPublish = metadataPublish;
-        this.name = name;
-        this.system = system;
-    }
-
+    private GetServerScopesScope() {}
     /**
      * @return Indicates whether a consent dialog is needed for the Scope
      * 
@@ -135,7 +116,7 @@ public final class GetServerScopesScope {
     public static Builder builder(GetServerScopesScope defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String consent;
         private Boolean default_;
@@ -145,11 +126,7 @@ public final class GetServerScopesScope {
         private String metadataPublish;
         private String name;
         private Boolean system;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServerScopesScope defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consent = defaults.consent;
@@ -162,39 +139,57 @@ public final class GetServerScopesScope {
     	      this.system = defaults.system;
         }
 
+        @CustomType.Setter
         public Builder consent(String consent) {
             this.consent = Objects.requireNonNull(consent);
             return this;
         }
+        @CustomType.Setter("default")
         public Builder default_(Boolean default_) {
             this.default_ = Objects.requireNonNull(default_);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder metadataPublish(String metadataPublish) {
             this.metadataPublish = Objects.requireNonNull(metadataPublish);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder system(Boolean system) {
             this.system = Objects.requireNonNull(system);
             return this;
-        }        public GetServerScopesScope build() {
-            return new GetServerScopesScope(consent, default_, description, displayName, id, metadataPublish, name, system);
+        }
+        public GetServerScopesScope build() {
+            final var o = new GetServerScopesScope();
+            o.consent = consent;
+            o.default_ = default_;
+            o.description = description;
+            o.displayName = displayName;
+            o.id = id;
+            o.metadataPublish = metadataPublish;
+            o.name = name;
+            o.system = system;
+            return o;
         }
     }
 }

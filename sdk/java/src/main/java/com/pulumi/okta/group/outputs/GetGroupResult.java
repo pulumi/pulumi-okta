@@ -13,52 +13,35 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupResult {
-    private final @Nullable String delayReadSeconds;
+    private @Nullable String delayReadSeconds;
     /**
      * @return description of group.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return ID of group.
      * 
      */
-    private final @Nullable String id;
-    private final @Nullable Boolean includeUsers;
+    private @Nullable String id;
+    private @Nullable Boolean includeUsers;
     /**
      * @return name of group.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return type of group.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return user ids that are members of this group, only included if `include_users` is set to `true`.
      * 
      */
-    private final List<String> users;
+    private List<String> users;
 
-    @CustomType.Constructor
-    private GetGroupResult(
-        @CustomType.Parameter("delayReadSeconds") @Nullable String delayReadSeconds,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("includeUsers") @Nullable Boolean includeUsers,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("users") List<String> users) {
-        this.delayReadSeconds = delayReadSeconds;
-        this.description = description;
-        this.id = id;
-        this.includeUsers = includeUsers;
-        this.name = name;
-        this.type = type;
-        this.users = users;
-    }
-
+    private GetGroupResult() {}
     public Optional<String> delayReadSeconds() {
         return Optional.ofNullable(this.delayReadSeconds);
     }
@@ -108,7 +91,7 @@ public final class GetGroupResult {
     public static Builder builder(GetGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String delayReadSeconds;
         private String description;
@@ -117,11 +100,7 @@ public final class GetGroupResult {
         private @Nullable String name;
         private @Nullable String type;
         private List<String> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.delayReadSeconds = defaults.delayReadSeconds;
@@ -133,38 +112,54 @@ public final class GetGroupResult {
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder delayReadSeconds(@Nullable String delayReadSeconds) {
             this.delayReadSeconds = delayReadSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder includeUsers(@Nullable Boolean includeUsers) {
             this.includeUsers = includeUsers;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder users(List<String> users) {
             this.users = Objects.requireNonNull(users);
             return this;
         }
         public Builder users(String... users) {
             return users(List.of(users));
-        }        public GetGroupResult build() {
-            return new GetGroupResult(delayReadSeconds, description, id, includeUsers, name, type, users);
+        }
+        public GetGroupResult build() {
+            final var o = new GetGroupResult();
+            o.delayReadSeconds = delayReadSeconds;
+            o.description = description;
+            o.id = id;
+            o.includeUsers = includeUsers;
+            o.name = name;
+            o.type = type;
+            o.users = users;
+            return o;
         }
     }
 }

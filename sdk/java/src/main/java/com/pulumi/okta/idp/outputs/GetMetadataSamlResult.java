@@ -16,73 +16,50 @@ public final class GetMetadataSamlResult {
      * @return whether assertions are signed.
      * 
      */
-    private final Boolean assertionsSigned;
+    private Boolean assertionsSigned;
     /**
      * @return whether authn requests are signed.
      * 
      */
-    private final Boolean authnRequestSigned;
+    private Boolean authnRequestSigned;
     /**
      * @return SAML request encryption certificate.
      * 
      */
-    private final String encryptionCertificate;
+    private String encryptionCertificate;
     /**
      * @return Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
      * 
      */
-    private final String entityId;
+    private String entityId;
     /**
      * @return urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
      * 
      */
-    private final String httpPostBinding;
+    private String httpPostBinding;
     /**
      * @return urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
      * 
      */
-    private final String httpRedirectBinding;
+    private String httpRedirectBinding;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String idpId;
+    private String id;
+    private @Nullable String idpId;
     /**
      * @return raw IdP metadata.
      * 
      */
-    private final String metadata;
+    private String metadata;
     /**
      * @return SAML request signing certificate.
      * 
      */
-    private final String signingCertificate;
+    private String signingCertificate;
 
-    @CustomType.Constructor
-    private GetMetadataSamlResult(
-        @CustomType.Parameter("assertionsSigned") Boolean assertionsSigned,
-        @CustomType.Parameter("authnRequestSigned") Boolean authnRequestSigned,
-        @CustomType.Parameter("encryptionCertificate") String encryptionCertificate,
-        @CustomType.Parameter("entityId") String entityId,
-        @CustomType.Parameter("httpPostBinding") String httpPostBinding,
-        @CustomType.Parameter("httpRedirectBinding") String httpRedirectBinding,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("idpId") @Nullable String idpId,
-        @CustomType.Parameter("metadata") String metadata,
-        @CustomType.Parameter("signingCertificate") String signingCertificate) {
-        this.assertionsSigned = assertionsSigned;
-        this.authnRequestSigned = authnRequestSigned;
-        this.encryptionCertificate = encryptionCertificate;
-        this.entityId = entityId;
-        this.httpPostBinding = httpPostBinding;
-        this.httpRedirectBinding = httpRedirectBinding;
-        this.id = id;
-        this.idpId = idpId;
-        this.metadata = metadata;
-        this.signingCertificate = signingCertificate;
-    }
-
+    private GetMetadataSamlResult() {}
     /**
      * @return whether assertions are signed.
      * 
@@ -157,7 +134,7 @@ public final class GetMetadataSamlResult {
     public static Builder builder(GetMetadataSamlResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean assertionsSigned;
         private Boolean authnRequestSigned;
@@ -169,11 +146,7 @@ public final class GetMetadataSamlResult {
         private @Nullable String idpId;
         private String metadata;
         private String signingCertificate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMetadataSamlResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.assertionsSigned = defaults.assertionsSigned;
@@ -188,47 +161,69 @@ public final class GetMetadataSamlResult {
     	      this.signingCertificate = defaults.signingCertificate;
         }
 
+        @CustomType.Setter
         public Builder assertionsSigned(Boolean assertionsSigned) {
             this.assertionsSigned = Objects.requireNonNull(assertionsSigned);
             return this;
         }
+        @CustomType.Setter
         public Builder authnRequestSigned(Boolean authnRequestSigned) {
             this.authnRequestSigned = Objects.requireNonNull(authnRequestSigned);
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionCertificate(String encryptionCertificate) {
             this.encryptionCertificate = Objects.requireNonNull(encryptionCertificate);
             return this;
         }
+        @CustomType.Setter
         public Builder entityId(String entityId) {
             this.entityId = Objects.requireNonNull(entityId);
             return this;
         }
+        @CustomType.Setter
         public Builder httpPostBinding(String httpPostBinding) {
             this.httpPostBinding = Objects.requireNonNull(httpPostBinding);
             return this;
         }
+        @CustomType.Setter
         public Builder httpRedirectBinding(String httpRedirectBinding) {
             this.httpRedirectBinding = Objects.requireNonNull(httpRedirectBinding);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder idpId(@Nullable String idpId) {
             this.idpId = idpId;
             return this;
         }
+        @CustomType.Setter
         public Builder metadata(String metadata) {
             this.metadata = Objects.requireNonNull(metadata);
             return this;
         }
+        @CustomType.Setter
         public Builder signingCertificate(String signingCertificate) {
             this.signingCertificate = Objects.requireNonNull(signingCertificate);
             return this;
-        }        public GetMetadataSamlResult build() {
-            return new GetMetadataSamlResult(assertionsSigned, authnRequestSigned, encryptionCertificate, entityId, httpPostBinding, httpRedirectBinding, id, idpId, metadata, signingCertificate);
+        }
+        public GetMetadataSamlResult build() {
+            final var o = new GetMetadataSamlResult();
+            o.assertionsSigned = assertionsSigned;
+            o.authnRequestSigned = authnRequestSigned;
+            o.encryptionCertificate = encryptionCertificate;
+            o.entityId = entityId;
+            o.httpPostBinding = httpPostBinding;
+            o.httpRedirectBinding = httpRedirectBinding;
+            o.id = id;
+            o.idpId = idpId;
+            o.metadata = metadata;
+            o.signingCertificate = signingCertificate;
+            return o;
         }
     }
 }

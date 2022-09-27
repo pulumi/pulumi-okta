@@ -16,70 +16,49 @@ public final class GetNetworkZoneResult {
      * @return Array of Autonomous System Numbers.
      * 
      */
-    private final List<String> asns;
+    private List<String> asns;
     /**
      * @return Array of locations.
      * 
      */
-    private final List<String> dynamicLocations;
+    private List<String> dynamicLocations;
     /**
      * @return Type of proxy being controlled by this dynamic network zone.
      * 
      */
-    private final String dynamicProxyType;
+    private String dynamicProxyType;
     /**
      * @return Array of values in CIDR/range form.
      * 
      */
-    private final List<String> gateways;
+    private List<String> gateways;
     /**
      * @return ID of the network zone.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Name of the network zone.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Array of values in CIDR/range form.
      * 
      */
-    private final List<String> proxies;
+    private List<String> proxies;
     /**
      * @return Type of the Network Zone.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return Usage of the Network Zone.
      * 
      */
-    private final String usage;
+    private String usage;
 
-    @CustomType.Constructor
-    private GetNetworkZoneResult(
-        @CustomType.Parameter("asns") List<String> asns,
-        @CustomType.Parameter("dynamicLocations") List<String> dynamicLocations,
-        @CustomType.Parameter("dynamicProxyType") String dynamicProxyType,
-        @CustomType.Parameter("gateways") List<String> gateways,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("proxies") List<String> proxies,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("usage") String usage) {
-        this.asns = asns;
-        this.dynamicLocations = dynamicLocations;
-        this.dynamicProxyType = dynamicProxyType;
-        this.gateways = gateways;
-        this.id = id;
-        this.name = name;
-        this.proxies = proxies;
-        this.type = type;
-        this.usage = usage;
-    }
-
+    private GetNetworkZoneResult() {}
     /**
      * @return Array of Autonomous System Numbers.
      * 
@@ -151,7 +130,7 @@ public final class GetNetworkZoneResult {
     public static Builder builder(GetNetworkZoneResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> asns;
         private List<String> dynamicLocations;
@@ -162,11 +141,7 @@ public final class GetNetworkZoneResult {
         private List<String> proxies;
         private String type;
         private String usage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNetworkZoneResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.asns = defaults.asns;
@@ -180,6 +155,7 @@ public final class GetNetworkZoneResult {
     	      this.usage = defaults.usage;
         }
 
+        @CustomType.Setter
         public Builder asns(List<String> asns) {
             this.asns = Objects.requireNonNull(asns);
             return this;
@@ -187,6 +163,7 @@ public final class GetNetworkZoneResult {
         public Builder asns(String... asns) {
             return asns(List.of(asns));
         }
+        @CustomType.Setter
         public Builder dynamicLocations(List<String> dynamicLocations) {
             this.dynamicLocations = Objects.requireNonNull(dynamicLocations);
             return this;
@@ -194,10 +171,12 @@ public final class GetNetworkZoneResult {
         public Builder dynamicLocations(String... dynamicLocations) {
             return dynamicLocations(List.of(dynamicLocations));
         }
+        @CustomType.Setter
         public Builder dynamicProxyType(String dynamicProxyType) {
             this.dynamicProxyType = Objects.requireNonNull(dynamicProxyType);
             return this;
         }
+        @CustomType.Setter
         public Builder gateways(List<String> gateways) {
             this.gateways = Objects.requireNonNull(gateways);
             return this;
@@ -205,14 +184,17 @@ public final class GetNetworkZoneResult {
         public Builder gateways(String... gateways) {
             return gateways(List.of(gateways));
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder proxies(List<String> proxies) {
             this.proxies = Objects.requireNonNull(proxies);
             return this;
@@ -220,15 +202,28 @@ public final class GetNetworkZoneResult {
         public Builder proxies(String... proxies) {
             return proxies(List.of(proxies));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder usage(String usage) {
             this.usage = Objects.requireNonNull(usage);
             return this;
-        }        public GetNetworkZoneResult build() {
-            return new GetNetworkZoneResult(asns, dynamicLocations, dynamicProxyType, gateways, id, name, proxies, type, usage);
+        }
+        public GetNetworkZoneResult build() {
+            final var o = new GetNetworkZoneResult();
+            o.asns = asns;
+            o.dynamicLocations = dynamicLocations;
+            o.dynamicProxyType = dynamicProxyType;
+            o.gateways = gateways;
+            o.id = id;
+            o.name = name;
+            o.proxies = proxies;
+            o.type = type;
+            o.usage = usage;
+            return o;
         }
     }
 }

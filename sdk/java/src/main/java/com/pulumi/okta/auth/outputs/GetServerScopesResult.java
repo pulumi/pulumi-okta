@@ -11,28 +11,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerScopesResult {
-    private final String authServerId;
+    private String authServerId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return collection of authorization server scopes retrieved from Okta with the following properties.
      * 
      */
-    private final List<GetServerScopesScope> scopes;
+    private List<GetServerScopesScope> scopes;
 
-    @CustomType.Constructor
-    private GetServerScopesResult(
-        @CustomType.Parameter("authServerId") String authServerId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("scopes") List<GetServerScopesScope> scopes) {
-        this.authServerId = authServerId;
-        this.id = id;
-        this.scopes = scopes;
-    }
-
+    private GetServerScopesResult() {}
     public String authServerId() {
         return this.authServerId;
     }
@@ -58,16 +49,12 @@ public final class GetServerScopesResult {
     public static Builder builder(GetServerScopesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authServerId;
         private String id;
         private List<GetServerScopesScope> scopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServerScopesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authServerId = defaults.authServerId;
@@ -75,22 +62,30 @@ public final class GetServerScopesResult {
     	      this.scopes = defaults.scopes;
         }
 
+        @CustomType.Setter
         public Builder authServerId(String authServerId) {
             this.authServerId = Objects.requireNonNull(authServerId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder scopes(List<GetServerScopesScope> scopes) {
             this.scopes = Objects.requireNonNull(scopes);
             return this;
         }
         public Builder scopes(GetServerScopesScope... scopes) {
             return scopes(List.of(scopes));
-        }        public GetServerScopesResult build() {
-            return new GetServerScopesResult(authServerId, id, scopes);
+        }
+        public GetServerScopesResult build() {
+            final var o = new GetServerScopesResult();
+            o.authServerId = authServerId;
+            o.id = id;
+            o.scopes = scopes;
+            return o;
         }
     }
 }

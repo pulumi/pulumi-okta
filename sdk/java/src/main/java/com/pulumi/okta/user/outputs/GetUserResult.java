@@ -18,277 +18,190 @@ public final class GetUserResult {
      * @return Administrator roles assigned to user.
      * 
      */
-    private final List<String> adminRoles;
+    private List<String> adminRoles;
     /**
      * @return City or locality component of user&#39;s address.
      * 
      */
-    private final String city;
-    private final @Nullable String compoundSearchOperator;
+    private String city;
+    private @Nullable String compoundSearchOperator;
     /**
      * @return Name of a cost center assigned to user.
      * 
      */
-    private final String costCenter;
+    private String costCenter;
     /**
      * @return Country name component of user&#39;s address.
      * 
      */
-    private final String countryCode;
+    private String countryCode;
     /**
      * @return Raw JSON containing all custom profile attributes.
      * 
      */
-    private final String customProfileAttributes;
-    private final @Nullable String delayReadSeconds;
+    private String customProfileAttributes;
+    private @Nullable String delayReadSeconds;
     /**
      * @return Name of user&#39;s department.
      * 
      */
-    private final String department;
+    private String department;
     /**
      * @return Name of the user, suitable for display to end users.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return Name of user&#39;s division.
      * 
      */
-    private final String division;
+    private String division;
     /**
      * @return Primary email address of user.
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return Organization or company assigned unique identifier for the user.
      * 
      */
-    private final String employeeNumber;
+    private String employeeNumber;
     /**
      * @return Given name of the user.
      * 
      */
-    private final String firstName;
+    private String firstName;
     /**
      * @return Groups user belongs to.
      * 
      */
-    private final List<String> groupMemberships;
+    private List<String> groupMemberships;
     /**
      * @return Honorific prefix(es) of the user, or title in most Western languages.
      * 
      */
-    private final String honorificPrefix;
+    private String honorificPrefix;
     /**
      * @return Honorific suffix(es) of the user.
      * 
      */
-    private final String honorificSuffix;
+    private String honorificSuffix;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Family name of the user.
      * 
      */
-    private final String lastName;
+    private String lastName;
     /**
      * @return User&#39;s default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
      * 
      */
-    private final String locale;
+    private String locale;
     /**
      * @return Unique identifier for the user.
      * 
      */
-    private final String login;
+    private String login;
     /**
      * @return Display name of the user&#39;s manager.
      * 
      */
-    private final String manager;
+    private String manager;
     /**
      * @return `id` of a user&#39;s manager.
      * 
      */
-    private final String managerId;
+    private String managerId;
     /**
      * @return Middle name(s) of the user.
      * 
      */
-    private final String middleName;
+    private String middleName;
     /**
      * @return Mobile phone number of user.
      * 
      */
-    private final String mobilePhone;
+    private String mobilePhone;
     /**
      * @return Casual way to address the user in real life.
      * 
      */
-    private final String nickName;
+    private String nickName;
     /**
      * @return Name of user&#39;s organization.
      * 
      */
-    private final String organization;
+    private String organization;
     /**
      * @return Mailing address component of user&#39;s address.
      * 
      */
-    private final String postalAddress;
+    private String postalAddress;
     /**
      * @return User&#39;s preferred written or spoken languages.
      * 
      */
-    private final String preferredLanguage;
+    private String preferredLanguage;
     /**
      * @return Primary phone number of user such as home number.
      * 
      */
-    private final String primaryPhone;
+    private String primaryPhone;
     /**
      * @return URL of user&#39;s online profile (e.g. a web page).
      * 
      */
-    private final String profileUrl;
-    private final @Nullable List<GetUserSearch> searches;
+    private String profileUrl;
+    private @Nullable List<GetUserSearch> searches;
     /**
      * @return Secondary email address of user typically used for account recovery.
      * 
      */
-    private final String secondEmail;
-    private final @Nullable Boolean skipGroups;
-    private final @Nullable Boolean skipRoles;
+    private String secondEmail;
+    private @Nullable Boolean skipGroups;
+    private @Nullable Boolean skipRoles;
     /**
      * @return State or region component of user&#39;s address (region).
      * 
      */
-    private final String state;
+    private String state;
     /**
      * @return Current status of user.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Full street address component of user&#39;s address.
      * 
      */
-    private final String streetAddress;
+    private String streetAddress;
     /**
      * @return User&#39;s time zone.
      * 
      */
-    private final String timezone;
+    private String timezone;
     /**
      * @return User&#39;s title, such as &#34;Vice President&#34;.
      * 
      */
-    private final String title;
-    private final @Nullable String userId;
+    private String title;
+    private @Nullable String userId;
     /**
      * @return Used to describe the organization to user relationship such as &#34;Employee&#34; or &#34;Contractor&#34;.
      * 
      */
-    private final String userType;
+    private String userType;
     /**
      * @return Zipcode or postal code component of user&#39;s address (postalCode)
      * 
      */
-    private final String zipCode;
+    private String zipCode;
 
-    @CustomType.Constructor
-    private GetUserResult(
-        @CustomType.Parameter("adminRoles") List<String> adminRoles,
-        @CustomType.Parameter("city") String city,
-        @CustomType.Parameter("compoundSearchOperator") @Nullable String compoundSearchOperator,
-        @CustomType.Parameter("costCenter") String costCenter,
-        @CustomType.Parameter("countryCode") String countryCode,
-        @CustomType.Parameter("customProfileAttributes") String customProfileAttributes,
-        @CustomType.Parameter("delayReadSeconds") @Nullable String delayReadSeconds,
-        @CustomType.Parameter("department") String department,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("division") String division,
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("employeeNumber") String employeeNumber,
-        @CustomType.Parameter("firstName") String firstName,
-        @CustomType.Parameter("groupMemberships") List<String> groupMemberships,
-        @CustomType.Parameter("honorificPrefix") String honorificPrefix,
-        @CustomType.Parameter("honorificSuffix") String honorificSuffix,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastName") String lastName,
-        @CustomType.Parameter("locale") String locale,
-        @CustomType.Parameter("login") String login,
-        @CustomType.Parameter("manager") String manager,
-        @CustomType.Parameter("managerId") String managerId,
-        @CustomType.Parameter("middleName") String middleName,
-        @CustomType.Parameter("mobilePhone") String mobilePhone,
-        @CustomType.Parameter("nickName") String nickName,
-        @CustomType.Parameter("organization") String organization,
-        @CustomType.Parameter("postalAddress") String postalAddress,
-        @CustomType.Parameter("preferredLanguage") String preferredLanguage,
-        @CustomType.Parameter("primaryPhone") String primaryPhone,
-        @CustomType.Parameter("profileUrl") String profileUrl,
-        @CustomType.Parameter("searches") @Nullable List<GetUserSearch> searches,
-        @CustomType.Parameter("secondEmail") String secondEmail,
-        @CustomType.Parameter("skipGroups") @Nullable Boolean skipGroups,
-        @CustomType.Parameter("skipRoles") @Nullable Boolean skipRoles,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("streetAddress") String streetAddress,
-        @CustomType.Parameter("timezone") String timezone,
-        @CustomType.Parameter("title") String title,
-        @CustomType.Parameter("userId") @Nullable String userId,
-        @CustomType.Parameter("userType") String userType,
-        @CustomType.Parameter("zipCode") String zipCode) {
-        this.adminRoles = adminRoles;
-        this.city = city;
-        this.compoundSearchOperator = compoundSearchOperator;
-        this.costCenter = costCenter;
-        this.countryCode = countryCode;
-        this.customProfileAttributes = customProfileAttributes;
-        this.delayReadSeconds = delayReadSeconds;
-        this.department = department;
-        this.displayName = displayName;
-        this.division = division;
-        this.email = email;
-        this.employeeNumber = employeeNumber;
-        this.firstName = firstName;
-        this.groupMemberships = groupMemberships;
-        this.honorificPrefix = honorificPrefix;
-        this.honorificSuffix = honorificSuffix;
-        this.id = id;
-        this.lastName = lastName;
-        this.locale = locale;
-        this.login = login;
-        this.manager = manager;
-        this.managerId = managerId;
-        this.middleName = middleName;
-        this.mobilePhone = mobilePhone;
-        this.nickName = nickName;
-        this.organization = organization;
-        this.postalAddress = postalAddress;
-        this.preferredLanguage = preferredLanguage;
-        this.primaryPhone = primaryPhone;
-        this.profileUrl = profileUrl;
-        this.searches = searches;
-        this.secondEmail = secondEmail;
-        this.skipGroups = skipGroups;
-        this.skipRoles = skipRoles;
-        this.state = state;
-        this.status = status;
-        this.streetAddress = streetAddress;
-        this.timezone = timezone;
-        this.title = title;
-        this.userId = userId;
-        this.userType = userType;
-        this.zipCode = zipCode;
-    }
-
+    private GetUserResult() {}
     /**
      * @return Administrator roles assigned to user.
      * 
@@ -567,7 +480,7 @@ public final class GetUserResult {
     public static Builder builder(GetUserResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> adminRoles;
         private String city;
@@ -611,11 +524,7 @@ public final class GetUserResult {
         private @Nullable String userId;
         private String userType;
         private String zipCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminRoles = defaults.adminRoles;
@@ -662,6 +571,7 @@ public final class GetUserResult {
     	      this.zipCode = defaults.zipCode;
         }
 
+        @CustomType.Setter
         public Builder adminRoles(List<String> adminRoles) {
             this.adminRoles = Objects.requireNonNull(adminRoles);
             return this;
@@ -669,54 +579,67 @@ public final class GetUserResult {
         public Builder adminRoles(String... adminRoles) {
             return adminRoles(List.of(adminRoles));
         }
+        @CustomType.Setter
         public Builder city(String city) {
             this.city = Objects.requireNonNull(city);
             return this;
         }
+        @CustomType.Setter
         public Builder compoundSearchOperator(@Nullable String compoundSearchOperator) {
             this.compoundSearchOperator = compoundSearchOperator;
             return this;
         }
+        @CustomType.Setter
         public Builder costCenter(String costCenter) {
             this.costCenter = Objects.requireNonNull(costCenter);
             return this;
         }
+        @CustomType.Setter
         public Builder countryCode(String countryCode) {
             this.countryCode = Objects.requireNonNull(countryCode);
             return this;
         }
+        @CustomType.Setter
         public Builder customProfileAttributes(String customProfileAttributes) {
             this.customProfileAttributes = Objects.requireNonNull(customProfileAttributes);
             return this;
         }
+        @CustomType.Setter
         public Builder delayReadSeconds(@Nullable String delayReadSeconds) {
             this.delayReadSeconds = delayReadSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder department(String department) {
             this.department = Objects.requireNonNull(department);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder division(String division) {
             this.division = Objects.requireNonNull(division);
             return this;
         }
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder employeeNumber(String employeeNumber) {
             this.employeeNumber = Objects.requireNonNull(employeeNumber);
             return this;
         }
+        @CustomType.Setter
         public Builder firstName(String firstName) {
             this.firstName = Objects.requireNonNull(firstName);
             return this;
         }
+        @CustomType.Setter
         public Builder groupMemberships(List<String> groupMemberships) {
             this.groupMemberships = Objects.requireNonNull(groupMemberships);
             return this;
@@ -724,70 +647,87 @@ public final class GetUserResult {
         public Builder groupMemberships(String... groupMemberships) {
             return groupMemberships(List.of(groupMemberships));
         }
+        @CustomType.Setter
         public Builder honorificPrefix(String honorificPrefix) {
             this.honorificPrefix = Objects.requireNonNull(honorificPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder honorificSuffix(String honorificSuffix) {
             this.honorificSuffix = Objects.requireNonNull(honorificSuffix);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastName(String lastName) {
             this.lastName = Objects.requireNonNull(lastName);
             return this;
         }
+        @CustomType.Setter
         public Builder locale(String locale) {
             this.locale = Objects.requireNonNull(locale);
             return this;
         }
+        @CustomType.Setter
         public Builder login(String login) {
             this.login = Objects.requireNonNull(login);
             return this;
         }
+        @CustomType.Setter
         public Builder manager(String manager) {
             this.manager = Objects.requireNonNull(manager);
             return this;
         }
+        @CustomType.Setter
         public Builder managerId(String managerId) {
             this.managerId = Objects.requireNonNull(managerId);
             return this;
         }
+        @CustomType.Setter
         public Builder middleName(String middleName) {
             this.middleName = Objects.requireNonNull(middleName);
             return this;
         }
+        @CustomType.Setter
         public Builder mobilePhone(String mobilePhone) {
             this.mobilePhone = Objects.requireNonNull(mobilePhone);
             return this;
         }
+        @CustomType.Setter
         public Builder nickName(String nickName) {
             this.nickName = Objects.requireNonNull(nickName);
             return this;
         }
+        @CustomType.Setter
         public Builder organization(String organization) {
             this.organization = Objects.requireNonNull(organization);
             return this;
         }
+        @CustomType.Setter
         public Builder postalAddress(String postalAddress) {
             this.postalAddress = Objects.requireNonNull(postalAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder preferredLanguage(String preferredLanguage) {
             this.preferredLanguage = Objects.requireNonNull(preferredLanguage);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryPhone(String primaryPhone) {
             this.primaryPhone = Objects.requireNonNull(primaryPhone);
             return this;
         }
+        @CustomType.Setter
         public Builder profileUrl(String profileUrl) {
             this.profileUrl = Objects.requireNonNull(profileUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder searches(@Nullable List<GetUserSearch> searches) {
             this.searches = searches;
             return this;
@@ -795,51 +735,106 @@ public final class GetUserResult {
         public Builder searches(GetUserSearch... searches) {
             return searches(List.of(searches));
         }
+        @CustomType.Setter
         public Builder secondEmail(String secondEmail) {
             this.secondEmail = Objects.requireNonNull(secondEmail);
             return this;
         }
+        @CustomType.Setter
         public Builder skipGroups(@Nullable Boolean skipGroups) {
             this.skipGroups = skipGroups;
             return this;
         }
+        @CustomType.Setter
         public Builder skipRoles(@Nullable Boolean skipRoles) {
             this.skipRoles = skipRoles;
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder streetAddress(String streetAddress) {
             this.streetAddress = Objects.requireNonNull(streetAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder timezone(String timezone) {
             this.timezone = Objects.requireNonNull(timezone);
             return this;
         }
+        @CustomType.Setter
         public Builder title(String title) {
             this.title = Objects.requireNonNull(title);
             return this;
         }
+        @CustomType.Setter
         public Builder userId(@Nullable String userId) {
             this.userId = userId;
             return this;
         }
+        @CustomType.Setter
         public Builder userType(String userType) {
             this.userType = Objects.requireNonNull(userType);
             return this;
         }
+        @CustomType.Setter
         public Builder zipCode(String zipCode) {
             this.zipCode = Objects.requireNonNull(zipCode);
             return this;
-        }        public GetUserResult build() {
-            return new GetUserResult(adminRoles, city, compoundSearchOperator, costCenter, countryCode, customProfileAttributes, delayReadSeconds, department, displayName, division, email, employeeNumber, firstName, groupMemberships, honorificPrefix, honorificSuffix, id, lastName, locale, login, manager, managerId, middleName, mobilePhone, nickName, organization, postalAddress, preferredLanguage, primaryPhone, profileUrl, searches, secondEmail, skipGroups, skipRoles, state, status, streetAddress, timezone, title, userId, userType, zipCode);
+        }
+        public GetUserResult build() {
+            final var o = new GetUserResult();
+            o.adminRoles = adminRoles;
+            o.city = city;
+            o.compoundSearchOperator = compoundSearchOperator;
+            o.costCenter = costCenter;
+            o.countryCode = countryCode;
+            o.customProfileAttributes = customProfileAttributes;
+            o.delayReadSeconds = delayReadSeconds;
+            o.department = department;
+            o.displayName = displayName;
+            o.division = division;
+            o.email = email;
+            o.employeeNumber = employeeNumber;
+            o.firstName = firstName;
+            o.groupMemberships = groupMemberships;
+            o.honorificPrefix = honorificPrefix;
+            o.honorificSuffix = honorificSuffix;
+            o.id = id;
+            o.lastName = lastName;
+            o.locale = locale;
+            o.login = login;
+            o.manager = manager;
+            o.managerId = managerId;
+            o.middleName = middleName;
+            o.mobilePhone = mobilePhone;
+            o.nickName = nickName;
+            o.organization = organization;
+            o.postalAddress = postalAddress;
+            o.preferredLanguage = preferredLanguage;
+            o.primaryPhone = primaryPhone;
+            o.profileUrl = profileUrl;
+            o.searches = searches;
+            o.secondEmail = secondEmail;
+            o.skipGroups = skipGroups;
+            o.skipRoles = skipRoles;
+            o.state = state;
+            o.status = status;
+            o.streetAddress = streetAddress;
+            o.timezone = timezone;
+            o.title = title;
+            o.userId = userId;
+            o.userType = userType;
+            o.zipCode = zipCode;
+            return o;
         }
     }
 }

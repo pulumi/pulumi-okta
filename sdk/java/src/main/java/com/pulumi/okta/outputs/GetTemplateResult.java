@@ -9,31 +9,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTemplateResult {
-    private final String brandId;
+    private String brandId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Link relations for this object - JSON HAL - Discoverable resources related to the email template
      * 
      */
-    private final String links;
-    private final String name;
+    private String links;
+    private String name;
 
-    @CustomType.Constructor
-    private GetTemplateResult(
-        @CustomType.Parameter("brandId") String brandId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("links") String links,
-        @CustomType.Parameter("name") String name) {
-        this.brandId = brandId;
-        this.id = id;
-        this.links = links;
-        this.name = name;
-    }
-
+    private GetTemplateResult() {}
     public String brandId() {
         return this.brandId;
     }
@@ -62,17 +51,13 @@ public final class GetTemplateResult {
     public static Builder builder(GetTemplateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String brandId;
         private String id;
         private String links;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTemplateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.brandId = defaults.brandId;
@@ -81,23 +66,33 @@ public final class GetTemplateResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder brandId(String brandId) {
             this.brandId = Objects.requireNonNull(brandId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder links(String links) {
             this.links = Objects.requireNonNull(links);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetTemplateResult build() {
-            return new GetTemplateResult(brandId, id, links, name);
+        }
+        public GetTemplateResult build() {
+            final var o = new GetTemplateResult();
+            o.brandId = brandId;
+            o.id = id;
+            o.links = links;
+            o.name = name;
+            return o;
         }
     }
 }

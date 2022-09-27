@@ -11,20 +11,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MfaPolicyRuleAppInclude {
-    private final @Nullable String id;
-    private final @Nullable String name;
-    private final String type;
+    private @Nullable String id;
+    private @Nullable String name;
+    private String type;
 
-    @CustomType.Constructor
-    private MfaPolicyRuleAppInclude(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-    }
-
+    private MfaPolicyRuleAppInclude() {}
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -42,16 +33,12 @@ public final class MfaPolicyRuleAppInclude {
     public static Builder builder(MfaPolicyRuleAppInclude defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MfaPolicyRuleAppInclude defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -59,19 +46,27 @@ public final class MfaPolicyRuleAppInclude {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public MfaPolicyRuleAppInclude build() {
-            return new MfaPolicyRuleAppInclude(id, name, type);
+        }
+        public MfaPolicyRuleAppInclude build() {
+            final var o = new MfaPolicyRuleAppInclude();
+            o.id = id;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

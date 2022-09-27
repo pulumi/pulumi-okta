@@ -13,28 +13,19 @@ public final class EmailTranslation {
      * @return The language to map the template to.
      * 
      */
-    private final String language;
+    private String language;
     /**
      * @return The email subject line.
      * 
      */
-    private final String subject;
+    private String subject;
     /**
      * @return The email body.
      * 
      */
-    private final String template;
+    private String template;
 
-    @CustomType.Constructor
-    private EmailTranslation(
-        @CustomType.Parameter("language") String language,
-        @CustomType.Parameter("subject") String subject,
-        @CustomType.Parameter("template") String template) {
-        this.language = language;
-        this.subject = subject;
-        this.template = template;
-    }
-
+    private EmailTranslation() {}
     /**
      * @return The language to map the template to.
      * 
@@ -64,16 +55,12 @@ public final class EmailTranslation {
     public static Builder builder(EmailTranslation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String language;
         private String subject;
         private String template;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EmailTranslation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.language = defaults.language;
@@ -81,19 +68,27 @@ public final class EmailTranslation {
     	      this.template = defaults.template;
         }
 
+        @CustomType.Setter
         public Builder language(String language) {
             this.language = Objects.requireNonNull(language);
             return this;
         }
+        @CustomType.Setter
         public Builder subject(String subject) {
             this.subject = Objects.requireNonNull(subject);
             return this;
         }
+        @CustomType.Setter
         public Builder template(String template) {
             this.template = Objects.requireNonNull(template);
             return this;
-        }        public EmailTranslation build() {
-            return new EmailTranslation(language, subject, template);
+        }
+        public EmailTranslation build() {
+            final var o = new EmailTranslation();
+            o.language = language;
+            o.subject = subject;
+            o.template = template;
+            return o;
         }
     }
 }

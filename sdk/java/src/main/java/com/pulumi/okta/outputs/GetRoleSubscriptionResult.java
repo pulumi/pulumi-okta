@@ -13,27 +13,16 @@ public final class GetRoleSubscriptionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String notificationType;
-    private final String roleType;
+    private String id;
+    private String notificationType;
+    private String roleType;
     /**
      * @return Subscription status.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private GetRoleSubscriptionResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("notificationType") String notificationType,
-        @CustomType.Parameter("roleType") String roleType,
-        @CustomType.Parameter("status") String status) {
-        this.id = id;
-        this.notificationType = notificationType;
-        this.roleType = roleType;
-        this.status = status;
-    }
-
+    private GetRoleSubscriptionResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -62,17 +51,13 @@ public final class GetRoleSubscriptionResult {
     public static Builder builder(GetRoleSubscriptionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String notificationType;
         private String roleType;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRoleSubscriptionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -81,23 +66,33 @@ public final class GetRoleSubscriptionResult {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder notificationType(String notificationType) {
             this.notificationType = Objects.requireNonNull(notificationType);
             return this;
         }
+        @CustomType.Setter
         public Builder roleType(String roleType) {
             this.roleType = Objects.requireNonNull(roleType);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public GetRoleSubscriptionResult build() {
-            return new GetRoleSubscriptionResult(id, notificationType, roleType, status);
+        }
+        public GetRoleSubscriptionResult build() {
+            final var o = new GetRoleSubscriptionResult();
+            o.id = id;
+            o.notificationType = notificationType;
+            o.roleType = roleType;
+            o.status = status;
+            return o;
         }
     }
 }

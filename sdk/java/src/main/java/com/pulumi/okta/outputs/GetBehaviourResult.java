@@ -16,42 +16,29 @@ public final class GetBehaviourResult {
      * @return Behavior ID.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Behavior name.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Map of behavior settings.
      * 
      */
-    private final Map<String,String> settings;
+    private Map<String,String> settings;
     /**
      * @return Behavior status.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Behavior type.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetBehaviourResult(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("settings") Map<String,String> settings,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.name = name;
-        this.settings = settings;
-        this.status = status;
-        this.type = type;
-    }
-
+    private GetBehaviourResult() {}
     /**
      * @return Behavior ID.
      * 
@@ -95,18 +82,14 @@ public final class GetBehaviourResult {
     public static Builder builder(GetBehaviourResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
         private Map<String,String> settings;
         private String status;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBehaviourResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -116,27 +99,39 @@ public final class GetBehaviourResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder settings(Map<String,String> settings) {
             this.settings = Objects.requireNonNull(settings);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetBehaviourResult build() {
-            return new GetBehaviourResult(id, name, settings, status, type);
+        }
+        public GetBehaviourResult build() {
+            final var o = new GetBehaviourResult();
+            o.id = id;
+            o.name = name;
+            o.settings = settings;
+            o.status = status;
+            o.type = type;
+            return o;
         }
     }
 }
