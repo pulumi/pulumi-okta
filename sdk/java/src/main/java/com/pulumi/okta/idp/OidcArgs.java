@@ -184,14 +184,14 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+     * Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+     * @return Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
      * 
      */
     public Optional<Output<String>> issuerMode() {
@@ -807,7 +807,7 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
          * 
          * @return builder
          * 
@@ -818,7 +818,7 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
          * 
          * @return builder
          * 

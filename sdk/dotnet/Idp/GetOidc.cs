@@ -132,7 +132,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
+        /// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic.
         /// </summary>
         public readonly string IssuerMode;
         /// <summary>

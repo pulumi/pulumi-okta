@@ -276,21 +276,6 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * features enabled. Notice: you can&#39;t currently configure provisioning features via the API.
-     * 
-     */
-    @Import(name="features")
-    private @Nullable Output<List<String>> features;
-
-    /**
-     * @return features enabled. Notice: you can&#39;t currently configure provisioning features via the API.
-     * 
-     */
-    public Optional<Output<List<String>>> features() {
-        return Optional.ofNullable(this.features);
-    }
-
-    /**
      * Groups associated with the application.
      * 
      * @deprecated
@@ -810,7 +795,6 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         this.destination = $.destination;
         this.digestAlgorithm = $.digestAlgorithm;
         this.enduserNote = $.enduserNote;
-        this.features = $.features;
         this.groups = $.groups;
         this.hideIos = $.hideIos;
         this.hideWeb = $.hideWeb;
@@ -1238,37 +1222,6 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enduserNote(String enduserNote) {
             return enduserNote(Output.of(enduserNote));
-        }
-
-        /**
-         * @param features features enabled. Notice: you can&#39;t currently configure provisioning features via the API.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder features(@Nullable Output<List<String>> features) {
-            $.features = features;
-            return this;
-        }
-
-        /**
-         * @param features features enabled. Notice: you can&#39;t currently configure provisioning features via the API.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder features(List<String> features) {
-            return features(Output.of(features));
-        }
-
-        /**
-         * @param features features enabled. Notice: you can&#39;t currently configure provisioning features via the API.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder features(String... features) {
-            return features(List.of(features));
         }
 
         /**

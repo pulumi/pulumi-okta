@@ -406,14 +406,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of Social IdP. It can be `&#34;FACEBOOK&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;GOOGLE&#34;` or `&#34;APPLE&#34;`.
+     * The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of Social IdP. It can be `&#34;FACEBOOK&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;GOOGLE&#34;` or `&#34;APPLE&#34;`.
+     * @return The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     public Output<String> type() {
@@ -1063,7 +1063,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of Social IdP. It can be `&#34;FACEBOOK&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;GOOGLE&#34;` or `&#34;APPLE&#34;`.
+         * @param type The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
          * 
          * @return builder
          * 
@@ -1074,7 +1074,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of Social IdP. It can be `&#34;FACEBOOK&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;GOOGLE&#34;` or `&#34;APPLE&#34;`.
+         * @param type The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
          * 
          * @return builder
          * 

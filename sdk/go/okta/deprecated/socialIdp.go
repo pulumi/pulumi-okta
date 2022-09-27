@@ -51,8 +51,9 @@ type SocialIdp struct {
 	SuspendedAction       pulumi.StringPtrOutput   `pulumi:"suspendedAction"`
 	TokenBinding          pulumi.StringOutput      `pulumi:"tokenBinding"`
 	TokenUrl              pulumi.StringOutput      `pulumi:"tokenUrl"`
-	Type                  pulumi.StringOutput      `pulumi:"type"`
-	UsernameTemplate      pulumi.StringPtrOutput   `pulumi:"usernameTemplate"`
+	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+	Type             pulumi.StringOutput    `pulumi:"type"`
+	UsernameTemplate pulumi.StringPtrOutput `pulumi:"usernameTemplate"`
 }
 
 // NewSocialIdp registers a new resource with the given unique name, arguments, and options.
@@ -126,8 +127,9 @@ type socialIdpState struct {
 	SuspendedAction       *string  `pulumi:"suspendedAction"`
 	TokenBinding          *string  `pulumi:"tokenBinding"`
 	TokenUrl              *string  `pulumi:"tokenUrl"`
-	Type                  *string  `pulumi:"type"`
-	UsernameTemplate      *string  `pulumi:"usernameTemplate"`
+	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+	Type             *string `pulumi:"type"`
+	UsernameTemplate *string `pulumi:"usernameTemplate"`
 }
 
 type SocialIdpState struct {
@@ -167,8 +169,9 @@ type SocialIdpState struct {
 	SuspendedAction       pulumi.StringPtrInput
 	TokenBinding          pulumi.StringPtrInput
 	TokenUrl              pulumi.StringPtrInput
-	Type                  pulumi.StringPtrInput
-	UsernameTemplate      pulumi.StringPtrInput
+	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+	Type             pulumi.StringPtrInput
+	UsernameTemplate pulumi.StringPtrInput
 }
 
 func (SocialIdpState) ElementType() reflect.Type {
@@ -208,8 +211,9 @@ type socialIdpArgs struct {
 	SubjectMatchAttribute *string  `pulumi:"subjectMatchAttribute"`
 	SubjectMatchType      *string  `pulumi:"subjectMatchType"`
 	SuspendedAction       *string  `pulumi:"suspendedAction"`
-	Type                  string   `pulumi:"type"`
-	UsernameTemplate      *string  `pulumi:"usernameTemplate"`
+	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+	Type             string  `pulumi:"type"`
+	UsernameTemplate *string `pulumi:"usernameTemplate"`
 }
 
 // The set of arguments for constructing a SocialIdp resource.
@@ -246,8 +250,9 @@ type SocialIdpArgs struct {
 	SubjectMatchAttribute pulumi.StringPtrInput
 	SubjectMatchType      pulumi.StringPtrInput
 	SuspendedAction       pulumi.StringPtrInput
-	Type                  pulumi.StringInput
-	UsernameTemplate      pulumi.StringPtrInput
+	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+	Type             pulumi.StringInput
+	UsernameTemplate pulumi.StringPtrInput
 }
 
 func (SocialIdpArgs) ElementType() reflect.Type {
@@ -460,6 +465,7 @@ func (o SocialIdpOutput) TokenUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *SocialIdp) pulumi.StringOutput { return v.TokenUrl }).(pulumi.StringOutput)
 }
 
+// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
 func (o SocialIdpOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *SocialIdp) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -530,12 +530,6 @@ class Theme(pulumi.CustomResource):
                  theme_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to get and update an Okta
-        [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-object).
-
-        Themes can only be updated through the Okta API. Therefore this resource only
-        gets and updates a theme.
-
         ## Import
 
         An Okta Brand can be imported via the ID.
@@ -568,12 +562,6 @@ class Theme(pulumi.CustomResource):
                  args: ThemeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to get and update an Okta
-        [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-object).
-
-        Themes can only be updated through the Okta API. Therefore this resource only
-        gets and updates a theme.
-
         ## Import
 
         An Okta Brand can be imported via the ID.

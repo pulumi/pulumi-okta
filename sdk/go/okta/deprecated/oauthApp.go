@@ -90,6 +90,9 @@ type OauthApp struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+	// `native` application types.
+	PkceRequired pulumi.BoolPtrOutput `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrOutput `pulumi:"policyUri"`
 	// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
@@ -246,6 +249,9 @@ type oauthAppState struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret *bool `pulumi:"omitSecret"`
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+	// `native` application types.
+	PkceRequired *bool `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
 	// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
@@ -368,6 +374,9 @@ type OauthAppState struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret pulumi.BoolPtrInput
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+	// `native` application types.
+	PkceRequired pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
 	// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
@@ -488,6 +497,9 @@ type oauthAppArgs struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret *bool `pulumi:"omitSecret"`
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+	// `native` application types.
+	PkceRequired *bool `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
 	// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
@@ -603,6 +615,9 @@ type OauthAppArgs struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret pulumi.BoolPtrInput
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+	// `native` application types.
+	PkceRequired pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
 	// List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
@@ -906,6 +921,12 @@ func (o OauthAppOutput) Name() pulumi.StringOutput {
 // your app will be recreated.
 func (o OauthAppOutput) OmitSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OauthApp) pulumi.BoolPtrOutput { return v.OmitSecret }).(pulumi.BoolPtrOutput)
+}
+
+// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+// `native` application types.
+func (o OauthAppOutput) PkceRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OauthApp) pulumi.BoolPtrOutput { return v.PkceRequired }).(pulumi.BoolPtrOutput)
 }
 
 // URI to web page providing client policy document.

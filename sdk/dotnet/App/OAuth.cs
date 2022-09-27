@@ -149,7 +149,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AuthenticationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Requested key rotation mode.
+        /// Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Output("autoKeyRotation")]
         public Output<bool?> AutoKeyRotation { get; private set; } = null!;
@@ -167,13 +167,13 @@ namespace Pulumi.Okta.App
         public Output<string?> ClientBasicSecret { get; private set; } = null!;
 
         /// <summary>
-        /// OAuth client ID. If set during creation, app is created with this id.
+        /// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// The client secret of the application.
+        /// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Output("clientSecret")]
         public Output<string> ClientSecret { get; private set; } = null!;
@@ -311,6 +311,12 @@ namespace Pulumi.Okta.App
         public Output<bool?> OmitSecret { get; private set; } = null!;
 
         /// <summary>
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// </summary>
+        [Output("pkceRequired")]
+        public Output<bool?> PkceRequired { get; private set; } = null!;
+
+        /// <summary>
         /// URI to web page providing client policy document.
         /// </summary>
         [Output("policyUri")]
@@ -377,7 +383,7 @@ namespace Pulumi.Okta.App
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
+        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Output("tokenEndpointAuthMethod")]
         public Output<string?> TokenEndpointAuthMethod { get; private set; } = null!;
@@ -520,7 +526,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
-        /// Requested key rotation mode.
+        /// Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Input("autoKeyRotation")]
         public Input<bool>? AutoKeyRotation { get; set; }
@@ -538,7 +544,7 @@ namespace Pulumi.Okta.App
         public Input<string>? ClientBasicSecret { get; set; }
 
         /// <summary>
-        /// OAuth client ID. If set during creation, app is created with this id.
+        /// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -689,6 +695,12 @@ namespace Pulumi.Okta.App
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// </summary>
+        [Input("pkceRequired")]
+        public Input<bool>? PkceRequired { get; set; }
+
+        /// <summary>
         /// URI to web page providing client policy document.
         /// </summary>
         [Input("policyUri")]
@@ -767,7 +779,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
+        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Input("tokenEndpointAuthMethod")]
         public Input<string>? TokenEndpointAuthMethod { get; set; }
@@ -879,7 +891,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
-        /// Requested key rotation mode.
+        /// Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Input("autoKeyRotation")]
         public Input<bool>? AutoKeyRotation { get; set; }
@@ -897,13 +909,13 @@ namespace Pulumi.Okta.App
         public Input<string>? ClientBasicSecret { get; set; }
 
         /// <summary>
-        /// OAuth client ID. If set during creation, app is created with this id.
+        /// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// The client secret of the application.
+        /// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
@@ -1066,6 +1078,12 @@ namespace Pulumi.Okta.App
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// </summary>
+        [Input("pkceRequired")]
+        public Input<bool>? PkceRequired { get; set; }
+
+        /// <summary>
         /// URI to web page providing client policy document.
         /// </summary>
         [Input("policyUri")]
@@ -1150,7 +1168,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`.
+        /// Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Input("tokenEndpointAuthMethod")]
         public Input<string>? TokenEndpointAuthMethod { get; set; }

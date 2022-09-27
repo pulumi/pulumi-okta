@@ -177,6 +177,11 @@ export class OauthApp extends pulumi.CustomResource {
      */
     public readonly omitSecret!: pulumi.Output<boolean | undefined>;
     /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+     * `native` application types.
+     */
+    public readonly pkceRequired!: pulumi.Output<boolean | undefined>;
+    /**
      * URI to web page providing client policy document.
      */
     public readonly policyUri!: pulumi.Output<string | undefined>;
@@ -310,6 +315,7 @@ export class OauthApp extends pulumi.CustomResource {
             resourceInputs["logoUrl"] = state ? state.logoUrl : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["omitSecret"] = state ? state.omitSecret : undefined;
+            resourceInputs["pkceRequired"] = state ? state.pkceRequired : undefined;
             resourceInputs["policyUri"] = state ? state.policyUri : undefined;
             resourceInputs["postLogoutRedirectUris"] = state ? state.postLogoutRedirectUris : undefined;
             resourceInputs["profile"] = state ? state.profile : undefined;
@@ -368,6 +374,7 @@ export class OauthApp extends pulumi.CustomResource {
             resourceInputs["logo"] = args ? args.logo : undefined;
             resourceInputs["logoUri"] = args ? args.logoUri : undefined;
             resourceInputs["omitSecret"] = args ? args.omitSecret : undefined;
+            resourceInputs["pkceRequired"] = args ? args.pkceRequired : undefined;
             resourceInputs["policyUri"] = args ? args.policyUri : undefined;
             resourceInputs["postLogoutRedirectUris"] = args ? args.postLogoutRedirectUris : undefined;
             resourceInputs["profile"] = args ? args.profile : undefined;
@@ -540,6 +547,11 @@ export interface OauthAppState {
      * your app will be recreated.
      */
     omitSecret?: pulumi.Input<boolean>;
+    /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+     * `native` application types.
+     */
+    pkceRequired?: pulumi.Input<boolean>;
     /**
      * URI to web page providing client policy document.
      */
@@ -757,6 +769,11 @@ export interface OauthAppArgs {
      * your app will be recreated.
      */
     omitSecret?: pulumi.Input<boolean>;
+    /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+     * `native` application types.
+     */
+    pkceRequired?: pulumi.Input<boolean>;
     /**
      * URI to web page providing client policy document.
      */

@@ -251,9 +251,17 @@ public class SocialIdp extends com.pulumi.resources.CustomResource {
     public Output<String> tokenUrl() {
         return this.tokenUrl;
     }
+    /**
+     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * 
+     */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
+    /**
+     * @return Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }

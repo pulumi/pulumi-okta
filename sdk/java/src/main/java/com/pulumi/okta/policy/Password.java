@@ -67,420 +67,420 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:policy/password:Password")
 public class Password extends com.pulumi.resources.CustomResource {
     /**
-     * Authentication Provider: `&#34;OKTA&#34;`, `&#34;ACTIVE_DIRECTORY&#34;` or `&#34;LDAP&#34;`. Default is `&#34;OKTA&#34;`.
+     * Authentication Provider: `&#34;OKTA&#34;`, `&#34;ACTIVE_DIRECTORY&#34;` or `&#34;LDAP&#34;`. Default is `&#34;OKTA&#34;`. Type `&#34;string&#34;`
      * 
      */
     @Export(name="authProvider", type=String.class, parameters={})
     private Output</* @Nullable */ String> authProvider;
 
     /**
-     * @return Authentication Provider: `&#34;OKTA&#34;`, `&#34;ACTIVE_DIRECTORY&#34;` or `&#34;LDAP&#34;`. Default is `&#34;OKTA&#34;`.
+     * @return Authentication Provider: `&#34;OKTA&#34;`, `&#34;ACTIVE_DIRECTORY&#34;` or `&#34;LDAP&#34;`. Default is `&#34;OKTA&#34;`. Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> authProvider() {
         return Codegen.optional(this.authProvider);
     }
     /**
-     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `&#34;string&#34;`
      * 
      */
     @Export(name="callRecovery", type=String.class, parameters={})
     private Output</* @Nullable */ String> callRecovery;
 
     /**
-     * @return Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+     * @return Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> callRecovery() {
         return Codegen.optional(this.callRecovery);
     }
     /**
-     * Policy Description.
+     * Policy Description. Type `&#34;string&#34;`
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Policy Description.
+     * @return Policy Description. Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Enable or disable email password recovery: ACTIVE or INACTIVE.
+     * Enable or disable email password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
      * 
      */
     @Export(name="emailRecovery", type=String.class, parameters={})
     private Output</* @Nullable */ String> emailRecovery;
 
     /**
-     * @return Enable or disable email password recovery: ACTIVE or INACTIVE.
+     * @return Enable or disable email password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> emailRecovery() {
         return Codegen.optional(this.emailRecovery);
     }
     /**
-     * List of Group IDs to Include.
+     * List of Group IDs to Include. Type `&#34;list(string)&#34;`
      * 
      */
     @Export(name="groupsIncludeds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> groupsIncludeds;
 
     /**
-     * @return List of Group IDs to Include.
+     * @return List of Group IDs to Include. Type `&#34;list(string)&#34;`
      * 
      */
     public Output<Optional<List<String>>> groupsIncludeds() {
         return Codegen.optional(this.groupsIncludeds);
     }
     /**
-     * Policy Name.
+     * Policy Name. Type `&#34;string&#34;`
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Policy Name.
+     * @return Policy Name. Type `&#34;string&#34;`
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Number of minutes before a locked account is unlocked: 0 = no limit.
+     * Number of minutes before a locked account is unlocked: 0 = no limit.  Type `&#34;number&#34;`
      * 
      */
     @Export(name="passwordAutoUnlockMinutes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> passwordAutoUnlockMinutes;
 
     /**
-     * @return Number of minutes before a locked account is unlocked: 0 = no limit.
+     * @return Number of minutes before a locked account is unlocked: 0 = no limit.  Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> passwordAutoUnlockMinutes() {
         return Codegen.optional(this.passwordAutoUnlockMinutes);
     }
     /**
-     * Check Passwords Against Common Password Dictionary.
+     * Check Passwords Against Common Password Dictionary. Type `&#34;bool&#34;`
      * 
      */
     @Export(name="passwordDictionaryLookup", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> passwordDictionaryLookup;
 
     /**
-     * @return Check Passwords Against Common Password Dictionary.
+     * @return Check Passwords Against Common Password Dictionary. Type `&#34;bool&#34;`
      * 
      */
     public Output<Optional<Boolean>> passwordDictionaryLookup() {
         return Codegen.optional(this.passwordDictionaryLookup);
     }
     /**
-     * User firstName attribute must be excluded from the password.
+     * User firstName attribute must be excluded from the password. Type `&#34;bool&#34;`
      * 
      */
     @Export(name="passwordExcludeFirstName", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> passwordExcludeFirstName;
 
     /**
-     * @return User firstName attribute must be excluded from the password.
+     * @return User firstName attribute must be excluded from the password. Type `&#34;bool&#34;`
      * 
      */
     public Output<Optional<Boolean>> passwordExcludeFirstName() {
         return Codegen.optional(this.passwordExcludeFirstName);
     }
     /**
-     * User lastName attribute must be excluded from the password.
+     * User lastName attribute must be excluded from the password. Type `&#34;bool&#34;`
      * 
      */
     @Export(name="passwordExcludeLastName", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> passwordExcludeLastName;
 
     /**
-     * @return User lastName attribute must be excluded from the password.
+     * @return User lastName attribute must be excluded from the password. Type `&#34;bool&#34;`
      * 
      */
     public Output<Optional<Boolean>> passwordExcludeLastName() {
         return Codegen.optional(this.passwordExcludeLastName);
     }
     /**
-     * If the username must be excluded from the password.
+     * If the username must be excluded from the password. Type `&#34;bool&#34;`
      * 
      */
     @Export(name="passwordExcludeUsername", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> passwordExcludeUsername;
 
     /**
-     * @return If the username must be excluded from the password.
+     * @return If the username must be excluded from the password. Type `&#34;bool&#34;`
      * 
      */
     public Output<Optional<Boolean>> passwordExcludeUsername() {
         return Codegen.optional(this.passwordExcludeUsername);
     }
     /**
-     * Length in days a user will be warned before password expiry: 0 = no warning.
+     * Length in days a user will be warned before password expiry: 0 = no warning.  Type `&#34;number&#34;`
      * 
      */
     @Export(name="passwordExpireWarnDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> passwordExpireWarnDays;
 
     /**
-     * @return Length in days a user will be warned before password expiry: 0 = no warning.
+     * @return Length in days a user will be warned before password expiry: 0 = no warning.  Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> passwordExpireWarnDays() {
         return Codegen.optional(this.passwordExpireWarnDays);
     }
     /**
-     * Number of distinct passwords that must be created before they can be reused: 0 = none.
+     * Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `&#34;number&#34;`
      * 
      */
     @Export(name="passwordHistoryCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> passwordHistoryCount;
 
     /**
-     * @return Number of distinct passwords that must be created before they can be reused: 0 = none.
+     * @return Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> passwordHistoryCount() {
         return Codegen.optional(this.passwordHistoryCount);
     }
     /**
-     * Notification channels to use to notify a user when their account has been locked.
+     * Notification channels to use to notify a user when their account has been locked. Type `&#34;set(string)&#34;`
      * 
      */
     @Export(name="passwordLockoutNotificationChannels", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> passwordLockoutNotificationChannels;
 
     /**
-     * @return Notification channels to use to notify a user when their account has been locked.
+     * @return Notification channels to use to notify a user when their account has been locked. Type `&#34;set(string)&#34;`
      * 
      */
     public Output<Optional<List<String>>> passwordLockoutNotificationChannels() {
         return Codegen.optional(this.passwordLockoutNotificationChannels);
     }
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.,
+     * Length in days a password is valid before expiry: 0 = no limit.  Type `&#34;number&#34;`
      * 
      */
     @Export(name="passwordMaxAgeDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> passwordMaxAgeDays;
 
     /**
-     * @return Length in days a password is valid before expiry: 0 = no limit.,
+     * @return Length in days a password is valid before expiry: 0 = no limit.  Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> passwordMaxAgeDays() {
         return Codegen.optional(this.passwordMaxAgeDays);
     }
     /**
-     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `&#34;number&#34;`
      * 
      */
     @Export(name="passwordMaxLockoutAttempts", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> passwordMaxLockoutAttempts;
 
     /**
-     * @return Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+     * @return Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> passwordMaxLockoutAttempts() {
         return Codegen.optional(this.passwordMaxLockoutAttempts);
     }
     /**
-     * Minimum time interval in minutes between password changes: 0 = no limit.
+     * Minimum time interval in minutes between password changes: 0 = no limit.  Type `&#34;number&#34;`
      * 
      */
     @Export(name="passwordMinAgeMinutes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> passwordMinAgeMinutes;
 
     /**
-     * @return Minimum time interval in minutes between password changes: 0 = no limit.
+     * @return Minimum time interval in minutes between password changes: 0 = no limit.  Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> passwordMinAgeMinutes() {
         return Codegen.optional(this.passwordMinAgeMinutes);
     }
     /**
-     * Minimum password length. Default is 8.
+     * Minimum password length. Default is 8. Type `&#34;number&#34;`
      * 
      */
     @Export(name="passwordMinLength", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> passwordMinLength;
 
     /**
-     * @return Minimum password length. Default is 8.
+     * @return Minimum password length. Default is 8. Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> passwordMinLength() {
         return Codegen.optional(this.passwordMinLength);
     }
     /**
-     * Minimum number of lower case characters in a password.
+     * Minimum number of lower case characters in a password. Type `&#34;number&#34;`
      * 
      */
     @Export(name="passwordMinLowercase", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> passwordMinLowercase;
 
     /**
-     * @return Minimum number of lower case characters in a password.
+     * @return Minimum number of lower case characters in a password. Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> passwordMinLowercase() {
         return Codegen.optional(this.passwordMinLowercase);
     }
     /**
-     * Minimum number of numbers in a password.
+     * Minimum number of numbers in a password. Type `&#34;number&#34;`
      * 
      */
     @Export(name="passwordMinNumber", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> passwordMinNumber;
 
     /**
-     * @return Minimum number of numbers in a password.
+     * @return Minimum number of numbers in a password. Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> passwordMinNumber() {
         return Codegen.optional(this.passwordMinNumber);
     }
     /**
-     * Minimum number of symbols in a password.
+     * Minimum number of symbols in a password. Type `&#34;number&#34;`
      * 
      */
     @Export(name="passwordMinSymbol", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> passwordMinSymbol;
 
     /**
-     * @return Minimum number of symbols in a password.
+     * @return Minimum number of symbols in a password. Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> passwordMinSymbol() {
         return Codegen.optional(this.passwordMinSymbol);
     }
     /**
-     * Minimum number of upper case characters in a password.
+     * Minimum number of upper case characters in a password. Type `&#34;number&#34;`
      * 
      */
     @Export(name="passwordMinUppercase", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> passwordMinUppercase;
 
     /**
-     * @return Minimum number of upper case characters in a password.
+     * @return Minimum number of upper case characters in a password. Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> passwordMinUppercase() {
         return Codegen.optional(this.passwordMinUppercase);
     }
     /**
-     * If a user should be informed when their account is locked.
+     * If a user should be informed when their account is locked.  Type `&#34;bool&#34;`
      * 
      */
     @Export(name="passwordShowLockoutFailures", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> passwordShowLockoutFailures;
 
     /**
-     * @return If a user should be informed when their account is locked.
+     * @return If a user should be informed when their account is locked.  Type `&#34;bool&#34;`
      * 
      */
     public Output<Optional<Boolean>> passwordShowLockoutFailures() {
         return Codegen.optional(this.passwordShowLockoutFailures);
     }
     /**
-     * Priority of the policy.
+     * Priority of the policy. Type `&#34;number&#34;`
      * 
      */
     @Export(name="priority", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> priority;
 
     /**
-     * @return Priority of the policy.
+     * @return Priority of the policy. Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> priority() {
         return Codegen.optional(this.priority);
     }
     /**
-     * Min length of the password recovery question answer.
+     * Min length of the password recovery question answer.  Type `&#34;number&#34;`
      * 
      */
     @Export(name="questionMinLength", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> questionMinLength;
 
     /**
-     * @return Min length of the password recovery question answer.
+     * @return Min length of the password recovery question answer.  Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> questionMinLength() {
         return Codegen.optional(this.questionMinLength);
     }
     /**
-     * Enable or disable security question password recovery: ACTIVE or INACTIVE.
+     * Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
      * 
      */
     @Export(name="questionRecovery", type=String.class, parameters={})
     private Output</* @Nullable */ String> questionRecovery;
 
     /**
-     * @return Enable or disable security question password recovery: ACTIVE or INACTIVE.
+     * @return Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> questionRecovery() {
         return Codegen.optional(this.questionRecovery);
     }
     /**
-     * Lifetime in minutes of the recovery email token.
+     * Lifetime in minutes of the recovery email token.  Type `&#34;number&#34;`
      * 
      */
     @Export(name="recoveryEmailToken", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> recoveryEmailToken;
 
     /**
-     * @return Lifetime in minutes of the recovery email token.
+     * @return Lifetime in minutes of the recovery email token.  Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> recoveryEmailToken() {
         return Codegen.optional(this.recoveryEmailToken);
     }
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account.
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Type `&#34;bool&#34;`
      * 
      */
     @Export(name="skipUnlock", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> skipUnlock;
 
     /**
-     * @return When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account.
+     * @return When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Type `&#34;bool&#34;`
      * 
      */
     public Output<Optional<Boolean>> skipUnlock() {
         return Codegen.optional(this.skipUnlock);
     }
     /**
-     * Enable or disable SMS password recovery: ACTIVE or INACTIVE.
+     * Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
      * 
      */
     @Export(name="smsRecovery", type=String.class, parameters={})
     private Output</* @Nullable */ String> smsRecovery;
 
     /**
-     * @return Enable or disable SMS password recovery: ACTIVE or INACTIVE.
+     * @return Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> smsRecovery() {
         return Codegen.optional(this.smsRecovery);
     }
     /**
-     * Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
      * 
      */
     @Export(name="status", type=String.class, parameters={})
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * @return Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> status() {

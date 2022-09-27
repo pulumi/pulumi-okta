@@ -115,6 +115,9 @@ namespace Pulumi.Okta.Deprecated
         [Output("tokenUrl")]
         public Output<string> TokenUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -277,6 +280,9 @@ namespace Pulumi.Okta.Deprecated
         [Input("suspendedAction")]
         public Input<string>? SuspendedAction { get; set; }
 
+        /// <summary>
+        /// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -413,6 +419,9 @@ namespace Pulumi.Okta.Deprecated
         [Input("tokenUrl")]
         public Input<string>? TokenUrl { get; set; }
 
+        /// <summary>
+        /// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

@@ -21,7 +21,7 @@ class GetOauthResult:
     """
     A collection of values returned by getOauth.
     """
-    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_uri=None, grant_types=None, groups=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, skip_groups=None, skip_users=None, status=None, type=None, users=None, wildcard_redirect=None):
+    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_secret=None, client_uri=None, grant_types=None, groups=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, skip_groups=None, skip_users=None, status=None, type=None, users=None, wildcard_redirect=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
@@ -31,6 +31,9 @@ class GetOauthResult:
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
+        if client_secret and not isinstance(client_secret, str):
+            raise TypeError("Expected argument 'client_secret' to be a str")
+        pulumi.set(__self__, "client_secret", client_secret)
         if client_uri and not isinstance(client_uri, str):
             raise TypeError("Expected argument 'client_uri' to be a str")
         pulumi.set(__self__, "client_uri", client_uri)
@@ -132,6 +135,14 @@ class GetOauthResult:
         OAuth client ID. If set during creation, app is created with this id.
         """
         return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> str:
+        """
+        The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        """
+        return pulumi.get(self, "client_secret")
 
     @property
     @pulumi.getter(name="clientUri")
@@ -325,6 +336,7 @@ class AwaitableGetOauthResult(GetOauthResult):
             active_only=self.active_only,
             auto_submit_toolbar=self.auto_submit_toolbar,
             client_id=self.client_id,
+            client_secret=self.client_secret,
             client_uri=self.client_uri,
             grant_types=self.grant_types,
             groups=self.groups,
@@ -373,9 +385,13 @@ def get_oauth(active_only: Optional[bool] = None,
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
-    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-           the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-           and `label`. This is used to avoid paginating through all applications.
+    :param str label: The label of the app to retrieve, conflicts with
+           `label_prefix` and `id`. Label uses the `?q=<label>` query parameter exposed by
+           Okta's List Apps API. The API will search both `name` and `label` using that
+           query. Therefore similarily named and labeled apps may be returned in the query
+           and have the unitended result of associating the wrong app with this data
+           source. See:
+           https://developer.okta.com/docs/reference/api/apps/#list-applications
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
            provider to do a `starts with` query as opposed to an `equals` query.
     :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.
@@ -395,6 +411,7 @@ def get_oauth(active_only: Optional[bool] = None,
         active_only=__ret__.active_only,
         auto_submit_toolbar=__ret__.auto_submit_toolbar,
         client_id=__ret__.client_id,
+        client_secret=__ret__.client_secret,
         client_uri=__ret__.client_uri,
         grant_types=__ret__.grant_types,
         groups=__ret__.groups,
@@ -444,9 +461,13 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
     :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
-    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-           the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-           and `label`. This is used to avoid paginating through all applications.
+    :param str label: The label of the app to retrieve, conflicts with
+           `label_prefix` and `id`. Label uses the `?q=<label>` query parameter exposed by
+           Okta's List Apps API. The API will search both `name` and `label` using that
+           query. Therefore similarily named and labeled apps may be returned in the query
+           and have the unitended result of associating the wrong app with this data
+           source. See:
+           https://developer.okta.com/docs/reference/api/apps/#list-applications
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
            provider to do a `starts with` query as opposed to an `equals` query.
     :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.

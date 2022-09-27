@@ -25,6 +25,11 @@ public final class GetOauthResult {
      */
     private String clientId;
     /**
+     * @return The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * 
+     */
+    private String clientSecret;
+    /**
      * @return URI to a web page providing information about the client.
      * 
      */
@@ -156,6 +161,13 @@ public final class GetOauthResult {
      */
     public String clientId() {
         return this.clientId;
+    }
+    /**
+     * @return The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * 
+     */
+    public String clientSecret() {
+        return this.clientSecret;
     }
     /**
      * @return URI to a web page providing information about the client.
@@ -332,6 +344,7 @@ public final class GetOauthResult {
         private @Nullable Boolean activeOnly;
         private Boolean autoSubmitToolbar;
         private String clientId;
+        private String clientSecret;
         private String clientUri;
         private List<String> grantTypes;
         private List<String> groups;
@@ -362,6 +375,7 @@ public final class GetOauthResult {
     	      this.activeOnly = defaults.activeOnly;
     	      this.autoSubmitToolbar = defaults.autoSubmitToolbar;
     	      this.clientId = defaults.clientId;
+    	      this.clientSecret = defaults.clientSecret;
     	      this.clientUri = defaults.clientUri;
     	      this.grantTypes = defaults.grantTypes;
     	      this.groups = defaults.groups;
@@ -401,6 +415,11 @@ public final class GetOauthResult {
         @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientSecret(String clientSecret) {
+            this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
         @CustomType.Setter
@@ -549,6 +568,7 @@ public final class GetOauthResult {
             o.activeOnly = activeOnly;
             o.autoSubmitToolbar = autoSubmitToolbar;
             o.clientId = clientId;
+            o.clientSecret = clientSecret;
             o.clientUri = clientUri;
             o.grantTypes = grantTypes;
             o.groups = groups;

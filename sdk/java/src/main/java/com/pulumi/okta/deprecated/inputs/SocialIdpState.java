@@ -285,9 +285,17 @@ public final class SocialIdpState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tokenUrl);
     }
 
+    /**
+     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -722,11 +730,23 @@ public final class SocialIdpState extends com.pulumi.resources.ResourceArgs {
             return tokenUrl(Output.of(tokenUrl));
         }
 
+        /**
+         * @param type Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -48,7 +48,8 @@ export class Idp extends pulumi.CustomResource {
     public readonly groupsAttribute!: pulumi.Output<string | undefined>;
     public readonly groupsFilters!: pulumi.Output<string[] | undefined>;
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+     * Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+     * attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
      */
     public readonly issuerMode!: pulumi.Output<string | undefined>;
     public readonly issuerUrl!: pulumi.Output<string>;
@@ -221,7 +222,8 @@ export interface IdpState {
     groupsAttribute?: pulumi.Input<string>;
     groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+     * Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+     * attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
      */
     issuerMode?: pulumi.Input<string>;
     issuerUrl?: pulumi.Input<string>;
@@ -273,7 +275,8 @@ export interface IdpArgs {
     groupsAttribute?: pulumi.Input<string>;
     groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+     * Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+     * attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
      */
     issuerMode?: pulumi.Input<string>;
     issuerUrl: pulumi.Input<string>;

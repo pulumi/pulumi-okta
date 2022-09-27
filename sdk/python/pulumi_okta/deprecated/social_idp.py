@@ -43,6 +43,7 @@ class SocialIdpArgs:
                  username_template: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SocialIdp resource.
+        :param pulumi.Input[str] type: Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
         :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client
         :param pulumi.Input[str] apple_private_key: The PKCS #8 encoded private key that you created for the client and downloaded from Apple
         :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
@@ -120,6 +121,9 @@ class SocialIdpArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -408,6 +412,7 @@ class _SocialIdpState:
         :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
+        :param pulumi.Input[str] type: Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
         """
         if account_link_action is not None:
             pulumi.set(__self__, "account_link_action", account_link_action)
@@ -757,6 +762,9 @@ class _SocialIdpState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -820,6 +828,7 @@ class SocialIdp(pulumi.CustomResource):
         :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
+        :param pulumi.Input[str] type: Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
         """
         ...
     @overload
@@ -975,6 +984,7 @@ class SocialIdp(pulumi.CustomResource):
         :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
+        :param pulumi.Input[str] type: Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1176,6 +1186,9 @@ class SocialIdp(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        """
         return pulumi.get(self, "type")
 
     @property

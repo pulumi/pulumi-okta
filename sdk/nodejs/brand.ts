@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to get and update an Okta [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
- *
- * Brands are can only be updated through the Okta API. Therefore this resource
- * only gets and updates a brand.
- *
  * ## Example Usage
  *
  * ```typescript

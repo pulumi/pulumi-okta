@@ -215,6 +215,13 @@ namespace Pulumi.Okta.Deprecated
         public Output<bool?> OmitSecret { get; private set; } = null!;
 
         /// <summary>
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+        /// `native` application types.
+        /// </summary>
+        [Output("pkceRequired")]
+        public Output<bool?> PkceRequired { get; private set; } = null!;
+
+        /// <summary>
         /// URI to web page providing client policy document.
         /// </summary>
         [Output("policyUri")]
@@ -590,6 +597,13 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+        /// `native` application types.
+        /// </summary>
+        [Input("pkceRequired")]
+        public Input<bool>? PkceRequired { get; set; }
+
+        /// <summary>
         /// URI to web page providing client policy document.
         /// </summary>
         [Input("policyUri")]
@@ -962,6 +976,13 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
+
+        /// <summary>
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+        /// `native` application types.
+        /// </summary>
+        [Input("pkceRequired")]
+        public Input<bool>? PkceRequired { get; set; }
 
         /// <summary>
         /// URI to web page providing client policy document.

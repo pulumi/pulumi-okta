@@ -564,6 +564,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         """
         This resource allows you to create and configure an IdP Discovery Policy Rule.
 
+        > If you receive the error `You do not have permission to access the feature
+        you are requesting` contact support and
+        request feature flag `ADVANCED_SSO` be applied to your org.
+
         ## Example Usage
 
         ```python
@@ -645,6 +649,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and configure an IdP Discovery Policy Rule.
+
+        > If you receive the error `You do not have permission to access the feature
+        you are requesting` contact support and
+        request feature flag `ADVANCED_SSO` be applied to your org.
 
         ## Example Usage
 

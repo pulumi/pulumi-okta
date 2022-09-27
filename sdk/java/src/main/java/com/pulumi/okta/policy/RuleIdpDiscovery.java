@@ -23,6 +23,10 @@ import javax.annotation.Nullable;
 /**
  * This resource allows you to create and configure an IdP Discovery Policy Rule.
  * 
+ * &gt; If you receive the error `You do not have permission to access the feature
+ * you are requesting` contact support and
+ * request feature flag `ADVANCED_SSO` be applied to your org.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

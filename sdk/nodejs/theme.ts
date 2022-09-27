@@ -5,12 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to get and update an Okta
- * [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-object).
- *
- * Themes can only be updated through the Okta API. Therefore this resource only
- * gets and updates a theme.
- *
  * ## Import
  *
  * An Okta Brand can be imported via the ID.

@@ -46,18 +46,26 @@ public final class GetOauthPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-     * the `?q=&lt;label&gt;` query parameter exposed by Okta&#39;s API. It should be noted that at this time this searches both `name`
-     * and `label`. This is used to avoid paginating through all applications.
+     * The label of the app to retrieve, conflicts with
+     * `label_prefix` and `id`. Label uses the `?q=&lt;label&gt;` query parameter exposed by
+     * Okta&#39;s List Apps API. The API will search both `name` and `label` using that
+     * query. Therefore similarily named and labeled apps may be returned in the query
+     * and have the unitended result of associating the wrong app with this data
+     * source. See:
+     * https://developer.okta.com/docs/reference/api/apps/#list-applications
      * 
      */
     @Import(name="label")
     private @Nullable String label;
 
     /**
-     * @return The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-     * the `?q=&lt;label&gt;` query parameter exposed by Okta&#39;s API. It should be noted that at this time this searches both `name`
-     * and `label`. This is used to avoid paginating through all applications.
+     * @return The label of the app to retrieve, conflicts with
+     * `label_prefix` and `id`. Label uses the `?q=&lt;label&gt;` query parameter exposed by
+     * Okta&#39;s List Apps API. The API will search both `name` and `label` using that
+     * query. Therefore similarily named and labeled apps may be returned in the query
+     * and have the unitended result of associating the wrong app with this data
+     * source. See:
+     * https://developer.okta.com/docs/reference/api/apps/#list-applications
      * 
      */
     public Optional<String> label() {
@@ -163,9 +171,13 @@ public final class GetOauthPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param label The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-         * the `?q=&lt;label&gt;` query parameter exposed by Okta&#39;s API. It should be noted that at this time this searches both `name`
-         * and `label`. This is used to avoid paginating through all applications.
+         * @param label The label of the app to retrieve, conflicts with
+         * `label_prefix` and `id`. Label uses the `?q=&lt;label&gt;` query parameter exposed by
+         * Okta&#39;s List Apps API. The API will search both `name` and `label` using that
+         * query. Therefore similarily named and labeled apps may be returned in the query
+         * and have the unitended result of associating the wrong app with this data
+         * source. See:
+         * https://developer.okta.com/docs/reference/api/apps/#list-applications
          * 
          * @return builder
          * 

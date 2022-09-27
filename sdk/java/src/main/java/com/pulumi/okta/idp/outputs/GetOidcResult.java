@@ -39,7 +39,7 @@ public final class GetOidcResult {
      */
     private @Nullable String id;
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
+     * @return Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic.
      * 
      */
     private String issuerMode;
@@ -141,7 +141,7 @@ public final class GetOidcResult {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
+     * @return Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic.
      * 
      */
     public String issuerMode() {

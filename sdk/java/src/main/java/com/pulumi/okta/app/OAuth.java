@@ -224,14 +224,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authenticationPolicy);
     }
     /**
-     * Requested key rotation mode.
+     * Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Export(name="autoKeyRotation", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoKeyRotation;
 
     /**
-     * @return Requested key rotation mode.
+     * @return Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Output<Optional<Boolean>> autoKeyRotation() {
@@ -266,28 +266,28 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientBasicSecret);
     }
     /**
-     * OAuth client ID. If set during creation, app is created with this id.
+     * OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Export(name="clientId", type=String.class, parameters={})
     private Output<String> clientId;
 
     /**
-     * @return OAuth client ID. If set during creation, app is created with this id.
+     * @return OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Output<String> clientId() {
         return this.clientId;
     }
     /**
-     * The client secret of the application.
+     * The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Export(name="clientSecret", type=String.class, parameters={})
     private Output<String> clientSecret;
 
     /**
-     * @return The client secret of the application.
+     * @return The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Output<String> clientSecret() {
@@ -608,6 +608,20 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.omitSecret);
     }
     /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * 
+     */
+    @Export(name="pkceRequired", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> pkceRequired;
+
+    /**
+     * @return Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * 
+     */
+    public Output<Optional<Boolean>> pkceRequired() {
+        return Codegen.optional(this.pkceRequired);
+    }
+    /**
      * URI to web page providing client policy document.
      * 
      */
@@ -762,14 +776,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.status);
     }
     /**
-     * Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`.
+     * Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Export(name="tokenEndpointAuthMethod", type=String.class, parameters={})
     private Output</* @Nullable */ String> tokenEndpointAuthMethod;
 
     /**
-     * @return Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`.
+     * @return Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Output<Optional<String>> tokenEndpointAuthMethod() {

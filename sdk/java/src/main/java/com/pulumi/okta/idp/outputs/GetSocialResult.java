@@ -132,7 +132,7 @@ public final class GetSocialResult {
      */
     private String tokenUrl;
     /**
-     * @return The type of Social IdP.
+     * @return The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     private String type;
@@ -311,7 +311,7 @@ public final class GetSocialResult {
         return this.tokenUrl;
     }
     /**
-     * @return The type of Social IdP.
+     * @return The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     public String type() {

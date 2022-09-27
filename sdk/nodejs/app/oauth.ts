@@ -125,7 +125,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly authenticationPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Requested key rotation mode.
+     * Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     public readonly autoKeyRotation!: pulumi.Output<boolean | undefined>;
     /**
@@ -137,11 +137,11 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly clientBasicSecret!: pulumi.Output<string | undefined>;
     /**
-     * OAuth client ID. If set during creation, app is created with this id.
+     * OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
-     * The client secret of the application.
+     * The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     public /*out*/ readonly clientSecret!: pulumi.Output<string>;
     /**
@@ -239,6 +239,10 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly omitSecret!: pulumi.Output<boolean | undefined>;
     /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     */
+    public readonly pkceRequired!: pulumi.Output<boolean | undefined>;
+    /**
      * URI to web page providing client policy document.
      */
     public readonly policyUri!: pulumi.Output<string | undefined>;
@@ -283,7 +287,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
+     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     public readonly tokenEndpointAuthMethod!: pulumi.Output<string | undefined>;
     /**
@@ -368,6 +372,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["logoUrl"] = state ? state.logoUrl : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["omitSecret"] = state ? state.omitSecret : undefined;
+            resourceInputs["pkceRequired"] = state ? state.pkceRequired : undefined;
             resourceInputs["policyUri"] = state ? state.policyUri : undefined;
             resourceInputs["postLogoutRedirectUris"] = state ? state.postLogoutRedirectUris : undefined;
             resourceInputs["profile"] = state ? state.profile : undefined;
@@ -426,6 +431,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["logo"] = args ? args.logo : undefined;
             resourceInputs["logoUri"] = args ? args.logoUri : undefined;
             resourceInputs["omitSecret"] = args ? args.omitSecret : undefined;
+            resourceInputs["pkceRequired"] = args ? args.pkceRequired : undefined;
             resourceInputs["policyUri"] = args ? args.policyUri : undefined;
             resourceInputs["postLogoutRedirectUris"] = args ? args.postLogoutRedirectUris : undefined;
             resourceInputs["profile"] = args ? args.profile : undefined;
@@ -488,7 +494,7 @@ export interface OAuthState {
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**
-     * Requested key rotation mode.
+     * Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     autoKeyRotation?: pulumi.Input<boolean>;
     /**
@@ -500,11 +506,11 @@ export interface OAuthState {
      */
     clientBasicSecret?: pulumi.Input<string>;
     /**
-     * OAuth client ID. If set during creation, app is created with this id.
+     * OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     clientId?: pulumi.Input<string>;
     /**
-     * The client secret of the application.
+     * The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     clientSecret?: pulumi.Input<string>;
     /**
@@ -602,6 +608,10 @@ export interface OAuthState {
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     */
+    pkceRequired?: pulumi.Input<boolean>;
+    /**
      * URI to web page providing client policy document.
      */
     policyUri?: pulumi.Input<string>;
@@ -646,7 +656,7 @@ export interface OAuthState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
+     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**
@@ -719,7 +729,7 @@ export interface OAuthArgs {
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**
-     * Requested key rotation mode.
+     * Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     autoKeyRotation?: pulumi.Input<boolean>;
     /**
@@ -731,7 +741,7 @@ export interface OAuthArgs {
      */
     clientBasicSecret?: pulumi.Input<string>;
     /**
-     * OAuth client ID. If set during creation, app is created with this id.
+     * OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     clientId?: pulumi.Input<string>;
     /**
@@ -821,6 +831,10 @@ export interface OAuthArgs {
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     */
+    pkceRequired?: pulumi.Input<boolean>;
+    /**
      * URI to web page providing client policy document.
      */
     policyUri?: pulumi.Input<string>;
@@ -861,7 +875,7 @@ export interface OAuthArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`.
+     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**
