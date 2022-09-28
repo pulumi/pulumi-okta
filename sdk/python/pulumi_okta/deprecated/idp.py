@@ -48,7 +48,8 @@ class IdpArgs:
                  username_template: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Idp resource.
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+               attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
         :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an authorization request to the IdP
@@ -265,7 +266,8 @@ class IdpArgs:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+        attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -448,7 +450,8 @@ class _IdpState:
                  username_template: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Idp resources.
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+               attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
         :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an authorization request to the IdP
@@ -625,7 +628,8 @@ class _IdpState:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+        attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -888,7 +892,8 @@ class Idp(pulumi.CustomResource):
         Create a Idp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+               attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
         :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an authorization request to the IdP
@@ -1063,7 +1068,8 @@ class Idp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+               attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
         :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an authorization request to the IdP
@@ -1167,7 +1173,8 @@ class Idp(pulumi.CustomResource):
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+        attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
         """
         return pulumi.get(self, "issuer_mode")
 

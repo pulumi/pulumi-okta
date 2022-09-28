@@ -206,7 +206,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string TokenUrl;
         /// <summary>
-        /// The type of Social IdP.
+        /// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
         /// </summary>
         public readonly string Type;
         /// <summary>

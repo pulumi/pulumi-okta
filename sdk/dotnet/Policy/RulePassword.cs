@@ -26,43 +26,43 @@ namespace Pulumi.Okta.Policy
     public partial class RulePassword : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Policy Rule Name.
+        /// Policy Rule Name. Type `"string"`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
         /// </summary>
         [Output("networkConnection")]
         public Output<string?> NetworkConnection { get; private set; } = null!;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// The network zones to exclude. Conflicts with `network_includes`. Type `"list(string)"`
         /// </summary>
         [Output("networkExcludes")]
         public Output<ImmutableArray<string>> NetworkExcludes { get; private set; } = null!;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// The network zones to include. Conflicts with `network_excludes`. Type `"list(string)"`
         /// </summary>
         [Output("networkIncludes")]
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         /// </summary>
         [Output("passwordChange")]
         public Output<string?> PasswordChange { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         /// </summary>
         [Output("passwordReset")]
         public Output<string?> PasswordReset { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
+        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
         /// </summary>
         [Output("passwordUnlock")]
         public Output<string?> PasswordUnlock { get; private set; } = null!;
@@ -80,19 +80,19 @@ namespace Pulumi.Okta.Policy
         public Output<string?> Policyid { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Set of User IDs to Exclude
+        /// The users to exclude. Type `"set(string)"`
         /// </summary>
         [Output("usersExcludeds")]
         public Output<ImmutableArray<string>> UsersExcludeds { get; private set; } = null!;
@@ -144,13 +144,13 @@ namespace Pulumi.Okta.Policy
     public sealed class RulePasswordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Policy Rule Name.
+        /// Policy Rule Name. Type `"string"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -159,7 +159,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// The network zones to exclude. Conflicts with `network_includes`. Type `"list(string)"`
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -171,7 +171,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// The network zones to include. Conflicts with `network_excludes`. Type `"list(string)"`
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -180,19 +180,19 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         /// </summary>
         [Input("passwordChange")]
         public Input<string>? PasswordChange { get; set; }
 
         /// <summary>
-        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         /// </summary>
         [Input("passwordReset")]
         public Input<string>? PasswordReset { get; set; }
 
         /// <summary>
-        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
+        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
         /// </summary>
         [Input("passwordUnlock")]
         public Input<string>? PasswordUnlock { get; set; }
@@ -210,13 +210,13 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Policyid { get; set; }
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _usersExcludeds;
 
         /// <summary>
-        /// Set of User IDs to Exclude
+        /// The users to exclude. Type `"set(string)"`
         /// </summary>
         public InputList<string> UsersExcludeds
         {
@@ -242,13 +242,13 @@ namespace Pulumi.Okta.Policy
     public sealed class RulePasswordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Policy Rule Name.
+        /// Policy Rule Name. Type `"string"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// The network zones to exclude. Conflicts with `network_includes`. Type `"list(string)"`
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -269,7 +269,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// The network zones to include. Conflicts with `network_excludes`. Type `"list(string)"`
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -278,19 +278,19 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+        /// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         /// </summary>
         [Input("passwordChange")]
         public Input<string>? PasswordChange { get; set; }
 
         /// <summary>
-        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`.
+        /// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         /// </summary>
         [Input("passwordReset")]
         public Input<string>? PasswordReset { get; set; }
 
         /// <summary>
-        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`,
+        /// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
         /// </summary>
         [Input("passwordUnlock")]
         public Input<string>? PasswordUnlock { get; set; }
@@ -308,13 +308,13 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Policyid { get; set; }
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _usersExcludeds;
 
         /// <summary>
-        /// Set of User IDs to Exclude
+        /// The users to exclude. Type `"set(string)"`
         /// </summary>
         public InputList<string> UsersExcludeds
         {

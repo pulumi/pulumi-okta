@@ -17,133 +17,94 @@ public final class GetOidcResult {
      * @return The method of making an authorization request.
      * 
      */
-    private final String authorizationBinding;
+    private String authorizationBinding;
     /**
      * @return IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
      * 
      */
-    private final String authorizationUrl;
+    private String authorizationUrl;
     /**
      * @return Unique identifier issued by AS for the Okta IdP instance.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return Client secret issued by AS for the Okta IdP instance.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
     /**
      * @return id of idp.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
+     * @return Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic.
      * 
      */
-    private final String issuerMode;
+    private String issuerMode;
     /**
      * @return URI that identifies the issuer.
      * 
      */
-    private final String issuerUrl;
+    private String issuerUrl;
     /**
      * @return The method of making a request for the OIDC JWKS.
      * 
      */
-    private final String jwksBinding;
+    private String jwksBinding;
     /**
      * @return Endpoint where the keys signer publishes its keys in a JWK Set.
      * 
      */
-    private final String jwksUrl;
+    private String jwksUrl;
     /**
      * @return Maximum allowable clock-skew when processing messages from the IdP.
      * 
      */
-    private final Integer maxClockSkew;
+    private Integer maxClockSkew;
     /**
      * @return name of the idp.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The type of protocol to use.
      * 
      */
-    private final String protocolType;
+    private String protocolType;
     /**
      * @return The scopes of the IdP.
      * 
      */
-    private final List<String> scopes;
+    private List<String> scopes;
     /**
      * @return The method of making a token request.
      * 
      */
-    private final String tokenBinding;
+    private String tokenBinding;
     /**
      * @return IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
      * 
      */
-    private final String tokenUrl;
+    private String tokenUrl;
     /**
      * @return type of idp.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The method of making a user info request.
      * 
      */
-    private final String userInfoBinding;
+    private String userInfoBinding;
     /**
      * @return Protected resource endpoint that returns claims about the authenticated user.
      * 
      */
-    private final String userInfoUrl;
+    private String userInfoUrl;
 
-    @CustomType.Constructor
-    private GetOidcResult(
-        @CustomType.Parameter("authorizationBinding") String authorizationBinding,
-        @CustomType.Parameter("authorizationUrl") String authorizationUrl,
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("issuerMode") String issuerMode,
-        @CustomType.Parameter("issuerUrl") String issuerUrl,
-        @CustomType.Parameter("jwksBinding") String jwksBinding,
-        @CustomType.Parameter("jwksUrl") String jwksUrl,
-        @CustomType.Parameter("maxClockSkew") Integer maxClockSkew,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("protocolType") String protocolType,
-        @CustomType.Parameter("scopes") List<String> scopes,
-        @CustomType.Parameter("tokenBinding") String tokenBinding,
-        @CustomType.Parameter("tokenUrl") String tokenUrl,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("userInfoBinding") String userInfoBinding,
-        @CustomType.Parameter("userInfoUrl") String userInfoUrl) {
-        this.authorizationBinding = authorizationBinding;
-        this.authorizationUrl = authorizationUrl;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.id = id;
-        this.issuerMode = issuerMode;
-        this.issuerUrl = issuerUrl;
-        this.jwksBinding = jwksBinding;
-        this.jwksUrl = jwksUrl;
-        this.maxClockSkew = maxClockSkew;
-        this.name = name;
-        this.protocolType = protocolType;
-        this.scopes = scopes;
-        this.tokenBinding = tokenBinding;
-        this.tokenUrl = tokenUrl;
-        this.type = type;
-        this.userInfoBinding = userInfoBinding;
-        this.userInfoUrl = userInfoUrl;
-    }
-
+    private GetOidcResult() {}
     /**
      * @return The method of making an authorization request.
      * 
@@ -180,7 +141,7 @@ public final class GetOidcResult {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
+     * @return Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic.
      * 
      */
     public String issuerMode() {
@@ -278,7 +239,7 @@ public final class GetOidcResult {
     public static Builder builder(GetOidcResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authorizationBinding;
         private String authorizationUrl;
@@ -298,11 +259,7 @@ public final class GetOidcResult {
         private String type;
         private String userInfoBinding;
         private String userInfoUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOidcResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationBinding = defaults.authorizationBinding;
@@ -325,54 +282,67 @@ public final class GetOidcResult {
     	      this.userInfoUrl = defaults.userInfoUrl;
         }
 
+        @CustomType.Setter
         public Builder authorizationBinding(String authorizationBinding) {
             this.authorizationBinding = Objects.requireNonNull(authorizationBinding);
             return this;
         }
+        @CustomType.Setter
         public Builder authorizationUrl(String authorizationUrl) {
             this.authorizationUrl = Objects.requireNonNull(authorizationUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder issuerMode(String issuerMode) {
             this.issuerMode = Objects.requireNonNull(issuerMode);
             return this;
         }
+        @CustomType.Setter
         public Builder issuerUrl(String issuerUrl) {
             this.issuerUrl = Objects.requireNonNull(issuerUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder jwksBinding(String jwksBinding) {
             this.jwksBinding = Objects.requireNonNull(jwksBinding);
             return this;
         }
+        @CustomType.Setter
         public Builder jwksUrl(String jwksUrl) {
             this.jwksUrl = Objects.requireNonNull(jwksUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder maxClockSkew(Integer maxClockSkew) {
             this.maxClockSkew = Objects.requireNonNull(maxClockSkew);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder protocolType(String protocolType) {
             this.protocolType = Objects.requireNonNull(protocolType);
             return this;
         }
+        @CustomType.Setter
         public Builder scopes(List<String> scopes) {
             this.scopes = Objects.requireNonNull(scopes);
             return this;
@@ -380,27 +350,52 @@ public final class GetOidcResult {
         public Builder scopes(String... scopes) {
             return scopes(List.of(scopes));
         }
+        @CustomType.Setter
         public Builder tokenBinding(String tokenBinding) {
             this.tokenBinding = Objects.requireNonNull(tokenBinding);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenUrl(String tokenUrl) {
             this.tokenUrl = Objects.requireNonNull(tokenUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder userInfoBinding(String userInfoBinding) {
             this.userInfoBinding = Objects.requireNonNull(userInfoBinding);
             return this;
         }
+        @CustomType.Setter
         public Builder userInfoUrl(String userInfoUrl) {
             this.userInfoUrl = Objects.requireNonNull(userInfoUrl);
             return this;
-        }        public GetOidcResult build() {
-            return new GetOidcResult(authorizationBinding, authorizationUrl, clientId, clientSecret, id, issuerMode, issuerUrl, jwksBinding, jwksUrl, maxClockSkew, name, protocolType, scopes, tokenBinding, tokenUrl, type, userInfoBinding, userInfoUrl);
+        }
+        public GetOidcResult build() {
+            final var o = new GetOidcResult();
+            o.authorizationBinding = authorizationBinding;
+            o.authorizationUrl = authorizationUrl;
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.id = id;
+            o.issuerMode = issuerMode;
+            o.issuerUrl = issuerUrl;
+            o.jwksBinding = jwksBinding;
+            o.jwksUrl = jwksUrl;
+            o.maxClockSkew = maxClockSkew;
+            o.name = name;
+            o.protocolType = protocolType;
+            o.scopes = scopes;
+            o.tokenBinding = tokenBinding;
+            o.tokenUrl = tokenUrl;
+            o.type = type;
+            o.userInfoBinding = userInfoBinding;
+            o.userInfoUrl = userInfoUrl;
+            return o;
         }
     }
 }

@@ -15,24 +15,15 @@ public final class GetUserSecurityQuestionsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return collection of user&#39;s security question retrieved from Okta with the following properties:
      * 
      */
-    private final List<GetUserSecurityQuestionsQuestion> questions;
-    private final String userId;
+    private List<GetUserSecurityQuestionsQuestion> questions;
+    private String userId;
 
-    @CustomType.Constructor
-    private GetUserSecurityQuestionsResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("questions") List<GetUserSecurityQuestionsQuestion> questions,
-        @CustomType.Parameter("userId") String userId) {
-        this.id = id;
-        this.questions = questions;
-        this.userId = userId;
-    }
-
+    private GetUserSecurityQuestionsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -58,16 +49,12 @@ public final class GetUserSecurityQuestionsResult {
     public static Builder builder(GetUserSecurityQuestionsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetUserSecurityQuestionsQuestion> questions;
         private String userId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserSecurityQuestionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -75,10 +62,12 @@ public final class GetUserSecurityQuestionsResult {
     	      this.userId = defaults.userId;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder questions(List<GetUserSecurityQuestionsQuestion> questions) {
             this.questions = Objects.requireNonNull(questions);
             return this;
@@ -86,11 +75,17 @@ public final class GetUserSecurityQuestionsResult {
         public Builder questions(GetUserSecurityQuestionsQuestion... questions) {
             return questions(List.of(questions));
         }
+        @CustomType.Setter
         public Builder userId(String userId) {
             this.userId = Objects.requireNonNull(userId);
             return this;
-        }        public GetUserSecurityQuestionsResult build() {
-            return new GetUserSecurityQuestionsResult(id, questions, userId);
+        }
+        public GetUserSecurityQuestionsResult build() {
+            final var o = new GetUserSecurityQuestionsResult();
+            o.id = id;
+            o.questions = questions;
+            o.userId = userId;
+            return o;
         }
     }
 }

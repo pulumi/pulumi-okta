@@ -89,7 +89,7 @@ type Oidc struct {
 	GroupsAttribute pulumi.StringPtrOutput `pulumi:"groupsAttribute"`
 	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
 	GroupsFilters pulumi.StringArrayOutput `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	// URI that identifies the issuer.
 	IssuerUrl pulumi.StringOutput `pulumi:"issuerUrl"`
@@ -217,7 +217,7 @@ type oidcState struct {
 	GroupsAttribute *string `pulumi:"groupsAttribute"`
 	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
 	GroupsFilters []string `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
 	IssuerMode *string `pulumi:"issuerMode"`
 	// URI that identifies the issuer.
 	IssuerUrl *string `pulumi:"issuerUrl"`
@@ -287,7 +287,7 @@ type OidcState struct {
 	GroupsAttribute pulumi.StringPtrInput
 	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
 	GroupsFilters pulumi.StringArrayInput
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
 	IssuerMode pulumi.StringPtrInput
 	// URI that identifies the issuer.
 	IssuerUrl pulumi.StringPtrInput
@@ -361,7 +361,7 @@ type oidcArgs struct {
 	GroupsAttribute *string `pulumi:"groupsAttribute"`
 	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
 	GroupsFilters []string `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
 	IssuerMode *string `pulumi:"issuerMode"`
 	// URI that identifies the issuer.
 	IssuerUrl string `pulumi:"issuerUrl"`
@@ -428,7 +428,7 @@ type OidcArgs struct {
 	GroupsAttribute pulumi.StringPtrInput
 	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
 	GroupsFilters pulumi.StringArrayInput
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
 	IssuerMode pulumi.StringPtrInput
 	// URI that identifies the issuer.
 	IssuerUrl pulumi.StringInput
@@ -613,7 +613,7 @@ func (o OidcOutput) GroupsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringArrayOutput { return v.GroupsFilters }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
 func (o OidcOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }

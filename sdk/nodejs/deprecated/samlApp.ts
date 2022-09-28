@@ -121,7 +121,7 @@ export class SamlApp extends pulumi.CustomResource {
     /**
      * features to enable
      */
-    public readonly features!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly features!: pulumi.Output<string[]>;
     /**
      * Groups associated with the application
      *
@@ -392,7 +392,6 @@ export class SamlApp extends pulumi.CustomResource {
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["digestAlgorithm"] = args ? args.digestAlgorithm : undefined;
             resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["hideIos"] = args ? args.hideIos : undefined;
             resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
@@ -429,6 +428,7 @@ export class SamlApp extends pulumi.CustomResource {
             resourceInputs["embedUrl"] = undefined /*out*/;
             resourceInputs["entityKey"] = undefined /*out*/;
             resourceInputs["entityUrl"] = undefined /*out*/;
+            resourceInputs["features"] = undefined /*out*/;
             resourceInputs["httpPostBinding"] = undefined /*out*/;
             resourceInputs["httpRedirectBinding"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
@@ -772,10 +772,6 @@ export interface SamlAppArgs {
      * Application notes for end users.
      */
     enduserNote?: pulumi.Input<string>;
-    /**
-     * features to enable
-     */
-    features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups associated with the application
      *

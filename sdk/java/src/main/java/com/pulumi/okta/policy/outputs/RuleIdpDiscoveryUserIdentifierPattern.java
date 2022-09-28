@@ -15,21 +15,14 @@ public final class RuleIdpDiscoveryUserIdentifierPattern {
      * @return The kind of pattern. For regex, use `&#34;EXPRESSION&#34;`. For simple string matches, use one of the following: `&#34;SUFFIX&#34;`, `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`
      * 
      */
-    private final @Nullable String matchType;
+    private @Nullable String matchType;
     /**
      * @return The regex or simple match string to match against.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private RuleIdpDiscoveryUserIdentifierPattern(
-        @CustomType.Parameter("matchType") @Nullable String matchType,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.matchType = matchType;
-        this.value = value;
-    }
-
+    private RuleIdpDiscoveryUserIdentifierPattern() {}
     /**
      * @return The kind of pattern. For regex, use `&#34;EXPRESSION&#34;`. For simple string matches, use one of the following: `&#34;SUFFIX&#34;`, `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`
      * 
@@ -52,30 +45,32 @@ public final class RuleIdpDiscoveryUserIdentifierPattern {
     public static Builder builder(RuleIdpDiscoveryUserIdentifierPattern defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String matchType;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleIdpDiscoveryUserIdentifierPattern defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.matchType = defaults.matchType;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder matchType(@Nullable String matchType) {
             this.matchType = matchType;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public RuleIdpDiscoveryUserIdentifierPattern build() {
-            return new RuleIdpDiscoveryUserIdentifierPattern(matchType, value);
+        }
+        public RuleIdpDiscoveryUserIdentifierPattern build() {
+            final var o = new RuleIdpDiscoveryUserIdentifierPattern();
+            o.matchType = matchType;
+            o.value = value;
+            return o;
         }
     }
 }

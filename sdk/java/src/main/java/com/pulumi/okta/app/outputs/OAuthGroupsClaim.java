@@ -15,43 +15,30 @@ public final class OAuthGroupsClaim {
      * @return Groups claim filter. Can only be set if type is `&#34;FILTER&#34;`. Valid values: `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
      * 
      */
-    private final @Nullable String filterType;
+    private @Nullable String filterType;
     /**
      * @return Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
      * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
      * 
      */
-    private final @Nullable String issuerMode;
+    private @Nullable String issuerMode;
     /**
      * @return Name of the claim that will be used in the token.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private OAuthGroupsClaim(
-        @CustomType.Parameter("filterType") @Nullable String filterType,
-        @CustomType.Parameter("issuerMode") @Nullable String issuerMode,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value) {
-        this.filterType = filterType;
-        this.issuerMode = issuerMode;
-        this.name = name;
-        this.type = type;
-        this.value = value;
-    }
-
+    private OAuthGroupsClaim() {}
     /**
      * @return Groups claim filter. Can only be set if type is `&#34;FILTER&#34;`. Valid values: `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
      * 
@@ -96,18 +83,14 @@ public final class OAuthGroupsClaim {
     public static Builder builder(OAuthGroupsClaim defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String filterType;
         private @Nullable String issuerMode;
         private String name;
         private String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OAuthGroupsClaim defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filterType = defaults.filterType;
@@ -117,27 +100,39 @@ public final class OAuthGroupsClaim {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder filterType(@Nullable String filterType) {
             this.filterType = filterType;
             return this;
         }
+        @CustomType.Setter
         public Builder issuerMode(@Nullable String issuerMode) {
             this.issuerMode = issuerMode;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public OAuthGroupsClaim build() {
-            return new OAuthGroupsClaim(filterType, issuerMode, name, type, value);
+        }
+        public OAuthGroupsClaim build() {
+            final var o = new OAuthGroupsClaim();
+            o.filterType = filterType;
+            o.issuerMode = issuerMode;
+            o.name = name;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

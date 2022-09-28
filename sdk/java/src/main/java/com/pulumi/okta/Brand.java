@@ -16,11 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to get and update an Okta [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
- * 
- * Brands are can only be updated through the Okta API. Therefore this resource
- * only gets and updates a brand.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

@@ -15,28 +15,19 @@ public final class RuleIdpDiscoveryAppInclude {
      * @return Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private RuleIdpDiscoveryAppInclude(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-    }
-
+    private RuleIdpDiscoveryAppInclude() {}
     /**
      * @return Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
      * 
@@ -66,16 +57,12 @@ public final class RuleIdpDiscoveryAppInclude {
     public static Builder builder(RuleIdpDiscoveryAppInclude defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleIdpDiscoveryAppInclude defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -83,19 +70,27 @@ public final class RuleIdpDiscoveryAppInclude {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public RuleIdpDiscoveryAppInclude build() {
-            return new RuleIdpDiscoveryAppInclude(id, name, type);
+        }
+        public RuleIdpDiscoveryAppInclude build() {
+            final var o = new RuleIdpDiscoveryAppInclude();
+            o.id = id;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

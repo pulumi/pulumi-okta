@@ -12,66 +12,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMetadataSamlResult {
-    private final String appId;
+    private String appId;
     /**
      * @return public certificate from application metadata.
      * 
      */
-    private final String certificate;
+    private String certificate;
     /**
      * @return Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
      * 
      */
-    private final String entityId;
+    private String entityId;
     /**
      * @return urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
      * 
      */
-    private final String httpPostBinding;
+    private String httpPostBinding;
     /**
      * @return urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
      * 
      */
-    private final String httpRedirectBinding;
+    private String httpRedirectBinding;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String keyId;
+    private String id;
+    private @Nullable String keyId;
     /**
      * @return raw metadata of application.
      * 
      */
-    private final String metadata;
+    private String metadata;
     /**
      * @return Whether authn requests are signed.
      * 
      */
-    private final Boolean wantAuthnRequestsSigned;
+    private Boolean wantAuthnRequestsSigned;
 
-    @CustomType.Constructor
-    private GetMetadataSamlResult(
-        @CustomType.Parameter("appId") String appId,
-        @CustomType.Parameter("certificate") String certificate,
-        @CustomType.Parameter("entityId") String entityId,
-        @CustomType.Parameter("httpPostBinding") String httpPostBinding,
-        @CustomType.Parameter("httpRedirectBinding") String httpRedirectBinding,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyId") @Nullable String keyId,
-        @CustomType.Parameter("metadata") String metadata,
-        @CustomType.Parameter("wantAuthnRequestsSigned") Boolean wantAuthnRequestsSigned) {
-        this.appId = appId;
-        this.certificate = certificate;
-        this.entityId = entityId;
-        this.httpPostBinding = httpPostBinding;
-        this.httpRedirectBinding = httpRedirectBinding;
-        this.id = id;
-        this.keyId = keyId;
-        this.metadata = metadata;
-        this.wantAuthnRequestsSigned = wantAuthnRequestsSigned;
-    }
-
+    private GetMetadataSamlResult() {}
     public String appId() {
         return this.appId;
     }
@@ -135,7 +114,7 @@ public final class GetMetadataSamlResult {
     public static Builder builder(GetMetadataSamlResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String appId;
         private String certificate;
@@ -146,11 +125,7 @@ public final class GetMetadataSamlResult {
         private @Nullable String keyId;
         private String metadata;
         private Boolean wantAuthnRequestsSigned;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMetadataSamlResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appId = defaults.appId;
@@ -164,43 +139,63 @@ public final class GetMetadataSamlResult {
     	      this.wantAuthnRequestsSigned = defaults.wantAuthnRequestsSigned;
         }
 
+        @CustomType.Setter
         public Builder appId(String appId) {
             this.appId = Objects.requireNonNull(appId);
             return this;
         }
+        @CustomType.Setter
         public Builder certificate(String certificate) {
             this.certificate = Objects.requireNonNull(certificate);
             return this;
         }
+        @CustomType.Setter
         public Builder entityId(String entityId) {
             this.entityId = Objects.requireNonNull(entityId);
             return this;
         }
+        @CustomType.Setter
         public Builder httpPostBinding(String httpPostBinding) {
             this.httpPostBinding = Objects.requireNonNull(httpPostBinding);
             return this;
         }
+        @CustomType.Setter
         public Builder httpRedirectBinding(String httpRedirectBinding) {
             this.httpRedirectBinding = Objects.requireNonNull(httpRedirectBinding);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyId(@Nullable String keyId) {
             this.keyId = keyId;
             return this;
         }
+        @CustomType.Setter
         public Builder metadata(String metadata) {
             this.metadata = Objects.requireNonNull(metadata);
             return this;
         }
+        @CustomType.Setter
         public Builder wantAuthnRequestsSigned(Boolean wantAuthnRequestsSigned) {
             this.wantAuthnRequestsSigned = Objects.requireNonNull(wantAuthnRequestsSigned);
             return this;
-        }        public GetMetadataSamlResult build() {
-            return new GetMetadataSamlResult(appId, certificate, entityId, httpPostBinding, httpRedirectBinding, id, keyId, metadata, wantAuthnRequestsSigned);
+        }
+        public GetMetadataSamlResult build() {
+            final var o = new GetMetadataSamlResult();
+            o.appId = appId;
+            o.certificate = certificate;
+            o.entityId = entityId;
+            o.httpPostBinding = httpPostBinding;
+            o.httpRedirectBinding = httpRedirectBinding;
+            o.id = id;
+            o.keyId = keyId;
+            o.metadata = metadata;
+            o.wantAuthnRequestsSigned = wantAuthnRequestsSigned;
+            return o;
         }
     }
 }

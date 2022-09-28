@@ -16,28 +16,19 @@ public final class AppGroupAssignmentsGroup {
      * @return ID of the group to assign.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Priority of group assignment
      * 
      */
-    private final @Nullable Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
      * 
      */
-    private final String profile;
+    private String profile;
 
-    @CustomType.Constructor
-    private AppGroupAssignmentsGroup(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("priority") @Nullable Integer priority,
-        @CustomType.Parameter("profile") String profile) {
-        this.id = id;
-        this.priority = priority;
-        this.profile = profile;
-    }
-
+    private AppGroupAssignmentsGroup() {}
     /**
      * @return ID of the group to assign.
      * 
@@ -67,16 +58,12 @@ public final class AppGroupAssignmentsGroup {
     public static Builder builder(AppGroupAssignmentsGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable Integer priority;
         private String profile;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppGroupAssignmentsGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -84,19 +71,27 @@ public final class AppGroupAssignmentsGroup {
     	      this.profile = defaults.profile;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder profile(String profile) {
             this.profile = Objects.requireNonNull(profile);
             return this;
-        }        public AppGroupAssignmentsGroup build() {
-            return new AppGroupAssignmentsGroup(id, priority, profile);
+        }
+        public AppGroupAssignmentsGroup build() {
+            final var o = new AppGroupAssignmentsGroup();
+            o.id = id;
+            o.priority = priority;
+            o.profile = profile;
+            return o;
         }
     }
 }

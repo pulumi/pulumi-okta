@@ -302,7 +302,7 @@ class GetSocialResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of Social IdP.
+        The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
         """
         return pulumi.get(self, "type")
 

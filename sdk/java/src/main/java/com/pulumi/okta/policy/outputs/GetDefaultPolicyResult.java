@@ -13,21 +13,14 @@ public final class GetDefaultPolicyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return type of policy.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetDefaultPolicyResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private GetDefaultPolicyResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -50,30 +43,32 @@ public final class GetDefaultPolicyResult {
     public static Builder builder(GetDefaultPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDefaultPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetDefaultPolicyResult build() {
-            return new GetDefaultPolicyResult(id, type);
+        }
+        public GetDefaultPolicyResult build() {
+            final var o = new GetDefaultPolicyResult();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

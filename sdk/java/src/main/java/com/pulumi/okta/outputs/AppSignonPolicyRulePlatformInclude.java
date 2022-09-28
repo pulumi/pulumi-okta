@@ -15,28 +15,19 @@ public final class AppSignonPolicyRulePlatformInclude {
      * @return Only available when using `os_type = &#34;OTHER&#34;`
      * 
      */
-    private final @Nullable String osExpression;
+    private @Nullable String osExpression;
     /**
      * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`
      * 
      */
-    private final @Nullable String osType;
+    private @Nullable String osType;
     /**
      * @return The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private AppSignonPolicyRulePlatformInclude(
-        @CustomType.Parameter("osExpression") @Nullable String osExpression,
-        @CustomType.Parameter("osType") @Nullable String osType,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.osExpression = osExpression;
-        this.osType = osType;
-        this.type = type;
-    }
-
+    private AppSignonPolicyRulePlatformInclude() {}
     /**
      * @return Only available when using `os_type = &#34;OTHER&#34;`
      * 
@@ -66,16 +57,12 @@ public final class AppSignonPolicyRulePlatformInclude {
     public static Builder builder(AppSignonPolicyRulePlatformInclude defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String osExpression;
         private @Nullable String osType;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppSignonPolicyRulePlatformInclude defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.osExpression = defaults.osExpression;
@@ -83,19 +70,27 @@ public final class AppSignonPolicyRulePlatformInclude {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder osExpression(@Nullable String osExpression) {
             this.osExpression = osExpression;
             return this;
         }
+        @CustomType.Setter
         public Builder osType(@Nullable String osType) {
             this.osType = osType;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public AppSignonPolicyRulePlatformInclude build() {
-            return new AppSignonPolicyRulePlatformInclude(osExpression, osType, type);
+        }
+        public AppSignonPolicyRulePlatformInclude build() {
+            final var o = new AppSignonPolicyRulePlatformInclude();
+            o.osExpression = osExpression;
+            o.osType = osType;
+            o.type = type;
+            return o;
         }
     }
 }

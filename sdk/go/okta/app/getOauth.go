@@ -52,9 +52,13 @@ type GetOauthArgs struct {
 	ActiveOnly *bool `pulumi:"activeOnly"`
 	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
 	Id *string `pulumi:"id"`
-	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
-	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-	// and `label`. This is used to avoid paginating through all applications.
+	// The label of the app to retrieve, conflicts with
+	// `labelPrefix` and `id`. Label uses the `?q=<label>` query parameter exposed by
+	// Okta's List Apps API. The API will search both `name` and `label` using that
+	// query. Therefore similarily named and labeled apps may be returned in the query
+	// and have the unitended result of associating the wrong app with this data
+	// source. See:
+	// https://developer.okta.com/docs/reference/api/apps/#list-applications
 	Label *string `pulumi:"label"`
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
@@ -72,6 +76,8 @@ type GetOauthResult struct {
 	AutoSubmitToolbar bool `pulumi:"autoSubmitToolbar"`
 	// OAuth client ID. If set during creation, app is created with this id.
 	ClientId string `pulumi:"clientId"`
+	// The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	ClientSecret string `pulumi:"clientSecret"`
 	// URI to a web page providing information about the client.
 	ClientUri string `pulumi:"clientUri"`
 	// List of OAuth 2.0 grant types.
@@ -143,9 +149,13 @@ type GetOauthOutputArgs struct {
 	ActiveOnly pulumi.BoolPtrInput `pulumi:"activeOnly"`
 	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
-	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-	// and `label`. This is used to avoid paginating through all applications.
+	// The label of the app to retrieve, conflicts with
+	// `labelPrefix` and `id`. Label uses the `?q=<label>` query parameter exposed by
+	// Okta's List Apps API. The API will search both `name` and `label` using that
+	// query. Therefore similarily named and labeled apps may be returned in the query
+	// and have the unitended result of associating the wrong app with this data
+	// source. See:
+	// https://developer.okta.com/docs/reference/api/apps/#list-applications
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
@@ -187,6 +197,11 @@ func (o GetOauthResultOutput) AutoSubmitToolbar() pulumi.BoolOutput {
 // OAuth client ID. If set during creation, app is created with this id.
 func (o GetOauthResultOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+func (o GetOauthResultOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthResult) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
 // URI to a web page providing information about the client.

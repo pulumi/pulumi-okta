@@ -10,23 +10,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrandsBrand {
-    private final String customPrivacyPolicyUrl;
-    private final String id;
-    private final String links;
-    private final Boolean removePoweredByOkta;
+    private String customPrivacyPolicyUrl;
+    private String id;
+    private String links;
+    private Boolean removePoweredByOkta;
 
-    @CustomType.Constructor
-    private GetBrandsBrand(
-        @CustomType.Parameter("customPrivacyPolicyUrl") String customPrivacyPolicyUrl,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("links") String links,
-        @CustomType.Parameter("removePoweredByOkta") Boolean removePoweredByOkta) {
-        this.customPrivacyPolicyUrl = customPrivacyPolicyUrl;
-        this.id = id;
-        this.links = links;
-        this.removePoweredByOkta = removePoweredByOkta;
-    }
-
+    private GetBrandsBrand() {}
     public String customPrivacyPolicyUrl() {
         return this.customPrivacyPolicyUrl;
     }
@@ -47,17 +36,13 @@ public final class GetBrandsBrand {
     public static Builder builder(GetBrandsBrand defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String customPrivacyPolicyUrl;
         private String id;
         private String links;
         private Boolean removePoweredByOkta;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrandsBrand defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customPrivacyPolicyUrl = defaults.customPrivacyPolicyUrl;
@@ -66,23 +51,33 @@ public final class GetBrandsBrand {
     	      this.removePoweredByOkta = defaults.removePoweredByOkta;
         }
 
+        @CustomType.Setter
         public Builder customPrivacyPolicyUrl(String customPrivacyPolicyUrl) {
             this.customPrivacyPolicyUrl = Objects.requireNonNull(customPrivacyPolicyUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder links(String links) {
             this.links = Objects.requireNonNull(links);
             return this;
         }
+        @CustomType.Setter
         public Builder removePoweredByOkta(Boolean removePoweredByOkta) {
             this.removePoweredByOkta = Objects.requireNonNull(removePoweredByOkta);
             return this;
-        }        public GetBrandsBrand build() {
-            return new GetBrandsBrand(customPrivacyPolicyUrl, id, links, removePoweredByOkta);
+        }
+        public GetBrandsBrand build() {
+            final var o = new GetBrandsBrand();
+            o.customPrivacyPolicyUrl = customPrivacyPolicyUrl;
+            o.id = id;
+            o.links = links;
+            o.removePoweredByOkta = removePoweredByOkta;
+            return o;
         }
     }
 }

@@ -13,31 +13,20 @@ public final class GetPolicyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return name of policy.
      * 
      */
-    private final String name;
-    private final String status;
+    private String name;
+    private String status;
     /**
      * @return type of policy.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetPolicyResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.name = name;
-        this.status = status;
-        this.type = type;
-    }
-
+    private GetPolicyResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -70,17 +59,13 @@ public final class GetPolicyResult {
     public static Builder builder(GetPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
         private String status;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -89,23 +74,33 @@ public final class GetPolicyResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetPolicyResult build() {
-            return new GetPolicyResult(id, name, status, type);
+        }
+        public GetPolicyResult build() {
+            final var o = new GetPolicyResult();
+            o.id = id;
+            o.name = name;
+            o.status = status;
+            o.type = type;
+            return o;
         }
     }
 }

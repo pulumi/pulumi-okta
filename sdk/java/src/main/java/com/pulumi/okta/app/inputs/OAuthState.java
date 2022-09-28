@@ -127,14 +127,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Requested key rotation mode.
+     * Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Import(name="autoKeyRotation")
     private @Nullable Output<Boolean> autoKeyRotation;
 
     /**
-     * @return Requested key rotation mode.
+     * @return Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Optional<Output<Boolean>> autoKeyRotation() {
@@ -172,14 +172,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * OAuth client ID. If set during creation, app is created with this id.
+     * OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
-     * @return OAuth client ID. If set during creation, app is created with this id.
+     * @return OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Optional<Output<String>> clientId() {
@@ -187,14 +187,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The client secret of the application.
+     * The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
     /**
-     * @return The client secret of the application.
+     * @return The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Optional<Output<String>> clientSecret() {
@@ -545,6 +545,21 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * 
+     */
+    @Import(name="pkceRequired")
+    private @Nullable Output<Boolean> pkceRequired;
+
+    /**
+     * @return Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * 
+     */
+    public Optional<Output<Boolean>> pkceRequired() {
+        return Optional.ofNullable(this.pkceRequired);
+    }
+
+    /**
      * URI to web page providing client policy document.
      * 
      */
@@ -710,14 +725,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`.
+     * Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Import(name="tokenEndpointAuthMethod")
     private @Nullable Output<String> tokenEndpointAuthMethod;
 
     /**
-     * @return Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`.
+     * @return Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Optional<Output<String>> tokenEndpointAuthMethod() {
@@ -890,6 +905,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         this.logoUrl = $.logoUrl;
         this.name = $.name;
         this.omitSecret = $.omitSecret;
+        this.pkceRequired = $.pkceRequired;
         this.policyUri = $.policyUri;
         this.postLogoutRedirectUris = $.postLogoutRedirectUris;
         this.profile = $.profile;
@@ -1078,7 +1094,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoKeyRotation Requested key rotation mode.
+         * @param autoKeyRotation Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 
@@ -1089,7 +1105,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoKeyRotation Requested key rotation mode.
+         * @param autoKeyRotation Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 
@@ -1141,7 +1157,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientId OAuth client ID. If set during creation, app is created with this id.
+         * @param clientId OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 
@@ -1152,7 +1168,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientId OAuth client ID. If set during creation, app is created with this id.
+         * @param clientId OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 
@@ -1162,7 +1178,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSecret The client secret of the application.
+         * @param clientSecret The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 
@@ -1173,7 +1189,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSecret The client secret of the application.
+         * @param clientSecret The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 
@@ -1700,6 +1716,27 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pkceRequired(@Nullable Output<Boolean> pkceRequired) {
+            $.pkceRequired = pkceRequired;
+            return this;
+        }
+
+        /**
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pkceRequired(Boolean pkceRequired) {
+            return pkceRequired(Output.of(pkceRequired));
+        }
+
+        /**
          * @param policyUri URI to web page providing client policy document.
          * 
          * @return builder
@@ -1961,7 +1998,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenEndpointAuthMethod Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`.
+         * @param tokenEndpointAuthMethod Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 
@@ -1972,7 +2009,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenEndpointAuthMethod Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`.
+         * @param tokenEndpointAuthMethod Requested authentication method for the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`, `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`. To enable PKCE, set this to `&#34;none&#34;`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 

@@ -92,14 +92,16 @@ public class Idp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.groupsFilters);
     }
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+     * Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+     * attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
      * 
      */
     @Export(name="issuerMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> issuerMode;
 
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+     * @return Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+     * attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
      * 
      */
     public Output<Optional<String>> issuerMode() {

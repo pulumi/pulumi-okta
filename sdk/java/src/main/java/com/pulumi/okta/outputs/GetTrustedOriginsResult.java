@@ -13,24 +13,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrustedOriginsResult {
-    private final @Nullable String filter;
+    private @Nullable String filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final List<GetTrustedOriginsTrustedOrigin> trustedOrigins;
+    private String id;
+    private List<GetTrustedOriginsTrustedOrigin> trustedOrigins;
 
-    @CustomType.Constructor
-    private GetTrustedOriginsResult(
-        @CustomType.Parameter("filter") @Nullable String filter,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("trustedOrigins") List<GetTrustedOriginsTrustedOrigin> trustedOrigins) {
-        this.filter = filter;
-        this.id = id;
-        this.trustedOrigins = trustedOrigins;
-    }
-
+    private GetTrustedOriginsResult() {}
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
     }
@@ -52,16 +43,12 @@ public final class GetTrustedOriginsResult {
     public static Builder builder(GetTrustedOriginsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String filter;
         private String id;
         private List<GetTrustedOriginsTrustedOrigin> trustedOrigins;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrustedOriginsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filter = defaults.filter;
@@ -69,22 +56,30 @@ public final class GetTrustedOriginsResult {
     	      this.trustedOrigins = defaults.trustedOrigins;
         }
 
+        @CustomType.Setter
         public Builder filter(@Nullable String filter) {
             this.filter = filter;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder trustedOrigins(List<GetTrustedOriginsTrustedOrigin> trustedOrigins) {
             this.trustedOrigins = Objects.requireNonNull(trustedOrigins);
             return this;
         }
         public Builder trustedOrigins(GetTrustedOriginsTrustedOrigin... trustedOrigins) {
             return trustedOrigins(List.of(trustedOrigins));
-        }        public GetTrustedOriginsResult build() {
-            return new GetTrustedOriginsResult(filter, id, trustedOrigins);
+        }
+        public GetTrustedOriginsResult build() {
+            final var o = new GetTrustedOriginsResult();
+            o.filter = filter;
+            o.id = id;
+            o.trustedOrigins = trustedOrigins;
+            return o;
         }
     }
 }

@@ -121,7 +121,7 @@ class GetOidcResult:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> str:
         """
-        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
+        Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic.
         """
         return pulumi.get(self, "issuer_mode")
 

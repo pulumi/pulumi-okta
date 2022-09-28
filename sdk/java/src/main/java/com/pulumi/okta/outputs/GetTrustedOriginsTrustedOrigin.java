@@ -15,42 +15,29 @@ public final class GetTrustedOriginsTrustedOrigin {
      * @return Whether the Trusted Origin is active or not - can only be issued post-creation
      * 
      */
-    private final Boolean active;
+    private Boolean active;
     /**
      * @return The ID of the Trusted Origin.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Unique name for this trusted origin.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Unique origin URL for this trusted origin.
      * 
      */
-    private final String origin;
+    private String origin;
     /**
      * @return Scopes of the Trusted Origin
      * 
      */
-    private final List<String> scopes;
+    private List<String> scopes;
 
-    @CustomType.Constructor
-    private GetTrustedOriginsTrustedOrigin(
-        @CustomType.Parameter("active") Boolean active,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("origin") String origin,
-        @CustomType.Parameter("scopes") List<String> scopes) {
-        this.active = active;
-        this.id = id;
-        this.name = name;
-        this.origin = origin;
-        this.scopes = scopes;
-    }
-
+    private GetTrustedOriginsTrustedOrigin() {}
     /**
      * @return Whether the Trusted Origin is active or not - can only be issued post-creation
      * 
@@ -94,18 +81,14 @@ public final class GetTrustedOriginsTrustedOrigin {
     public static Builder builder(GetTrustedOriginsTrustedOrigin defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean active;
         private String id;
         private String name;
         private String origin;
         private List<String> scopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrustedOriginsTrustedOrigin defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.active = defaults.active;
@@ -115,30 +98,42 @@ public final class GetTrustedOriginsTrustedOrigin {
     	      this.scopes = defaults.scopes;
         }
 
+        @CustomType.Setter
         public Builder active(Boolean active) {
             this.active = Objects.requireNonNull(active);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder origin(String origin) {
             this.origin = Objects.requireNonNull(origin);
             return this;
         }
+        @CustomType.Setter
         public Builder scopes(List<String> scopes) {
             this.scopes = Objects.requireNonNull(scopes);
             return this;
         }
         public Builder scopes(String... scopes) {
             return scopes(List.of(scopes));
-        }        public GetTrustedOriginsTrustedOrigin build() {
-            return new GetTrustedOriginsTrustedOrigin(active, id, name, origin, scopes);
+        }
+        public GetTrustedOriginsTrustedOrigin build() {
+            final var o = new GetTrustedOriginsTrustedOrigin();
+            o.active = active;
+            o.id = id;
+            o.name = name;
+            o.origin = origin;
+            o.scopes = scopes;
+            return o;
         }
     }
 }

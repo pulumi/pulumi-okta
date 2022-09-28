@@ -86,6 +86,9 @@ export class SocialIdp extends pulumi.CustomResource {
     public readonly suspendedAction!: pulumi.Output<string | undefined>;
     public /*out*/ readonly tokenBinding!: pulumi.Output<string>;
     public /*out*/ readonly tokenUrl!: pulumi.Output<string>;
+    /**
+     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     */
     public readonly type!: pulumi.Output<string>;
     public readonly usernameTemplate!: pulumi.Output<string | undefined>;
 
@@ -235,6 +238,9 @@ export interface SocialIdpState {
     suspendedAction?: pulumi.Input<string>;
     tokenBinding?: pulumi.Input<string>;
     tokenUrl?: pulumi.Input<string>;
+    /**
+     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     */
     type?: pulumi.Input<string>;
     usernameTemplate?: pulumi.Input<string>;
 }
@@ -289,6 +295,9 @@ export interface SocialIdpArgs {
     subjectMatchAttribute?: pulumi.Input<string>;
     subjectMatchType?: pulumi.Input<string>;
     suspendedAction?: pulumi.Input<string>;
+    /**
+     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     */
     type: pulumi.Input<string>;
     usernameTemplate?: pulumi.Input<string>;
 }

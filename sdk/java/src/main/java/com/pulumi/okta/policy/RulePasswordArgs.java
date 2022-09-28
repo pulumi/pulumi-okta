@@ -18,14 +18,14 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     public static final RulePasswordArgs Empty = new RulePasswordArgs();
 
     /**
-     * Policy Rule Name.
+     * Policy Rule Name. Type `&#34;string&#34;`
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy Rule Name.
+     * @return Policy Rule Name. Type `&#34;string&#34;`
      * 
      */
     public Optional<Output<String>> name() {
@@ -33,14 +33,14 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`. Type `&#34;string&#34;`
      * 
      */
     @Import(name="networkConnection")
     private @Nullable Output<String> networkConnection;
 
     /**
-     * @return Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * @return Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`. Type `&#34;string&#34;`
      * 
      */
     public Optional<Output<String>> networkConnection() {
@@ -48,14 +48,14 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network zones to exclude. Conflicts with `network_includes`.
+     * The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return The network zones to exclude. Conflicts with `network_includes`.
+     * @return The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -63,14 +63,14 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network zones to include. Conflicts with `network_excludes`.
+     * The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
      * 
      */
     @Import(name="networkIncludes")
     private @Nullable Output<List<String>> networkIncludes;
 
     /**
-     * @return The network zones to include. Conflicts with `network_excludes`.
+     * @return The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
      * 
      */
     public Optional<Output<List<String>>> networkIncludes() {
@@ -78,14 +78,14 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`.
+     * Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
      * 
      */
     @Import(name="passwordChange")
     private @Nullable Output<String> passwordChange;
 
     /**
-     * @return Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`.
+     * @return Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
      * 
      */
     public Optional<Output<String>> passwordChange() {
@@ -93,14 +93,14 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`.
+     * Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
      * 
      */
     @Import(name="passwordReset")
     private @Nullable Output<String> passwordReset;
 
     /**
-     * @return Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`.
+     * @return Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
      * 
      */
     public Optional<Output<String>> passwordReset() {
@@ -108,14 +108,14 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`,
+     * Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`, Type `&#34;string&#34;`
      * 
      */
     @Import(name="passwordUnlock")
     private @Nullable Output<String> passwordUnlock;
 
     /**
-     * @return Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`,
+     * @return Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`, Type `&#34;string&#34;`
      * 
      */
     public Optional<Output<String>> passwordUnlock() {
@@ -161,14 +161,14 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * @return Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -176,14 +176,14 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * @return Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
      * 
      */
     public Optional<Output<String>> status() {
@@ -191,14 +191,14 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of User IDs to Exclude
+     * The users to exclude. Type `&#34;set(string)&#34;`
      * 
      */
     @Import(name="usersExcludeds")
     private @Nullable Output<List<String>> usersExcludeds;
 
     /**
-     * @return Set of User IDs to Exclude
+     * @return The users to exclude. Type `&#34;set(string)&#34;`
      * 
      */
     public Optional<Output<List<String>>> usersExcludeds() {
@@ -241,7 +241,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Rule Name.
+         * @param name Policy Rule Name. Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Rule Name.
+         * @param name Policy Rule Name. Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`. Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`. Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordChange Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`.
+         * @param passwordChange Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordChange Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`.
+         * @param passwordChange Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordReset Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`.
+         * @param passwordReset Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordReset Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`.
+         * @param passwordReset Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordUnlock Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`,
+         * @param passwordUnlock Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`, Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordUnlock Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`,
+         * @param passwordUnlock Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`, Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds Set of User IDs to Exclude
+         * @param usersExcludeds The users to exclude. Type `&#34;set(string)&#34;`
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds Set of User IDs to Exclude
+         * @param usersExcludeds The users to exclude. Type `&#34;set(string)&#34;`
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds Set of User IDs to Exclude
+         * @param usersExcludeds The users to exclude. Type `&#34;set(string)&#34;`
          * 
          * @return builder
          * 

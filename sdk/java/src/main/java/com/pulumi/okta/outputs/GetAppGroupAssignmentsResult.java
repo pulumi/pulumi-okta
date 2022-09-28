@@ -14,21 +14,14 @@ public final class GetAppGroupAssignmentsResult {
      * @return List of groups IDs assigned to the application.
      * 
      */
-    private final List<String> groups;
+    private List<String> groups;
     /**
      * @return ID of application.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetAppGroupAssignmentsResult(
-        @CustomType.Parameter("groups") List<String> groups,
-        @CustomType.Parameter("id") String id) {
-        this.groups = groups;
-        this.id = id;
-    }
-
+    private GetAppGroupAssignmentsResult() {}
     /**
      * @return List of groups IDs assigned to the application.
      * 
@@ -51,21 +44,18 @@ public final class GetAppGroupAssignmentsResult {
     public static Builder builder(GetAppGroupAssignmentsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> groups;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAppGroupAssignmentsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groups = defaults.groups;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder groups(List<String> groups) {
             this.groups = Objects.requireNonNull(groups);
             return this;
@@ -73,11 +63,16 @@ public final class GetAppGroupAssignmentsResult {
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetAppGroupAssignmentsResult build() {
-            return new GetAppGroupAssignmentsResult(groups, id);
+        }
+        public GetAppGroupAssignmentsResult build() {
+            final var o = new GetAppGroupAssignmentsResult();
+            o.groups = groups;
+            o.id = id;
+            return o;
         }
     }
 }

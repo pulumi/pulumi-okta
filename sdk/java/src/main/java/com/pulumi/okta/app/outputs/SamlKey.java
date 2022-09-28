@@ -16,77 +16,54 @@ public final class SamlKey {
      * @return Date created.
      * 
      */
-    private final @Nullable String created;
+    private @Nullable String created;
     /**
      * @return RSA exponent.
      * 
      */
-    private final @Nullable String e;
+    private @Nullable String e;
     /**
      * @return Date the key expires.
      * 
      */
-    private final @Nullable String expiresAt;
+    private @Nullable String expiresAt;
     /**
      * @return Key ID.
      * 
      */
-    private final @Nullable String kid;
+    private @Nullable String kid;
     /**
      * @return Identifies the cryptographic algorithm family used with the key.
      * 
      */
-    private final @Nullable String kty;
+    private @Nullable String kty;
     /**
      * @return Date the key was last updated.
      * 
      */
-    private final @Nullable String lastUpdated;
+    private @Nullable String lastUpdated;
     /**
      * @return RSA modulus.
      * 
      */
-    private final @Nullable String n;
+    private @Nullable String n;
     /**
      * @return Intended use of the public key.
      * 
      */
-    private final @Nullable String use;
+    private @Nullable String use;
     /**
      * @return X.509 certificate chain.
      * 
      */
-    private final @Nullable List<String> x5cs;
+    private @Nullable List<String> x5cs;
     /**
      * @return X.509 certificate SHA-256 thumbprint.
      * 
      */
-    private final @Nullable String x5tS256;
+    private @Nullable String x5tS256;
 
-    @CustomType.Constructor
-    private SamlKey(
-        @CustomType.Parameter("created") @Nullable String created,
-        @CustomType.Parameter("e") @Nullable String e,
-        @CustomType.Parameter("expiresAt") @Nullable String expiresAt,
-        @CustomType.Parameter("kid") @Nullable String kid,
-        @CustomType.Parameter("kty") @Nullable String kty,
-        @CustomType.Parameter("lastUpdated") @Nullable String lastUpdated,
-        @CustomType.Parameter("n") @Nullable String n,
-        @CustomType.Parameter("use") @Nullable String use,
-        @CustomType.Parameter("x5cs") @Nullable List<String> x5cs,
-        @CustomType.Parameter("x5tS256") @Nullable String x5tS256) {
-        this.created = created;
-        this.e = e;
-        this.expiresAt = expiresAt;
-        this.kid = kid;
-        this.kty = kty;
-        this.lastUpdated = lastUpdated;
-        this.n = n;
-        this.use = use;
-        this.x5cs = x5cs;
-        this.x5tS256 = x5tS256;
-    }
-
+    private SamlKey() {}
     /**
      * @return Date created.
      * 
@@ -165,7 +142,7 @@ public final class SamlKey {
     public static Builder builder(SamlKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String created;
         private @Nullable String e;
@@ -177,11 +154,7 @@ public final class SamlKey {
         private @Nullable String use;
         private @Nullable List<String> x5cs;
         private @Nullable String x5tS256;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SamlKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.created = defaults.created;
@@ -196,38 +169,47 @@ public final class SamlKey {
     	      this.x5tS256 = defaults.x5tS256;
         }
 
+        @CustomType.Setter
         public Builder created(@Nullable String created) {
             this.created = created;
             return this;
         }
+        @CustomType.Setter
         public Builder e(@Nullable String e) {
             this.e = e;
             return this;
         }
+        @CustomType.Setter
         public Builder expiresAt(@Nullable String expiresAt) {
             this.expiresAt = expiresAt;
             return this;
         }
+        @CustomType.Setter
         public Builder kid(@Nullable String kid) {
             this.kid = kid;
             return this;
         }
+        @CustomType.Setter
         public Builder kty(@Nullable String kty) {
             this.kty = kty;
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdated(@Nullable String lastUpdated) {
             this.lastUpdated = lastUpdated;
             return this;
         }
+        @CustomType.Setter
         public Builder n(@Nullable String n) {
             this.n = n;
             return this;
         }
+        @CustomType.Setter
         public Builder use(@Nullable String use) {
             this.use = use;
             return this;
         }
+        @CustomType.Setter
         public Builder x5cs(@Nullable List<String> x5cs) {
             this.x5cs = x5cs;
             return this;
@@ -235,11 +217,24 @@ public final class SamlKey {
         public Builder x5cs(String... x5cs) {
             return x5cs(List.of(x5cs));
         }
+        @CustomType.Setter
         public Builder x5tS256(@Nullable String x5tS256) {
             this.x5tS256 = x5tS256;
             return this;
-        }        public SamlKey build() {
-            return new SamlKey(created, e, expiresAt, kid, kty, lastUpdated, n, use, x5cs, x5tS256);
+        }
+        public SamlKey build() {
+            final var o = new SamlKey();
+            o.created = created;
+            o.e = e;
+            o.expiresAt = expiresAt;
+            o.kid = kid;
+            o.kty = kty;
+            o.lastUpdated = lastUpdated;
+            o.n = n;
+            o.use = use;
+            o.x5cs = x5cs;
+            o.x5tS256 = x5tS256;
+            return o;
         }
     }
 }

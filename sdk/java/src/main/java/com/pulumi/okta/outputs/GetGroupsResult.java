@@ -17,34 +17,21 @@ public final class GetGroupsResult {
      * @return collection of groups retrieved from Okta with the following properties.
      * 
      */
-    private final List<GetGroupsGroup> groups;
+    private List<GetGroupsGroup> groups;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String q;
-    private final @Nullable String search;
+    private String id;
+    private @Nullable String q;
+    private @Nullable String search;
     /**
      * @return Group type.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private GetGroupsResult(
-        @CustomType.Parameter("groups") List<GetGroupsGroup> groups,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("q") @Nullable String q,
-        @CustomType.Parameter("search") @Nullable String search,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.groups = groups;
-        this.id = id;
-        this.q = q;
-        this.search = search;
-        this.type = type;
-    }
-
+    private GetGroupsResult() {}
     /**
      * @return collection of groups retrieved from Okta with the following properties.
      * 
@@ -80,18 +67,14 @@ public final class GetGroupsResult {
     public static Builder builder(GetGroupsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetGroupsGroup> groups;
         private String id;
         private @Nullable String q;
         private @Nullable String search;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groups = defaults.groups;
@@ -101,6 +84,7 @@ public final class GetGroupsResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder groups(List<GetGroupsGroup> groups) {
             this.groups = Objects.requireNonNull(groups);
             return this;
@@ -108,23 +92,34 @@ public final class GetGroupsResult {
         public Builder groups(GetGroupsGroup... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder q(@Nullable String q) {
             this.q = q;
             return this;
         }
+        @CustomType.Setter
         public Builder search(@Nullable String search) {
             this.search = search;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public GetGroupsResult build() {
-            return new GetGroupsResult(groups, id, q, search, type);
+        }
+        public GetGroupsResult build() {
+            final var o = new GetGroupsResult();
+            o.groups = groups;
+            o.id = id;
+            o.q = q;
+            o.search = search;
+            o.type = type;
+            return o;
         }
     }
 }

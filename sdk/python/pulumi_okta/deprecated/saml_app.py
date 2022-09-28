@@ -34,7 +34,6 @@ class SamlAppArgs:
                  destination: Optional[pulumi.Input[str]] = None,
                  digest_algorithm: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -85,7 +84,6 @@ class SamlAppArgs:
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features to enable
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
@@ -153,8 +151,6 @@ class SamlAppArgs:
             pulumi.set(__self__, "digest_algorithm", digest_algorithm)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
-        if features is not None:
-            pulumi.set(__self__, "features", features)
         if groups is not None:
             warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
             pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
@@ -436,18 +432,6 @@ class SamlAppArgs:
     @enduser_note.setter
     def enduser_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "enduser_note", value)
-
-    @property
-    @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        features to enable
-        """
-        return pulumi.get(self, "features")
-
-    @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "features", value)
 
     @property
     @pulumi.getter
@@ -1867,7 +1851,6 @@ class SamlApp(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[str]] = None,
                  digest_algorithm: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -1921,7 +1904,6 @@ class SamlApp(pulumi.CustomResource):
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features to enable
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
@@ -1995,7 +1977,6 @@ class SamlApp(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[str]] = None,
                  digest_algorithm: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -2055,7 +2036,6 @@ class SamlApp(pulumi.CustomResource):
             __props__.__dict__["destination"] = destination
             __props__.__dict__["digest_algorithm"] = digest_algorithm
             __props__.__dict__["enduser_note"] = enduser_note
-            __props__.__dict__["features"] = features
             if groups is not None and not opts.urn:
                 warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
                 pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
@@ -2100,6 +2080,7 @@ class SamlApp(pulumi.CustomResource):
             __props__.__dict__["embed_url"] = None
             __props__.__dict__["entity_key"] = None
             __props__.__dict__["entity_url"] = None
+            __props__.__dict__["features"] = None
             __props__.__dict__["http_post_binding"] = None
             __props__.__dict__["http_redirect_binding"] = None
             __props__.__dict__["key_id"] = None
@@ -2488,7 +2469,7 @@ class SamlApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def features(self) -> pulumi.Output[Sequence[str]]:
         """
         features to enable
         """

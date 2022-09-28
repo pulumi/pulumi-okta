@@ -46,36 +46,36 @@ class PasswordArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Password resource.
-        :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
-        :param pulumi.Input[str] call_recovery: Enable or disable voice call password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit.
-        :param pulumi.Input[bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary.
-        :param pulumi.Input[bool] password_exclude_first_name: User firstName attribute must be excluded from the password.
-        :param pulumi.Input[bool] password_exclude_last_name: User lastName attribute must be excluded from the password.
-        :param pulumi.Input[bool] password_exclude_username: If the username must be excluded from the password.
-        :param pulumi.Input[int] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.
-        :param pulumi.Input[int] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked.
-        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.,
-        :param pulumi.Input[int] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
-        :param pulumi.Input[int] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.
-        :param pulumi.Input[int] password_min_length: Minimum password length. Default is 8.
-        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in a password.
-        :param pulumi.Input[int] password_min_number: Minimum number of numbers in a password.
-        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in a password.
-        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in a password.
-        :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.
-        :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.
-        :param pulumi.Input[str] question_recovery: Enable or disable security question password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[int] recovery_email_token: Lifetime in minutes of the recovery email token.
-        :param pulumi.Input[bool] skip_unlock: When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
-        :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
+        :param pulumi.Input[str] call_recovery: Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
+        :param pulumi.Input[str] description: Policy Description. Type `"string"`
+        :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include. Type `"list(string)"`
+        :param pulumi.Input[str] name: Policy Name. Type `"string"`
+        :param pulumi.Input[int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_first_name: User firstName attribute must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_last_name: User lastName attribute must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_username: If the username must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[int] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
+        :param pulumi.Input[int] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
+        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_min_length: Minimum password length. Default is 8. Type `"number"`
+        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_number: Minimum number of numbers in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in a password. Type `"number"`
+        :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.  Type `"bool"`
+        :param pulumi.Input[int] priority: Priority of the policy. Type `"number"`
+        :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.  Type `"number"`
+        :param pulumi.Input[str] question_recovery: Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[int] recovery_email_token: Lifetime in minutes of the recovery email token.  Type `"number"`
+        :param pulumi.Input[bool] skip_unlock: When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
+        :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         """
         if auth_provider is not None:
             pulumi.set(__self__, "auth_provider", auth_provider)
@@ -142,7 +142,7 @@ class PasswordArgs:
     @pulumi.getter(name="authProvider")
     def auth_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
+        Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
         """
         return pulumi.get(self, "auth_provider")
 
@@ -154,7 +154,7 @@ class PasswordArgs:
     @pulumi.getter(name="callRecovery")
     def call_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+        Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
         """
         return pulumi.get(self, "call_recovery")
 
@@ -166,7 +166,7 @@ class PasswordArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Description.
+        Policy Description. Type `"string"`
         """
         return pulumi.get(self, "description")
 
@@ -178,7 +178,7 @@ class PasswordArgs:
     @pulumi.getter(name="emailRecovery")
     def email_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        Enable or disable email password recovery: ACTIVE or INACTIVE.
+        Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
         """
         return pulumi.get(self, "email_recovery")
 
@@ -190,7 +190,7 @@ class PasswordArgs:
     @pulumi.getter(name="groupsIncludeds")
     def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Group IDs to Include.
+        List of Group IDs to Include. Type `"list(string)"`
         """
         return pulumi.get(self, "groups_includeds")
 
@@ -202,7 +202,7 @@ class PasswordArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Name.
+        Policy Name. Type `"string"`
         """
         return pulumi.get(self, "name")
 
@@ -214,7 +214,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordAutoUnlockMinutes")
     def password_auto_unlock_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of minutes before a locked account is unlocked: 0 = no limit.
+        Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_auto_unlock_minutes")
 
@@ -226,7 +226,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordDictionaryLookup")
     def password_dictionary_lookup(self) -> Optional[pulumi.Input[bool]]:
         """
-        Check Passwords Against Common Password Dictionary.
+        Check Passwords Against Common Password Dictionary. Type `"bool"`
         """
         return pulumi.get(self, "password_dictionary_lookup")
 
@@ -238,7 +238,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordExcludeFirstName")
     def password_exclude_first_name(self) -> Optional[pulumi.Input[bool]]:
         """
-        User firstName attribute must be excluded from the password.
+        User firstName attribute must be excluded from the password. Type `"bool"`
         """
         return pulumi.get(self, "password_exclude_first_name")
 
@@ -250,7 +250,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordExcludeLastName")
     def password_exclude_last_name(self) -> Optional[pulumi.Input[bool]]:
         """
-        User lastName attribute must be excluded from the password.
+        User lastName attribute must be excluded from the password. Type `"bool"`
         """
         return pulumi.get(self, "password_exclude_last_name")
 
@@ -262,7 +262,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordExcludeUsername")
     def password_exclude_username(self) -> Optional[pulumi.Input[bool]]:
         """
-        If the username must be excluded from the password.
+        If the username must be excluded from the password. Type `"bool"`
         """
         return pulumi.get(self, "password_exclude_username")
 
@@ -274,7 +274,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordExpireWarnDays")
     def password_expire_warn_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Length in days a user will be warned before password expiry: 0 = no warning.
+        Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
         """
         return pulumi.get(self, "password_expire_warn_days")
 
@@ -286,7 +286,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordHistoryCount")
     def password_history_count(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of distinct passwords that must be created before they can be reused: 0 = none.
+        Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
         """
         return pulumi.get(self, "password_history_count")
 
@@ -298,7 +298,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordLockoutNotificationChannels")
     def password_lockout_notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Notification channels to use to notify a user when their account has been locked.
+        Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
         """
         return pulumi.get(self, "password_lockout_notification_channels")
 
@@ -310,7 +310,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordMaxAgeDays")
     def password_max_age_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Length in days a password is valid before expiry: 0 = no limit.,
+        Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_max_age_days")
 
@@ -322,7 +322,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordMaxLockoutAttempts")
     def password_max_lockout_attempts(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+        Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_max_lockout_attempts")
 
@@ -334,7 +334,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordMinAgeMinutes")
     def password_min_age_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum time interval in minutes between password changes: 0 = no limit.
+        Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_min_age_minutes")
 
@@ -346,7 +346,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordMinLength")
     def password_min_length(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum password length. Default is 8.
+        Minimum password length. Default is 8. Type `"number"`
         """
         return pulumi.get(self, "password_min_length")
 
@@ -358,7 +358,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordMinLowercase")
     def password_min_lowercase(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of lower case characters in a password.
+        Minimum number of lower case characters in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_lowercase")
 
@@ -370,7 +370,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordMinNumber")
     def password_min_number(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of numbers in a password.
+        Minimum number of numbers in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_number")
 
@@ -382,7 +382,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordMinSymbol")
     def password_min_symbol(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of symbols in a password.
+        Minimum number of symbols in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_symbol")
 
@@ -394,7 +394,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordMinUppercase")
     def password_min_uppercase(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of upper case characters in a password.
+        Minimum number of upper case characters in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_uppercase")
 
@@ -406,7 +406,7 @@ class PasswordArgs:
     @pulumi.getter(name="passwordShowLockoutFailures")
     def password_show_lockout_failures(self) -> Optional[pulumi.Input[bool]]:
         """
-        If a user should be informed when their account is locked.
+        If a user should be informed when their account is locked.  Type `"bool"`
         """
         return pulumi.get(self, "password_show_lockout_failures")
 
@@ -418,7 +418,7 @@ class PasswordArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Priority of the policy.
+        Priority of the policy. Type `"number"`
         """
         return pulumi.get(self, "priority")
 
@@ -430,7 +430,7 @@ class PasswordArgs:
     @pulumi.getter(name="questionMinLength")
     def question_min_length(self) -> Optional[pulumi.Input[int]]:
         """
-        Min length of the password recovery question answer.
+        Min length of the password recovery question answer.  Type `"number"`
         """
         return pulumi.get(self, "question_min_length")
 
@@ -442,7 +442,7 @@ class PasswordArgs:
     @pulumi.getter(name="questionRecovery")
     def question_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        Enable or disable security question password recovery: ACTIVE or INACTIVE.
+        Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
         """
         return pulumi.get(self, "question_recovery")
 
@@ -454,7 +454,7 @@ class PasswordArgs:
     @pulumi.getter(name="recoveryEmailToken")
     def recovery_email_token(self) -> Optional[pulumi.Input[int]]:
         """
-        Lifetime in minutes of the recovery email token.
+        Lifetime in minutes of the recovery email token.  Type `"number"`
         """
         return pulumi.get(self, "recovery_email_token")
 
@@ -466,7 +466,7 @@ class PasswordArgs:
     @pulumi.getter(name="skipUnlock")
     def skip_unlock(self) -> Optional[pulumi.Input[bool]]:
         """
-        When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
+        When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
         """
         return pulumi.get(self, "skip_unlock")
 
@@ -478,7 +478,7 @@ class PasswordArgs:
     @pulumi.getter(name="smsRecovery")
     def sms_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        Enable or disable SMS password recovery: ACTIVE or INACTIVE.
+        Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
         """
         return pulumi.get(self, "sms_recovery")
 
@@ -490,7 +490,7 @@ class PasswordArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         """
         return pulumi.get(self, "status")
 
@@ -534,36 +534,36 @@ class _PasswordState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Password resources.
-        :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
-        :param pulumi.Input[str] call_recovery: Enable or disable voice call password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit.
-        :param pulumi.Input[bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary.
-        :param pulumi.Input[bool] password_exclude_first_name: User firstName attribute must be excluded from the password.
-        :param pulumi.Input[bool] password_exclude_last_name: User lastName attribute must be excluded from the password.
-        :param pulumi.Input[bool] password_exclude_username: If the username must be excluded from the password.
-        :param pulumi.Input[int] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.
-        :param pulumi.Input[int] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked.
-        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.,
-        :param pulumi.Input[int] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
-        :param pulumi.Input[int] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.
-        :param pulumi.Input[int] password_min_length: Minimum password length. Default is 8.
-        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in a password.
-        :param pulumi.Input[int] password_min_number: Minimum number of numbers in a password.
-        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in a password.
-        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in a password.
-        :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.
-        :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.
-        :param pulumi.Input[str] question_recovery: Enable or disable security question password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[int] recovery_email_token: Lifetime in minutes of the recovery email token.
-        :param pulumi.Input[bool] skip_unlock: When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
-        :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
+        :param pulumi.Input[str] call_recovery: Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
+        :param pulumi.Input[str] description: Policy Description. Type `"string"`
+        :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include. Type `"list(string)"`
+        :param pulumi.Input[str] name: Policy Name. Type `"string"`
+        :param pulumi.Input[int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_first_name: User firstName attribute must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_last_name: User lastName attribute must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_username: If the username must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[int] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
+        :param pulumi.Input[int] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
+        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_min_length: Minimum password length. Default is 8. Type `"number"`
+        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_number: Minimum number of numbers in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in a password. Type `"number"`
+        :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.  Type `"bool"`
+        :param pulumi.Input[int] priority: Priority of the policy. Type `"number"`
+        :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.  Type `"number"`
+        :param pulumi.Input[str] question_recovery: Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[int] recovery_email_token: Lifetime in minutes of the recovery email token.  Type `"number"`
+        :param pulumi.Input[bool] skip_unlock: When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
+        :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         """
         if auth_provider is not None:
             pulumi.set(__self__, "auth_provider", auth_provider)
@@ -630,7 +630,7 @@ class _PasswordState:
     @pulumi.getter(name="authProvider")
     def auth_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
+        Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
         """
         return pulumi.get(self, "auth_provider")
 
@@ -642,7 +642,7 @@ class _PasswordState:
     @pulumi.getter(name="callRecovery")
     def call_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+        Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
         """
         return pulumi.get(self, "call_recovery")
 
@@ -654,7 +654,7 @@ class _PasswordState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Description.
+        Policy Description. Type `"string"`
         """
         return pulumi.get(self, "description")
 
@@ -666,7 +666,7 @@ class _PasswordState:
     @pulumi.getter(name="emailRecovery")
     def email_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        Enable or disable email password recovery: ACTIVE or INACTIVE.
+        Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
         """
         return pulumi.get(self, "email_recovery")
 
@@ -678,7 +678,7 @@ class _PasswordState:
     @pulumi.getter(name="groupsIncludeds")
     def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Group IDs to Include.
+        List of Group IDs to Include. Type `"list(string)"`
         """
         return pulumi.get(self, "groups_includeds")
 
@@ -690,7 +690,7 @@ class _PasswordState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Name.
+        Policy Name. Type `"string"`
         """
         return pulumi.get(self, "name")
 
@@ -702,7 +702,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordAutoUnlockMinutes")
     def password_auto_unlock_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of minutes before a locked account is unlocked: 0 = no limit.
+        Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_auto_unlock_minutes")
 
@@ -714,7 +714,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordDictionaryLookup")
     def password_dictionary_lookup(self) -> Optional[pulumi.Input[bool]]:
         """
-        Check Passwords Against Common Password Dictionary.
+        Check Passwords Against Common Password Dictionary. Type `"bool"`
         """
         return pulumi.get(self, "password_dictionary_lookup")
 
@@ -726,7 +726,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordExcludeFirstName")
     def password_exclude_first_name(self) -> Optional[pulumi.Input[bool]]:
         """
-        User firstName attribute must be excluded from the password.
+        User firstName attribute must be excluded from the password. Type `"bool"`
         """
         return pulumi.get(self, "password_exclude_first_name")
 
@@ -738,7 +738,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordExcludeLastName")
     def password_exclude_last_name(self) -> Optional[pulumi.Input[bool]]:
         """
-        User lastName attribute must be excluded from the password.
+        User lastName attribute must be excluded from the password. Type `"bool"`
         """
         return pulumi.get(self, "password_exclude_last_name")
 
@@ -750,7 +750,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordExcludeUsername")
     def password_exclude_username(self) -> Optional[pulumi.Input[bool]]:
         """
-        If the username must be excluded from the password.
+        If the username must be excluded from the password. Type `"bool"`
         """
         return pulumi.get(self, "password_exclude_username")
 
@@ -762,7 +762,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordExpireWarnDays")
     def password_expire_warn_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Length in days a user will be warned before password expiry: 0 = no warning.
+        Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
         """
         return pulumi.get(self, "password_expire_warn_days")
 
@@ -774,7 +774,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordHistoryCount")
     def password_history_count(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of distinct passwords that must be created before they can be reused: 0 = none.
+        Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
         """
         return pulumi.get(self, "password_history_count")
 
@@ -786,7 +786,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordLockoutNotificationChannels")
     def password_lockout_notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Notification channels to use to notify a user when their account has been locked.
+        Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
         """
         return pulumi.get(self, "password_lockout_notification_channels")
 
@@ -798,7 +798,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordMaxAgeDays")
     def password_max_age_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Length in days a password is valid before expiry: 0 = no limit.,
+        Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_max_age_days")
 
@@ -810,7 +810,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordMaxLockoutAttempts")
     def password_max_lockout_attempts(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+        Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_max_lockout_attempts")
 
@@ -822,7 +822,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordMinAgeMinutes")
     def password_min_age_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum time interval in minutes between password changes: 0 = no limit.
+        Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_min_age_minutes")
 
@@ -834,7 +834,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordMinLength")
     def password_min_length(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum password length. Default is 8.
+        Minimum password length. Default is 8. Type `"number"`
         """
         return pulumi.get(self, "password_min_length")
 
@@ -846,7 +846,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordMinLowercase")
     def password_min_lowercase(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of lower case characters in a password.
+        Minimum number of lower case characters in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_lowercase")
 
@@ -858,7 +858,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordMinNumber")
     def password_min_number(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of numbers in a password.
+        Minimum number of numbers in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_number")
 
@@ -870,7 +870,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordMinSymbol")
     def password_min_symbol(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of symbols in a password.
+        Minimum number of symbols in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_symbol")
 
@@ -882,7 +882,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordMinUppercase")
     def password_min_uppercase(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of upper case characters in a password.
+        Minimum number of upper case characters in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_uppercase")
 
@@ -894,7 +894,7 @@ class _PasswordState:
     @pulumi.getter(name="passwordShowLockoutFailures")
     def password_show_lockout_failures(self) -> Optional[pulumi.Input[bool]]:
         """
-        If a user should be informed when their account is locked.
+        If a user should be informed when their account is locked.  Type `"bool"`
         """
         return pulumi.get(self, "password_show_lockout_failures")
 
@@ -906,7 +906,7 @@ class _PasswordState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Priority of the policy.
+        Priority of the policy. Type `"number"`
         """
         return pulumi.get(self, "priority")
 
@@ -918,7 +918,7 @@ class _PasswordState:
     @pulumi.getter(name="questionMinLength")
     def question_min_length(self) -> Optional[pulumi.Input[int]]:
         """
-        Min length of the password recovery question answer.
+        Min length of the password recovery question answer.  Type `"number"`
         """
         return pulumi.get(self, "question_min_length")
 
@@ -930,7 +930,7 @@ class _PasswordState:
     @pulumi.getter(name="questionRecovery")
     def question_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        Enable or disable security question password recovery: ACTIVE or INACTIVE.
+        Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
         """
         return pulumi.get(self, "question_recovery")
 
@@ -942,7 +942,7 @@ class _PasswordState:
     @pulumi.getter(name="recoveryEmailToken")
     def recovery_email_token(self) -> Optional[pulumi.Input[int]]:
         """
-        Lifetime in minutes of the recovery email token.
+        Lifetime in minutes of the recovery email token.  Type `"number"`
         """
         return pulumi.get(self, "recovery_email_token")
 
@@ -954,7 +954,7 @@ class _PasswordState:
     @pulumi.getter(name="skipUnlock")
     def skip_unlock(self) -> Optional[pulumi.Input[bool]]:
         """
-        When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
+        When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
         """
         return pulumi.get(self, "skip_unlock")
 
@@ -966,7 +966,7 @@ class _PasswordState:
     @pulumi.getter(name="smsRecovery")
     def sms_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        Enable or disable SMS password recovery: ACTIVE or INACTIVE.
+        Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
         """
         return pulumi.get(self, "sms_recovery")
 
@@ -978,7 +978,7 @@ class _PasswordState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         """
         return pulumi.get(self, "status")
 
@@ -1051,36 +1051,36 @@ class Password(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
-        :param pulumi.Input[str] call_recovery: Enable or disable voice call password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit.
-        :param pulumi.Input[bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary.
-        :param pulumi.Input[bool] password_exclude_first_name: User firstName attribute must be excluded from the password.
-        :param pulumi.Input[bool] password_exclude_last_name: User lastName attribute must be excluded from the password.
-        :param pulumi.Input[bool] password_exclude_username: If the username must be excluded from the password.
-        :param pulumi.Input[int] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.
-        :param pulumi.Input[int] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked.
-        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.,
-        :param pulumi.Input[int] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
-        :param pulumi.Input[int] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.
-        :param pulumi.Input[int] password_min_length: Minimum password length. Default is 8.
-        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in a password.
-        :param pulumi.Input[int] password_min_number: Minimum number of numbers in a password.
-        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in a password.
-        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in a password.
-        :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.
-        :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.
-        :param pulumi.Input[str] question_recovery: Enable or disable security question password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[int] recovery_email_token: Lifetime in minutes of the recovery email token.
-        :param pulumi.Input[bool] skip_unlock: When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
-        :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
+        :param pulumi.Input[str] call_recovery: Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
+        :param pulumi.Input[str] description: Policy Description. Type `"string"`
+        :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include. Type `"list(string)"`
+        :param pulumi.Input[str] name: Policy Name. Type `"string"`
+        :param pulumi.Input[int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_first_name: User firstName attribute must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_last_name: User lastName attribute must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_username: If the username must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[int] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
+        :param pulumi.Input[int] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
+        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_min_length: Minimum password length. Default is 8. Type `"number"`
+        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_number: Minimum number of numbers in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in a password. Type `"number"`
+        :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.  Type `"bool"`
+        :param pulumi.Input[int] priority: Priority of the policy. Type `"number"`
+        :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.  Type `"number"`
+        :param pulumi.Input[str] question_recovery: Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[int] recovery_email_token: Lifetime in minutes of the recovery email token.  Type `"number"`
+        :param pulumi.Input[bool] skip_unlock: When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
+        :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         """
         ...
     @overload
@@ -1245,36 +1245,36 @@ class Password(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
-        :param pulumi.Input[str] call_recovery: Enable or disable voice call password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit.
-        :param pulumi.Input[bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary.
-        :param pulumi.Input[bool] password_exclude_first_name: User firstName attribute must be excluded from the password.
-        :param pulumi.Input[bool] password_exclude_last_name: User lastName attribute must be excluded from the password.
-        :param pulumi.Input[bool] password_exclude_username: If the username must be excluded from the password.
-        :param pulumi.Input[int] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.
-        :param pulumi.Input[int] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked.
-        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.,
-        :param pulumi.Input[int] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
-        :param pulumi.Input[int] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.
-        :param pulumi.Input[int] password_min_length: Minimum password length. Default is 8.
-        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in a password.
-        :param pulumi.Input[int] password_min_number: Minimum number of numbers in a password.
-        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in a password.
-        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in a password.
-        :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.
-        :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.
-        :param pulumi.Input[str] question_recovery: Enable or disable security question password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[int] recovery_email_token: Lifetime in minutes of the recovery email token.
-        :param pulumi.Input[bool] skip_unlock: When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
-        :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE.
-        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        :param pulumi.Input[str] auth_provider: Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
+        :param pulumi.Input[str] call_recovery: Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
+        :param pulumi.Input[str] description: Policy Description. Type `"string"`
+        :param pulumi.Input[str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include. Type `"list(string)"`
+        :param pulumi.Input[str] name: Policy Name. Type `"string"`
+        :param pulumi.Input[int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_first_name: User firstName attribute must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_last_name: User lastName attribute must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[bool] password_exclude_username: If the username must be excluded from the password. Type `"bool"`
+        :param pulumi.Input[int] password_expire_warn_days: Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
+        :param pulumi.Input[int] password_history_count: Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] password_lockout_notification_channels: Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
+        :param pulumi.Input[int] password_max_age_days: Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_max_lockout_attempts: Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_min_age_minutes: Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
+        :param pulumi.Input[int] password_min_length: Minimum password length. Default is 8. Type `"number"`
+        :param pulumi.Input[int] password_min_lowercase: Minimum number of lower case characters in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_number: Minimum number of numbers in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_symbol: Minimum number of symbols in a password. Type `"number"`
+        :param pulumi.Input[int] password_min_uppercase: Minimum number of upper case characters in a password. Type `"number"`
+        :param pulumi.Input[bool] password_show_lockout_failures: If a user should be informed when their account is locked.  Type `"bool"`
+        :param pulumi.Input[int] priority: Priority of the policy. Type `"number"`
+        :param pulumi.Input[int] question_min_length: Min length of the password recovery question answer.  Type `"number"`
+        :param pulumi.Input[str] question_recovery: Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[int] recovery_email_token: Lifetime in minutes of the recovery email token.  Type `"number"`
+        :param pulumi.Input[bool] skip_unlock: When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
+        :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
+        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1316,7 +1316,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="authProvider")
     def auth_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`.
+        Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
         """
         return pulumi.get(self, "auth_provider")
 
@@ -1324,7 +1324,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="callRecovery")
     def call_recovery(self) -> pulumi.Output[Optional[str]]:
         """
-        Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+        Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
         """
         return pulumi.get(self, "call_recovery")
 
@@ -1332,7 +1332,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Policy Description.
+        Policy Description. Type `"string"`
         """
         return pulumi.get(self, "description")
 
@@ -1340,7 +1340,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="emailRecovery")
     def email_recovery(self) -> pulumi.Output[Optional[str]]:
         """
-        Enable or disable email password recovery: ACTIVE or INACTIVE.
+        Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
         """
         return pulumi.get(self, "email_recovery")
 
@@ -1348,7 +1348,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="groupsIncludeds")
     def groups_includeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of Group IDs to Include.
+        List of Group IDs to Include. Type `"list(string)"`
         """
         return pulumi.get(self, "groups_includeds")
 
@@ -1356,7 +1356,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Policy Name.
+        Policy Name. Type `"string"`
         """
         return pulumi.get(self, "name")
 
@@ -1364,7 +1364,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordAutoUnlockMinutes")
     def password_auto_unlock_minutes(self) -> pulumi.Output[Optional[int]]:
         """
-        Number of minutes before a locked account is unlocked: 0 = no limit.
+        Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_auto_unlock_minutes")
 
@@ -1372,7 +1372,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordDictionaryLookup")
     def password_dictionary_lookup(self) -> pulumi.Output[Optional[bool]]:
         """
-        Check Passwords Against Common Password Dictionary.
+        Check Passwords Against Common Password Dictionary. Type `"bool"`
         """
         return pulumi.get(self, "password_dictionary_lookup")
 
@@ -1380,7 +1380,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordExcludeFirstName")
     def password_exclude_first_name(self) -> pulumi.Output[Optional[bool]]:
         """
-        User firstName attribute must be excluded from the password.
+        User firstName attribute must be excluded from the password. Type `"bool"`
         """
         return pulumi.get(self, "password_exclude_first_name")
 
@@ -1388,7 +1388,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordExcludeLastName")
     def password_exclude_last_name(self) -> pulumi.Output[Optional[bool]]:
         """
-        User lastName attribute must be excluded from the password.
+        User lastName attribute must be excluded from the password. Type `"bool"`
         """
         return pulumi.get(self, "password_exclude_last_name")
 
@@ -1396,7 +1396,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordExcludeUsername")
     def password_exclude_username(self) -> pulumi.Output[Optional[bool]]:
         """
-        If the username must be excluded from the password.
+        If the username must be excluded from the password. Type `"bool"`
         """
         return pulumi.get(self, "password_exclude_username")
 
@@ -1404,7 +1404,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordExpireWarnDays")
     def password_expire_warn_days(self) -> pulumi.Output[Optional[int]]:
         """
-        Length in days a user will be warned before password expiry: 0 = no warning.
+        Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
         """
         return pulumi.get(self, "password_expire_warn_days")
 
@@ -1412,7 +1412,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordHistoryCount")
     def password_history_count(self) -> pulumi.Output[Optional[int]]:
         """
-        Number of distinct passwords that must be created before they can be reused: 0 = none.
+        Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
         """
         return pulumi.get(self, "password_history_count")
 
@@ -1420,7 +1420,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordLockoutNotificationChannels")
     def password_lockout_notification_channels(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Notification channels to use to notify a user when their account has been locked.
+        Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
         """
         return pulumi.get(self, "password_lockout_notification_channels")
 
@@ -1428,7 +1428,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMaxAgeDays")
     def password_max_age_days(self) -> pulumi.Output[Optional[int]]:
         """
-        Length in days a password is valid before expiry: 0 = no limit.,
+        Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_max_age_days")
 
@@ -1436,7 +1436,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMaxLockoutAttempts")
     def password_max_lockout_attempts(self) -> pulumi.Output[Optional[int]]:
         """
-        Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+        Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_max_lockout_attempts")
 
@@ -1444,7 +1444,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMinAgeMinutes")
     def password_min_age_minutes(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum time interval in minutes between password changes: 0 = no limit.
+        Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
         """
         return pulumi.get(self, "password_min_age_minutes")
 
@@ -1452,7 +1452,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMinLength")
     def password_min_length(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum password length. Default is 8.
+        Minimum password length. Default is 8. Type `"number"`
         """
         return pulumi.get(self, "password_min_length")
 
@@ -1460,7 +1460,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMinLowercase")
     def password_min_lowercase(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum number of lower case characters in a password.
+        Minimum number of lower case characters in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_lowercase")
 
@@ -1468,7 +1468,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMinNumber")
     def password_min_number(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum number of numbers in a password.
+        Minimum number of numbers in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_number")
 
@@ -1476,7 +1476,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMinSymbol")
     def password_min_symbol(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum number of symbols in a password.
+        Minimum number of symbols in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_symbol")
 
@@ -1484,7 +1484,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordMinUppercase")
     def password_min_uppercase(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum number of upper case characters in a password.
+        Minimum number of upper case characters in a password. Type `"number"`
         """
         return pulumi.get(self, "password_min_uppercase")
 
@@ -1492,7 +1492,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="passwordShowLockoutFailures")
     def password_show_lockout_failures(self) -> pulumi.Output[Optional[bool]]:
         """
-        If a user should be informed when their account is locked.
+        If a user should be informed when their account is locked.  Type `"bool"`
         """
         return pulumi.get(self, "password_show_lockout_failures")
 
@@ -1500,7 +1500,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
-        Priority of the policy.
+        Priority of the policy. Type `"number"`
         """
         return pulumi.get(self, "priority")
 
@@ -1508,7 +1508,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="questionMinLength")
     def question_min_length(self) -> pulumi.Output[Optional[int]]:
         """
-        Min length of the password recovery question answer.
+        Min length of the password recovery question answer.  Type `"number"`
         """
         return pulumi.get(self, "question_min_length")
 
@@ -1516,7 +1516,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="questionRecovery")
     def question_recovery(self) -> pulumi.Output[Optional[str]]:
         """
-        Enable or disable security question password recovery: ACTIVE or INACTIVE.
+        Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
         """
         return pulumi.get(self, "question_recovery")
 
@@ -1524,7 +1524,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="recoveryEmailToken")
     def recovery_email_token(self) -> pulumi.Output[Optional[int]]:
         """
-        Lifetime in minutes of the recovery email token.
+        Lifetime in minutes of the recovery email token.  Type `"number"`
         """
         return pulumi.get(self, "recovery_email_token")
 
@@ -1532,7 +1532,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="skipUnlock")
     def skip_unlock(self) -> pulumi.Output[Optional[bool]]:
         """
-        When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
+        When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
         """
         return pulumi.get(self, "skip_unlock")
 
@@ -1540,7 +1540,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter(name="smsRecovery")
     def sms_recovery(self) -> pulumi.Output[Optional[str]]:
         """
-        Enable or disable SMS password recovery: ACTIVE or INACTIVE.
+        Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
         """
         return pulumi.get(self, "sms_recovery")
 
@@ -1548,7 +1548,7 @@ class Password(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         """
         return pulumi.get(self, "status")
 

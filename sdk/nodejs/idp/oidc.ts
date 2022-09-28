@@ -113,7 +113,7 @@ export class Oidc extends pulumi.CustomResource {
      */
     public readonly groupsFilters!: pulumi.Output<string[] | undefined>;
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+     * Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
      */
     public readonly issuerMode!: pulumi.Output<string | undefined>;
     /**
@@ -370,7 +370,7 @@ export interface OidcState {
      */
     groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+     * Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
      */
     issuerMode?: pulumi.Input<string>;
     /**
@@ -509,7 +509,7 @@ export interface OidcArgs {
      */
     groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+     * Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
      */
     issuerMode?: pulumi.Input<string>;
     /**

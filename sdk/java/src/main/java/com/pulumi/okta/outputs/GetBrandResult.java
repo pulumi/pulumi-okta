@@ -10,42 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrandResult {
-    private final String brandId;
+    private String brandId;
     /**
      * @return Custom privacy policy URL
      * 
      */
-    private final String customPrivacyPolicyUrl;
+    private String customPrivacyPolicyUrl;
     /**
      * @return Brand ID
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Link relations for this object - JSON HAL - Discoverable resources related to the brand
      * 
      */
-    private final String links;
+    private String links;
     /**
      * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
-    private final Boolean removePoweredByOkta;
+    private Boolean removePoweredByOkta;
 
-    @CustomType.Constructor
-    private GetBrandResult(
-        @CustomType.Parameter("brandId") String brandId,
-        @CustomType.Parameter("customPrivacyPolicyUrl") String customPrivacyPolicyUrl,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("links") String links,
-        @CustomType.Parameter("removePoweredByOkta") Boolean removePoweredByOkta) {
-        this.brandId = brandId;
-        this.customPrivacyPolicyUrl = customPrivacyPolicyUrl;
-        this.id = id;
-        this.links = links;
-        this.removePoweredByOkta = removePoweredByOkta;
-    }
-
+    private GetBrandResult() {}
     public String brandId() {
         return this.brandId;
     }
@@ -85,18 +72,14 @@ public final class GetBrandResult {
     public static Builder builder(GetBrandResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String brandId;
         private String customPrivacyPolicyUrl;
         private String id;
         private String links;
         private Boolean removePoweredByOkta;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBrandResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.brandId = defaults.brandId;
@@ -106,27 +89,39 @@ public final class GetBrandResult {
     	      this.removePoweredByOkta = defaults.removePoweredByOkta;
         }
 
+        @CustomType.Setter
         public Builder brandId(String brandId) {
             this.brandId = Objects.requireNonNull(brandId);
             return this;
         }
+        @CustomType.Setter
         public Builder customPrivacyPolicyUrl(String customPrivacyPolicyUrl) {
             this.customPrivacyPolicyUrl = Objects.requireNonNull(customPrivacyPolicyUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder links(String links) {
             this.links = Objects.requireNonNull(links);
             return this;
         }
+        @CustomType.Setter
         public Builder removePoweredByOkta(Boolean removePoweredByOkta) {
             this.removePoweredByOkta = Objects.requireNonNull(removePoweredByOkta);
             return this;
-        }        public GetBrandResult build() {
-            return new GetBrandResult(brandId, customPrivacyPolicyUrl, id, links, removePoweredByOkta);
+        }
+        public GetBrandResult build() {
+            final var o = new GetBrandResult();
+            o.brandId = brandId;
+            o.customPrivacyPolicyUrl = customPrivacyPolicyUrl;
+            o.id = id;
+            o.links = links;
+            o.removePoweredByOkta = removePoweredByOkta;
+            return o;
         }
     }
 }

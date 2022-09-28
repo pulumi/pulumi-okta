@@ -185,7 +185,7 @@ export class Social extends pulumi.CustomResource {
      */
     public /*out*/ readonly tokenUrl!: pulumi.Output<string>;
     /**
-     * The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
+     * The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -405,7 +405,7 @@ export interface SocialState {
      */
     tokenUrl?: pulumi.Input<string>;
     /**
-     * The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
+     * The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      */
     type?: pulumi.Input<string>;
     /**
@@ -521,7 +521,7 @@ export interface SocialArgs {
      */
     suspendedAction?: pulumi.Input<string>;
     /**
-     * The type of Social IdP. It can be `"FACEBOOK"`, `"LINKEDIN"`, `"MICROSOFT"`, `"GOOGLE"` or `"APPLE"`.
+     * The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      */
     type: pulumi.Input<string>;
     /**

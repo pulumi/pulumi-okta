@@ -124,7 +124,7 @@ namespace Pulumi.Okta.Idp
         public Output<ImmutableArray<string>> GroupsFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        /// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
@@ -389,7 +389,7 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        /// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -610,7 +610,7 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        /// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }

@@ -47,6 +47,7 @@ class OauthAppArgs:
                  logo: Optional[pulumi.Input[str]] = None,
                  logo_uri: Optional[pulumi.Input[str]] = None,
                  omit_secret: Optional[pulumi.Input[bool]] = None,
+                 pkce_required: Optional[pulumi.Input[bool]] = None,
                  policy_uri: Optional[pulumi.Input[str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
@@ -103,6 +104,8 @@ class OauthAppArgs:
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+               `native` application types.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
                in a decentralized way.
@@ -190,6 +193,8 @@ class OauthAppArgs:
             pulumi.set(__self__, "logo_uri", logo_uri)
         if omit_secret is not None:
             pulumi.set(__self__, "omit_secret", omit_secret)
+        if pkce_required is not None:
+            pulumi.set(__self__, "pkce_required", pkce_required)
         if policy_uri is not None:
             pulumi.set(__self__, "policy_uri", policy_uri)
         if post_logout_redirect_uris is not None:
@@ -606,6 +611,19 @@ class OauthAppArgs:
         pulumi.set(self, "omit_secret", value)
 
     @property
+    @pulumi.getter(name="pkceRequired")
+    def pkce_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+        `native` application types.
+        """
+        return pulumi.get(self, "pkce_required")
+
+    @pkce_required.setter
+    def pkce_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "pkce_required", value)
+
+    @property
     @pulumi.getter(name="policyUri")
     def policy_uri(self) -> Optional[pulumi.Input[str]]:
         """
@@ -860,6 +878,7 @@ class _OauthAppState:
                  logo_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  omit_secret: Optional[pulumi.Input[bool]] = None,
+                 pkce_required: Optional[pulumi.Input[bool]] = None,
                  policy_uri: Optional[pulumi.Input[str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
@@ -920,6 +939,8 @@ class _OauthAppState:
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+               `native` application types.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
                in a decentralized way.
@@ -1015,6 +1036,8 @@ class _OauthAppState:
             pulumi.set(__self__, "name", name)
         if omit_secret is not None:
             pulumi.set(__self__, "omit_secret", omit_secret)
+        if pkce_required is not None:
+            pulumi.set(__self__, "pkce_required", pkce_required)
         if policy_uri is not None:
             pulumi.set(__self__, "policy_uri", policy_uri)
         if post_logout_redirect_uris is not None:
@@ -1459,6 +1482,19 @@ class _OauthAppState:
         pulumi.set(self, "omit_secret", value)
 
     @property
+    @pulumi.getter(name="pkceRequired")
+    def pkce_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+        `native` application types.
+        """
+        return pulumi.get(self, "pkce_required")
+
+    @pkce_required.setter
+    def pkce_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "pkce_required", value)
+
+    @property
     @pulumi.getter(name="policyUri")
     def policy_uri(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1741,6 +1777,7 @@ class OauthApp(pulumi.CustomResource):
                  logo: Optional[pulumi.Input[str]] = None,
                  logo_uri: Optional[pulumi.Input[str]] = None,
                  omit_secret: Optional[pulumi.Input[bool]] = None,
+                 pkce_required: Optional[pulumi.Input[bool]] = None,
                  policy_uri: Optional[pulumi.Input[str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
@@ -1800,6 +1837,8 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+               `native` application types.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
                in a decentralized way.
@@ -1875,6 +1914,7 @@ class OauthApp(pulumi.CustomResource):
                  logo: Optional[pulumi.Input[str]] = None,
                  logo_uri: Optional[pulumi.Input[str]] = None,
                  omit_secret: Optional[pulumi.Input[bool]] = None,
+                 pkce_required: Optional[pulumi.Input[bool]] = None,
                  policy_uri: Optional[pulumi.Input[str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
@@ -1942,6 +1982,7 @@ class OauthApp(pulumi.CustomResource):
             __props__.__dict__["logo"] = logo
             __props__.__dict__["logo_uri"] = logo_uri
             __props__.__dict__["omit_secret"] = omit_secret
+            __props__.__dict__["pkce_required"] = pkce_required
             __props__.__dict__["policy_uri"] = policy_uri
             __props__.__dict__["post_logout_redirect_uris"] = post_logout_redirect_uris
             __props__.__dict__["profile"] = profile
@@ -2013,6 +2054,7 @@ class OauthApp(pulumi.CustomResource):
             logo_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             omit_secret: Optional[pulumi.Input[bool]] = None,
+            pkce_required: Optional[pulumi.Input[bool]] = None,
             policy_uri: Optional[pulumi.Input[str]] = None,
             post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             profile: Optional[pulumi.Input[str]] = None,
@@ -2078,6 +2120,8 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+               `native` application types.
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
                in a decentralized way.
@@ -2138,6 +2182,7 @@ class OauthApp(pulumi.CustomResource):
         __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["name"] = name
         __props__.__dict__["omit_secret"] = omit_secret
+        __props__.__dict__["pkce_required"] = pkce_required
         __props__.__dict__["policy_uri"] = policy_uri
         __props__.__dict__["post_logout_redirect_uris"] = post_logout_redirect_uris
         __props__.__dict__["profile"] = profile
@@ -2426,6 +2471,15 @@ class OauthApp(pulumi.CustomResource):
         your app will be recreated.
         """
         return pulumi.get(self, "omit_secret")
+
+    @property
+    @pulumi.getter(name="pkceRequired")
+    def pkce_required(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+        `native` application types.
+        """
+        return pulumi.get(self, "pkce_required")
 
     @property
     @pulumi.getter(name="policyUri")

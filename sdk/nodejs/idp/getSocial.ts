@@ -144,7 +144,7 @@ export interface GetSocialResult {
      */
     readonly tokenUrl: string;
     /**
-     * The type of Social IdP.
+     * The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      */
     readonly type: string;
     /**

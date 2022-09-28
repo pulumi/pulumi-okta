@@ -96,14 +96,16 @@ public final class IdpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+     * Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+     * attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+     * @return Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+     * attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
      * 
      */
     public Optional<Output<String>> issuerMode() {
@@ -457,7 +459,8 @@ public final class IdpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+         * attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
          * 
          * @return builder
          * 
@@ -468,7 +471,8 @@ public final class IdpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+         * attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
          * 
          * @return builder
          * 

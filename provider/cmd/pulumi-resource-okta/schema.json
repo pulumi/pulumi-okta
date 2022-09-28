@@ -5001,7 +5001,7 @@
                 },
                 "autoKeyRotation": {
                     "type": "boolean",
-                    "description": "Requested key rotation mode.\n"
+                    "description": "Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -5013,11 +5013,11 @@
                 },
                 "clientId": {
                     "type": "string",
-                    "description": "OAuth client ID. If set during creation, app is created with this id.\n"
+                    "description": "OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
                 },
                 "clientSecret": {
                     "type": "string",
-                    "description": "The client secret of the application.\n"
+                    "description": "The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
                 },
                 "clientUri": {
                     "type": "string",
@@ -5117,6 +5117,10 @@
                     "type": "boolean",
                     "description": "This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =\u003e false.\n"
                 },
+                "pkceRequired": {
+                    "type": "boolean",
+                    "description": "Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
+                },
                 "policyUri": {
                     "type": "string",
                     "description": "URI to web page providing client policy document.\n"
@@ -5172,7 +5176,7 @@
                 },
                 "tokenEndpointAuthMethod": {
                     "type": "string",
-                    "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`. To enable PKCE, set this to `\"none\"`.\n"
+                    "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`. To enable PKCE, set this to `\"none\"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
                 },
                 "tosUri": {
                     "type": "string",
@@ -5253,7 +5257,7 @@
                 },
                 "autoKeyRotation": {
                     "type": "boolean",
-                    "description": "Requested key rotation mode.\n"
+                    "description": "Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -5265,7 +5269,7 @@
                 },
                 "clientId": {
                     "type": "string",
-                    "description": "OAuth client ID. If set during creation, app is created with this id.\n",
+                    "description": "OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n",
                     "willReplaceOnChanges": true
                 },
                 "clientUri": {
@@ -5358,6 +5362,10 @@
                     "type": "boolean",
                     "description": "This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =\u003e false.\n"
                 },
+                "pkceRequired": {
+                    "type": "boolean",
+                    "description": "Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
+                },
                 "policyUri": {
                     "type": "string",
                     "description": "URI to web page providing client policy document.\n"
@@ -5409,7 +5417,7 @@
                 },
                 "tokenEndpointAuthMethod": {
                     "type": "string",
-                    "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`. To enable PKCE, set this to `\"none\"`.\n"
+                    "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`. To enable PKCE, set this to `\"none\"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
                 },
                 "tosUri": {
                     "type": "string",
@@ -5486,7 +5494,7 @@
                     },
                     "autoKeyRotation": {
                         "type": "boolean",
-                        "description": "Requested key rotation mode.\n"
+                        "description": "Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
                     },
                     "autoSubmitToolbar": {
                         "type": "boolean",
@@ -5498,12 +5506,12 @@
                     },
                     "clientId": {
                         "type": "string",
-                        "description": "OAuth client ID. If set during creation, app is created with this id.\n",
+                        "description": "OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n",
                         "willReplaceOnChanges": true
                     },
                     "clientSecret": {
                         "type": "string",
-                        "description": "The client secret of the application.\n"
+                        "description": "The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
                     },
                     "clientUri": {
                         "type": "string",
@@ -5603,6 +5611,10 @@
                         "type": "boolean",
                         "description": "This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =\u003e false.\n"
                     },
+                    "pkceRequired": {
+                        "type": "boolean",
+                        "description": "Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
+                    },
                     "policyUri": {
                         "type": "string",
                         "description": "URI to web page providing client policy document.\n"
@@ -5658,7 +5670,7 @@
                     },
                     "tokenEndpointAuthMethod": {
                         "type": "string",
-                        "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`. To enable PKCE, set this to `\"none\"`.\n"
+                        "description": "Requested authentication method for the token endpoint. It can be set to `\"none\"`, `\"client_secret_post\"`, `\"client_secret_basic\"`, `\"client_secret_jwt\"`, `\"private_key_jwt\"`. To enable PKCE, set this to `\"none\"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
                     },
                     "tosUri": {
                         "type": "string",
@@ -5796,7 +5808,7 @@
             }
         },
         "okta:app/saml:Saml": {
-            "description": "This resource allows you to create and configure a SAML Application.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.Saml(\"example\", {\n    attributeStatements: [{\n        filterType: \"REGEX\",\n        filterValue: \".*\",\n        name: \"groups\",\n        type: \"GROUP\",\n    }],\n    audience: \"https://example.com/audience\",\n    authnContextClassRef: \"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n    destination: \"https://example.com\",\n    digestAlgorithm: \"SHA256\",\n    honorForceAuthn: false,\n    label: \"example\",\n    recipient: \"https://example.com\",\n    responseSigned: true,\n    signatureAlgorithm: \"RSA_SHA256\",\n    ssoUrl: \"https://example.com\",\n    subjectNameIdFormat: \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    subjectNameIdTemplate: \"${user.userName}\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.Saml(\"example\",\n    attribute_statements=[okta.app.SamlAttributeStatementArgs(\n        filter_type=\"REGEX\",\n        filter_value=\".*\",\n        name=\"groups\",\n        type=\"GROUP\",\n    )],\n    audience=\"https://example.com/audience\",\n    authn_context_class_ref=\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n    destination=\"https://example.com\",\n    digest_algorithm=\"SHA256\",\n    honor_force_authn=False,\n    label=\"example\",\n    recipient=\"https://example.com\",\n    response_signed=True,\n    signature_algorithm=\"RSA_SHA256\",\n    sso_url=\"https://example.com\",\n    subject_name_id_format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    subject_name_id_template=user[\"userName\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.App.Saml(\"example\", new()\n    {\n        AttributeStatements = new[]\n        {\n            new Okta.App.Inputs.SamlAttributeStatementArgs\n            {\n                FilterType = \"REGEX\",\n                FilterValue = \".*\",\n                Name = \"groups\",\n                Type = \"GROUP\",\n            },\n        },\n        Audience = \"https://example.com/audience\",\n        AuthnContextClassRef = \"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n        Destination = \"https://example.com\",\n        DigestAlgorithm = \"SHA256\",\n        HonorForceAuthn = false,\n        Label = \"example\",\n        Recipient = \"https://example.com\",\n        ResponseSigned = true,\n        SignatureAlgorithm = \"RSA_SHA256\",\n        SsoUrl = \"https://example.com\",\n        SubjectNameIdFormat = \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n        SubjectNameIdTemplate = user.UserName,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSaml(ctx, \"example\", \u0026app.SamlArgs{\n\t\t\tAttributeStatements: app.SamlAttributeStatementArray{\n\t\t\t\t\u0026app.SamlAttributeStatementArgs{\n\t\t\t\t\tFilterType:  pulumi.String(\"REGEX\"),\n\t\t\t\t\tFilterValue: pulumi.String(\".*\"),\n\t\t\t\t\tName:        pulumi.String(\"groups\"),\n\t\t\t\t\tType:        pulumi.String(\"GROUP\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tAudience:              pulumi.String(\"https://example.com/audience\"),\n\t\t\tAuthnContextClassRef:  pulumi.String(\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\"),\n\t\t\tDestination:           pulumi.String(\"https://example.com\"),\n\t\t\tDigestAlgorithm:       pulumi.String(\"SHA256\"),\n\t\t\tHonorForceAuthn:       pulumi.Bool(false),\n\t\t\tLabel:                 pulumi.String(\"example\"),\n\t\t\tRecipient:             pulumi.String(\"https://example.com\"),\n\t\t\tResponseSigned:        pulumi.Bool(true),\n\t\t\tSignatureAlgorithm:    pulumi.String(\"RSA_SHA256\"),\n\t\t\tSsoUrl:                pulumi.String(\"https://example.com\"),\n\t\t\tSubjectNameIdFormat:   pulumi.String(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\"),\n\t\t\tSubjectNameIdTemplate: pulumi.Any(user.UserName),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Saml;\nimport com.pulumi.okta.app.SamlArgs;\nimport com.pulumi.okta.app.inputs.SamlAttributeStatementArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Saml(\"example\", SamlArgs.builder()        \n            .attributeStatements(SamlAttributeStatementArgs.builder()\n                .filterType(\"REGEX\")\n                .filterValue(\".*\")\n                .name(\"groups\")\n                .type(\"GROUP\")\n                .build())\n            .audience(\"https://example.com/audience\")\n            .authnContextClassRef(\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\")\n            .destination(\"https://example.com\")\n            .digestAlgorithm(\"SHA256\")\n            .honorForceAuthn(false)\n            .label(\"example\")\n            .recipient(\"https://example.com\")\n            .responseSigned(true)\n            .signatureAlgorithm(\"RSA_SHA256\")\n            .ssoUrl(\"https://example.com\")\n            .subjectNameIdFormat(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\")\n            .subjectNameIdTemplate(user.userName())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:Saml\n    properties:\n      attributeStatements:\n        - filterType: REGEX\n          filterValue: .*\n          name: groups\n          type: GROUP\n      audience: https://example.com/audience\n      authnContextClassRef: urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\n      destination: https://example.com\n      digestAlgorithm: SHA256\n      honorForceAuthn: false\n      label: example\n      recipient: https://example.com\n      responseSigned: true\n      signatureAlgorithm: RSA_SHA256\n      ssoUrl: https://example.com\n      subjectNameIdFormat: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\n      subjectNameIdTemplate: ${user.userName}\n```\n{{% /example %}}\n{{% example %}}\n### With inline hook\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst testHook = new okta.inline.Hook(\"testHook\", {\n    status: \"ACTIVE\",\n    type: \"com.okta.saml.tokens.transform\",\n    version: \"1.0.2\",\n    channel: {\n        type: \"HTTP\",\n        version: \"1.0.0\",\n        uri: \"https://example.com/test1\",\n        method: \"POST\",\n    },\n    auth: {\n        key: \"Authorization\",\n        type: \"HEADER\",\n        value: \"secret\",\n    },\n});\nconst testSaml = new okta.app.Saml(\"testSaml\", {\n    label: \"testAcc_replace_with_uuid\",\n    ssoUrl: \"https://google.com\",\n    recipient: \"https://here.com\",\n    destination: \"https://its-about-the-journey.com\",\n    audience: \"https://audience.com\",\n    subjectNameIdTemplate: user.userName,\n    subjectNameIdFormat: \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    responseSigned: true,\n    signatureAlgorithm: \"RSA_SHA256\",\n    digestAlgorithm: \"SHA256\",\n    honorForceAuthn: false,\n    authnContextClassRef: \"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n    inlineHookId: testHook.id,\n    attributeStatements: [{\n        type: \"GROUP\",\n        name: \"groups\",\n        filterType: \"REGEX\",\n        filterValue: \".*\",\n    }],\n}, {\n    dependsOn: [testHook],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest_hook = okta.inline.Hook(\"testHook\",\n    status=\"ACTIVE\",\n    type=\"com.okta.saml.tokens.transform\",\n    version=\"1.0.2\",\n    channel={\n        \"type\": \"HTTP\",\n        \"version\": \"1.0.0\",\n        \"uri\": \"https://example.com/test1\",\n        \"method\": \"POST\",\n    },\n    auth={\n        \"key\": \"Authorization\",\n        \"type\": \"HEADER\",\n        \"value\": \"secret\",\n    })\ntest_saml = okta.app.Saml(\"testSaml\",\n    label=\"testAcc_replace_with_uuid\",\n    sso_url=\"https://google.com\",\n    recipient=\"https://here.com\",\n    destination=\"https://its-about-the-journey.com\",\n    audience=\"https://audience.com\",\n    subject_name_id_template=user[\"userName\"],\n    subject_name_id_format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    response_signed=True,\n    signature_algorithm=\"RSA_SHA256\",\n    digest_algorithm=\"SHA256\",\n    honor_force_authn=False,\n    authn_context_class_ref=\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n    inline_hook_id=test_hook.id,\n    attribute_statements=[okta.app.SamlAttributeStatementArgs(\n        type=\"GROUP\",\n        name=\"groups\",\n        filter_type=\"REGEX\",\n        filter_value=\".*\",\n    )],\n    opts=pulumi.ResourceOptions(depends_on=[test_hook]))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testHook = new Okta.Inline.Hook(\"testHook\", new()\n    {\n        Status = \"ACTIVE\",\n        Type = \"com.okta.saml.tokens.transform\",\n        Version = \"1.0.2\",\n        Channel = \n        {\n            { \"type\", \"HTTP\" },\n            { \"version\", \"1.0.0\" },\n            { \"uri\", \"https://example.com/test1\" },\n            { \"method\", \"POST\" },\n        },\n        Auth = \n        {\n            { \"key\", \"Authorization\" },\n            { \"type\", \"HEADER\" },\n            { \"value\", \"secret\" },\n        },\n    });\n\n    var testSaml = new Okta.App.Saml(\"testSaml\", new()\n    {\n        Label = \"testAcc_replace_with_uuid\",\n        SsoUrl = \"https://google.com\",\n        Recipient = \"https://here.com\",\n        Destination = \"https://its-about-the-journey.com\",\n        Audience = \"https://audience.com\",\n        SubjectNameIdTemplate = user.UserName,\n        SubjectNameIdFormat = \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n        ResponseSigned = true,\n        SignatureAlgorithm = \"RSA_SHA256\",\n        DigestAlgorithm = \"SHA256\",\n        HonorForceAuthn = false,\n        AuthnContextClassRef = \"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n        InlineHookId = testHook.Id,\n        AttributeStatements = new[]\n        {\n            new Okta.App.Inputs.SamlAttributeStatementArgs\n            {\n                Type = \"GROUP\",\n                Name = \"groups\",\n                FilterType = \"REGEX\",\n                FilterValue = \".*\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            testHook,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestHook, err := inline.NewHook(ctx, \"testHook\", \u0026inline.HookArgs{\n\t\t\tStatus:  pulumi.String(\"ACTIVE\"),\n\t\t\tType:    pulumi.String(\"com.okta.saml.tokens.transform\"),\n\t\t\tVersion: pulumi.String(\"1.0.2\"),\n\t\t\tChannel: pulumi.StringMap{\n\t\t\t\t\"type\":    pulumi.String(\"HTTP\"),\n\t\t\t\t\"version\": pulumi.String(\"1.0.0\"),\n\t\t\t\t\"uri\":     pulumi.String(\"https://example.com/test1\"),\n\t\t\t\t\"method\":  pulumi.String(\"POST\"),\n\t\t\t},\n\t\t\tAuth: pulumi.StringMap{\n\t\t\t\t\"key\":   pulumi.String(\"Authorization\"),\n\t\t\t\t\"type\":  pulumi.String(\"HEADER\"),\n\t\t\t\t\"value\": pulumi.String(\"secret\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = app.NewSaml(ctx, \"testSaml\", \u0026app.SamlArgs{\n\t\t\tLabel:                 pulumi.String(\"testAcc_replace_with_uuid\"),\n\t\t\tSsoUrl:                pulumi.String(\"https://google.com\"),\n\t\t\tRecipient:             pulumi.String(\"https://here.com\"),\n\t\t\tDestination:           pulumi.String(\"https://its-about-the-journey.com\"),\n\t\t\tAudience:              pulumi.String(\"https://audience.com\"),\n\t\t\tSubjectNameIdTemplate: pulumi.Any(user.UserName),\n\t\t\tSubjectNameIdFormat:   pulumi.String(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\"),\n\t\t\tResponseSigned:        pulumi.Bool(true),\n\t\t\tSignatureAlgorithm:    pulumi.String(\"RSA_SHA256\"),\n\t\t\tDigestAlgorithm:       pulumi.String(\"SHA256\"),\n\t\t\tHonorForceAuthn:       pulumi.Bool(false),\n\t\t\tAuthnContextClassRef:  pulumi.String(\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\"),\n\t\t\tInlineHookId:          testHook.ID(),\n\t\t\tAttributeStatements: app.SamlAttributeStatementArray{\n\t\t\t\t\u0026app.SamlAttributeStatementArgs{\n\t\t\t\t\tType:        pulumi.String(\"GROUP\"),\n\t\t\t\t\tName:        pulumi.String(\"groups\"),\n\t\t\t\t\tFilterType:  pulumi.String(\"REGEX\"),\n\t\t\t\t\tFilterValue: pulumi.String(\".*\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\ttestHook,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.inline.Hook;\nimport com.pulumi.okta.inline.HookArgs;\nimport com.pulumi.okta.app.Saml;\nimport com.pulumi.okta.app.SamlArgs;\nimport com.pulumi.okta.app.inputs.SamlAttributeStatementArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testHook = new Hook(\"testHook\", HookArgs.builder()        \n            .status(\"ACTIVE\")\n            .type(\"com.okta.saml.tokens.transform\")\n            .version(\"1.0.2\")\n            .channel(Map.ofEntries(\n                Map.entry(\"type\", \"HTTP\"),\n                Map.entry(\"version\", \"1.0.0\"),\n                Map.entry(\"uri\", \"https://example.com/test1\"),\n                Map.entry(\"method\", \"POST\")\n            ))\n            .auth(Map.ofEntries(\n                Map.entry(\"key\", \"Authorization\"),\n                Map.entry(\"type\", \"HEADER\"),\n                Map.entry(\"value\", \"secret\")\n            ))\n            .build());\n\n        var testSaml = new Saml(\"testSaml\", SamlArgs.builder()        \n            .label(\"testAcc_replace_with_uuid\")\n            .ssoUrl(\"https://google.com\")\n            .recipient(\"https://here.com\")\n            .destination(\"https://its-about-the-journey.com\")\n            .audience(\"https://audience.com\")\n            .subjectNameIdTemplate(user.userName())\n            .subjectNameIdFormat(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\")\n            .responseSigned(true)\n            .signatureAlgorithm(\"RSA_SHA256\")\n            .digestAlgorithm(\"SHA256\")\n            .honorForceAuthn(false)\n            .authnContextClassRef(\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\")\n            .inlineHookId(testHook.id())\n            .attributeStatements(SamlAttributeStatementArgs.builder()\n                .type(\"GROUP\")\n                .name(\"groups\")\n                .filterType(\"REGEX\")\n                .filterValue(\".*\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(testHook)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testHook:\n    type: okta:inline:Hook\n    properties:\n      status: ACTIVE\n      type: com.okta.saml.tokens.transform\n      version: 1.0.2\n      channel:\n        type: HTTP\n        version: 1.0.0\n        uri: https://example.com/test1\n        method: POST\n      auth:\n        key: Authorization\n        type: HEADER\n        value: secret\n  testSaml:\n    type: okta:app:Saml\n    properties:\n      label: testAcc_replace_with_uuid\n      ssoUrl: https://google.com\n      recipient: https://here.com\n      destination: https://its-about-the-journey.com\n      audience: https://audience.com\n      subjectNameIdTemplate: ${user.userName}\n      subjectNameIdFormat: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\n      responseSigned: true\n      signatureAlgorithm: RSA_SHA256\n      digestAlgorithm: SHA256\n      honorForceAuthn: false\n      authnContextClassRef: urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\n      inlineHookId: ${testHook.id}\n      attributeStatements:\n        - type: GROUP\n          name: groups\n          filterType: REGEX\n          filterValue: .*\n    options:\n      dependson:\n        - ${testHook}\n```\n{{% /example %}}\n{{% example %}}\n### Pre-configured app with SAML 1.1 sign-on mode\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.app.Saml(\"test\", {\n    appSettingsJson: `{\n    \"groupFilter\": \"app1.*\",\n    \"siteURL\": \"https://www.okta.com\"\n}\n`,\n    label: \"SharePoint (On-Premise)\",\n    preconfiguredApp: \"sharepoint_onpremise\",\n    samlVersion: \"1.1\",\n    status: \"ACTIVE\",\n    userNameTemplate: \"${source.login}\",\n    userNameTemplateType: \"BUILT_IN\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.app.Saml(\"test\",\n    app_settings_json=\"\"\"{\n    \"groupFilter\": \"app1.*\",\n    \"siteURL\": \"https://www.okta.com\"\n}\n\n\"\"\",\n    label=\"SharePoint (On-Premise)\",\n    preconfigured_app=\"sharepoint_onpremise\",\n    saml_version=\"1.1\",\n    status=\"ACTIVE\",\n    user_name_template=source[\"login\"],\n    user_name_template_type=\"BUILT_IN\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Okta.App.Saml(\"test\", new()\n    {\n        AppSettingsJson = @\"{\n    \"\"groupFilter\"\": \"\"app1.*\"\",\n    \"\"siteURL\"\": \"\"https://www.okta.com\"\"\n}\n\n\",\n        Label = \"SharePoint (On-Premise)\",\n        PreconfiguredApp = \"sharepoint_onpremise\",\n        SamlVersion = \"1.1\",\n        Status = \"ACTIVE\",\n        UserNameTemplate = source.Login,\n        UserNameTemplateType = \"BUILT_IN\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSaml(ctx, \"test\", \u0026app.SamlArgs{\n\t\t\tAppSettingsJson:      pulumi.String(fmt.Sprintf(\"{\\n    \\\"groupFilter\\\": \\\"app1.*\\\",\\n    \\\"siteURL\\\": \\\"https://www.okta.com\\\"\\n}\\n\\n\")),\n\t\t\tLabel:                pulumi.String(\"SharePoint (On-Premise)\"),\n\t\t\tPreconfiguredApp:     pulumi.String(\"sharepoint_onpremise\"),\n\t\t\tSamlVersion:          pulumi.String(\"1.1\"),\n\t\t\tStatus:               pulumi.String(\"ACTIVE\"),\n\t\t\tUserNameTemplate:     pulumi.Any(source.Login),\n\t\t\tUserNameTemplateType: pulumi.String(\"BUILT_IN\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Saml;\nimport com.pulumi.okta.app.SamlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Saml(\"test\", SamlArgs.builder()        \n            .appSettingsJson(\"\"\"\n{\n    \"groupFilter\": \"app1.*\",\n    \"siteURL\": \"https://www.okta.com\"\n}\n\n            \"\"\")\n            .label(\"SharePoint (On-Premise)\")\n            .preconfiguredApp(\"sharepoint_onpremise\")\n            .samlVersion(\"1.1\")\n            .status(\"ACTIVE\")\n            .userNameTemplate(source.login())\n            .userNameTemplateType(\"BUILT_IN\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: okta:app:Saml\n    properties:\n      appSettingsJson: |+\n        {\n            \"groupFilter\": \"app1.*\",\n            \"siteURL\": \"https://www.okta.com\"\n        }\n\n      label: SharePoint (On-Premise)\n      preconfiguredApp: sharepoint_onpremise\n      samlVersion: 1.1\n      status: ACTIVE\n      userNameTemplate: ${source.login}\n      userNameTemplateType: BUILT_IN\n```\n{{% /example %}}\n{{% example %}}\n### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst office365 = new okta.app.Saml(\"office365\", {\n    appLinksJson: `  {\n      \"calendar\": false,\n      \"crm\": false,\n      \"delve\": false,\n      \"excel\": false,\n      \"forms\": false,\n      \"mail\": false,\n      \"newsfeed\": false,\n      \"onedrive\": false,\n      \"people\": false,\n      \"planner\": false,\n      \"powerbi\": false,\n      \"powerpoint\": false,\n      \"sites\": false,\n      \"sway\": false,\n      \"tasks\": false,\n      \"teams\": false,\n      \"video\": false,\n      \"word\": false,\n      \"yammer\": false,\n      \"login\": true\n  }\n`,\n    appSettingsJson: `    {\n       \"wsFedConfigureType\": \"AUTO\",\n       \"windowsTransportEnabled\": false,\n       \"domain\": \"okta.com\",\n       \"msftTenant\": \"okta\",\n       \"domains\": [],\n       \"requireAdminConsent\": false\n    }\n`,\n    label: \"Microsoft Office 365\",\n    preconfiguredApp: \"office365\",\n    samlVersion: \"1.1\",\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\noffice365 = okta.app.Saml(\"office365\",\n    app_links_json=\"\"\"  {\n      \"calendar\": false,\n      \"crm\": false,\n      \"delve\": false,\n      \"excel\": false,\n      \"forms\": false,\n      \"mail\": false,\n      \"newsfeed\": false,\n      \"onedrive\": false,\n      \"people\": false,\n      \"planner\": false,\n      \"powerbi\": false,\n      \"powerpoint\": false,\n      \"sites\": false,\n      \"sway\": false,\n      \"tasks\": false,\n      \"teams\": false,\n      \"video\": false,\n      \"word\": false,\n      \"yammer\": false,\n      \"login\": true\n  }\n\n\"\"\",\n    app_settings_json=\"\"\"    {\n       \"wsFedConfigureType\": \"AUTO\",\n       \"windowsTransportEnabled\": false,\n       \"domain\": \"okta.com\",\n       \"msftTenant\": \"okta\",\n       \"domains\": [],\n       \"requireAdminConsent\": false\n    }\n\n\"\"\",\n    label=\"Microsoft Office 365\",\n    preconfigured_app=\"office365\",\n    saml_version=\"1.1\",\n    status=\"ACTIVE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var office365 = new Okta.App.Saml(\"office365\", new()\n    {\n        AppLinksJson = @\"  {\n      \"\"calendar\"\": false,\n      \"\"crm\"\": false,\n      \"\"delve\"\": false,\n      \"\"excel\"\": false,\n      \"\"forms\"\": false,\n      \"\"mail\"\": false,\n      \"\"newsfeed\"\": false,\n      \"\"onedrive\"\": false,\n      \"\"people\"\": false,\n      \"\"planner\"\": false,\n      \"\"powerbi\"\": false,\n      \"\"powerpoint\"\": false,\n      \"\"sites\"\": false,\n      \"\"sway\"\": false,\n      \"\"tasks\"\": false,\n      \"\"teams\"\": false,\n      \"\"video\"\": false,\n      \"\"word\"\": false,\n      \"\"yammer\"\": false,\n      \"\"login\"\": true\n  }\n\n\",\n        AppSettingsJson = @\"    {\n       \"\"wsFedConfigureType\"\": \"\"AUTO\"\",\n       \"\"windowsTransportEnabled\"\": false,\n       \"\"domain\"\": \"\"okta.com\"\",\n       \"\"msftTenant\"\": \"\"okta\"\",\n       \"\"domains\"\": [],\n       \"\"requireAdminConsent\"\": false\n    }\n\n\",\n        Label = \"Microsoft Office 365\",\n        PreconfiguredApp = \"office365\",\n        SamlVersion = \"1.1\",\n        Status = \"ACTIVE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSaml(ctx, \"office365\", \u0026app.SamlArgs{\n\t\t\tAppLinksJson: pulumi.String(fmt.Sprintf(`  {\n      \"calendar\": false,\n      \"crm\": false,\n      \"delve\": false,\n      \"excel\": false,\n      \"forms\": false,\n      \"mail\": false,\n      \"newsfeed\": false,\n      \"onedrive\": false,\n      \"people\": false,\n      \"planner\": false,\n      \"powerbi\": false,\n      \"powerpoint\": false,\n      \"sites\": false,\n      \"sway\": false,\n      \"tasks\": false,\n      \"teams\": false,\n      \"video\": false,\n      \"word\": false,\n      \"yammer\": false,\n      \"login\": true\n  }\n\n`)),\n\t\t\tAppSettingsJson: pulumi.String(fmt.Sprintf(`    {\n       \"wsFedConfigureType\": \"AUTO\",\n       \"windowsTransportEnabled\": false,\n       \"domain\": \"okta.com\",\n       \"msftTenant\": \"okta\",\n       \"domains\": [],\n       \"requireAdminConsent\": false\n    }\n\n`)),\n\t\t\tLabel:            pulumi.String(\"Microsoft Office 365\"),\n\t\t\tPreconfiguredApp: pulumi.String(\"office365\"),\n\t\t\tSamlVersion:      pulumi.String(\"1.1\"),\n\t\t\tStatus:           pulumi.String(\"ACTIVE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Saml;\nimport com.pulumi.okta.app.SamlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var office365 = new Saml(\"office365\", SamlArgs.builder()        \n            .appLinksJson(\"\"\"\n  {\n      \"calendar\": false,\n      \"crm\": false,\n      \"delve\": false,\n      \"excel\": false,\n      \"forms\": false,\n      \"mail\": false,\n      \"newsfeed\": false,\n      \"onedrive\": false,\n      \"people\": false,\n      \"planner\": false,\n      \"powerbi\": false,\n      \"powerpoint\": false,\n      \"sites\": false,\n      \"sway\": false,\n      \"tasks\": false,\n      \"teams\": false,\n      \"video\": false,\n      \"word\": false,\n      \"yammer\": false,\n      \"login\": true\n  }\n\n            \"\"\")\n            .appSettingsJson(\"\"\"\n    {\n       \"wsFedConfigureType\": \"AUTO\",\n       \"windowsTransportEnabled\": false,\n       \"domain\": \"okta.com\",\n       \"msftTenant\": \"okta\",\n       \"domains\": [],\n       \"requireAdminConsent\": false\n    }\n\n            \"\"\")\n            .label(\"Microsoft Office 365\")\n            .preconfiguredApp(\"office365\")\n            .samlVersion(\"1.1\")\n            .status(\"ACTIVE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  office365:\n    type: okta:app:Saml\n    properties:\n      appLinksJson: |2+\n          {\n              \"calendar\": false,\n              \"crm\": false,\n              \"delve\": false,\n              \"excel\": false,\n              \"forms\": false,\n              \"mail\": false,\n              \"newsfeed\": false,\n              \"onedrive\": false,\n              \"people\": false,\n              \"planner\": false,\n              \"powerbi\": false,\n              \"powerpoint\": false,\n              \"sites\": false,\n              \"sway\": false,\n              \"tasks\": false,\n              \"teams\": false,\n              \"video\": false,\n              \"word\": false,\n              \"yammer\": false,\n              \"login\": true\n          }\n\n      appSettingsJson: |2+\n            {\n               \"wsFedConfigureType\": \"AUTO\",\n               \"windowsTransportEnabled\": false,\n               \"domain\": \"okta.com\",\n               \"msftTenant\": \"okta\",\n               \"domains\": [],\n               \"requireAdminConsent\": false\n            }\n\n      label: Microsoft Office 365\n      preconfiguredApp: office365\n      samlVersion: 1.1\n      status: ACTIVE\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA SAML App can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:app/saml:Saml example \u0026#60;app id\u0026#62;\n```\n\n It's also possible to import app without groups or/and users. In this case ID may look like this\n\n```sh\n $ pulumi import okta:app/saml:Saml example \u0026#60;app id\u0026#62;/skip_users\n```\n\n\n\n```sh\n $ pulumi import okta:app/saml:Saml example \u0026#60;app id\u0026#62;/skip_users/skip_groups\n```\n\n\n\n```sh\n $ pulumi import okta:app/saml:Saml example \u0026#60;app id\u0026#62;/skip_groups\n```\n\n ",
+            "description": "This resource allows you to create and configure a SAML Application.\n\n\u003e If you receive the error `You do not have permission to access the feature\nyou are requesting` contact support and\nrequest feature flag `ADVANCED_SSO` be applied to your org.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.Saml(\"example\", {\n    attributeStatements: [{\n        filterType: \"REGEX\",\n        filterValue: \".*\",\n        name: \"groups\",\n        type: \"GROUP\",\n    }],\n    audience: \"https://example.com/audience\",\n    authnContextClassRef: \"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n    destination: \"https://example.com\",\n    digestAlgorithm: \"SHA256\",\n    honorForceAuthn: false,\n    label: \"example\",\n    recipient: \"https://example.com\",\n    responseSigned: true,\n    signatureAlgorithm: \"RSA_SHA256\",\n    ssoUrl: \"https://example.com\",\n    subjectNameIdFormat: \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    subjectNameIdTemplate: \"${user.userName}\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.Saml(\"example\",\n    attribute_statements=[okta.app.SamlAttributeStatementArgs(\n        filter_type=\"REGEX\",\n        filter_value=\".*\",\n        name=\"groups\",\n        type=\"GROUP\",\n    )],\n    audience=\"https://example.com/audience\",\n    authn_context_class_ref=\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n    destination=\"https://example.com\",\n    digest_algorithm=\"SHA256\",\n    honor_force_authn=False,\n    label=\"example\",\n    recipient=\"https://example.com\",\n    response_signed=True,\n    signature_algorithm=\"RSA_SHA256\",\n    sso_url=\"https://example.com\",\n    subject_name_id_format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    subject_name_id_template=user[\"userName\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.App.Saml(\"example\", new()\n    {\n        AttributeStatements = new[]\n        {\n            new Okta.App.Inputs.SamlAttributeStatementArgs\n            {\n                FilterType = \"REGEX\",\n                FilterValue = \".*\",\n                Name = \"groups\",\n                Type = \"GROUP\",\n            },\n        },\n        Audience = \"https://example.com/audience\",\n        AuthnContextClassRef = \"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n        Destination = \"https://example.com\",\n        DigestAlgorithm = \"SHA256\",\n        HonorForceAuthn = false,\n        Label = \"example\",\n        Recipient = \"https://example.com\",\n        ResponseSigned = true,\n        SignatureAlgorithm = \"RSA_SHA256\",\n        SsoUrl = \"https://example.com\",\n        SubjectNameIdFormat = \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n        SubjectNameIdTemplate = user.UserName,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSaml(ctx, \"example\", \u0026app.SamlArgs{\n\t\t\tAttributeStatements: app.SamlAttributeStatementArray{\n\t\t\t\t\u0026app.SamlAttributeStatementArgs{\n\t\t\t\t\tFilterType:  pulumi.String(\"REGEX\"),\n\t\t\t\t\tFilterValue: pulumi.String(\".*\"),\n\t\t\t\t\tName:        pulumi.String(\"groups\"),\n\t\t\t\t\tType:        pulumi.String(\"GROUP\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tAudience:              pulumi.String(\"https://example.com/audience\"),\n\t\t\tAuthnContextClassRef:  pulumi.String(\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\"),\n\t\t\tDestination:           pulumi.String(\"https://example.com\"),\n\t\t\tDigestAlgorithm:       pulumi.String(\"SHA256\"),\n\t\t\tHonorForceAuthn:       pulumi.Bool(false),\n\t\t\tLabel:                 pulumi.String(\"example\"),\n\t\t\tRecipient:             pulumi.String(\"https://example.com\"),\n\t\t\tResponseSigned:        pulumi.Bool(true),\n\t\t\tSignatureAlgorithm:    pulumi.String(\"RSA_SHA256\"),\n\t\t\tSsoUrl:                pulumi.String(\"https://example.com\"),\n\t\t\tSubjectNameIdFormat:   pulumi.String(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\"),\n\t\t\tSubjectNameIdTemplate: pulumi.Any(user.UserName),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Saml;\nimport com.pulumi.okta.app.SamlArgs;\nimport com.pulumi.okta.app.inputs.SamlAttributeStatementArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Saml(\"example\", SamlArgs.builder()        \n            .attributeStatements(SamlAttributeStatementArgs.builder()\n                .filterType(\"REGEX\")\n                .filterValue(\".*\")\n                .name(\"groups\")\n                .type(\"GROUP\")\n                .build())\n            .audience(\"https://example.com/audience\")\n            .authnContextClassRef(\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\")\n            .destination(\"https://example.com\")\n            .digestAlgorithm(\"SHA256\")\n            .honorForceAuthn(false)\n            .label(\"example\")\n            .recipient(\"https://example.com\")\n            .responseSigned(true)\n            .signatureAlgorithm(\"RSA_SHA256\")\n            .ssoUrl(\"https://example.com\")\n            .subjectNameIdFormat(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\")\n            .subjectNameIdTemplate(user.userName())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:Saml\n    properties:\n      attributeStatements:\n        - filterType: REGEX\n          filterValue: .*\n          name: groups\n          type: GROUP\n      audience: https://example.com/audience\n      authnContextClassRef: urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\n      destination: https://example.com\n      digestAlgorithm: SHA256\n      honorForceAuthn: false\n      label: example\n      recipient: https://example.com\n      responseSigned: true\n      signatureAlgorithm: RSA_SHA256\n      ssoUrl: https://example.com\n      subjectNameIdFormat: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\n      subjectNameIdTemplate: ${user.userName}\n```\n{{% /example %}}\n{{% example %}}\n### With inline hook\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst testHook = new okta.inline.Hook(\"testHook\", {\n    status: \"ACTIVE\",\n    type: \"com.okta.saml.tokens.transform\",\n    version: \"1.0.2\",\n    channel: {\n        type: \"HTTP\",\n        version: \"1.0.0\",\n        uri: \"https://example.com/test1\",\n        method: \"POST\",\n    },\n    auth: {\n        key: \"Authorization\",\n        type: \"HEADER\",\n        value: \"secret\",\n    },\n});\nconst testSaml = new okta.app.Saml(\"testSaml\", {\n    label: \"testAcc_replace_with_uuid\",\n    ssoUrl: \"https://google.com\",\n    recipient: \"https://here.com\",\n    destination: \"https://its-about-the-journey.com\",\n    audience: \"https://audience.com\",\n    subjectNameIdTemplate: user.userName,\n    subjectNameIdFormat: \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    responseSigned: true,\n    signatureAlgorithm: \"RSA_SHA256\",\n    digestAlgorithm: \"SHA256\",\n    honorForceAuthn: false,\n    authnContextClassRef: \"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n    inlineHookId: testHook.id,\n    attributeStatements: [{\n        type: \"GROUP\",\n        name: \"groups\",\n        filterType: \"REGEX\",\n        filterValue: \".*\",\n    }],\n}, {\n    dependsOn: [testHook],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest_hook = okta.inline.Hook(\"testHook\",\n    status=\"ACTIVE\",\n    type=\"com.okta.saml.tokens.transform\",\n    version=\"1.0.2\",\n    channel={\n        \"type\": \"HTTP\",\n        \"version\": \"1.0.0\",\n        \"uri\": \"https://example.com/test1\",\n        \"method\": \"POST\",\n    },\n    auth={\n        \"key\": \"Authorization\",\n        \"type\": \"HEADER\",\n        \"value\": \"secret\",\n    })\ntest_saml = okta.app.Saml(\"testSaml\",\n    label=\"testAcc_replace_with_uuid\",\n    sso_url=\"https://google.com\",\n    recipient=\"https://here.com\",\n    destination=\"https://its-about-the-journey.com\",\n    audience=\"https://audience.com\",\n    subject_name_id_template=user[\"userName\"],\n    subject_name_id_format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    response_signed=True,\n    signature_algorithm=\"RSA_SHA256\",\n    digest_algorithm=\"SHA256\",\n    honor_force_authn=False,\n    authn_context_class_ref=\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n    inline_hook_id=test_hook.id,\n    attribute_statements=[okta.app.SamlAttributeStatementArgs(\n        type=\"GROUP\",\n        name=\"groups\",\n        filter_type=\"REGEX\",\n        filter_value=\".*\",\n    )],\n    opts=pulumi.ResourceOptions(depends_on=[test_hook]))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testHook = new Okta.Inline.Hook(\"testHook\", new()\n    {\n        Status = \"ACTIVE\",\n        Type = \"com.okta.saml.tokens.transform\",\n        Version = \"1.0.2\",\n        Channel = \n        {\n            { \"type\", \"HTTP\" },\n            { \"version\", \"1.0.0\" },\n            { \"uri\", \"https://example.com/test1\" },\n            { \"method\", \"POST\" },\n        },\n        Auth = \n        {\n            { \"key\", \"Authorization\" },\n            { \"type\", \"HEADER\" },\n            { \"value\", \"secret\" },\n        },\n    });\n\n    var testSaml = new Okta.App.Saml(\"testSaml\", new()\n    {\n        Label = \"testAcc_replace_with_uuid\",\n        SsoUrl = \"https://google.com\",\n        Recipient = \"https://here.com\",\n        Destination = \"https://its-about-the-journey.com\",\n        Audience = \"https://audience.com\",\n        SubjectNameIdTemplate = user.UserName,\n        SubjectNameIdFormat = \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n        ResponseSigned = true,\n        SignatureAlgorithm = \"RSA_SHA256\",\n        DigestAlgorithm = \"SHA256\",\n        HonorForceAuthn = false,\n        AuthnContextClassRef = \"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\",\n        InlineHookId = testHook.Id,\n        AttributeStatements = new[]\n        {\n            new Okta.App.Inputs.SamlAttributeStatementArgs\n            {\n                Type = \"GROUP\",\n                Name = \"groups\",\n                FilterType = \"REGEX\",\n                FilterValue = \".*\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            testHook,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestHook, err := inline.NewHook(ctx, \"testHook\", \u0026inline.HookArgs{\n\t\t\tStatus:  pulumi.String(\"ACTIVE\"),\n\t\t\tType:    pulumi.String(\"com.okta.saml.tokens.transform\"),\n\t\t\tVersion: pulumi.String(\"1.0.2\"),\n\t\t\tChannel: pulumi.StringMap{\n\t\t\t\t\"type\":    pulumi.String(\"HTTP\"),\n\t\t\t\t\"version\": pulumi.String(\"1.0.0\"),\n\t\t\t\t\"uri\":     pulumi.String(\"https://example.com/test1\"),\n\t\t\t\t\"method\":  pulumi.String(\"POST\"),\n\t\t\t},\n\t\t\tAuth: pulumi.StringMap{\n\t\t\t\t\"key\":   pulumi.String(\"Authorization\"),\n\t\t\t\t\"type\":  pulumi.String(\"HEADER\"),\n\t\t\t\t\"value\": pulumi.String(\"secret\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = app.NewSaml(ctx, \"testSaml\", \u0026app.SamlArgs{\n\t\t\tLabel:                 pulumi.String(\"testAcc_replace_with_uuid\"),\n\t\t\tSsoUrl:                pulumi.String(\"https://google.com\"),\n\t\t\tRecipient:             pulumi.String(\"https://here.com\"),\n\t\t\tDestination:           pulumi.String(\"https://its-about-the-journey.com\"),\n\t\t\tAudience:              pulumi.String(\"https://audience.com\"),\n\t\t\tSubjectNameIdTemplate: pulumi.Any(user.UserName),\n\t\t\tSubjectNameIdFormat:   pulumi.String(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\"),\n\t\t\tResponseSigned:        pulumi.Bool(true),\n\t\t\tSignatureAlgorithm:    pulumi.String(\"RSA_SHA256\"),\n\t\t\tDigestAlgorithm:       pulumi.String(\"SHA256\"),\n\t\t\tHonorForceAuthn:       pulumi.Bool(false),\n\t\t\tAuthnContextClassRef:  pulumi.String(\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\"),\n\t\t\tInlineHookId:          testHook.ID(),\n\t\t\tAttributeStatements: app.SamlAttributeStatementArray{\n\t\t\t\t\u0026app.SamlAttributeStatementArgs{\n\t\t\t\t\tType:        pulumi.String(\"GROUP\"),\n\t\t\t\t\tName:        pulumi.String(\"groups\"),\n\t\t\t\t\tFilterType:  pulumi.String(\"REGEX\"),\n\t\t\t\t\tFilterValue: pulumi.String(\".*\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\ttestHook,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.inline.Hook;\nimport com.pulumi.okta.inline.HookArgs;\nimport com.pulumi.okta.app.Saml;\nimport com.pulumi.okta.app.SamlArgs;\nimport com.pulumi.okta.app.inputs.SamlAttributeStatementArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testHook = new Hook(\"testHook\", HookArgs.builder()        \n            .status(\"ACTIVE\")\n            .type(\"com.okta.saml.tokens.transform\")\n            .version(\"1.0.2\")\n            .channel(Map.ofEntries(\n                Map.entry(\"type\", \"HTTP\"),\n                Map.entry(\"version\", \"1.0.0\"),\n                Map.entry(\"uri\", \"https://example.com/test1\"),\n                Map.entry(\"method\", \"POST\")\n            ))\n            .auth(Map.ofEntries(\n                Map.entry(\"key\", \"Authorization\"),\n                Map.entry(\"type\", \"HEADER\"),\n                Map.entry(\"value\", \"secret\")\n            ))\n            .build());\n\n        var testSaml = new Saml(\"testSaml\", SamlArgs.builder()        \n            .label(\"testAcc_replace_with_uuid\")\n            .ssoUrl(\"https://google.com\")\n            .recipient(\"https://here.com\")\n            .destination(\"https://its-about-the-journey.com\")\n            .audience(\"https://audience.com\")\n            .subjectNameIdTemplate(user.userName())\n            .subjectNameIdFormat(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\")\n            .responseSigned(true)\n            .signatureAlgorithm(\"RSA_SHA256\")\n            .digestAlgorithm(\"SHA256\")\n            .honorForceAuthn(false)\n            .authnContextClassRef(\"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\")\n            .inlineHookId(testHook.id())\n            .attributeStatements(SamlAttributeStatementArgs.builder()\n                .type(\"GROUP\")\n                .name(\"groups\")\n                .filterType(\"REGEX\")\n                .filterValue(\".*\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(testHook)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testHook:\n    type: okta:inline:Hook\n    properties:\n      status: ACTIVE\n      type: com.okta.saml.tokens.transform\n      version: 1.0.2\n      channel:\n        type: HTTP\n        version: 1.0.0\n        uri: https://example.com/test1\n        method: POST\n      auth:\n        key: Authorization\n        type: HEADER\n        value: secret\n  testSaml:\n    type: okta:app:Saml\n    properties:\n      label: testAcc_replace_with_uuid\n      ssoUrl: https://google.com\n      recipient: https://here.com\n      destination: https://its-about-the-journey.com\n      audience: https://audience.com\n      subjectNameIdTemplate: ${user.userName}\n      subjectNameIdFormat: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\n      responseSigned: true\n      signatureAlgorithm: RSA_SHA256\n      digestAlgorithm: SHA256\n      honorForceAuthn: false\n      authnContextClassRef: urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport\n      inlineHookId: ${testHook.id}\n      attributeStatements:\n        - type: GROUP\n          name: groups\n          filterType: REGEX\n          filterValue: .*\n    options:\n      dependson:\n        - ${testHook}\n```\n{{% /example %}}\n{{% example %}}\n### Pre-configured app with SAML 1.1 sign-on mode\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.app.Saml(\"test\", {\n    appSettingsJson: `{\n    \"groupFilter\": \"app1.*\",\n    \"siteURL\": \"https://www.okta.com\"\n}\n`,\n    label: \"SharePoint (On-Premise)\",\n    preconfiguredApp: \"sharepoint_onpremise\",\n    samlVersion: \"1.1\",\n    status: \"ACTIVE\",\n    userNameTemplate: \"${source.login}\",\n    userNameTemplateType: \"BUILT_IN\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.app.Saml(\"test\",\n    app_settings_json=\"\"\"{\n    \"groupFilter\": \"app1.*\",\n    \"siteURL\": \"https://www.okta.com\"\n}\n\n\"\"\",\n    label=\"SharePoint (On-Premise)\",\n    preconfigured_app=\"sharepoint_onpremise\",\n    saml_version=\"1.1\",\n    status=\"ACTIVE\",\n    user_name_template=source[\"login\"],\n    user_name_template_type=\"BUILT_IN\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Okta.App.Saml(\"test\", new()\n    {\n        AppSettingsJson = @\"{\n    \"\"groupFilter\"\": \"\"app1.*\"\",\n    \"\"siteURL\"\": \"\"https://www.okta.com\"\"\n}\n\n\",\n        Label = \"SharePoint (On-Premise)\",\n        PreconfiguredApp = \"sharepoint_onpremise\",\n        SamlVersion = \"1.1\",\n        Status = \"ACTIVE\",\n        UserNameTemplate = source.Login,\n        UserNameTemplateType = \"BUILT_IN\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSaml(ctx, \"test\", \u0026app.SamlArgs{\n\t\t\tAppSettingsJson:      pulumi.String(fmt.Sprintf(\"{\\n    \\\"groupFilter\\\": \\\"app1.*\\\",\\n    \\\"siteURL\\\": \\\"https://www.okta.com\\\"\\n}\\n\\n\")),\n\t\t\tLabel:                pulumi.String(\"SharePoint (On-Premise)\"),\n\t\t\tPreconfiguredApp:     pulumi.String(\"sharepoint_onpremise\"),\n\t\t\tSamlVersion:          pulumi.String(\"1.1\"),\n\t\t\tStatus:               pulumi.String(\"ACTIVE\"),\n\t\t\tUserNameTemplate:     pulumi.Any(source.Login),\n\t\t\tUserNameTemplateType: pulumi.String(\"BUILT_IN\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Saml;\nimport com.pulumi.okta.app.SamlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Saml(\"test\", SamlArgs.builder()        \n            .appSettingsJson(\"\"\"\n{\n    \"groupFilter\": \"app1.*\",\n    \"siteURL\": \"https://www.okta.com\"\n}\n\n            \"\"\")\n            .label(\"SharePoint (On-Premise)\")\n            .preconfiguredApp(\"sharepoint_onpremise\")\n            .samlVersion(\"1.1\")\n            .status(\"ACTIVE\")\n            .userNameTemplate(source.login())\n            .userNameTemplateType(\"BUILT_IN\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: okta:app:Saml\n    properties:\n      appSettingsJson: |+\n        {\n            \"groupFilter\": \"app1.*\",\n            \"siteURL\": \"https://www.okta.com\"\n        }\n\n      label: SharePoint (On-Premise)\n      preconfiguredApp: sharepoint_onpremise\n      samlVersion: 1.1\n      status: ACTIVE\n      userNameTemplate: ${source.login}\n      userNameTemplateType: BUILT_IN\n```\n{{% /example %}}\n{{% example %}}\n### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst office365 = new okta.app.Saml(\"office365\", {\n    appLinksJson: `  {\n      \"calendar\": false,\n      \"crm\": false,\n      \"delve\": false,\n      \"excel\": false,\n      \"forms\": false,\n      \"mail\": false,\n      \"newsfeed\": false,\n      \"onedrive\": false,\n      \"people\": false,\n      \"planner\": false,\n      \"powerbi\": false,\n      \"powerpoint\": false,\n      \"sites\": false,\n      \"sway\": false,\n      \"tasks\": false,\n      \"teams\": false,\n      \"video\": false,\n      \"word\": false,\n      \"yammer\": false,\n      \"login\": true\n  }\n`,\n    appSettingsJson: `    {\n       \"wsFedConfigureType\": \"AUTO\",\n       \"windowsTransportEnabled\": false,\n       \"domain\": \"okta.com\",\n       \"msftTenant\": \"okta\",\n       \"domains\": [],\n       \"requireAdminConsent\": false\n    }\n`,\n    label: \"Microsoft Office 365\",\n    preconfiguredApp: \"office365\",\n    samlVersion: \"1.1\",\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\noffice365 = okta.app.Saml(\"office365\",\n    app_links_json=\"\"\"  {\n      \"calendar\": false,\n      \"crm\": false,\n      \"delve\": false,\n      \"excel\": false,\n      \"forms\": false,\n      \"mail\": false,\n      \"newsfeed\": false,\n      \"onedrive\": false,\n      \"people\": false,\n      \"planner\": false,\n      \"powerbi\": false,\n      \"powerpoint\": false,\n      \"sites\": false,\n      \"sway\": false,\n      \"tasks\": false,\n      \"teams\": false,\n      \"video\": false,\n      \"word\": false,\n      \"yammer\": false,\n      \"login\": true\n  }\n\n\"\"\",\n    app_settings_json=\"\"\"    {\n       \"wsFedConfigureType\": \"AUTO\",\n       \"windowsTransportEnabled\": false,\n       \"domain\": \"okta.com\",\n       \"msftTenant\": \"okta\",\n       \"domains\": [],\n       \"requireAdminConsent\": false\n    }\n\n\"\"\",\n    label=\"Microsoft Office 365\",\n    preconfigured_app=\"office365\",\n    saml_version=\"1.1\",\n    status=\"ACTIVE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var office365 = new Okta.App.Saml(\"office365\", new()\n    {\n        AppLinksJson = @\"  {\n      \"\"calendar\"\": false,\n      \"\"crm\"\": false,\n      \"\"delve\"\": false,\n      \"\"excel\"\": false,\n      \"\"forms\"\": false,\n      \"\"mail\"\": false,\n      \"\"newsfeed\"\": false,\n      \"\"onedrive\"\": false,\n      \"\"people\"\": false,\n      \"\"planner\"\": false,\n      \"\"powerbi\"\": false,\n      \"\"powerpoint\"\": false,\n      \"\"sites\"\": false,\n      \"\"sway\"\": false,\n      \"\"tasks\"\": false,\n      \"\"teams\"\": false,\n      \"\"video\"\": false,\n      \"\"word\"\": false,\n      \"\"yammer\"\": false,\n      \"\"login\"\": true\n  }\n\n\",\n        AppSettingsJson = @\"    {\n       \"\"wsFedConfigureType\"\": \"\"AUTO\"\",\n       \"\"windowsTransportEnabled\"\": false,\n       \"\"domain\"\": \"\"okta.com\"\",\n       \"\"msftTenant\"\": \"\"okta\"\",\n       \"\"domains\"\": [],\n       \"\"requireAdminConsent\"\": false\n    }\n\n\",\n        Label = \"Microsoft Office 365\",\n        PreconfiguredApp = \"office365\",\n        SamlVersion = \"1.1\",\n        Status = \"ACTIVE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSaml(ctx, \"office365\", \u0026app.SamlArgs{\n\t\t\tAppLinksJson: pulumi.String(fmt.Sprintf(`  {\n      \"calendar\": false,\n      \"crm\": false,\n      \"delve\": false,\n      \"excel\": false,\n      \"forms\": false,\n      \"mail\": false,\n      \"newsfeed\": false,\n      \"onedrive\": false,\n      \"people\": false,\n      \"planner\": false,\n      \"powerbi\": false,\n      \"powerpoint\": false,\n      \"sites\": false,\n      \"sway\": false,\n      \"tasks\": false,\n      \"teams\": false,\n      \"video\": false,\n      \"word\": false,\n      \"yammer\": false,\n      \"login\": true\n  }\n\n`)),\n\t\t\tAppSettingsJson: pulumi.String(fmt.Sprintf(`    {\n       \"wsFedConfigureType\": \"AUTO\",\n       \"windowsTransportEnabled\": false,\n       \"domain\": \"okta.com\",\n       \"msftTenant\": \"okta\",\n       \"domains\": [],\n       \"requireAdminConsent\": false\n    }\n\n`)),\n\t\t\tLabel:            pulumi.String(\"Microsoft Office 365\"),\n\t\t\tPreconfiguredApp: pulumi.String(\"office365\"),\n\t\t\tSamlVersion:      pulumi.String(\"1.1\"),\n\t\t\tStatus:           pulumi.String(\"ACTIVE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Saml;\nimport com.pulumi.okta.app.SamlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var office365 = new Saml(\"office365\", SamlArgs.builder()        \n            .appLinksJson(\"\"\"\n  {\n      \"calendar\": false,\n      \"crm\": false,\n      \"delve\": false,\n      \"excel\": false,\n      \"forms\": false,\n      \"mail\": false,\n      \"newsfeed\": false,\n      \"onedrive\": false,\n      \"people\": false,\n      \"planner\": false,\n      \"powerbi\": false,\n      \"powerpoint\": false,\n      \"sites\": false,\n      \"sway\": false,\n      \"tasks\": false,\n      \"teams\": false,\n      \"video\": false,\n      \"word\": false,\n      \"yammer\": false,\n      \"login\": true\n  }\n\n            \"\"\")\n            .appSettingsJson(\"\"\"\n    {\n       \"wsFedConfigureType\": \"AUTO\",\n       \"windowsTransportEnabled\": false,\n       \"domain\": \"okta.com\",\n       \"msftTenant\": \"okta\",\n       \"domains\": [],\n       \"requireAdminConsent\": false\n    }\n\n            \"\"\")\n            .label(\"Microsoft Office 365\")\n            .preconfiguredApp(\"office365\")\n            .samlVersion(\"1.1\")\n            .status(\"ACTIVE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  office365:\n    type: okta:app:Saml\n    properties:\n      appLinksJson: |2+\n          {\n              \"calendar\": false,\n              \"crm\": false,\n              \"delve\": false,\n              \"excel\": false,\n              \"forms\": false,\n              \"mail\": false,\n              \"newsfeed\": false,\n              \"onedrive\": false,\n              \"people\": false,\n              \"planner\": false,\n              \"powerbi\": false,\n              \"powerpoint\": false,\n              \"sites\": false,\n              \"sway\": false,\n              \"tasks\": false,\n              \"teams\": false,\n              \"video\": false,\n              \"word\": false,\n              \"yammer\": false,\n              \"login\": true\n          }\n\n      appSettingsJson: |2+\n            {\n               \"wsFedConfigureType\": \"AUTO\",\n               \"windowsTransportEnabled\": false,\n               \"domain\": \"okta.com\",\n               \"msftTenant\": \"okta\",\n               \"domains\": [],\n               \"requireAdminConsent\": false\n            }\n\n      label: Microsoft Office 365\n      preconfiguredApp: office365\n      samlVersion: 1.1\n      status: ACTIVE\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA SAML App can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:app/saml:Saml example \u0026#60;app id\u0026#62;\n```\n\n It's also possible to import app without groups or/and users. In this case ID may look like this\n\n```sh\n $ pulumi import okta:app/saml:Saml example \u0026#60;app id\u0026#62;/skip_users\n```\n\n\n\n```sh\n $ pulumi import okta:app/saml:Saml example \u0026#60;app id\u0026#62;/skip_users/skip_groups\n```\n\n\n\n```sh\n $ pulumi import okta:app/saml:Saml example \u0026#60;app id\u0026#62;/skip_groups\n```\n\n ",
             "properties": {
                 "accessibilityErrorRedirectUrl": {
                     "type": "string",
@@ -6076,6 +6088,7 @@
                 "embedUrl",
                 "entityKey",
                 "entityUrl",
+                "features",
                 "httpPostBinding",
                 "httpRedirectBinding",
                 "keyId",
@@ -6161,13 +6174,6 @@
                 "enduserNote": {
                     "type": "string",
                     "description": "Application notes for end users.\n"
-                },
-                "features": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "features enabled. Notice: you can't currently configure provisioning features via the API.\n"
                 },
                 "groups": {
                     "type": "array",
@@ -10283,7 +10289,7 @@
                 },
                 "issuerMode": {
                     "type": "string",
-                    "description": "Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL\n"
+                    "description": "Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider\nattributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes\n"
                 },
                 "issuerUrl": {
                     "type": "string"
@@ -10418,7 +10424,7 @@
                 },
                 "issuerMode": {
                     "type": "string",
-                    "description": "Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL\n"
+                    "description": "Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider\nattributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes\n"
                 },
                 "issuerUrl": {
                     "type": "string"
@@ -10546,7 +10552,7 @@
                     },
                     "issuerMode": {
                         "type": "string",
-                        "description": "Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL\n"
+                        "description": "Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider\nattributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes\n"
                     },
                     "issuerUrl": {
                         "type": "string"
@@ -11461,6 +11467,10 @@
                     "type": "boolean",
                     "description": "This tells the provider not to persist the application's secret to state. If this is ever changes from true =\u003e false\nyour app will be recreated.\n"
                 },
+                "pkceRequired": {
+                    "type": "boolean",
+                    "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and\n`native` application types.\n"
+                },
                 "policyUri": {
                     "type": "string",
                     "description": "URI to web page providing client policy document.\n"
@@ -11700,6 +11710,10 @@
                 "omitSecret": {
                     "type": "boolean",
                     "description": "This tells the provider not to persist the application's secret to state. If this is ever changes from true =\u003e false\nyour app will be recreated.\n"
+                },
+                "pkceRequired": {
+                    "type": "boolean",
+                    "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and\n`native` application types.\n"
                 },
                 "policyUri": {
                     "type": "string",
@@ -11944,6 +11958,10 @@
                     "omitSecret": {
                         "type": "boolean",
                         "description": "This tells the provider not to persist the application's secret to state. If this is ever changes from true =\u003e false\nyour app will be recreated.\n"
+                    },
+                    "pkceRequired": {
+                        "type": "boolean",
+                        "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and\n`native` application types.\n"
                     },
                     "policyUri": {
                         "type": "string",
@@ -12957,6 +12975,7 @@
                 "embedUrl",
                 "entityKey",
                 "entityUrl",
+                "features",
                 "httpPostBinding",
                 "httpRedirectBinding",
                 "keyId",
@@ -13041,13 +13060,6 @@
                 "enduserNote": {
                     "type": "string",
                     "description": "Application notes for end users.\n"
-                },
-                "features": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "features to enable\n"
                 },
                 "groups": {
                     "type": "array",
@@ -14964,7 +14976,8 @@
                     "type": "string"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type\n"
                 },
                 "usernameTemplate": {
                     "type": "string"
@@ -15075,7 +15088,8 @@
                     "type": "string"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type\n"
                 },
                 "usernameTemplate": {
                     "type": "string"
@@ -15195,7 +15209,8 @@
                         "type": "string"
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type\n"
                     },
                     "usernameTemplate": {
                         "type": "string"
@@ -16586,7 +16601,7 @@
                 },
                 "issuerMode": {
                     "type": "string",
-                    "description": "Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `\"ORG_URL\"` or `\"CUSTOM_URL\"`.\n"
+                    "description": "Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `\"ORG_URL\"`, `\"CUSTOM_URL\"`, or `\"DYNAMIC\"`.\n"
                 },
                 "issuerUrl": {
                     "type": "string",
@@ -16750,7 +16765,7 @@
                 },
                 "issuerMode": {
                     "type": "string",
-                    "description": "Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `\"ORG_URL\"` or `\"CUSTOM_URL\"`.\n"
+                    "description": "Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `\"ORG_URL\"`, `\"CUSTOM_URL\"`, or `\"DYNAMIC\"`.\n"
                 },
                 "issuerUrl": {
                     "type": "string",
@@ -16905,7 +16920,7 @@
                     },
                     "issuerMode": {
                         "type": "string",
-                        "description": "Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `\"ORG_URL\"` or `\"CUSTOM_URL\"`.\n"
+                        "description": "Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `\"ORG_URL\"`, `\"CUSTOM_URL\"`, or `\"DYNAMIC\"`.\n"
                     },
                     "issuerUrl": {
                         "type": "string",
@@ -17687,7 +17702,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of Social IdP. It can be `\"FACEBOOK\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, `\"GOOGLE\"` or `\"APPLE\"`.\n"
+                    "description": "The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)\n"
                 },
                 "usernameTemplate": {
                     "type": "string",
@@ -17818,7 +17833,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of Social IdP. It can be `\"FACEBOOK\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, `\"GOOGLE\"` or `\"APPLE\"`.\n"
+                    "description": "The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)\n"
                 },
                 "usernameTemplate": {
                     "type": "string",
@@ -17962,7 +17977,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "The type of Social IdP. It can be `\"FACEBOOK\"`, `\"LINKEDIN\"`, `\"MICROSOFT\"`, `\"GOOGLE\"` or `\"APPLE\"`.\n"
+                        "description": "The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)\n"
                     },
                     "usernameTemplate": {
                         "type": "string",
@@ -20209,7 +20224,7 @@
             }
         },
         "okta:index/brand:Brand": {
-            "description": "This resource allows you to get and update an Okta [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).\n\nBrands are can only be updated through the Okta API. Therefore this resource\nonly gets and updates a brand.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\n// resource has been imported into current state\n// $ terraform import okta_brand.example \u003cbrand id\u003e\nconst example = new okta.Brand(\"example\", {\n    agreeToCustomPrivacyPolicy: true,\n    customPrivacyPolicyUrl: \"https://example.com/privacy-policy\",\n    removePoweredByOkta: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\n# resource has been imported into current state\n# $ terraform import okta_brand.example \u003cbrand id\u003e\nexample = okta.Brand(\"example\",\n    agree_to_custom_privacy_policy=True,\n    custom_privacy_policy_url=\"https://example.com/privacy-policy\",\n    remove_powered_by_okta=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // resource has been imported into current state\n    // $ terraform import okta_brand.example \u003cbrand id\u003e\n    var example = new Okta.Brand(\"example\", new()\n    {\n        AgreeToCustomPrivacyPolicy = true,\n        CustomPrivacyPolicyUrl = \"https://example.com/privacy-policy\",\n        RemovePoweredByOkta = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewBrand(ctx, \"example\", \u0026okta.BrandArgs{\n\t\t\tAgreeToCustomPrivacyPolicy: pulumi.Bool(true),\n\t\t\tCustomPrivacyPolicyUrl:     pulumi.String(\"https://example.com/privacy-policy\"),\n\t\t\tRemovePoweredByOkta:        pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Brand;\nimport com.pulumi.okta.BrandArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Brand(\"example\", BrandArgs.builder()        \n            .agreeToCustomPrivacyPolicy(true)\n            .customPrivacyPolicyUrl(\"https://example.com/privacy-policy\")\n            .removePoweredByOkta(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # resource has been imported into current state\n  # // $ terraform import okta_brand.example \u003cbrand id\u003e\n  example:\n    type: okta:Brand\n    properties:\n      agreeToCustomPrivacyPolicy: true\n      customPrivacyPolicyUrl: https://example.com/privacy-policy\n      removePoweredByOkta: true\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn Okta Brand can be imported via the ID.\n\n```sh\n $ pulumi import okta:index/brand:Brand example \u0026#60;brand id\u0026#62;\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\n// resource has been imported into current state\n// $ terraform import okta_brand.example \u003cbrand id\u003e\nconst example = new okta.Brand(\"example\", {\n    agreeToCustomPrivacyPolicy: true,\n    customPrivacyPolicyUrl: \"https://example.com/privacy-policy\",\n    removePoweredByOkta: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\n# resource has been imported into current state\n# $ terraform import okta_brand.example \u003cbrand id\u003e\nexample = okta.Brand(\"example\",\n    agree_to_custom_privacy_policy=True,\n    custom_privacy_policy_url=\"https://example.com/privacy-policy\",\n    remove_powered_by_okta=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // resource has been imported into current state\n    // $ terraform import okta_brand.example \u003cbrand id\u003e\n    var example = new Okta.Brand(\"example\", new()\n    {\n        AgreeToCustomPrivacyPolicy = true,\n        CustomPrivacyPolicyUrl = \"https://example.com/privacy-policy\",\n        RemovePoweredByOkta = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewBrand(ctx, \"example\", \u0026okta.BrandArgs{\n\t\t\tAgreeToCustomPrivacyPolicy: pulumi.Bool(true),\n\t\t\tCustomPrivacyPolicyUrl:     pulumi.String(\"https://example.com/privacy-policy\"),\n\t\t\tRemovePoweredByOkta:        pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Brand;\nimport com.pulumi.okta.BrandArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Brand(\"example\", BrandArgs.builder()        \n            .agreeToCustomPrivacyPolicy(true)\n            .customPrivacyPolicyUrl(\"https://example.com/privacy-policy\")\n            .removePoweredByOkta(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # resource has been imported into current state\n  # // $ terraform import okta_brand.example \u003cbrand id\u003e\n  example:\n    type: okta:Brand\n    properties:\n      agreeToCustomPrivacyPolicy: true\n      customPrivacyPolicyUrl: https://example.com/privacy-policy\n      removePoweredByOkta: true\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn Okta Brand can be imported via the ID.\n\n```sh\n $ pulumi import okta:index/brand:Brand example \u0026#60;brand id\u0026#62;\n```\n\n ",
             "properties": {
                 "agreeToCustomPrivacyPolicy": {
                     "type": "boolean",
@@ -23148,11 +23163,11 @@
             "properties": {
                 "notificationType": {
                     "type": "string",
-                    "description": "Type of the notification. Valid values:\n"
+                    "description": "Type of the notification. Valid values: \n- `\"CONNECTOR_AGENT\"` -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.\n- `\"USER_LOCKED_OUT\"` - User lockouts.\n- `\"APP_IMPORT\"` - App user import status.\n- `\"LDAP_AGENT\"` - Disconnects and reconnects: LDAP agent.\n- `\"AD_AGENT\"` - Disconnects and reconnects: AD agent.\n- `\"OKTA_ANNOUNCEMENT\"` - Okta release notes and announcements.\n- `\"OKTA_ISSUE\"` - Trust incidents and updates.\n- `\"OKTA_UPDATE\"` - Scheduled system updates.\n- `\"IWA_AGENT\"` - Disconnects and reconnects: IWA agent.\n- `\"USER_DEPROVISION\"` - User deprovisions.\n- `\"REPORT_SUSPICIOUS_ACTIVITY\"` - User reporting of suspicious activity.\n- `\"RATELIMIT_NOTIFICATION\"` - Rate limit warning and violation.\n- `\"AGENT_AUTO_UPDATE_NOTIFICATION\"` - Agent auto-update notifications: AD Agent.\n"
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\"`,\n`\"APP_ADMIN\"`, `\"USER_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"API_ADMIN\"`.\n"
+                    "description": "Type of the role. Valid values: `\"API_ADMIN\"`, `\"APP_ADMIN\"`, `\"GROUP_MEMBERSHIP_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"ORG_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"REPORT_ADMIN\"`, `\"SUPER_ADMIN\"`, `\"USER_ADMIN\"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)\n"
                 },
                 "status": {
                     "type": "string",
@@ -23166,12 +23181,12 @@
             "inputProperties": {
                 "notificationType": {
                     "type": "string",
-                    "description": "Type of the notification. Valid values:\n",
+                    "description": "Type of the notification. Valid values: \n- `\"CONNECTOR_AGENT\"` -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.\n- `\"USER_LOCKED_OUT\"` - User lockouts.\n- `\"APP_IMPORT\"` - App user import status.\n- `\"LDAP_AGENT\"` - Disconnects and reconnects: LDAP agent.\n- `\"AD_AGENT\"` - Disconnects and reconnects: AD agent.\n- `\"OKTA_ANNOUNCEMENT\"` - Okta release notes and announcements.\n- `\"OKTA_ISSUE\"` - Trust incidents and updates.\n- `\"OKTA_UPDATE\"` - Scheduled system updates.\n- `\"IWA_AGENT\"` - Disconnects and reconnects: IWA agent.\n- `\"USER_DEPROVISION\"` - User deprovisions.\n- `\"REPORT_SUSPICIOUS_ACTIVITY\"` - User reporting of suspicious activity.\n- `\"RATELIMIT_NOTIFICATION\"` - Rate limit warning and violation.\n- `\"AGENT_AUTO_UPDATE_NOTIFICATION\"` - Agent auto-update notifications: AD Agent.\n",
                     "willReplaceOnChanges": true
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\"`,\n`\"APP_ADMIN\"`, `\"USER_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"API_ADMIN\"`.\n",
+                    "description": "Type of the role. Valid values: `\"API_ADMIN\"`, `\"APP_ADMIN\"`, `\"GROUP_MEMBERSHIP_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"ORG_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"REPORT_ADMIN\"`, `\"SUPER_ADMIN\"`, `\"USER_ADMIN\"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)\n",
                     "willReplaceOnChanges": true
                 },
                 "status": {
@@ -23188,12 +23203,12 @@
                 "properties": {
                     "notificationType": {
                         "type": "string",
-                        "description": "Type of the notification. Valid values:\n",
+                        "description": "Type of the notification. Valid values: \n- `\"CONNECTOR_AGENT\"` -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.\n- `\"USER_LOCKED_OUT\"` - User lockouts.\n- `\"APP_IMPORT\"` - App user import status.\n- `\"LDAP_AGENT\"` - Disconnects and reconnects: LDAP agent.\n- `\"AD_AGENT\"` - Disconnects and reconnects: AD agent.\n- `\"OKTA_ANNOUNCEMENT\"` - Okta release notes and announcements.\n- `\"OKTA_ISSUE\"` - Trust incidents and updates.\n- `\"OKTA_UPDATE\"` - Scheduled system updates.\n- `\"IWA_AGENT\"` - Disconnects and reconnects: IWA agent.\n- `\"USER_DEPROVISION\"` - User deprovisions.\n- `\"REPORT_SUSPICIOUS_ACTIVITY\"` - User reporting of suspicious activity.\n- `\"RATELIMIT_NOTIFICATION\"` - Rate limit warning and violation.\n- `\"AGENT_AUTO_UPDATE_NOTIFICATION\"` - Agent auto-update notifications: AD Agent.\n",
                         "willReplaceOnChanges": true
                     },
                     "roleType": {
                         "type": "string",
-                        "description": "Type of the role. Valid values: `\"SUPER_ADMIN\"`, `\"ORG_ADMIN\"`, `\"API_ACCESS_MANAGEMENT_ADMIN\"`,\n`\"APP_ADMIN\"`, `\"USER_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"API_ADMIN\"`.\n",
+                        "description": "Type of the role. Valid values: `\"API_ADMIN\"`, `\"APP_ADMIN\"`, `\"GROUP_MEMBERSHIP_ADMIN\"`, `\"HELP_DESK_ADMIN\"`, `\"MOBILE_ADMIN\"`, `\"ORG_ADMIN\"`, `\"READ_ONLY_ADMIN\"`, `\"REPORT_ADMIN\"`, `\"SUPER_ADMIN\"`, `\"USER_ADMIN\"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)\n",
                         "willReplaceOnChanges": true
                     },
                     "status": {
@@ -23344,7 +23359,7 @@
             }
         },
         "okta:index/theme:Theme": {
-            "description": "This resource allows you to get and update an Okta\n[Theme](https://developer.okta.com/docs/reference/api/brands/#theme-object).\n\nThemes can only be updated through the Okta API. Therefore this resource only\ngets and updates a theme.\n\n\n## Import\n\nAn Okta Brand can be imported via the ID.\n\n```sh\n $ pulumi import okta:index/theme:Theme example \u0026#60;brand id\u0026#62;/\u0026#60;theme id\u0026#62;\n```\n\n ",
+            "description": "\n\n## Import\n\nAn Okta Brand can be imported via the ID.\n\n```sh\n $ pulumi import okta:index/theme:Theme example \u0026#60;brand id\u0026#62;/\u0026#60;theme id\u0026#62;\n```\n\n ",
             "properties": {
                 "backgroundImage": {
                     "type": "string",
@@ -25093,129 +25108,129 @@
             "properties": {
                 "authProvider": {
                     "type": "string",
-                    "description": "Authentication Provider: `\"OKTA\"`, `\"ACTIVE_DIRECTORY\"` or `\"LDAP\"`. Default is `\"OKTA\"`.\n"
+                    "description": "Authentication Provider: `\"OKTA\"`, `\"ACTIVE_DIRECTORY\"` or `\"LDAP\"`. Default is `\"OKTA\"`. Type `\"string\"`\n"
                 },
                 "callRecovery": {
                     "type": "string",
-                    "description": "Enable or disable voice call password recovery: ACTIVE or INACTIVE.\n"
+                    "description": "Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `\"string\"`\n"
                 },
                 "description": {
                     "type": "string",
-                    "description": "Policy Description.\n"
+                    "description": "Policy Description. Type `\"string\"`\n"
                 },
                 "emailRecovery": {
                     "type": "string",
-                    "description": "Enable or disable email password recovery: ACTIVE or INACTIVE.\n"
+                    "description": "Enable or disable email password recovery: ACTIVE or INACTIVE. Type `\"string\"`\n"
                 },
                 "groupsIncludeds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of Group IDs to Include.\n"
+                    "description": "List of Group IDs to Include. Type `\"list(string)\"`\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy Name.\n"
+                    "description": "Policy Name. Type `\"string\"`\n"
                 },
                 "passwordAutoUnlockMinutes": {
                     "type": "integer",
-                    "description": "Number of minutes before a locked account is unlocked: 0 = no limit.\n"
+                    "description": "Number of minutes before a locked account is unlocked: 0 = no limit.  Type `\"number\"`\n"
                 },
                 "passwordDictionaryLookup": {
                     "type": "boolean",
-                    "description": "Check Passwords Against Common Password Dictionary.\n"
+                    "description": "Check Passwords Against Common Password Dictionary. Type `\"bool\"`\n"
                 },
                 "passwordExcludeFirstName": {
                     "type": "boolean",
-                    "description": "User firstName attribute must be excluded from the password.\n"
+                    "description": "User firstName attribute must be excluded from the password. Type `\"bool\"`\n"
                 },
                 "passwordExcludeLastName": {
                     "type": "boolean",
-                    "description": "User lastName attribute must be excluded from the password.\n"
+                    "description": "User lastName attribute must be excluded from the password. Type `\"bool\"`\n"
                 },
                 "passwordExcludeUsername": {
                     "type": "boolean",
-                    "description": "If the username must be excluded from the password.\n"
+                    "description": "If the username must be excluded from the password. Type `\"bool\"`\n"
                 },
                 "passwordExpireWarnDays": {
                     "type": "integer",
-                    "description": "Length in days a user will be warned before password expiry: 0 = no warning.\n"
+                    "description": "Length in days a user will be warned before password expiry: 0 = no warning.  Type `\"number\"`\n"
                 },
                 "passwordHistoryCount": {
                     "type": "integer",
-                    "description": "Number of distinct passwords that must be created before they can be reused: 0 = none.\n"
+                    "description": "Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `\"number\"`\n"
                 },
                 "passwordLockoutNotificationChannels": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Notification channels to use to notify a user when their account has been locked.\n"
+                    "description": "Notification channels to use to notify a user when their account has been locked. Type `\"set(string)\"`\n"
                 },
                 "passwordMaxAgeDays": {
                     "type": "integer",
-                    "description": "Length in days a password is valid before expiry: 0 = no limit.,\n"
+                    "description": "Length in days a password is valid before expiry: 0 = no limit.  Type `\"number\"`\n"
                 },
                 "passwordMaxLockoutAttempts": {
                     "type": "integer",
-                    "description": "Number of unsuccessful login attempts allowed before lockout: 0 = no limit.\n"
+                    "description": "Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `\"number\"`\n"
                 },
                 "passwordMinAgeMinutes": {
                     "type": "integer",
-                    "description": "Minimum time interval in minutes between password changes: 0 = no limit.\n"
+                    "description": "Minimum time interval in minutes between password changes: 0 = no limit.  Type `\"number\"`\n"
                 },
                 "passwordMinLength": {
                     "type": "integer",
-                    "description": "Minimum password length. Default is 8.\n"
+                    "description": "Minimum password length. Default is 8. Type `\"number\"`\n"
                 },
                 "passwordMinLowercase": {
                     "type": "integer",
-                    "description": "Minimum number of lower case characters in a password.\n"
+                    "description": "Minimum number of lower case characters in a password. Type `\"number\"`\n"
                 },
                 "passwordMinNumber": {
                     "type": "integer",
-                    "description": "Minimum number of numbers in a password.\n"
+                    "description": "Minimum number of numbers in a password. Type `\"number\"`\n"
                 },
                 "passwordMinSymbol": {
                     "type": "integer",
-                    "description": "Minimum number of symbols in a password.\n"
+                    "description": "Minimum number of symbols in a password. Type `\"number\"`\n"
                 },
                 "passwordMinUppercase": {
                     "type": "integer",
-                    "description": "Minimum number of upper case characters in a password.\n"
+                    "description": "Minimum number of upper case characters in a password. Type `\"number\"`\n"
                 },
                 "passwordShowLockoutFailures": {
                     "type": "boolean",
-                    "description": "If a user should be informed when their account is locked.\n"
+                    "description": "If a user should be informed when their account is locked.  Type `\"bool\"`\n"
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "Priority of the policy.\n"
+                    "description": "Priority of the policy. Type `\"number\"`\n"
                 },
                 "questionMinLength": {
                     "type": "integer",
-                    "description": "Min length of the password recovery question answer.\n"
+                    "description": "Min length of the password recovery question answer.  Type `\"number\"`\n"
                 },
                 "questionRecovery": {
                     "type": "string",
-                    "description": "Enable or disable security question password recovery: ACTIVE or INACTIVE.\n"
+                    "description": "Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `\"string\"`\n"
                 },
                 "recoveryEmailToken": {
                     "type": "integer",
-                    "description": "Lifetime in minutes of the recovery email token.\n"
+                    "description": "Lifetime in minutes of the recovery email token.  Type `\"number\"`\n"
                 },
                 "skipUnlock": {
                     "type": "boolean",
-                    "description": "When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.\n"
+                    "description": "When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `\"bool\"`\n"
                 },
                 "smsRecovery": {
                     "type": "string",
-                    "description": "Enable or disable SMS password recovery: ACTIVE or INACTIVE.\n"
+                    "description": "Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `\"string\"`\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Policy Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
+                    "description": "Policy Status: `\"ACTIVE\"` or `\"INACTIVE\"`. Type `\"string\"`\n"
                 }
             },
             "required": [
@@ -25224,129 +25239,129 @@
             "inputProperties": {
                 "authProvider": {
                     "type": "string",
-                    "description": "Authentication Provider: `\"OKTA\"`, `\"ACTIVE_DIRECTORY\"` or `\"LDAP\"`. Default is `\"OKTA\"`.\n"
+                    "description": "Authentication Provider: `\"OKTA\"`, `\"ACTIVE_DIRECTORY\"` or `\"LDAP\"`. Default is `\"OKTA\"`. Type `\"string\"`\n"
                 },
                 "callRecovery": {
                     "type": "string",
-                    "description": "Enable or disable voice call password recovery: ACTIVE or INACTIVE.\n"
+                    "description": "Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `\"string\"`\n"
                 },
                 "description": {
                     "type": "string",
-                    "description": "Policy Description.\n"
+                    "description": "Policy Description. Type `\"string\"`\n"
                 },
                 "emailRecovery": {
                     "type": "string",
-                    "description": "Enable or disable email password recovery: ACTIVE or INACTIVE.\n"
+                    "description": "Enable or disable email password recovery: ACTIVE or INACTIVE. Type `\"string\"`\n"
                 },
                 "groupsIncludeds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of Group IDs to Include.\n"
+                    "description": "List of Group IDs to Include. Type `\"list(string)\"`\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy Name.\n"
+                    "description": "Policy Name. Type `\"string\"`\n"
                 },
                 "passwordAutoUnlockMinutes": {
                     "type": "integer",
-                    "description": "Number of minutes before a locked account is unlocked: 0 = no limit.\n"
+                    "description": "Number of minutes before a locked account is unlocked: 0 = no limit.  Type `\"number\"`\n"
                 },
                 "passwordDictionaryLookup": {
                     "type": "boolean",
-                    "description": "Check Passwords Against Common Password Dictionary.\n"
+                    "description": "Check Passwords Against Common Password Dictionary. Type `\"bool\"`\n"
                 },
                 "passwordExcludeFirstName": {
                     "type": "boolean",
-                    "description": "User firstName attribute must be excluded from the password.\n"
+                    "description": "User firstName attribute must be excluded from the password. Type `\"bool\"`\n"
                 },
                 "passwordExcludeLastName": {
                     "type": "boolean",
-                    "description": "User lastName attribute must be excluded from the password.\n"
+                    "description": "User lastName attribute must be excluded from the password. Type `\"bool\"`\n"
                 },
                 "passwordExcludeUsername": {
                     "type": "boolean",
-                    "description": "If the username must be excluded from the password.\n"
+                    "description": "If the username must be excluded from the password. Type `\"bool\"`\n"
                 },
                 "passwordExpireWarnDays": {
                     "type": "integer",
-                    "description": "Length in days a user will be warned before password expiry: 0 = no warning.\n"
+                    "description": "Length in days a user will be warned before password expiry: 0 = no warning.  Type `\"number\"`\n"
                 },
                 "passwordHistoryCount": {
                     "type": "integer",
-                    "description": "Number of distinct passwords that must be created before they can be reused: 0 = none.\n"
+                    "description": "Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `\"number\"`\n"
                 },
                 "passwordLockoutNotificationChannels": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Notification channels to use to notify a user when their account has been locked.\n"
+                    "description": "Notification channels to use to notify a user when their account has been locked. Type `\"set(string)\"`\n"
                 },
                 "passwordMaxAgeDays": {
                     "type": "integer",
-                    "description": "Length in days a password is valid before expiry: 0 = no limit.,\n"
+                    "description": "Length in days a password is valid before expiry: 0 = no limit.  Type `\"number\"`\n"
                 },
                 "passwordMaxLockoutAttempts": {
                     "type": "integer",
-                    "description": "Number of unsuccessful login attempts allowed before lockout: 0 = no limit.\n"
+                    "description": "Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `\"number\"`\n"
                 },
                 "passwordMinAgeMinutes": {
                     "type": "integer",
-                    "description": "Minimum time interval in minutes between password changes: 0 = no limit.\n"
+                    "description": "Minimum time interval in minutes between password changes: 0 = no limit.  Type `\"number\"`\n"
                 },
                 "passwordMinLength": {
                     "type": "integer",
-                    "description": "Minimum password length. Default is 8.\n"
+                    "description": "Minimum password length. Default is 8. Type `\"number\"`\n"
                 },
                 "passwordMinLowercase": {
                     "type": "integer",
-                    "description": "Minimum number of lower case characters in a password.\n"
+                    "description": "Minimum number of lower case characters in a password. Type `\"number\"`\n"
                 },
                 "passwordMinNumber": {
                     "type": "integer",
-                    "description": "Minimum number of numbers in a password.\n"
+                    "description": "Minimum number of numbers in a password. Type `\"number\"`\n"
                 },
                 "passwordMinSymbol": {
                     "type": "integer",
-                    "description": "Minimum number of symbols in a password.\n"
+                    "description": "Minimum number of symbols in a password. Type `\"number\"`\n"
                 },
                 "passwordMinUppercase": {
                     "type": "integer",
-                    "description": "Minimum number of upper case characters in a password.\n"
+                    "description": "Minimum number of upper case characters in a password. Type `\"number\"`\n"
                 },
                 "passwordShowLockoutFailures": {
                     "type": "boolean",
-                    "description": "If a user should be informed when their account is locked.\n"
+                    "description": "If a user should be informed when their account is locked.  Type `\"bool\"`\n"
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "Priority of the policy.\n"
+                    "description": "Priority of the policy. Type `\"number\"`\n"
                 },
                 "questionMinLength": {
                     "type": "integer",
-                    "description": "Min length of the password recovery question answer.\n"
+                    "description": "Min length of the password recovery question answer.  Type `\"number\"`\n"
                 },
                 "questionRecovery": {
                     "type": "string",
-                    "description": "Enable or disable security question password recovery: ACTIVE or INACTIVE.\n"
+                    "description": "Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `\"string\"`\n"
                 },
                 "recoveryEmailToken": {
                     "type": "integer",
-                    "description": "Lifetime in minutes of the recovery email token.\n"
+                    "description": "Lifetime in minutes of the recovery email token.  Type `\"number\"`\n"
                 },
                 "skipUnlock": {
                     "type": "boolean",
-                    "description": "When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.\n"
+                    "description": "When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `\"bool\"`\n"
                 },
                 "smsRecovery": {
                     "type": "string",
-                    "description": "Enable or disable SMS password recovery: ACTIVE or INACTIVE.\n"
+                    "description": "Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `\"string\"`\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Policy Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
+                    "description": "Policy Status: `\"ACTIVE\"` or `\"INACTIVE\"`. Type `\"string\"`\n"
                 }
             },
             "stateInputs": {
@@ -25354,136 +25369,136 @@
                 "properties": {
                     "authProvider": {
                         "type": "string",
-                        "description": "Authentication Provider: `\"OKTA\"`, `\"ACTIVE_DIRECTORY\"` or `\"LDAP\"`. Default is `\"OKTA\"`.\n"
+                        "description": "Authentication Provider: `\"OKTA\"`, `\"ACTIVE_DIRECTORY\"` or `\"LDAP\"`. Default is `\"OKTA\"`. Type `\"string\"`\n"
                     },
                     "callRecovery": {
                         "type": "string",
-                        "description": "Enable or disable voice call password recovery: ACTIVE or INACTIVE.\n"
+                        "description": "Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `\"string\"`\n"
                     },
                     "description": {
                         "type": "string",
-                        "description": "Policy Description.\n"
+                        "description": "Policy Description. Type `\"string\"`\n"
                     },
                     "emailRecovery": {
                         "type": "string",
-                        "description": "Enable or disable email password recovery: ACTIVE or INACTIVE.\n"
+                        "description": "Enable or disable email password recovery: ACTIVE or INACTIVE. Type `\"string\"`\n"
                     },
                     "groupsIncludeds": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of Group IDs to Include.\n"
+                        "description": "List of Group IDs to Include. Type `\"list(string)\"`\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Policy Name.\n"
+                        "description": "Policy Name. Type `\"string\"`\n"
                     },
                     "passwordAutoUnlockMinutes": {
                         "type": "integer",
-                        "description": "Number of minutes before a locked account is unlocked: 0 = no limit.\n"
+                        "description": "Number of minutes before a locked account is unlocked: 0 = no limit.  Type `\"number\"`\n"
                     },
                     "passwordDictionaryLookup": {
                         "type": "boolean",
-                        "description": "Check Passwords Against Common Password Dictionary.\n"
+                        "description": "Check Passwords Against Common Password Dictionary. Type `\"bool\"`\n"
                     },
                     "passwordExcludeFirstName": {
                         "type": "boolean",
-                        "description": "User firstName attribute must be excluded from the password.\n"
+                        "description": "User firstName attribute must be excluded from the password. Type `\"bool\"`\n"
                     },
                     "passwordExcludeLastName": {
                         "type": "boolean",
-                        "description": "User lastName attribute must be excluded from the password.\n"
+                        "description": "User lastName attribute must be excluded from the password. Type `\"bool\"`\n"
                     },
                     "passwordExcludeUsername": {
                         "type": "boolean",
-                        "description": "If the username must be excluded from the password.\n"
+                        "description": "If the username must be excluded from the password. Type `\"bool\"`\n"
                     },
                     "passwordExpireWarnDays": {
                         "type": "integer",
-                        "description": "Length in days a user will be warned before password expiry: 0 = no warning.\n"
+                        "description": "Length in days a user will be warned before password expiry: 0 = no warning.  Type `\"number\"`\n"
                     },
                     "passwordHistoryCount": {
                         "type": "integer",
-                        "description": "Number of distinct passwords that must be created before they can be reused: 0 = none.\n"
+                        "description": "Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `\"number\"`\n"
                     },
                     "passwordLockoutNotificationChannels": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Notification channels to use to notify a user when their account has been locked.\n"
+                        "description": "Notification channels to use to notify a user when their account has been locked. Type `\"set(string)\"`\n"
                     },
                     "passwordMaxAgeDays": {
                         "type": "integer",
-                        "description": "Length in days a password is valid before expiry: 0 = no limit.,\n"
+                        "description": "Length in days a password is valid before expiry: 0 = no limit.  Type `\"number\"`\n"
                     },
                     "passwordMaxLockoutAttempts": {
                         "type": "integer",
-                        "description": "Number of unsuccessful login attempts allowed before lockout: 0 = no limit.\n"
+                        "description": "Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `\"number\"`\n"
                     },
                     "passwordMinAgeMinutes": {
                         "type": "integer",
-                        "description": "Minimum time interval in minutes between password changes: 0 = no limit.\n"
+                        "description": "Minimum time interval in minutes between password changes: 0 = no limit.  Type `\"number\"`\n"
                     },
                     "passwordMinLength": {
                         "type": "integer",
-                        "description": "Minimum password length. Default is 8.\n"
+                        "description": "Minimum password length. Default is 8. Type `\"number\"`\n"
                     },
                     "passwordMinLowercase": {
                         "type": "integer",
-                        "description": "Minimum number of lower case characters in a password.\n"
+                        "description": "Minimum number of lower case characters in a password. Type `\"number\"`\n"
                     },
                     "passwordMinNumber": {
                         "type": "integer",
-                        "description": "Minimum number of numbers in a password.\n"
+                        "description": "Minimum number of numbers in a password. Type `\"number\"`\n"
                     },
                     "passwordMinSymbol": {
                         "type": "integer",
-                        "description": "Minimum number of symbols in a password.\n"
+                        "description": "Minimum number of symbols in a password. Type `\"number\"`\n"
                     },
                     "passwordMinUppercase": {
                         "type": "integer",
-                        "description": "Minimum number of upper case characters in a password.\n"
+                        "description": "Minimum number of upper case characters in a password. Type `\"number\"`\n"
                     },
                     "passwordShowLockoutFailures": {
                         "type": "boolean",
-                        "description": "If a user should be informed when their account is locked.\n"
+                        "description": "If a user should be informed when their account is locked.  Type `\"bool\"`\n"
                     },
                     "priority": {
                         "type": "integer",
-                        "description": "Priority of the policy.\n"
+                        "description": "Priority of the policy. Type `\"number\"`\n"
                     },
                     "questionMinLength": {
                         "type": "integer",
-                        "description": "Min length of the password recovery question answer.\n"
+                        "description": "Min length of the password recovery question answer.  Type `\"number\"`\n"
                     },
                     "questionRecovery": {
                         "type": "string",
-                        "description": "Enable or disable security question password recovery: ACTIVE or INACTIVE.\n"
+                        "description": "Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `\"string\"`\n"
                     },
                     "recoveryEmailToken": {
                         "type": "integer",
-                        "description": "Lifetime in minutes of the recovery email token.\n"
+                        "description": "Lifetime in minutes of the recovery email token.  Type `\"number\"`\n"
                     },
                     "skipUnlock": {
                         "type": "boolean",
-                        "description": "When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.\n"
+                        "description": "When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `\"bool\"`\n"
                     },
                     "smsRecovery": {
                         "type": "string",
-                        "description": "Enable or disable SMS password recovery: ACTIVE or INACTIVE.\n"
+                        "description": "Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `\"string\"`\n"
                     },
                     "status": {
                         "type": "string",
-                        "description": "Policy Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
+                        "description": "Policy Status: `\"ACTIVE\"` or `\"INACTIVE\"`. Type `\"string\"`\n"
                     }
                 },
                 "type": "object"
             }
         },
         "okta:policy/ruleIdpDiscovery:RuleIdpDiscovery": {
-            "description": "This resource allows you to create and configure an IdP Discovery Policy Rule.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst idpDiscoveryPolicy = okta.policy.getPolicy({\n    name: \"Idp Discovery Policy\",\n    type: \"IDP_DISCOVERY\",\n});\nconst example = new okta.policy.RuleIdpDiscovery(\"example\", {\n    policyId: idpDiscoveryPolicy.then(idpDiscoveryPolicy =\u003e idpDiscoveryPolicy.id),\n    idpId: \"\u003cidp id\u003e\",\n    idpType: \"OIDC\",\n    networkConnection: \"ANYWHERE\",\n    priority: 1,\n    status: \"ACTIVE\",\n    userIdentifierType: \"ATTRIBUTE\",\n    userIdentifierAttribute: \"company\",\n    appExcludes: [\n        {\n            id: \"\u003capp id\u003e\",\n            type: \"APP\",\n        },\n        {\n            name: \"yahoo_mail\",\n            type: \"APP_TYPE\",\n        },\n    ],\n    appIncludes: [\n        {\n            id: \"\u003capp id\u003e\",\n            type: \"APP\",\n        },\n        {\n            name: \"\u003capp type name\u003e\",\n            type: \"APP_TYPE\",\n        },\n    ],\n    platformIncludes: [{\n        type: \"MOBILE\",\n        osType: \"OSX\",\n    }],\n    userIdentifierPatterns: [{\n        matchType: \"EQUALS\",\n        value: \"Articulate\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nidp_discovery_policy = okta.policy.get_policy(name=\"Idp Discovery Policy\",\n    type=\"IDP_DISCOVERY\")\nexample = okta.policy.RuleIdpDiscovery(\"example\",\n    policy_id=idp_discovery_policy.id,\n    idp_id=\"\u003cidp id\u003e\",\n    idp_type=\"OIDC\",\n    network_connection=\"ANYWHERE\",\n    priority=1,\n    status=\"ACTIVE\",\n    user_identifier_type=\"ATTRIBUTE\",\n    user_identifier_attribute=\"company\",\n    app_excludes=[\n        okta.policy.RuleIdpDiscoveryAppExcludeArgs(\n            id=\"\u003capp id\u003e\",\n            type=\"APP\",\n        ),\n        okta.policy.RuleIdpDiscoveryAppExcludeArgs(\n            name=\"yahoo_mail\",\n            type=\"APP_TYPE\",\n        ),\n    ],\n    app_includes=[\n        okta.policy.RuleIdpDiscoveryAppIncludeArgs(\n            id=\"\u003capp id\u003e\",\n            type=\"APP\",\n        ),\n        okta.policy.RuleIdpDiscoveryAppIncludeArgs(\n            name=\"\u003capp type name\u003e\",\n            type=\"APP_TYPE\",\n        ),\n    ],\n    platform_includes=[okta.policy.RuleIdpDiscoveryPlatformIncludeArgs(\n        type=\"MOBILE\",\n        os_type=\"OSX\",\n    )],\n    user_identifier_patterns=[okta.policy.RuleIdpDiscoveryUserIdentifierPatternArgs(\n        match_type=\"EQUALS\",\n        value=\"Articulate\",\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var idpDiscoveryPolicy = Okta.Policy.GetPolicy.Invoke(new()\n    {\n        Name = \"Idp Discovery Policy\",\n        Type = \"IDP_DISCOVERY\",\n    });\n\n    var example = new Okta.Policy.RuleIdpDiscovery(\"example\", new()\n    {\n        PolicyId = idpDiscoveryPolicy.Apply(getPolicyResult =\u003e getPolicyResult.Id),\n        IdpId = \"\u003cidp id\u003e\",\n        IdpType = \"OIDC\",\n        NetworkConnection = \"ANYWHERE\",\n        Priority = 1,\n        Status = \"ACTIVE\",\n        UserIdentifierType = \"ATTRIBUTE\",\n        UserIdentifierAttribute = \"company\",\n        AppExcludes = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs\n            {\n                Id = \"\u003capp id\u003e\",\n                Type = \"APP\",\n            },\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs\n            {\n                Name = \"yahoo_mail\",\n                Type = \"APP_TYPE\",\n            },\n        },\n        AppIncludes = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs\n            {\n                Id = \"\u003capp id\u003e\",\n                Type = \"APP\",\n            },\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs\n            {\n                Name = \"\u003capp type name\u003e\",\n                Type = \"APP_TYPE\",\n            },\n        },\n        PlatformIncludes = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryPlatformIncludeArgs\n            {\n                Type = \"MOBILE\",\n                OsType = \"OSX\",\n            },\n        },\n        UserIdentifierPatterns = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs\n            {\n                MatchType = \"EQUALS\",\n                Value = \"Articulate\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tidpDiscoveryPolicy, err := policy.GetPolicy(ctx, \u0026policy.GetPolicyArgs{\n\t\t\tName: \"Idp Discovery Policy\",\n\t\t\tType: \"IDP_DISCOVERY\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = policy.NewRuleIdpDiscovery(ctx, \"example\", \u0026policy.RuleIdpDiscoveryArgs{\n\t\t\tPolicyId:                pulumi.String(idpDiscoveryPolicy.Id),\n\t\t\tIdpId:                   pulumi.String(\"\u003cidp id\u003e\"),\n\t\t\tIdpType:                 pulumi.String(\"OIDC\"),\n\t\t\tNetworkConnection:       pulumi.String(\"ANYWHERE\"),\n\t\t\tPriority:                pulumi.Int(1),\n\t\t\tStatus:                  pulumi.String(\"ACTIVE\"),\n\t\t\tUserIdentifierType:      pulumi.String(\"ATTRIBUTE\"),\n\t\t\tUserIdentifierAttribute: pulumi.String(\"company\"),\n\t\t\tAppExcludes: policy.RuleIdpDiscoveryAppExcludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppExcludeArgs{\n\t\t\t\t\tId:   pulumi.String(\"\u003capp id\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP\"),\n\t\t\t\t},\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppExcludeArgs{\n\t\t\t\t\tName: pulumi.String(\"yahoo_mail\"),\n\t\t\t\t\tType: pulumi.String(\"APP_TYPE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tAppIncludes: policy.RuleIdpDiscoveryAppIncludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppIncludeArgs{\n\t\t\t\t\tId:   pulumi.String(\"\u003capp id\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP\"),\n\t\t\t\t},\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppIncludeArgs{\n\t\t\t\t\tName: pulumi.String(\"\u003capp type name\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP_TYPE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPlatformIncludes: policy.RuleIdpDiscoveryPlatformIncludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryPlatformIncludeArgs{\n\t\t\t\t\tType:   pulumi.String(\"MOBILE\"),\n\t\t\t\t\tOsType: pulumi.String(\"OSX\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tUserIdentifierPatterns: policy.RuleIdpDiscoveryUserIdentifierPatternArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryUserIdentifierPatternArgs{\n\t\t\t\t\tMatchType: pulumi.String(\"EQUALS\"),\n\t\t\t\t\tValue:     pulumi.String(\"Articulate\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.PolicyFunctions;\nimport com.pulumi.okta.policy.inputs.GetPolicyArgs;\nimport com.pulumi.okta.policy.RuleIdpDiscovery;\nimport com.pulumi.okta.policy.RuleIdpDiscoveryArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppExcludeArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppIncludeArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryPlatformIncludeArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryUserIdentifierPatternArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var idpDiscoveryPolicy = PolicyFunctions.getPolicy(GetPolicyArgs.builder()\n            .name(\"Idp Discovery Policy\")\n            .type(\"IDP_DISCOVERY\")\n            .build());\n\n        var example = new RuleIdpDiscovery(\"example\", RuleIdpDiscoveryArgs.builder()        \n            .policyId(idpDiscoveryPolicy.applyValue(getPolicyResult -\u003e getPolicyResult.id()))\n            .idpId(\"\u003cidp id\u003e\")\n            .idpType(\"OIDC\")\n            .networkConnection(\"ANYWHERE\")\n            .priority(1)\n            .status(\"ACTIVE\")\n            .userIdentifierType(\"ATTRIBUTE\")\n            .userIdentifierAttribute(\"company\")\n            .appExcludes(            \n                RuleIdpDiscoveryAppExcludeArgs.builder()\n                    .id(\"\u003capp id\u003e\")\n                    .type(\"APP\")\n                    .build(),\n                RuleIdpDiscoveryAppExcludeArgs.builder()\n                    .name(\"yahoo_mail\")\n                    .type(\"APP_TYPE\")\n                    .build())\n            .appIncludes(            \n                RuleIdpDiscoveryAppIncludeArgs.builder()\n                    .id(\"\u003capp id\u003e\")\n                    .type(\"APP\")\n                    .build(),\n                RuleIdpDiscoveryAppIncludeArgs.builder()\n                    .name(\"\u003capp type name\u003e\")\n                    .type(\"APP_TYPE\")\n                    .build())\n            .platformIncludes(RuleIdpDiscoveryPlatformIncludeArgs.builder()\n                .type(\"MOBILE\")\n                .osType(\"OSX\")\n                .build())\n            .userIdentifierPatterns(RuleIdpDiscoveryUserIdentifierPatternArgs.builder()\n                .matchType(\"EQUALS\")\n                .value(\"Articulate\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:policy:RuleIdpDiscovery\n    properties:\n      policyId: ${idpDiscoveryPolicy.id}\n      idpId: \u003cidp id\u003e\n      idpType: OIDC\n      networkConnection: ANYWHERE\n      priority: 1\n      status: ACTIVE\n      userIdentifierType: ATTRIBUTE\n      userIdentifierAttribute: company\n      appExcludes:\n        - id: \u003capp id\u003e\n          type: APP\n        - name: yahoo_mail\n          type: APP_TYPE\n      appIncludes:\n        - id: \u003capp id\u003e\n          type: APP\n        - name: \u003capp type name\u003e\n          type: APP_TYPE\n      platformIncludes:\n        - type: MOBILE\n          osType: OSX\n      userIdentifierPatterns:\n        - matchType: EQUALS\n          value: Articulate\nvariables:\n  idpDiscoveryPolicy:\n    Fn::Invoke:\n      Function: okta:policy:getPolicy\n      Arguments:\n        name: Idp Discovery Policy\n        type: IDP_DISCOVERY\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA Policy Rule can be imported via the Policy and Rule ID.\n\n```sh\n $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example \u0026#60;policy id\u0026#62;/\u0026#60;rule id\u0026#62;\n```\n\n ",
+            "description": "This resource allows you to create and configure an IdP Discovery Policy Rule.\n\n\u003e If you receive the error `You do not have permission to access the feature\nyou are requesting` contact support and\nrequest feature flag `ADVANCED_SSO` be applied to your org.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst idpDiscoveryPolicy = okta.policy.getPolicy({\n    name: \"Idp Discovery Policy\",\n    type: \"IDP_DISCOVERY\",\n});\nconst example = new okta.policy.RuleIdpDiscovery(\"example\", {\n    policyId: idpDiscoveryPolicy.then(idpDiscoveryPolicy =\u003e idpDiscoveryPolicy.id),\n    idpId: \"\u003cidp id\u003e\",\n    idpType: \"OIDC\",\n    networkConnection: \"ANYWHERE\",\n    priority: 1,\n    status: \"ACTIVE\",\n    userIdentifierType: \"ATTRIBUTE\",\n    userIdentifierAttribute: \"company\",\n    appExcludes: [\n        {\n            id: \"\u003capp id\u003e\",\n            type: \"APP\",\n        },\n        {\n            name: \"yahoo_mail\",\n            type: \"APP_TYPE\",\n        },\n    ],\n    appIncludes: [\n        {\n            id: \"\u003capp id\u003e\",\n            type: \"APP\",\n        },\n        {\n            name: \"\u003capp type name\u003e\",\n            type: \"APP_TYPE\",\n        },\n    ],\n    platformIncludes: [{\n        type: \"MOBILE\",\n        osType: \"OSX\",\n    }],\n    userIdentifierPatterns: [{\n        matchType: \"EQUALS\",\n        value: \"Articulate\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nidp_discovery_policy = okta.policy.get_policy(name=\"Idp Discovery Policy\",\n    type=\"IDP_DISCOVERY\")\nexample = okta.policy.RuleIdpDiscovery(\"example\",\n    policy_id=idp_discovery_policy.id,\n    idp_id=\"\u003cidp id\u003e\",\n    idp_type=\"OIDC\",\n    network_connection=\"ANYWHERE\",\n    priority=1,\n    status=\"ACTIVE\",\n    user_identifier_type=\"ATTRIBUTE\",\n    user_identifier_attribute=\"company\",\n    app_excludes=[\n        okta.policy.RuleIdpDiscoveryAppExcludeArgs(\n            id=\"\u003capp id\u003e\",\n            type=\"APP\",\n        ),\n        okta.policy.RuleIdpDiscoveryAppExcludeArgs(\n            name=\"yahoo_mail\",\n            type=\"APP_TYPE\",\n        ),\n    ],\n    app_includes=[\n        okta.policy.RuleIdpDiscoveryAppIncludeArgs(\n            id=\"\u003capp id\u003e\",\n            type=\"APP\",\n        ),\n        okta.policy.RuleIdpDiscoveryAppIncludeArgs(\n            name=\"\u003capp type name\u003e\",\n            type=\"APP_TYPE\",\n        ),\n    ],\n    platform_includes=[okta.policy.RuleIdpDiscoveryPlatformIncludeArgs(\n        type=\"MOBILE\",\n        os_type=\"OSX\",\n    )],\n    user_identifier_patterns=[okta.policy.RuleIdpDiscoveryUserIdentifierPatternArgs(\n        match_type=\"EQUALS\",\n        value=\"Articulate\",\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var idpDiscoveryPolicy = Okta.Policy.GetPolicy.Invoke(new()\n    {\n        Name = \"Idp Discovery Policy\",\n        Type = \"IDP_DISCOVERY\",\n    });\n\n    var example = new Okta.Policy.RuleIdpDiscovery(\"example\", new()\n    {\n        PolicyId = idpDiscoveryPolicy.Apply(getPolicyResult =\u003e getPolicyResult.Id),\n        IdpId = \"\u003cidp id\u003e\",\n        IdpType = \"OIDC\",\n        NetworkConnection = \"ANYWHERE\",\n        Priority = 1,\n        Status = \"ACTIVE\",\n        UserIdentifierType = \"ATTRIBUTE\",\n        UserIdentifierAttribute = \"company\",\n        AppExcludes = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs\n            {\n                Id = \"\u003capp id\u003e\",\n                Type = \"APP\",\n            },\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs\n            {\n                Name = \"yahoo_mail\",\n                Type = \"APP_TYPE\",\n            },\n        },\n        AppIncludes = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs\n            {\n                Id = \"\u003capp id\u003e\",\n                Type = \"APP\",\n            },\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs\n            {\n                Name = \"\u003capp type name\u003e\",\n                Type = \"APP_TYPE\",\n            },\n        },\n        PlatformIncludes = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryPlatformIncludeArgs\n            {\n                Type = \"MOBILE\",\n                OsType = \"OSX\",\n            },\n        },\n        UserIdentifierPatterns = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs\n            {\n                MatchType = \"EQUALS\",\n                Value = \"Articulate\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tidpDiscoveryPolicy, err := policy.GetPolicy(ctx, \u0026policy.GetPolicyArgs{\n\t\t\tName: \"Idp Discovery Policy\",\n\t\t\tType: \"IDP_DISCOVERY\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = policy.NewRuleIdpDiscovery(ctx, \"example\", \u0026policy.RuleIdpDiscoveryArgs{\n\t\t\tPolicyId:                pulumi.String(idpDiscoveryPolicy.Id),\n\t\t\tIdpId:                   pulumi.String(\"\u003cidp id\u003e\"),\n\t\t\tIdpType:                 pulumi.String(\"OIDC\"),\n\t\t\tNetworkConnection:       pulumi.String(\"ANYWHERE\"),\n\t\t\tPriority:                pulumi.Int(1),\n\t\t\tStatus:                  pulumi.String(\"ACTIVE\"),\n\t\t\tUserIdentifierType:      pulumi.String(\"ATTRIBUTE\"),\n\t\t\tUserIdentifierAttribute: pulumi.String(\"company\"),\n\t\t\tAppExcludes: policy.RuleIdpDiscoveryAppExcludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppExcludeArgs{\n\t\t\t\t\tId:   pulumi.String(\"\u003capp id\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP\"),\n\t\t\t\t},\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppExcludeArgs{\n\t\t\t\t\tName: pulumi.String(\"yahoo_mail\"),\n\t\t\t\t\tType: pulumi.String(\"APP_TYPE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tAppIncludes: policy.RuleIdpDiscoveryAppIncludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppIncludeArgs{\n\t\t\t\t\tId:   pulumi.String(\"\u003capp id\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP\"),\n\t\t\t\t},\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppIncludeArgs{\n\t\t\t\t\tName: pulumi.String(\"\u003capp type name\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP_TYPE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPlatformIncludes: policy.RuleIdpDiscoveryPlatformIncludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryPlatformIncludeArgs{\n\t\t\t\t\tType:   pulumi.String(\"MOBILE\"),\n\t\t\t\t\tOsType: pulumi.String(\"OSX\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tUserIdentifierPatterns: policy.RuleIdpDiscoveryUserIdentifierPatternArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryUserIdentifierPatternArgs{\n\t\t\t\t\tMatchType: pulumi.String(\"EQUALS\"),\n\t\t\t\t\tValue:     pulumi.String(\"Articulate\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.PolicyFunctions;\nimport com.pulumi.okta.policy.inputs.GetPolicyArgs;\nimport com.pulumi.okta.policy.RuleIdpDiscovery;\nimport com.pulumi.okta.policy.RuleIdpDiscoveryArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppExcludeArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppIncludeArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryPlatformIncludeArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryUserIdentifierPatternArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var idpDiscoveryPolicy = PolicyFunctions.getPolicy(GetPolicyArgs.builder()\n            .name(\"Idp Discovery Policy\")\n            .type(\"IDP_DISCOVERY\")\n            .build());\n\n        var example = new RuleIdpDiscovery(\"example\", RuleIdpDiscoveryArgs.builder()        \n            .policyId(idpDiscoveryPolicy.applyValue(getPolicyResult -\u003e getPolicyResult.id()))\n            .idpId(\"\u003cidp id\u003e\")\n            .idpType(\"OIDC\")\n            .networkConnection(\"ANYWHERE\")\n            .priority(1)\n            .status(\"ACTIVE\")\n            .userIdentifierType(\"ATTRIBUTE\")\n            .userIdentifierAttribute(\"company\")\n            .appExcludes(            \n                RuleIdpDiscoveryAppExcludeArgs.builder()\n                    .id(\"\u003capp id\u003e\")\n                    .type(\"APP\")\n                    .build(),\n                RuleIdpDiscoveryAppExcludeArgs.builder()\n                    .name(\"yahoo_mail\")\n                    .type(\"APP_TYPE\")\n                    .build())\n            .appIncludes(            \n                RuleIdpDiscoveryAppIncludeArgs.builder()\n                    .id(\"\u003capp id\u003e\")\n                    .type(\"APP\")\n                    .build(),\n                RuleIdpDiscoveryAppIncludeArgs.builder()\n                    .name(\"\u003capp type name\u003e\")\n                    .type(\"APP_TYPE\")\n                    .build())\n            .platformIncludes(RuleIdpDiscoveryPlatformIncludeArgs.builder()\n                .type(\"MOBILE\")\n                .osType(\"OSX\")\n                .build())\n            .userIdentifierPatterns(RuleIdpDiscoveryUserIdentifierPatternArgs.builder()\n                .matchType(\"EQUALS\")\n                .value(\"Articulate\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:policy:RuleIdpDiscovery\n    properties:\n      policyId: ${idpDiscoveryPolicy.id}\n      idpId: \u003cidp id\u003e\n      idpType: OIDC\n      networkConnection: ANYWHERE\n      priority: 1\n      status: ACTIVE\n      userIdentifierType: ATTRIBUTE\n      userIdentifierAttribute: company\n      appExcludes:\n        - id: \u003capp id\u003e\n          type: APP\n        - name: yahoo_mail\n          type: APP_TYPE\n      appIncludes:\n        - id: \u003capp id\u003e\n          type: APP\n        - name: \u003capp type name\u003e\n          type: APP_TYPE\n      platformIncludes:\n        - type: MOBILE\n          osType: OSX\n      userIdentifierPatterns:\n        - matchType: EQUALS\n          value: Articulate\nvariables:\n  idpDiscoveryPolicy:\n    Fn::Invoke:\n      Function: okta:policy:getPolicy\n      Arguments:\n        name: Idp Discovery Policy\n        type: IDP_DISCOVERY\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nA Policy Rule can be imported via the Policy and Rule ID.\n\n```sh\n $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example \u0026#60;policy id\u0026#62;/\u0026#60;rule id\u0026#62;\n```\n\n ",
             "properties": {
                 "appExcludes": {
                     "type": "array",
@@ -25969,37 +25984,37 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "Policy Rule Name.\n"
+                    "description": "Policy Rule Name. Type `\"string\"`\n"
                 },
                 "networkConnection": {
                     "type": "string",
-                    "description": "Network selection mode: `\"ANYWHERE\"`, `\"ZONE\"`, `\"ON_NETWORK\"`, or `\"OFF_NETWORK\"`.\n"
+                    "description": "Network selection mode: `\"ANYWHERE\"`, `\"ZONE\"`, `\"ON_NETWORK\"`, or `\"OFF_NETWORK\"`. Type `\"string\"`\n"
                 },
                 "networkExcludes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The network zones to exclude. Conflicts with `network_includes`.\n"
+                    "description": "The network zones to exclude. Conflicts with `network_includes`. Type `\"list(string)\"`\n"
                 },
                 "networkIncludes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The network zones to include. Conflicts with `network_excludes`.\n"
+                    "description": "The network zones to include. Conflicts with `network_excludes`. Type `\"list(string)\"`\n"
                 },
                 "passwordChange": {
                     "type": "string",
-                    "description": "Allow or deny a user to change their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`.\n"
+                    "description": "Allow or deny a user to change their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`. Type `\"string\"`\n"
                 },
                 "passwordReset": {
                     "type": "string",
-                    "description": "Allow or deny a user to reset their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`.\n"
+                    "description": "Allow or deny a user to reset their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`. Type `\"string\"`\n"
                 },
                 "passwordUnlock": {
                     "type": "string",
-                    "description": "Allow or deny a user to unlock: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"DENY\"`,\n"
+                    "description": "Allow or deny a user to unlock: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"DENY\"`, Type `\"string\"`\n"
                 },
                 "policyId": {
                     "type": "string",
@@ -26012,18 +26027,18 @@
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.\n"
+                    "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `\"number\"`\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Policy Rule Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
+                    "description": "Policy Rule Status: `\"ACTIVE\"` or `\"INACTIVE\"`. Type `\"string\"`\n"
                 },
                 "usersExcludeds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Set of User IDs to Exclude\n"
+                    "description": "The users to exclude. Type `\"set(string)\"`\n"
                 }
             },
             "required": [
@@ -26032,38 +26047,38 @@
             "inputProperties": {
                 "name": {
                     "type": "string",
-                    "description": "Policy Rule Name.\n",
+                    "description": "Policy Rule Name. Type `\"string\"`\n",
                     "willReplaceOnChanges": true
                 },
                 "networkConnection": {
                     "type": "string",
-                    "description": "Network selection mode: `\"ANYWHERE\"`, `\"ZONE\"`, `\"ON_NETWORK\"`, or `\"OFF_NETWORK\"`.\n"
+                    "description": "Network selection mode: `\"ANYWHERE\"`, `\"ZONE\"`, `\"ON_NETWORK\"`, or `\"OFF_NETWORK\"`. Type `\"string\"`\n"
                 },
                 "networkExcludes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The network zones to exclude. Conflicts with `network_includes`.\n"
+                    "description": "The network zones to exclude. Conflicts with `network_includes`. Type `\"list(string)\"`\n"
                 },
                 "networkIncludes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The network zones to include. Conflicts with `network_excludes`.\n"
+                    "description": "The network zones to include. Conflicts with `network_excludes`. Type `\"list(string)\"`\n"
                 },
                 "passwordChange": {
                     "type": "string",
-                    "description": "Allow or deny a user to change their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`.\n"
+                    "description": "Allow or deny a user to change their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`. Type `\"string\"`\n"
                 },
                 "passwordReset": {
                     "type": "string",
-                    "description": "Allow or deny a user to reset their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`.\n"
+                    "description": "Allow or deny a user to reset their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`. Type `\"string\"`\n"
                 },
                 "passwordUnlock": {
                     "type": "string",
-                    "description": "Allow or deny a user to unlock: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"DENY\"`,\n"
+                    "description": "Allow or deny a user to unlock: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"DENY\"`, Type `\"string\"`\n"
                 },
                 "policyId": {
                     "type": "string",
@@ -26078,18 +26093,18 @@
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.\n"
+                    "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `\"number\"`\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Policy Rule Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
+                    "description": "Policy Rule Status: `\"ACTIVE\"` or `\"INACTIVE\"`. Type `\"string\"`\n"
                 },
                 "usersExcludeds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Set of User IDs to Exclude\n"
+                    "description": "The users to exclude. Type `\"set(string)\"`\n"
                 }
             },
             "stateInputs": {
@@ -26097,38 +26112,38 @@
                 "properties": {
                     "name": {
                         "type": "string",
-                        "description": "Policy Rule Name.\n",
+                        "description": "Policy Rule Name. Type `\"string\"`\n",
                         "willReplaceOnChanges": true
                     },
                     "networkConnection": {
                         "type": "string",
-                        "description": "Network selection mode: `\"ANYWHERE\"`, `\"ZONE\"`, `\"ON_NETWORK\"`, or `\"OFF_NETWORK\"`.\n"
+                        "description": "Network selection mode: `\"ANYWHERE\"`, `\"ZONE\"`, `\"ON_NETWORK\"`, or `\"OFF_NETWORK\"`. Type `\"string\"`\n"
                     },
                     "networkExcludes": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "The network zones to exclude. Conflicts with `network_includes`.\n"
+                        "description": "The network zones to exclude. Conflicts with `network_includes`. Type `\"list(string)\"`\n"
                     },
                     "networkIncludes": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "The network zones to include. Conflicts with `network_excludes`.\n"
+                        "description": "The network zones to include. Conflicts with `network_excludes`. Type `\"list(string)\"`\n"
                     },
                     "passwordChange": {
                         "type": "string",
-                        "description": "Allow or deny a user to change their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`.\n"
+                        "description": "Allow or deny a user to change their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`. Type `\"string\"`\n"
                     },
                     "passwordReset": {
                         "type": "string",
-                        "description": "Allow or deny a user to reset their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`.\n"
+                        "description": "Allow or deny a user to reset their password: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"ALLOW\"`. Type `\"string\"`\n"
                     },
                     "passwordUnlock": {
                         "type": "string",
-                        "description": "Allow or deny a user to unlock: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"DENY\"`,\n"
+                        "description": "Allow or deny a user to unlock: `\"ALLOW\"` or `\"DENY\"`. By default, it is `\"DENY\"`, Type `\"string\"`\n"
                     },
                     "policyId": {
                         "type": "string",
@@ -26143,18 +26158,18 @@
                     },
                     "priority": {
                         "type": "integer",
-                        "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.\n"
+                        "description": "Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `\"number\"`\n"
                     },
                     "status": {
                         "type": "string",
-                        "description": "Policy Rule Status: `\"ACTIVE\"` or `\"INACTIVE\"`.\n"
+                        "description": "Policy Rule Status: `\"ACTIVE\"` or `\"INACTIVE\"`. Type `\"string\"`\n"
                     },
                     "usersExcludeds": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Set of User IDs to Exclude\n"
+                        "description": "The users to exclude. Type `\"set(string)\"`\n"
                     }
                 },
                 "type": "object"
@@ -28157,7 +28172,7 @@
                     },
                     "label": {
                         "type": "string",
-                        "description": "The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses\nthe `?q=\u003clabel\u003e` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`\nand `label`. This is used to avoid paginating through all applications.\n"
+                        "description": "The label of the app to retrieve, conflicts with\n`label_prefix` and `id`. Label uses the `?q=\u003clabel\u003e` query parameter exposed by\nOkta's List Apps API. The API will search both `name` and `label` using that\nquery. Therefore similarily named and labeled apps may be returned in the query\nand have the unitended result of associating the wrong app with this data\nsource. See:\nhttps://developer.okta.com/docs/reference/api/apps/#list-applications\n"
                     },
                     "labelPrefix": {
                         "type": "string",
@@ -28187,6 +28202,10 @@
                     "clientId": {
                         "type": "string",
                         "description": "OAuth client ID. If set during creation, app is created with this id.\n"
+                    },
+                    "clientSecret": {
+                        "type": "string",
+                        "description": "The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n"
                     },
                     "clientUri": {
                         "type": "string",
@@ -28308,6 +28327,7 @@
                 "required": [
                     "autoSubmitToolbar",
                     "clientId",
+                    "clientSecret",
                     "clientUri",
                     "grantTypes",
                     "groups",
@@ -29038,7 +29058,7 @@
                     },
                     "issuerMode": {
                         "type": "string",
-                        "description": "Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.\n"
+                        "description": "Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic.\n"
                     },
                     "issuerUrl": {
                         "type": "string",
@@ -29340,7 +29360,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "The type of Social IdP.\n"
+                        "description": "The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)\n"
                     },
                     "usernameTemplate": {
                         "type": "string",

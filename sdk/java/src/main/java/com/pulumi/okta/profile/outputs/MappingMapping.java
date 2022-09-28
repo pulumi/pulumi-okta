@@ -15,28 +15,19 @@ public final class MappingMapping {
      * @return Combination or single source properties that will be mapped to the target property.
      * 
      */
-    private final String expression;
+    private String expression;
     /**
      * @return Key of mapping.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Whether to update target properties on user create &amp; update or just on create.
      * 
      */
-    private final @Nullable String pushStatus;
+    private @Nullable String pushStatus;
 
-    @CustomType.Constructor
-    private MappingMapping(
-        @CustomType.Parameter("expression") String expression,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("pushStatus") @Nullable String pushStatus) {
-        this.expression = expression;
-        this.id = id;
-        this.pushStatus = pushStatus;
-    }
-
+    private MappingMapping() {}
     /**
      * @return Combination or single source properties that will be mapped to the target property.
      * 
@@ -66,16 +57,12 @@ public final class MappingMapping {
     public static Builder builder(MappingMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String expression;
         private String id;
         private @Nullable String pushStatus;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MappingMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expression = defaults.expression;
@@ -83,19 +70,27 @@ public final class MappingMapping {
     	      this.pushStatus = defaults.pushStatus;
         }
 
+        @CustomType.Setter
         public Builder expression(String expression) {
             this.expression = Objects.requireNonNull(expression);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder pushStatus(@Nullable String pushStatus) {
             this.pushStatus = pushStatus;
             return this;
-        }        public MappingMapping build() {
-            return new MappingMapping(expression, id, pushStatus);
+        }
+        public MappingMapping build() {
+            final var o = new MappingMapping();
+            o.expression = expression;
+            o.id = id;
+            o.pushStatus = pushStatus;
+            return o;
         }
     }
 }

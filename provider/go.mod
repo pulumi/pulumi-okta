@@ -11,7 +11,7 @@ require (
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220725190814-23001ad6ec03
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/okta/terraform-provider-okta => github.com/pulumi/terraform-provider-okta v0.0.0-20220815225624-770300823aa9
+	github.com/okta/terraform-provider-okta => github.com/pulumi/terraform-provider-okta v0.0.0-20220927205311-8eda5263c6d4
 )
 
 require (
@@ -94,7 +94,7 @@ require (
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
 	github.com/hashicorp/go-getter v1.6.1 // indirect
-	github.com/hashicorp/go-hclog v1.2.2 // indirect
+	github.com/hashicorp/go-hclog v1.3.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/go-retryablehttp v0.7.1 // indirect
 	github.com/hashicorp/go-rootcerts v1.0.2 // indirect
@@ -145,7 +145,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
-	github.com/okta/okta-sdk-golang/v2 v2.13.1-0.20220629214615-7167dfb447ff // indirect
+	github.com/okta/okta-sdk-golang/v2 v2.14.1-0.20220914175214-588bce2f1414 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/patrickmn/go-cache v0.0.0-20180815053127-5633e0862627 // indirect
@@ -175,7 +175,7 @@ require (
 	github.com/spf13/cobra v1.4.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/src-d/gcfg v1.4.0 // indirect
-	github.com/stretchr/testify v1.7.2 // indirect
+	github.com/stretchr/testify v1.8.0 // indirect
 	github.com/terraform-providers/terraform-provider-archive v1.3.0 // indirect
 	github.com/terraform-providers/terraform-provider-http v1.2.0 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect

@@ -479,8 +479,6 @@ type samlAppArgs struct {
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// features to enable
-	Features []string `pulumi:"features"`
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -586,8 +584,6 @@ type SamlAppArgs struct {
 	DigestAlgorithm pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// features to enable
-	Features pulumi.StringArrayInput
 	// Groups associated with the application
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.

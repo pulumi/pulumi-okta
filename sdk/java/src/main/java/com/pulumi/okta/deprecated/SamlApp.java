@@ -319,14 +319,14 @@ public class SamlApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="features", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> features;
+    private Output<List<String>> features;
 
     /**
      * @return features to enable
      * 
      */
-    public Output<Optional<List<String>>> features() {
-        return Codegen.optional(this.features);
+    public Output<List<String>> features() {
+        return this.features;
     }
     /**
      * Groups associated with the application

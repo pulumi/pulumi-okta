@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAppResult {
-    private final @Nullable Boolean activeOnly;
+    private @Nullable Boolean activeOnly;
     /**
      * @return List of groups IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
@@ -23,35 +23,35 @@ public final class GetAppResult {
      * 
      */
     @Deprecated /* The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments` */
-    private final List<String> groups;
+    private List<String> groups;
     /**
      * @return Application ID.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Application label.
      * 
      */
-    private final @Nullable String label;
-    private final @Nullable String labelPrefix;
+    private @Nullable String label;
+    private @Nullable String labelPrefix;
     /**
      * @return Generic JSON containing discoverable resources related to the app.
      * 
      */
-    private final String links;
+    private String links;
     /**
      * @return Application name.
      * 
      */
-    private final String name;
-    private final @Nullable Boolean skipGroups;
-    private final @Nullable Boolean skipUsers;
+    private String name;
+    private @Nullable Boolean skipGroups;
+    private @Nullable Boolean skipUsers;
     /**
      * @return Application status.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return List of users IDs assigned to the application.
      * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
@@ -61,34 +61,9 @@ public final class GetAppResult {
      * 
      */
     @Deprecated /* The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments` */
-    private final List<String> users;
+    private List<String> users;
 
-    @CustomType.Constructor
-    private GetAppResult(
-        @CustomType.Parameter("activeOnly") @Nullable Boolean activeOnly,
-        @CustomType.Parameter("groups") List<String> groups,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("label") @Nullable String label,
-        @CustomType.Parameter("labelPrefix") @Nullable String labelPrefix,
-        @CustomType.Parameter("links") String links,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("skipGroups") @Nullable Boolean skipGroups,
-        @CustomType.Parameter("skipUsers") @Nullable Boolean skipUsers,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("users") List<String> users) {
-        this.activeOnly = activeOnly;
-        this.groups = groups;
-        this.id = id;
-        this.label = label;
-        this.labelPrefix = labelPrefix;
-        this.links = links;
-        this.name = name;
-        this.skipGroups = skipGroups;
-        this.skipUsers = skipUsers;
-        this.status = status;
-        this.users = users;
-    }
-
+    private GetAppResult() {}
     public Optional<Boolean> activeOnly() {
         return Optional.ofNullable(this.activeOnly);
     }
@@ -168,7 +143,7 @@ public final class GetAppResult {
     public static Builder builder(GetAppResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean activeOnly;
         private List<String> groups;
@@ -181,11 +156,7 @@ public final class GetAppResult {
         private @Nullable Boolean skipUsers;
         private String status;
         private List<String> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAppResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeOnly = defaults.activeOnly;
@@ -201,10 +172,12 @@ public final class GetAppResult {
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder activeOnly(@Nullable Boolean activeOnly) {
             this.activeOnly = activeOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder groups(List<String> groups) {
             this.groups = Objects.requireNonNull(groups);
             return this;
@@ -212,46 +185,68 @@ public final class GetAppResult {
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
         }
+        @CustomType.Setter
         public Builder labelPrefix(@Nullable String labelPrefix) {
             this.labelPrefix = labelPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder links(String links) {
             this.links = Objects.requireNonNull(links);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder skipGroups(@Nullable Boolean skipGroups) {
             this.skipGroups = skipGroups;
             return this;
         }
+        @CustomType.Setter
         public Builder skipUsers(@Nullable Boolean skipUsers) {
             this.skipUsers = skipUsers;
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder users(List<String> users) {
             this.users = Objects.requireNonNull(users);
             return this;
         }
         public Builder users(String... users) {
             return users(List.of(users));
-        }        public GetAppResult build() {
-            return new GetAppResult(activeOnly, groups, id, label, labelPrefix, links, name, skipGroups, skipUsers, status, users);
+        }
+        public GetAppResult build() {
+            final var o = new GetAppResult();
+            o.activeOnly = activeOnly;
+            o.groups = groups;
+            o.id = id;
+            o.label = label;
+            o.labelPrefix = labelPrefix;
+            o.links = links;
+            o.name = name;
+            o.skipGroups = skipGroups;
+            o.skipUsers = skipUsers;
+            o.status = status;
+            o.users = users;
+            return o;
         }
     }
 }

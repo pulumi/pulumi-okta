@@ -16,105 +16,74 @@ public final class GetSamlResult {
      * @return HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `&#34;HTTP-POST&#34;`).
      * 
      */
-    private final String acsBinding;
+    private String acsBinding;
     /**
      * @return Determines whether to publish an instance-specific (trust) or organization (shared) ACS endpoint in the SAML metadata.
      * 
      */
-    private final String acsType;
+    private String acsType;
     /**
      * @return URI that identifies the target Okta IdP instance (SP)
      * 
      */
-    private final String audience;
+    private String audience;
     /**
      * @return id of idp.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return URI that identifies the issuer (IdP).
      * 
      */
-    private final String issuer;
+    private String issuer;
     /**
      * @return indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
      * 
      */
-    private final String issuerMode;
+    private String issuerMode;
     /**
      * @return Key ID reference to the IdP&#39;s X.509 signature certificate.
      * 
      */
-    private final String kid;
+    private String kid;
     /**
      * @return name of the idp.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return single sign-on binding.
      * 
      */
-    private final String ssoBinding;
+    private String ssoBinding;
     /**
      * @return SSO request binding, HTTP-POST or HTTP-REDIRECT.
      * 
      */
-    private final String ssoDestination;
+    private String ssoDestination;
     /**
      * @return single sign-on url.
      * 
      */
-    private final String ssoUrl;
+    private String ssoUrl;
     /**
      * @return regular expression pattern used to filter untrusted IdP usernames.
      * 
      */
-    private final String subjectFilter;
+    private String subjectFilter;
     /**
      * @return Expression to generate or transform a unique username for the IdP user.
      * 
      */
-    private final List<String> subjectFormats;
+    private List<String> subjectFormats;
     /**
      * @return type of idp.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetSamlResult(
-        @CustomType.Parameter("acsBinding") String acsBinding,
-        @CustomType.Parameter("acsType") String acsType,
-        @CustomType.Parameter("audience") String audience,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("issuer") String issuer,
-        @CustomType.Parameter("issuerMode") String issuerMode,
-        @CustomType.Parameter("kid") String kid,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("ssoBinding") String ssoBinding,
-        @CustomType.Parameter("ssoDestination") String ssoDestination,
-        @CustomType.Parameter("ssoUrl") String ssoUrl,
-        @CustomType.Parameter("subjectFilter") String subjectFilter,
-        @CustomType.Parameter("subjectFormats") List<String> subjectFormats,
-        @CustomType.Parameter("type") String type) {
-        this.acsBinding = acsBinding;
-        this.acsType = acsType;
-        this.audience = audience;
-        this.id = id;
-        this.issuer = issuer;
-        this.issuerMode = issuerMode;
-        this.kid = kid;
-        this.name = name;
-        this.ssoBinding = ssoBinding;
-        this.ssoDestination = ssoDestination;
-        this.ssoUrl = ssoUrl;
-        this.subjectFilter = subjectFilter;
-        this.subjectFormats = subjectFormats;
-        this.type = type;
-    }
-
+    private GetSamlResult() {}
     /**
      * @return HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `&#34;HTTP-POST&#34;`).
      * 
@@ -221,7 +190,7 @@ public final class GetSamlResult {
     public static Builder builder(GetSamlResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String acsBinding;
         private String acsType;
@@ -237,11 +206,7 @@ public final class GetSamlResult {
         private String subjectFilter;
         private List<String> subjectFormats;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSamlResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acsBinding = defaults.acsBinding;
@@ -260,54 +225,67 @@ public final class GetSamlResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder acsBinding(String acsBinding) {
             this.acsBinding = Objects.requireNonNull(acsBinding);
             return this;
         }
+        @CustomType.Setter
         public Builder acsType(String acsType) {
             this.acsType = Objects.requireNonNull(acsType);
             return this;
         }
+        @CustomType.Setter
         public Builder audience(String audience) {
             this.audience = Objects.requireNonNull(audience);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             this.issuer = Objects.requireNonNull(issuer);
             return this;
         }
+        @CustomType.Setter
         public Builder issuerMode(String issuerMode) {
             this.issuerMode = Objects.requireNonNull(issuerMode);
             return this;
         }
+        @CustomType.Setter
         public Builder kid(String kid) {
             this.kid = Objects.requireNonNull(kid);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder ssoBinding(String ssoBinding) {
             this.ssoBinding = Objects.requireNonNull(ssoBinding);
             return this;
         }
+        @CustomType.Setter
         public Builder ssoDestination(String ssoDestination) {
             this.ssoDestination = Objects.requireNonNull(ssoDestination);
             return this;
         }
+        @CustomType.Setter
         public Builder ssoUrl(String ssoUrl) {
             this.ssoUrl = Objects.requireNonNull(ssoUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder subjectFilter(String subjectFilter) {
             this.subjectFilter = Objects.requireNonNull(subjectFilter);
             return this;
         }
+        @CustomType.Setter
         public Builder subjectFormats(List<String> subjectFormats) {
             this.subjectFormats = Objects.requireNonNull(subjectFormats);
             return this;
@@ -315,11 +293,28 @@ public final class GetSamlResult {
         public Builder subjectFormats(String... subjectFormats) {
             return subjectFormats(List.of(subjectFormats));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetSamlResult build() {
-            return new GetSamlResult(acsBinding, acsType, audience, id, issuer, issuerMode, kid, name, ssoBinding, ssoDestination, ssoUrl, subjectFilter, subjectFormats, type);
+        }
+        public GetSamlResult build() {
+            final var o = new GetSamlResult();
+            o.acsBinding = acsBinding;
+            o.acsType = acsType;
+            o.audience = audience;
+            o.id = id;
+            o.issuer = issuer;
+            o.issuerMode = issuerMode;
+            o.kid = kid;
+            o.name = name;
+            o.ssoBinding = ssoBinding;
+            o.ssoDestination = ssoDestination;
+            o.ssoUrl = ssoUrl;
+            o.subjectFilter = subjectFilter;
+            o.subjectFormats = subjectFormats;
+            o.type = type;
+            return o;
         }
     }
 }

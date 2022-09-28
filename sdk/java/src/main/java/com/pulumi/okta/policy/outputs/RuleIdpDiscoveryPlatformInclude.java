@@ -15,28 +15,19 @@ public final class RuleIdpDiscoveryPlatformInclude {
      * @return Only available when using `os_type = &#34;OTHER&#34;`
      * 
      */
-    private final @Nullable String osExpression;
+    private @Nullable String osExpression;
     /**
      * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
      * 
      */
-    private final @Nullable String osType;
+    private @Nullable String osType;
     /**
      * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private RuleIdpDiscoveryPlatformInclude(
-        @CustomType.Parameter("osExpression") @Nullable String osExpression,
-        @CustomType.Parameter("osType") @Nullable String osType,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.osExpression = osExpression;
-        this.osType = osType;
-        this.type = type;
-    }
-
+    private RuleIdpDiscoveryPlatformInclude() {}
     /**
      * @return Only available when using `os_type = &#34;OTHER&#34;`
      * 
@@ -66,16 +57,12 @@ public final class RuleIdpDiscoveryPlatformInclude {
     public static Builder builder(RuleIdpDiscoveryPlatformInclude defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String osExpression;
         private @Nullable String osType;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RuleIdpDiscoveryPlatformInclude defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.osExpression = defaults.osExpression;
@@ -83,19 +70,27 @@ public final class RuleIdpDiscoveryPlatformInclude {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder osExpression(@Nullable String osExpression) {
             this.osExpression = osExpression;
             return this;
         }
+        @CustomType.Setter
         public Builder osType(@Nullable String osType) {
             this.osType = osType;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public RuleIdpDiscoveryPlatformInclude build() {
-            return new RuleIdpDiscoveryPlatformInclude(osExpression, osType, type);
+        }
+        public RuleIdpDiscoveryPlatformInclude build() {
+            final var o = new RuleIdpDiscoveryPlatformInclude();
+            o.osExpression = osExpression;
+            o.osType = osType;
+            o.type = type;
+            return o;
         }
     }
 }

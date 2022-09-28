@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class SignonPolicyRuleFactorSequenceSecondaryCriteria {
-    private final String factorType;
-    private final String provider;
+    private String factorType;
+    private String provider;
 
-    @CustomType.Constructor
-    private SignonPolicyRuleFactorSequenceSecondaryCriteria(
-        @CustomType.Parameter("factorType") String factorType,
-        @CustomType.Parameter("provider") String provider) {
-        this.factorType = factorType;
-        this.provider = provider;
-    }
-
+    private SignonPolicyRuleFactorSequenceSecondaryCriteria() {}
     public String factorType() {
         return this.factorType;
     }
@@ -34,30 +27,32 @@ public final class SignonPolicyRuleFactorSequenceSecondaryCriteria {
     public static Builder builder(SignonPolicyRuleFactorSequenceSecondaryCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String factorType;
         private String provider;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SignonPolicyRuleFactorSequenceSecondaryCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.factorType = defaults.factorType;
     	      this.provider = defaults.provider;
         }
 
+        @CustomType.Setter
         public Builder factorType(String factorType) {
             this.factorType = Objects.requireNonNull(factorType);
             return this;
         }
+        @CustomType.Setter
         public Builder provider(String provider) {
             this.provider = Objects.requireNonNull(provider);
             return this;
-        }        public SignonPolicyRuleFactorSequenceSecondaryCriteria build() {
-            return new SignonPolicyRuleFactorSequenceSecondaryCriteria(factorType, provider);
+        }
+        public SignonPolicyRuleFactorSequenceSecondaryCriteria build() {
+            final var o = new SignonPolicyRuleFactorSequenceSecondaryCriteria();
+            o.factorType = factorType;
+            o.provider = provider;
+            return o;
         }
     }
 }

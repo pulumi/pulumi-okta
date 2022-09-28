@@ -104,7 +104,7 @@ type LookupSocialResult struct {
 	TokenBinding string `pulumi:"tokenBinding"`
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 	TokenUrl string `pulumi:"tokenUrl"`
-	// The type of Social IdP.
+	// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
 	Type string `pulumi:"type"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user.
 	UsernameTemplate string `pulumi:"usernameTemplate"`
@@ -273,7 +273,7 @@ func (o LookupSocialResultOutput) TokenUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSocialResult) string { return v.TokenUrl }).(pulumi.StringOutput)
 }
 
-// The type of Social IdP.
+// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
 func (o LookupSocialResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSocialResult) string { return v.Type }).(pulumi.StringOutput)
 }

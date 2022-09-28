@@ -12,6 +12,10 @@ namespace Pulumi.Okta.App
     /// <summary>
     /// This resource allows you to create and configure a SAML Application.
     /// 
+    /// &gt; If you receive the error `You do not have permission to access the feature
+    /// you are requesting` contact support and
+    /// request feature flag `ADVANCED_SSO` be applied to your org.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -758,18 +762,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("enduserNote")]
         public Input<string>? EnduserNote { get; set; }
-
-        [Input("features")]
-        private InputList<string>? _features;
-
-        /// <summary>
-        /// features enabled. Notice: you can't currently configure provisioning features via the API.
-        /// </summary>
-        public InputList<string> Features
-        {
-            get => _features ?? (_features = new InputList<string>());
-            set => _features = value;
-        }
 
         [Input("groups")]
         private InputList<string>? _groups;

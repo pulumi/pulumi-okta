@@ -15,28 +15,19 @@ public final class EmailSenderDnsRecord {
      * @return DNS record name.
      * 
      */
-    private final @Nullable String fqdn;
+    private @Nullable String fqdn;
     /**
      * @return Record type can be TXT or CNAME.
      * 
      */
-    private final @Nullable String recordType;
+    private @Nullable String recordType;
     /**
      * @return DNS verification value
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private EmailSenderDnsRecord(
-        @CustomType.Parameter("fqdn") @Nullable String fqdn,
-        @CustomType.Parameter("recordType") @Nullable String recordType,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.fqdn = fqdn;
-        this.recordType = recordType;
-        this.value = value;
-    }
-
+    private EmailSenderDnsRecord() {}
     /**
      * @return DNS record name.
      * 
@@ -66,16 +57,12 @@ public final class EmailSenderDnsRecord {
     public static Builder builder(EmailSenderDnsRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String fqdn;
         private @Nullable String recordType;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EmailSenderDnsRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fqdn = defaults.fqdn;
@@ -83,19 +70,27 @@ public final class EmailSenderDnsRecord {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
             this.fqdn = fqdn;
             return this;
         }
+        @CustomType.Setter
         public Builder recordType(@Nullable String recordType) {
             this.recordType = recordType;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public EmailSenderDnsRecord build() {
-            return new EmailSenderDnsRecord(fqdn, recordType, value);
+        }
+        public EmailSenderDnsRecord build() {
+            final var o = new EmailSenderDnsRecord();
+            o.fqdn = fqdn;
+            o.recordType = recordType;
+            o.value = value;
+            return o;
         }
     }
 }

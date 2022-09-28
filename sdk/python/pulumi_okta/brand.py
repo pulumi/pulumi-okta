@@ -182,11 +182,6 @@ class Brand(pulumi.CustomResource):
                  remove_powered_by_okta: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        This resource allows you to get and update an Okta [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
-
-        Brands are can only be updated through the Okta API. Therefore this resource
-        only gets and updates a brand.
-
         ## Example Usage
 
         ```python
@@ -223,11 +218,6 @@ class Brand(pulumi.CustomResource):
                  args: Optional[BrandArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to get and update an Okta [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
-
-        Brands are can only be updated through the Okta API. Therefore this resource
-        only gets and updates a brand.
-
         ## Example Usage
 
         ```python

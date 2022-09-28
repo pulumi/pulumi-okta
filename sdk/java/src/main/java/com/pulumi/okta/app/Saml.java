@@ -23,6 +23,10 @@ import javax.annotation.Nullable;
 /**
  * This resource allows you to create and configure a SAML Application.
  * 
+ * &gt; If you receive the error `You do not have permission to access the feature
+ * you are requesting` contact support and
+ * request feature flag `ADVANCED_SSO` be applied to your org.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -574,14 +578,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="features", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> features;
+    private Output<List<String>> features;
 
     /**
      * @return features enabled. Notice: you can&#39;t currently configure provisioning features via the API.
      * 
      */
-    public Output<Optional<List<String>>> features() {
-        return Codegen.optional(this.features);
+    public Output<List<String>> features() {
+        return this.features;
     }
     /**
      * Groups associated with the application.

@@ -13,21 +13,14 @@ public final class GetUserSecurityQuestionsQuestion {
      * @return Security question unique key.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Display text for security question.
      * 
      */
-    private final String text;
+    private String text;
 
-    @CustomType.Constructor
-    private GetUserSecurityQuestionsQuestion(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("text") String text) {
-        this.key = key;
-        this.text = text;
-    }
-
+    private GetUserSecurityQuestionsQuestion() {}
     /**
      * @return Security question unique key.
      * 
@@ -50,30 +43,32 @@ public final class GetUserSecurityQuestionsQuestion {
     public static Builder builder(GetUserSecurityQuestionsQuestion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private String text;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserSecurityQuestionsQuestion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.text = defaults.text;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder text(String text) {
             this.text = Objects.requireNonNull(text);
             return this;
-        }        public GetUserSecurityQuestionsQuestion build() {
-            return new GetUserSecurityQuestionsQuestion(key, text);
+        }
+        public GetUserSecurityQuestionsQuestion build() {
+            final var o = new GetUserSecurityQuestionsQuestion();
+            o.key = key;
+            o.text = text;
+            return o;
         }
     }
 }

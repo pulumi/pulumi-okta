@@ -12,29 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SamlAppAttributeStatement {
-    private final @Nullable String filterType;
-    private final @Nullable String filterValue;
-    private final String name;
-    private final @Nullable String namespace;
-    private final @Nullable String type;
-    private final @Nullable List<String> values;
+    private @Nullable String filterType;
+    private @Nullable String filterValue;
+    private String name;
+    private @Nullable String namespace;
+    private @Nullable String type;
+    private @Nullable List<String> values;
 
-    @CustomType.Constructor
-    private SamlAppAttributeStatement(
-        @CustomType.Parameter("filterType") @Nullable String filterType,
-        @CustomType.Parameter("filterValue") @Nullable String filterValue,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespace") @Nullable String namespace,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("values") @Nullable List<String> values) {
-        this.filterType = filterType;
-        this.filterValue = filterValue;
-        this.name = name;
-        this.namespace = namespace;
-        this.type = type;
-        this.values = values;
-    }
-
+    private SamlAppAttributeStatement() {}
     public Optional<String> filterType() {
         return Optional.ofNullable(this.filterType);
     }
@@ -61,7 +46,7 @@ public final class SamlAppAttributeStatement {
     public static Builder builder(SamlAppAttributeStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String filterType;
         private @Nullable String filterValue;
@@ -69,11 +54,7 @@ public final class SamlAppAttributeStatement {
         private @Nullable String namespace;
         private @Nullable String type;
         private @Nullable List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SamlAppAttributeStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filterType = defaults.filterType;
@@ -84,34 +65,48 @@ public final class SamlAppAttributeStatement {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder filterType(@Nullable String filterType) {
             this.filterType = filterType;
             return this;
         }
+        @CustomType.Setter
         public Builder filterValue(@Nullable String filterValue) {
             this.filterValue = filterValue;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
             this.namespace = namespace;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
             this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public SamlAppAttributeStatement build() {
-            return new SamlAppAttributeStatement(filterType, filterValue, name, namespace, type, values);
+        }
+        public SamlAppAttributeStatement build() {
+            final var o = new SamlAppAttributeStatement();
+            o.filterType = filterType;
+            o.filterValue = filterValue;
+            o.name = name;
+            o.namespace = namespace;
+            o.type = type;
+            o.values = values;
+            return o;
         }
     }
 }

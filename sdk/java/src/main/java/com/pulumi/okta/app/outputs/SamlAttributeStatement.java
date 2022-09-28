@@ -16,49 +16,34 @@ public final class SamlAttributeStatement {
      * @return Type of group attribute filter. Valid values are: `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, or `&#34;REGEX&#34;`
      * 
      */
-    private final @Nullable String filterType;
+    private @Nullable String filterType;
     /**
      * @return Filter value to use.
      * 
      */
-    private final @Nullable String filterValue;
+    private @Nullable String filterValue;
     /**
      * @return The name of the attribute statement.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The attribute namespace. It can be set to `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified&#34;`, `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:uri&#34;`, or `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:basic&#34;`.
      * 
      */
-    private final @Nullable String namespace;
+    private @Nullable String namespace;
     /**
      * @return The type of attribute statement value. Valid values are: `&#34;EXPRESSION&#34;` or `&#34;GROUP&#34;`. Default is `&#34;EXPRESSION&#34;`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return Array of values to use.
      * 
      */
-    private final @Nullable List<String> values;
+    private @Nullable List<String> values;
 
-    @CustomType.Constructor
-    private SamlAttributeStatement(
-        @CustomType.Parameter("filterType") @Nullable String filterType,
-        @CustomType.Parameter("filterValue") @Nullable String filterValue,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespace") @Nullable String namespace,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("values") @Nullable List<String> values) {
-        this.filterType = filterType;
-        this.filterValue = filterValue;
-        this.name = name;
-        this.namespace = namespace;
-        this.type = type;
-        this.values = values;
-    }
-
+    private SamlAttributeStatement() {}
     /**
      * @return Type of group attribute filter. Valid values are: `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, or `&#34;REGEX&#34;`
      * 
@@ -109,7 +94,7 @@ public final class SamlAttributeStatement {
     public static Builder builder(SamlAttributeStatement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String filterType;
         private @Nullable String filterValue;
@@ -117,11 +102,7 @@ public final class SamlAttributeStatement {
         private @Nullable String namespace;
         private @Nullable String type;
         private @Nullable List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SamlAttributeStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filterType = defaults.filterType;
@@ -132,34 +113,48 @@ public final class SamlAttributeStatement {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder filterType(@Nullable String filterType) {
             this.filterType = filterType;
             return this;
         }
+        @CustomType.Setter
         public Builder filterValue(@Nullable String filterValue) {
             this.filterValue = filterValue;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
             this.namespace = namespace;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
             this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public SamlAttributeStatement build() {
-            return new SamlAttributeStatement(filterType, filterValue, name, namespace, type, values);
+        }
+        public SamlAttributeStatement build() {
+            final var o = new SamlAttributeStatement();
+            o.filterType = filterType;
+            o.filterValue = filterValue;
+            o.name = name;
+            o.namespace = namespace;
+            o.type = type;
+            o.values = values;
+            return o;
         }
     }
 }

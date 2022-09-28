@@ -15,23 +15,12 @@ public final class BasicAuthUser {
      * @return ID of the Application.
      * 
      */
-    private final @Nullable String id;
-    private final @Nullable String password;
-    private final @Nullable String scope;
-    private final @Nullable String username;
+    private @Nullable String id;
+    private @Nullable String password;
+    private @Nullable String scope;
+    private @Nullable String username;
 
-    @CustomType.Constructor
-    private BasicAuthUser(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("scope") @Nullable String scope,
-        @CustomType.Parameter("username") @Nullable String username) {
-        this.id = id;
-        this.password = password;
-        this.scope = scope;
-        this.username = username;
-    }
-
+    private BasicAuthUser() {}
     /**
      * @return ID of the Application.
      * 
@@ -56,17 +45,13 @@ public final class BasicAuthUser {
     public static Builder builder(BasicAuthUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String password;
         private @Nullable String scope;
         private @Nullable String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BasicAuthUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -75,23 +60,33 @@ public final class BasicAuthUser {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder scope(@Nullable String scope) {
             this.scope = scope;
             return this;
         }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
             this.username = username;
             return this;
-        }        public BasicAuthUser build() {
-            return new BasicAuthUser(id, password, scope, username);
+        }
+        public BasicAuthUser build() {
+            final var o = new BasicAuthUser();
+            o.id = id;
+            o.password = password;
+            o.scope = scope;
+            o.username = username;
+            return o;
         }
     }
 }

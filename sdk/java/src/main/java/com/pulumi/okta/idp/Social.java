@@ -479,14 +479,14 @@ public class Social extends com.pulumi.resources.CustomResource {
         return this.tokenUrl;
     }
     /**
-     * The type of Social IdP. It can be `&#34;FACEBOOK&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;GOOGLE&#34;` or `&#34;APPLE&#34;`.
+     * The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of Social IdP. It can be `&#34;FACEBOOK&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;GOOGLE&#34;` or `&#34;APPLE&#34;`.
+     * @return The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     public Output<String> type() {

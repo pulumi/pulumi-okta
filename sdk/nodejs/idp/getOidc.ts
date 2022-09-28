@@ -70,7 +70,7 @@ export interface GetOidcResult {
      */
     readonly id?: string;
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
+     * Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic.
      */
     readonly issuerMode: string;
     /**

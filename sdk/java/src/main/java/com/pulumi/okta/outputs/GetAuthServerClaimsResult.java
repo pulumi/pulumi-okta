@@ -11,28 +11,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAuthServerClaimsResult {
-    private final String authServerId;
+    private String authServerId;
     /**
      * @return collection of authorization server claims retrieved from Okta with the following properties.
      * 
      */
-    private final List<GetAuthServerClaimsClaim> claims;
+    private List<GetAuthServerClaimsClaim> claims;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetAuthServerClaimsResult(
-        @CustomType.Parameter("authServerId") String authServerId,
-        @CustomType.Parameter("claims") List<GetAuthServerClaimsClaim> claims,
-        @CustomType.Parameter("id") String id) {
-        this.authServerId = authServerId;
-        this.claims = claims;
-        this.id = id;
-    }
-
+    private GetAuthServerClaimsResult() {}
     public String authServerId() {
         return this.authServerId;
     }
@@ -58,16 +49,12 @@ public final class GetAuthServerClaimsResult {
     public static Builder builder(GetAuthServerClaimsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authServerId;
         private List<GetAuthServerClaimsClaim> claims;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAuthServerClaimsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authServerId = defaults.authServerId;
@@ -75,10 +62,12 @@ public final class GetAuthServerClaimsResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder authServerId(String authServerId) {
             this.authServerId = Objects.requireNonNull(authServerId);
             return this;
         }
+        @CustomType.Setter
         public Builder claims(List<GetAuthServerClaimsClaim> claims) {
             this.claims = Objects.requireNonNull(claims);
             return this;
@@ -86,11 +75,17 @@ public final class GetAuthServerClaimsResult {
         public Builder claims(GetAuthServerClaimsClaim... claims) {
             return claims(List.of(claims));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetAuthServerClaimsResult build() {
-            return new GetAuthServerClaimsResult(authServerId, claims, id);
+        }
+        public GetAuthServerClaimsResult build() {
+            final var o = new GetAuthServerClaimsResult();
+            o.authServerId = authServerId;
+            o.claims = claims;
+            o.id = id;
+            return o;
         }
     }
 }

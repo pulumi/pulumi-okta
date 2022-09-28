@@ -14,21 +14,14 @@ public final class GetAppUserAssignmentsResult {
      * @return ID of application.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return List of user IDs assigned to the application.
      * 
      */
-    private final List<String> users;
+    private List<String> users;
 
-    @CustomType.Constructor
-    private GetAppUserAssignmentsResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("users") List<String> users) {
-        this.id = id;
-        this.users = users;
-    }
-
+    private GetAppUserAssignmentsResult() {}
     /**
      * @return ID of application.
      * 
@@ -51,33 +44,35 @@ public final class GetAppUserAssignmentsResult {
     public static Builder builder(GetAppUserAssignmentsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<String> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAppUserAssignmentsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder users(List<String> users) {
             this.users = Objects.requireNonNull(users);
             return this;
         }
         public Builder users(String... users) {
             return users(List.of(users));
-        }        public GetAppUserAssignmentsResult build() {
-            return new GetAppUserAssignmentsResult(id, users);
+        }
+        public GetAppUserAssignmentsResult build() {
+            final var o = new GetAppUserAssignmentsResult();
+            o.id = id;
+            o.users = users;
+            return o;
         }
     }
 }

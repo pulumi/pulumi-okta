@@ -13,101 +13,68 @@ public final class GetThemeResult {
      * @return Background image URL
      * 
      */
-    private final String backgroundImageUrl;
-    private final String brandId;
+    private String backgroundImageUrl;
+    private String brandId;
     /**
      * @return (Enum) Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
      * 
      */
-    private final String emailTemplateTouchPointVariant;
+    private String emailTemplateTouchPointVariant;
     /**
      * @return (Enum) Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      * 
      */
-    private final String endUserDashboardTouchPointVariant;
+    private String endUserDashboardTouchPointVariant;
     /**
      * @return (Enum) Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
-    private final String errorPageTouchPointVariant;
+    private String errorPageTouchPointVariant;
     /**
      * @return Favicon URL
      * 
      */
-    private final String faviconUrl;
+    private String faviconUrl;
     /**
      * @return Theme URL
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Link relations for this object - JSON HAL - Discoverable resources related to the brand
      * 
      */
-    private final String links;
+    private String links;
     /**
      * @return Logo URL
      * 
      */
-    private final String logoUrl;
+    private String logoUrl;
     /**
      * @return Primary color contrast hex code
      * 
      */
-    private final String primaryColorContrastHex;
+    private String primaryColorContrastHex;
     /**
      * @return Primary color hex code
      * 
      */
-    private final String primaryColorHex;
-    private final String secondaryColorContrastHex;
+    private String primaryColorHex;
+    private String secondaryColorContrastHex;
     /**
      * @return Secondary color hex code
      * - `secondary_color_contrast_hex` Secondary color contrast hex code
      * 
      */
-    private final String secondaryColorHex;
+    private String secondaryColorHex;
     /**
      * @return (Enum) Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
-    private final String signInPageTouchPointVariant;
-    private final String themeId;
+    private String signInPageTouchPointVariant;
+    private String themeId;
 
-    @CustomType.Constructor
-    private GetThemeResult(
-        @CustomType.Parameter("backgroundImageUrl") String backgroundImageUrl,
-        @CustomType.Parameter("brandId") String brandId,
-        @CustomType.Parameter("emailTemplateTouchPointVariant") String emailTemplateTouchPointVariant,
-        @CustomType.Parameter("endUserDashboardTouchPointVariant") String endUserDashboardTouchPointVariant,
-        @CustomType.Parameter("errorPageTouchPointVariant") String errorPageTouchPointVariant,
-        @CustomType.Parameter("faviconUrl") String faviconUrl,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("links") String links,
-        @CustomType.Parameter("logoUrl") String logoUrl,
-        @CustomType.Parameter("primaryColorContrastHex") String primaryColorContrastHex,
-        @CustomType.Parameter("primaryColorHex") String primaryColorHex,
-        @CustomType.Parameter("secondaryColorContrastHex") String secondaryColorContrastHex,
-        @CustomType.Parameter("secondaryColorHex") String secondaryColorHex,
-        @CustomType.Parameter("signInPageTouchPointVariant") String signInPageTouchPointVariant,
-        @CustomType.Parameter("themeId") String themeId) {
-        this.backgroundImageUrl = backgroundImageUrl;
-        this.brandId = brandId;
-        this.emailTemplateTouchPointVariant = emailTemplateTouchPointVariant;
-        this.endUserDashboardTouchPointVariant = endUserDashboardTouchPointVariant;
-        this.errorPageTouchPointVariant = errorPageTouchPointVariant;
-        this.faviconUrl = faviconUrl;
-        this.id = id;
-        this.links = links;
-        this.logoUrl = logoUrl;
-        this.primaryColorContrastHex = primaryColorContrastHex;
-        this.primaryColorHex = primaryColorHex;
-        this.secondaryColorContrastHex = secondaryColorContrastHex;
-        this.secondaryColorHex = secondaryColorHex;
-        this.signInPageTouchPointVariant = signInPageTouchPointVariant;
-        this.themeId = themeId;
-    }
-
+    private GetThemeResult() {}
     /**
      * @return Background image URL
      * 
@@ -210,7 +177,7 @@ public final class GetThemeResult {
     public static Builder builder(GetThemeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String backgroundImageUrl;
         private String brandId;
@@ -227,11 +194,7 @@ public final class GetThemeResult {
         private String secondaryColorHex;
         private String signInPageTouchPointVariant;
         private String themeId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetThemeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backgroundImageUrl = defaults.backgroundImageUrl;
@@ -251,67 +214,99 @@ public final class GetThemeResult {
     	      this.themeId = defaults.themeId;
         }
 
+        @CustomType.Setter
         public Builder backgroundImageUrl(String backgroundImageUrl) {
             this.backgroundImageUrl = Objects.requireNonNull(backgroundImageUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder brandId(String brandId) {
             this.brandId = Objects.requireNonNull(brandId);
             return this;
         }
+        @CustomType.Setter
         public Builder emailTemplateTouchPointVariant(String emailTemplateTouchPointVariant) {
             this.emailTemplateTouchPointVariant = Objects.requireNonNull(emailTemplateTouchPointVariant);
             return this;
         }
+        @CustomType.Setter
         public Builder endUserDashboardTouchPointVariant(String endUserDashboardTouchPointVariant) {
             this.endUserDashboardTouchPointVariant = Objects.requireNonNull(endUserDashboardTouchPointVariant);
             return this;
         }
+        @CustomType.Setter
         public Builder errorPageTouchPointVariant(String errorPageTouchPointVariant) {
             this.errorPageTouchPointVariant = Objects.requireNonNull(errorPageTouchPointVariant);
             return this;
         }
+        @CustomType.Setter
         public Builder faviconUrl(String faviconUrl) {
             this.faviconUrl = Objects.requireNonNull(faviconUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder links(String links) {
             this.links = Objects.requireNonNull(links);
             return this;
         }
+        @CustomType.Setter
         public Builder logoUrl(String logoUrl) {
             this.logoUrl = Objects.requireNonNull(logoUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryColorContrastHex(String primaryColorContrastHex) {
             this.primaryColorContrastHex = Objects.requireNonNull(primaryColorContrastHex);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryColorHex(String primaryColorHex) {
             this.primaryColorHex = Objects.requireNonNull(primaryColorHex);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryColorContrastHex(String secondaryColorContrastHex) {
             this.secondaryColorContrastHex = Objects.requireNonNull(secondaryColorContrastHex);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryColorHex(String secondaryColorHex) {
             this.secondaryColorHex = Objects.requireNonNull(secondaryColorHex);
             return this;
         }
+        @CustomType.Setter
         public Builder signInPageTouchPointVariant(String signInPageTouchPointVariant) {
             this.signInPageTouchPointVariant = Objects.requireNonNull(signInPageTouchPointVariant);
             return this;
         }
+        @CustomType.Setter
         public Builder themeId(String themeId) {
             this.themeId = Objects.requireNonNull(themeId);
             return this;
-        }        public GetThemeResult build() {
-            return new GetThemeResult(backgroundImageUrl, brandId, emailTemplateTouchPointVariant, endUserDashboardTouchPointVariant, errorPageTouchPointVariant, faviconUrl, id, links, logoUrl, primaryColorContrastHex, primaryColorHex, secondaryColorContrastHex, secondaryColorHex, signInPageTouchPointVariant, themeId);
+        }
+        public GetThemeResult build() {
+            final var o = new GetThemeResult();
+            o.backgroundImageUrl = backgroundImageUrl;
+            o.brandId = brandId;
+            o.emailTemplateTouchPointVariant = emailTemplateTouchPointVariant;
+            o.endUserDashboardTouchPointVariant = endUserDashboardTouchPointVariant;
+            o.errorPageTouchPointVariant = errorPageTouchPointVariant;
+            o.faviconUrl = faviconUrl;
+            o.id = id;
+            o.links = links;
+            o.logoUrl = logoUrl;
+            o.primaryColorContrastHex = primaryColorContrastHex;
+            o.primaryColorHex = primaryColorHex;
+            o.secondaryColorContrastHex = secondaryColorContrastHex;
+            o.secondaryColorHex = secondaryColorHex;
+            o.signInPageTouchPointVariant = signInPageTouchPointVariant;
+            o.themeId = themeId;
+            return o;
         }
     }
 }

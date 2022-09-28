@@ -66,7 +66,7 @@ type LookupOidcResult struct {
 	ClientSecret string `pulumi:"clientSecret"`
 	// id of idp.
 	Id *string `pulumi:"id"`
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
+	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic.
 	IssuerMode string `pulumi:"issuerMode"`
 	// URI that identifies the issuer.
 	IssuerUrl string `pulumi:"issuerUrl"`
@@ -159,7 +159,7 @@ func (o LookupOidcResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOidcResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
+// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic.
 func (o LookupOidcResultOutput) IssuerMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOidcResult) string { return v.IssuerMode }).(pulumi.StringOutput)
 }

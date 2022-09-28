@@ -47,7 +47,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<ImmutableArray<string>> GroupsFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        /// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+        /// attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
@@ -222,7 +223,8 @@ namespace Pulumi.Okta.Deprecated
         }
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        /// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+        /// attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -358,7 +360,8 @@ namespace Pulumi.Okta.Deprecated
         }
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        /// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+        /// attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }

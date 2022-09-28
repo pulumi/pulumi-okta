@@ -544,18 +544,6 @@ namespace Pulumi.Okta.Deprecated
         [Input("enduserNote")]
         public Input<string>? EnduserNote { get; set; }
 
-        [Input("features")]
-        private InputList<string>? _features;
-
-        /// <summary>
-        /// features to enable
-        /// </summary>
-        public InputList<string> Features
-        {
-            get => _features ?? (_features = new InputList<string>());
-            set => _features = value;
-        }
-
         [Input("groups")]
         private InputList<string>? _groups;
 

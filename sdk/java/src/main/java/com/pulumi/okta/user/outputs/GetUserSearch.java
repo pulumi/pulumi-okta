@@ -15,35 +15,24 @@ public final class GetUserSearch {
      * @return Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
      * 
      */
-    private final @Nullable String comparison;
+    private @Nullable String comparison;
     /**
      * @return A raw search expression string. If present it will override name/comparison/value.
      * 
      */
-    private final @Nullable String expression;
+    private @Nullable String expression;
     /**
      * @return Name of property to search against.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Value to compare with.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private GetUserSearch(
-        @CustomType.Parameter("comparison") @Nullable String comparison,
-        @CustomType.Parameter("expression") @Nullable String expression,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.comparison = comparison;
-        this.expression = expression;
-        this.name = name;
-        this.value = value;
-    }
-
+    private GetUserSearch() {}
     /**
      * @return Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
      * 
@@ -80,17 +69,13 @@ public final class GetUserSearch {
     public static Builder builder(GetUserSearch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String comparison;
         private @Nullable String expression;
         private @Nullable String name;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserSearch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comparison = defaults.comparison;
@@ -99,23 +84,33 @@ public final class GetUserSearch {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder comparison(@Nullable String comparison) {
             this.comparison = comparison;
             return this;
         }
+        @CustomType.Setter
         public Builder expression(@Nullable String expression) {
             this.expression = expression;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public GetUserSearch build() {
-            return new GetUserSearch(comparison, expression, name, value);
+        }
+        public GetUserSearch build() {
+            final var o = new GetUserSearch();
+            o.comparison = comparison;
+            o.expression = expression;
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

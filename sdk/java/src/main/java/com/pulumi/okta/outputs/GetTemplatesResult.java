@@ -11,28 +11,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTemplatesResult {
-    private final String brandId;
+    private String brandId;
     /**
      * @return List of `okta.getTemplate` belonging to the brand
      * 
      */
-    private final List<GetTemplatesEmailTemplate> emailTemplates;
+    private List<GetTemplatesEmailTemplate> emailTemplates;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetTemplatesResult(
-        @CustomType.Parameter("brandId") String brandId,
-        @CustomType.Parameter("emailTemplates") List<GetTemplatesEmailTemplate> emailTemplates,
-        @CustomType.Parameter("id") String id) {
-        this.brandId = brandId;
-        this.emailTemplates = emailTemplates;
-        this.id = id;
-    }
-
+    private GetTemplatesResult() {}
     public String brandId() {
         return this.brandId;
     }
@@ -58,16 +49,12 @@ public final class GetTemplatesResult {
     public static Builder builder(GetTemplatesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String brandId;
         private List<GetTemplatesEmailTemplate> emailTemplates;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTemplatesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.brandId = defaults.brandId;
@@ -75,10 +62,12 @@ public final class GetTemplatesResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder brandId(String brandId) {
             this.brandId = Objects.requireNonNull(brandId);
             return this;
         }
+        @CustomType.Setter
         public Builder emailTemplates(List<GetTemplatesEmailTemplate> emailTemplates) {
             this.emailTemplates = Objects.requireNonNull(emailTemplates);
             return this;
@@ -86,11 +75,17 @@ public final class GetTemplatesResult {
         public Builder emailTemplates(GetTemplatesEmailTemplate... emailTemplates) {
             return emailTemplates(List.of(emailTemplates));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetTemplatesResult build() {
-            return new GetTemplatesResult(brandId, emailTemplates, id);
+        }
+        public GetTemplatesResult build() {
+            final var o = new GetTemplatesResult();
+            o.brandId = brandId;
+            o.emailTemplates = emailTemplates;
+            o.id = id;
+            return o;
         }
     }
 }

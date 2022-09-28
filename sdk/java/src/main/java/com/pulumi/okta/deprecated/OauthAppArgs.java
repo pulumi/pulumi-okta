@@ -492,6 +492,23 @@ public final class OauthAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+     * `native` application types.
+     * 
+     */
+    @Import(name="pkceRequired")
+    private @Nullable Output<Boolean> pkceRequired;
+
+    /**
+     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+     * `native` application types.
+     * 
+     */
+    public Optional<Output<Boolean>> pkceRequired() {
+        return Optional.ofNullable(this.pkceRequired);
+    }
+
+    /**
      * URI to web page providing client policy document.
      * 
      */
@@ -821,6 +838,7 @@ public final class OauthAppArgs extends com.pulumi.resources.ResourceArgs {
         this.logo = $.logo;
         this.logoUri = $.logoUri;
         this.omitSecret = $.omitSecret;
+        this.pkceRequired = $.pkceRequired;
         this.policyUri = $.policyUri;
         this.postLogoutRedirectUris = $.postLogoutRedirectUris;
         this.profile = $.profile;
@@ -1544,6 +1562,29 @@ public final class OauthAppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder omitSecret(Boolean omitSecret) {
             return omitSecret(Output.of(omitSecret));
+        }
+
+        /**
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+         * `native` application types.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pkceRequired(@Nullable Output<Boolean> pkceRequired) {
+            $.pkceRequired = pkceRequired;
+            return this;
+        }
+
+        /**
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+         * `native` application types.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pkceRequired(Boolean pkceRequired) {
+            return pkceRequired(Output.of(pkceRequired));
         }
 
         /**

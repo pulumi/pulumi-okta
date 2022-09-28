@@ -11,28 +11,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemesResult {
-    private final String brandId;
+    private String brandId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return List of `okta.Theme` belonging to the brand.
      * 
      */
-    private final List<GetThemesTheme> themes;
+    private List<GetThemesTheme> themes;
 
-    @CustomType.Constructor
-    private GetThemesResult(
-        @CustomType.Parameter("brandId") String brandId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("themes") List<GetThemesTheme> themes) {
-        this.brandId = brandId;
-        this.id = id;
-        this.themes = themes;
-    }
-
+    private GetThemesResult() {}
     public String brandId() {
         return this.brandId;
     }
@@ -58,16 +49,12 @@ public final class GetThemesResult {
     public static Builder builder(GetThemesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String brandId;
         private String id;
         private List<GetThemesTheme> themes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetThemesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.brandId = defaults.brandId;
@@ -75,22 +62,30 @@ public final class GetThemesResult {
     	      this.themes = defaults.themes;
         }
 
+        @CustomType.Setter
         public Builder brandId(String brandId) {
             this.brandId = Objects.requireNonNull(brandId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder themes(List<GetThemesTheme> themes) {
             this.themes = Objects.requireNonNull(themes);
             return this;
         }
         public Builder themes(GetThemesTheme... themes) {
             return themes(List.of(themes));
-        }        public GetThemesResult build() {
-            return new GetThemesResult(brandId, id, themes);
+        }
+        public GetThemesResult build() {
+            final var o = new GetThemesResult();
+            o.brandId = brandId;
+            o.id = id;
+            o.themes = themes;
+            return o;
         }
     }
 }

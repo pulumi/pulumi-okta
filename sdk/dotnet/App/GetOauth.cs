@@ -82,9 +82,13 @@ namespace Pulumi.Okta.App
         public string? Id { get; set; }
 
         /// <summary>
-        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-        /// and `label`. This is used to avoid paginating through all applications.
+        /// The label of the app to retrieve, conflicts with
+        /// `label_prefix` and `id`. Label uses the `?q=&lt;label&gt;` query parameter exposed by
+        /// Okta's List Apps API. The API will search both `name` and `label` using that
+        /// query. Therefore similarily named and labeled apps may be returned in the query
+        /// and have the unitended result of associating the wrong app with this data
+        /// source. See:
+        /// https://developer.okta.com/docs/reference/api/apps/#list-applications
         /// </summary>
         [Input("label")]
         public string? Label { get; set; }
@@ -129,9 +133,13 @@ namespace Pulumi.Okta.App
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-        /// and `label`. This is used to avoid paginating through all applications.
+        /// The label of the app to retrieve, conflicts with
+        /// `label_prefix` and `id`. Label uses the `?q=&lt;label&gt;` query parameter exposed by
+        /// Okta's List Apps API. The API will search both `name` and `label` using that
+        /// query. Therefore similarily named and labeled apps may be returned in the query
+        /// and have the unitended result of associating the wrong app with this data
+        /// source. See:
+        /// https://developer.okta.com/docs/reference/api/apps/#list-applications
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
@@ -174,6 +182,10 @@ namespace Pulumi.Okta.App
         /// OAuth client ID. If set during creation, app is created with this id.
         /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// </summary>
+        public readonly string ClientSecret;
         /// <summary>
         /// URI to a web page providing information about the client.
         /// </summary>
@@ -269,6 +281,8 @@ namespace Pulumi.Okta.App
 
             string clientId,
 
+            string clientSecret,
+
             string clientUri,
 
             ImmutableArray<string> grantTypes,
@@ -320,6 +334,7 @@ namespace Pulumi.Okta.App
             ActiveOnly = activeOnly;
             AutoSubmitToolbar = autoSubmitToolbar;
             ClientId = clientId;
+            ClientSecret = clientSecret;
             ClientUri = clientUri;
             GrantTypes = grantTypes;
             Groups = groups;

@@ -13,21 +13,14 @@ public final class AppUserSchemaPropertyOneOf {
      * @return value mapping to member of `enum`.
      * 
      */
-    private final String const_;
+    private String const_;
     /**
      * @return display name for the enum value.
      * 
      */
-    private final String title;
+    private String title;
 
-    @CustomType.Constructor
-    private AppUserSchemaPropertyOneOf(
-        @CustomType.Parameter("const") String const_,
-        @CustomType.Parameter("title") String title) {
-        this.const_ = const_;
-        this.title = title;
-    }
-
+    private AppUserSchemaPropertyOneOf() {}
     /**
      * @return value mapping to member of `enum`.
      * 
@@ -50,30 +43,32 @@ public final class AppUserSchemaPropertyOneOf {
     public static Builder builder(AppUserSchemaPropertyOneOf defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String const_;
         private String title;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppUserSchemaPropertyOneOf defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.const_ = defaults.const_;
     	      this.title = defaults.title;
         }
 
+        @CustomType.Setter("const")
         public Builder const_(String const_) {
             this.const_ = Objects.requireNonNull(const_);
             return this;
         }
+        @CustomType.Setter
         public Builder title(String title) {
             this.title = Objects.requireNonNull(title);
             return this;
-        }        public AppUserSchemaPropertyOneOf build() {
-            return new AppUserSchemaPropertyOneOf(const_, title);
+        }
+        public AppUserSchemaPropertyOneOf build() {
+            final var o = new AppUserSchemaPropertyOneOf();
+            o.const_ = const_;
+            o.title = title;
+            return o;
         }
     }
 }

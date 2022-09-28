@@ -503,6 +503,22 @@ public class OauthApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.omitSecret);
     }
     /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+     * `native` application types.
+     * 
+     */
+    @Export(name="pkceRequired", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> pkceRequired;
+
+    /**
+     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
+     * `native` application types.
+     * 
+     */
+    public Output<Optional<Boolean>> pkceRequired() {
+        return Codegen.optional(this.pkceRequired);
+    }
+    /**
      * URI to web page providing client policy document.
      * 
      */

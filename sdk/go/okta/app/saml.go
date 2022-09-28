@@ -13,6 +13,10 @@ import (
 
 // This resource allows you to create and configure a SAML Application.
 //
+// > If you receive the error `You do not have permission to access the feature
+// you are requesting` contact support and
+// request feature flag `ADVANCED_SSO` be applied to your org.
+//
 // ## Example Usage
 //
 // ```go
@@ -730,8 +734,6 @@ type samlArgs struct {
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// features enabled. Notice: you can't currently configure provisioning features via the API.
-	Features []string `pulumi:"features"`
 	// Groups associated with the application.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -840,8 +842,6 @@ type SamlArgs struct {
 	DigestAlgorithm pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// features enabled. Notice: you can't currently configure provisioning features via the API.
-	Features pulumi.StringArrayInput
 	// Groups associated with the application.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.

@@ -14,58 +14,37 @@ public final class GetEmailCustomizationResult {
      * @return The body of the customization
      * 
      */
-    private final String body;
-    private final String brandId;
-    private final String customizationId;
+    private String body;
+    private String brandId;
+    private String customizationId;
     /**
      * @return Customization ID
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Whether the customization is the default
      * 
      */
-    private final Boolean isDefault;
+    private Boolean isDefault;
     /**
      * @return The language supported by the customization
      * 
      */
-    private final String language;
+    private String language;
     /**
      * @return Link relations for this object - JSON HAL - Discoverable resources related to the email template
      * 
      */
-    private final String links;
+    private String links;
     /**
      * @return The subject of the customization
      * 
      */
-    private final String subject;
-    private final String templateName;
+    private String subject;
+    private String templateName;
 
-    @CustomType.Constructor
-    private GetEmailCustomizationResult(
-        @CustomType.Parameter("body") String body,
-        @CustomType.Parameter("brandId") String brandId,
-        @CustomType.Parameter("customizationId") String customizationId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("isDefault") Boolean isDefault,
-        @CustomType.Parameter("language") String language,
-        @CustomType.Parameter("links") String links,
-        @CustomType.Parameter("subject") String subject,
-        @CustomType.Parameter("templateName") String templateName) {
-        this.body = body;
-        this.brandId = brandId;
-        this.customizationId = customizationId;
-        this.id = id;
-        this.isDefault = isDefault;
-        this.language = language;
-        this.links = links;
-        this.subject = subject;
-        this.templateName = templateName;
-    }
-
+    private GetEmailCustomizationResult() {}
     /**
      * @return The body of the customization
      * 
@@ -125,7 +104,7 @@ public final class GetEmailCustomizationResult {
     public static Builder builder(GetEmailCustomizationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String body;
         private String brandId;
@@ -136,11 +115,7 @@ public final class GetEmailCustomizationResult {
         private String links;
         private String subject;
         private String templateName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEmailCustomizationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.body = defaults.body;
@@ -154,43 +129,63 @@ public final class GetEmailCustomizationResult {
     	      this.templateName = defaults.templateName;
         }
 
+        @CustomType.Setter
         public Builder body(String body) {
             this.body = Objects.requireNonNull(body);
             return this;
         }
+        @CustomType.Setter
         public Builder brandId(String brandId) {
             this.brandId = Objects.requireNonNull(brandId);
             return this;
         }
+        @CustomType.Setter
         public Builder customizationId(String customizationId) {
             this.customizationId = Objects.requireNonNull(customizationId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder isDefault(Boolean isDefault) {
             this.isDefault = Objects.requireNonNull(isDefault);
             return this;
         }
+        @CustomType.Setter
         public Builder language(String language) {
             this.language = Objects.requireNonNull(language);
             return this;
         }
+        @CustomType.Setter
         public Builder links(String links) {
             this.links = Objects.requireNonNull(links);
             return this;
         }
+        @CustomType.Setter
         public Builder subject(String subject) {
             this.subject = Objects.requireNonNull(subject);
             return this;
         }
+        @CustomType.Setter
         public Builder templateName(String templateName) {
             this.templateName = Objects.requireNonNull(templateName);
             return this;
-        }        public GetEmailCustomizationResult build() {
-            return new GetEmailCustomizationResult(body, brandId, customizationId, id, isDefault, language, links, subject, templateName);
+        }
+        public GetEmailCustomizationResult build() {
+            final var o = new GetEmailCustomizationResult();
+            o.body = body;
+            o.brandId = brandId;
+            o.customizationId = customizationId;
+            o.id = id;
+            o.isDefault = isDefault;
+            o.language = language;
+            o.links = links;
+            o.subject = subject;
+            o.templateName = templateName;
+            return o;
         }
     }
 }

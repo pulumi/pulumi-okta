@@ -26,7 +26,8 @@ type Idp struct {
 	GroupsAssignments        pulumi.StringArrayOutput `pulumi:"groupsAssignments"`
 	GroupsAttribute          pulumi.StringPtrOutput   `pulumi:"groupsAttribute"`
 	GroupsFilters            pulumi.StringArrayOutput `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+	// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+	// attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
 	IssuerMode   pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	IssuerUrl    pulumi.StringOutput    `pulumi:"issuerUrl"`
 	JwksBinding  pulumi.StringOutput    `pulumi:"jwksBinding"`
@@ -125,7 +126,8 @@ type idpState struct {
 	GroupsAssignments        []string `pulumi:"groupsAssignments"`
 	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
 	GroupsFilters            []string `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+	// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+	// attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
 	IssuerMode   *string `pulumi:"issuerMode"`
 	IssuerUrl    *string `pulumi:"issuerUrl"`
 	JwksBinding  *string `pulumi:"jwksBinding"`
@@ -166,7 +168,8 @@ type IdpState struct {
 	GroupsAssignments        pulumi.StringArrayInput
 	GroupsAttribute          pulumi.StringPtrInput
 	GroupsFilters            pulumi.StringArrayInput
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+	// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+	// attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
 	IssuerMode   pulumi.StringPtrInput
 	IssuerUrl    pulumi.StringPtrInput
 	JwksBinding  pulumi.StringPtrInput
@@ -211,7 +214,8 @@ type idpArgs struct {
 	GroupsAssignments        []string `pulumi:"groupsAssignments"`
 	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
 	GroupsFilters            []string `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+	// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+	// attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
 	IssuerMode   *string `pulumi:"issuerMode"`
 	IssuerUrl    string  `pulumi:"issuerUrl"`
 	JwksBinding  string  `pulumi:"jwksBinding"`
@@ -251,7 +255,8 @@ type IdpArgs struct {
 	GroupsAssignments        pulumi.StringArrayInput
 	GroupsAttribute          pulumi.StringPtrInput
 	GroupsFilters            pulumi.StringArrayInput
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+	// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+	// attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
 	IssuerMode   pulumi.StringPtrInput
 	IssuerUrl    pulumi.StringInput
 	JwksBinding  pulumi.StringInput
@@ -409,7 +414,8 @@ func (o IdpOutput) GroupsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Idp) pulumi.StringArrayOutput { return v.GroupsFilters }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider
+// attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
 func (o IdpOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Idp) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }

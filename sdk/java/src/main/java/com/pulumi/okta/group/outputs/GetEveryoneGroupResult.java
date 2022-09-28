@@ -16,24 +16,15 @@ public final class GetEveryoneGroupResult {
      * @return description of group.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean includeUsers;
+    private String id;
+    private @Nullable Boolean includeUsers;
 
-    @CustomType.Constructor
-    private GetEveryoneGroupResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("includeUsers") @Nullable Boolean includeUsers) {
-        this.description = description;
-        this.id = id;
-        this.includeUsers = includeUsers;
-    }
-
+    private GetEveryoneGroupResult() {}
     /**
      * @return description of group.
      * 
@@ -59,16 +50,12 @@ public final class GetEveryoneGroupResult {
     public static Builder builder(GetEveryoneGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String id;
         private @Nullable Boolean includeUsers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEveryoneGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -76,19 +63,27 @@ public final class GetEveryoneGroupResult {
     	      this.includeUsers = defaults.includeUsers;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder includeUsers(@Nullable Boolean includeUsers) {
             this.includeUsers = includeUsers;
             return this;
-        }        public GetEveryoneGroupResult build() {
-            return new GetEveryoneGroupResult(description, id, includeUsers);
+        }
+        public GetEveryoneGroupResult build() {
+            final var o = new GetEveryoneGroupResult();
+            o.description = description;
+            o.id = id;
+            o.includeUsers = includeUsers;
+            return o;
         }
     }
 }
