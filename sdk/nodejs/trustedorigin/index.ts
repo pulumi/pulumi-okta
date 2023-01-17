@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./origin";
+export { OriginArgs, OriginState } from "./origin";
+export type Origin = import("./origin").Origin;
+export const Origin: typeof import("./origin").Origin = null as any;
+utilities.lazyLoad(exports, ["Origin"], () => require("./origin"));
 
-// Import resources to register:
-import { Origin } from "./origin";
 
 const _module = {
     version: utilities.getVersion(),

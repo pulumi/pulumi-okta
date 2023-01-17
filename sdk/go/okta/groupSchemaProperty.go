@@ -88,7 +88,7 @@ type GroupSchemaProperty struct {
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// display name for the enum value.
 	Title pulumi.StringOutput `pulumi:"title"`
-	// - Type of profile source.
+	// Type of profile source.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrOutput `pulumi:"unique"`
@@ -166,7 +166,7 @@ type groupSchemaPropertyState struct {
 	Scope *string `pulumi:"scope"`
 	// display name for the enum value.
 	Title *string `pulumi:"title"`
-	// - Type of profile source.
+	// Type of profile source.
 	Type *string `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique *string `pulumi:"unique"`
@@ -207,7 +207,7 @@ type GroupSchemaPropertyState struct {
 	Scope pulumi.StringPtrInput
 	// display name for the enum value.
 	Title pulumi.StringPtrInput
-	// - Type of profile source.
+	// Type of profile source.
 	Type pulumi.StringPtrInput
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrInput
@@ -252,7 +252,7 @@ type groupSchemaPropertyArgs struct {
 	Scope *string `pulumi:"scope"`
 	// display name for the enum value.
 	Title string `pulumi:"title"`
-	// - Type of profile source.
+	// Type of profile source.
 	Type string `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique *string `pulumi:"unique"`
@@ -294,7 +294,7 @@ type GroupSchemaPropertyArgs struct {
 	Scope pulumi.StringPtrInput
 	// display name for the enum value.
 	Title pulumi.StringInput
-	// - Type of profile source.
+	// Type of profile source.
 	Type pulumi.StringInput
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrInput
@@ -474,7 +474,7 @@ func (o GroupSchemaPropertyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupSchemaProperty) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }
 
-// - Type of profile source.
+// Type of profile source.
 func (o GroupSchemaPropertyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupSchemaProperty) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

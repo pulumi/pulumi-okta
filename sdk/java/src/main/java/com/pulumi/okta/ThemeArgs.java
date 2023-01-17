@@ -151,14 +151,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Secondary color contrast hex code
+     * (Optional) Secondary color contrast hex code
      * 
      */
     @Import(name="secondaryColorContrastHex")
     private @Nullable Output<String> secondaryColorContrastHex;
 
     /**
-     * @return Secondary color contrast hex code
+     * @return (Optional) Secondary color contrast hex code
      * 
      */
     public Optional<Output<String>> secondaryColorContrastHex() {
@@ -167,7 +167,6 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * (Required) Secondary color hex code
-     * - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
      * 
      */
     @Import(name="secondaryColorHex")
@@ -175,7 +174,6 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return (Required) Secondary color hex code
-     * - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
      * 
      */
     public Optional<Output<String>> secondaryColorHex() {
@@ -438,7 +436,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryColorContrastHex Secondary color contrast hex code
+         * @param secondaryColorContrastHex (Optional) Secondary color contrast hex code
          * 
          * @return builder
          * 
@@ -449,7 +447,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryColorContrastHex Secondary color contrast hex code
+         * @param secondaryColorContrastHex (Optional) Secondary color contrast hex code
          * 
          * @return builder
          * 
@@ -460,7 +458,6 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param secondaryColorHex (Required) Secondary color hex code
-         * - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
          * 
          * @return builder
          * 
@@ -472,7 +469,6 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param secondaryColorHex (Required) Secondary color hex code
-         * - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
          * 
          * @return builder
          * 

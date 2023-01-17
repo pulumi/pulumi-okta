@@ -36,7 +36,7 @@ namespace Pulumi.Okta.Idp
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSamlResult> InvokeAsync(GetSamlArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a SAML IdP from Okta.
@@ -63,7 +63,7 @@ namespace Pulumi.Okta.Idp
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSamlResult> Invoke(GetSamlInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlInvokeArgs(), options.WithDefaults());
     }
 
 

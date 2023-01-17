@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -106,7 +107,6 @@ export class User extends pulumi.CustomResource {
 
     /**
      * Administrator roles assigned to User.
-     * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
      *
      * @deprecated The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
      */
@@ -381,16 +381,16 @@ export class User extends pulumi.CustomResource {
             resourceInputs["middleName"] = args ? args.middleName : undefined;
             resourceInputs["mobilePhone"] = args ? args.mobilePhone : undefined;
             resourceInputs["nickName"] = args ? args.nickName : undefined;
-            resourceInputs["oldPassword"] = args ? args.oldPassword : undefined;
+            resourceInputs["oldPassword"] = args?.oldPassword ? pulumi.secret(args.oldPassword) : undefined;
             resourceInputs["organization"] = args ? args.organization : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["passwordHash"] = args ? args.passwordHash : undefined;
             resourceInputs["passwordInlineHook"] = args ? args.passwordInlineHook : undefined;
             resourceInputs["postalAddress"] = args ? args.postalAddress : undefined;
             resourceInputs["preferredLanguage"] = args ? args.preferredLanguage : undefined;
             resourceInputs["primaryPhone"] = args ? args.primaryPhone : undefined;
             resourceInputs["profileUrl"] = args ? args.profileUrl : undefined;
-            resourceInputs["recoveryAnswer"] = args ? args.recoveryAnswer : undefined;
+            resourceInputs["recoveryAnswer"] = args?.recoveryAnswer ? pulumi.secret(args.recoveryAnswer) : undefined;
             resourceInputs["recoveryQuestion"] = args ? args.recoveryQuestion : undefined;
             resourceInputs["secondEmail"] = args ? args.secondEmail : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
@@ -403,6 +403,8 @@ export class User extends pulumi.CustomResource {
             resourceInputs["rawStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["oldPassword", "password", "recoveryAnswer"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -413,7 +415,6 @@ export class User extends pulumi.CustomResource {
 export interface UserState {
     /**
      * Administrator roles assigned to User.
-     * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
      *
      * @deprecated The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
      */
@@ -602,7 +603,6 @@ export interface UserState {
 export interface UserArgs {
     /**
      * Administrator roles assigned to User.
-     * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
      *
      * @deprecated The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
      */

@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  *     required: true,
  *     title: "First name",
  *     type: "string",
- *     userType: okta_user_type_example.id,
+ *     userType: data.okta_user_type.example.id,
  * });
  * ```
  *

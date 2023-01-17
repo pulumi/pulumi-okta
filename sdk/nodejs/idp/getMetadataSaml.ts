@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.idp.getMetadataSaml({
+ * const example = okta.idp.getMetadataSaml({
  *     idpId: "<idp id>",
- * }));
+ * });
  * ```
  */
 export function getMetadataSaml(args?: GetMetadataSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSamlResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:idp/getMetadataSaml:getMetadataSaml", {
         "idpId": args.idpId,
     }, opts);
@@ -82,9 +79,22 @@ export interface GetMetadataSamlResult {
      */
     readonly signingCertificate: string;
 }
-
+/**
+ * Use this data source to retrieve SAML IdP metadata from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.idp.getMetadataSaml({
+ *     idpId: "<idp id>",
+ * });
+ * ```
+ */
 export function getMetadataSamlOutput(args?: GetMetadataSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSamlResult> {
-    return pulumi.output(args).apply(a => getMetadataSaml(a, opts))
+    return pulumi.output(args).apply((a: any) => getMetadataSaml(a, opts))
 }
 
 /**

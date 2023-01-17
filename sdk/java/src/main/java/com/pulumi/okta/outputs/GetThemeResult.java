@@ -60,10 +60,13 @@ public final class GetThemeResult {
      * 
      */
     private String primaryColorHex;
+    /**
+     * @return Secondary color contrast hex code
+     * 
+     */
     private String secondaryColorContrastHex;
     /**
      * @return Secondary color hex code
-     * - `secondary_color_contrast_hex` Secondary color contrast hex code
      * 
      */
     private String secondaryColorHex;
@@ -148,12 +151,15 @@ public final class GetThemeResult {
     public String primaryColorHex() {
         return this.primaryColorHex;
     }
+    /**
+     * @return Secondary color contrast hex code
+     * 
+     */
     public String secondaryColorContrastHex() {
         return this.secondaryColorContrastHex;
     }
     /**
      * @return Secondary color hex code
-     * - `secondary_color_contrast_hex` Secondary color contrast hex code
      * 
      */
     public String secondaryColorHex() {

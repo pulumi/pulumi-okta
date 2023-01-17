@@ -92,7 +92,6 @@ type SecurePasswordStore struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -149,7 +148,6 @@ type SecurePasswordStore struct {
 	// Login username field.
 	UsernameField pulumi.StringOutput `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SecurePasswordStoreUserArrayOutput `pulumi:"users"`
@@ -213,7 +211,6 @@ type securePasswordStoreState struct {
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -270,7 +267,6 @@ type securePasswordStoreState struct {
 	// Login username field.
 	UsernameField *string `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SecurePasswordStoreUser `pulumi:"users"`
@@ -294,7 +290,6 @@ type SecurePasswordStoreState struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -351,7 +346,6 @@ type SecurePasswordStoreState struct {
 	// Login username field.
 	UsernameField pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SecurePasswordStoreUserArrayInput
@@ -379,7 +373,6 @@ type securePasswordStoreArgs struct {
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -430,7 +423,6 @@ type securePasswordStoreArgs struct {
 	// Login username field.
 	UsernameField string `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []SecurePasswordStoreUser `pulumi:"users"`
@@ -455,7 +447,6 @@ type SecurePasswordStoreArgs struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -506,7 +497,6 @@ type SecurePasswordStoreArgs struct {
 	// Login username field.
 	UsernameField pulumi.StringInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users SecurePasswordStoreUserArrayInput
@@ -640,7 +630,6 @@ func (o SecurePasswordStoreOutput) EnduserNote() pulumi.StringPtrOutput {
 }
 
 // Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 //
 // Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 func (o SecurePasswordStoreOutput) Groups() pulumi.StringArrayOutput {
@@ -778,7 +767,6 @@ func (o SecurePasswordStoreOutput) UsernameField() pulumi.StringOutput {
 }
 
 // The users assigned to the application. See `app.User` for a more flexible approach.
-// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 //
 // Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 func (o SecurePasswordStoreOutput) Users() SecurePasswordStoreUserArrayOutput {

@@ -31,7 +31,7 @@ import (
 //			_, err := policy.NewPassword(ctx, "example", &policy.PasswordArgs{
 //				Description: pulumi.String("Example"),
 //				GroupsIncludeds: pulumi.StringArray{
-//					pulumi.Any(data.Okta_group.Everyone.Id),
+//					data.Okta_group.Everyone.Id,
 //				},
 //				PasswordHistoryCount: pulumi.Int(4),
 //				Status:               pulumi.String("ACTIVE"),

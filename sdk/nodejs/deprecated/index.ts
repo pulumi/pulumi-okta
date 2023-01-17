@@ -5,45 +5,101 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./authLoginApp";
-export * from "./bookmarkApp";
-export * from "./getDefaultPolicies";
-export * from "./idp";
-export * from "./mfaPolicy";
-export * from "./mfaPolicyRule";
-export * from "./oauthApp";
-export * from "./oauthAppRedirectUri";
-export * from "./passwordPolicy";
-export * from "./passwordPolicyRule";
-export * from "./samlApp";
-export * from "./samlIdp";
-export * from "./samlIdpSigningKey";
-export * from "./securePasswordStoreApp";
-export * from "./signonPolicy";
-export * from "./signonPolicyRule";
-export * from "./socialIdp";
-export * from "./swaApp";
-export * from "./threeFieldApp";
+export { AuthLoginAppArgs, AuthLoginAppState } from "./authLoginApp";
+export type AuthLoginApp = import("./authLoginApp").AuthLoginApp;
+export const AuthLoginApp: typeof import("./authLoginApp").AuthLoginApp = null as any;
+utilities.lazyLoad(exports, ["AuthLoginApp"], () => require("./authLoginApp"));
 
-// Import resources to register:
-import { AuthLoginApp } from "./authLoginApp";
-import { BookmarkApp } from "./bookmarkApp";
-import { Idp } from "./idp";
-import { MfaPolicy } from "./mfaPolicy";
-import { MfaPolicyRule } from "./mfaPolicyRule";
-import { OauthApp } from "./oauthApp";
-import { OauthAppRedirectUri } from "./oauthAppRedirectUri";
-import { PasswordPolicy } from "./passwordPolicy";
-import { PasswordPolicyRule } from "./passwordPolicyRule";
-import { SamlApp } from "./samlApp";
-import { SamlIdp } from "./samlIdp";
-import { SamlIdpSigningKey } from "./samlIdpSigningKey";
-import { SecurePasswordStoreApp } from "./securePasswordStoreApp";
-import { SignonPolicy } from "./signonPolicy";
-import { SignonPolicyRule } from "./signonPolicyRule";
-import { SocialIdp } from "./socialIdp";
-import { SwaApp } from "./swaApp";
-import { ThreeFieldApp } from "./threeFieldApp";
+export { BookmarkAppArgs, BookmarkAppState } from "./bookmarkApp";
+export type BookmarkApp = import("./bookmarkApp").BookmarkApp;
+export const BookmarkApp: typeof import("./bookmarkApp").BookmarkApp = null as any;
+utilities.lazyLoad(exports, ["BookmarkApp"], () => require("./bookmarkApp"));
+
+export { GetDefaultPoliciesArgs, GetDefaultPoliciesResult, GetDefaultPoliciesOutputArgs } from "./getDefaultPolicies";
+export const getDefaultPolicies: typeof import("./getDefaultPolicies").getDefaultPolicies = null as any;
+export const getDefaultPoliciesOutput: typeof import("./getDefaultPolicies").getDefaultPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getDefaultPolicies","getDefaultPoliciesOutput"], () => require("./getDefaultPolicies"));
+
+export { IdpArgs, IdpState } from "./idp";
+export type Idp = import("./idp").Idp;
+export const Idp: typeof import("./idp").Idp = null as any;
+utilities.lazyLoad(exports, ["Idp"], () => require("./idp"));
+
+export { MfaPolicyArgs, MfaPolicyState } from "./mfaPolicy";
+export type MfaPolicy = import("./mfaPolicy").MfaPolicy;
+export const MfaPolicy: typeof import("./mfaPolicy").MfaPolicy = null as any;
+utilities.lazyLoad(exports, ["MfaPolicy"], () => require("./mfaPolicy"));
+
+export { MfaPolicyRuleArgs, MfaPolicyRuleState } from "./mfaPolicyRule";
+export type MfaPolicyRule = import("./mfaPolicyRule").MfaPolicyRule;
+export const MfaPolicyRule: typeof import("./mfaPolicyRule").MfaPolicyRule = null as any;
+utilities.lazyLoad(exports, ["MfaPolicyRule"], () => require("./mfaPolicyRule"));
+
+export { OauthAppArgs, OauthAppState } from "./oauthApp";
+export type OauthApp = import("./oauthApp").OauthApp;
+export const OauthApp: typeof import("./oauthApp").OauthApp = null as any;
+utilities.lazyLoad(exports, ["OauthApp"], () => require("./oauthApp"));
+
+export { OauthAppRedirectUriArgs, OauthAppRedirectUriState } from "./oauthAppRedirectUri";
+export type OauthAppRedirectUri = import("./oauthAppRedirectUri").OauthAppRedirectUri;
+export const OauthAppRedirectUri: typeof import("./oauthAppRedirectUri").OauthAppRedirectUri = null as any;
+utilities.lazyLoad(exports, ["OauthAppRedirectUri"], () => require("./oauthAppRedirectUri"));
+
+export { PasswordPolicyArgs, PasswordPolicyState } from "./passwordPolicy";
+export type PasswordPolicy = import("./passwordPolicy").PasswordPolicy;
+export const PasswordPolicy: typeof import("./passwordPolicy").PasswordPolicy = null as any;
+utilities.lazyLoad(exports, ["PasswordPolicy"], () => require("./passwordPolicy"));
+
+export { PasswordPolicyRuleArgs, PasswordPolicyRuleState } from "./passwordPolicyRule";
+export type PasswordPolicyRule = import("./passwordPolicyRule").PasswordPolicyRule;
+export const PasswordPolicyRule: typeof import("./passwordPolicyRule").PasswordPolicyRule = null as any;
+utilities.lazyLoad(exports, ["PasswordPolicyRule"], () => require("./passwordPolicyRule"));
+
+export { SamlAppArgs, SamlAppState } from "./samlApp";
+export type SamlApp = import("./samlApp").SamlApp;
+export const SamlApp: typeof import("./samlApp").SamlApp = null as any;
+utilities.lazyLoad(exports, ["SamlApp"], () => require("./samlApp"));
+
+export { SamlIdpArgs, SamlIdpState } from "./samlIdp";
+export type SamlIdp = import("./samlIdp").SamlIdp;
+export const SamlIdp: typeof import("./samlIdp").SamlIdp = null as any;
+utilities.lazyLoad(exports, ["SamlIdp"], () => require("./samlIdp"));
+
+export { SamlIdpSigningKeyArgs, SamlIdpSigningKeyState } from "./samlIdpSigningKey";
+export type SamlIdpSigningKey = import("./samlIdpSigningKey").SamlIdpSigningKey;
+export const SamlIdpSigningKey: typeof import("./samlIdpSigningKey").SamlIdpSigningKey = null as any;
+utilities.lazyLoad(exports, ["SamlIdpSigningKey"], () => require("./samlIdpSigningKey"));
+
+export { SecurePasswordStoreAppArgs, SecurePasswordStoreAppState } from "./securePasswordStoreApp";
+export type SecurePasswordStoreApp = import("./securePasswordStoreApp").SecurePasswordStoreApp;
+export const SecurePasswordStoreApp: typeof import("./securePasswordStoreApp").SecurePasswordStoreApp = null as any;
+utilities.lazyLoad(exports, ["SecurePasswordStoreApp"], () => require("./securePasswordStoreApp"));
+
+export { SignonPolicyArgs, SignonPolicyState } from "./signonPolicy";
+export type SignonPolicy = import("./signonPolicy").SignonPolicy;
+export const SignonPolicy: typeof import("./signonPolicy").SignonPolicy = null as any;
+utilities.lazyLoad(exports, ["SignonPolicy"], () => require("./signonPolicy"));
+
+export { SignonPolicyRuleArgs, SignonPolicyRuleState } from "./signonPolicyRule";
+export type SignonPolicyRule = import("./signonPolicyRule").SignonPolicyRule;
+export const SignonPolicyRule: typeof import("./signonPolicyRule").SignonPolicyRule = null as any;
+utilities.lazyLoad(exports, ["SignonPolicyRule"], () => require("./signonPolicyRule"));
+
+export { SocialIdpArgs, SocialIdpState } from "./socialIdp";
+export type SocialIdp = import("./socialIdp").SocialIdp;
+export const SocialIdp: typeof import("./socialIdp").SocialIdp = null as any;
+utilities.lazyLoad(exports, ["SocialIdp"], () => require("./socialIdp"));
+
+export { SwaAppArgs, SwaAppState } from "./swaApp";
+export type SwaApp = import("./swaApp").SwaApp;
+export const SwaApp: typeof import("./swaApp").SwaApp = null as any;
+utilities.lazyLoad(exports, ["SwaApp"], () => require("./swaApp"));
+
+export { ThreeFieldAppArgs, ThreeFieldAppState } from "./threeFieldApp";
+export type ThreeFieldApp = import("./threeFieldApp").ThreeFieldApp;
+export const ThreeFieldApp: typeof import("./threeFieldApp").ThreeFieldApp = null as any;
+utilities.lazyLoad(exports, ["ThreeFieldApp"], () => require("./threeFieldApp"));
+
 
 const _module = {
     version: utilities.getVersion(),

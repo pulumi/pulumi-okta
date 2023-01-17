@@ -37,7 +37,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRoleSubscriptionResult> InvokeAsync(GetRoleSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleSubscriptionResult>("okta:index/getRoleSubscription:getRoleSubscription", args ?? new GetRoleSubscriptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleSubscriptionResult>("okta:index/getRoleSubscription:getRoleSubscription", args ?? new GetRoleSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve role subscription with a specific type.
@@ -65,7 +65,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRoleSubscriptionResult> Invoke(GetRoleSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoleSubscriptionResult>("okta:index/getRoleSubscription:getRoleSubscription", args ?? new GetRoleSubscriptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleSubscriptionResult>("okta:index/getRoleSubscription:getRoleSubscription", args ?? new GetRoleSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

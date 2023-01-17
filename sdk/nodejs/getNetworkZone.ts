@@ -13,18 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.getNetworkZone({
+ * const example = okta.getNetworkZone({
  *     name: "Block Antarctica",
- * }));
+ * });
  * ```
  */
 export function getNetworkZone(args?: GetNetworkZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkZoneResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getNetworkZone:getNetworkZone", {
         "id": args.id,
         "name": args.name,
@@ -86,9 +83,22 @@ export interface GetNetworkZoneResult {
      */
     readonly usage: string;
 }
-
+/**
+ * Use this data source to retrieve a network zone from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.getNetworkZone({
+ *     name: "Block Antarctica",
+ * });
+ * ```
+ */
 export function getNetworkZoneOutput(args?: GetNetworkZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkZoneResult> {
-    return pulumi.output(args).apply(a => getNetworkZone(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkZone(a, opts))
 }
 
 /**

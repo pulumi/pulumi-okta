@@ -36,7 +36,7 @@ namespace Pulumi.Okta.Idp
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSocialResult> InvokeAsync(GetSocialArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
@@ -63,7 +63,7 @@ namespace Pulumi.Okta.Idp
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSocialResult> Invoke(GetSocialInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialInvokeArgs(), options.WithDefaults());
     }
 
 

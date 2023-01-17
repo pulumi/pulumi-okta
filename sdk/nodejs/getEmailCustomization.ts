@@ -10,11 +10,8 @@ import * as utilities from "./utilities";
  * of an email template belonging to a brand in an Okta organization.
  */
 export function getEmailCustomization(args: GetEmailCustomizationArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailCustomizationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getEmailCustomization:getEmailCustomization", {
         "brandId": args.brandId,
         "customizationId": args.customizationId,
@@ -72,9 +69,13 @@ export interface GetEmailCustomizationResult {
     readonly subject: string;
     readonly templateName: string;
 }
-
+/**
+ * Use this data source to retrieve the [email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
+ * of an email template belonging to a brand in an Okta organization.
+ */
 export function getEmailCustomizationOutput(args: GetEmailCustomizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailCustomizationResult> {
-    return pulumi.output(args).apply(a => getEmailCustomization(a, opts))
+    return pulumi.output(args).apply((a: any) => getEmailCustomization(a, opts))
 }
 
 /**

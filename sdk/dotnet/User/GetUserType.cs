@@ -36,7 +36,7 @@ namespace Pulumi.Okta.User
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserTypeResult> InvokeAsync(GetUserTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserTypeResult>("okta:user/getUserType:getUserType", args ?? new GetUserTypeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserTypeResult>("okta:user/getUserType:getUserType", args ?? new GetUserTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a user type from Okta.
@@ -63,7 +63,7 @@ namespace Pulumi.Okta.User
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserTypeResult> Invoke(GetUserTypeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserTypeResult>("okta:user/getUserType:getUserType", args ?? new GetUserTypeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserTypeResult>("okta:user/getUserType:getUserType", args ?? new GetUserTypeInvokeArgs(), options.WithDefaults());
     }
 
 

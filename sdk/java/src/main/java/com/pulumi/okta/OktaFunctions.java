@@ -1231,6 +1231,7 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -1268,6 +1269,7 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -1305,6 +1307,7 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -1342,6 +1345,7 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -1379,6 +1383,7 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -1416,6 +1421,7 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -1703,6 +1709,31 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetBrandsResult> getBrands() {
@@ -1712,6 +1743,31 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetBrandsResult> getBrandsPlain() {
@@ -1721,6 +1777,31 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetBrandsResult> getBrands(InvokeArgs args) {
@@ -1730,6 +1811,31 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetBrandsResult> getBrandsPlain(InvokeArgs args) {
@@ -1739,6 +1845,31 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetBrandsResult> getBrands(InvokeArgs args, InvokeOptions options) {
@@ -1748,6 +1879,31 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetBrandsResult> getBrandsPlain(InvokeArgs args, InvokeOptions options) {

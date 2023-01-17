@@ -171,7 +171,7 @@ export class Idp extends pulumi.CustomResource {
             resourceInputs["authorizationBinding"] = args ? args.authorizationBinding : undefined;
             resourceInputs["authorizationUrl"] = args ? args.authorizationUrl : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
             resourceInputs["groupsAction"] = args ? args.groupsAction : undefined;
             resourceInputs["groupsAssignments"] = args ? args.groupsAssignments : undefined;
@@ -202,6 +202,8 @@ export class Idp extends pulumi.CustomResource {
             resourceInputs["userTypeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["clientSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Idp.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.auth.getServerPolicy({
+ * const example = okta.auth.getServerPolicy({
  *     authServerId: "<auth server id>",
  *     name: "staff",
- * }));
+ * });
  * ```
  */
 export function getServerPolicy(args: GetServerPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:auth/getServerPolicy:getServerPolicy", {
         "authServerId": args.authServerId,
         "name": args.name,
@@ -68,9 +65,23 @@ export interface GetServerPolicyResult {
      */
     readonly priority: number;
 }
-
+/**
+ * Use this data source to retrieve an authorization server policy from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.auth.getServerPolicy({
+ *     authServerId: "<auth server id>",
+ *     name: "staff",
+ * });
+ * ```
+ */
 export function getServerPolicyOutput(args: GetServerPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerPolicyResult> {
-    return pulumi.output(args).apply(a => getServerPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerPolicy(a, opts))
 }
 
 /**

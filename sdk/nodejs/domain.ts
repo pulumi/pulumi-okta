@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -71,7 +72,6 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly validationStatus!: pulumi.Output<string>;
     /**
      * Indicates whether the domain should be verified.
-     * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
      *
      * @deprecated The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
      */
@@ -130,7 +130,6 @@ export interface DomainState {
     validationStatus?: pulumi.Input<string>;
     /**
      * Indicates whether the domain should be verified.
-     * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
      *
      * @deprecated The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
      */
@@ -151,7 +150,6 @@ export interface DomainArgs {
     name?: pulumi.Input<string>;
     /**
      * Indicates whether the domain should be verified.
-     * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
      *
      * @deprecated The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
      */

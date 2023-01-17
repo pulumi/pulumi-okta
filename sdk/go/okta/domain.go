@@ -57,7 +57,6 @@ type Domain struct {
 	// Status of the domain.
 	ValidationStatus pulumi.StringOutput `pulumi:"validationStatus"`
 	// Indicates whether the domain should be verified.
-	// - `DEPRECATED`: Please use `DomainVerification` resource instead.
 	//
 	// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
 	Verify pulumi.BoolPtrOutput `pulumi:"verify"`
@@ -101,7 +100,6 @@ type domainState struct {
 	// Status of the domain.
 	ValidationStatus *string `pulumi:"validationStatus"`
 	// Indicates whether the domain should be verified.
-	// - `DEPRECATED`: Please use `DomainVerification` resource instead.
 	//
 	// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
 	Verify *bool `pulumi:"verify"`
@@ -117,7 +115,6 @@ type DomainState struct {
 	// Status of the domain.
 	ValidationStatus pulumi.StringPtrInput
 	// Indicates whether the domain should be verified.
-	// - `DEPRECATED`: Please use `DomainVerification` resource instead.
 	//
 	// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
 	Verify pulumi.BoolPtrInput
@@ -133,7 +130,6 @@ type domainArgs struct {
 	// Custom Domain name.
 	Name *string `pulumi:"name"`
 	// Indicates whether the domain should be verified.
-	// - `DEPRECATED`: Please use `DomainVerification` resource instead.
 	//
 	// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
 	Verify *bool `pulumi:"verify"`
@@ -146,7 +142,6 @@ type DomainArgs struct {
 	// Custom Domain name.
 	Name pulumi.StringPtrInput
 	// Indicates whether the domain should be verified.
-	// - `DEPRECATED`: Please use `DomainVerification` resource instead.
 	//
 	// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
 	Verify pulumi.BoolPtrInput
@@ -260,7 +255,6 @@ func (o DomainOutput) ValidationStatus() pulumi.StringOutput {
 }
 
 // Indicates whether the domain should be verified.
-// - `DEPRECATED`: Please use `DomainVerification` resource instead.
 //
 // Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
 func (o DomainOutput) Verify() pulumi.BoolPtrOutput {

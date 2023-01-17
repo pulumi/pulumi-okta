@@ -258,6 +258,11 @@ namespace Pulumi.Okta.Idp
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "applePrivateKey",
+                    "clientSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -305,13 +310,23 @@ namespace Pulumi.Okta.Idp
         [Input("appleKid")]
         public Input<string>? AppleKid { get; set; }
 
+        [Input("applePrivateKey")]
+        private Input<string>? _applePrivateKey;
+
         /// <summary>
         /// The Key ID that you obtained from Apple when you created the private 
         /// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
         /// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
         /// </summary>
-        [Input("applePrivateKey")]
-        public Input<string>? ApplePrivateKey { get; set; }
+        public Input<string>? ApplePrivateKey
+        {
+            get => _applePrivateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _applePrivateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Team ID associated with your Apple developer account.
@@ -325,11 +340,21 @@ namespace Pulumi.Okta.Idp
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// Client secret issued by AS for the Okta IdP instance.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
@@ -495,13 +520,23 @@ namespace Pulumi.Okta.Idp
         [Input("appleKid")]
         public Input<string>? AppleKid { get; set; }
 
+        [Input("applePrivateKey")]
+        private Input<string>? _applePrivateKey;
+
         /// <summary>
         /// The Key ID that you obtained from Apple when you created the private 
         /// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
         /// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
         /// </summary>
-        [Input("applePrivateKey")]
-        public Input<string>? ApplePrivateKey { get; set; }
+        public Input<string>? ApplePrivateKey
+        {
+            get => _applePrivateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _applePrivateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Team ID associated with your Apple developer account.
@@ -527,11 +562,21 @@ namespace Pulumi.Okta.Idp
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// Client secret issued by AS for the Okta IdP instance.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.

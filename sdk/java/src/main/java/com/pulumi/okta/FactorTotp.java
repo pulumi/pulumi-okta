@@ -61,15 +61,15 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/factorTotp:FactorTotp")
 public class FactorTotp extends com.pulumi.resources.CustomResource {
     /**
-     * - Clock drift interval. This setting allows you to build in tolerance for any
-     *   drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
+     * Clock drift interval. This setting allows you to build in tolerance for any
+     * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
      * 
      */
     @Export(name="clockDriftInterval", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> clockDriftInterval;
 
     /**
-     * @return - Clock drift interval. This setting allows you to build in tolerance for any
+     * @return Clock drift interval. This setting allows you to build in tolerance for any
      * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
      * 
      */
@@ -77,15 +77,15 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clockDriftInterval);
     }
     /**
-     * - HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
-     *   is `&#34;HMacSHA512&#34;`.
+     * HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
+     * is `&#34;HMacSHA512&#34;`.
      * 
      */
     @Export(name="hmacAlgorithm", type=String.class, parameters={})
     private Output</* @Nullable */ String> hmacAlgorithm;
 
     /**
-     * @return - HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
+     * @return HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
      * is `&#34;HMacSHA512&#34;`.
      * 
      */
@@ -121,15 +121,15 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.otpLength);
     }
     /**
-     * - Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
-     *   Default is `&#34;base32&#34;`.
+     * Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
+     * Default is `&#34;base32&#34;`.
      * 
      */
     @Export(name="sharedSecretEncoding", type=String.class, parameters={})
     private Output</* @Nullable */ String> sharedSecretEncoding;
 
     /**
-     * @return - Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
+     * @return Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
      * Default is `&#34;base32&#34;`.
      * 
      */
@@ -137,14 +137,14 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sharedSecretEncoding);
     }
     /**
-     * - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      * 
      */
     @Export(name="timeStep", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> timeStep;
 
     /**
-     * @return - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * @return Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      * 
      */
     public Output<Optional<Integer>> timeStep() {

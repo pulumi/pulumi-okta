@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupAppSignonPolicy(ctx, &GetAppSignonPolicyArgs{
+//			_, err := okta.LookupAppSignonPolicy(ctx, &okta.LookupAppSignonPolicyArgs{
 //				AppId: "app_id",
 //			}, nil)
 //			if err != nil {

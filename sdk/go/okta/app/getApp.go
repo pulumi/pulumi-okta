@@ -71,7 +71,6 @@ type GetAppArgs struct {
 type GetAppResult struct {
 	ActiveOnly *bool `pulumi:"activeOnly"`
 	// List of groups IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
 	//
 	// Deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
 	Groups []string `pulumi:"groups"`
@@ -89,7 +88,6 @@ type GetAppResult struct {
 	// Application status.
 	Status string `pulumi:"status"`
 	// List of users IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
 	//
 	// Deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
 	Users []string `pulumi:"users"`
@@ -153,7 +151,6 @@ func (o GetAppResultOutput) ActiveOnly() pulumi.BoolPtrOutput {
 }
 
 // List of groups IDs assigned to the application.
-// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
 //
 // Deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
 func (o GetAppResultOutput) Groups() pulumi.StringArrayOutput {
@@ -198,7 +195,6 @@ func (o GetAppResultOutput) Status() pulumi.StringOutput {
 }
 
 // List of users IDs assigned to the application.
-// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
 //
 // Deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
 func (o GetAppResultOutput) Users() pulumi.StringArrayOutput {

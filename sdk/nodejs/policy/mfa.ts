@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const classicExample = new okta.policy.Mfa("classic_example", {
+ * const classicExample = new okta.policy.Mfa("classicExample", {
  *     description: "Example MFA policy using Okta Classic engine with factors.",
- *     groupsIncludeds: [okta_group_everyone.id],
+ *     groupsIncludeds: [data.okta_group.everyone.id],
  *     isOie: false,
  *     oktaOtp: {
  *         enroll: "REQUIRED",
@@ -31,14 +31,13 @@ import * as utilities from "../utilities";
  *     },
  *     status: "ACTIVE",
  * });
- * const oieExample = new okta.policy.Mfa("oie_example", {
+ * const oieExample = new okta.policy.Mfa("oieExample", {
  *     description: "Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
- *     groupsIncludeds: [okta_group_everyone.id],
+ *     groupsIncludeds: [data.okta_group.everyone.id],
  *     isOie: true,
  *     oktaPassword: {
  *         enroll: "REQUIRED",
  *     },
- *     // The following authenticator can only be used when `is_oie` is set to true
  *     oktaVerify: {
  *         enroll: "REQUIRED",
  *     },

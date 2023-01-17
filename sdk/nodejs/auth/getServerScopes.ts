@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,17 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const test = pulumi.output(okta.auth.getServerScopes({
+ * const test = okta.auth.getServerScopes({
  *     authServerId: "default",
- * }));
+ * });
  * ```
  */
 export function getServerScopes(args: GetServerScopesArgs, opts?: pulumi.InvokeOptions): Promise<GetServerScopesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:auth/getServerScopes:getServerScopes", {
         "authServerId": args.authServerId,
     }, opts);
@@ -54,9 +52,22 @@ export interface GetServerScopesResult {
      */
     readonly scopes: outputs.auth.GetServerScopesScope[];
 }
-
+/**
+ * Use this data source to retrieve a list of authorization server scopes from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.auth.getServerScopes({
+ *     authServerId: "default",
+ * });
+ * ```
+ */
 export function getServerScopesOutput(args: GetServerScopesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerScopesResult> {
-    return pulumi.output(args).apply(a => getServerScopes(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerScopes(a, opts))
 }
 
 /**

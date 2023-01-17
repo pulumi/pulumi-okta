@@ -45,15 +45,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TemplateSms(&#34;example&#34;, TemplateSmsArgs.builder()        
- *             .template(String.format(&#34;Your %s code is: %s&#34;, org.name(),code))
+ *             .template(&#34;Your ${org.name} code is: ${code}&#34;)
  *             .translations(            
  *                 TemplateSmsTranslationArgs.builder()
  *                     .language(&#34;en&#34;)
- *                     .template(String.format(&#34;Your %s code is: %s&#34;, org.name(),code))
+ *                     .template(&#34;Your ${org.name} code is: ${code}&#34;)
  *                     .build(),
  *                 TemplateSmsTranslationArgs.builder()
  *                     .language(&#34;es&#34;)
- *                     .template(String.format(&#34;Tu código de %s es: %s.&#34;, org.name(),code))
+ *                     .template(&#34;Tu código de ${org.name} es: ${code}.&#34;)
  *                     .build())
  *             .type(&#34;SMS_VERIFY_CODE&#34;)
  *             .build());

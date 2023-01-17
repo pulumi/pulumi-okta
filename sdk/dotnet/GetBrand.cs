@@ -15,13 +15,13 @@ namespace Pulumi.Okta
         /// Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
         /// </summary>
         public static Task<GetBrandResult> InvokeAsync(GetBrandArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBrandResult>("okta:index/getBrand:getBrand", args ?? new GetBrandArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrandResult>("okta:index/getBrand:getBrand", args ?? new GetBrandArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
         /// </summary>
         public static Output<GetBrandResult> Invoke(GetBrandInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBrandResult>("okta:index/getBrand:getBrand", args ?? new GetBrandInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBrandResult>("okta:index/getBrand:getBrand", args ?? new GetBrandInvokeArgs(), options.WithDefaults());
     }
 
 

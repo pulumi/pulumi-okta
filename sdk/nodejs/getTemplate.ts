@@ -10,11 +10,8 @@ import * as utilities from "./utilities";
  * of a brand in an Okta organization.
  */
 export function getTemplate(args: GetTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getTemplate:getTemplate", {
         "brandId": args.brandId,
         "name": args.name,
@@ -50,9 +47,13 @@ export interface GetTemplateResult {
     readonly links: string;
     readonly name: string;
 }
-
+/**
+ * Use this data source to retrieve a specific [email
+ * template](https://developer.okta.com/docs/reference/api/brands/#email-template)
+ * of a brand in an Okta organization.
+ */
 export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateResult> {
-    return pulumi.output(args).apply(a => getTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getTemplate(a, opts))
 }
 
 /**

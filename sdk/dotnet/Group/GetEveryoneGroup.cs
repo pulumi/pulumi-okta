@@ -34,7 +34,7 @@ namespace Pulumi.Okta.Group
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEveryoneGroupResult> InvokeAsync(GetEveryoneGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? new GetEveryoneGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? new GetEveryoneGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
@@ -59,7 +59,7 @@ namespace Pulumi.Okta.Group
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEveryoneGroupResult> Invoke(GetEveryoneGroupInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? new GetEveryoneGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? new GetEveryoneGroupInvokeArgs(), options.WithDefaults());
     }
 
 

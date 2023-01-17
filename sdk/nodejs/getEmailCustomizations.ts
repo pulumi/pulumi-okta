@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -11,11 +12,8 @@ import * as utilities from "./utilities";
  * of an email template belonging to a brand in an Okta organization.
  */
 export function getEmailCustomizations(args: GetEmailCustomizationsArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailCustomizationsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getEmailCustomizations:getEmailCustomizations", {
         "brandId": args.brandId,
         "templateName": args.templateName,
@@ -51,9 +49,13 @@ export interface GetEmailCustomizationsResult {
     readonly id: string;
     readonly templateName: string;
 }
-
+/**
+ * Use this data source to retrieve the [email
+ * customizations](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations)
+ * of an email template belonging to a brand in an Okta organization.
+ */
 export function getEmailCustomizationsOutput(args: GetEmailCustomizationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailCustomizationsResult> {
-    return pulumi.output(args).apply(a => getEmailCustomizations(a, opts))
+    return pulumi.output(args).apply((a: any) => getEmailCustomizations(a, opts))
 }
 
 /**

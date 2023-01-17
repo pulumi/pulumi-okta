@@ -127,7 +127,6 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -266,7 +265,6 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.AppSharedCredentialsUser>> Users { get; private set; } = null!;
@@ -376,7 +374,6 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
@@ -504,7 +501,6 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.AppSharedCredentialsUserArgs> Users
@@ -580,7 +576,6 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
@@ -726,7 +721,6 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.AppSharedCredentialsUserGetArgs> Users

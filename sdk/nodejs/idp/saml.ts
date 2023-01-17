@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const example = new okta.idp.Saml("example", {
  *     acsType: "INSTANCE",
  *     issuer: "https://idp.example.com",
- *     kid: okta_idp_saml_key_test.id,
+ *     kid: okta_idp_saml_key.test.id,
  *     requestSignatureScope: "REQUEST",
  *     responseSignatureScope: "ANY",
  *     ssoBinding: "HTTP-POST",

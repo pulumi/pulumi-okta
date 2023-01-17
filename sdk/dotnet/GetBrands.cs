@@ -33,7 +33,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBrandsResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBrandsResult>("okta:index/getBrands:getBrands", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrandsResult>("okta:index/getBrands:getBrands", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

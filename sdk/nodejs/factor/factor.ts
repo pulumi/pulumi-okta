@@ -15,9 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.factor.Factor("example", {
- *     providerId: "google_otp",
- * });
+ * const example = new okta.factor.Factor("example", {providerId: "google_otp"});
  * ```
  */
 export class Factor extends pulumi.CustomResource {

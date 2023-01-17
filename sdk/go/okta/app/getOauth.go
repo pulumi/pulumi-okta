@@ -83,7 +83,6 @@ type GetOauthResult struct {
 	// List of OAuth 2.0 grant types.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// List of groups IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
 	//
 	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
 	Groups []string `pulumi:"groups"`
@@ -123,7 +122,6 @@ type GetOauthResult struct {
 	// The type of OAuth application.
 	Type string `pulumi:"type"`
 	// List of users IDs assigned to the application.
-	// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
 	//
 	// Deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
 	Users            []string `pulumi:"users"`
@@ -215,7 +213,6 @@ func (o GetOauthResultOutput) GrantTypes() pulumi.StringArrayOutput {
 }
 
 // List of groups IDs assigned to the application.
-// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
 //
 // Deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
 func (o GetOauthResultOutput) Groups() pulumi.StringArrayOutput {
@@ -315,7 +312,6 @@ func (o GetOauthResultOutput) Type() pulumi.StringOutput {
 }
 
 // List of users IDs assigned to the application.
-// - `DEPRECATED`: Please replace all usage of this field with the data source `getAppUserAssignments`.
 //
 // Deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
 func (o GetOauthResultOutput) Users() pulumi.StringArrayOutput {

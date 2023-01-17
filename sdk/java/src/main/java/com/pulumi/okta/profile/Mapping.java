@@ -23,6 +23,57 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.user.UserFunctions;
+ * import com.pulumi.okta.profile.Mapping;
+ * import com.pulumi.okta.profile.MappingArgs;
+ * import com.pulumi.okta.profile.inputs.MappingMappingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var user = UserFunctions.getUserProfileMappingSource();
+ * 
+ *         var example = new Mapping(&#34;example&#34;, MappingArgs.builder()        
+ *             .deleteWhenAbsent(true)
+ *             .mappings(            
+ *                 MappingMappingArgs.builder()
+ *                     .expression(&#34;appuser.firstName&#34;)
+ *                     .id(&#34;firstName&#34;)
+ *                     .build(),
+ *                 MappingMappingArgs.builder()
+ *                     .expression(&#34;appuser.lastName&#34;)
+ *                     .id(&#34;lastName&#34;)
+ *                     .build(),
+ *                 MappingMappingArgs.builder()
+ *                     .expression(&#34;appuser.email&#34;)
+ *                     .id(&#34;email&#34;)
+ *                     .build(),
+ *                 MappingMappingArgs.builder()
+ *                     .expression(&#34;appuser.email&#34;)
+ *                     .id(&#34;login&#34;)
+ *                     .build())
+ *             .sourceId(&#34;&lt;source id&gt;&#34;)
+ *             .targetId(user.applyValue(getUserProfileMappingSourceResult -&gt; getUserProfileMappingSourceResult.id()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

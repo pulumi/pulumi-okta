@@ -32,15 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewTemplateSms(ctx, "example", &okta.TemplateSmsArgs{
-//				Template: pulumi.String(fmt.Sprintf("Your %v code is: %v", org.Name, code)),
-//				Translations: TemplateSmsTranslationArray{
-//					&TemplateSmsTranslationArgs{
+//				Template: pulumi.String(fmt.Sprintf("Your ${org.name} code is: ${code}")),
+//				Translations: okta.TemplateSmsTranslationArray{
+//					&okta.TemplateSmsTranslationArgs{
 //						Language: pulumi.String("en"),
-//						Template: pulumi.String(fmt.Sprintf("Your %v code is: %v", org.Name, code)),
+//						Template: pulumi.String(fmt.Sprintf("Your ${org.name} code is: ${code}")),
 //					},
-//					&TemplateSmsTranslationArgs{
+//					&okta.TemplateSmsTranslationArgs{
 //						Language: pulumi.String("es"),
-//						Template: pulumi.String(fmt.Sprintf("Tu código de %v es: %v.", org.Name, code)),
+//						Template: pulumi.String(fmt.Sprintf("Tu código de ${org.name} es: ${code}.")),
 //					},
 //				},
 //				Type: pulumi.String("SMS_VERIFY_CODE"),

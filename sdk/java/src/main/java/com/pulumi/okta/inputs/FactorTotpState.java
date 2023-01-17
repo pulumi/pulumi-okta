@@ -17,15 +17,15 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
     public static final FactorTotpState Empty = new FactorTotpState();
 
     /**
-     * - Clock drift interval. This setting allows you to build in tolerance for any
-     *   drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
+     * Clock drift interval. This setting allows you to build in tolerance for any
+     * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
      * 
      */
     @Import(name="clockDriftInterval")
     private @Nullable Output<Integer> clockDriftInterval;
 
     /**
-     * @return - Clock drift interval. This setting allows you to build in tolerance for any
+     * @return Clock drift interval. This setting allows you to build in tolerance for any
      * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
      * 
      */
@@ -34,15 +34,15 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * - HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
-     *   is `&#34;HMacSHA512&#34;`.
+     * HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
+     * is `&#34;HMacSHA512&#34;`.
      * 
      */
     @Import(name="hmacAlgorithm")
     private @Nullable Output<String> hmacAlgorithm;
 
     /**
-     * @return - HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
+     * @return HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
      * is `&#34;HMacSHA512&#34;`.
      * 
      */
@@ -81,15 +81,15 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * - Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
-     *   Default is `&#34;base32&#34;`.
+     * Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
+     * Default is `&#34;base32&#34;`.
      * 
      */
     @Import(name="sharedSecretEncoding")
     private @Nullable Output<String> sharedSecretEncoding;
 
     /**
-     * @return - Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
+     * @return Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
      * Default is `&#34;base32&#34;`.
      * 
      */
@@ -98,14 +98,14 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      * 
      */
     @Import(name="timeStep")
     private @Nullable Output<Integer> timeStep;
 
     /**
-     * @return - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * @return Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      * 
      */
     public Optional<Output<Integer>> timeStep() {
@@ -142,7 +142,7 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clockDriftInterval - Clock drift interval. This setting allows you to build in tolerance for any
+         * @param clockDriftInterval Clock drift interval. This setting allows you to build in tolerance for any
          * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
          * 
          * @return builder
@@ -154,7 +154,7 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clockDriftInterval - Clock drift interval. This setting allows you to build in tolerance for any
+         * @param clockDriftInterval Clock drift interval. This setting allows you to build in tolerance for any
          * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
          * 
          * @return builder
@@ -165,7 +165,7 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hmacAlgorithm - HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
+         * @param hmacAlgorithm HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
          * is `&#34;HMacSHA512&#34;`.
          * 
          * @return builder
@@ -177,7 +177,7 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hmacAlgorithm - HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
+         * @param hmacAlgorithm HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
          * is `&#34;HMacSHA512&#34;`.
          * 
          * @return builder
@@ -230,7 +230,7 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedSecretEncoding - Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
+         * @param sharedSecretEncoding Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
          * Default is `&#34;base32&#34;`.
          * 
          * @return builder
@@ -242,7 +242,7 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedSecretEncoding - Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
+         * @param sharedSecretEncoding Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
          * Default is `&#34;base32&#34;`.
          * 
          * @return builder
@@ -253,7 +253,7 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeStep - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+         * @param timeStep Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class FactorTotpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeStep - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+         * @param timeStep Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
          * 
          * @return builder
          * 

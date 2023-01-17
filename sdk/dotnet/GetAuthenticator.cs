@@ -53,7 +53,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAuthenticatorResult> InvokeAsync(GetAuthenticatorArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -97,7 +97,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAuthenticatorResult> Invoke(GetAuthenticatorInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -147,6 +147,11 @@ namespace Pulumi.Okta.Deprecated
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "applePrivateKey",
+                    "clientSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -187,11 +192,21 @@ namespace Pulumi.Okta.Deprecated
         [Input("appleKid")]
         public Input<string>? AppleKid { get; set; }
 
+        [Input("applePrivateKey")]
+        private Input<string>? _applePrivateKey;
+
         /// <summary>
         /// The PKCS #8 encoded private key that you created for the client and downloaded from Apple
         /// </summary>
-        [Input("applePrivateKey")]
-        public Input<string>? ApplePrivateKey { get; set; }
+        public Input<string>? ApplePrivateKey
+        {
+            get => _applePrivateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _applePrivateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Team ID associated with your Apple developer account
@@ -203,7 +218,16 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ClientId { get; set; }
 
         [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        private Input<string>? _clientSecret;
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("deprovisionedAction")]
         public Input<string>? DeprovisionedAction { get; set; }
@@ -314,11 +338,21 @@ namespace Pulumi.Okta.Deprecated
         [Input("appleKid")]
         public Input<string>? AppleKid { get; set; }
 
+        [Input("applePrivateKey")]
+        private Input<string>? _applePrivateKey;
+
         /// <summary>
         /// The PKCS #8 encoded private key that you created for the client and downloaded from Apple
         /// </summary>
-        [Input("applePrivateKey")]
-        public Input<string>? ApplePrivateKey { get; set; }
+        public Input<string>? ApplePrivateKey
+        {
+            get => _applePrivateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _applePrivateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Team ID associated with your Apple developer account
@@ -336,7 +370,16 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ClientId { get; set; }
 
         [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        private Input<string>? _clientSecret;
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("deprovisionedAction")]
         public Input<string>? DeprovisionedAction { get; set; }

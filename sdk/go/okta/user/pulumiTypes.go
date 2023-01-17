@@ -117,9 +117,9 @@ func (o SchemaArrayOneOfArrayOutput) Index(i pulumi.IntInput) SchemaArrayOneOfOu
 }
 
 type SchemaMasterOverridePriority struct {
-	// - Type of profile source.
+	// Type of profile source.
 	Type *string `pulumi:"type"`
-	// - ID of profile source.
+	// ID of profile source.
 	Value string `pulumi:"value"`
 }
 
@@ -135,9 +135,9 @@ type SchemaMasterOverridePriorityInput interface {
 }
 
 type SchemaMasterOverridePriorityArgs struct {
-	// - Type of profile source.
+	// Type of profile source.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// - ID of profile source.
+	// ID of profile source.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -192,12 +192,12 @@ func (o SchemaMasterOverridePriorityOutput) ToSchemaMasterOverridePriorityOutput
 	return o
 }
 
-// - Type of profile source.
+// Type of profile source.
 func (o SchemaMasterOverridePriorityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaMasterOverridePriority) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// - ID of profile source.
+// ID of profile source.
 func (o SchemaMasterOverridePriorityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaMasterOverridePriority) string { return v.Value }).(pulumi.StringOutput)
 }

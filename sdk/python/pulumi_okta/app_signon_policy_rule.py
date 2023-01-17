@@ -43,7 +43,7 @@ class AppSignonPolicyRuleArgs:
         The set of arguments for constructing a AppSignonPolicyRule resource.
         :param pulumi.Input[str] policy_id: ID of the app sign-on policy.
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         :param pulumi.Input[str] custom_expression: This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management
                system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
@@ -141,7 +141,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter
     def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         """
         return pulumi.get(self, "constraints")
 
@@ -421,7 +421,7 @@ class _AppSignonPolicyRuleState:
         """
         Input properties used for looking up and filtering AppSignonPolicyRule resources.
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         :param pulumi.Input[str] custom_expression: This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management
                system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
@@ -509,7 +509,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter
     def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         """
         return pulumi.get(self, "constraints")
 
@@ -877,7 +877,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             recipient="https://here.com",
             destination="https://its-about-the-journey.com",
             audience="https://audience.com",
-            subject_name_id_template=user["userName"],
+            subject_name_id_template="${user.userName}",
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             response_signed=True,
             signature_algorithm="RSA_SHA256",
@@ -1033,7 +1033,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         :param pulumi.Input[str] custom_expression: This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management
                system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
@@ -1140,7 +1140,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             recipient="https://here.com",
             destination="https://its-about-the-journey.com",
             audience="https://audience.com",
-            subject_name_id_template=user["userName"],
+            subject_name_id_template="${user.userName}",
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             response_signed=True,
             signature_algorithm="RSA_SHA256",
@@ -1406,7 +1406,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         :param pulumi.Input[str] custom_expression: This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management
                system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
@@ -1472,7 +1472,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def constraints(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         """
         return pulumi.get(self, "constraints")
 

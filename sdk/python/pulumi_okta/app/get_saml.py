@@ -293,7 +293,6 @@ class GetSamlResult:
     def groups(self) -> Sequence[str]:
         """
         List of groups IDs assigned to the application.
-        - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
         """
         return pulumi.get(self, "groups")
 
@@ -525,7 +524,6 @@ class GetSamlResult:
     def users(self) -> Sequence[str]:
         """
         List of users IDs assigned to the application.
-        - `DEPRECATED`: Please replace all usage of this field with the data source `get_app_user_assignments`.
         """
         return pulumi.get(self, "users")
 

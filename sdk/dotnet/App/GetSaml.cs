@@ -36,7 +36,7 @@ namespace Pulumi.Okta.App
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSamlResult> InvokeAsync(GetSamlArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:app/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:app/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve an SAML application from Okta.
@@ -63,7 +63,7 @@ namespace Pulumi.Okta.App
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSamlResult> Invoke(GetSamlInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSamlResult>("okta:app/getSaml:getSaml", args ?? new GetSamlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSamlResult>("okta:app/getSaml:getSaml", args ?? new GetSamlInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -237,7 +237,6 @@ namespace Pulumi.Okta.App
         public readonly ImmutableArray<string> Features;
         /// <summary>
         /// List of groups IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
@@ -349,7 +348,6 @@ namespace Pulumi.Okta.App
         public readonly string UserNameTemplateType;
         /// <summary>
         /// List of users IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
         /// </summary>
         public readonly ImmutableArray<string> Users;
 

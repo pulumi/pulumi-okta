@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.idp.getOidc({
+ * const example = okta.idp.getOidc({
  *     name: "Example Provider",
- * }));
+ * });
  * ```
  */
 export function getOidc(args?: GetOidcArgs, opts?: pulumi.InvokeOptions): Promise<GetOidcResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:idp/getOidc:getOidc", {
         "id": args.id,
         "name": args.name,
@@ -122,9 +119,22 @@ export interface GetOidcResult {
      */
     readonly userInfoUrl: string;
 }
-
+/**
+ * Use this data source to retrieve a OIDC IdP from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.idp.getOidc({
+ *     name: "Example Provider",
+ * });
+ * ```
+ */
 export function getOidcOutput(args?: GetOidcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOidcResult> {
-    return pulumi.output(args).apply(a => getOidc(a, opts))
+    return pulumi.output(args).apply((a: any) => getOidc(a, opts))
 }
 
 /**

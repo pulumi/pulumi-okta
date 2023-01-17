@@ -41,7 +41,6 @@ public final class GetOauthResult {
     private List<String> grantTypes;
     /**
      * @return List of groups IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
      * 
      * @deprecated
      * The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
@@ -134,7 +133,6 @@ public final class GetOauthResult {
     private String type;
     /**
      * @return List of users IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
      * 
      * @deprecated
      * The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
@@ -185,7 +183,6 @@ public final class GetOauthResult {
     }
     /**
      * @return List of groups IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
      * 
      * @deprecated
      * The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
@@ -318,7 +315,6 @@ public final class GetOauthResult {
     }
     /**
      * @return List of users IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
      * 
      * @deprecated
      * The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`

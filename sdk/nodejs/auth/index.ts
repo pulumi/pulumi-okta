@@ -5,23 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getServer";
-export * from "./getServerPolicy";
-export * from "./getServerScopes";
-export * from "./server";
-export * from "./serverClaim";
-export * from "./serverPolicy";
-export * from "./serverPolicyClaim";
-export * from "./serverPolicyRule";
-export * from "./serverScope";
+export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
+export const getServer: typeof import("./getServer").getServer = null as any;
+export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
-// Import resources to register:
-import { Server } from "./server";
-import { ServerClaim } from "./serverClaim";
-import { ServerPolicy } from "./serverPolicy";
-import { ServerPolicyClaim } from "./serverPolicyClaim";
-import { ServerPolicyRule } from "./serverPolicyRule";
-import { ServerScope } from "./serverScope";
+export { GetServerPolicyArgs, GetServerPolicyResult, GetServerPolicyOutputArgs } from "./getServerPolicy";
+export const getServerPolicy: typeof import("./getServerPolicy").getServerPolicy = null as any;
+export const getServerPolicyOutput: typeof import("./getServerPolicy").getServerPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getServerPolicy","getServerPolicyOutput"], () => require("./getServerPolicy"));
+
+export { GetServerScopesArgs, GetServerScopesResult, GetServerScopesOutputArgs } from "./getServerScopes";
+export const getServerScopes: typeof import("./getServerScopes").getServerScopes = null as any;
+export const getServerScopesOutput: typeof import("./getServerScopes").getServerScopesOutput = null as any;
+utilities.lazyLoad(exports, ["getServerScopes","getServerScopesOutput"], () => require("./getServerScopes"));
+
+export { ServerArgs, ServerState } from "./server";
+export type Server = import("./server").Server;
+export const Server: typeof import("./server").Server = null as any;
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+
+export { ServerClaimArgs, ServerClaimState } from "./serverClaim";
+export type ServerClaim = import("./serverClaim").ServerClaim;
+export const ServerClaim: typeof import("./serverClaim").ServerClaim = null as any;
+utilities.lazyLoad(exports, ["ServerClaim"], () => require("./serverClaim"));
+
+export { ServerPolicyArgs, ServerPolicyState } from "./serverPolicy";
+export type ServerPolicy = import("./serverPolicy").ServerPolicy;
+export const ServerPolicy: typeof import("./serverPolicy").ServerPolicy = null as any;
+utilities.lazyLoad(exports, ["ServerPolicy"], () => require("./serverPolicy"));
+
+export { ServerPolicyClaimArgs, ServerPolicyClaimState } from "./serverPolicyClaim";
+export type ServerPolicyClaim = import("./serverPolicyClaim").ServerPolicyClaim;
+export const ServerPolicyClaim: typeof import("./serverPolicyClaim").ServerPolicyClaim = null as any;
+utilities.lazyLoad(exports, ["ServerPolicyClaim"], () => require("./serverPolicyClaim"));
+
+export { ServerPolicyRuleArgs, ServerPolicyRuleState } from "./serverPolicyRule";
+export type ServerPolicyRule = import("./serverPolicyRule").ServerPolicyRule;
+export const ServerPolicyRule: typeof import("./serverPolicyRule").ServerPolicyRule = null as any;
+utilities.lazyLoad(exports, ["ServerPolicyRule"], () => require("./serverPolicyRule"));
+
+export { ServerScopeArgs, ServerScopeState } from "./serverScope";
+export type ServerScope = import("./serverScope").ServerScope;
+export const ServerScope: typeof import("./serverScope").ServerScope = null as any;
+utilities.lazyLoad(exports, ["ServerScope"], () => require("./serverScope"));
+
 
 const _module = {
     version: utilities.getVersion(),

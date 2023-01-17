@@ -138,6 +138,10 @@ namespace Pulumi.Okta
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "providerSharedSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -185,11 +189,21 @@ namespace Pulumi.Okta
         [Input("providerHostname")]
         public Input<string>? ProviderHostname { get; set; }
 
+        [Input("providerSharedSecret")]
+        private Input<string>? _providerSharedSecret;
+
         /// <summary>
         /// An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.
         /// </summary>
-        [Input("providerSharedSecret")]
-        public Input<string>? ProviderSharedSecret { get; set; }
+        public Input<string>? ProviderSharedSecret
+        {
+            get => _providerSharedSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _providerSharedSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Username template expected by the provider. Used only for authenticators with type `"security_key"`.
@@ -247,11 +261,21 @@ namespace Pulumi.Okta
         [Input("providerInstanceId")]
         public Input<string>? ProviderInstanceId { get; set; }
 
+        [Input("providerSharedSecret")]
+        private Input<string>? _providerSharedSecret;
+
         /// <summary>
         /// An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.
         /// </summary>
-        [Input("providerSharedSecret")]
-        public Input<string>? ProviderSharedSecret { get; set; }
+        public Input<string>? ProviderSharedSecret
+        {
+            get => _providerSharedSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _providerSharedSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The type of Authenticator. Values include: `"password"`, `"security_question"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"security_key"`.

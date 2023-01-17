@@ -28,7 +28,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := user.LookupUser(ctx, &user.LookupUserArgs{
 //				Searches: []user.GetUserSearch{
-//					user.GetUserSearch{
+//					{
 //						Expression: pulumi.StringRef("profile.firstName eq \"John\""),
 //					},
 //				},

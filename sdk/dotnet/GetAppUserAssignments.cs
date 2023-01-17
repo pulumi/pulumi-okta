@@ -36,7 +36,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppUserAssignmentsResult> InvokeAsync(GetAppUserAssignmentsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppUserAssignmentsResult>("okta:index/getAppUserAssignments:getAppUserAssignments", args ?? new GetAppUserAssignmentsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppUserAssignmentsResult>("okta:index/getAppUserAssignments:getAppUserAssignments", args ?? new GetAppUserAssignmentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
@@ -63,7 +63,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppUserAssignmentsResult> Invoke(GetAppUserAssignmentsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppUserAssignmentsResult>("okta:index/getAppUserAssignments:getAppUserAssignments", args ?? new GetAppUserAssignmentsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppUserAssignmentsResult>("okta:index/getAppUserAssignments:getAppUserAssignments", args ?? new GetAppUserAssignmentsInvokeArgs(), options.WithDefaults());
     }
 
 

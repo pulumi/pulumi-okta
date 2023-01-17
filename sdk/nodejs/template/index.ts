@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./email";
+export { EmailArgs, EmailState } from "./email";
+export type Email = import("./email").Email;
+export const Email: typeof import("./email").Email = null as any;
+utilities.lazyLoad(exports, ["Email"], () => require("./email"));
 
-// Import resources to register:
-import { Email } from "./email";
 
 const _module = {
     version: utilities.getVersion(),

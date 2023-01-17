@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			newCity, err := okta.LookupBehaviour(ctx, &GetBehaviourArgs{
+//			newCity, err := okta.LookupBehaviour(ctx, &okta.LookupBehaviourArgs{
 //				Name: pulumi.StringRef("New City"),
 //			}, nil)
 //			if err != nil {
@@ -49,7 +49,7 @@ import (
 //				Status:            pulumi.String("ACTIVE"),
 //				RiscLevel:         pulumi.String("HIGH"),
 //				Behaviors: pulumi.StringArray{
-//					pulumi.String(newCity.Id),
+//					*pulumi.String(newCity.Id),
 //				},
 //				FactorSequences: policy.RuleSignonFactorSequenceArray{
 //					&policy.RuleSignonFactorSequenceArgs{

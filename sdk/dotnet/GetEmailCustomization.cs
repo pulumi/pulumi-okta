@@ -17,7 +17,7 @@ namespace Pulumi.Okta
         /// of an email template belonging to a brand in an Okta organization.
         /// </summary>
         public static Task<GetEmailCustomizationResult> InvokeAsync(GetEmailCustomizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEmailCustomizationResult>("okta:index/getEmailCustomization:getEmailCustomization", args ?? new GetEmailCustomizationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailCustomizationResult>("okta:index/getEmailCustomization:getEmailCustomization", args ?? new GetEmailCustomizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve the [email
@@ -25,7 +25,7 @@ namespace Pulumi.Okta
         /// of an email template belonging to a brand in an Okta organization.
         /// </summary>
         public static Output<GetEmailCustomizationResult> Invoke(GetEmailCustomizationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEmailCustomizationResult>("okta:index/getEmailCustomization:getEmailCustomization", args ?? new GetEmailCustomizationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmailCustomizationResult>("okta:index/getEmailCustomization:getEmailCustomization", args ?? new GetEmailCustomizationInvokeArgs(), options.WithDefaults());
     }
 
 

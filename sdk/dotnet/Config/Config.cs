@@ -30,7 +30,7 @@ namespace Pulumi.Okta
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("okta");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("okta");
 
         private static readonly __Value<string?> _accessToken = new __Value<string?>(() => __config.Get("accessToken"));
         /// <summary>

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface AppGroupAssignmentsGroup {
     /**
@@ -277,11 +278,11 @@ export interface GroupSchemaPropertyArrayOneOf {
 
 export interface GroupSchemaPropertyMasterOverridePriority {
     /**
-     * - Type of profile source.
+     * Type of profile source.
      */
     type?: string;
     /**
-     * - ID of profile source.
+     * ID of profile source.
      */
     value: string;
 }
@@ -336,11 +337,11 @@ export interface UserSchemaPropertyArrayOneOf {
 
 export interface UserSchemaPropertyMasterOverridePriority {
     /**
-     * - Type of profile source.
+     * Type of profile source.
      */
     type?: string;
     /**
-     * - ID of profile source.
+     * ID of profile source.
      */
     value: string;
 }
@@ -1088,11 +1089,11 @@ export namespace user {
 
     export interface SchemaMasterOverridePriority {
         /**
-         * - Type of profile source.
+         * Type of profile source.
          */
         type?: string;
         /**
-         * - ID of profile source.
+         * ID of profile source.
          */
         value: string;
     }
@@ -1131,4 +1132,5 @@ export namespace user {
          */
         workFactor?: number;
     }
+
 }

@@ -38,7 +38,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppSignonPolicyResult> InvokeAsync(GetAppSignonPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppSignonPolicyResult>("okta:index/getAppSignonPolicy:getAppSignonPolicy", args ?? new GetAppSignonPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppSignonPolicyResult>("okta:index/getAppSignonPolicy:getAppSignonPolicy", args ?? new GetAppSignonPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -67,7 +67,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppSignonPolicyResult> Invoke(GetAppSignonPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppSignonPolicyResult>("okta:index/getAppSignonPolicy:getAppSignonPolicy", args ?? new GetAppSignonPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppSignonPolicyResult>("okta:index/getAppSignonPolicy:getAppSignonPolicy", args ?? new GetAppSignonPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

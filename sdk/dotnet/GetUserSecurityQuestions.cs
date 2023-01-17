@@ -44,7 +44,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserSecurityQuestionsResult> InvokeAsync(GetUserSecurityQuestionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSecurityQuestionsResult>("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args ?? new GetUserSecurityQuestionsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSecurityQuestionsResult>("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args ?? new GetUserSecurityQuestionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a list of user's security questions.
@@ -79,7 +79,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserSecurityQuestionsResult> Invoke(GetUserSecurityQuestionsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserSecurityQuestionsResult>("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args ?? new GetUserSecurityQuestionsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserSecurityQuestionsResult>("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args ?? new GetUserSecurityQuestionsInvokeArgs(), options.WithDefaults());
     }
 
 

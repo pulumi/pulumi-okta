@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupRoleSubscription(ctx, &GetRoleSubscriptionArgs{
+//			_, err := okta.LookupRoleSubscription(ctx, &okta.LookupRoleSubscriptionArgs{
 //				NotificationType: "APP_IMPORT",
 //				RoleType:         "SUPER_ADMIN",
 //			}, nil)

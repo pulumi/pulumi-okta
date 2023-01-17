@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.app.getApp({
+ * const example = okta.app.getApp({
  *     label: "Example App",
- * }));
+ * });
  * ```
  */
 export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:app/getApp:getApp", {
         "activeOnly": args.activeOnly,
         "id": args.id,
@@ -77,7 +74,6 @@ export interface GetAppResult {
     readonly activeOnly?: boolean;
     /**
      * List of groups IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
      *
      * @deprecated The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
      */
@@ -107,15 +103,27 @@ export interface GetAppResult {
     readonly status: string;
     /**
      * List of users IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
      *
      * @deprecated The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users: string[];
 }
-
+/**
+ * Use this data source to retrieve an application from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.app.getApp({
+ *     label: "Example App",
+ * });
+ * ```
+ */
 export function getAppOutput(args?: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
-    return pulumi.output(args).apply(a => getApp(a, opts))
+    return pulumi.output(args).apply((a: any) => getApp(a, opts))
 }
 
 /**

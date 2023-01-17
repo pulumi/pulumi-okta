@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -11,11 +12,8 @@ import * as utilities from "./utilities";
  * of a brand in an Okta organization.
  */
 export function getTemplates(args: GetTemplatesArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplatesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getTemplates:getTemplates", {
         "brandId": args.brandId,
     }, opts);
@@ -45,9 +43,13 @@ export interface GetTemplatesResult {
      */
     readonly id: string;
 }
-
+/**
+ * Use this data source to retrieve the [email
+ * templates](https://developer.okta.com/docs/reference/api/brands/#email-template)
+ * of a brand in an Okta organization.
+ */
 export function getTemplatesOutput(args: GetTemplatesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplatesResult> {
-    return pulumi.output(args).apply(a => getTemplates(a, opts))
+    return pulumi.output(args).apply((a: any) => getTemplates(a, opts))
 }
 
 /**

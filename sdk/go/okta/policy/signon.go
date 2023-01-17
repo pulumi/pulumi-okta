@@ -31,7 +31,7 @@ import (
 //			_, err := policy.NewSignon(ctx, "example", &policy.SignonArgs{
 //				Description: pulumi.String("Example"),
 //				GroupsIncludeds: pulumi.StringArray{
-//					pulumi.Any(data.Okta_group.Everyone.Id),
+//					data.Okta_group.Everyone.Id,
 //				},
 //				Status: pulumi.String("ACTIVE"),
 //			})

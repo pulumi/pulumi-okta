@@ -1953,7 +1953,7 @@ class OauthApp(pulumi.CustomResource):
             __props__.__dict__["authentication_policy"] = authentication_policy
             __props__.__dict__["auto_key_rotation"] = auto_key_rotation
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
-            __props__.__dict__["client_basic_secret"] = client_basic_secret
+            __props__.__dict__["client_basic_secret"] = None if client_basic_secret is None else pulumi.Output.secret(client_basic_secret)
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["client_uri"] = client_uri
             __props__.__dict__["consent_method"] = consent_method
@@ -2011,6 +2011,8 @@ class OauthApp(pulumi.CustomResource):
             __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientBasicSecret", "clientSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OauthApp, __self__).__init__(
             'okta:deprecated/oauthApp:OauthApp',
             resource_name,

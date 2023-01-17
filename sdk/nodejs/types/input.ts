@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface AppGroupAssignmentsGroup {
     /**
@@ -124,11 +125,11 @@ export interface GroupSchemaPropertyArrayOneOf {
 
 export interface GroupSchemaPropertyMasterOverridePriority {
     /**
-     * - Type of profile source.
+     * Type of profile source.
      */
     type?: pulumi.Input<string>;
     /**
-     * - ID of profile source.
+     * ID of profile source.
      */
     value: pulumi.Input<string>;
 }
@@ -183,11 +184,11 @@ export interface UserSchemaPropertyArrayOneOf {
 
 export interface UserSchemaPropertyMasterOverridePriority {
     /**
-     * - Type of profile source.
+     * Type of profile source.
      */
     type?: pulumi.Input<string>;
     /**
-     * - ID of profile source.
+     * ID of profile source.
      */
     value: pulumi.Input<string>;
 }
@@ -709,25 +710,6 @@ export namespace user {
         value?: pulumi.Input<string>;
     }
 
-    export interface GetUsersSearchArgs {
-        /**
-         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-         */
-        comparison?: pulumi.Input<string>;
-        /**
-         * A raw search expression string. If present it will override name/comparison/value.
-         */
-        expression?: pulumi.Input<string>;
-        /**
-         * Name of property to search against.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Value to compare with.
-         */
-        value?: pulumi.Input<string>;
-    }
-
     export interface GetUsersSearch {
         /**
          * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
@@ -747,6 +729,25 @@ export namespace user {
         value?: string;
     }
 
+    export interface GetUsersSearchArgs {
+        /**
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+         */
+        comparison?: pulumi.Input<string>;
+        /**
+         * A raw search expression string. If present it will override name/comparison/value.
+         */
+        expression?: pulumi.Input<string>;
+        /**
+         * Name of property to search against.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Value to compare with.
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface SchemaArrayOneOf {
         /**
          * value mapping to member of `enum`.
@@ -760,11 +761,11 @@ export namespace user {
 
     export interface SchemaMasterOverridePriority {
         /**
-         * - Type of profile source.
+         * Type of profile source.
          */
         type?: pulumi.Input<string>;
         /**
-         * - ID of profile source.
+         * ID of profile source.
          */
         value: pulumi.Input<string>;
     }
@@ -803,5 +804,4 @@ export namespace user {
          */
         workFactor?: pulumi.Input<number>;
     }
-
 }

@@ -97,7 +97,6 @@ namespace Pulumi.Okta.User
     {
         /// <summary>
         /// Administrator roles assigned to User.
-        /// - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
         /// </summary>
         [Output("adminRoles")]
         public Output<ImmutableArray<string>> AdminRoles { get; private set; } = null!;
@@ -383,6 +382,12 @@ namespace Pulumi.Okta.User
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "oldPassword",
+                    "password",
+                    "recoveryAnswer",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -411,7 +416,6 @@ namespace Pulumi.Okta.User
 
         /// <summary>
         /// Administrator roles assigned to User.
-        /// - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
         /// </summary>
         [Obsolete(@"The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`")]
         public InputList<string> AdminRoles
@@ -560,13 +564,23 @@ namespace Pulumi.Okta.User
         [Input("nickName")]
         public Input<string>? NickName { get; set; }
 
+        [Input("oldPassword")]
+        private Input<string>? _oldPassword;
+
         /// <summary>
         /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
         /// outside the provider. After successful password change this field should be removed and `password` field should be used
         /// for further changes.
         /// </summary>
-        [Input("oldPassword")]
-        public Input<string>? OldPassword { get; set; }
+        public Input<string>? OldPassword
+        {
+            get => _oldPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oldPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// User profile property.
@@ -574,11 +588,21 @@ namespace Pulumi.Okta.User
         [Input("organization")]
         public Input<string>? Organization { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// User password.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies a hashed password to import into Okta.
@@ -619,11 +643,21 @@ namespace Pulumi.Okta.User
         [Input("profileUrl")]
         public Input<string>? ProfileUrl { get; set; }
 
+        [Input("recoveryAnswer")]
+        private Input<string>? _recoveryAnswer;
+
         /// <summary>
         /// User password recovery answer.
         /// </summary>
-        [Input("recoveryAnswer")]
-        public Input<string>? RecoveryAnswer { get; set; }
+        public Input<string>? RecoveryAnswer
+        {
+            get => _recoveryAnswer;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _recoveryAnswer = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// User password recovery question.
@@ -692,7 +726,6 @@ namespace Pulumi.Okta.User
 
         /// <summary>
         /// Administrator roles assigned to User.
-        /// - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
         /// </summary>
         [Obsolete(@"The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`")]
         public InputList<string> AdminRoles
@@ -841,13 +874,23 @@ namespace Pulumi.Okta.User
         [Input("nickName")]
         public Input<string>? NickName { get; set; }
 
+        [Input("oldPassword")]
+        private Input<string>? _oldPassword;
+
         /// <summary>
         /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
         /// outside the provider. After successful password change this field should be removed and `password` field should be used
         /// for further changes.
         /// </summary>
-        [Input("oldPassword")]
-        public Input<string>? OldPassword { get; set; }
+        public Input<string>? OldPassword
+        {
+            get => _oldPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oldPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// User profile property.
@@ -855,11 +898,21 @@ namespace Pulumi.Okta.User
         [Input("organization")]
         public Input<string>? Organization { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// User password.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies a hashed password to import into Okta.
@@ -906,11 +959,21 @@ namespace Pulumi.Okta.User
         [Input("rawStatus")]
         public Input<string>? RawStatus { get; set; }
 
+        [Input("recoveryAnswer")]
+        private Input<string>? _recoveryAnswer;
+
         /// <summary>
         /// User password recovery answer.
         /// </summary>
-        [Input("recoveryAnswer")]
-        public Input<string>? RecoveryAnswer { get; set; }
+        public Input<string>? RecoveryAnswer
+        {
+            get => _recoveryAnswer;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _recoveryAnswer = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// User password recovery question.

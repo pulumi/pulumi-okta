@@ -123,7 +123,6 @@ type AutoLogin struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -168,7 +167,6 @@ type AutoLogin struct {
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AutoLoginUserArrayOutput `pulumi:"users"`
@@ -225,7 +223,6 @@ type autoLoginState struct {
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -270,7 +267,6 @@ type autoLoginState struct {
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []AutoLoginUser `pulumi:"users"`
@@ -296,7 +292,6 @@ type AutoLoginState struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -341,7 +336,6 @@ type AutoLoginState struct {
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AutoLoginUserArrayInput
@@ -371,7 +365,6 @@ type autoLoginArgs struct {
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -410,7 +403,6 @@ type autoLoginArgs struct {
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []AutoLoginUser `pulumi:"users"`
@@ -437,7 +429,6 @@ type AutoLoginArgs struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -476,7 +467,6 @@ type AutoLoginArgs struct {
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AutoLoginUserArrayInput
@@ -615,7 +605,6 @@ func (o AutoLoginOutput) EnduserNote() pulumi.StringPtrOutput {
 }
 
 // Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 //
 // Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 func (o AutoLoginOutput) Groups() pulumi.StringArrayOutput {
@@ -723,7 +712,6 @@ func (o AutoLoginOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 }
 
 // The users assigned to the application. See `app.User` for a more flexible approach.
-// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 //
 // Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 func (o AutoLoginOutput) Users() AutoLoginUserArrayOutput {

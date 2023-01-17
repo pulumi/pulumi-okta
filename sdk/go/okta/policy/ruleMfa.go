@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
 //				Status:   pulumi.String("ACTIVE"),
 //				Enroll:   pulumi.String("LOGIN"),
 //				AppIncludes: policy.RuleMfaAppIncludeArray{
@@ -95,7 +95,7 @@ import (
 //				return err
 //			}
 //			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
 //				AppExcludes: policy.RuleMfaAppExcludeArray{
 //					&policy.RuleMfaAppExcludeArgs{
 //						Name: pulumi.String("okta"),
@@ -133,7 +133,7 @@ import (
 //				return err
 //			}
 //			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
 //				AppExcludes: policy.RuleMfaAppExcludeArray{
 //					&policy.RuleMfaAppExcludeArgs{
 //						Name: pulumi.String("okta"),
@@ -177,7 +177,7 @@ import (
 //				return err
 //			}
 //			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
 //				AppIncludes: policy.RuleMfaAppIncludeArray{
 //					&policy.RuleMfaAppIncludeArgs{
 //						Name: pulumi.String("okta"),
@@ -215,7 +215,7 @@ import (
 //				return err
 //			}
 //			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -247,7 +247,7 @@ import (
 //				return err
 //			}
 //			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: pulumi.String(exampleDefaultPolicy.Id),
+//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
 //				AppIncludes: policy.RuleMfaAppIncludeArray{
 //					&policy.RuleMfaAppIncludeArgs{
 //						Name: pulumi.String("okta"),

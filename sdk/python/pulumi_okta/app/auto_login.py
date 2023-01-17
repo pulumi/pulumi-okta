@@ -57,7 +57,6 @@ class AutoLoginArgs:
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
@@ -75,7 +74,6 @@ class AutoLoginArgs:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         pulumi.set(__self__, "label", label)
         if accessibility_error_redirect_url is not None:
@@ -264,7 +262,6 @@ class AutoLoginArgs:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -469,7 +466,6 @@ class AutoLoginArgs:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -524,7 +520,6 @@ class _AutoLoginState:
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -546,7 +541,6 @@ class _AutoLoginState:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -730,7 +724,6 @@ class _AutoLoginState:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -983,7 +976,6 @@ class _AutoLoginState:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -1093,7 +1085,6 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -1112,7 +1103,6 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         ...
     @overload
@@ -1324,7 +1314,6 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -1346,7 +1335,6 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1462,7 +1450,6 @@ class AutoLogin(pulumi.CustomResource):
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -1631,7 +1618,6 @@ class AutoLogin(pulumi.CustomResource):
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.AutoLoginUser']]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 

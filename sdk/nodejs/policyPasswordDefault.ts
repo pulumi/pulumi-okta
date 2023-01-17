@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const defaultPolicyPasswordDefault = new okta.PolicyPasswordDefault("default", {});
+ * const _default = new okta.PolicyPasswordDefault("default", {});
  * ```
  *
  * ## Import

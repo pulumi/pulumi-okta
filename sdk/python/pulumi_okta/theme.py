@@ -38,9 +38,8 @@ class ThemeArgs:
         :param pulumi.Input[str] logo: (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
         :param pulumi.Input[str] primary_color_contrast_hex: (Optional) Primary color contrast hex code
         :param pulumi.Input[str] primary_color_hex: (Required) Primary color hex code
-        :param pulumi.Input[str] secondary_color_contrast_hex: Secondary color contrast hex code
+        :param pulumi.Input[str] secondary_color_contrast_hex: (Optional) Secondary color contrast hex code
         :param pulumi.Input[str] secondary_color_hex: (Required) Secondary color hex code
-               - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
         :param pulumi.Input[str] sign_in_page_touch_point_variant: (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         :param pulumi.Input[str] theme_id: Theme ID, used for read (faux-create)
         """
@@ -182,7 +181,7 @@ class ThemeArgs:
     @pulumi.getter(name="secondaryColorContrastHex")
     def secondary_color_contrast_hex(self) -> Optional[pulumi.Input[str]]:
         """
-        Secondary color contrast hex code
+        (Optional) Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_contrast_hex")
 
@@ -195,7 +194,6 @@ class ThemeArgs:
     def secondary_color_hex(self) -> Optional[pulumi.Input[str]]:
         """
         (Required) Secondary color hex code
-        - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_hex")
 
@@ -263,9 +261,8 @@ class _ThemeState:
         :param pulumi.Input[str] logo_url: (Read-Only) Logo URL
         :param pulumi.Input[str] primary_color_contrast_hex: (Optional) Primary color contrast hex code
         :param pulumi.Input[str] primary_color_hex: (Required) Primary color hex code
-        :param pulumi.Input[str] secondary_color_contrast_hex: Secondary color contrast hex code
+        :param pulumi.Input[str] secondary_color_contrast_hex: (Optional) Secondary color contrast hex code
         :param pulumi.Input[str] secondary_color_hex: (Required) Secondary color hex code
-               - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
         :param pulumi.Input[str] sign_in_page_touch_point_variant: (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         :param pulumi.Input[str] theme_id: Theme ID, used for read (faux-create)
         """
@@ -464,7 +461,7 @@ class _ThemeState:
     @pulumi.getter(name="secondaryColorContrastHex")
     def secondary_color_contrast_hex(self) -> Optional[pulumi.Input[str]]:
         """
-        Secondary color contrast hex code
+        (Optional) Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_contrast_hex")
 
@@ -477,7 +474,6 @@ class _ThemeState:
     def secondary_color_hex(self) -> Optional[pulumi.Input[str]]:
         """
         (Required) Secondary color hex code
-        - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_hex")
 
@@ -549,9 +545,8 @@ class Theme(pulumi.CustomResource):
         :param pulumi.Input[str] logo: (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
         :param pulumi.Input[str] primary_color_contrast_hex: (Optional) Primary color contrast hex code
         :param pulumi.Input[str] primary_color_hex: (Required) Primary color hex code
-        :param pulumi.Input[str] secondary_color_contrast_hex: Secondary color contrast hex code
+        :param pulumi.Input[str] secondary_color_contrast_hex: (Optional) Secondary color contrast hex code
         :param pulumi.Input[str] secondary_color_hex: (Required) Secondary color hex code
-               - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
         :param pulumi.Input[str] sign_in_page_touch_point_variant: (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         :param pulumi.Input[str] theme_id: Theme ID, used for read (faux-create)
         """
@@ -673,9 +668,8 @@ class Theme(pulumi.CustomResource):
         :param pulumi.Input[str] logo_url: (Read-Only) Logo URL
         :param pulumi.Input[str] primary_color_contrast_hex: (Optional) Primary color contrast hex code
         :param pulumi.Input[str] primary_color_hex: (Required) Primary color hex code
-        :param pulumi.Input[str] secondary_color_contrast_hex: Secondary color contrast hex code
+        :param pulumi.Input[str] secondary_color_contrast_hex: (Optional) Secondary color contrast hex code
         :param pulumi.Input[str] secondary_color_hex: (Required) Secondary color hex code
-               - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
         :param pulumi.Input[str] sign_in_page_touch_point_variant: (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         :param pulumi.Input[str] theme_id: Theme ID, used for read (faux-create)
         """
@@ -810,7 +804,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="secondaryColorContrastHex")
     def secondary_color_contrast_hex(self) -> pulumi.Output[Optional[str]]:
         """
-        Secondary color contrast hex code
+        (Optional) Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_contrast_hex")
 
@@ -819,7 +813,6 @@ class Theme(pulumi.CustomResource):
     def secondary_color_hex(self) -> pulumi.Output[Optional[str]]:
         """
         (Required) Secondary color hex code
-        - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_hex")
 

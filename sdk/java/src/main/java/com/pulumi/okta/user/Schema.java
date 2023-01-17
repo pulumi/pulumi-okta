@@ -327,14 +327,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return this.title;
     }
     /**
-     * - Type of profile source.
+     * Type of profile source.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return - Type of profile source.
+     * @return Type of profile source.
      * 
      */
     public Output<String> type() {

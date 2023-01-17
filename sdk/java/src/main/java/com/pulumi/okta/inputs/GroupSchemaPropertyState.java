@@ -277,14 +277,14 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * - Type of profile source.
+     * Type of profile source.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return - Type of profile source.
+     * @return Type of profile source.
      * 
      */
     public Optional<Output<String>> type() {
@@ -756,7 +756,7 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type - Type of profile source.
+         * @param type Type of profile source.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type - Type of profile source.
+         * @param type Type of profile source.
          * 
          * @return builder
          * 

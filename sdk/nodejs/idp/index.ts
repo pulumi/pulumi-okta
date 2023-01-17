@@ -5,20 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getMetadataSaml";
-export * from "./getOidc";
-export * from "./getSaml";
-export * from "./getSocial";
-export * from "./oidc";
-export * from "./saml";
-export * from "./samlKey";
-export * from "./social";
+export { GetMetadataSamlArgs, GetMetadataSamlResult, GetMetadataSamlOutputArgs } from "./getMetadataSaml";
+export const getMetadataSaml: typeof import("./getMetadataSaml").getMetadataSaml = null as any;
+export const getMetadataSamlOutput: typeof import("./getMetadataSaml").getMetadataSamlOutput = null as any;
+utilities.lazyLoad(exports, ["getMetadataSaml","getMetadataSamlOutput"], () => require("./getMetadataSaml"));
 
-// Import resources to register:
-import { Oidc } from "./oidc";
-import { Saml } from "./saml";
-import { SamlKey } from "./samlKey";
-import { Social } from "./social";
+export { GetOidcArgs, GetOidcResult, GetOidcOutputArgs } from "./getOidc";
+export const getOidc: typeof import("./getOidc").getOidc = null as any;
+export const getOidcOutput: typeof import("./getOidc").getOidcOutput = null as any;
+utilities.lazyLoad(exports, ["getOidc","getOidcOutput"], () => require("./getOidc"));
+
+export { GetSamlArgs, GetSamlResult, GetSamlOutputArgs } from "./getSaml";
+export const getSaml: typeof import("./getSaml").getSaml = null as any;
+export const getSamlOutput: typeof import("./getSaml").getSamlOutput = null as any;
+utilities.lazyLoad(exports, ["getSaml","getSamlOutput"], () => require("./getSaml"));
+
+export { GetSocialArgs, GetSocialResult, GetSocialOutputArgs } from "./getSocial";
+export const getSocial: typeof import("./getSocial").getSocial = null as any;
+export const getSocialOutput: typeof import("./getSocial").getSocialOutput = null as any;
+utilities.lazyLoad(exports, ["getSocial","getSocialOutput"], () => require("./getSocial"));
+
+export { OidcArgs, OidcState } from "./oidc";
+export type Oidc = import("./oidc").Oidc;
+export const Oidc: typeof import("./oidc").Oidc = null as any;
+utilities.lazyLoad(exports, ["Oidc"], () => require("./oidc"));
+
+export { SamlArgs, SamlState } from "./saml";
+export type Saml = import("./saml").Saml;
+export const Saml: typeof import("./saml").Saml = null as any;
+utilities.lazyLoad(exports, ["Saml"], () => require("./saml"));
+
+export { SamlKeyArgs, SamlKeyState } from "./samlKey";
+export type SamlKey = import("./samlKey").SamlKey;
+export const SamlKey: typeof import("./samlKey").SamlKey = null as any;
+utilities.lazyLoad(exports, ["SamlKey"], () => require("./samlKey"));
+
+export { SocialArgs, SocialState } from "./social";
+export type Social = import("./social").Social;
+export const Social: typeof import("./social").Social = null as any;
+utilities.lazyLoad(exports, ["Social"], () => require("./social"));
+
 
 const _module = {
     version: utilities.getVersion(),

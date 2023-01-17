@@ -19,11 +19,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAppGroupAssignments(args: GetAppGroupAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAppGroupAssignmentsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getAppGroupAssignments:getAppGroupAssignments", {
         "id": args.id,
     }, opts);
@@ -52,9 +49,22 @@ export interface GetAppGroupAssignmentsResult {
      */
     readonly id: string;
 }
-
+/**
+ * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getAppGroupAssignments({
+ *     id: okta_app_oauth.test.id,
+ * });
+ * ```
+ */
 export function getAppGroupAssignmentsOutput(args: GetAppGroupAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppGroupAssignmentsResult> {
-    return pulumi.output(args).apply(a => getAppGroupAssignments(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppGroupAssignments(a, opts))
 }
 
 /**

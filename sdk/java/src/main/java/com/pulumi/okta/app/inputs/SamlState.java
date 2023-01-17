@@ -157,14 +157,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Audience restriction.
+     * Audience Restriction
      * 
      */
     @Import(name="audience")
     private @Nullable Output<String> audience;
 
     /**
-     * @return Audience restriction.
+     * @return Audience Restriction
      * 
      */
     public Optional<Output<String>> audience() {
@@ -187,14 +187,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement.
+     * Identifies the SAML authentication context class for the assertion’s authentication statement
      * 
      */
     @Import(name="authnContextClassRef")
     private @Nullable Output<String> authnContextClassRef;
 
     /**
-     * @return Identifies the SAML authentication context class for the assertion’s authentication statement.
+     * @return Identifies the SAML authentication context class for the assertion’s authentication statement
      * 
      */
     public Optional<Output<String>> authnContextClassRef() {
@@ -247,14 +247,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      * 
      */
     @Import(name="destination")
     private @Nullable Output<String> destination;
 
     /**
-     * @return Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+     * @return Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      * 
      */
     public Optional<Output<String>> destination() {
@@ -262,14 +262,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response
      * 
      */
     @Import(name="digestAlgorithm")
     private @Nullable Output<String> digestAlgorithm;
 
     /**
-     * @return Determines the digest algorithm used to digitally sign the SAML assertion and response.
+     * @return Determines the digest algorithm used to digitally sign the SAML assertion and response
      * 
      */
     public Optional<Output<String>> digestAlgorithm() {
@@ -1282,7 +1282,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audience Audience restriction.
+         * @param audience Audience Restriction
          * 
          * @return builder
          * 
@@ -1293,7 +1293,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audience Audience restriction.
+         * @param audience Audience Restriction
          * 
          * @return builder
          * 
@@ -1324,7 +1324,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authnContextClassRef Identifies the SAML authentication context class for the assertion’s authentication statement.
+         * @param authnContextClassRef Identifies the SAML authentication context class for the assertion’s authentication statement
          * 
          * @return builder
          * 
@@ -1335,7 +1335,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authnContextClassRef Identifies the SAML authentication context class for the assertion’s authentication statement.
+         * @param authnContextClassRef Identifies the SAML authentication context class for the assertion’s authentication statement
          * 
          * @return builder
          * 
@@ -1408,7 +1408,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destination Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+         * @param destination Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
          * 
          * @return builder
          * 
@@ -1419,7 +1419,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destination Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+         * @param destination Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
          * 
          * @return builder
          * 
@@ -1429,7 +1429,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param digestAlgorithm Determines the digest algorithm used to digitally sign the SAML assertion and response.
+         * @param digestAlgorithm Determines the digest algorithm used to digitally sign the SAML assertion and response
          * 
          * @return builder
          * 
@@ -1440,7 +1440,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param digestAlgorithm Determines the digest algorithm used to digitally sign the SAML assertion and response.
+         * @param digestAlgorithm Determines the digest algorithm used to digitally sign the SAML assertion and response
          * 
          * @return builder
          * 

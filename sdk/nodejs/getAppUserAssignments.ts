@@ -19,11 +19,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAppUserAssignments(args: GetAppUserAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAppUserAssignmentsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getAppUserAssignments:getAppUserAssignments", {
         "id": args.id,
     }, opts);
@@ -52,9 +49,22 @@ export interface GetAppUserAssignmentsResult {
      */
     readonly users: string[];
 }
-
+/**
+ * Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getAppUserAssignments({
+ *     id: okta_app_oauth.test.id,
+ * });
+ * ```
+ */
 export function getAppUserAssignmentsOutput(args: GetAppUserAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppUserAssignmentsResult> {
-    return pulumi.output(args).apply(a => getAppUserAssignments(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppUserAssignments(a, opts))
 }
 
 /**

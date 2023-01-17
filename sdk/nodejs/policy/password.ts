@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = new okta.policy.Password("example", {
  *     description: "Example",
- *     groupsIncludeds: [okta_group_everyone.id],
+ *     groupsIncludeds: [data.okta_group.everyone.id],
  *     passwordHistoryCount: 4,
  *     status: "ACTIVE",
  * });

@@ -40,12 +40,12 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = okta.NewAppGroupAssignments(ctx, "example", &okta.AppGroupAssignmentsArgs{
 //				AppId: pulumi.String("<app id>"),
-//				Groups: AppGroupAssignmentsGroupArray{
-//					&AppGroupAssignmentsGroupArgs{
+//				Groups: okta.AppGroupAssignmentsGroupArray{
+//					&okta.AppGroupAssignmentsGroupArgs{
 //						Id:       pulumi.String("<group id>"),
 //						Priority: pulumi.Int(1),
 //					},
-//					&AppGroupAssignmentsGroupArgs{
+//					&okta.AppGroupAssignmentsGroupArgs{
 //						Id:       pulumi.String("<another group id>"),
 //						Priority: pulumi.Int(2),
 //						Profile:  pulumi.String(json0),

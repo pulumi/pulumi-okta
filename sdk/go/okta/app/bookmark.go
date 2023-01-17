@@ -87,7 +87,6 @@ type Bookmark struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Groups associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -116,7 +115,6 @@ type Bookmark struct {
 	// The URL of the bookmark.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// Users associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BookmarkUserArrayOutput `pulumi:"users"`
@@ -172,7 +170,6 @@ type bookmarkState struct {
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -201,7 +198,6 @@ type bookmarkState struct {
 	// The URL of the bookmark.
 	Url *string `pulumi:"url"`
 	// Users associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []BookmarkUser `pulumi:"users"`
@@ -223,7 +219,6 @@ type BookmarkState struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -252,7 +247,6 @@ type BookmarkState struct {
 	// The URL of the bookmark.
 	Url pulumi.StringPtrInput
 	// Users associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BookmarkUserArrayInput
@@ -278,7 +272,6 @@ type bookmarkArgs struct {
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -301,7 +294,6 @@ type bookmarkArgs struct {
 	// The URL of the bookmark.
 	Url string `pulumi:"url"`
 	// Users associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []BookmarkUser `pulumi:"users"`
@@ -324,7 +316,6 @@ type BookmarkArgs struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -347,7 +338,6 @@ type BookmarkArgs struct {
 	// The URL of the bookmark.
 	Url pulumi.StringInput
 	// Users associated with the application.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users BookmarkUserArrayInput
@@ -476,7 +466,6 @@ func (o BookmarkOutput) EnduserNote() pulumi.StringPtrOutput {
 }
 
 // Groups associated with the application.
-// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 //
 // Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 func (o BookmarkOutput) Groups() pulumi.StringArrayOutput {
@@ -544,7 +533,6 @@ func (o BookmarkOutput) Url() pulumi.StringOutput {
 }
 
 // Users associated with the application.
-// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 //
 // Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 func (o BookmarkOutput) Users() BookmarkUserArrayOutput {

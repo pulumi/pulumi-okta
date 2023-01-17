@@ -15,9 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.group.Group("example", {
- *     description: "My Example Group",
- * });
+ * const example = new okta.group.Group("example", {description: "My Example Group"});
  * ```
  *
  * Ignore users sync
@@ -25,7 +23,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleSkip = new okta.group.Group("example_skip", {
+ * const exampleSkip = new okta.group.Group("exampleSkip", {
  *     description: "My Example Group",
  *     skipUsers: true,
  * });

@@ -192,7 +192,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        /// - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         /// </summary>
         [Output("customClientId")]
         public Output<string?> CustomClientId { get; private set; } = null!;
@@ -214,7 +213,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -426,7 +424,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.OAuthUser>> Users { get; private set; } = null!;
@@ -460,6 +457,11 @@ namespace Pulumi.Okta.App
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "clientBasicSecret",
+                    "clientSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -537,11 +539,21 @@ namespace Pulumi.Okta.App
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
+        [Input("clientBasicSecret")]
+        private Input<string>? _clientBasicSecret;
+
         /// <summary>
         /// OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
         /// </summary>
-        [Input("clientBasicSecret")]
-        public Input<string>? ClientBasicSecret { get; set; }
+        public Input<string>? ClientBasicSecret
+        {
+            get => _clientBasicSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientBasicSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
@@ -563,7 +575,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        /// - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         /// </summary>
         [Input("customClientId")]
         public Input<string>? CustomClientId { get; set; }
@@ -594,7 +605,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
@@ -825,7 +835,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.OAuthUserArgs> Users
@@ -902,11 +911,21 @@ namespace Pulumi.Okta.App
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
+        [Input("clientBasicSecret")]
+        private Input<string>? _clientBasicSecret;
+
         /// <summary>
         /// OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
         /// </summary>
-        [Input("clientBasicSecret")]
-        public Input<string>? ClientBasicSecret { get; set; }
+        public Input<string>? ClientBasicSecret
+        {
+            get => _clientBasicSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientBasicSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
@@ -914,11 +933,21 @@ namespace Pulumi.Okta.App
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// URI to a web page providing information about the client.
@@ -934,7 +963,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        /// - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         /// </summary>
         [Input("customClientId")]
         public Input<string>? CustomClientId { get; set; }
@@ -965,7 +993,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
@@ -1214,7 +1241,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.OAuthUserGetArgs> Users

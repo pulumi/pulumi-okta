@@ -130,7 +130,7 @@ namespace Pulumi.Okta
     ///         Recipient = "https://here.com",
     ///         Destination = "https://its-about-the-journey.com",
     ///         Audience = "https://audience.com",
-    ///         SubjectNameIdTemplate = user.UserName,
+    ///         SubjectNameIdTemplate = "${user.userName}",
     ///         SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
     ///         ResponseSigned = true,
     ///         SignatureAlgorithm = "RSA_SHA256",
@@ -359,7 +359,7 @@ namespace Pulumi.Okta
         public Output<string?> Access { get; private set; } = null!;
 
         /// <summary>
-        /// - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        /// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         /// </summary>
         [Output("constraints")]
         public Output<ImmutableArray<string>> Constraints { get; private set; } = null!;
@@ -548,7 +548,7 @@ namespace Pulumi.Okta
         private InputList<string>? _constraints;
 
         /// <summary>
-        /// - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        /// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         /// </summary>
         public InputList<string> Constraints
         {
@@ -756,7 +756,7 @@ namespace Pulumi.Okta
         private InputList<string>? _constraints;
 
         /// <summary>
-        /// - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        /// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         /// </summary>
         public InputList<string> Constraints
         {

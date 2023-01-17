@@ -50,8 +50,8 @@ import (
 //			_, err = okta.NewGroupMemberships(ctx, "testGroupMemberships", &okta.GroupMembershipsArgs{
 //				GroupId: testGroup.ID(),
 //				Users: pulumi.StringArray{
-//					pulumi.Any(okta_user.Test1.Id),
-//					pulumi.Any(okta_user.Test2.Id),
+//					okta_user.Test1.Id,
+//					okta_user.Test2.Id,
 //				},
 //			})
 //			if err != nil {

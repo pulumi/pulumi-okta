@@ -14,11 +14,11 @@ namespace Pulumi.Okta.Outputs
     public sealed class UserSchemaPropertyMasterOverridePriority
     {
         /// <summary>
-        /// - Type of profile source.
+        /// Type of profile source.
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// - ID of profile source.
+        /// ID of profile source.
         /// </summary>
         public readonly string Value;
 

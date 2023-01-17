@@ -77,13 +77,13 @@ class SamlArgs:
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]] attribute_statements: List of SAML Attribute statements.
-        :param pulumi.Input[str] audience: Audience restriction.
+        :param pulumi.Input[str] audience: Audience Restriction
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
+        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
-        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
@@ -347,7 +347,7 @@ class SamlArgs:
     @pulumi.getter
     def audience(self) -> Optional[pulumi.Input[str]]:
         """
-        Audience restriction.
+        Audience Restriction
         """
         return pulumi.get(self, "audience")
 
@@ -371,7 +371,7 @@ class SamlArgs:
     @pulumi.getter(name="authnContextClassRef")
     def authn_context_class_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifies the SAML authentication context class for the assertion’s authentication statement.
+        Identifies the SAML authentication context class for the assertion’s authentication statement
         """
         return pulumi.get(self, "authn_context_class_ref")
 
@@ -407,7 +407,7 @@ class SamlArgs:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         """
         return pulumi.get(self, "destination")
 
@@ -419,7 +419,7 @@ class SamlArgs:
     @pulumi.getter(name="digestAlgorithm")
     def digest_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        Determines the digest algorithm used to digitally sign the SAML assertion and response
         """
         return pulumi.get(self, "digest_algorithm")
 
@@ -891,14 +891,14 @@ class _SamlState:
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]] attribute_statements: List of SAML Attribute statements.
-        :param pulumi.Input[str] audience: Audience restriction.
+        :param pulumi.Input[str] audience: Audience Restriction
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
+        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
         :param pulumi.Input[str] certificate: The raw signing certificate.
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
-        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] embed_url: The url that can be used to embed this application in other portals.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
@@ -1193,7 +1193,7 @@ class _SamlState:
     @pulumi.getter
     def audience(self) -> Optional[pulumi.Input[str]]:
         """
-        Audience restriction.
+        Audience Restriction
         """
         return pulumi.get(self, "audience")
 
@@ -1217,7 +1217,7 @@ class _SamlState:
     @pulumi.getter(name="authnContextClassRef")
     def authn_context_class_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifies the SAML authentication context class for the assertion’s authentication statement.
+        Identifies the SAML authentication context class for the assertion’s authentication statement
         """
         return pulumi.get(self, "authn_context_class_ref")
 
@@ -1265,7 +1265,7 @@ class _SamlState:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         """
         return pulumi.get(self, "destination")
 
@@ -1277,7 +1277,7 @@ class _SamlState:
     @pulumi.getter(name="digestAlgorithm")
     def digest_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        Determines the digest algorithm used to digitally sign the SAML assertion and response
         """
         return pulumi.get(self, "digest_algorithm")
 
@@ -1926,7 +1926,7 @@ class Saml(pulumi.CustomResource):
             signature_algorithm="RSA_SHA256",
             sso_url="https://example.com",
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-            subject_name_id_template=user["userName"])
+            subject_name_id_template="${user.userName}")
         ```
         ### With inline hook
 
@@ -1955,7 +1955,7 @@ class Saml(pulumi.CustomResource):
             recipient="https://here.com",
             destination="https://its-about-the-journey.com",
             audience="https://audience.com",
-            subject_name_id_template=user["userName"],
+            subject_name_id_template="${user.userName}",
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             response_signed=True,
             signature_algorithm="RSA_SHA256",
@@ -1988,7 +1988,7 @@ class Saml(pulumi.CustomResource):
             preconfigured_app="sharepoint_onpremise",
             saml_version="1.1",
             status="ACTIVE",
-            user_name_template=source["login"],
+            user_name_template="${source.login}",
             user_name_template_type="BUILT_IN")
         ```
         ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
@@ -2071,13 +2071,13 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]] attribute_statements: List of SAML Attribute statements.
-        :param pulumi.Input[str] audience: Audience restriction.
+        :param pulumi.Input[str] audience: Audience Restriction
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
+        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
-        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
@@ -2151,7 +2151,7 @@ class Saml(pulumi.CustomResource):
             signature_algorithm="RSA_SHA256",
             sso_url="https://example.com",
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-            subject_name_id_template=user["userName"])
+            subject_name_id_template="${user.userName}")
         ```
         ### With inline hook
 
@@ -2180,7 +2180,7 @@ class Saml(pulumi.CustomResource):
             recipient="https://here.com",
             destination="https://its-about-the-journey.com",
             audience="https://audience.com",
-            subject_name_id_template=user["userName"],
+            subject_name_id_template="${user.userName}",
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             response_signed=True,
             signature_algorithm="RSA_SHA256",
@@ -2213,7 +2213,7 @@ class Saml(pulumi.CustomResource):
             preconfigured_app="sharepoint_onpremise",
             saml_version="1.1",
             status="ACTIVE",
-            user_name_template=source["login"],
+            user_name_template="${source.login}",
             user_name_template_type="BUILT_IN")
         ```
         ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
@@ -2518,14 +2518,14 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]] attribute_statements: List of SAML Attribute statements.
-        :param pulumi.Input[str] audience: Audience restriction.
+        :param pulumi.Input[str] audience: Audience Restriction
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
+        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
         :param pulumi.Input[str] certificate: The raw signing certificate.
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
-        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
-        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] embed_url: The url that can be used to embed this application in other portals.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
@@ -2720,7 +2720,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def audience(self) -> pulumi.Output[Optional[str]]:
         """
-        Audience restriction.
+        Audience Restriction
         """
         return pulumi.get(self, "audience")
 
@@ -2736,7 +2736,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="authnContextClassRef")
     def authn_context_class_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Identifies the SAML authentication context class for the assertion’s authentication statement.
+        Identifies the SAML authentication context class for the assertion’s authentication statement
         """
         return pulumi.get(self, "authn_context_class_ref")
 
@@ -2768,7 +2768,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def destination(self) -> pulumi.Output[Optional[str]]:
         """
-        Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         """
         return pulumi.get(self, "destination")
 
@@ -2776,7 +2776,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="digestAlgorithm")
     def digest_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        Determines the digest algorithm used to digitally sign the SAML assertion and response
         """
         return pulumi.get(self, "digest_algorithm")
 

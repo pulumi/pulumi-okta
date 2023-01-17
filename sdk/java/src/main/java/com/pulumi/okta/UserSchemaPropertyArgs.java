@@ -292,14 +292,14 @@ public final class UserSchemaPropertyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * - Type of profile source.
+     * Type of profile source.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return - Type of profile source.
+     * @return Type of profile source.
      * 
      */
     public Output<String> type() {
@@ -809,7 +809,7 @@ public final class UserSchemaPropertyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type - Type of profile source.
+         * @param type Type of profile source.
          * 
          * @return builder
          * 
@@ -820,7 +820,7 @@ public final class UserSchemaPropertyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type - Type of profile source.
+         * @param type Type of profile source.
          * 
          * @return builder
          * 

@@ -36,7 +36,7 @@ namespace Pulumi.Okta.Idp
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOidcResult> InvokeAsync(GetOidcArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOidcResult>("okta:idp/getOidc:getOidc", args ?? new GetOidcArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOidcResult>("okta:idp/getOidc:getOidc", args ?? new GetOidcArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a OIDC IdP from Okta.
@@ -63,7 +63,7 @@ namespace Pulumi.Okta.Idp
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOidcResult> Invoke(GetOidcInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOidcResult>("okta:idp/getOidc:getOidc", args ?? new GetOidcInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOidcResult>("okta:idp/getOidc:getOidc", args ?? new GetOidcInvokeArgs(), options.WithDefaults());
     }
 
 

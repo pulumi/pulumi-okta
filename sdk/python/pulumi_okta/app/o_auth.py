@@ -84,14 +84,12 @@ class OAuthArgs:
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
         :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-               - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -123,7 +121,6 @@ class OAuthArgs:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         pulumi.set(__self__, "label", label)
@@ -419,7 +416,6 @@ class OAuthArgs:
     def custom_client_id(self) -> Optional[pulumi.Input[str]]:
         """
         This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         """
         return pulumi.get(self, "custom_client_id")
 
@@ -459,7 +455,6 @@ class OAuthArgs:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -821,7 +816,6 @@ class OAuthArgs:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]:
         """
         The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -916,14 +910,12 @@ class _OAuthState:
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
         :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-               - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -960,7 +952,6 @@ class _OAuthState:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         if accessibility_error_redirect_url is not None:
@@ -1254,7 +1245,6 @@ class _OAuthState:
     def custom_client_id(self) -> Optional[pulumi.Input[str]]:
         """
         This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         """
         return pulumi.get(self, "custom_client_id")
 
@@ -1294,7 +1284,6 @@ class _OAuthState:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -1716,7 +1705,6 @@ class _OAuthState:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]:
         """
         The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -1870,14 +1858,12 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
         :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-               - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -1911,7 +1897,6 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         ...
@@ -2064,7 +2049,7 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["authentication_policy"] = authentication_policy
             __props__.__dict__["auto_key_rotation"] = auto_key_rotation
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
-            __props__.__dict__["client_basic_secret"] = client_basic_secret
+            __props__.__dict__["client_basic_secret"] = None if client_basic_secret is None else pulumi.Output.secret(client_basic_secret)
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["client_uri"] = client_uri
             __props__.__dict__["consent_method"] = consent_method
@@ -2122,6 +2107,8 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientBasicSecret", "clientSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OAuth, __self__).__init__(
             'okta:app/oAuth:OAuth',
             resource_name,
@@ -2208,14 +2195,12 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
         :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-               - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -2252,7 +2237,6 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -2432,7 +2416,6 @@ class OAuth(pulumi.CustomResource):
     def custom_client_id(self) -> pulumi.Output[Optional[str]]:
         """
         This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.",
         """
         return pulumi.get(self, "custom_client_id")
 
@@ -2460,7 +2443,6 @@ class OAuth(pulumi.CustomResource):
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -2742,7 +2724,6 @@ class OAuth(pulumi.CustomResource):
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.OAuthUser']]]:
         """
         The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 

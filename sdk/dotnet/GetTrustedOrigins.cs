@@ -33,7 +33,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrustedOriginsResult> InvokeAsync(GetTrustedOriginsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrustedOriginsResult>("okta:index/getTrustedOrigins:getTrustedOrigins", args ?? new GetTrustedOriginsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustedOriginsResult>("okta:index/getTrustedOrigins:getTrustedOrigins", args ?? new GetTrustedOriginsArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource allows you to retrieve a list of trusted origins from Okta.
@@ -57,7 +57,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTrustedOriginsResult> Invoke(GetTrustedOriginsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrustedOriginsResult>("okta:index/getTrustedOrigins:getTrustedOrigins", args ?? new GetTrustedOriginsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrustedOriginsResult>("okta:index/getTrustedOrigins:getTrustedOrigins", args ?? new GetTrustedOriginsInvokeArgs(), options.WithDefaults());
     }
 
 

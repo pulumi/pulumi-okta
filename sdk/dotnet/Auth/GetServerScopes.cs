@@ -36,7 +36,7 @@ namespace Pulumi.Okta.Auth
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerScopesResult> InvokeAsync(GetServerScopesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a list of authorization server scopes from Okta.
@@ -63,7 +63,7 @@ namespace Pulumi.Okta.Auth
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServerScopesResult> Invoke(GetServerScopesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesInvokeArgs(), options.WithDefaults());
     }
 
 

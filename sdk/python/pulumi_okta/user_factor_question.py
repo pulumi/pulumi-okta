@@ -272,7 +272,7 @@ class UserFactorQuestion(pulumi.CustomResource):
 
             if answer is None and not opts.urn:
                 raise TypeError("Missing required property 'answer'")
-            __props__.__dict__["answer"] = answer
+            __props__.__dict__["answer"] = None if answer is None else pulumi.Output.secret(answer)
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
@@ -281,6 +281,8 @@ class UserFactorQuestion(pulumi.CustomResource):
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["status"] = None
             __props__.__dict__["text"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["answer"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(UserFactorQuestion, __self__).__init__(
             'okta:index/userFactorQuestion:UserFactorQuestion',
             resource_name,

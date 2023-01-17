@@ -51,7 +51,9 @@ import (
 //				return err
 //			}
 //			var sardaukars []*user.User
-//			for key0, val0 := range 5 {
+//			for index := 0; index < 5; index++ {
+//				key0 := index
+//				val0 := index
 //				__res, err := user.NewUser(ctx, fmt.Sprintf("sardaukars-%v", key0), &user.UserArgs{
 //					FirstName: pulumi.String("Amrit"),
 //					LastName:  pulumi.String(fmt.Sprintf("Sardaukar_%v", val0)),

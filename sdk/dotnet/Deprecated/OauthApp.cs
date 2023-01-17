@@ -366,6 +366,11 @@ namespace Pulumi.Okta.Deprecated
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "clientBasicSecret",
+                    "clientSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -443,11 +448,21 @@ namespace Pulumi.Okta.Deprecated
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
+        [Input("clientBasicSecret")]
+        private Input<string>? _clientBasicSecret;
+
         /// <summary>
         /// OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
         /// </summary>
-        [Input("clientBasicSecret")]
-        public Input<string>? ClientBasicSecret { get; set; }
+        public Input<string>? ClientBasicSecret
+        {
+            get => _clientBasicSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientBasicSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// OAuth client ID. If set during creation, app is created with this id.
@@ -806,11 +821,21 @@ namespace Pulumi.Okta.Deprecated
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
+        [Input("clientBasicSecret")]
+        private Input<string>? _clientBasicSecret;
+
         /// <summary>
         /// OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
         /// </summary>
-        [Input("clientBasicSecret")]
-        public Input<string>? ClientBasicSecret { get; set; }
+        public Input<string>? ClientBasicSecret
+        {
+            get => _clientBasicSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientBasicSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// OAuth client ID. If set during creation, app is created with this id.
@@ -818,11 +843,21 @@ namespace Pulumi.Okta.Deprecated
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// URI to a web page providing information about the client.

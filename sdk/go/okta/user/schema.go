@@ -99,7 +99,7 @@ type Schema struct {
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// display name for the enum value.
 	Title pulumi.StringOutput `pulumi:"title"`
-	// - Type of profile source.
+	// Type of profile source.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrOutput `pulumi:"unique"`
@@ -181,7 +181,7 @@ type schemaState struct {
 	Scope *string `pulumi:"scope"`
 	// display name for the enum value.
 	Title *string `pulumi:"title"`
-	// - Type of profile source.
+	// Type of profile source.
 	Type *string `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique *string `pulumi:"unique"`
@@ -226,7 +226,7 @@ type SchemaState struct {
 	Scope pulumi.StringPtrInput
 	// display name for the enum value.
 	Title pulumi.StringPtrInput
-	// - Type of profile source.
+	// Type of profile source.
 	Type pulumi.StringPtrInput
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrInput
@@ -275,7 +275,7 @@ type schemaArgs struct {
 	Scope *string `pulumi:"scope"`
 	// display name for the enum value.
 	Title string `pulumi:"title"`
-	// - Type of profile source.
+	// Type of profile source.
 	Type string `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique *string `pulumi:"unique"`
@@ -321,7 +321,7 @@ type SchemaArgs struct {
 	Scope pulumi.StringPtrInput
 	// display name for the enum value.
 	Title pulumi.StringInput
-	// - Type of profile source.
+	// Type of profile source.
 	Type pulumi.StringInput
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrInput
@@ -506,7 +506,7 @@ func (o SchemaOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }
 
-// - Type of profile source.
+// Type of profile source.
 func (o SchemaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

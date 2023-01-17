@@ -56,12 +56,12 @@ export class FactorTotp extends pulumi.CustomResource {
     }
 
     /**
-     * - Clock drift interval. This setting allows you to build in tolerance for any
+     * Clock drift interval. This setting allows you to build in tolerance for any
      * drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
      */
     public readonly clockDriftInterval!: pulumi.Output<number | undefined>;
     /**
-     * - HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
+     * HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
      * is `"HMacSHA512"`.
      */
     public readonly hmacAlgorithm!: pulumi.Output<string | undefined>;
@@ -74,12 +74,12 @@ export class FactorTotp extends pulumi.CustomResource {
      */
     public readonly otpLength!: pulumi.Output<number | undefined>;
     /**
-     * - Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
+     * Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
      * Default is `"base32"`.
      */
     public readonly sharedSecretEncoding!: pulumi.Output<string | undefined>;
     /**
-     * - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      */
     public readonly timeStep!: pulumi.Output<number | undefined>;
 
@@ -121,12 +121,12 @@ export class FactorTotp extends pulumi.CustomResource {
  */
 export interface FactorTotpState {
     /**
-     * - Clock drift interval. This setting allows you to build in tolerance for any
+     * Clock drift interval. This setting allows you to build in tolerance for any
      * drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
      */
     clockDriftInterval?: pulumi.Input<number>;
     /**
-     * - HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
+     * HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
      * is `"HMacSHA512"`.
      */
     hmacAlgorithm?: pulumi.Input<string>;
@@ -139,12 +139,12 @@ export interface FactorTotpState {
      */
     otpLength?: pulumi.Input<number>;
     /**
-     * - Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
+     * Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
      * Default is `"base32"`.
      */
     sharedSecretEncoding?: pulumi.Input<string>;
     /**
-     * - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      */
     timeStep?: pulumi.Input<number>;
 }
@@ -154,12 +154,12 @@ export interface FactorTotpState {
  */
 export interface FactorTotpArgs {
     /**
-     * - Clock drift interval. This setting allows you to build in tolerance for any
+     * Clock drift interval. This setting allows you to build in tolerance for any
      * drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
      */
     clockDriftInterval?: pulumi.Input<number>;
     /**
-     * - HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
+     * HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
      * is `"HMacSHA512"`.
      */
     hmacAlgorithm?: pulumi.Input<string>;
@@ -172,12 +172,12 @@ export interface FactorTotpArgs {
      */
     otpLength?: pulumi.Input<number>;
     /**
-     * - Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
+     * Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
      * Default is `"base32"`.
      */
     sharedSecretEncoding?: pulumi.Input<string>;
     /**
-     * - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      */
     timeStep?: pulumi.Input<number>;
 }

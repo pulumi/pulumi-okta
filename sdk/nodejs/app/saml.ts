@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +37,7 @@ import * as utilities from "../utilities";
  *     signatureAlgorithm: "RSA_SHA256",
  *     ssoUrl: "https://example.com",
  *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
- *     subjectNameIdTemplate: "${user.userName}",
+ *     subjectNameIdTemplate: `${user.userName}`,
  * });
  * ```
  * ### With inline hook
@@ -67,7 +68,7 @@ import * as utilities from "../utilities";
  *     recipient: "https://here.com",
  *     destination: "https://its-about-the-journey.com",
  *     audience: "https://audience.com",
- *     subjectNameIdTemplate: user.userName,
+ *     subjectNameIdTemplate: `${user.userName}`,
  *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
  *     responseSigned: true,
  *     signatureAlgorithm: "RSA_SHA256",
@@ -96,12 +97,13 @@ import * as utilities from "../utilities";
  *     "groupFilter": "app1.*",
  *     "siteURL": "https://www.okta.com"
  * }
+ *
  * `,
  *     label: "SharePoint (On-Premise)",
  *     preconfiguredApp: "sharepoint_onpremise",
  *     samlVersion: "1.1",
  *     status: "ACTIVE",
- *     userNameTemplate: "${source.login}",
+ *     userNameTemplate: `${source.login}`,
  *     userNameTemplateType: "BUILT_IN",
  * });
  * ```
@@ -134,6 +136,7 @@ import * as utilities from "../utilities";
  *       "yammer": false,
  *       "login": true
  *   }
+ *
  * `,
  *     appSettingsJson: `    {
  *        "wsFedConfigureType": "AUTO",
@@ -143,6 +146,7 @@ import * as utilities from "../utilities";
  *        "domains": [],
  *        "requireAdminConsent": false
  *     }
+ *
  * `,
  *     label: "Microsoft Office 365",
  *     preconfiguredApp: "office365",
@@ -238,7 +242,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly attributeStatements!: pulumi.Output<outputs.app.SamlAttributeStatement[] | undefined>;
     /**
-     * Audience restriction.
+     * Audience Restriction
      */
     public readonly audience!: pulumi.Output<string | undefined>;
     /**
@@ -246,7 +250,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly authenticationPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement.
+     * Identifies the SAML authentication context class for the assertion’s authentication statement
      */
     public readonly authnContextClassRef!: pulumi.Output<string | undefined>;
     /**
@@ -262,11 +266,11 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly defaultRelayState!: pulumi.Output<string | undefined>;
     /**
-     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      */
     public readonly destination!: pulumi.Output<string | undefined>;
     /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response
      */
     public readonly digestAlgorithm!: pulumi.Output<string | undefined>;
     /**
@@ -651,7 +655,7 @@ export interface SamlState {
      */
     attributeStatements?: pulumi.Input<pulumi.Input<inputs.app.SamlAttributeStatement>[]>;
     /**
-     * Audience restriction.
+     * Audience Restriction
      */
     audience?: pulumi.Input<string>;
     /**
@@ -659,7 +663,7 @@ export interface SamlState {
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement.
+     * Identifies the SAML authentication context class for the assertion’s authentication statement
      */
     authnContextClassRef?: pulumi.Input<string>;
     /**
@@ -675,11 +679,11 @@ export interface SamlState {
      */
     defaultRelayState?: pulumi.Input<string>;
     /**
-     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      */
     destination?: pulumi.Input<string>;
     /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response
      */
     digestAlgorithm?: pulumi.Input<string>;
     /**
@@ -915,7 +919,7 @@ export interface SamlArgs {
      */
     attributeStatements?: pulumi.Input<pulumi.Input<inputs.app.SamlAttributeStatement>[]>;
     /**
-     * Audience restriction.
+     * Audience Restriction
      */
     audience?: pulumi.Input<string>;
     /**
@@ -923,7 +927,7 @@ export interface SamlArgs {
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement.
+     * Identifies the SAML authentication context class for the assertion’s authentication statement
      */
     authnContextClassRef?: pulumi.Input<string>;
     /**
@@ -935,11 +939,11 @@ export interface SamlArgs {
      */
     defaultRelayState?: pulumi.Input<string>;
     /**
-     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      */
     destination?: pulumi.Input<string>;
     /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response
      */
     digestAlgorithm?: pulumi.Input<string>;
     /**

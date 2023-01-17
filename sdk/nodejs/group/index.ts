@@ -5,20 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getEveryoneGroup";
-export * from "./getGroup";
-export * from "./group";
-export * from "./membership";
-export * from "./role";
-export * from "./roles";
-export * from "./rule";
+export { GetEveryoneGroupArgs, GetEveryoneGroupResult, GetEveryoneGroupOutputArgs } from "./getEveryoneGroup";
+export const getEveryoneGroup: typeof import("./getEveryoneGroup").getEveryoneGroup = null as any;
+export const getEveryoneGroupOutput: typeof import("./getEveryoneGroup").getEveryoneGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getEveryoneGroup","getEveryoneGroupOutput"], () => require("./getEveryoneGroup"));
 
-// Import resources to register:
-import { Group } from "./group";
-import { Membership } from "./membership";
-import { Role } from "./role";
-import { Roles } from "./roles";
-import { Rule } from "./rule";
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
+export { MembershipArgs, MembershipState } from "./membership";
+export type Membership = import("./membership").Membership;
+export const Membership: typeof import("./membership").Membership = null as any;
+utilities.lazyLoad(exports, ["Membership"], () => require("./membership"));
+
+export { RoleArgs, RoleState } from "./role";
+export type Role = import("./role").Role;
+export const Role: typeof import("./role").Role = null as any;
+utilities.lazyLoad(exports, ["Role"], () => require("./role"));
+
+export { RolesArgs, RolesState } from "./roles";
+export type Roles = import("./roles").Roles;
+export const Roles: typeof import("./roles").Roles = null as any;
+utilities.lazyLoad(exports, ["Roles"], () => require("./roles"));
+
+export { RuleArgs, RuleState } from "./rule";
+export type Rule = import("./rule").Rule;
+export const Rule: typeof import("./rule").Rule = null as any;
+utilities.lazyLoad(exports, ["Rule"], () => require("./rule"));
+
 
 const _module = {
     version: utilities.getVersion(),

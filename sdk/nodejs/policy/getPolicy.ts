@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.policy.getPolicy({
+ * const example = okta.policy.getPolicy({
  *     name: "Password Policy Example",
  *     type: "PASSWORD",
- * }));
+ * });
  * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:policy/getPolicy:getPolicy", {
         "name": args.name,
         "type": args.type,
@@ -64,9 +61,23 @@ export interface GetPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source to retrieve a policy from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.policy.getPolicy({
+ *     name: "Password Policy Example",
+ *     type: "PASSWORD",
+ * });
+ * ```
+ */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply(a => getPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
 }
 
 /**

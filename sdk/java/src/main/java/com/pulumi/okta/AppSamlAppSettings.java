@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *                     jsonProperty(&#34;groupFilter&#34;, &#34;aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)&#34;),
  *                     jsonProperty(&#34;joinAllRoles&#34;, false),
  *                     jsonProperty(&#34;loginURL&#34;, &#34;https://console.aws.amazon.com/ec2/home&#34;),
- *                     jsonProperty(&#34;roleValuePattern&#34;, String.format(&#34;arn:aws:iam::%s:saml-provider/OKTA,arn:aws:iam::%s:role/%s&#34;, accountid,accountid,role)),
+ *                     jsonProperty(&#34;roleValuePattern&#34;, &#34;arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}&#34;),
  *                     jsonProperty(&#34;sessionDuration&#34;, 3200),
  *                     jsonProperty(&#34;useGroupMapping&#34;, false)
  *                 )))

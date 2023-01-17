@@ -209,14 +209,14 @@ public class Theme extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.primaryColorHex);
     }
     /**
-     * Secondary color contrast hex code
+     * (Optional) Secondary color contrast hex code
      * 
      */
     @Export(name="secondaryColorContrastHex", type=String.class, parameters={})
     private Output</* @Nullable */ String> secondaryColorContrastHex;
 
     /**
-     * @return Secondary color contrast hex code
+     * @return (Optional) Secondary color contrast hex code
      * 
      */
     public Output<Optional<String>> secondaryColorContrastHex() {
@@ -224,7 +224,6 @@ public class Theme extends com.pulumi.resources.CustomResource {
     }
     /**
      * (Required) Secondary color hex code
-     * - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
      * 
      */
     @Export(name="secondaryColorHex", type=String.class, parameters={})
@@ -232,7 +231,6 @@ public class Theme extends com.pulumi.resources.CustomResource {
 
     /**
      * @return (Required) Secondary color hex code
-     * - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
      * 
      */
     public Output<Optional<String>> secondaryColorHex() {

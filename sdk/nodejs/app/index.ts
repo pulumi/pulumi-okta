@@ -5,40 +5,96 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./autoLogin";
-export * from "./basicAuth";
-export * from "./bookmark";
-export * from "./getApp";
-export * from "./getMetadataSaml";
-export * from "./getOauth";
-export * from "./getSaml";
-export * from "./groupAssignment";
-export * from "./oauth";
-export * from "./oauthPostLogoutRedirectUri";
-export * from "./oauthRedirectUri";
-export * from "./saml";
-export * from "./securePasswordStore";
-export * from "./swa";
-export * from "./threeField";
-export * from "./user";
-export * from "./userBaseSchema";
-export * from "./userSchema";
+export { AutoLoginArgs, AutoLoginState } from "./autoLogin";
+export type AutoLogin = import("./autoLogin").AutoLogin;
+export const AutoLogin: typeof import("./autoLogin").AutoLogin = null as any;
+utilities.lazyLoad(exports, ["AutoLogin"], () => require("./autoLogin"));
 
-// Import resources to register:
-import { AutoLogin } from "./autoLogin";
-import { BasicAuth } from "./basicAuth";
-import { Bookmark } from "./bookmark";
-import { GroupAssignment } from "./groupAssignment";
-import { OAuth } from "./oauth";
-import { OAuthPostLogoutRedirectUri } from "./oauthPostLogoutRedirectUri";
-import { OAuthRedirectUri } from "./oauthRedirectUri";
-import { Saml } from "./saml";
-import { SecurePasswordStore } from "./securePasswordStore";
-import { Swa } from "./swa";
-import { ThreeField } from "./threeField";
-import { User } from "./user";
-import { UserBaseSchema } from "./userBaseSchema";
-import { UserSchema } from "./userSchema";
+export { BasicAuthArgs, BasicAuthState } from "./basicAuth";
+export type BasicAuth = import("./basicAuth").BasicAuth;
+export const BasicAuth: typeof import("./basicAuth").BasicAuth = null as any;
+utilities.lazyLoad(exports, ["BasicAuth"], () => require("./basicAuth"));
+
+export { BookmarkArgs, BookmarkState } from "./bookmark";
+export type Bookmark = import("./bookmark").Bookmark;
+export const Bookmark: typeof import("./bookmark").Bookmark = null as any;
+utilities.lazyLoad(exports, ["Bookmark"], () => require("./bookmark"));
+
+export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
+export const getApp: typeof import("./getApp").getApp = null as any;
+export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
+utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
+
+export { GetMetadataSamlArgs, GetMetadataSamlResult, GetMetadataSamlOutputArgs } from "./getMetadataSaml";
+export const getMetadataSaml: typeof import("./getMetadataSaml").getMetadataSaml = null as any;
+export const getMetadataSamlOutput: typeof import("./getMetadataSaml").getMetadataSamlOutput = null as any;
+utilities.lazyLoad(exports, ["getMetadataSaml","getMetadataSamlOutput"], () => require("./getMetadataSaml"));
+
+export { GetOauthArgs, GetOauthResult, GetOauthOutputArgs } from "./getOauth";
+export const getOauth: typeof import("./getOauth").getOauth = null as any;
+export const getOauthOutput: typeof import("./getOauth").getOauthOutput = null as any;
+utilities.lazyLoad(exports, ["getOauth","getOauthOutput"], () => require("./getOauth"));
+
+export { GetSamlArgs, GetSamlResult, GetSamlOutputArgs } from "./getSaml";
+export const getSaml: typeof import("./getSaml").getSaml = null as any;
+export const getSamlOutput: typeof import("./getSaml").getSamlOutput = null as any;
+utilities.lazyLoad(exports, ["getSaml","getSamlOutput"], () => require("./getSaml"));
+
+export { GroupAssignmentArgs, GroupAssignmentState } from "./groupAssignment";
+export type GroupAssignment = import("./groupAssignment").GroupAssignment;
+export const GroupAssignment: typeof import("./groupAssignment").GroupAssignment = null as any;
+utilities.lazyLoad(exports, ["GroupAssignment"], () => require("./groupAssignment"));
+
+export { OAuthArgs, OAuthState } from "./oauth";
+export type OAuth = import("./oauth").OAuth;
+export const OAuth: typeof import("./oauth").OAuth = null as any;
+utilities.lazyLoad(exports, ["OAuth"], () => require("./oauth"));
+
+export { OAuthPostLogoutRedirectUriArgs, OAuthPostLogoutRedirectUriState } from "./oauthPostLogoutRedirectUri";
+export type OAuthPostLogoutRedirectUri = import("./oauthPostLogoutRedirectUri").OAuthPostLogoutRedirectUri;
+export const OAuthPostLogoutRedirectUri: typeof import("./oauthPostLogoutRedirectUri").OAuthPostLogoutRedirectUri = null as any;
+utilities.lazyLoad(exports, ["OAuthPostLogoutRedirectUri"], () => require("./oauthPostLogoutRedirectUri"));
+
+export { OAuthRedirectUriArgs, OAuthRedirectUriState } from "./oauthRedirectUri";
+export type OAuthRedirectUri = import("./oauthRedirectUri").OAuthRedirectUri;
+export const OAuthRedirectUri: typeof import("./oauthRedirectUri").OAuthRedirectUri = null as any;
+utilities.lazyLoad(exports, ["OAuthRedirectUri"], () => require("./oauthRedirectUri"));
+
+export { SamlArgs, SamlState } from "./saml";
+export type Saml = import("./saml").Saml;
+export const Saml: typeof import("./saml").Saml = null as any;
+utilities.lazyLoad(exports, ["Saml"], () => require("./saml"));
+
+export { SecurePasswordStoreArgs, SecurePasswordStoreState } from "./securePasswordStore";
+export type SecurePasswordStore = import("./securePasswordStore").SecurePasswordStore;
+export const SecurePasswordStore: typeof import("./securePasswordStore").SecurePasswordStore = null as any;
+utilities.lazyLoad(exports, ["SecurePasswordStore"], () => require("./securePasswordStore"));
+
+export { SwaArgs, SwaState } from "./swa";
+export type Swa = import("./swa").Swa;
+export const Swa: typeof import("./swa").Swa = null as any;
+utilities.lazyLoad(exports, ["Swa"], () => require("./swa"));
+
+export { ThreeFieldArgs, ThreeFieldState } from "./threeField";
+export type ThreeField = import("./threeField").ThreeField;
+export const ThreeField: typeof import("./threeField").ThreeField = null as any;
+utilities.lazyLoad(exports, ["ThreeField"], () => require("./threeField"));
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
+export { UserBaseSchemaArgs, UserBaseSchemaState } from "./userBaseSchema";
+export type UserBaseSchema = import("./userBaseSchema").UserBaseSchema;
+export const UserBaseSchema: typeof import("./userBaseSchema").UserBaseSchema = null as any;
+utilities.lazyLoad(exports, ["UserBaseSchema"], () => require("./userBaseSchema"));
+
+export { UserSchemaArgs, UserSchemaState } from "./userSchema";
+export type UserSchema = import("./userSchema").UserSchema;
+export const UserSchema: typeof import("./userSchema").UserSchema = null as any;
+utilities.lazyLoad(exports, ["UserSchema"], () => require("./userSchema"));
+
 
 const _module = {
     version: utilities.getVersion(),

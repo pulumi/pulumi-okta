@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -100,7 +101,6 @@ export class Bookmark extends pulumi.CustomResource {
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
      * Groups associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -155,7 +155,6 @@ export class Bookmark extends pulumi.CustomResource {
     public readonly url!: pulumi.Output<string>;
     /**
      * Users associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
@@ -264,7 +263,6 @@ export interface BookmarkState {
     enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -319,7 +317,6 @@ export interface BookmarkState {
     url?: pulumi.Input<string>;
     /**
      * Users associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
@@ -360,7 +357,6 @@ export interface BookmarkArgs {
     enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -403,7 +399,6 @@ export interface BookmarkArgs {
     url: pulumi.Input<string>;
     /**
      * Users associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */

@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.idp.getSaml({
+ * const example = okta.idp.getSaml({
  *     name: "Example App",
- * }));
+ * });
  * ```
  */
 export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:idp/getSaml:getSaml", {
         "id": args.id,
         "name": args.name,
@@ -106,9 +103,22 @@ export interface GetSamlResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source to retrieve a SAML IdP from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.idp.getSaml({
+ *     name: "Example App",
+ * });
+ * ```
+ */
 export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlResult> {
-    return pulumi.output(args).apply(a => getSaml(a, opts))
+    return pulumi.output(args).apply((a: any) => getSaml(a, opts))
 }
 
 /**

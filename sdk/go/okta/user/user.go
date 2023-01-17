@@ -116,7 +116,6 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// Administrator roles assigned to User.
-	// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
 	//
 	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
 	AdminRoles pulumi.StringArrayOutput `pulumi:"adminRoles"`
@@ -233,6 +232,21 @@ func NewUser(ctx *pulumi.Context,
 	if args.Login == nil {
 		return nil, errors.New("invalid value for required argument 'Login'")
 	}
+	if args.OldPassword != nil {
+		args.OldPassword = pulumi.ToSecret(args.OldPassword).(pulumi.StringPtrInput)
+	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
+	}
+	if args.RecoveryAnswer != nil {
+		args.RecoveryAnswer = pulumi.ToSecret(args.RecoveryAnswer).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"oldPassword",
+		"password",
+		"recoveryAnswer",
+	})
+	opts = append(opts, secrets)
 	var resource User
 	err := ctx.RegisterResource("okta:user/user:User", name, args, &resource, opts...)
 	if err != nil {
@@ -256,7 +270,6 @@ func GetUser(ctx *pulumi.Context,
 // Input properties used for looking up and filtering User resources.
 type userState struct {
 	// Administrator roles assigned to User.
-	// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
 	//
 	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
 	AdminRoles []string `pulumi:"adminRoles"`
@@ -356,7 +369,6 @@ type userState struct {
 
 type UserState struct {
 	// Administrator roles assigned to User.
-	// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
 	//
 	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
 	AdminRoles pulumi.StringArrayInput
@@ -460,7 +472,6 @@ func (UserState) ElementType() reflect.Type {
 
 type userArgs struct {
 	// Administrator roles assigned to User.
-	// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
 	//
 	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
 	AdminRoles []string `pulumi:"adminRoles"`
@@ -559,7 +570,6 @@ type userArgs struct {
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
 	// Administrator roles assigned to User.
-	// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
 	//
 	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
 	AdminRoles pulumi.StringArrayInput
@@ -743,7 +753,6 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 }
 
 // Administrator roles assigned to User.
-// - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
 //
 // Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
 func (o UserOutput) AdminRoles() pulumi.StringArrayOutput {

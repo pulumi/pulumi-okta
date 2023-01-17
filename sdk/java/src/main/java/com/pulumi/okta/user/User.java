@@ -131,7 +131,6 @@ import javax.annotation.Nullable;
 public class User extends com.pulumi.resources.CustomResource {
     /**
      * Administrator roles assigned to User.
-     * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
      * 
      * @deprecated
      * The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
@@ -143,7 +142,6 @@ public class User extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Administrator roles assigned to User.
-     * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
      * 
      */
     public Output<Optional<List<String>>> adminRoles() {
@@ -786,6 +784,11 @@ public class User extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "oldPassword",
+                "password",
+                "recoveryAnswer"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -100,14 +100,13 @@ namespace Pulumi.Okta
         public Output<string?> PrimaryColorHex { get; private set; } = null!;
 
         /// <summary>
-        /// Secondary color contrast hex code
+        /// (Optional) Secondary color contrast hex code
         /// </summary>
         [Output("secondaryColorContrastHex")]
         public Output<string?> SecondaryColorContrastHex { get; private set; } = null!;
 
         /// <summary>
         /// (Required) Secondary color hex code
-        /// - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
         /// </summary>
         [Output("secondaryColorHex")]
         public Output<string?> SecondaryColorHex { get; private set; } = null!;
@@ -225,14 +224,13 @@ namespace Pulumi.Okta
         public Input<string>? PrimaryColorHex { get; set; }
 
         /// <summary>
-        /// Secondary color contrast hex code
+        /// (Optional) Secondary color contrast hex code
         /// </summary>
         [Input("secondaryColorContrastHex")]
         public Input<string>? SecondaryColorContrastHex { get; set; }
 
         /// <summary>
         /// (Required) Secondary color hex code
-        /// - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
         /// </summary>
         [Input("secondaryColorHex")]
         public Input<string>? SecondaryColorHex { get; set; }
@@ -336,14 +334,13 @@ namespace Pulumi.Okta
         public Input<string>? PrimaryColorHex { get; set; }
 
         /// <summary>
-        /// Secondary color contrast hex code
+        /// (Optional) Secondary color contrast hex code
         /// </summary>
         [Input("secondaryColorContrastHex")]
         public Input<string>? SecondaryColorContrastHex { get; set; }
 
         /// <summary>
         /// (Required) Secondary color hex code
-        /// - `secondary_color_contrast_hex` (Optional) Secondary color contrast hex code
         /// </summary>
         [Input("secondaryColorHex")]
         public Input<string>? SecondaryColorHex { get; set; }

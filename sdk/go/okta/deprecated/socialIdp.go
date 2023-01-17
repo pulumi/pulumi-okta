@@ -69,6 +69,17 @@ func NewSocialIdp(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	if args.ApplePrivateKey != nil {
+		args.ApplePrivateKey = pulumi.ToSecret(args.ApplePrivateKey).(pulumi.StringPtrInput)
+	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"applePrivateKey",
+		"clientSecret",
+	})
+	opts = append(opts, secrets)
 	var resource SocialIdp
 	err := ctx.RegisterResource("okta:deprecated/socialIdp:SocialIdp", name, args, &resource, opts...)
 	if err != nil {

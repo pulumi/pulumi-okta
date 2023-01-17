@@ -64,7 +64,6 @@ class SecurePasswordStoreArgs:
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
@@ -85,7 +84,6 @@ class SecurePasswordStoreArgs:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "password_field", password_field)
@@ -305,7 +303,6 @@ class SecurePasswordStoreArgs:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -546,7 +543,6 @@ class SecurePasswordStoreArgs:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -605,7 +601,6 @@ class _SecurePasswordStoreState:
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -633,7 +628,6 @@ class _SecurePasswordStoreState:
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -815,7 +809,6 @@ class _SecurePasswordStoreState:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -1140,7 +1133,6 @@ class _SecurePasswordStoreState:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurePasswordStoreUserArgs']]]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -1238,7 +1230,6 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -1263,7 +1254,6 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         ...
     @overload
@@ -1479,7 +1469,6 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -1507,7 +1496,6 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: Login username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurePasswordStoreUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1620,7 +1608,6 @@ class SecurePasswordStore(pulumi.CustomResource):
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -1837,7 +1824,6 @@ class SecurePasswordStore(pulumi.CustomResource):
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.SecurePasswordStoreUser']]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 

@@ -65,7 +65,6 @@ class UserArgs:
         :param pulumi.Input[str] last_name: User's Last Name, required by default.
         :param pulumi.Input[str] login: User profile property.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
-               - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -250,7 +249,6 @@ class UserArgs:
     def admin_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Administrator roles assigned to User.
-        - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         """
         return pulumi.get(self, "admin_roles")
 
@@ -758,7 +756,6 @@ class _UserState:
         """
         Input properties used for looking up and filtering User resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
-               - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -906,7 +903,6 @@ class _UserState:
     def admin_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Administrator roles assigned to User.
-        - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         """
         return pulumi.get(self, "admin_roles")
 
@@ -1545,7 +1541,6 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
-               - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -1772,16 +1767,16 @@ class User(pulumi.CustomResource):
             __props__.__dict__["middle_name"] = middle_name
             __props__.__dict__["mobile_phone"] = mobile_phone
             __props__.__dict__["nick_name"] = nick_name
-            __props__.__dict__["old_password"] = old_password
+            __props__.__dict__["old_password"] = None if old_password is None else pulumi.Output.secret(old_password)
             __props__.__dict__["organization"] = organization
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["password_hash"] = password_hash
             __props__.__dict__["password_inline_hook"] = password_inline_hook
             __props__.__dict__["postal_address"] = postal_address
             __props__.__dict__["preferred_language"] = preferred_language
             __props__.__dict__["primary_phone"] = primary_phone
             __props__.__dict__["profile_url"] = profile_url
-            __props__.__dict__["recovery_answer"] = recovery_answer
+            __props__.__dict__["recovery_answer"] = None if recovery_answer is None else pulumi.Output.secret(recovery_answer)
             __props__.__dict__["recovery_question"] = recovery_question
             __props__.__dict__["second_email"] = second_email
             __props__.__dict__["state"] = state
@@ -1792,6 +1787,8 @@ class User(pulumi.CustomResource):
             __props__.__dict__["user_type"] = user_type
             __props__.__dict__["zip_code"] = zip_code
             __props__.__dict__["raw_status"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oldPassword", "password", "recoveryAnswer"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'okta:user/user:User',
             resource_name,
@@ -1853,7 +1850,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
-               - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -1957,7 +1953,6 @@ class User(pulumi.CustomResource):
     def admin_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Administrator roles assigned to User.
-        - `DEPRECATED`: Please replace usage with the `UserAdminRoles` resource.
         """
         return pulumi.get(self, "admin_roles")
 

@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.app.getMetadataSaml({
+ * const example = okta.app.getMetadataSaml({
  *     appId: "<app id>",
  *     keyId: "<cert key id>",
- * }));
+ * });
  * ```
  */
 export function getMetadataSaml(args: GetMetadataSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSamlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:app/getMetadataSaml:getMetadataSaml", {
         "appId": args.appId,
         "keyId": args.keyId,
@@ -80,9 +77,23 @@ export interface GetMetadataSamlResult {
      */
     readonly wantAuthnRequestsSigned: boolean;
 }
-
+/**
+ * Use this data source to retrieve the metadata for SAML application from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.app.getMetadataSaml({
+ *     appId: "<app id>",
+ *     keyId: "<cert key id>",
+ * });
+ * ```
+ */
 export function getMetadataSamlOutput(args: GetMetadataSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSamlResult> {
-    return pulumi.output(args).apply(a => getMetadataSaml(a, opts))
+    return pulumi.output(args).apply((a: any) => getMetadataSaml(a, opts))
 }
 
 /**

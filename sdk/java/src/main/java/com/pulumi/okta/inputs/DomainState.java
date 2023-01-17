@@ -80,7 +80,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Indicates whether the domain should be verified.
-     * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
      * 
      * @deprecated
      * The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
@@ -92,7 +91,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Indicates whether the domain should be verified.
-     * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
      * 
      * @deprecated
      * The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
@@ -227,7 +225,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param verify Indicates whether the domain should be verified.
-         * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
          * 
          * @return builder
          * 
@@ -243,7 +240,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param verify Indicates whether the domain should be verified.
-         * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
          * 
          * @return builder
          * 

@@ -81,6 +81,13 @@ func NewCaptcha(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	if args.SecretKey != nil {
+		args.SecretKey = pulumi.ToSecret(args.SecretKey).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"secretKey",
+	})
+	opts = append(opts, secrets)
 	var resource Captcha
 	err := ctx.RegisterResource("okta:index/captcha:Captcha", name, args, &resource, opts...)
 	if err != nil {

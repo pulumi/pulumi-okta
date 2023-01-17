@@ -94,12 +94,11 @@ export class Theme extends pulumi.CustomResource {
      */
     public readonly primaryColorHex!: pulumi.Output<string | undefined>;
     /**
-     * Secondary color contrast hex code
+     * (Optional) Secondary color contrast hex code
      */
     public readonly secondaryColorContrastHex!: pulumi.Output<string | undefined>;
     /**
      * (Required) Secondary color hex code
-     * - `secondaryColorContrastHex` (Optional) Secondary color contrast hex code
      */
     public readonly secondaryColorHex!: pulumi.Output<string | undefined>;
     /**
@@ -226,12 +225,11 @@ export interface ThemeState {
      */
     primaryColorHex?: pulumi.Input<string>;
     /**
-     * Secondary color contrast hex code
+     * (Optional) Secondary color contrast hex code
      */
     secondaryColorContrastHex?: pulumi.Input<string>;
     /**
      * (Required) Secondary color hex code
-     * - `secondaryColorContrastHex` (Optional) Secondary color contrast hex code
      */
     secondaryColorHex?: pulumi.Input<string>;
     /**
@@ -285,12 +283,11 @@ export interface ThemeArgs {
      */
     primaryColorHex?: pulumi.Input<string>;
     /**
-     * Secondary color contrast hex code
+     * (Optional) Secondary color contrast hex code
      */
     secondaryColorContrastHex?: pulumi.Input<string>;
     /**
      * (Required) Secondary color hex code
-     * - `secondaryColorContrastHex` (Optional) Secondary color contrast hex code
      */
     secondaryColorHex?: pulumi.Input<string>;
     /**

@@ -8,11 +8,8 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
  */
 export function getBrand(args: GetBrandArgs, opts?: pulumi.InvokeOptions): Promise<GetBrandResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getBrand:getBrand", {
         "brandId": args.brandId,
     }, opts);
@@ -50,9 +47,11 @@ export interface GetBrandResult {
      */
     readonly removePoweredByOkta: boolean;
 }
-
+/**
+ * Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
+ */
 export function getBrandOutput(args: GetBrandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrandResult> {
-    return pulumi.output(args).apply(a => getBrand(a, opts))
+    return pulumi.output(args).apply((a: any) => getBrand(a, opts))
 }
 
 /**

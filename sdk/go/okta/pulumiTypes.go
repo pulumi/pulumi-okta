@@ -1019,9 +1019,9 @@ func (o GroupSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) Group
 }
 
 type GroupSchemaPropertyMasterOverridePriority struct {
-	// - Type of profile source.
+	// Type of profile source.
 	Type *string `pulumi:"type"`
-	// - ID of profile source.
+	// ID of profile source.
 	Value string `pulumi:"value"`
 }
 
@@ -1037,9 +1037,9 @@ type GroupSchemaPropertyMasterOverridePriorityInput interface {
 }
 
 type GroupSchemaPropertyMasterOverridePriorityArgs struct {
-	// - Type of profile source.
+	// Type of profile source.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// - ID of profile source.
+	// ID of profile source.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1094,12 +1094,12 @@ func (o GroupSchemaPropertyMasterOverridePriorityOutput) ToGroupSchemaPropertyMa
 	return o
 }
 
-// - Type of profile source.
+// Type of profile source.
 func (o GroupSchemaPropertyMasterOverridePriorityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyMasterOverridePriority) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// - ID of profile source.
+// ID of profile source.
 func (o GroupSchemaPropertyMasterOverridePriorityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyMasterOverridePriority) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1558,9 +1558,9 @@ func (o UserSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) UserSc
 }
 
 type UserSchemaPropertyMasterOverridePriority struct {
-	// - Type of profile source.
+	// Type of profile source.
 	Type *string `pulumi:"type"`
-	// - ID of profile source.
+	// ID of profile source.
 	Value string `pulumi:"value"`
 }
 
@@ -1576,9 +1576,9 @@ type UserSchemaPropertyMasterOverridePriorityInput interface {
 }
 
 type UserSchemaPropertyMasterOverridePriorityArgs struct {
-	// - Type of profile source.
+	// Type of profile source.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// - ID of profile source.
+	// ID of profile source.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1633,12 +1633,12 @@ func (o UserSchemaPropertyMasterOverridePriorityOutput) ToUserSchemaPropertyMast
 	return o
 }
 
-// - Type of profile source.
+// Type of profile source.
 func (o UserSchemaPropertyMasterOverridePriorityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSchemaPropertyMasterOverridePriority) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// - ID of profile source.
+// ID of profile source.
 func (o UserSchemaPropertyMasterOverridePriorityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSchemaPropertyMasterOverridePriority) string { return v.Value }).(pulumi.StringOutput)
 }
