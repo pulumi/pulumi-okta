@@ -156,6 +156,9 @@ class GetThemeResult:
     @property
     @pulumi.getter(name="secondaryColorContrastHex")
     def secondary_color_contrast_hex(self) -> str:
+        """
+        Secondary color contrast hex code
+        """
         return pulumi.get(self, "secondary_color_contrast_hex")
 
     @property
@@ -163,7 +166,6 @@ class GetThemeResult:
     def secondary_color_hex(self) -> str:
         """
         Secondary color hex code
-        - `secondary_color_contrast_hex` Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_hex")
 

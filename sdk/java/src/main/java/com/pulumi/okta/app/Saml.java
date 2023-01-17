@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
  *             .ssoUrl(&#34;https://example.com&#34;)
  *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
- *             .subjectNameIdTemplate(user.userName())
+ *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
  *             .build());
  * 
  *     }
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *             .recipient(&#34;https://here.com&#34;)
  *             .destination(&#34;https://its-about-the-journey.com&#34;)
  *             .audience(&#34;https://audience.com&#34;)
- *             .subjectNameIdTemplate(user.userName())
+ *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
  *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
  *             .responseSigned(true)
  *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
@@ -178,7 +178,7 @@ import javax.annotation.Nullable;
  *             .preconfiguredApp(&#34;sharepoint_onpremise&#34;)
  *             .samlVersion(&#34;1.1&#34;)
  *             .status(&#34;ACTIVE&#34;)
- *             .userNameTemplate(source.login())
+ *             .userNameTemplate(&#34;${source.login}&#34;)
  *             .userNameTemplateType(&#34;BUILT_IN&#34;)
  *             .build());
  * 
@@ -406,14 +406,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.attributeStatements);
     }
     /**
-     * Audience restriction.
+     * Audience Restriction
      * 
      */
     @Export(name="audience", type=String.class, parameters={})
     private Output</* @Nullable */ String> audience;
 
     /**
-     * @return Audience restriction.
+     * @return Audience Restriction
      * 
      */
     public Output<Optional<String>> audience() {
@@ -434,14 +434,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authenticationPolicy);
     }
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement.
+     * Identifies the SAML authentication context class for the assertion’s authentication statement
      * 
      */
     @Export(name="authnContextClassRef", type=String.class, parameters={})
     private Output</* @Nullable */ String> authnContextClassRef;
 
     /**
-     * @return Identifies the SAML authentication context class for the assertion’s authentication statement.
+     * @return Identifies the SAML authentication context class for the assertion’s authentication statement
      * 
      */
     public Output<Optional<String>> authnContextClassRef() {
@@ -490,28 +490,28 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultRelayState);
     }
     /**
-     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      * 
      */
     @Export(name="destination", type=String.class, parameters={})
     private Output</* @Nullable */ String> destination;
 
     /**
-     * @return Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+     * @return Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      * 
      */
     public Output<Optional<String>> destination() {
         return Codegen.optional(this.destination);
     }
     /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response
      * 
      */
     @Export(name="digestAlgorithm", type=String.class, parameters={})
     private Output</* @Nullable */ String> digestAlgorithm;
 
     /**
-     * @return Determines the digest algorithm used to digitally sign the SAML assertion and response.
+     * @return Determines the digest algorithm used to digitally sign the SAML assertion and response
      * 
      */
     public Output<Optional<String>> digestAlgorithm() {

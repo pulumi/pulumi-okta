@@ -122,6 +122,10 @@ namespace Pulumi.Okta
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "answer",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -145,11 +149,21 @@ namespace Pulumi.Okta
 
     public sealed class UserFactorQuestionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("answer", required: true)]
+        private Input<string>? _answer;
+
         /// <summary>
         /// Security question answer. Note here that answer won't be set during the resource import.
         /// </summary>
-        [Input("answer", required: true)]
-        public Input<string> Answer { get; set; } = null!;
+        public Input<string>? Answer
+        {
+            get => _answer;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _answer = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Security question unique key.
@@ -171,11 +185,21 @@ namespace Pulumi.Okta
 
     public sealed class UserFactorQuestionState : global::Pulumi.ResourceArgs
     {
+        [Input("answer")]
+        private Input<string>? _answer;
+
         /// <summary>
         /// Security question answer. Note here that answer won't be set during the resource import.
         /// </summary>
-        [Input("answer")]
-        public Input<string>? Answer { get; set; }
+        public Input<string>? Answer
+        {
+            get => _answer;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _answer = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Security question unique key.

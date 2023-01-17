@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -353,7 +354,7 @@ export class OauthApp extends pulumi.CustomResource {
             resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
             resourceInputs["autoKeyRotation"] = args ? args.autoKeyRotation : undefined;
             resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
-            resourceInputs["clientBasicSecret"] = args ? args.clientBasicSecret : undefined;
+            resourceInputs["clientBasicSecret"] = args?.clientBasicSecret ? pulumi.secret(args.clientBasicSecret) : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["clientUri"] = args ? args.clientUri : undefined;
             resourceInputs["consentMethod"] = args ? args.consentMethod : undefined;
@@ -400,6 +401,8 @@ export class OauthApp extends pulumi.CustomResource {
             resourceInputs["signOnMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["clientBasicSecret", "clientSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OauthApp.__pulumiType, name, resourceInputs, opts);
     }
 }

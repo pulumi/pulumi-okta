@@ -5,78 +5,365 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./adminRoleCustom";
-export * from "./adminRoleCustomAssignments";
-export * from "./adminRoleTargets";
-export * from "./appGroupAssignments";
-export * from "./appOauthApiScope";
-export * from "./appSamlAppSettings";
-export * from "./appSharedCredentials";
-export * from "./appSignonPolicy";
-export * from "./appSignonPolicyRule";
-export * from "./appUserBaseSchemaProperty";
-export * from "./appUserSchemaProperty";
-export * from "./authServerClaimDefault";
-export * from "./authServerDefault";
-export * from "./authenticator";
-export * from "./behaviour";
-export * from "./brand";
-export * from "./captcha";
-export * from "./captchaOrgWideSettings";
-export * from "./domain";
-export * from "./domainCertificate";
-export * from "./domainVerification";
-export * from "./emailCustomization";
-export * from "./emailSender";
-export * from "./emailSenderVerification";
-export * from "./eventHook";
-export * from "./eventHookVerification";
-export * from "./factorTotp";
-export * from "./getAppGroupAssignments";
-export * from "./getAppSignonPolicy";
-export * from "./getAppUserAssignments";
-export * from "./getAuthServerClaim";
-export * from "./getAuthServerClaims";
-export * from "./getAuthenticator";
-export * from "./getBehaviour";
-export * from "./getBehaviours";
-export * from "./getBrand";
-export * from "./getBrands";
-export * from "./getEmailCustomization";
-export * from "./getEmailCustomizations";
-export * from "./getGroups";
-export * from "./getNetworkZone";
-export * from "./getRoleSubscription";
-export * from "./getTemplate";
-export * from "./getTemplates";
-export * from "./getTheme";
-export * from "./getThemes";
-export * from "./getTrustedOrigins";
-export * from "./getUserSecurityQuestions";
-export * from "./groupMemberships";
-export * from "./groupSchemaProperty";
-export * from "./linkDefinition";
-export * from "./linkValue";
-export * from "./orgConfiguration";
-export * from "./orgSupport";
-export * from "./policyMfaDefault";
-export * from "./policyPasswordDefault";
-export * from "./policyProfileEnrollment";
-export * from "./policyProfileEnrollmentApps";
-export * from "./policyRuleProfileEnrollment";
-export * from "./provider";
-export * from "./rateLimiting";
-export * from "./resourceSet";
-export * from "./roleSubscription";
-export * from "./securityNotificationEmails";
-export * from "./templateSms";
-export * from "./theme";
-export * from "./threatInsightSettings";
-export * from "./userAdminRoles";
-export * from "./userBaseSchemaProperty";
-export * from "./userFactorQuestion";
-export * from "./userGroupMemberships";
-export * from "./userSchemaProperty";
+export { AdminRoleCustomArgs, AdminRoleCustomState } from "./adminRoleCustom";
+export type AdminRoleCustom = import("./adminRoleCustom").AdminRoleCustom;
+export const AdminRoleCustom: typeof import("./adminRoleCustom").AdminRoleCustom = null as any;
+utilities.lazyLoad(exports, ["AdminRoleCustom"], () => require("./adminRoleCustom"));
+
+export { AdminRoleCustomAssignmentsArgs, AdminRoleCustomAssignmentsState } from "./adminRoleCustomAssignments";
+export type AdminRoleCustomAssignments = import("./adminRoleCustomAssignments").AdminRoleCustomAssignments;
+export const AdminRoleCustomAssignments: typeof import("./adminRoleCustomAssignments").AdminRoleCustomAssignments = null as any;
+utilities.lazyLoad(exports, ["AdminRoleCustomAssignments"], () => require("./adminRoleCustomAssignments"));
+
+export { AdminRoleTargetsArgs, AdminRoleTargetsState } from "./adminRoleTargets";
+export type AdminRoleTargets = import("./adminRoleTargets").AdminRoleTargets;
+export const AdminRoleTargets: typeof import("./adminRoleTargets").AdminRoleTargets = null as any;
+utilities.lazyLoad(exports, ["AdminRoleTargets"], () => require("./adminRoleTargets"));
+
+export { AppGroupAssignmentsArgs, AppGroupAssignmentsState } from "./appGroupAssignments";
+export type AppGroupAssignments = import("./appGroupAssignments").AppGroupAssignments;
+export const AppGroupAssignments: typeof import("./appGroupAssignments").AppGroupAssignments = null as any;
+utilities.lazyLoad(exports, ["AppGroupAssignments"], () => require("./appGroupAssignments"));
+
+export { AppOauthApiScopeArgs, AppOauthApiScopeState } from "./appOauthApiScope";
+export type AppOauthApiScope = import("./appOauthApiScope").AppOauthApiScope;
+export const AppOauthApiScope: typeof import("./appOauthApiScope").AppOauthApiScope = null as any;
+utilities.lazyLoad(exports, ["AppOauthApiScope"], () => require("./appOauthApiScope"));
+
+export { AppSamlAppSettingsArgs, AppSamlAppSettingsState } from "./appSamlAppSettings";
+export type AppSamlAppSettings = import("./appSamlAppSettings").AppSamlAppSettings;
+export const AppSamlAppSettings: typeof import("./appSamlAppSettings").AppSamlAppSettings = null as any;
+utilities.lazyLoad(exports, ["AppSamlAppSettings"], () => require("./appSamlAppSettings"));
+
+export { AppSharedCredentialsArgs, AppSharedCredentialsState } from "./appSharedCredentials";
+export type AppSharedCredentials = import("./appSharedCredentials").AppSharedCredentials;
+export const AppSharedCredentials: typeof import("./appSharedCredentials").AppSharedCredentials = null as any;
+utilities.lazyLoad(exports, ["AppSharedCredentials"], () => require("./appSharedCredentials"));
+
+export { AppSignonPolicyArgs, AppSignonPolicyState } from "./appSignonPolicy";
+export type AppSignonPolicy = import("./appSignonPolicy").AppSignonPolicy;
+export const AppSignonPolicy: typeof import("./appSignonPolicy").AppSignonPolicy = null as any;
+utilities.lazyLoad(exports, ["AppSignonPolicy"], () => require("./appSignonPolicy"));
+
+export { AppSignonPolicyRuleArgs, AppSignonPolicyRuleState } from "./appSignonPolicyRule";
+export type AppSignonPolicyRule = import("./appSignonPolicyRule").AppSignonPolicyRule;
+export const AppSignonPolicyRule: typeof import("./appSignonPolicyRule").AppSignonPolicyRule = null as any;
+utilities.lazyLoad(exports, ["AppSignonPolicyRule"], () => require("./appSignonPolicyRule"));
+
+export { AppUserBaseSchemaPropertyArgs, AppUserBaseSchemaPropertyState } from "./appUserBaseSchemaProperty";
+export type AppUserBaseSchemaProperty = import("./appUserBaseSchemaProperty").AppUserBaseSchemaProperty;
+export const AppUserBaseSchemaProperty: typeof import("./appUserBaseSchemaProperty").AppUserBaseSchemaProperty = null as any;
+utilities.lazyLoad(exports, ["AppUserBaseSchemaProperty"], () => require("./appUserBaseSchemaProperty"));
+
+export { AppUserSchemaPropertyArgs, AppUserSchemaPropertyState } from "./appUserSchemaProperty";
+export type AppUserSchemaProperty = import("./appUserSchemaProperty").AppUserSchemaProperty;
+export const AppUserSchemaProperty: typeof import("./appUserSchemaProperty").AppUserSchemaProperty = null as any;
+utilities.lazyLoad(exports, ["AppUserSchemaProperty"], () => require("./appUserSchemaProperty"));
+
+export { AuthServerClaimDefaultArgs, AuthServerClaimDefaultState } from "./authServerClaimDefault";
+export type AuthServerClaimDefault = import("./authServerClaimDefault").AuthServerClaimDefault;
+export const AuthServerClaimDefault: typeof import("./authServerClaimDefault").AuthServerClaimDefault = null as any;
+utilities.lazyLoad(exports, ["AuthServerClaimDefault"], () => require("./authServerClaimDefault"));
+
+export { AuthServerDefaultArgs, AuthServerDefaultState } from "./authServerDefault";
+export type AuthServerDefault = import("./authServerDefault").AuthServerDefault;
+export const AuthServerDefault: typeof import("./authServerDefault").AuthServerDefault = null as any;
+utilities.lazyLoad(exports, ["AuthServerDefault"], () => require("./authServerDefault"));
+
+export { AuthenticatorArgs, AuthenticatorState } from "./authenticator";
+export type Authenticator = import("./authenticator").Authenticator;
+export const Authenticator: typeof import("./authenticator").Authenticator = null as any;
+utilities.lazyLoad(exports, ["Authenticator"], () => require("./authenticator"));
+
+export { BehaviourArgs, BehaviourState } from "./behaviour";
+export type Behaviour = import("./behaviour").Behaviour;
+export const Behaviour: typeof import("./behaviour").Behaviour = null as any;
+utilities.lazyLoad(exports, ["Behaviour"], () => require("./behaviour"));
+
+export { BrandArgs, BrandState } from "./brand";
+export type Brand = import("./brand").Brand;
+export const Brand: typeof import("./brand").Brand = null as any;
+utilities.lazyLoad(exports, ["Brand"], () => require("./brand"));
+
+export { CaptchaArgs, CaptchaState } from "./captcha";
+export type Captcha = import("./captcha").Captcha;
+export const Captcha: typeof import("./captcha").Captcha = null as any;
+utilities.lazyLoad(exports, ["Captcha"], () => require("./captcha"));
+
+export { CaptchaOrgWideSettingsArgs, CaptchaOrgWideSettingsState } from "./captchaOrgWideSettings";
+export type CaptchaOrgWideSettings = import("./captchaOrgWideSettings").CaptchaOrgWideSettings;
+export const CaptchaOrgWideSettings: typeof import("./captchaOrgWideSettings").CaptchaOrgWideSettings = null as any;
+utilities.lazyLoad(exports, ["CaptchaOrgWideSettings"], () => require("./captchaOrgWideSettings"));
+
+export { DomainArgs, DomainState } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+
+export { DomainCertificateArgs, DomainCertificateState } from "./domainCertificate";
+export type DomainCertificate = import("./domainCertificate").DomainCertificate;
+export const DomainCertificate: typeof import("./domainCertificate").DomainCertificate = null as any;
+utilities.lazyLoad(exports, ["DomainCertificate"], () => require("./domainCertificate"));
+
+export { DomainVerificationArgs, DomainVerificationState } from "./domainVerification";
+export type DomainVerification = import("./domainVerification").DomainVerification;
+export const DomainVerification: typeof import("./domainVerification").DomainVerification = null as any;
+utilities.lazyLoad(exports, ["DomainVerification"], () => require("./domainVerification"));
+
+export { EmailCustomizationArgs, EmailCustomizationState } from "./emailCustomization";
+export type EmailCustomization = import("./emailCustomization").EmailCustomization;
+export const EmailCustomization: typeof import("./emailCustomization").EmailCustomization = null as any;
+utilities.lazyLoad(exports, ["EmailCustomization"], () => require("./emailCustomization"));
+
+export { EmailSenderArgs, EmailSenderState } from "./emailSender";
+export type EmailSender = import("./emailSender").EmailSender;
+export const EmailSender: typeof import("./emailSender").EmailSender = null as any;
+utilities.lazyLoad(exports, ["EmailSender"], () => require("./emailSender"));
+
+export { EmailSenderVerificationArgs, EmailSenderVerificationState } from "./emailSenderVerification";
+export type EmailSenderVerification = import("./emailSenderVerification").EmailSenderVerification;
+export const EmailSenderVerification: typeof import("./emailSenderVerification").EmailSenderVerification = null as any;
+utilities.lazyLoad(exports, ["EmailSenderVerification"], () => require("./emailSenderVerification"));
+
+export { EventHookArgs, EventHookState } from "./eventHook";
+export type EventHook = import("./eventHook").EventHook;
+export const EventHook: typeof import("./eventHook").EventHook = null as any;
+utilities.lazyLoad(exports, ["EventHook"], () => require("./eventHook"));
+
+export { EventHookVerificationArgs, EventHookVerificationState } from "./eventHookVerification";
+export type EventHookVerification = import("./eventHookVerification").EventHookVerification;
+export const EventHookVerification: typeof import("./eventHookVerification").EventHookVerification = null as any;
+utilities.lazyLoad(exports, ["EventHookVerification"], () => require("./eventHookVerification"));
+
+export { FactorTotpArgs, FactorTotpState } from "./factorTotp";
+export type FactorTotp = import("./factorTotp").FactorTotp;
+export const FactorTotp: typeof import("./factorTotp").FactorTotp = null as any;
+utilities.lazyLoad(exports, ["FactorTotp"], () => require("./factorTotp"));
+
+export { GetAppGroupAssignmentsArgs, GetAppGroupAssignmentsResult, GetAppGroupAssignmentsOutputArgs } from "./getAppGroupAssignments";
+export const getAppGroupAssignments: typeof import("./getAppGroupAssignments").getAppGroupAssignments = null as any;
+export const getAppGroupAssignmentsOutput: typeof import("./getAppGroupAssignments").getAppGroupAssignmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getAppGroupAssignments","getAppGroupAssignmentsOutput"], () => require("./getAppGroupAssignments"));
+
+export { GetAppSignonPolicyArgs, GetAppSignonPolicyResult, GetAppSignonPolicyOutputArgs } from "./getAppSignonPolicy";
+export const getAppSignonPolicy: typeof import("./getAppSignonPolicy").getAppSignonPolicy = null as any;
+export const getAppSignonPolicyOutput: typeof import("./getAppSignonPolicy").getAppSignonPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAppSignonPolicy","getAppSignonPolicyOutput"], () => require("./getAppSignonPolicy"));
+
+export { GetAppUserAssignmentsArgs, GetAppUserAssignmentsResult, GetAppUserAssignmentsOutputArgs } from "./getAppUserAssignments";
+export const getAppUserAssignments: typeof import("./getAppUserAssignments").getAppUserAssignments = null as any;
+export const getAppUserAssignmentsOutput: typeof import("./getAppUserAssignments").getAppUserAssignmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getAppUserAssignments","getAppUserAssignmentsOutput"], () => require("./getAppUserAssignments"));
+
+export { GetAuthServerClaimArgs, GetAuthServerClaimResult, GetAuthServerClaimOutputArgs } from "./getAuthServerClaim";
+export const getAuthServerClaim: typeof import("./getAuthServerClaim").getAuthServerClaim = null as any;
+export const getAuthServerClaimOutput: typeof import("./getAuthServerClaim").getAuthServerClaimOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthServerClaim","getAuthServerClaimOutput"], () => require("./getAuthServerClaim"));
+
+export { GetAuthServerClaimsArgs, GetAuthServerClaimsResult, GetAuthServerClaimsOutputArgs } from "./getAuthServerClaims";
+export const getAuthServerClaims: typeof import("./getAuthServerClaims").getAuthServerClaims = null as any;
+export const getAuthServerClaimsOutput: typeof import("./getAuthServerClaims").getAuthServerClaimsOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthServerClaims","getAuthServerClaimsOutput"], () => require("./getAuthServerClaims"));
+
+export { GetAuthenticatorArgs, GetAuthenticatorResult, GetAuthenticatorOutputArgs } from "./getAuthenticator";
+export const getAuthenticator: typeof import("./getAuthenticator").getAuthenticator = null as any;
+export const getAuthenticatorOutput: typeof import("./getAuthenticator").getAuthenticatorOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthenticator","getAuthenticatorOutput"], () => require("./getAuthenticator"));
+
+export { GetBehaviourArgs, GetBehaviourResult, GetBehaviourOutputArgs } from "./getBehaviour";
+export const getBehaviour: typeof import("./getBehaviour").getBehaviour = null as any;
+export const getBehaviourOutput: typeof import("./getBehaviour").getBehaviourOutput = null as any;
+utilities.lazyLoad(exports, ["getBehaviour","getBehaviourOutput"], () => require("./getBehaviour"));
+
+export { GetBehavioursArgs, GetBehavioursResult, GetBehavioursOutputArgs } from "./getBehaviours";
+export const getBehaviours: typeof import("./getBehaviours").getBehaviours = null as any;
+export const getBehavioursOutput: typeof import("./getBehaviours").getBehavioursOutput = null as any;
+utilities.lazyLoad(exports, ["getBehaviours","getBehavioursOutput"], () => require("./getBehaviours"));
+
+export { GetBrandArgs, GetBrandResult, GetBrandOutputArgs } from "./getBrand";
+export const getBrand: typeof import("./getBrand").getBrand = null as any;
+export const getBrandOutput: typeof import("./getBrand").getBrandOutput = null as any;
+utilities.lazyLoad(exports, ["getBrand","getBrandOutput"], () => require("./getBrand"));
+
+export { GetBrandsResult } from "./getBrands";
+export const getBrands: typeof import("./getBrands").getBrands = null as any;
+utilities.lazyLoad(exports, ["getBrands"], () => require("./getBrands"));
+
+export { GetEmailCustomizationArgs, GetEmailCustomizationResult, GetEmailCustomizationOutputArgs } from "./getEmailCustomization";
+export const getEmailCustomization: typeof import("./getEmailCustomization").getEmailCustomization = null as any;
+export const getEmailCustomizationOutput: typeof import("./getEmailCustomization").getEmailCustomizationOutput = null as any;
+utilities.lazyLoad(exports, ["getEmailCustomization","getEmailCustomizationOutput"], () => require("./getEmailCustomization"));
+
+export { GetEmailCustomizationsArgs, GetEmailCustomizationsResult, GetEmailCustomizationsOutputArgs } from "./getEmailCustomizations";
+export const getEmailCustomizations: typeof import("./getEmailCustomizations").getEmailCustomizations = null as any;
+export const getEmailCustomizationsOutput: typeof import("./getEmailCustomizations").getEmailCustomizationsOutput = null as any;
+utilities.lazyLoad(exports, ["getEmailCustomizations","getEmailCustomizationsOutput"], () => require("./getEmailCustomizations"));
+
+export { GetGroupsArgs, GetGroupsResult, GetGroupsOutputArgs } from "./getGroups";
+export const getGroups: typeof import("./getGroups").getGroups = null as any;
+export const getGroupsOutput: typeof import("./getGroups").getGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getGroups","getGroupsOutput"], () => require("./getGroups"));
+
+export { GetNetworkZoneArgs, GetNetworkZoneResult, GetNetworkZoneOutputArgs } from "./getNetworkZone";
+export const getNetworkZone: typeof import("./getNetworkZone").getNetworkZone = null as any;
+export const getNetworkZoneOutput: typeof import("./getNetworkZone").getNetworkZoneOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkZone","getNetworkZoneOutput"], () => require("./getNetworkZone"));
+
+export { GetRoleSubscriptionArgs, GetRoleSubscriptionResult, GetRoleSubscriptionOutputArgs } from "./getRoleSubscription";
+export const getRoleSubscription: typeof import("./getRoleSubscription").getRoleSubscription = null as any;
+export const getRoleSubscriptionOutput: typeof import("./getRoleSubscription").getRoleSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleSubscription","getRoleSubscriptionOutput"], () => require("./getRoleSubscription"));
+
+export { GetTemplateArgs, GetTemplateResult, GetTemplateOutputArgs } from "./getTemplate";
+export const getTemplate: typeof import("./getTemplate").getTemplate = null as any;
+export const getTemplateOutput: typeof import("./getTemplate").getTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getTemplate","getTemplateOutput"], () => require("./getTemplate"));
+
+export { GetTemplatesArgs, GetTemplatesResult, GetTemplatesOutputArgs } from "./getTemplates";
+export const getTemplates: typeof import("./getTemplates").getTemplates = null as any;
+export const getTemplatesOutput: typeof import("./getTemplates").getTemplatesOutput = null as any;
+utilities.lazyLoad(exports, ["getTemplates","getTemplatesOutput"], () => require("./getTemplates"));
+
+export { GetThemeArgs, GetThemeResult, GetThemeOutputArgs } from "./getTheme";
+export const getTheme: typeof import("./getTheme").getTheme = null as any;
+export const getThemeOutput: typeof import("./getTheme").getThemeOutput = null as any;
+utilities.lazyLoad(exports, ["getTheme","getThemeOutput"], () => require("./getTheme"));
+
+export { GetThemesArgs, GetThemesResult, GetThemesOutputArgs } from "./getThemes";
+export const getThemes: typeof import("./getThemes").getThemes = null as any;
+export const getThemesOutput: typeof import("./getThemes").getThemesOutput = null as any;
+utilities.lazyLoad(exports, ["getThemes","getThemesOutput"], () => require("./getThemes"));
+
+export { GetTrustedOriginsArgs, GetTrustedOriginsResult, GetTrustedOriginsOutputArgs } from "./getTrustedOrigins";
+export const getTrustedOrigins: typeof import("./getTrustedOrigins").getTrustedOrigins = null as any;
+export const getTrustedOriginsOutput: typeof import("./getTrustedOrigins").getTrustedOriginsOutput = null as any;
+utilities.lazyLoad(exports, ["getTrustedOrigins","getTrustedOriginsOutput"], () => require("./getTrustedOrigins"));
+
+export { GetUserSecurityQuestionsArgs, GetUserSecurityQuestionsResult, GetUserSecurityQuestionsOutputArgs } from "./getUserSecurityQuestions";
+export const getUserSecurityQuestions: typeof import("./getUserSecurityQuestions").getUserSecurityQuestions = null as any;
+export const getUserSecurityQuestionsOutput: typeof import("./getUserSecurityQuestions").getUserSecurityQuestionsOutput = null as any;
+utilities.lazyLoad(exports, ["getUserSecurityQuestions","getUserSecurityQuestionsOutput"], () => require("./getUserSecurityQuestions"));
+
+export { GroupMembershipsArgs, GroupMembershipsState } from "./groupMemberships";
+export type GroupMemberships = import("./groupMemberships").GroupMemberships;
+export const GroupMemberships: typeof import("./groupMemberships").GroupMemberships = null as any;
+utilities.lazyLoad(exports, ["GroupMemberships"], () => require("./groupMemberships"));
+
+export { GroupSchemaPropertyArgs, GroupSchemaPropertyState } from "./groupSchemaProperty";
+export type GroupSchemaProperty = import("./groupSchemaProperty").GroupSchemaProperty;
+export const GroupSchemaProperty: typeof import("./groupSchemaProperty").GroupSchemaProperty = null as any;
+utilities.lazyLoad(exports, ["GroupSchemaProperty"], () => require("./groupSchemaProperty"));
+
+export { LinkDefinitionArgs, LinkDefinitionState } from "./linkDefinition";
+export type LinkDefinition = import("./linkDefinition").LinkDefinition;
+export const LinkDefinition: typeof import("./linkDefinition").LinkDefinition = null as any;
+utilities.lazyLoad(exports, ["LinkDefinition"], () => require("./linkDefinition"));
+
+export { LinkValueArgs, LinkValueState } from "./linkValue";
+export type LinkValue = import("./linkValue").LinkValue;
+export const LinkValue: typeof import("./linkValue").LinkValue = null as any;
+utilities.lazyLoad(exports, ["LinkValue"], () => require("./linkValue"));
+
+export { OrgConfigurationArgs, OrgConfigurationState } from "./orgConfiguration";
+export type OrgConfiguration = import("./orgConfiguration").OrgConfiguration;
+export const OrgConfiguration: typeof import("./orgConfiguration").OrgConfiguration = null as any;
+utilities.lazyLoad(exports, ["OrgConfiguration"], () => require("./orgConfiguration"));
+
+export { OrgSupportArgs, OrgSupportState } from "./orgSupport";
+export type OrgSupport = import("./orgSupport").OrgSupport;
+export const OrgSupport: typeof import("./orgSupport").OrgSupport = null as any;
+utilities.lazyLoad(exports, ["OrgSupport"], () => require("./orgSupport"));
+
+export { PolicyMfaDefaultArgs, PolicyMfaDefaultState } from "./policyMfaDefault";
+export type PolicyMfaDefault = import("./policyMfaDefault").PolicyMfaDefault;
+export const PolicyMfaDefault: typeof import("./policyMfaDefault").PolicyMfaDefault = null as any;
+utilities.lazyLoad(exports, ["PolicyMfaDefault"], () => require("./policyMfaDefault"));
+
+export { PolicyPasswordDefaultArgs, PolicyPasswordDefaultState } from "./policyPasswordDefault";
+export type PolicyPasswordDefault = import("./policyPasswordDefault").PolicyPasswordDefault;
+export const PolicyPasswordDefault: typeof import("./policyPasswordDefault").PolicyPasswordDefault = null as any;
+utilities.lazyLoad(exports, ["PolicyPasswordDefault"], () => require("./policyPasswordDefault"));
+
+export { PolicyProfileEnrollmentArgs, PolicyProfileEnrollmentState } from "./policyProfileEnrollment";
+export type PolicyProfileEnrollment = import("./policyProfileEnrollment").PolicyProfileEnrollment;
+export const PolicyProfileEnrollment: typeof import("./policyProfileEnrollment").PolicyProfileEnrollment = null as any;
+utilities.lazyLoad(exports, ["PolicyProfileEnrollment"], () => require("./policyProfileEnrollment"));
+
+export { PolicyProfileEnrollmentAppsArgs, PolicyProfileEnrollmentAppsState } from "./policyProfileEnrollmentApps";
+export type PolicyProfileEnrollmentApps = import("./policyProfileEnrollmentApps").PolicyProfileEnrollmentApps;
+export const PolicyProfileEnrollmentApps: typeof import("./policyProfileEnrollmentApps").PolicyProfileEnrollmentApps = null as any;
+utilities.lazyLoad(exports, ["PolicyProfileEnrollmentApps"], () => require("./policyProfileEnrollmentApps"));
+
+export { PolicyRuleProfileEnrollmentArgs, PolicyRuleProfileEnrollmentState } from "./policyRuleProfileEnrollment";
+export type PolicyRuleProfileEnrollment = import("./policyRuleProfileEnrollment").PolicyRuleProfileEnrollment;
+export const PolicyRuleProfileEnrollment: typeof import("./policyRuleProfileEnrollment").PolicyRuleProfileEnrollment = null as any;
+utilities.lazyLoad(exports, ["PolicyRuleProfileEnrollment"], () => require("./policyRuleProfileEnrollment"));
+
+export { ProviderArgs } from "./provider";
+export type Provider = import("./provider").Provider;
+export const Provider: typeof import("./provider").Provider = null as any;
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
+export { RateLimitingArgs, RateLimitingState } from "./rateLimiting";
+export type RateLimiting = import("./rateLimiting").RateLimiting;
+export const RateLimiting: typeof import("./rateLimiting").RateLimiting = null as any;
+utilities.lazyLoad(exports, ["RateLimiting"], () => require("./rateLimiting"));
+
+export { ResourceSetArgs, ResourceSetState } from "./resourceSet";
+export type ResourceSet = import("./resourceSet").ResourceSet;
+export const ResourceSet: typeof import("./resourceSet").ResourceSet = null as any;
+utilities.lazyLoad(exports, ["ResourceSet"], () => require("./resourceSet"));
+
+export { RoleSubscriptionArgs, RoleSubscriptionState } from "./roleSubscription";
+export type RoleSubscription = import("./roleSubscription").RoleSubscription;
+export const RoleSubscription: typeof import("./roleSubscription").RoleSubscription = null as any;
+utilities.lazyLoad(exports, ["RoleSubscription"], () => require("./roleSubscription"));
+
+export { SecurityNotificationEmailsArgs, SecurityNotificationEmailsState } from "./securityNotificationEmails";
+export type SecurityNotificationEmails = import("./securityNotificationEmails").SecurityNotificationEmails;
+export const SecurityNotificationEmails: typeof import("./securityNotificationEmails").SecurityNotificationEmails = null as any;
+utilities.lazyLoad(exports, ["SecurityNotificationEmails"], () => require("./securityNotificationEmails"));
+
+export { TemplateSmsArgs, TemplateSmsState } from "./templateSms";
+export type TemplateSms = import("./templateSms").TemplateSms;
+export const TemplateSms: typeof import("./templateSms").TemplateSms = null as any;
+utilities.lazyLoad(exports, ["TemplateSms"], () => require("./templateSms"));
+
+export { ThemeArgs, ThemeState } from "./theme";
+export type Theme = import("./theme").Theme;
+export const Theme: typeof import("./theme").Theme = null as any;
+utilities.lazyLoad(exports, ["Theme"], () => require("./theme"));
+
+export { ThreatInsightSettingsArgs, ThreatInsightSettingsState } from "./threatInsightSettings";
+export type ThreatInsightSettings = import("./threatInsightSettings").ThreatInsightSettings;
+export const ThreatInsightSettings: typeof import("./threatInsightSettings").ThreatInsightSettings = null as any;
+utilities.lazyLoad(exports, ["ThreatInsightSettings"], () => require("./threatInsightSettings"));
+
+export { UserAdminRolesArgs, UserAdminRolesState } from "./userAdminRoles";
+export type UserAdminRoles = import("./userAdminRoles").UserAdminRoles;
+export const UserAdminRoles: typeof import("./userAdminRoles").UserAdminRoles = null as any;
+utilities.lazyLoad(exports, ["UserAdminRoles"], () => require("./userAdminRoles"));
+
+export { UserBaseSchemaPropertyArgs, UserBaseSchemaPropertyState } from "./userBaseSchemaProperty";
+export type UserBaseSchemaProperty = import("./userBaseSchemaProperty").UserBaseSchemaProperty;
+export const UserBaseSchemaProperty: typeof import("./userBaseSchemaProperty").UserBaseSchemaProperty = null as any;
+utilities.lazyLoad(exports, ["UserBaseSchemaProperty"], () => require("./userBaseSchemaProperty"));
+
+export { UserFactorQuestionArgs, UserFactorQuestionState } from "./userFactorQuestion";
+export type UserFactorQuestion = import("./userFactorQuestion").UserFactorQuestion;
+export const UserFactorQuestion: typeof import("./userFactorQuestion").UserFactorQuestion = null as any;
+utilities.lazyLoad(exports, ["UserFactorQuestion"], () => require("./userFactorQuestion"));
+
+export { UserGroupMembershipsArgs, UserGroupMembershipsState } from "./userGroupMemberships";
+export type UserGroupMemberships = import("./userGroupMemberships").UserGroupMemberships;
+export const UserGroupMemberships: typeof import("./userGroupMemberships").UserGroupMemberships = null as any;
+utilities.lazyLoad(exports, ["UserGroupMemberships"], () => require("./userGroupMemberships"));
+
+export { UserSchemaPropertyArgs, UserSchemaPropertyState } from "./userSchemaProperty";
+export type UserSchemaProperty = import("./userSchemaProperty").UserSchemaProperty;
+export const UserSchemaProperty: typeof import("./userSchemaProperty").UserSchemaProperty = null as any;
+utilities.lazyLoad(exports, ["UserSchemaProperty"], () => require("./userSchemaProperty"));
+
 
 // Export sub-modules:
 import * as app from "./app";
@@ -112,58 +399,6 @@ export {
     types,
     user,
 };
-
-// Import resources to register:
-import { AdminRoleCustom } from "./adminRoleCustom";
-import { AdminRoleCustomAssignments } from "./adminRoleCustomAssignments";
-import { AdminRoleTargets } from "./adminRoleTargets";
-import { AppGroupAssignments } from "./appGroupAssignments";
-import { AppOauthApiScope } from "./appOauthApiScope";
-import { AppSamlAppSettings } from "./appSamlAppSettings";
-import { AppSharedCredentials } from "./appSharedCredentials";
-import { AppSignonPolicy } from "./appSignonPolicy";
-import { AppSignonPolicyRule } from "./appSignonPolicyRule";
-import { AppUserBaseSchemaProperty } from "./appUserBaseSchemaProperty";
-import { AppUserSchemaProperty } from "./appUserSchemaProperty";
-import { AuthServerClaimDefault } from "./authServerClaimDefault";
-import { AuthServerDefault } from "./authServerDefault";
-import { Authenticator } from "./authenticator";
-import { Behaviour } from "./behaviour";
-import { Brand } from "./brand";
-import { Captcha } from "./captcha";
-import { CaptchaOrgWideSettings } from "./captchaOrgWideSettings";
-import { Domain } from "./domain";
-import { DomainCertificate } from "./domainCertificate";
-import { DomainVerification } from "./domainVerification";
-import { EmailCustomization } from "./emailCustomization";
-import { EmailSender } from "./emailSender";
-import { EmailSenderVerification } from "./emailSenderVerification";
-import { EventHook } from "./eventHook";
-import { EventHookVerification } from "./eventHookVerification";
-import { FactorTotp } from "./factorTotp";
-import { GroupMemberships } from "./groupMemberships";
-import { GroupSchemaProperty } from "./groupSchemaProperty";
-import { LinkDefinition } from "./linkDefinition";
-import { LinkValue } from "./linkValue";
-import { OrgConfiguration } from "./orgConfiguration";
-import { OrgSupport } from "./orgSupport";
-import { PolicyMfaDefault } from "./policyMfaDefault";
-import { PolicyPasswordDefault } from "./policyPasswordDefault";
-import { PolicyProfileEnrollment } from "./policyProfileEnrollment";
-import { PolicyProfileEnrollmentApps } from "./policyProfileEnrollmentApps";
-import { PolicyRuleProfileEnrollment } from "./policyRuleProfileEnrollment";
-import { RateLimiting } from "./rateLimiting";
-import { ResourceSet } from "./resourceSet";
-import { RoleSubscription } from "./roleSubscription";
-import { SecurityNotificationEmails } from "./securityNotificationEmails";
-import { TemplateSms } from "./templateSms";
-import { Theme } from "./theme";
-import { ThreatInsightSettings } from "./threatInsightSettings";
-import { UserAdminRoles } from "./userAdminRoles";
-import { UserBaseSchemaProperty } from "./userBaseSchemaProperty";
-import { UserFactorQuestion } from "./userFactorQuestion";
-import { UserGroupMemberships } from "./userGroupMemberships";
-import { UserSchemaProperty } from "./userSchemaProperty";
 
 const _module = {
     version: utilities.getVersion(),
@@ -324,9 +559,6 @@ pulumi.runtime.registerResourceModule("okta", "index/userBaseSchemaProperty", _m
 pulumi.runtime.registerResourceModule("okta", "index/userFactorQuestion", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userGroupMemberships", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userSchemaProperty", _module)
-
-import { Provider } from "./provider";
-
 pulumi.runtime.registerResourcePackage("okta", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

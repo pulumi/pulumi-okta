@@ -178,7 +178,7 @@ import (
 //				Recipient:               pulumi.String("https://here.com"),
 //				Destination:             pulumi.String("https://its-about-the-journey.com"),
 //				Audience:                pulumi.String("https://audience.com"),
-//				SubjectNameIdTemplate:   pulumi.Any(user.UserName),
+//				SubjectNameIdTemplate:   pulumi.String(fmt.Sprintf("${user.userName}")),
 //				SubjectNameIdFormat:     pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
 //				ResponseSigned:          pulumi.Bool(true),
 //				SignatureAlgorithm:      pulumi.String("RSA_SHA256"),
@@ -200,11 +200,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testAppSignonPolicy := okta.LookupAppSignonPolicyOutput(ctx, GetAppSignonPolicyOutputArgs{
+//			testAppSignonPolicy := okta.LookupAppSignonPolicyOutput(ctx, okta.GetAppSignonPolicyOutputArgs{
 //				AppId: testSaml.ID(),
 //			}, nil)
 //			var testUser []*user.User
-//			for key0, val0 := range 5 {
+//			for index := 0; index < 5; index++ {
+//				key0 := index
+//				val0 := index
 //				__res, err := user.NewUser(ctx, fmt.Sprintf("testUser-%v", key0), &user.UserArgs{
 //					FirstName: pulumi.String("TestAcc"),
 //					LastName:  pulumi.String("Smith"),
@@ -217,7 +219,9 @@ import (
 //				testUser = append(testUser, __res)
 //			}
 //			var this []*group.Group
-//			for key0, val0 := range 5 {
+//			for index := 0; index < 5; index++ {
+//				key0 := index
+//				val0 := index
 //				__res, err := group.NewGroup(ctx, fmt.Sprintf("this-%v", key0), &group.GroupArgs{
 //					Description: pulumi.String(fmt.Sprintf("testAcc_%v", val0)),
 //				})
@@ -280,9 +284,9 @@ import (
 //			}
 //			json1 := string(tmpJSON1)
 //			_, err = okta.NewAppSignonPolicyRule(ctx, "testAppSignonPolicyRule", &okta.AppSignonPolicyRuleArgs{
-//				PolicyId: testAppSignonPolicy.ApplyT(func(testAppSignonPolicy GetAppSignonPolicyResult) (string, error) {
-//					return testAppSignonPolicy.Id, nil
-//				}).(pulumi.StringOutput),
+//				PolicyId: testAppSignonPolicy.ApplyT(func(testAppSignonPolicy okta.GetAppSignonPolicyResult) (*string, error) {
+//					return &testAppSignonPolicy.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Access:             pulumi.String("ALLOW"),
 //				CustomExpression:   pulumi.String("user.status == \"ACTIVE\""),
 //				DeviceIsManaged:    pulumi.Bool(false),
@@ -301,28 +305,28 @@ import (
 //				NetworkIncludes: pulumi.StringArray{
 //					testZone.ID(),
 //				},
-//				PlatformIncludes: AppSignonPolicyRulePlatformIncludeArray{
-//					&AppSignonPolicyRulePlatformIncludeArgs{
+//				PlatformIncludes: okta.AppSignonPolicyRulePlatformIncludeArray{
+//					&okta.AppSignonPolicyRulePlatformIncludeArgs{
 //						OsType: pulumi.String("ANDROID"),
 //						Type:   pulumi.String("MOBILE"),
 //					},
-//					&AppSignonPolicyRulePlatformIncludeArgs{
+//					&okta.AppSignonPolicyRulePlatformIncludeArgs{
 //						OsType: pulumi.String("IOS"),
 //						Type:   pulumi.String("MOBILE"),
 //					},
-//					&AppSignonPolicyRulePlatformIncludeArgs{
+//					&okta.AppSignonPolicyRulePlatformIncludeArgs{
 //						OsType: pulumi.String("MACOS"),
 //						Type:   pulumi.String("DESKTOP"),
 //					},
-//					&AppSignonPolicyRulePlatformIncludeArgs{
+//					&okta.AppSignonPolicyRulePlatformIncludeArgs{
 //						OsType: pulumi.String("OTHER"),
 //						Type:   pulumi.String("DESKTOP"),
 //					},
-//					&AppSignonPolicyRulePlatformIncludeArgs{
+//					&okta.AppSignonPolicyRulePlatformIncludeArgs{
 //						OsType: pulumi.String("OTHER"),
 //						Type:   pulumi.String("MOBILE"),
 //					},
-//					&AppSignonPolicyRulePlatformIncludeArgs{
+//					&okta.AppSignonPolicyRulePlatformIncludeArgs{
 //						OsType: pulumi.String("WINDOWS"),
 //						Type:   pulumi.String("DESKTOP"),
 //					},
@@ -334,7 +338,7 @@ import (
 //					testUserType.ID(),
 //				},
 //				UserTypesIncludeds: pulumi.StringArray{
-//					pulumi.String(_default.Id),
+//					*pulumi.String(_default.Id),
 //				},
 //				UsersExcludeds: pulumi.StringArray{
 //					testUser[2].ID(),
@@ -373,7 +377,7 @@ type AppSignonPolicyRule struct {
 
 	// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
 	Access pulumi.StringPtrOutput `pulumi:"access"`
-	// - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+	// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
 	Constraints pulumi.StringArrayOutput `pulumi:"constraints"`
 	// This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
 	CustomExpression pulumi.StringPtrOutput `pulumi:"customExpression"`
@@ -455,7 +459,7 @@ func GetAppSignonPolicyRule(ctx *pulumi.Context,
 type appSignonPolicyRuleState struct {
 	// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
 	Access *string `pulumi:"access"`
-	// - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+	// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
 	Constraints []string `pulumi:"constraints"`
 	// This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
 	CustomExpression *string `pulumi:"customExpression"`
@@ -506,7 +510,7 @@ type appSignonPolicyRuleState struct {
 type AppSignonPolicyRuleState struct {
 	// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
 	Access pulumi.StringPtrInput
-	// - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+	// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
 	Constraints pulumi.StringArrayInput
 	// This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
 	CustomExpression pulumi.StringPtrInput
@@ -561,7 +565,7 @@ func (AppSignonPolicyRuleState) ElementType() reflect.Type {
 type appSignonPolicyRuleArgs struct {
 	// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
 	Access *string `pulumi:"access"`
-	// - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+	// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
 	Constraints []string `pulumi:"constraints"`
 	// This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
 	CustomExpression *string `pulumi:"customExpression"`
@@ -613,7 +617,7 @@ type appSignonPolicyRuleArgs struct {
 type AppSignonPolicyRuleArgs struct {
 	// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
 	Access pulumi.StringPtrInput
-	// - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+	// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
 	Constraints pulumi.StringArrayInput
 	// This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
 	CustomExpression pulumi.StringPtrInput
@@ -753,7 +757,7 @@ func (o AppSignonPolicyRuleOutput) Access() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.Access }).(pulumi.StringPtrOutput)
 }
 
-// - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
 func (o AppSignonPolicyRuleOutput) Constraints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.Constraints }).(pulumi.StringArrayOutput)
 }

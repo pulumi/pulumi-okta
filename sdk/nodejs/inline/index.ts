@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./hook";
+export { HookArgs, HookState } from "./hook";
+export type Hook = import("./hook").Hook;
+export const Hook: typeof import("./hook").Hook = null as any;
+utilities.lazyLoad(exports, ["Hook"], () => require("./hook"));
 
-// Import resources to register:
-import { Hook } from "./hook";
 
 const _module = {
     version: utilities.getVersion(),

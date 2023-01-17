@@ -5,24 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getDefaultPolicy";
-export * from "./getPolicy";
-export * from "./mfa";
-export * from "./password";
-export * from "./ruleIdpDiscovery";
-export * from "./ruleMfa";
-export * from "./rulePassword";
-export * from "./ruleSignon";
-export * from "./signon";
+export { GetDefaultPolicyArgs, GetDefaultPolicyResult, GetDefaultPolicyOutputArgs } from "./getDefaultPolicy";
+export const getDefaultPolicy: typeof import("./getDefaultPolicy").getDefaultPolicy = null as any;
+export const getDefaultPolicyOutput: typeof import("./getDefaultPolicy").getDefaultPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getDefaultPolicy","getDefaultPolicyOutput"], () => require("./getDefaultPolicy"));
 
-// Import resources to register:
-import { Mfa } from "./mfa";
-import { Password } from "./password";
-import { RuleIdpDiscovery } from "./ruleIdpDiscovery";
-import { RuleMfa } from "./ruleMfa";
-import { RulePassword } from "./rulePassword";
-import { RuleSignon } from "./ruleSignon";
-import { Signon } from "./signon";
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+
+export { MfaArgs, MfaState } from "./mfa";
+export type Mfa = import("./mfa").Mfa;
+export const Mfa: typeof import("./mfa").Mfa = null as any;
+utilities.lazyLoad(exports, ["Mfa"], () => require("./mfa"));
+
+export { PasswordArgs, PasswordState } from "./password";
+export type Password = import("./password").Password;
+export const Password: typeof import("./password").Password = null as any;
+utilities.lazyLoad(exports, ["Password"], () => require("./password"));
+
+export { RuleIdpDiscoveryArgs, RuleIdpDiscoveryState } from "./ruleIdpDiscovery";
+export type RuleIdpDiscovery = import("./ruleIdpDiscovery").RuleIdpDiscovery;
+export const RuleIdpDiscovery: typeof import("./ruleIdpDiscovery").RuleIdpDiscovery = null as any;
+utilities.lazyLoad(exports, ["RuleIdpDiscovery"], () => require("./ruleIdpDiscovery"));
+
+export { RuleMfaArgs, RuleMfaState } from "./ruleMfa";
+export type RuleMfa = import("./ruleMfa").RuleMfa;
+export const RuleMfa: typeof import("./ruleMfa").RuleMfa = null as any;
+utilities.lazyLoad(exports, ["RuleMfa"], () => require("./ruleMfa"));
+
+export { RulePasswordArgs, RulePasswordState } from "./rulePassword";
+export type RulePassword = import("./rulePassword").RulePassword;
+export const RulePassword: typeof import("./rulePassword").RulePassword = null as any;
+utilities.lazyLoad(exports, ["RulePassword"], () => require("./rulePassword"));
+
+export { RuleSignonArgs, RuleSignonState } from "./ruleSignon";
+export type RuleSignon = import("./ruleSignon").RuleSignon;
+export const RuleSignon: typeof import("./ruleSignon").RuleSignon = null as any;
+utilities.lazyLoad(exports, ["RuleSignon"], () => require("./ruleSignon"));
+
+export { SignonArgs, SignonState } from "./signon";
+export type Signon = import("./signon").Signon;
+export const Signon: typeof import("./signon").Signon = null as any;
+utilities.lazyLoad(exports, ["Signon"], () => require("./signon"));
+
 
 const _module = {
     version: utilities.getVersion(),

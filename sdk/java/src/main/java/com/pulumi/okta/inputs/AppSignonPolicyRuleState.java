@@ -35,14 +35,14 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
      * 
      */
     @Import(name="constraints")
     private @Nullable Output<List<String>> constraints;
 
     /**
-     * @return - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * @return An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
      * 
      */
     public Optional<Output<List<String>>> constraints() {
@@ -436,7 +436,7 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param constraints - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+         * @param constraints An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param constraints - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+         * @param constraints An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param constraints - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+         * @param constraints An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
          * 
          * @return builder
          * 

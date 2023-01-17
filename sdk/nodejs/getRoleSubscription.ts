@@ -13,18 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.getRoleSubscription({
+ * const example = okta.getRoleSubscription({
  *     notificationType: "APP_IMPORT",
  *     roleType: "SUPER_ADMIN",
- * }));
+ * });
  * ```
  */
 export function getRoleSubscription(args: GetRoleSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleSubscriptionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getRoleSubscription:getRoleSubscription", {
         "notificationType": args.notificationType,
         "roleType": args.roleType,
@@ -64,9 +61,23 @@ export interface GetRoleSubscriptionResult {
      */
     readonly status: string;
 }
-
+/**
+ * Use this data source to retrieve role subscription with a specific type.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.getRoleSubscription({
+ *     notificationType: "APP_IMPORT",
+ *     roleType: "SUPER_ADMIN",
+ * });
+ * ```
+ */
 export function getRoleSubscriptionOutput(args: GetRoleSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleSubscriptionResult> {
-    return pulumi.output(args).apply(a => getRoleSubscription(a, opts))
+    return pulumi.output(args).apply((a: any) => getRoleSubscription(a, opts))
 }
 
 /**

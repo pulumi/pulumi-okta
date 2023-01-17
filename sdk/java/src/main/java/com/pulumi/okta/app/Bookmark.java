@@ -176,7 +176,6 @@ public class Bookmark extends com.pulumi.resources.CustomResource {
     }
     /**
      * Groups associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      * 
      * @deprecated
      * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -188,7 +187,6 @@ public class Bookmark extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Groups associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      * 
      */
     public Output<Optional<List<String>>> groups() {
@@ -364,7 +362,6 @@ public class Bookmark extends com.pulumi.resources.CustomResource {
     }
     /**
      * Users associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      * 
      * @deprecated
      * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -376,7 +373,6 @@ public class Bookmark extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Users associated with the application.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      * 
      */
     public Output<Optional<List<BookmarkUser>>> users() {

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -107,7 +108,6 @@ export class SecurePasswordStore extends pulumi.CustomResource {
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -218,7 +218,6 @@ export class SecurePasswordStore extends pulumi.CustomResource {
     public readonly usernameField!: pulumi.Output<string>;
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
@@ -367,7 +366,6 @@ export interface SecurePasswordStoreState {
     enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -478,7 +476,6 @@ export interface SecurePasswordStoreState {
     usernameField?: pulumi.Input<string>;
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
@@ -523,7 +520,6 @@ export interface SecurePasswordStoreArgs {
     enduserNote?: pulumi.Input<string>;
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -622,7 +618,6 @@ export interface SecurePasswordStoreArgs {
     usernameField: pulumi.Input<string>;
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */

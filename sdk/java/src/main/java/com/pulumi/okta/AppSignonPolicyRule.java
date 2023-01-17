@@ -205,7 +205,7 @@ import javax.annotation.Nullable;
  *             .recipient(&#34;https://here.com&#34;)
  *             .destination(&#34;https://its-about-the-journey.com&#34;)
  *             .audience(&#34;https://audience.com&#34;)
- *             .subjectNameIdTemplate(user.userName())
+ *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
  *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
  *             .responseSigned(true)
  *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
@@ -394,14 +394,14 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.access);
     }
     /**
-     * - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
      * 
      */
     @Export(name="constraints", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> constraints;
 
     /**
-     * @return - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * @return An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
      * 
      */
     public Output<Optional<List<String>>> constraints() {

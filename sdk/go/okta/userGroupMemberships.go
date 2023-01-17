@@ -38,8 +38,8 @@ import (
 //			_, err = okta.NewUserGroupMemberships(ctx, "testUserGroupMemberships", &okta.UserGroupMembershipsArgs{
 //				UserId: testUser.ID(),
 //				Groups: pulumi.StringArray{
-//					pulumi.Any(okta_group.Test_1.Id),
-//					pulumi.Any(okta_group.Test_2.Id),
+//					okta_group.Test_1.Id,
+//					okta_group.Test_2.Id,
 //				},
 //			})
 //			if err != nil {

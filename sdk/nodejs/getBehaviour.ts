@@ -6,25 +6,11 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve a behavior from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = pulumi.output(okta.getBehaviour({
- *     label: "New City",
- * }));
- * ```
  */
 export function getBehaviour(args?: GetBehaviourArgs, opts?: pulumi.InvokeOptions): Promise<GetBehaviourResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getBehaviour:getBehaviour", {
         "id": args.id,
         "name": args.name,
@@ -71,9 +57,11 @@ export interface GetBehaviourResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source to retrieve a behavior from Okta.
+ */
 export function getBehaviourOutput(args?: GetBehaviourOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBehaviourResult> {
-    return pulumi.output(args).apply(a => getBehaviour(a, opts))
+    return pulumi.output(args).apply((a: any) => getBehaviour(a, opts))
 }
 
 /**

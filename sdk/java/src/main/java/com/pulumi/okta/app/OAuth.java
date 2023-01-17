@@ -323,7 +323,6 @@ public class OAuth extends com.pulumi.resources.CustomResource {
     }
     /**
      * This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-     * - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.&#34;,
      * 
      * @deprecated
      * This field is being replaced by client_id. Please set that field instead.
@@ -335,7 +334,6 @@ public class OAuth extends com.pulumi.resources.CustomResource {
 
     /**
      * @return This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-     * - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.&#34;,
      * 
      */
     public Output<Optional<String>> customClientId() {
@@ -377,7 +375,6 @@ public class OAuth extends com.pulumi.resources.CustomResource {
     }
     /**
      * The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      * 
      * @deprecated
      * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -389,7 +386,6 @@ public class OAuth extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      * 
      */
     public Output<Optional<List<String>>> groups() {
@@ -875,7 +871,6 @@ public class OAuth extends com.pulumi.resources.CustomResource {
     }
     /**
      * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      * 
      * @deprecated
      * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -887,7 +882,6 @@ public class OAuth extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      * 
      */
     public Output<Optional<List<OAuthUser>>> users() {
@@ -940,6 +934,10 @@ public class OAuth extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "clientBasicSecret",
+                "clientSecret"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

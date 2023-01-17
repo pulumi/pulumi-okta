@@ -15,27 +15,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const test = pulumi.output(okta.getAuthenticator({
+ * const test = okta.getAuthenticator({
  *     name: "Security Question",
- * }));
+ * });
  * ```
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const test = pulumi.output(okta.getAuthenticator({
+ * const test = okta.getAuthenticator({
  *     key: "okta_email",
- * }));
+ * });
  * ```
  */
 export function getAuthenticator(args?: GetAuthenticatorArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthenticatorResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getAuthenticator:getAuthenticator", {
         "id": args.id,
         "key": args.key,
@@ -89,9 +86,33 @@ export interface GetAuthenticatorResult {
      */
     readonly type: string;
 }
-
+/**
+ * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ *
+ * Use this data source to retrieve an authenticator.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getAuthenticator({
+ *     name: "Security Question",
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getAuthenticator({
+ *     key: "okta_email",
+ * });
+ * ```
+ */
 export function getAuthenticatorOutput(args?: GetAuthenticatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthenticatorResult> {
-    return pulumi.output(args).apply(a => getAuthenticator(a, opts))
+    return pulumi.output(args).apply((a: any) => getAuthenticator(a, opts))
 }
 
 /**

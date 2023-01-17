@@ -48,7 +48,7 @@ namespace Pulumi.Okta.App
     ///         SignatureAlgorithm = "RSA_SHA256",
     ///         SsoUrl = "https://example.com",
     ///         SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-    ///         SubjectNameIdTemplate = user.UserName,
+    ///         SubjectNameIdTemplate = "${user.userName}",
     ///     });
     /// 
     /// });
@@ -89,7 +89,7 @@ namespace Pulumi.Okta.App
     ///         Recipient = "https://here.com",
     ///         Destination = "https://its-about-the-journey.com",
     ///         Audience = "https://audience.com",
-    ///         SubjectNameIdTemplate = user.UserName,
+    ///         SubjectNameIdTemplate = "${user.userName}",
     ///         SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
     ///         ResponseSigned = true,
     ///         SignatureAlgorithm = "RSA_SHA256",
@@ -138,7 +138,7 @@ namespace Pulumi.Okta.App
     ///         PreconfiguredApp = "sharepoint_onpremise",
     ///         SamlVersion = "1.1",
     ///         Status = "ACTIVE",
-    ///         UserNameTemplate = source.Login,
+    ///         UserNameTemplate = "${source.login}",
     ///         UserNameTemplateType = "BUILT_IN",
     ///     });
     /// 
@@ -278,7 +278,7 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<Outputs.SamlAttributeStatement>> AttributeStatements { get; private set; } = null!;
 
         /// <summary>
-        /// Audience restriction.
+        /// Audience Restriction
         /// </summary>
         [Output("audience")]
         public Output<string?> Audience { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AuthenticationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication statement.
+        /// Identifies the SAML authentication context class for the assertion’s authentication statement
         /// </summary>
         [Output("authnContextClassRef")]
         public Output<string?> AuthnContextClassRef { get; private set; } = null!;
@@ -314,13 +314,13 @@ namespace Pulumi.Okta.App
         public Output<string?> DefaultRelayState { get; private set; } = null!;
 
         /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         /// </summary>
         [Output("destination")]
         public Output<string?> Destination { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        /// Determines the digest algorithm used to digitally sign the SAML assertion and response
         /// </summary>
         [Output("digestAlgorithm")]
         public Output<string?> DigestAlgorithm { get; private set; } = null!;
@@ -716,7 +716,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Audience restriction.
+        /// Audience Restriction
         /// </summary>
         [Input("audience")]
         public Input<string>? Audience { get; set; }
@@ -728,7 +728,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication statement.
+        /// Identifies the SAML authentication context class for the assertion’s authentication statement
         /// </summary>
         [Input("authnContextClassRef")]
         public Input<string>? AuthnContextClassRef { get; set; }
@@ -746,13 +746,13 @@ namespace Pulumi.Okta.App
         public Input<string>? DefaultRelayState { get; set; }
 
         /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
         /// <summary>
-        /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        /// Determines the digest algorithm used to digitally sign the SAML assertion and response
         /// </summary>
         [Input("digestAlgorithm")]
         public Input<string>? DigestAlgorithm { get; set; }
@@ -1046,7 +1046,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Audience restriction.
+        /// Audience Restriction
         /// </summary>
         [Input("audience")]
         public Input<string>? Audience { get; set; }
@@ -1058,7 +1058,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication statement.
+        /// Identifies the SAML authentication context class for the assertion’s authentication statement
         /// </summary>
         [Input("authnContextClassRef")]
         public Input<string>? AuthnContextClassRef { get; set; }
@@ -1082,13 +1082,13 @@ namespace Pulumi.Okta.App
         public Input<string>? DefaultRelayState { get; set; }
 
         /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
         /// <summary>
-        /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        /// Determines the digest algorithm used to digitally sign the SAML assertion and response
         /// </summary>
         [Input("digestAlgorithm")]
         public Input<string>? DigestAlgorithm { get; set; }

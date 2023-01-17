@@ -439,8 +439,8 @@ class GroupSchemaPropertyMasterOverridePriority(dict):
                  value: str,
                  type: Optional[str] = None):
         """
-        :param str value: - ID of profile source.
-        :param str type: - Type of profile source.
+        :param str value: ID of profile source.
+        :param str type: Type of profile source.
         """
         pulumi.set(__self__, "value", value)
         if type is not None:
@@ -450,7 +450,7 @@ class GroupSchemaPropertyMasterOverridePriority(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        - ID of profile source.
+        ID of profile source.
         """
         return pulumi.get(self, "value")
 
@@ -458,7 +458,7 @@ class GroupSchemaPropertyMasterOverridePriority(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        - Type of profile source.
+        Type of profile source.
         """
         return pulumi.get(self, "type")
 
@@ -597,8 +597,8 @@ class UserSchemaPropertyMasterOverridePriority(dict):
                  value: str,
                  type: Optional[str] = None):
         """
-        :param str value: - ID of profile source.
-        :param str type: - Type of profile source.
+        :param str value: ID of profile source.
+        :param str type: Type of profile source.
         """
         pulumi.set(__self__, "value", value)
         if type is not None:
@@ -608,7 +608,7 @@ class UserSchemaPropertyMasterOverridePriority(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        - ID of profile source.
+        ID of profile source.
         """
         return pulumi.get(self, "value")
 
@@ -616,7 +616,7 @@ class UserSchemaPropertyMasterOverridePriority(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        - Type of profile source.
+        Type of profile source.
         """
         return pulumi.get(self, "type")
 

@@ -59,7 +59,6 @@ class AppSharedCredentialsArgs:
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
@@ -79,7 +78,6 @@ class AppSharedCredentialsArgs:
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
         :param pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         pulumi.set(__self__, "label", label)
         if accessibility_error_redirect_url is not None:
@@ -272,7 +270,6 @@ class AppSharedCredentialsArgs:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -501,7 +498,6 @@ class AppSharedCredentialsArgs:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -558,7 +554,6 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -582,7 +577,6 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
         :param pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -770,7 +764,6 @@ class _AppSharedCredentialsState:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -1047,7 +1040,6 @@ class _AppSharedCredentialsState:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSharedCredentialsUserArgs']]]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -1156,7 +1148,6 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -1177,7 +1168,6 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSharedCredentialsUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         ...
     @overload
@@ -1392,7 +1382,6 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -1416,7 +1405,6 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSharedCredentialsUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1534,7 +1522,6 @@ class AppSharedCredentials(pulumi.CustomResource):
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -1719,7 +1706,6 @@ class AppSharedCredentials(pulumi.CustomResource):
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.AppSharedCredentialsUser']]]:
         """
         The users assigned to the application. See `app.User` for a more flexible approach.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 

@@ -17,7 +17,7 @@ namespace Pulumi.Okta
         /// of a brand for an Okta orgnanization.
         /// </summary>
         public static Task<GetThemesResult> InvokeAsync(GetThemesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetThemesResult>("okta:index/getThemes:getThemes", args ?? new GetThemesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetThemesResult>("okta:index/getThemes:getThemes", args ?? new GetThemesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve 
@@ -25,7 +25,7 @@ namespace Pulumi.Okta
         /// of a brand for an Okta orgnanization.
         /// </summary>
         public static Output<GetThemesResult> Invoke(GetThemesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetThemesResult>("okta:index/getThemes:getThemes", args ?? new GetThemesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetThemesResult>("okta:index/getThemes:getThemes", args ?? new GetThemesInvokeArgs(), options.WithDefaults());
     }
 
 

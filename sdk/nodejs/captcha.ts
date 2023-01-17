@@ -104,11 +104,13 @@ export class Captcha extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["secretKey"] = args ? args.secretKey : undefined;
+            resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
             resourceInputs["siteKey"] = args ? args.siteKey : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["secretKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Captcha.__pulumiType, name, resourceInputs, opts);
     }
 }

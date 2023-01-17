@@ -34,7 +34,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -71,7 +71,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -108,7 +108,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -145,7 +145,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -182,7 +182,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -219,7 +219,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -478,7 +478,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -515,7 +515,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -552,7 +552,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -589,7 +589,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -626,7 +626,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -663,7 +663,7 @@ public final class IdpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
-     * import com.pulumi.okta.app.inputs.GetSamlArgs;
+     * import com.pulumi.okta.idp.inputs.GetSamlArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

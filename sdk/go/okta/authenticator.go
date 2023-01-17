@@ -99,6 +99,13 @@ func NewAuthenticator(ctx *pulumi.Context,
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}
+	if args.ProviderSharedSecret != nil {
+		args.ProviderSharedSecret = pulumi.ToSecret(args.ProviderSharedSecret).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"providerSharedSecret",
+	})
+	opts = append(opts, secrets)
 	var resource Authenticator
 	err := ctx.RegisterResource("okta:index/authenticator:Authenticator", name, args, &resource, opts...)
 	if err != nil {

@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserSecurityQuestions := okta.GetUserSecurityQuestionsOutput(ctx, GetUserSecurityQuestionsOutputArgs{
+//			exampleUserSecurityQuestions := okta.GetUserSecurityQuestionsOutput(ctx, okta.GetUserSecurityQuestionsOutputArgs{
 //				UserId: exampleUser.ID(),
 //			}, nil)
 //			exampleFactor, err := factor.NewFactor(ctx, "exampleFactor", &factor.FactorArgs{
@@ -52,9 +52,9 @@ import (
 //			}
 //			_, err = okta.NewUserFactorQuestion(ctx, "exampleUserFactorQuestion", &okta.UserFactorQuestionArgs{
 //				UserId: exampleUser.ID(),
-//				Key: exampleUserSecurityQuestions.ApplyT(func(exampleUserSecurityQuestions GetUserSecurityQuestionsResult) (string, error) {
-//					return exampleUserSecurityQuestions.Questions[0].Key, nil
-//				}).(pulumi.StringOutput),
+//				Key: exampleUserSecurityQuestions.ApplyT(func(exampleUserSecurityQuestions okta.GetUserSecurityQuestionsResult) (*string, error) {
+//					return &exampleUserSecurityQuestions.Questions[0].Key, nil
+//				}).(pulumi.StringPtrOutput),
 //				Answer: pulumi.String("meatball"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleFactor,
@@ -108,6 +108,13 @@ func NewUserFactorQuestion(ctx *pulumi.Context,
 	if args.UserId == nil {
 		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
+	if args.Answer != nil {
+		args.Answer = pulumi.ToSecret(args.Answer).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"answer",
+	})
+	opts = append(opts, secrets)
 	var resource UserFactorQuestion
 	err := ctx.RegisterResource("okta:index/userFactorQuestion:UserFactorQuestion", name, args, &resource, opts...)
 	if err != nil {

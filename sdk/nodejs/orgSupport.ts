@@ -14,9 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.OrgSupport("example", {
- *     extendBy: 1,
- * });
+ * const example = new okta.OrgSupport("example", {extendBy: 1});
  * ```
  *
  * ## Import

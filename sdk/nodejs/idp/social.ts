@@ -248,10 +248,10 @@ export class Social extends pulumi.CustomResource {
             resourceInputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
             resourceInputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
             resourceInputs["appleKid"] = args ? args.appleKid : undefined;
-            resourceInputs["applePrivateKey"] = args ? args.applePrivateKey : undefined;
+            resourceInputs["applePrivateKey"] = args?.applePrivateKey ? pulumi.secret(args.applePrivateKey) : undefined;
             resourceInputs["appleTeamId"] = args ? args.appleTeamId : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
             resourceInputs["groupsAction"] = args ? args.groupsAction : undefined;
             resourceInputs["groupsAssignments"] = args ? args.groupsAssignments : undefined;
@@ -278,6 +278,8 @@ export class Social extends pulumi.CustomResource {
             resourceInputs["tokenUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["applePrivateKey", "clientSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Social.__pulumiType, name, resourceInputs, opts);
     }
 }

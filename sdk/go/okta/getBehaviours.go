@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.GetBehaviours(ctx, &GetBehavioursArgs{
+//			_, err := okta.GetBehaviours(ctx, &okta.GetBehavioursArgs{
 //				Q: pulumi.StringRef("New"),
 //			}, nil)
 //			if err != nil {

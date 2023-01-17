@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const example = new okta.auth.ServerClaim("example", {
  *     authServerId: "<auth server id>",
  *     claimType: "IDENTITY",
- *     scopes: [okta_auth_server_scope_example.name],
+ *     scopes: [okta_auth_server_scope.example.name],
  *     value: "String.substringAfter(user.email, \"@\") == \"example.com\"",
  * });
  * ```

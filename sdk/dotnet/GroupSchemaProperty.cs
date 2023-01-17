@@ -146,7 +146,7 @@ namespace Pulumi.Okta
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// - Type of profile source.
+        /// Type of profile source.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Okta
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// - Type of profile source.
+        /// Type of profile source.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -488,7 +488,7 @@ namespace Pulumi.Okta
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// - Type of profile source.
+        /// Type of profile source.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

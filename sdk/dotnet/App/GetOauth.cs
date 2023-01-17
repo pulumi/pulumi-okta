@@ -36,7 +36,7 @@ namespace Pulumi.Okta.App
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOauthResult> InvokeAsync(GetOauthArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve an OIDC application from Okta.
@@ -63,7 +63,7 @@ namespace Pulumi.Okta.App
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOauthResult> Invoke(GetOauthInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -196,7 +196,6 @@ namespace Pulumi.Okta.App
         public readonly ImmutableArray<string> GrantTypes;
         /// <summary>
         /// List of groups IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
@@ -268,7 +267,6 @@ namespace Pulumi.Okta.App
         public readonly string Type;
         /// <summary>
         /// List of users IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
         /// </summary>
         public readonly ImmutableArray<string> Users;
         public readonly string WildcardRedirect;

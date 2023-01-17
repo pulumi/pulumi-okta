@@ -154,7 +154,6 @@ type OAuth struct {
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrOutput `pulumi:"consentMethod"`
 	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-	// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrOutput `pulumi:"customClientId"`
@@ -166,7 +165,6 @@ type OAuth struct {
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -240,7 +238,6 @@ type OAuth struct {
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users OAuthUserArrayOutput `pulumi:"users"`
@@ -261,6 +258,14 @@ func NewOAuth(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	if args.ClientBasicSecret != nil {
+		args.ClientBasicSecret = pulumi.ToSecret(args.ClientBasicSecret).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"clientBasicSecret",
+		"clientSecret",
+	})
+	opts = append(opts, secrets)
 	var resource OAuth
 	err := ctx.RegisterResource("okta:app/oAuth:OAuth", name, args, &resource, opts...)
 	if err != nil {
@@ -312,7 +317,6 @@ type oauthState struct {
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-	// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
@@ -324,7 +328,6 @@ type oauthState struct {
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -398,7 +401,6 @@ type oauthState struct {
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []OAuthUser `pulumi:"users"`
@@ -436,7 +438,6 @@ type OAuthState struct {
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrInput
 	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-	// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
@@ -448,7 +449,6 @@ type OAuthState struct {
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -522,7 +522,6 @@ type OAuthState struct {
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users OAuthUserArrayInput
@@ -562,7 +561,6 @@ type oauthArgs struct {
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-	// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId *string `pulumi:"customClientId"`
@@ -574,7 +572,6 @@ type oauthArgs struct {
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes []string `pulumi:"grantTypes"`
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -642,7 +639,6 @@ type oauthArgs struct {
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []OAuthUser `pulumi:"users"`
@@ -679,7 +675,6 @@ type OAuthArgs struct {
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrInput
 	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-	// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
 	//
 	// Deprecated: This field is being replaced by client_id. Please set that field instead.
 	CustomClientId pulumi.StringPtrInput
@@ -691,7 +686,6 @@ type OAuthArgs struct {
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayInput
 	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -759,7 +753,6 @@ type OAuthArgs struct {
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users OAuthUserArrayInput
@@ -925,7 +918,6 @@ func (o OAuthOutput) ConsentMethod() pulumi.StringPtrOutput {
 }
 
 // This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-// - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
 //
 // Deprecated: This field is being replaced by client_id. Please set that field instead.
 func (o OAuthOutput) CustomClientId() pulumi.StringPtrOutput {
@@ -946,7 +938,6 @@ func (o OAuthOutput) GrantTypes() pulumi.StringArrayOutput {
 }
 
 // The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 //
 // Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 func (o OAuthOutput) Groups() pulumi.StringArrayOutput {
@@ -1125,7 +1116,6 @@ func (o OAuthOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 }
 
 // The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 //
 // Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 func (o OAuthOutput) Users() OAuthUserArrayOutput {

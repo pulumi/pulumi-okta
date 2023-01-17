@@ -256,13 +256,15 @@ class Captcha(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             if secret_key is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_key'")
-            __props__.__dict__["secret_key"] = secret_key
+            __props__.__dict__["secret_key"] = None if secret_key is None else pulumi.Output.secret(secret_key)
             if site_key is None and not opts.urn:
                 raise TypeError("Missing required property 'site_key'")
             __props__.__dict__["site_key"] = site_key
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Captcha, __self__).__init__(
             'okta:index/captcha:Captcha',
             resource_name,

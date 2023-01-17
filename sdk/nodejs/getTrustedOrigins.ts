@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,16 +15,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const all = pulumi.output(okta.getTrustedOrigins());
+ * const all = okta.getTrustedOrigins({});
  * ```
  */
 export function getTrustedOrigins(args?: GetTrustedOriginsArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedOriginsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getTrustedOrigins:getTrustedOrigins", {
         "filter": args.filter,
     }, opts);
@@ -50,9 +48,20 @@ export interface GetTrustedOriginsResult {
     readonly id: string;
     readonly trustedOrigins: outputs.GetTrustedOriginsTrustedOrigin[];
 }
-
+/**
+ * This resource allows you to retrieve a list of trusted origins from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const all = okta.getTrustedOrigins({});
+ * ```
+ */
 export function getTrustedOriginsOutput(args?: GetTrustedOriginsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedOriginsResult> {
-    return pulumi.output(args).apply(a => getTrustedOrigins(a, opts))
+    return pulumi.output(args).apply((a: any) => getTrustedOrigins(a, opts))
 }
 
 /**

@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const classicExample = new okta.PolicyMfaDefault("classic_example", {
+ * const classicExample = new okta.PolicyMfaDefault("classicExample", {
  *     isOie: false,
  *     oktaOtp: {
  *         enroll: "REQUIRED",
@@ -28,12 +28,11 @@ import * as utilities from "./utilities";
  *         enroll: "REQUIRED",
  *     },
  * });
- * const oieExample = new okta.PolicyMfaDefault("oie_example", {
+ * const oieExample = new okta.PolicyMfaDefault("oieExample", {
  *     isOie: true,
  *     oktaPassword: {
  *         enroll: "REQUIRED",
  *     },
- *     // The following authenticator can only be used when `is_oie` is set to true
  *     oktaVerify: {
  *         enroll: "REQUIRED",
  *     },

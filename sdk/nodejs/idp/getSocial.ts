@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.idp.getSocial({
+ * const example = okta.idp.getSocial({
  *     name: "My Facebook IdP",
- * }));
+ * });
  * ```
  */
 export function getSocial(args?: GetSocialArgs, opts?: pulumi.InvokeOptions): Promise<GetSocialResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:idp/getSocial:getSocial", {
         "id": args.id,
         "name": args.name,
@@ -152,9 +149,22 @@ export interface GetSocialResult {
      */
     readonly usernameTemplate: string;
 }
-
+/**
+ * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.idp.getSocial({
+ *     name: "My Facebook IdP",
+ * });
+ * ```
+ */
 export function getSocialOutput(args?: GetSocialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSocialResult> {
-    return pulumi.output(args).apply(a => getSocial(a, opts))
+    return pulumi.output(args).apply((a: any) => getSocial(a, opts))
 }
 
 /**

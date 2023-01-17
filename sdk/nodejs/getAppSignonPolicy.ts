@@ -15,17 +15,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.getAppSignonPolicy({
+ * const example = okta.getAppSignonPolicy({
  *     appId: "app_id",
- * }));
+ * });
  * ```
  */
 export function getAppSignonPolicy(args: GetAppSignonPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAppSignonPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getAppSignonPolicy:getAppSignonPolicy", {
         "appId": args.appId,
     }, opts);
@@ -52,9 +49,24 @@ export interface GetAppSignonPolicyResult {
     readonly id: string;
     readonly name: string;
 }
-
+/**
+ * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ *
+ * Use this data source to retrieve a sign-on policy for the application.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.getAppSignonPolicy({
+ *     appId: "app_id",
+ * });
+ * ```
+ */
 export function getAppSignonPolicyOutput(args: GetAppSignonPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppSignonPolicyResult> {
-    return pulumi.output(args).apply(a => getAppSignonPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppSignonPolicy(a, opts))
 }
 
 /**

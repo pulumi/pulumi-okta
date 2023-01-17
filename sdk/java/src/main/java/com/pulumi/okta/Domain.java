@@ -116,7 +116,6 @@ public class Domain extends com.pulumi.resources.CustomResource {
     }
     /**
      * Indicates whether the domain should be verified.
-     * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
      * 
      * @deprecated
      * The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
@@ -128,7 +127,6 @@ public class Domain extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Indicates whether the domain should be verified.
-     * - `DEPRECATED`: Please use `okta.DomainVerification` resource instead.
      * 
      */
     public Output<Optional<Boolean>> verify() {

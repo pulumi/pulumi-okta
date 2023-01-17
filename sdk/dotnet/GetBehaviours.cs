@@ -36,7 +36,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBehavioursResult> InvokeAsync(GetBehavioursArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBehavioursResult>("okta:index/getBehaviours:getBehaviours", args ?? new GetBehavioursArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBehavioursResult>("okta:index/getBehaviours:getBehaviours", args ?? new GetBehavioursArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a behaviors from Okta.
@@ -63,7 +63,7 @@ namespace Pulumi.Okta
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBehavioursResult> Invoke(GetBehavioursInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBehavioursResult>("okta:index/getBehaviours:getBehaviours", args ?? new GetBehavioursInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBehavioursResult>("okta:index/getBehaviours:getBehaviours", args ?? new GetBehavioursInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -62,18 +62,18 @@ import (
 //				UnknownUserAction: pulumi.String("REGISTER"),
 //				EmailVerification: pulumi.Bool(true),
 //				Access:            pulumi.String("ALLOW"),
-//				ProfileAttributes: PolicyRuleProfileEnrollmentProfileAttributeArray{
-//					&PolicyRuleProfileEnrollmentProfileAttributeArgs{
+//				ProfileAttributes: okta.PolicyRuleProfileEnrollmentProfileAttributeArray{
+//					&okta.PolicyRuleProfileEnrollmentProfileAttributeArgs{
 //						Name:     pulumi.String("email"),
 //						Label:    pulumi.String("Email"),
 //						Required: pulumi.Bool(true),
 //					},
-//					&PolicyRuleProfileEnrollmentProfileAttributeArgs{
+//					&okta.PolicyRuleProfileEnrollmentProfileAttributeArgs{
 //						Name:     pulumi.String("name"),
 //						Label:    pulumi.String("Name"),
 //						Required: pulumi.Bool(true),
 //					},
-//					&PolicyRuleProfileEnrollmentProfileAttributeArgs{
+//					&okta.PolicyRuleProfileEnrollmentProfileAttributeArgs{
 //						Name:     pulumi.String("t-shirt"),
 //						Label:    pulumi.String("T-Shirt Size"),
 //						Required: pulumi.Bool(false),

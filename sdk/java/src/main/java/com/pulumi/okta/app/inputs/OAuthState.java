@@ -233,7 +233,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-     * - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.&#34;,
      * 
      * @deprecated
      * This field is being replaced by client_id. Please set that field instead.
@@ -245,7 +244,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-     * - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.&#34;,
      * 
      * @deprecated
      * This field is being replaced by client_id. Please set that field instead.
@@ -294,7 +292,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      * 
      * @deprecated
      * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -306,7 +303,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      * 
      * @deprecated
      * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -831,7 +827,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      * 
      * @deprecated
      * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -843,7 +838,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      * 
      * @deprecated
      * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -1242,7 +1236,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param customClientId This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-         * - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.&#34;,
          * 
          * @return builder
          * 
@@ -1258,7 +1251,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param customClientId This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-         * - `DEPRECATED`: This field is being replaced by `client_id`. Please use that field instead.&#34;,
          * 
          * @return builder
          * 
@@ -1334,7 +1326,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param groups The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-         * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
          * 
          * @return builder
          * 
@@ -1350,7 +1341,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param groups The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-         * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
          * 
          * @return builder
          * 
@@ -1365,7 +1355,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param groups The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-         * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
          * 
          * @return builder
          * 
@@ -2146,7 +2135,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param users The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-         * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
          * 
          * @return builder
          * 
@@ -2162,7 +2150,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param users The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-         * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
          * 
          * @return builder
          * 
@@ -2177,7 +2164,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param users The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-         * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
          * 
          * @return builder
          * 

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,18 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = pulumi.output(okta.app.getSaml({
+ * const example = okta.app.getSaml({
  *     label: "Example App",
- * }));
+ * });
  * ```
  */
 export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:app/getSaml:getSaml", {
         "activeOnly": args.activeOnly,
         "id": args.id,
@@ -138,7 +136,6 @@ export interface GetSamlResult {
     readonly features: string[];
     /**
      * List of groups IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
      *
      * @deprecated The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
      */
@@ -252,15 +249,27 @@ export interface GetSamlResult {
     readonly userNameTemplateType: string;
     /**
      * List of users IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
      *
      * @deprecated The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users: string[];
 }
-
+/**
+ * Use this data source to retrieve an SAML application from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.app.getSaml({
+ *     label: "Example App",
+ * });
+ * ```
+ */
 export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlResult> {
-    return pulumi.output(args).apply(a => getSaml(a, opts))
+    return pulumi.output(args).apply((a: any) => getSaml(a, opts))
 }
 
 /**

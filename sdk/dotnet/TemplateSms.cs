@@ -25,18 +25,18 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.TemplateSms("example", new()
     ///     {
-    ///         Template = $"Your {org.Name} code is: {code}",
+    ///         Template = "Your ${org.name} code is: ${code}",
     ///         Translations = new[]
     ///         {
     ///             new Okta.Inputs.TemplateSmsTranslationArgs
     ///             {
     ///                 Language = "en",
-    ///                 Template = $"Your {org.Name} code is: {code}",
+    ///                 Template = "Your ${org.name} code is: ${code}",
     ///             },
     ///             new Okta.Inputs.TemplateSmsTranslationArgs
     ///             {
     ///                 Language = "es",
-    ///                 Template = $"Tu código de {org.Name} es: {code}.",
+    ///                 Template = "Tu código de ${org.name} es: ${code}.",
     ///             },
     ///         },
     ///         Type = "SMS_VERIFY_CODE",

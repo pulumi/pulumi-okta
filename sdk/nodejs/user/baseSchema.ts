@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     master: "OKTA",
  *     title: "customPropertyName",
  *     type: "string",
- *     userType: okta_user_type_example.id,
+ *     userType: data.okta_user_type.example.id,
  * });
  * ```
  *

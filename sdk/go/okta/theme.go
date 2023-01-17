@@ -49,10 +49,9 @@ type Theme struct {
 	PrimaryColorContrastHex pulumi.StringPtrOutput `pulumi:"primaryColorContrastHex"`
 	// (Required) Primary color hex code
 	PrimaryColorHex pulumi.StringPtrOutput `pulumi:"primaryColorHex"`
-	// Secondary color contrast hex code
+	// (Optional) Secondary color contrast hex code
 	SecondaryColorContrastHex pulumi.StringPtrOutput `pulumi:"secondaryColorContrastHex"`
 	// (Required) Secondary color hex code
-	// - `secondaryColorContrastHex` (Optional) Secondary color contrast hex code
 	SecondaryColorHex pulumi.StringPtrOutput `pulumi:"secondaryColorHex"`
 	// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant pulumi.StringPtrOutput `pulumi:"signInPageTouchPointVariant"`
@@ -118,10 +117,9 @@ type themeState struct {
 	PrimaryColorContrastHex *string `pulumi:"primaryColorContrastHex"`
 	// (Required) Primary color hex code
 	PrimaryColorHex *string `pulumi:"primaryColorHex"`
-	// Secondary color contrast hex code
+	// (Optional) Secondary color contrast hex code
 	SecondaryColorContrastHex *string `pulumi:"secondaryColorContrastHex"`
 	// (Required) Secondary color hex code
-	// - `secondaryColorContrastHex` (Optional) Secondary color contrast hex code
 	SecondaryColorHex *string `pulumi:"secondaryColorHex"`
 	// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant *string `pulumi:"signInPageTouchPointVariant"`
@@ -156,10 +154,9 @@ type ThemeState struct {
 	PrimaryColorContrastHex pulumi.StringPtrInput
 	// (Required) Primary color hex code
 	PrimaryColorHex pulumi.StringPtrInput
-	// Secondary color contrast hex code
+	// (Optional) Secondary color contrast hex code
 	SecondaryColorContrastHex pulumi.StringPtrInput
 	// (Required) Secondary color hex code
-	// - `secondaryColorContrastHex` (Optional) Secondary color contrast hex code
 	SecondaryColorHex pulumi.StringPtrInput
 	// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant pulumi.StringPtrInput
@@ -190,10 +187,9 @@ type themeArgs struct {
 	PrimaryColorContrastHex *string `pulumi:"primaryColorContrastHex"`
 	// (Required) Primary color hex code
 	PrimaryColorHex *string `pulumi:"primaryColorHex"`
-	// Secondary color contrast hex code
+	// (Optional) Secondary color contrast hex code
 	SecondaryColorContrastHex *string `pulumi:"secondaryColorContrastHex"`
 	// (Required) Secondary color hex code
-	// - `secondaryColorContrastHex` (Optional) Secondary color contrast hex code
 	SecondaryColorHex *string `pulumi:"secondaryColorHex"`
 	// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant *string `pulumi:"signInPageTouchPointVariant"`
@@ -221,10 +217,9 @@ type ThemeArgs struct {
 	PrimaryColorContrastHex pulumi.StringPtrInput
 	// (Required) Primary color hex code
 	PrimaryColorHex pulumi.StringPtrInput
-	// Secondary color contrast hex code
+	// (Optional) Secondary color contrast hex code
 	SecondaryColorContrastHex pulumi.StringPtrInput
 	// (Required) Secondary color hex code
-	// - `secondaryColorContrastHex` (Optional) Secondary color contrast hex code
 	SecondaryColorHex pulumi.StringPtrInput
 	// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant pulumi.StringPtrInput
@@ -384,13 +379,12 @@ func (o ThemeOutput) PrimaryColorHex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.PrimaryColorHex }).(pulumi.StringPtrOutput)
 }
 
-// Secondary color contrast hex code
+// (Optional) Secondary color contrast hex code
 func (o ThemeOutput) SecondaryColorContrastHex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.SecondaryColorContrastHex }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Secondary color hex code
-// - `secondaryColorContrastHex` (Optional) Secondary color contrast hex code
 func (o ThemeOutput) SecondaryColorHex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.SecondaryColorHex }).(pulumi.StringPtrOutput)
 }

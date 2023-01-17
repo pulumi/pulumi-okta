@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,12 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * // Search for multiple users based on a raw search expression string
- * const example = pulumi.output(okta.user.getUsers({
+ * const example = okta.user.getUsers({
  *     searches: [{
  *         expression: "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
  *     }],
- * }));
+ * });
  * ```
  * ### Lookup Users by Group Membership
  * ```typescript
@@ -37,11 +37,8 @@ import * as utilities from "../utilities";
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:user/getUsers:getUsers", {
         "compoundSearchOperator": args.compoundSearchOperator,
         "delayReadSeconds": args.delayReadSeconds,
@@ -101,9 +98,37 @@ export interface GetUsersResult {
      */
     readonly users: outputs.user.GetUsersUser[];
 }
-
+/**
+ * Use this data source to retrieve a list of users from Okta.
+ *
+ * ## Example Usage
+ * ### Lookup Users by Search Criteria
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.user.getUsers({
+ *     searches: [{
+ *         expression: "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
+ *     }],
+ * });
+ * ```
+ * ### Lookup Users by Group Membership
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleGroup = new okta.group.Group("exampleGroup", {});
+ * const exampleUsers = okta.user.getUsersOutput({
+ *     groupId: exampleGroup.id,
+ *     includeGroups: true,
+ *     includeRoles: true,
+ * });
+ * ```
+ */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
-    return pulumi.output(args).apply(a => getUsers(a, opts))
+    return pulumi.output(args).apply((a: any) => getUsers(a, opts))
 }
 
 /**

@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const test = pulumi.output(okta.app.getOauth({
+ * const test = okta.app.getOauth({
  *     label: "Example App",
- * }));
+ * });
  * ```
  */
 export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Promise<GetOauthResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:app/getOauth:getOauth", {
         "activeOnly": args.activeOnly,
         "id": args.id,
@@ -99,7 +96,6 @@ export interface GetOauthResult {
     readonly grantTypes: string[];
     /**
      * List of groups IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
      *
      * @deprecated The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
      */
@@ -173,16 +169,28 @@ export interface GetOauthResult {
     readonly type: string;
     /**
      * List of users IDs assigned to the application.
-     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
      *
      * @deprecated The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users: string[];
     readonly wildcardRedirect: string;
 }
-
+/**
+ * Use this data source to retrieve an OIDC application from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.app.getOauth({
+ *     label: "Example App",
+ * });
+ * ```
+ */
 export function getOauthOutput(args?: GetOauthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOauthResult> {
-    return pulumi.output(args).apply(a => getOauth(a, opts))
+    return pulumi.output(args).apply((a: any) => getOauth(a, opts))
 }
 
 /**

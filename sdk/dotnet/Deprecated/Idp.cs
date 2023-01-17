@@ -151,6 +151,10 @@ namespace Pulumi.Okta.Deprecated
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "clientSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -195,7 +199,16 @@ namespace Pulumi.Okta.Deprecated
         public Input<string> ClientId { get; set; } = null!;
 
         [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
+        private Input<string>? _clientSecret;
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("deprovisionedAction")]
         public Input<string>? DeprovisionedAction { get; set; }
@@ -332,7 +345,16 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? ClientId { get; set; }
 
         [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        private Input<string>? _clientSecret;
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("deprovisionedAction")]
         public Input<string>? DeprovisionedAction { get; set; }

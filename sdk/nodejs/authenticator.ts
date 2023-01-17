@@ -139,7 +139,7 @@ export class Authenticator extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["providerAuthPort"] = args ? args.providerAuthPort : undefined;
             resourceInputs["providerHostname"] = args ? args.providerHostname : undefined;
-            resourceInputs["providerSharedSecret"] = args ? args.providerSharedSecret : undefined;
+            resourceInputs["providerSharedSecret"] = args?.providerSharedSecret ? pulumi.secret(args.providerSharedSecret) : undefined;
             resourceInputs["providerUserNameTemplate"] = args ? args.providerUserNameTemplate : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
@@ -148,6 +148,8 @@ export class Authenticator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["providerSharedSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Authenticator.__pulumiType, name, resourceInputs, opts);
     }
 }

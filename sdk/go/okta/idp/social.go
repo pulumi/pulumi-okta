@@ -142,6 +142,17 @@ func NewSocial(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	if args.ApplePrivateKey != nil {
+		args.ApplePrivateKey = pulumi.ToSecret(args.ApplePrivateKey).(pulumi.StringPtrInput)
+	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"applePrivateKey",
+		"clientSecret",
+	})
+	opts = append(opts, secrets)
 	var resource Social
 	err := ctx.RegisterResource("okta:idp/social:Social", name, args, &resource, opts...)
 	if err != nil {

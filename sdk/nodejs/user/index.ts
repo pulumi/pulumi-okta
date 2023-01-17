@@ -5,20 +5,45 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./baseSchema";
-export * from "./getUser";
-export * from "./getUserProfileMappingSource";
-export * from "./getUserType";
-export * from "./getUsers";
-export * from "./schema";
-export * from "./user";
-export * from "./userType";
+export { BaseSchemaArgs, BaseSchemaState } from "./baseSchema";
+export type BaseSchema = import("./baseSchema").BaseSchema;
+export const BaseSchema: typeof import("./baseSchema").BaseSchema = null as any;
+utilities.lazyLoad(exports, ["BaseSchema"], () => require("./baseSchema"));
 
-// Import resources to register:
-import { BaseSchema } from "./baseSchema";
-import { Schema } from "./schema";
-import { User } from "./user";
-import { UserType } from "./userType";
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
+export { GetUserProfileMappingSourceResult } from "./getUserProfileMappingSource";
+export const getUserProfileMappingSource: typeof import("./getUserProfileMappingSource").getUserProfileMappingSource = null as any;
+utilities.lazyLoad(exports, ["getUserProfileMappingSource"], () => require("./getUserProfileMappingSource"));
+
+export { GetUserTypeArgs, GetUserTypeResult, GetUserTypeOutputArgs } from "./getUserType";
+export const getUserType: typeof import("./getUserType").getUserType = null as any;
+export const getUserTypeOutput: typeof import("./getUserType").getUserTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getUserType","getUserTypeOutput"], () => require("./getUserType"));
+
+export { GetUsersArgs, GetUsersResult, GetUsersOutputArgs } from "./getUsers";
+export const getUsers: typeof import("./getUsers").getUsers = null as any;
+export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
+
+export { SchemaArgs, SchemaState } from "./schema";
+export type Schema = import("./schema").Schema;
+export const Schema: typeof import("./schema").Schema = null as any;
+utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
+export { UserTypeArgs, UserTypeState } from "./userType";
+export type UserType = import("./userType").UserType;
+export const UserType: typeof import("./userType").UserType = null as any;
+utilities.lazyLoad(exports, ["UserType"], () => require("./userType"));
+
 
 const _module = {
     version: utilities.getVersion(),

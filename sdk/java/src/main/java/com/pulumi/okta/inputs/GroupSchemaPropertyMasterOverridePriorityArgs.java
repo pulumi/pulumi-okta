@@ -16,14 +16,14 @@ public final class GroupSchemaPropertyMasterOverridePriorityArgs extends com.pul
     public static final GroupSchemaPropertyMasterOverridePriorityArgs Empty = new GroupSchemaPropertyMasterOverridePriorityArgs();
 
     /**
-     * - Type of profile source.
+     * Type of profile source.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return - Type of profile source.
+     * @return Type of profile source.
      * 
      */
     public Optional<Output<String>> type() {
@@ -31,14 +31,14 @@ public final class GroupSchemaPropertyMasterOverridePriorityArgs extends com.pul
     }
 
     /**
-     * - ID of profile source.
+     * ID of profile source.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return - ID of profile source.
+     * @return ID of profile source.
      * 
      */
     public Output<String> value() {
@@ -71,7 +71,7 @@ public final class GroupSchemaPropertyMasterOverridePriorityArgs extends com.pul
         }
 
         /**
-         * @param type - Type of profile source.
+         * @param type Type of profile source.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GroupSchemaPropertyMasterOverridePriorityArgs extends com.pul
         }
 
         /**
-         * @param type - Type of profile source.
+         * @param type Type of profile source.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GroupSchemaPropertyMasterOverridePriorityArgs extends com.pul
         }
 
         /**
-         * @param value - ID of profile source.
+         * @param value ID of profile source.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GroupSchemaPropertyMasterOverridePriorityArgs extends com.pul
         }
 
         /**
-         * @param value - ID of profile source.
+         * @param value ID of profile source.
          * 
          * @return builder
          * 

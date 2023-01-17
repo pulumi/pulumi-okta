@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./factor";
+export { FactorArgs, FactorState } from "./factor";
+export type Factor = import("./factor").Factor;
+export const Factor: typeof import("./factor").Factor = null as any;
+utilities.lazyLoad(exports, ["Factor"], () => require("./factor"));
 
-// Import resources to register:
-import { Factor } from "./factor";
 
 const _module = {
     version: utilities.getVersion(),

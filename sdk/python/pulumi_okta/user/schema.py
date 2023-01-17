@@ -41,7 +41,7 @@ class SchemaArgs:
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input[str] index: The property name.
         :param pulumi.Input[str] title: display name for the enum value.
-        :param pulumi.Input[str] type: - Type of profile source.
+        :param pulumi.Input[str] type: Type of profile source.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to.
         :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
@@ -129,7 +129,7 @@ class SchemaArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        - Type of profile source.
+        Type of profile source.
         """
         return pulumi.get(self, "type")
 
@@ -398,7 +398,7 @@ class _SchemaState:
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
-        :param pulumi.Input[str] type: - Type of profile source.
+        :param pulumi.Input[str] type: Type of profile source.
         :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
         :param pulumi.Input[str] user_type: User type ID
         """
@@ -665,7 +665,7 @@ class _SchemaState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        - Type of profile source.
+        Type of profile source.
         """
         return pulumi.get(self, "type")
 
@@ -776,7 +776,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
-        :param pulumi.Input[str] type: - Type of profile source.
+        :param pulumi.Input[str] type: Type of profile source.
         :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
         :param pulumi.Input[str] user_type: User type ID
         """
@@ -945,7 +945,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
         :param pulumi.Input[str] title: display name for the enum value.
-        :param pulumi.Input[str] type: - Type of profile source.
+        :param pulumi.Input[str] type: Type of profile source.
         :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
         :param pulumi.Input[str] user_type: User type ID
         """
@@ -1124,7 +1124,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        - Type of profile source.
+        Type of profile source.
         """
         return pulumi.get(self, "type")
 

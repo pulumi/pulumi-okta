@@ -1282,7 +1282,7 @@ class Oidc(pulumi.CustomResource):
             __props__.__dict__["client_id"] = client_id
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["deprovisioned_action"] = deprovisioned_action
             __props__.__dict__["groups_action"] = groups_action
             __props__.__dict__["groups_assignments"] = groups_assignments
@@ -1323,6 +1323,8 @@ class Oidc(pulumi.CustomResource):
             __props__.__dict__["username_template"] = username_template
             __props__.__dict__["type"] = None
             __props__.__dict__["user_type_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Oidc, __self__).__init__(
             'okta:idp/oidc:Oidc',
             resource_name,

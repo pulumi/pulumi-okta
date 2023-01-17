@@ -33,7 +33,7 @@ import (
 //				AuthServerId: pulumi.String("<auth server id>"),
 //				ClaimType:    pulumi.String("IDENTITY"),
 //				Scopes: pulumi.StringArray{
-//					pulumi.Any(okta_auth_server_scope.Example.Name),
+//					okta_auth_server_scope.Example.Name,
 //				},
 //				Value: pulumi.String("String.substringAfter(user.email, \"@\") == \"example.com\""),
 //			})

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -154,7 +155,6 @@ export class OAuth extends pulumi.CustomResource {
     public readonly consentMethod!: pulumi.Output<string | undefined>;
     /**
      * This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-     * - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
      *
      * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
@@ -172,7 +172,6 @@ export class OAuth extends pulumi.CustomResource {
     public readonly grantTypes!: pulumi.Output<string[] | undefined>;
     /**
      * The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -316,7 +315,6 @@ export class OAuth extends pulumi.CustomResource {
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
      * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
@@ -410,7 +408,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
             resourceInputs["autoKeyRotation"] = args ? args.autoKeyRotation : undefined;
             resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
-            resourceInputs["clientBasicSecret"] = args ? args.clientBasicSecret : undefined;
+            resourceInputs["clientBasicSecret"] = args?.clientBasicSecret ? pulumi.secret(args.clientBasicSecret) : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["clientUri"] = args ? args.clientUri : undefined;
             resourceInputs["consentMethod"] = args ? args.consentMethod : undefined;
@@ -457,6 +455,8 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["signOnMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["clientBasicSecret", "clientSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OAuth.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -523,7 +523,6 @@ export interface OAuthState {
     consentMethod?: pulumi.Input<string>;
     /**
      * This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-     * - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
      *
      * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
@@ -541,7 +540,6 @@ export interface OAuthState {
     grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -685,7 +683,6 @@ export interface OAuthState {
     userNameTemplateType?: pulumi.Input<string>;
     /**
      * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */
@@ -754,7 +751,6 @@ export interface OAuthArgs {
     consentMethod?: pulumi.Input<string>;
     /**
      * This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-     * - `DEPRECATED`: This field is being replaced by `clientId`. Please use that field instead.",
      *
      * @deprecated This field is being replaced by client_id. Please set that field instead.
      */
@@ -772,7 +768,6 @@ export interface OAuthArgs {
     grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      *
      * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
      */
@@ -904,7 +899,6 @@ export interface OAuthArgs {
     userNameTemplateType?: pulumi.Input<string>;
     /**
      * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      *
      * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
      */

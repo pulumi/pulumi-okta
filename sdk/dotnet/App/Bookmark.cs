@@ -99,7 +99,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -178,7 +177,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Users associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.BookmarkUser>> Users { get; private set; } = null!;
@@ -276,7 +274,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
@@ -344,7 +341,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Users associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.BookmarkUserArgs> Users
@@ -408,7 +404,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Groups associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
         /// </summary>
         [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
         public InputList<string> Groups
@@ -494,7 +489,6 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Users associated with the application.
-        /// - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
         /// </summary>
         [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
         public InputList<Inputs.BookmarkUserGetArgs> Users

@@ -893,10 +893,10 @@ class SocialIdp(pulumi.CustomResource):
             __props__.__dict__["account_link_action"] = account_link_action
             __props__.__dict__["account_link_group_includes"] = account_link_group_includes
             __props__.__dict__["apple_kid"] = apple_kid
-            __props__.__dict__["apple_private_key"] = apple_private_key
+            __props__.__dict__["apple_private_key"] = None if apple_private_key is None else pulumi.Output.secret(apple_private_key)
             __props__.__dict__["apple_team_id"] = apple_team_id
             __props__.__dict__["client_id"] = client_id
-            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["deprovisioned_action"] = deprovisioned_action
             __props__.__dict__["groups_action"] = groups_action
             __props__.__dict__["groups_assignments"] = groups_assignments
@@ -931,6 +931,8 @@ class SocialIdp(pulumi.CustomResource):
             __props__.__dict__["authorization_url"] = None
             __props__.__dict__["token_binding"] = None
             __props__.__dict__["token_url"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["applePrivateKey", "clientSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SocialIdp, __self__).__init__(
             'okta:deprecated/socialIdp:SocialIdp',
             resource_name,

@@ -20,7 +20,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Administrator roles assigned to User.
-     * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
      * 
      * @deprecated
      * The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
@@ -32,7 +31,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Administrator roles assigned to User.
-     * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
      * 
      * @deprecated
      * The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
@@ -745,7 +743,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param adminRoles Administrator roles assigned to User.
-         * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
          * 
          * @return builder
          * 
@@ -761,7 +758,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param adminRoles Administrator roles assigned to User.
-         * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
          * 
          * @return builder
          * 
@@ -776,7 +772,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param adminRoles Administrator roles assigned to User.
-         * - `DEPRECATED`: Please replace usage with the `okta.UserAdminRoles` resource.
          * 
          * @return builder
          * 

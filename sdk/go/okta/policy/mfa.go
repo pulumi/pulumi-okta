@@ -35,7 +35,7 @@ import (
 //			_, err := policy.NewMfa(ctx, "classicExample", &policy.MfaArgs{
 //				Description: pulumi.String("Example MFA policy using Okta Classic engine with factors."),
 //				GroupsIncludeds: pulumi.StringArray{
-//					pulumi.Any(data.Okta_group.Everyone.Id),
+//					data.Okta_group.Everyone.Id,
 //				},
 //				IsOie: pulumi.Bool(false),
 //				OktaOtp: pulumi.StringMap{
@@ -52,7 +52,7 @@ import (
 //			_, err = policy.NewMfa(ctx, "oieExample", &policy.MfaArgs{
 //				Description: pulumi.String("Example MFA policy that uses Okta Identity Engine (OIE) with authenticators"),
 //				GroupsIncludeds: pulumi.StringArray{
-//					pulumi.Any(data.Okta_group.Everyone.Id),
+//					data.Okta_group.Everyone.Id,
 //				},
 //				IsOie: pulumi.Bool(true),
 //				OktaPassword: pulumi.StringMap{

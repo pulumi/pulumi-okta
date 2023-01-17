@@ -107,7 +107,6 @@ type AppSharedCredentials struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -156,7 +155,6 @@ type AppSharedCredentials struct {
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrOutput `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AppSharedCredentialsUserArrayOutput `pulumi:"users"`
@@ -213,7 +211,6 @@ type appSharedCredentialsState struct {
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -262,7 +259,6 @@ type appSharedCredentialsState struct {
 	// CSS selector for the username field.
 	UsernameField *string `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []AppSharedCredentialsUser `pulumi:"users"`
@@ -288,7 +284,6 @@ type AppSharedCredentialsState struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -337,7 +332,6 @@ type AppSharedCredentialsState struct {
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AppSharedCredentialsUserArrayInput
@@ -367,7 +361,6 @@ type appSharedCredentialsArgs struct {
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -410,7 +403,6 @@ type appSharedCredentialsArgs struct {
 	// CSS selector for the username field.
 	UsernameField *string `pulumi:"usernameField"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []AppSharedCredentialsUser `pulumi:"users"`
@@ -437,7 +429,6 @@ type AppSharedCredentialsArgs struct {
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -480,7 +471,6 @@ type AppSharedCredentialsArgs struct {
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users AppSharedCredentialsUserArrayInput
@@ -619,7 +609,6 @@ func (o AppSharedCredentialsOutput) EnduserNote() pulumi.StringPtrOutput {
 }
 
 // Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 //
 // Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 func (o AppSharedCredentialsOutput) Groups() pulumi.StringArrayOutput {
@@ -737,7 +726,6 @@ func (o AppSharedCredentialsOutput) UsernameField() pulumi.StringPtrOutput {
 }
 
 // The users assigned to the application. See `app.User` for a more flexible approach.
-// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 //
 // Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 func (o AppSharedCredentialsOutput) Users() AppSharedCredentialsUserArrayOutput {

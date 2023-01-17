@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleUserFactorQuestion = new okta.UserFactorQuestion("exampleUserFactorQuestion", {
  *     userId: exampleUser.id,
- *     key: exampleUserSecurityQuestions.apply(exampleUserSecurityQuestions => exampleUserSecurityQuestions.questions?[0]?.key),
+ *     key: exampleUserSecurityQuestions.apply(exampleUserSecurityQuestions => exampleUserSecurityQuestions.questions?.[0]?.key),
  *     answer: "meatball",
  * }, {
  *     dependsOn: [exampleFactor],
@@ -123,13 +123,15 @@ export class UserFactorQuestion extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["answer"] = args ? args.answer : undefined;
+            resourceInputs["answer"] = args?.answer ? pulumi.secret(args.answer) : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["text"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["answer"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(UserFactorQuestion.__pulumiType, name, resourceInputs, opts);
     }
 }

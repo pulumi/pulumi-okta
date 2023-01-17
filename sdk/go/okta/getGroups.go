@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.GetGroups(ctx, &GetGroupsArgs{
+//			_, err := okta.GetGroups(ctx, &okta.GetGroupsArgs{
 //				Q: pulumi.StringRef("Engineering - "),
 //			}, nil)
 //			if err != nil {

@@ -10,11 +10,8 @@ import * as utilities from "./utilities";
  * of a brand for an Okta orgnanization.
  */
 export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getTheme:getTheme", {
         "brandId": args.brandId,
         "themeId": args.themeId,
@@ -80,10 +77,12 @@ export interface GetThemeResult {
      * Primary color hex code
      */
     readonly primaryColorHex: string;
+    /**
+     * Secondary color contrast hex code
+     */
     readonly secondaryColorContrastHex: string;
     /**
      * Secondary color hex code
-     * - `secondaryColorContrastHex` Secondary color contrast hex code
      */
     readonly secondaryColorHex: string;
     /**
@@ -92,9 +91,13 @@ export interface GetThemeResult {
     readonly signInPageTouchPointVariant: string;
     readonly themeId: string;
 }
-
+/**
+ * Use this data source to retrieve a
+ * [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+ * of a brand for an Okta orgnanization.
+ */
 export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
-    return pulumi.output(args).apply(a => getTheme(a, opts))
+    return pulumi.output(args).apply((a: any) => getTheme(a, opts))
 }
 
 /**

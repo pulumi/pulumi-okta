@@ -40,7 +40,7 @@ namespace Pulumi.Okta
     ///             ["groupFilter"] = "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)",
     ///             ["joinAllRoles"] = false,
     ///             ["loginURL"] = "https://console.aws.amazon.com/ec2/home",
-    ///             ["roleValuePattern"] = $"arn:aws:iam::{accountid}:saml-provider/OKTA,arn:aws:iam::{accountid}:role/{role}",
+    ///             ["roleValuePattern"] = "arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}",
     ///             ["sessionDuration"] = 3200,
     ///             ["useGroupMapping"] = false,
     ///         }),

@@ -52,7 +52,7 @@ import (
 //			_, err = okta.NewPolicyProfileEnrollmentApps(ctx, "examplePolicyProfileEnrollmentApps", &okta.PolicyProfileEnrollmentAppsArgs{
 //				PolicyId: pulumi.Any(okta_policy.Example.Id),
 //				Apps: pulumi.StringArray{
-//					pulumi.Any(data.Okta_app.Id),
+//					data.Okta_app.Id,
 //				},
 //			})
 //			if err != nil {

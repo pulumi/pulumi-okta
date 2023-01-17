@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := user.GetUsers(ctx, &user.GetUsersArgs{
 //				Searches: []user.GetUsersSearch{
-//					user.GetUsersSearch{
+//					{
 //						Expression: pulumi.StringRef("profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"),
 //					},
 //				},

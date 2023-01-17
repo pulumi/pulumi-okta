@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -127,7 +128,7 @@ export class GroupSchemaProperty extends pulumi.CustomResource {
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * - Type of profile source.
+     * Type of profile source.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -276,7 +277,7 @@ export interface GroupSchemaPropertyState {
      */
     title?: pulumi.Input<string>;
     /**
-     * - Type of profile source.
+     * Type of profile source.
      */
     type?: pulumi.Input<string>;
     /**
@@ -358,7 +359,7 @@ export interface GroupSchemaPropertyArgs {
      */
     title: pulumi.Input<string>;
     /**
-     * - Type of profile source.
+     * Type of profile source.
      */
     type: pulumi.Input<string>;
     /**

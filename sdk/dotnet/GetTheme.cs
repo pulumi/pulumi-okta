@@ -17,7 +17,7 @@ namespace Pulumi.Okta
         /// of a brand for an Okta orgnanization.
         /// </summary>
         public static Task<GetThemeResult> InvokeAsync(GetThemeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetThemeResult>("okta:index/getTheme:getTheme", args ?? new GetThemeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetThemeResult>("okta:index/getTheme:getTheme", args ?? new GetThemeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a 
@@ -25,7 +25,7 @@ namespace Pulumi.Okta
         /// of a brand for an Okta orgnanization.
         /// </summary>
         public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetThemeResult>("okta:index/getTheme:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetThemeResult>("okta:index/getTheme:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -114,10 +114,12 @@ namespace Pulumi.Okta
         /// Primary color hex code
         /// </summary>
         public readonly string PrimaryColorHex;
+        /// <summary>
+        /// Secondary color contrast hex code
+        /// </summary>
         public readonly string SecondaryColorContrastHex;
         /// <summary>
         /// Secondary color hex code
-        /// - `secondary_color_contrast_hex` Secondary color contrast hex code
         /// </summary>
         public readonly string SecondaryColorHex;
         /// <summary>

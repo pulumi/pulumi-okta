@@ -110,7 +110,7 @@ export class User extends pulumi.CustomResource {
                 throw new Error("Missing required property 'userId'");
             }
             resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["profile"] = args ? args.profile : undefined;
             resourceInputs["retainAssignment"] = args ? args.retainAssignment : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
@@ -118,6 +118,8 @@ export class User extends pulumi.CustomResource {
             resourceInputs["hasSharedUsername"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
 }

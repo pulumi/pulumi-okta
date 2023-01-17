@@ -52,10 +52,10 @@ type LookupThemeResult struct {
 	// Primary color contrast hex code
 	PrimaryColorContrastHex string `pulumi:"primaryColorContrastHex"`
 	// Primary color hex code
-	PrimaryColorHex           string `pulumi:"primaryColorHex"`
+	PrimaryColorHex string `pulumi:"primaryColorHex"`
+	// Secondary color contrast hex code
 	SecondaryColorContrastHex string `pulumi:"secondaryColorContrastHex"`
 	// Secondary color hex code
-	// - `secondaryColorContrastHex` Secondary color contrast hex code
 	SecondaryColorHex string `pulumi:"secondaryColorHex"`
 	// (Enum) Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant string `pulumi:"signInPageTouchPointVariant"`
@@ -156,12 +156,12 @@ func (o LookupThemeResultOutput) PrimaryColorHex() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.PrimaryColorHex }).(pulumi.StringOutput)
 }
 
+// Secondary color contrast hex code
 func (o LookupThemeResultOutput) SecondaryColorContrastHex() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.SecondaryColorContrastHex }).(pulumi.StringOutput)
 }
 
 // Secondary color hex code
-// - `secondaryColorContrastHex` Secondary color contrast hex code
 func (o LookupThemeResultOutput) SecondaryColorHex() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.SecondaryColorHex }).(pulumi.StringOutput)
 }

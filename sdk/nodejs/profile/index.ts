@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./mapping";
+export { MappingArgs, MappingState } from "./mapping";
+export type Mapping = import("./mapping").Mapping;
+export const Mapping: typeof import("./mapping").Mapping = null as any;
+utilities.lazyLoad(exports, ["Mapping"], () => require("./mapping"));
 
-// Import resources to register:
-import { Mapping } from "./mapping";
 
 const _module = {
     version: utilities.getVersion(),

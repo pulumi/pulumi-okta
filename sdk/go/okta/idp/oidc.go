@@ -173,6 +173,13 @@ func NewOidc(ctx *pulumi.Context,
 	if args.TokenUrl == nil {
 		return nil, errors.New("invalid value for required argument 'TokenUrl'")
 	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"clientSecret",
+	})
+	opts = append(opts, secrets)
 	var resource Oidc
 	err := ctx.RegisterResource("okta:idp/oidc:Oidc", name, args, &resource, opts...)
 	if err != nil {

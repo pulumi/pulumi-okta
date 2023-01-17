@@ -68,7 +68,6 @@ type ThreeField struct {
 	// Value for extra form field.
 	ExtraFieldValue pulumi.StringOutput `pulumi:"extraFieldValue"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -115,7 +114,6 @@ type ThreeField struct {
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringOutput `pulumi:"usernameSelector"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users ThreeFieldUserArrayOutput `pulumi:"users"`
@@ -194,7 +192,6 @@ type threeFieldState struct {
 	// Value for extra form field.
 	ExtraFieldValue *string `pulumi:"extraFieldValue"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -241,7 +238,6 @@ type threeFieldState struct {
 	// Login username field CSS selector.
 	UsernameSelector *string `pulumi:"usernameSelector"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []ThreeFieldUser `pulumi:"users"`
@@ -271,7 +267,6 @@ type ThreeFieldState struct {
 	// Value for extra form field.
 	ExtraFieldValue pulumi.StringPtrInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -318,7 +313,6 @@ type ThreeFieldState struct {
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringPtrInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users ThreeFieldUserArrayInput
@@ -352,7 +346,6 @@ type threeFieldArgs struct {
 	// Value for extra form field.
 	ExtraFieldValue string `pulumi:"extraFieldValue"`
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups []string `pulumi:"groups"`
@@ -393,7 +386,6 @@ type threeFieldArgs struct {
 	// Login username field CSS selector.
 	UsernameSelector string `pulumi:"usernameSelector"`
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users []ThreeFieldUser `pulumi:"users"`
@@ -424,7 +416,6 @@ type ThreeFieldArgs struct {
 	// Value for extra form field.
 	ExtraFieldValue pulumi.StringInput
 	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 	//
 	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 	Groups pulumi.StringArrayInput
@@ -465,7 +456,6 @@ type ThreeFieldArgs struct {
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringInput
 	// The users assigned to the application. See `app.User` for a more flexible approach.
-	// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 	//
 	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 	Users ThreeFieldUserArrayInput
@@ -614,7 +604,6 @@ func (o ThreeFieldOutput) ExtraFieldValue() pulumi.StringOutput {
 }
 
 // Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-// - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
 //
 // Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
 func (o ThreeFieldOutput) Groups() pulumi.StringArrayOutput {
@@ -727,7 +716,6 @@ func (o ThreeFieldOutput) UsernameSelector() pulumi.StringOutput {
 }
 
 // The users assigned to the application. See `app.User` for a more flexible approach.
-// - `DEPRECATED`: Please replace usage with the `app.User` resource.
 //
 // Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
 func (o ThreeFieldOutput) Users() ThreeFieldUserArrayOutput {

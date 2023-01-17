@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *     login: "shaddam.corrino.iv@salusa-secundus.planet",
  *     email: "shaddam.corrino.iv@salusa-secundus.planet",
  * });
- * const sardaukars: okta.user.User[];
+ * const sardaukars: okta.user.User[] = [];
  * for (const range = {value: 0}; range.value < 5; range.value++) {
  *     sardaukars.push(new okta.user.User(`sardaukars-${range.value}`, {
  *         firstName: "Amrit",

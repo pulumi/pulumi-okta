@@ -336,7 +336,7 @@ class User(pulumi.CustomResource):
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
             __props__.__dict__["app_id"] = app_id
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["profile"] = profile
             __props__.__dict__["retain_assignment"] = retain_assignment
             if user_id is None and not opts.urn:
@@ -344,6 +344,8 @@ class User(pulumi.CustomResource):
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["username"] = username
             __props__.__dict__["has_shared_username"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'okta:app/user:User',
             resource_name,

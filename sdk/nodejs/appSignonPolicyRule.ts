@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -80,7 +81,7 @@ import * as utilities from "./utilities";
  *     recipient: "https://here.com",
  *     destination: "https://its-about-the-journey.com",
  *     audience: "https://audience.com",
- *     subjectNameIdTemplate: user.userName,
+ *     subjectNameIdTemplate: `${user.userName}`,
  *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
  *     responseSigned: true,
  *     signatureAlgorithm: "RSA_SHA256",
@@ -126,7 +127,7 @@ import * as utilities from "./utilities";
  * const testAppSignonPolicy = okta.getAppSignonPolicyOutput({
  *     appId: testSaml.id,
  * });
- * const testUser: okta.user.User[];
+ * const testUser: okta.user.User[] = [];
  * for (const range = {value: 0}; range.value < 5; range.value++) {
  *     testUser.push(new okta.user.User(`testUser-${range.value}`, {
  *         firstName: "TestAcc",
@@ -135,7 +136,7 @@ import * as utilities from "./utilities";
  *         email: `testAcc_${range.value}@example.com`,
  *     }));
  * }
- * const _this: okta.group.Group[];
+ * const _this: okta.group.Group[] = [];
  * for (const range = {value: 0}; range.value < 5; range.value++) {
  *     _this.push(new okta.group.Group(`this-${range.value}`, {description: `testAcc_${range.value}`}));
  * }
@@ -277,7 +278,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     public readonly access!: pulumi.Output<string | undefined>;
     /**
-     * - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
      */
     public readonly constraints!: pulumi.Output<string[] | undefined>;
     /**
@@ -446,7 +447,7 @@ export interface AppSignonPolicyRuleState {
      */
     access?: pulumi.Input<string>;
     /**
-     * - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
      */
     constraints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -546,7 +547,7 @@ export interface AppSignonPolicyRuleArgs {
      */
     access?: pulumi.Input<string>;
     /**
-     * - An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
      */
     constraints?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -46,7 +46,7 @@ import (
 //				"groupFilter":        "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)",
 //				"joinAllRoles":       false,
 //				"loginURL":           "https://console.aws.amazon.com/ec2/home",
-//				"roleValuePattern":   fmt.Sprintf("arn:aws:iam::%v:saml-provider/OKTA,arn:aws:iam::%v:role/%v", accountid, accountid, role),
+//				"roleValuePattern":   fmt.Sprintf("arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}"),
 //				"sessionDuration":    3200,
 //				"useGroupMapping":    false,
 //			})

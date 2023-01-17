@@ -457,13 +457,15 @@ class Authenticator(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["provider_auth_port"] = provider_auth_port
             __props__.__dict__["provider_hostname"] = provider_hostname
-            __props__.__dict__["provider_shared_secret"] = provider_shared_secret
+            __props__.__dict__["provider_shared_secret"] = None if provider_shared_secret is None else pulumi.Output.secret(provider_shared_secret)
             __props__.__dict__["provider_user_name_template"] = provider_user_name_template
             __props__.__dict__["settings"] = settings
             __props__.__dict__["status"] = status
             __props__.__dict__["provider_instance_id"] = None
             __props__.__dict__["provider_type"] = None
             __props__.__dict__["type"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["providerSharedSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Authenticator, __self__).__init__(
             'okta:index/authenticator:Authenticator',
             resource_name,

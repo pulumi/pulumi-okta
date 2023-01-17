@@ -46,7 +46,6 @@ class BookmarkArgs:
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
@@ -55,7 +54,6 @@ class BookmarkArgs:
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         :param pulumi.Input[Sequence[pulumi.Input['BookmarkUserArgs']]] users: Users associated with the application.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "url", url)
@@ -211,7 +209,6 @@ class BookmarkArgs:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -308,7 +305,6 @@ class BookmarkArgs:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BookmarkUserArgs']]]]:
         """
         Users associated with the application.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -351,7 +347,6 @@ class _BookmarkState:
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -365,7 +360,6 @@ class _BookmarkState:
         :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         :param pulumi.Input[str] url: The URL of the bookmark.
         :param pulumi.Input[Sequence[pulumi.Input['BookmarkUserArgs']]] users: Users associated with the application.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -505,7 +499,6 @@ class _BookmarkState:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Groups associated with the application.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -662,7 +655,6 @@ class _BookmarkState:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BookmarkUserArgs']]]]:
         """
         Users associated with the application.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 
@@ -741,7 +733,6 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -752,7 +743,6 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         :param pulumi.Input[str] url: The URL of the bookmark.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]] users: Users associated with the application.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         ...
     @overload
@@ -915,7 +905,6 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
-               - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -929,7 +918,6 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         :param pulumi.Input[str] url: The URL of the bookmark.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BookmarkUserArgs']]]] users: Users associated with the application.
-               - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1019,7 +1007,6 @@ class Bookmark(pulumi.CustomResource):
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Groups associated with the application.
-        - `DEPRECATED`: Please replace usage with the `AppGroupAssignments` (or `app.GroupAssignment`) resource.
         """
         return pulumi.get(self, "groups")
 
@@ -1124,7 +1111,6 @@ class Bookmark(pulumi.CustomResource):
     def users(self) -> pulumi.Output[Optional[Sequence['outputs.BookmarkUser']]]:
         """
         Users associated with the application.
-        - `DEPRECATED`: Please replace usage with the `app.User` resource.
         """
         return pulumi.get(self, "users")
 

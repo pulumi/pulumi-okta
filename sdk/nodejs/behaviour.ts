@@ -13,26 +13,26 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const myLocation = new okta.Behaviour("my_location", {
+ * const myLocation = new okta.Behaviour("myLocation", {
  *     locationGranularityType: "LAT_LONG",
  *     numberOfAuthentications: 50,
  *     radiusFromLocation: 20,
  *     type: "ANOMALOUS_LOCATION",
  * });
- * const myCity = new okta.Behaviour("my_city", {
+ * const myCity = new okta.Behaviour("myCity", {
  *     locationGranularityType: "CITY",
  *     numberOfAuthentications: 50,
  *     type: "ANOMALOUS_LOCATION",
  * });
- * const myDevice = new okta.Behaviour("my_device", {
+ * const myDevice = new okta.Behaviour("myDevice", {
  *     numberOfAuthentications: 50,
  *     type: "ANOMALOUS_DEVICE",
  * });
- * const myIp = new okta.Behaviour("my_ip", {
+ * const myIp = new okta.Behaviour("myIp", {
  *     numberOfAuthentications: 50,
  *     type: "ANOMALOUS_IP",
  * });
- * const myVelocity = new okta.Behaviour("my_velocity", {
+ * const myVelocity = new okta.Behaviour("myVelocity", {
  *     type: "VELOCITY",
  *     velocity: 25,
  * });

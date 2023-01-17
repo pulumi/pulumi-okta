@@ -33,12 +33,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleCaptcha = new okta.Captcha("example", {
+ * const exampleCaptcha = new okta.Captcha("exampleCaptcha", {
  *     secretKey: "some_secret_key",
  *     siteKey: "some_key",
  *     type: "HCAPTCHA",
  * });
- * const exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings("example", {});
+ * const exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", {});
  * ```
  *
  * ## Import

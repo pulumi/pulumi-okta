@@ -24,6 +24,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -51,7 +53,7 @@ import (
 //				SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
 //				SsoUrl:                pulumi.String("https://example.com"),
 //				SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
-//				SubjectNameIdTemplate: pulumi.Any(user.UserName),
+//				SubjectNameIdTemplate: pulumi.String(fmt.Sprintf("${user.userName}")),
 //			})
 //			if err != nil {
 //				return err
@@ -67,6 +69,8 @@ import (
 // package main
 //
 // import (
+//
+//	"fmt"
 //
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline"
@@ -101,7 +105,7 @@ import (
 //				Recipient:             pulumi.String("https://here.com"),
 //				Destination:           pulumi.String("https://its-about-the-journey.com"),
 //				Audience:              pulumi.String("https://audience.com"),
-//				SubjectNameIdTemplate: pulumi.Any(user.UserName),
+//				SubjectNameIdTemplate: pulumi.String(fmt.Sprintf("${user.userName}")),
 //				SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
 //				ResponseSigned:        pulumi.Bool(true),
 //				SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
@@ -150,7 +154,7 @@ import (
 //				PreconfiguredApp:     pulumi.String("sharepoint_onpremise"),
 //				SamlVersion:          pulumi.String("1.1"),
 //				Status:               pulumi.String("ACTIVE"),
-//				UserNameTemplate:     pulumi.Any(source.Login),
+//				UserNameTemplate:     pulumi.String(fmt.Sprintf("${source.login}")),
 //				UserNameTemplateType: pulumi.String("BUILT_IN"),
 //			})
 //			if err != nil {
@@ -278,11 +282,11 @@ type Saml struct {
 	AssertionSigned pulumi.BoolPtrOutput `pulumi:"assertionSigned"`
 	// List of SAML Attribute statements.
 	AttributeStatements SamlAttributeStatementArrayOutput `pulumi:"attributeStatements"`
-	// Audience restriction.
+	// Audience Restriction
 	Audience pulumi.StringPtrOutput `pulumi:"audience"`
 	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringPtrOutput `pulumi:"authenticationPolicy"`
-	// Identifies the SAML authentication context class for the assertion’s authentication statement.
+	// Identifies the SAML authentication context class for the assertion’s authentication statement
 	AuthnContextClassRef pulumi.StringPtrOutput `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
@@ -290,9 +294,9 @@ type Saml struct {
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState pulumi.StringPtrOutput `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
 	Destination pulumi.StringPtrOutput `pulumi:"destination"`
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm pulumi.StringPtrOutput `pulumi:"digestAlgorithm"`
 	// The url that can be used to embed this application in other portals.
 	EmbedUrl pulumi.StringOutput `pulumi:"embedUrl"`
@@ -444,11 +448,11 @@ type samlState struct {
 	AssertionSigned *bool `pulumi:"assertionSigned"`
 	// List of SAML Attribute statements.
 	AttributeStatements []SamlAttributeStatement `pulumi:"attributeStatements"`
-	// Audience restriction.
+	// Audience Restriction
 	Audience *string `pulumi:"audience"`
 	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
-	// Identifies the SAML authentication context class for the assertion’s authentication statement.
+	// Identifies the SAML authentication context class for the assertion’s authentication statement
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -456,9 +460,9 @@ type samlState struct {
 	Certificate *string `pulumi:"certificate"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState *string `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
 	Destination *string `pulumi:"destination"`
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
 	// The url that can be used to embed this application in other portals.
 	EmbedUrl *string `pulumi:"embedUrl"`
@@ -579,11 +583,11 @@ type SamlState struct {
 	AssertionSigned pulumi.BoolPtrInput
 	// List of SAML Attribute statements.
 	AttributeStatements SamlAttributeStatementArrayInput
-	// Audience restriction.
+	// Audience Restriction
 	Audience pulumi.StringPtrInput
 	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringPtrInput
-	// Identifies the SAML authentication context class for the assertion’s authentication statement.
+	// Identifies the SAML authentication context class for the assertion’s authentication statement
 	AuthnContextClassRef pulumi.StringPtrInput
 	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -591,9 +595,9 @@ type SamlState struct {
 	Certificate pulumi.StringPtrInput
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState pulumi.StringPtrInput
-	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
 	Destination pulumi.StringPtrInput
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm pulumi.StringPtrInput
 	// The url that can be used to embed this application in other portals.
 	EmbedUrl pulumi.StringPtrInput
@@ -718,19 +722,19 @@ type samlArgs struct {
 	AssertionSigned *bool `pulumi:"assertionSigned"`
 	// List of SAML Attribute statements.
 	AttributeStatements []SamlAttributeStatement `pulumi:"attributeStatements"`
-	// Audience restriction.
+	// Audience Restriction
 	Audience *string `pulumi:"audience"`
 	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
-	// Identifies the SAML authentication context class for the assertion’s authentication statement.
+	// Identifies the SAML authentication context class for the assertion’s authentication statement
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState *string `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
 	Destination *string `pulumi:"destination"`
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
@@ -826,19 +830,19 @@ type SamlArgs struct {
 	AssertionSigned pulumi.BoolPtrInput
 	// List of SAML Attribute statements.
 	AttributeStatements SamlAttributeStatementArrayInput
-	// Audience restriction.
+	// Audience Restriction
 	Audience pulumi.StringPtrInput
 	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringPtrInput
-	// Identifies the SAML authentication context class for the assertion’s authentication statement.
+	// Identifies the SAML authentication context class for the assertion’s authentication statement
 	AuthnContextClassRef pulumi.StringPtrInput
 	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState pulumi.StringPtrInput
-	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
 	Destination pulumi.StringPtrInput
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
@@ -1046,7 +1050,7 @@ func (o SamlOutput) AttributeStatements() SamlAttributeStatementArrayOutput {
 	return o.ApplyT(func(v *Saml) SamlAttributeStatementArrayOutput { return v.AttributeStatements }).(SamlAttributeStatementArrayOutput)
 }
 
-// Audience restriction.
+// Audience Restriction
 func (o SamlOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.Audience }).(pulumi.StringPtrOutput)
 }
@@ -1056,7 +1060,7 @@ func (o SamlOutput) AuthenticationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AuthenticationPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the SAML authentication context class for the assertion’s authentication statement.
+// Identifies the SAML authentication context class for the assertion’s authentication statement
 func (o SamlOutput) AuthnContextClassRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AuthnContextClassRef }).(pulumi.StringPtrOutput)
 }
@@ -1076,12 +1080,12 @@ func (o SamlOutput) DefaultRelayState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.DefaultRelayState }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
 func (o SamlOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
-// Determines the digest algorithm used to digitally sign the SAML assertion and response.
+// Determines the digest algorithm used to digitally sign the SAML assertion and response
 func (o SamlOutput) DigestAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.DigestAlgorithm }).(pulumi.StringPtrOutput)
 }

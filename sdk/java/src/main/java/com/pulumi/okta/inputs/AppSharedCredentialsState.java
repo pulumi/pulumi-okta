@@ -155,7 +155,6 @@ public final class AppSharedCredentialsState extends com.pulumi.resources.Resour
 
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      * 
      * @deprecated
      * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -167,7 +166,6 @@ public final class AppSharedCredentialsState extends com.pulumi.resources.Resour
 
     /**
      * @return Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      * 
      * @deprecated
      * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -510,7 +508,6 @@ public final class AppSharedCredentialsState extends com.pulumi.resources.Resour
 
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      * 
      * @deprecated
      * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -522,7 +519,6 @@ public final class AppSharedCredentialsState extends com.pulumi.resources.Resour
 
     /**
      * @return The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      * 
      * @deprecated
      * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -780,7 +776,6 @@ public final class AppSharedCredentialsState extends com.pulumi.resources.Resour
 
         /**
          * @param groups Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-         * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
          * 
          * @return builder
          * 
@@ -796,7 +791,6 @@ public final class AppSharedCredentialsState extends com.pulumi.resources.Resour
 
         /**
          * @param groups Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-         * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
          * 
          * @return builder
          * 
@@ -811,7 +805,6 @@ public final class AppSharedCredentialsState extends com.pulumi.resources.Resour
 
         /**
          * @param groups Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-         * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
          * 
          * @return builder
          * 
@@ -1288,7 +1281,6 @@ public final class AppSharedCredentialsState extends com.pulumi.resources.Resour
 
         /**
          * @param users The users assigned to the application. See `okta.app.User` for a more flexible approach.
-         * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
          * 
          * @return builder
          * 
@@ -1304,7 +1296,6 @@ public final class AppSharedCredentialsState extends com.pulumi.resources.Resour
 
         /**
          * @param users The users assigned to the application. See `okta.app.User` for a more flexible approach.
-         * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
          * 
          * @return builder
          * 
@@ -1319,7 +1310,6 @@ public final class AppSharedCredentialsState extends com.pulumi.resources.Resour
 
         /**
          * @param users The users assigned to the application. See `okta.app.User` for a more flexible approach.
-         * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
          * 
          * @return builder
          * 

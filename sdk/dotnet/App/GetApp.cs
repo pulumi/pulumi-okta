@@ -36,7 +36,7 @@ namespace Pulumi.Okta.App
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args ?? new GetAppArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve an application from Okta.
@@ -63,7 +63,7 @@ namespace Pulumi.Okta.App
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppResult>("okta:app/getApp:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("okta:app/getApp:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -172,7 +172,6 @@ namespace Pulumi.Okta.App
         public readonly bool? ActiveOnly;
         /// <summary>
         /// List of groups IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
@@ -200,7 +199,6 @@ namespace Pulumi.Okta.App
         public readonly string Status;
         /// <summary>
         /// List of users IDs assigned to the application.
-        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.getAppUserAssignments`.
         /// </summary>
         public readonly ImmutableArray<string> Users;
 

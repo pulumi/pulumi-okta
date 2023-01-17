@@ -152,6 +152,14 @@ func NewOauthApp(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	if args.ClientBasicSecret != nil {
+		args.ClientBasicSecret = pulumi.ToSecret(args.ClientBasicSecret).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"clientBasicSecret",
+		"clientSecret",
+	})
+	opts = append(opts, secrets)
 	var resource OauthApp
 	err := ctx.RegisterResource("okta:deprecated/oauthApp:OauthApp", name, args, &resource, opts...)
 	if err != nil {

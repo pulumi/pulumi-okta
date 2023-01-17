@@ -220,7 +220,6 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
     }
     /**
      * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      * 
      * @deprecated
      * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
@@ -232,7 +231,6 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.AppGroupAssignments` (or `okta.app.GroupAssignment`) resource.
      * 
      */
     public Output<Optional<List<String>>> groups() {
@@ -548,7 +546,6 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
     }
     /**
      * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      * 
      * @deprecated
      * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
@@ -560,7 +557,6 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * - `DEPRECATED`: Please replace usage with the `okta.app.User` resource.
      * 
      */
     public Output<Optional<List<AppSharedCredentialsUser>>> users() {

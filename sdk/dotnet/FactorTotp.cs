@@ -42,14 +42,14 @@ namespace Pulumi.Okta
     public partial class FactorTotp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// - Clock drift interval. This setting allows you to build in tolerance for any
+        /// Clock drift interval. This setting allows you to build in tolerance for any
         /// drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
         /// </summary>
         [Output("clockDriftInterval")]
         public Output<int?> ClockDriftInterval { get; private set; } = null!;
 
         /// <summary>
-        /// - HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
+        /// HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
         /// is `"HMacSHA512"`.
         /// </summary>
         [Output("hmacAlgorithm")]
@@ -68,14 +68,14 @@ namespace Pulumi.Okta
         public Output<int?> OtpLength { get; private set; } = null!;
 
         /// <summary>
-        /// - Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
+        /// Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
         /// Default is `"base32"`.
         /// </summary>
         [Output("sharedSecretEncoding")]
         public Output<string?> SharedSecretEncoding { get; private set; } = null!;
 
         /// <summary>
-        /// - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+        /// Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
         /// </summary>
         [Output("timeStep")]
         public Output<int?> TimeStep { get; private set; } = null!;
@@ -127,14 +127,14 @@ namespace Pulumi.Okta
     public sealed class FactorTotpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - Clock drift interval. This setting allows you to build in tolerance for any
+        /// Clock drift interval. This setting allows you to build in tolerance for any
         /// drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
         /// </summary>
         [Input("clockDriftInterval")]
         public Input<int>? ClockDriftInterval { get; set; }
 
         /// <summary>
-        /// - HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
+        /// HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
         /// is `"HMacSHA512"`.
         /// </summary>
         [Input("hmacAlgorithm")]
@@ -153,14 +153,14 @@ namespace Pulumi.Okta
         public Input<int>? OtpLength { get; set; }
 
         /// <summary>
-        /// - Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
+        /// Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
         /// Default is `"base32"`.
         /// </summary>
         [Input("sharedSecretEncoding")]
         public Input<string>? SharedSecretEncoding { get; set; }
 
         /// <summary>
-        /// - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+        /// Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
         /// </summary>
         [Input("timeStep")]
         public Input<int>? TimeStep { get; set; }
@@ -174,14 +174,14 @@ namespace Pulumi.Okta
     public sealed class FactorTotpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - Clock drift interval. This setting allows you to build in tolerance for any
+        /// Clock drift interval. This setting allows you to build in tolerance for any
         /// drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
         /// </summary>
         [Input("clockDriftInterval")]
         public Input<int>? ClockDriftInterval { get; set; }
 
         /// <summary>
-        /// - HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
+        /// HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
         /// is `"HMacSHA512"`.
         /// </summary>
         [Input("hmacAlgorithm")]
@@ -200,14 +200,14 @@ namespace Pulumi.Okta
         public Input<int>? OtpLength { get; set; }
 
         /// <summary>
-        /// - Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
+        /// Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
         /// Default is `"base32"`.
         /// </summary>
         [Input("sharedSecretEncoding")]
         public Input<string>? SharedSecretEncoding { get; set; }
 
         /// <summary>
-        /// - Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+        /// Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
         /// </summary>
         [Input("timeStep")]
         public Input<int>? TimeStep { get; set; }

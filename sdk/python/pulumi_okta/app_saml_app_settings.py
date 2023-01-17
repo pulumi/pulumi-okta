@@ -120,7 +120,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
                 "groupFilter": "aws_(?{{accountid}}\\\\\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\\\\\-_]+)",
                 "joinAllRoles": False,
                 "loginURL": "https://console.aws.amazon.com/ec2/home",
-                "roleValuePattern": f"arn:aws:iam::{accountid}:saml-provider/OKTA,arn:aws:iam::{accountid}:role/{role}",
+                "roleValuePattern": "arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}",
                 "sessionDuration": 3200,
                 "useGroupMapping": False,
             }))
@@ -168,7 +168,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
                 "groupFilter": "aws_(?{{accountid}}\\\\\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\\\\\-_]+)",
                 "joinAllRoles": False,
                 "loginURL": "https://console.aws.amazon.com/ec2/home",
-                "roleValuePattern": f"arn:aws:iam::{accountid}:saml-provider/OKTA,arn:aws:iam::{accountid}:role/{role}",
+                "roleValuePattern": "arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}",
                 "sessionDuration": 3200,
                 "useGroupMapping": False,
             }))

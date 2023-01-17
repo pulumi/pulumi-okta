@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -11,11 +12,8 @@ import * as utilities from "./utilities";
  * of a brand for an Okta orgnanization.
  */
 export function getThemes(args: GetThemesArgs, opts?: pulumi.InvokeOptions): Promise<GetThemesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getThemes:getThemes", {
         "brandId": args.brandId,
     }, opts);
@@ -45,9 +43,13 @@ export interface GetThemesResult {
      */
     readonly themes: outputs.GetThemesTheme[];
 }
-
+/**
+ * Use this data source to retrieve
+ * [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+ * of a brand for an Okta orgnanization.
+ */
 export function getThemesOutput(args: GetThemesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemesResult> {
-    return pulumi.output(args).apply(a => getThemes(a, opts))
+    return pulumi.output(args).apply((a: any) => getThemes(a, opts))
 }
 
 /**
