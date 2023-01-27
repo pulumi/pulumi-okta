@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-okta/provider/v3
 go 1.18
 
 require (
-	github.com/okta/terraform-provider-okta v0.0.0-20230109232241-f9d5e952bf5c
+	github.com/okta/terraform-provider-okta v0.0.0-20230127180059-ca41ea03a4cc
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.37.0
 	github.com/pulumi/pulumi/sdk/v3 v3.51.0
 )
