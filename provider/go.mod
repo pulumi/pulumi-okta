@@ -79,7 +79,7 @@ require (
 	github.com/cenkalti/backoff/v3 v3.2.2 // indirect
 	github.com/cenkalti/backoff/v4 v4.1.3 // indirect
 	github.com/cheggaaa/pb v1.0.29 // indirect
-	github.com/crewjam/saml v0.4.8 // indirect
+	github.com/crewjam/saml v0.4.9 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
