@@ -1364,6 +1364,8 @@ github.com/oklog/run v1.1.0/go.mod h1:sVPdnTZT1zYwAJeCMu2Th4T21pA3FPOQRfWjQlk7DV
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
 github.com/okta/okta-sdk-golang/v2 v2.14.1-0.20220914175214-588bce2f1414 h1:KlTCbr7DPfUMq9gQ+WcyLpOUaRIxrGCogYhkXCnaPjY=
 github.com/okta/okta-sdk-golang/v2 v2.14.1-0.20220914175214-588bce2f1414/go.mod h1:dz30v3ctAiMb7jpsCngGfQUAEGm1/NsWT92uTbNDQIs=
+github.com/okta/terraform-provider-okta v0.0.0-20220914222047-24077d13378b h1:7S5x3doQArFh3o1XFughOXeStqbcFECEvRqiarOUzWA=
+github.com/okta/terraform-provider-okta v0.0.0-20220914222047-24077d13378b/go.mod h1:o3qvR27W8fRl0iNE8d9KIsEXhmQk+M/gxL27cVZeCtE=
 github.com/olekukonko/tablewriter v0.0.0-20170122224234-a0225b3f23b5/go.mod h1:vsDQFd/mU46D+Z4whnwzcISnGGzXWMclvtLoiIKAKIo=
 github.com/onsi/ginkgo v0.0.0-20151202141238-7f8ab55aaf3b/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v0.0.0-20170829012221-11459a886d9c/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
@@ -1540,8 +1542,6 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220725190814-23001ad6ec03 h1:J06u+TRoOQ9C6JZlXNvmOE5Il4/WdXslx5bOUIRZtDI=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220725190814-23001ad6ec03/go.mod h1:/WYikYjhKB7c2j1HmXZhRsAARldRb4M38bLCLOhC3so=
-github.com/pulumi/terraform-provider-okta v0.0.0-20220927205311-8eda5263c6d4 h1:WcyZyW9NwROADUaj4ju6Pp94t9fJQiBLVf61Pc/9FJs=
-github.com/pulumi/terraform-provider-okta v0.0.0-20220927205311-8eda5263c6d4/go.mod h1:o3qvR27W8fRl0iNE8d9KIsEXhmQk+M/gxL27cVZeCtE=
 github.com/rakyll/embedmd v0.0.0-20171029212350-c8060a0752a2/go.mod h1:7jOTMgqac46PZcF54q6l2hkLEG8op93fZu61KmxWDV4=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
