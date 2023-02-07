@@ -15,6 +15,16 @@ import (
 //
 // This resource allows you to create and configure an Okta User.
 //
+// > **IMPORTANT** If the provider is executed with a non-super user API token a
+// 403 occurs when the provider attempts to inspect the user's admin roles. This
+// 403 is swallowed and a warning is logged allowing the resource to continue
+// without this error hindering it. An empty `adminRoles` array will be present in
+// the resource state.
+//
+// > **IMPORTANT** Use `skip_roles=true` to avoid `adminRoles` being present in
+// resource state. This also prevents the underlying API call for those values to
+// be made.
+//
 // ## Example Usage
 //
 // Full profile:
@@ -197,6 +207,8 @@ type User struct {
 	RecoveryQuestion pulumi.StringPtrOutput `pulumi:"recoveryQuestion"`
 	// User profile property.
 	SecondEmail pulumi.StringPtrOutput `pulumi:"secondEmail"`
+	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
+	SkipRoles pulumi.BoolPtrOutput `pulumi:"skipRoles"`
 	// User profile property.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -351,6 +363,8 @@ type userState struct {
 	RecoveryQuestion *string `pulumi:"recoveryQuestion"`
 	// User profile property.
 	SecondEmail *string `pulumi:"secondEmail"`
+	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
+	SkipRoles *bool `pulumi:"skipRoles"`
 	// User profile property.
 	State *string `pulumi:"state"`
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -450,6 +464,8 @@ type UserState struct {
 	RecoveryQuestion pulumi.StringPtrInput
 	// User profile property.
 	SecondEmail pulumi.StringPtrInput
+	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
+	SkipRoles pulumi.BoolPtrInput
 	// User profile property.
 	State pulumi.StringPtrInput
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -551,6 +567,8 @@ type userArgs struct {
 	RecoveryQuestion *string `pulumi:"recoveryQuestion"`
 	// User profile property.
 	SecondEmail *string `pulumi:"secondEmail"`
+	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
+	SkipRoles *bool `pulumi:"skipRoles"`
 	// User profile property.
 	State *string `pulumi:"state"`
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -649,6 +667,8 @@ type UserArgs struct {
 	RecoveryQuestion pulumi.StringPtrInput
 	// User profile property.
 	SecondEmail pulumi.StringPtrInput
+	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
+	SkipRoles pulumi.BoolPtrInput
 	// User profile property.
 	State pulumi.StringPtrInput
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -940,6 +960,11 @@ func (o UserOutput) RecoveryQuestion() pulumi.StringPtrOutput {
 // User profile property.
 func (o UserOutput) SecondEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.SecondEmail }).(pulumi.StringPtrOutput)
+}
+
+// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
+func (o UserOutput) SkipRoles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.SkipRoles }).(pulumi.BoolPtrOutput)
 }
 
 // User profile property.

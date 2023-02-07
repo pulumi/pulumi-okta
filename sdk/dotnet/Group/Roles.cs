@@ -47,7 +47,19 @@ namespace Pulumi.Okta.Group
     public partial class Roles : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        /// Admin roles associated with the group. It can be any of the following values:
+        /// `"API_ADMIN"`,
+        /// `"APP_ADMIN"`,
+        /// `"CUSTOM"`,
+        /// `"GROUP_MEMBERSHIP_ADMIN"`,
+        /// `"HELP_DESK_ADMIN"`,
+        /// `"MOBILE_ADMIN"`,
+        /// `"ORG_ADMIN"`,
+        /// `"READ_ONLY_ADMIN"`,
+        /// `"REPORT_ADMIN"`,
+        /// `"SUPER_ADMIN"`,
+        /// `"USER_ADMIN"`
+        /// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         /// </summary>
         [Output("adminRoles")]
         public Output<ImmutableArray<string>> AdminRoles { get; private set; } = null!;
@@ -108,7 +120,19 @@ namespace Pulumi.Okta.Group
         private InputList<string>? _adminRoles;
 
         /// <summary>
-        /// Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        /// Admin roles associated with the group. It can be any of the following values:
+        /// `"API_ADMIN"`,
+        /// `"APP_ADMIN"`,
+        /// `"CUSTOM"`,
+        /// `"GROUP_MEMBERSHIP_ADMIN"`,
+        /// `"HELP_DESK_ADMIN"`,
+        /// `"MOBILE_ADMIN"`,
+        /// `"ORG_ADMIN"`,
+        /// `"READ_ONLY_ADMIN"`,
+        /// `"REPORT_ADMIN"`,
+        /// `"SUPER_ADMIN"`,
+        /// `"USER_ADMIN"`
+        /// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         /// </summary>
         public InputList<string> AdminRoles
         {
@@ -134,7 +158,19 @@ namespace Pulumi.Okta.Group
         private InputList<string>? _adminRoles;
 
         /// <summary>
-        /// Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        /// Admin roles associated with the group. It can be any of the following values:
+        /// `"API_ADMIN"`,
+        /// `"APP_ADMIN"`,
+        /// `"CUSTOM"`,
+        /// `"GROUP_MEMBERSHIP_ADMIN"`,
+        /// `"HELP_DESK_ADMIN"`,
+        /// `"MOBILE_ADMIN"`,
+        /// `"ORG_ADMIN"`,
+        /// `"READ_ONLY_ADMIN"`,
+        /// `"REPORT_ADMIN"`,
+        /// `"SUPER_ADMIN"`,
+        /// `"USER_ADMIN"`
+        /// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         /// </summary>
         public InputList<string> AdminRoles
         {

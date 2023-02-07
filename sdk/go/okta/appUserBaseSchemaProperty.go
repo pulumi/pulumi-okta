@@ -73,7 +73,7 @@ type AppUserBaseSchemaProperty struct {
 	Title pulumi.StringOutput `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Custom subschema user type
+	// User type ID. By default, it is `"default"`.
 	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 }
 
@@ -134,7 +134,7 @@ type appUserBaseSchemaPropertyState struct {
 	Title *string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
-	// Custom subschema user type
+	// User type ID. By default, it is `"default"`.
 	UserType *string `pulumi:"userType"`
 }
 
@@ -155,7 +155,7 @@ type AppUserBaseSchemaPropertyState struct {
 	Title pulumi.StringPtrInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
-	// Custom subschema user type
+	// User type ID. By default, it is `"default"`.
 	UserType pulumi.StringPtrInput
 }
 
@@ -180,7 +180,7 @@ type appUserBaseSchemaPropertyArgs struct {
 	Title string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
-	// Custom subschema user type
+	// User type ID. By default, it is `"default"`.
 	UserType *string `pulumi:"userType"`
 }
 
@@ -202,7 +202,7 @@ type AppUserBaseSchemaPropertyArgs struct {
 	Title pulumi.StringInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
-	// Custom subschema user type
+	// User type ID. By default, it is `"default"`.
 	UserType pulumi.StringPtrInput
 }
 
@@ -333,7 +333,7 @@ func (o AppUserBaseSchemaPropertyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppUserBaseSchemaProperty) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Custom subschema user type
+// User type ID. By default, it is `"default"`.
 func (o AppUserBaseSchemaPropertyOutput) UserType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserBaseSchemaProperty) pulumi.StringPtrOutput { return v.UserType }).(pulumi.StringPtrOutput)
 }

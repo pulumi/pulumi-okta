@@ -60,7 +60,7 @@ type LookupUserArgs struct {
 	Searches []GetUserSearch `pulumi:"searches"`
 	// Additional API call to collect user's groups will not be made.
 	SkipGroups *bool `pulumi:"skipGroups"`
-	// Additional API call to collect user's roles will not be made.
+	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
 	SkipRoles *bool `pulumi:"skipRoles"`
 	// String representing a specific user's id value
 	UserId *string `pulumi:"userId"`
@@ -171,7 +171,7 @@ type LookupUserOutputArgs struct {
 	Searches GetUserSearchArrayInput `pulumi:"searches"`
 	// Additional API call to collect user's groups will not be made.
 	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
-	// Additional API call to collect user's roles will not be made.
+	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
 	SkipRoles pulumi.BoolPtrInput `pulumi:"skipRoles"`
 	// String representing a specific user's id value
 	UserId pulumi.StringPtrInput `pulumi:"userId"`

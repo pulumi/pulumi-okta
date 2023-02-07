@@ -178,8 +178,8 @@ export class OauthApp extends pulumi.CustomResource {
      */
     public readonly omitSecret!: pulumi.Output<boolean | undefined>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-     * `native` application types.
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+     * https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     public readonly pkceRequired!: pulumi.Output<boolean | undefined>;
     /**
@@ -551,8 +551,8 @@ export interface OauthAppState {
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-     * `native` application types.
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+     * https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     pkceRequired?: pulumi.Input<boolean>;
     /**
@@ -773,8 +773,8 @@ export interface OauthAppArgs {
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-     * `native` application types.
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+     * https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     pkceRequired?: pulumi.Input<boolean>;
     /**

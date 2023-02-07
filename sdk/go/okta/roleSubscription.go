@@ -70,7 +70,19 @@ type RoleSubscription struct {
 	// - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
 	// - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
-	// Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+	// Type of the role. Valid values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -126,7 +138,19 @@ type roleSubscriptionState struct {
 	// - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
 	// - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
 	NotificationType *string `pulumi:"notificationType"`
-	// Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+	// Type of the role. Valid values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
 	RoleType *string `pulumi:"roleType"`
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
 	Status *string `pulumi:"status"`
@@ -148,7 +172,19 @@ type RoleSubscriptionState struct {
 	// - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
 	// - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
 	NotificationType pulumi.StringPtrInput
-	// Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+	// Type of the role. Valid values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
 	RoleType pulumi.StringPtrInput
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
 	Status pulumi.StringPtrInput
@@ -174,7 +210,19 @@ type roleSubscriptionArgs struct {
 	// - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
 	// - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
 	NotificationType string `pulumi:"notificationType"`
-	// Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+	// Type of the role. Valid values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
 	RoleType string `pulumi:"roleType"`
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
 	Status *string `pulumi:"status"`
@@ -197,7 +245,19 @@ type RoleSubscriptionArgs struct {
 	// - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
 	// - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
 	NotificationType pulumi.StringInput
-	// Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+	// Type of the role. Valid values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
 	RoleType pulumi.StringInput
 	// Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
 	Status pulumi.StringPtrInput
@@ -308,7 +368,19 @@ func (o RoleSubscriptionOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleSubscription) pulumi.StringOutput { return v.NotificationType }).(pulumi.StringOutput)
 }
 
-// Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+// Type of the role. Valid values:
+// `"API_ADMIN"`,
+// `"APP_ADMIN"`,
+// `"CUSTOM"`,
+// `"GROUP_MEMBERSHIP_ADMIN"`,
+// `"HELP_DESK_ADMIN"`,
+// `"MOBILE_ADMIN"`,
+// `"ORG_ADMIN"`,
+// `"READ_ONLY_ADMIN"`,
+// `"REPORT_ADMIN"`,
+// `"SUPER_ADMIN"`,
+// `"USER_ADMIN"`
+// . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
 func (o RoleSubscriptionOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleSubscription) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
 }

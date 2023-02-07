@@ -88,16 +88,23 @@ type LookupAuthenticatorResult struct {
 	Id  *string `pulumi:"id"`
 	Key *string `pulumi:"key"`
 	// Name of the authenticator.
-	Name                     *string `pulumi:"name"`
-	ProviderAuthPort         int     `pulumi:"providerAuthPort"`
-	ProviderHostname         string  `pulumi:"providerHostname"`
-	ProviderInstanceId       string  `pulumi:"providerInstanceId"`
-	ProviderType             string  `pulumi:"providerType"`
-	ProviderUserNameTemplate string  `pulumi:"providerUserNameTemplate"`
-	// Settings for the authenticator.
+	Name *string `pulumi:"name"`
+	// (Specific to `securityKey`) The provider server port (for example 1812).
+	ProviderAuthPort int `pulumi:"providerAuthPort"`
+	// (Specific to `securityKey`) Server host name or IP address.
+	ProviderHostname string `pulumi:"providerHostname"`
+	// (Specific to `securityKey`) App Instance ID.
+	ProviderInstanceId string `pulumi:"providerInstanceId"`
+	ProviderJson       string `pulumi:"providerJson"`
+	// Provider type.
+	ProviderType string `pulumi:"providerType"`
+	// Username template expected by the provider.
+	ProviderUserNameTemplate string `pulumi:"providerUserNameTemplate"`
+	// Settings for the authenticator (expressed in JSON).
 	Settings string `pulumi:"settings"`
-	Status   string `pulumi:"status"`
-	// Type of the Authenticator.
+	// Status of the Authenticator.
+	Status string `pulumi:"status"`
+	// The type of Authenticator.
 	Type string `pulumi:"type"`
 }
 
@@ -157,36 +164,46 @@ func (o LookupAuthenticatorResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// (Specific to `securityKey`) The provider server port (for example 1812).
 func (o LookupAuthenticatorResultOutput) ProviderAuthPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) int { return v.ProviderAuthPort }).(pulumi.IntOutput)
 }
 
+// (Specific to `securityKey`) Server host name or IP address.
 func (o LookupAuthenticatorResultOutput) ProviderHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.ProviderHostname }).(pulumi.StringOutput)
 }
 
+// (Specific to `securityKey`) App Instance ID.
 func (o LookupAuthenticatorResultOutput) ProviderInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.ProviderInstanceId }).(pulumi.StringOutput)
 }
 
+func (o LookupAuthenticatorResultOutput) ProviderJson() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.ProviderJson }).(pulumi.StringOutput)
+}
+
+// Provider type.
 func (o LookupAuthenticatorResultOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.ProviderType }).(pulumi.StringOutput)
 }
 
+// Username template expected by the provider.
 func (o LookupAuthenticatorResultOutput) ProviderUserNameTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.ProviderUserNameTemplate }).(pulumi.StringOutput)
 }
 
-// Settings for the authenticator.
+// Settings for the authenticator (expressed in JSON).
 func (o LookupAuthenticatorResultOutput) Settings() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.Settings }).(pulumi.StringOutput)
 }
 
+// Status of the Authenticator.
 func (o LookupAuthenticatorResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Type of the Authenticator.
+// The type of Authenticator.
 func (o LookupAuthenticatorResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.Type }).(pulumi.StringOutput)
 }

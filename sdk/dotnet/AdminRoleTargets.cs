@@ -68,7 +68,7 @@ namespace Pulumi.Okta
         public Output<string> RoleId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the role associated with the user.
+        /// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         /// </summary>
         [Output("roleType")]
         public Output<string> RoleType { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Name of the role associated with the user.
+        /// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         /// </summary>
         [Input("roleType", required: true)]
         public Input<string> RoleType { get; set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Okta
         public Input<string>? RoleId { get; set; }
 
         /// <summary>
-        /// Name of the role associated with the user.
+        /// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         /// </summary>
         [Input("roleType")]
         public Input<string>? RoleType { get; set; }

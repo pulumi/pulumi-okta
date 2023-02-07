@@ -94,6 +94,21 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     * 
+     */
+    @Import(name="authenticationPolicy")
+    private @Nullable Output<String> authenticationPolicy;
+
+    /**
+     * @return The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     * 
+     */
+    public Optional<Output<String>> authenticationPolicy() {
+        return Optional.ofNullable(this.authenticationPolicy);
+    }
+
+    /**
      * Display auto submit toolbar.
      * 
      */
@@ -357,6 +372,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         this.accessibilitySelfService = $.accessibilitySelfService;
         this.adminNote = $.adminNote;
         this.appLinksJson = $.appLinksJson;
+        this.authenticationPolicy = $.authenticationPolicy;
         this.autoSubmitToolbar = $.autoSubmitToolbar;
         this.enduserNote = $.enduserNote;
         this.groups = $.groups;
@@ -496,6 +512,27 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder appLinksJson(String appLinksJson) {
             return appLinksJson(Output.of(appLinksJson));
+        }
+
+        /**
+         * @param authenticationPolicy The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationPolicy(@Nullable Output<String> authenticationPolicy) {
+            $.authenticationPolicy = authenticationPolicy;
+            return this;
+        }
+
+        /**
+         * @param authenticationPolicy The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationPolicy(String authenticationPolicy) {
+            return authenticationPolicy(Output.of(authenticationPolicy));
         }
 
         /**

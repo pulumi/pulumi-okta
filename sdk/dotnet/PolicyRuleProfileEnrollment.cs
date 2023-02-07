@@ -14,6 +14,8 @@ namespace Pulumi.Okta
     /// 
     /// This resource allows you to create and configure a Profile Enrollment Policy Rule.
     /// 
+    /// It is documented in the Okta public API's [Profile Enrollment Action object](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-action-object) section.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -120,7 +122,7 @@ namespace Pulumi.Okta
         public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of attributes to prompt the user during registration or progressive profiling.
+        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         /// </summary>
         [Output("profileAttributes")]
         public Output<ImmutableArray<Outputs.PolicyRuleProfileEnrollmentProfileAttribute>> ProfileAttributes { get; private set; } = null!;
@@ -136,6 +138,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Output("targetGroupId")]
         public Output<string?> TargetGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Value created by the backend. If present all policy updates must include this attribute/value.
+        /// </summary>
+        [Output("uiSchemaId")]
+        public Output<string?> UiSchemaId { get; private set; } = null!;
 
         /// <summary>
         /// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
@@ -217,7 +225,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs>? _profileAttributes;
 
         /// <summary>
-        /// A list of attributes to prompt the user during registration or progressive profiling.
+        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         /// </summary>
         public InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs> ProfileAttributes
         {
@@ -230,6 +238,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("targetGroupId")]
         public Input<string>? TargetGroupId { get; set; }
+
+        /// <summary>
+        /// Value created by the backend. If present all policy updates must include this attribute/value.
+        /// </summary>
+        [Input("uiSchemaId")]
+        public Input<string>? UiSchemaId { get; set; }
 
         /// <summary>
         /// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
@@ -279,7 +293,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeGetArgs>? _profileAttributes;
 
         /// <summary>
-        /// A list of attributes to prompt the user during registration or progressive profiling.
+        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         /// </summary>
         public InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeGetArgs> ProfileAttributes
         {
@@ -298,6 +312,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("targetGroupId")]
         public Input<string>? TargetGroupId { get; set; }
+
+        /// <summary>
+        /// Value created by the backend. If present all policy updates must include this attribute/value.
+        /// </summary>
+        [Input("uiSchemaId")]
+        public Input<string>? UiSchemaId { get; set; }
 
         /// <summary>
         /// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.

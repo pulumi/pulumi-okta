@@ -50,7 +50,7 @@ namespace Pulumi.Okta.Auth
     public partial class ServerPolicyRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+        /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
         /// </summary>
         [Output("accessTokenLifetimeMinutes")]
         public Output<int?> AccessTokenLifetimeMinutes { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.Okta.Auth
         public Output<ImmutableArray<string>> GroupBlacklists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
+        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
         /// </summary>
         [Output("groupWhitelists")]
         public Output<ImmutableArray<string>> GroupWhitelists { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Okta.Auth
         public Output<int?> RefreshTokenLifetimeMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
         /// `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         /// </summary>
         [Output("refreshTokenWindowMinutes")]
@@ -199,7 +199,7 @@ namespace Pulumi.Okta.Auth
     public sealed class ServerPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+        /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
         /// </summary>
         [Input("accessTokenLifetimeMinutes")]
         public Input<int>? AccessTokenLifetimeMinutes { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _groupWhitelists;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
+        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
         /// </summary>
         public InputList<string> GroupWhitelists
         {
@@ -279,7 +279,7 @@ namespace Pulumi.Okta.Auth
         public Input<int>? RefreshTokenLifetimeMinutes { get; set; }
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
         /// `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         /// </summary>
         [Input("refreshTokenWindowMinutes")]
@@ -342,7 +342,7 @@ namespace Pulumi.Okta.Auth
     public sealed class ServerPolicyRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+        /// Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
         /// </summary>
         [Input("accessTokenLifetimeMinutes")]
         public Input<int>? AccessTokenLifetimeMinutes { get; set; }
@@ -383,7 +383,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _groupWhitelists;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
+        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
         /// </summary>
         public InputList<string> GroupWhitelists
         {
@@ -422,7 +422,7 @@ namespace Pulumi.Okta.Auth
         public Input<int>? RefreshTokenLifetimeMinutes { get; set; }
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
         /// `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         /// </summary>
         [Input("refreshTokenWindowMinutes")]

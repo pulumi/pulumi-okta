@@ -94,9 +94,19 @@ def get_role_subscription(notification_type: Optional[str] = None,
     :param str notification_type: Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 
            `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
            `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
-    :param str role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, 
-           `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
-           `"GROUP_MEMBERSHIP_ADMIN"`.
+    :param str role_type: Type of the role. Valid values:
+           `"API_ADMIN"`,
+           `"APP_ADMIN"`,
+           `"CUSTOM"`,
+           `"GROUP_MEMBERSHIP_ADMIN"`,
+           `"HELP_DESK_ADMIN"`,
+           `"MOBILE_ADMIN"`,
+           `"ORG_ADMIN"`,
+           `"READ_ONLY_ADMIN"`,
+           `"REPORT_ADMIN"`,
+           `"SUPER_ADMIN"`,
+           `"USER_ADMIN"`
+           .
     """
     __args__ = dict()
     __args__['notificationType'] = notification_type
@@ -132,8 +142,18 @@ def get_role_subscription_output(notification_type: Optional[pulumi.Input[str]] 
     :param str notification_type: Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 
            `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
            `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
-    :param str role_type: Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, 
-           `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
-           `"GROUP_MEMBERSHIP_ADMIN"`.
+    :param str role_type: Type of the role. Valid values:
+           `"API_ADMIN"`,
+           `"APP_ADMIN"`,
+           `"CUSTOM"`,
+           `"GROUP_MEMBERSHIP_ADMIN"`,
+           `"HELP_DESK_ADMIN"`,
+           `"MOBILE_ADMIN"`,
+           `"ORG_ADMIN"`,
+           `"READ_ONLY_ADMIN"`,
+           `"REPORT_ADMIN"`,
+           `"SUPER_ADMIN"`,
+           `"USER_ADMIN"`
+           .
     """
     ...

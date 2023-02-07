@@ -23,6 +23,7 @@ class BookmarkAppArgs:
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
                  app_links_json: Optional[pulumi.Input[str]] = None,
+                 authentication_policy: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -42,6 +43,7 @@ class BookmarkAppArgs:
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] authentication_policy: Id of this apps authentication policy
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
@@ -65,6 +67,8 @@ class BookmarkAppArgs:
             pulumi.set(__self__, "admin_note", admin_note)
         if app_links_json is not None:
             pulumi.set(__self__, "app_links_json", app_links_json)
+        if authentication_policy is not None:
+            pulumi.set(__self__, "authentication_policy", authentication_policy)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if enduser_note is not None:
@@ -174,6 +178,18 @@ class BookmarkAppArgs:
     @app_links_json.setter
     def app_links_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_links_json", value)
+
+    @property
+    @pulumi.getter(name="authenticationPolicy")
+    def authentication_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of this apps authentication policy
+        """
+        return pulumi.get(self, "authentication_policy")
+
+    @authentication_policy.setter
+    def authentication_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_policy", value)
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -313,6 +329,7 @@ class _BookmarkAppState:
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
                  app_links_json: Optional[pulumi.Input[str]] = None,
+                 authentication_policy: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -336,6 +353,7 @@ class _BookmarkAppState:
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] authentication_policy: Id of this apps authentication policy
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
@@ -361,6 +379,8 @@ class _BookmarkAppState:
             pulumi.set(__self__, "admin_note", admin_note)
         if app_links_json is not None:
             pulumi.set(__self__, "app_links_json", app_links_json)
+        if authentication_policy is not None:
+            pulumi.set(__self__, "authentication_policy", authentication_policy)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if enduser_note is not None:
@@ -459,6 +479,18 @@ class _BookmarkAppState:
     @app_links_json.setter
     def app_links_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_links_json", value)
+
+    @property
+    @pulumi.getter(name="authenticationPolicy")
+    def authentication_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of this apps authentication policy
+        """
+        return pulumi.get(self, "authentication_policy")
+
+    @authentication_policy.setter
+    def authentication_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_policy", value)
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -662,6 +694,7 @@ class BookmarkApp(pulumi.CustomResource):
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
                  app_links_json: Optional[pulumi.Input[str]] = None,
+                 authentication_policy: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -685,6 +718,7 @@ class BookmarkApp(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] authentication_policy: Id of this apps authentication policy
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
@@ -725,6 +759,7 @@ class BookmarkApp(pulumi.CustomResource):
                  accessibility_self_service: Optional[pulumi.Input[bool]] = None,
                  admin_note: Optional[pulumi.Input[str]] = None,
                  app_links_json: Optional[pulumi.Input[str]] = None,
+                 authentication_policy: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -753,6 +788,7 @@ class BookmarkApp(pulumi.CustomResource):
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["admin_note"] = admin_note
             __props__.__dict__["app_links_json"] = app_links_json
+            __props__.__dict__["authentication_policy"] = authentication_policy
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["enduser_note"] = enduser_note
             if groups is not None and not opts.urn:
@@ -794,6 +830,7 @@ class BookmarkApp(pulumi.CustomResource):
             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
             admin_note: Optional[pulumi.Input[str]] = None,
             app_links_json: Optional[pulumi.Input[str]] = None,
+            authentication_policy: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             enduser_note: Optional[pulumi.Input[str]] = None,
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -822,6 +859,7 @@ class BookmarkApp(pulumi.CustomResource):
         :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] authentication_policy: Id of this apps authentication policy
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application
@@ -846,6 +884,7 @@ class BookmarkApp(pulumi.CustomResource):
         __props__.__dict__["accessibility_self_service"] = accessibility_self_service
         __props__.__dict__["admin_note"] = admin_note
         __props__.__dict__["app_links_json"] = app_links_json
+        __props__.__dict__["authentication_policy"] = authentication_policy
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["groups"] = groups
@@ -903,6 +942,14 @@ class BookmarkApp(pulumi.CustomResource):
         Displays specific appLinks for the app
         """
         return pulumi.get(self, "app_links_json")
+
+    @property
+    @pulumi.getter(name="authenticationPolicy")
+    def authentication_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Id of this apps authentication policy
+        """
+        return pulumi.get(self, "authentication_policy")
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")

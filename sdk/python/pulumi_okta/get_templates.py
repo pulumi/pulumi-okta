@@ -42,7 +42,7 @@ class GetTemplatesResult:
     @pulumi.getter(name="emailTemplates")
     def email_templates(self) -> Sequence['outputs.GetTemplatesEmailTemplateResult']:
         """
-        List of `get_template` belonging to the brand
+        List of _get_template_ belonging to the brand
         """
         return pulumi.get(self, "email_templates")
 

@@ -80,9 +80,19 @@ namespace Pulumi.Okta
         public string NotificationType { get; set; } = null!;
 
         /// <summary>
-        /// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, 
-        /// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
-        /// `"GROUP_MEMBERSHIP_ADMIN"`.
+        /// Type of the role. Valid values:
+        /// `"API_ADMIN"`,
+        /// `"APP_ADMIN"`,
+        /// `"CUSTOM"`,
+        /// `"GROUP_MEMBERSHIP_ADMIN"`,
+        /// `"HELP_DESK_ADMIN"`,
+        /// `"MOBILE_ADMIN"`,
+        /// `"ORG_ADMIN"`,
+        /// `"READ_ONLY_ADMIN"`,
+        /// `"REPORT_ADMIN"`,
+        /// `"SUPER_ADMIN"`,
+        /// `"USER_ADMIN"`
+        /// .
         /// </summary>
         [Input("roleType", required: true)]
         public string RoleType { get; set; } = null!;
@@ -104,9 +114,19 @@ namespace Pulumi.Okta
         public Input<string> NotificationType { get; set; } = null!;
 
         /// <summary>
-        /// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, 
-        /// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
-        /// `"GROUP_MEMBERSHIP_ADMIN"`.
+        /// Type of the role. Valid values:
+        /// `"API_ADMIN"`,
+        /// `"APP_ADMIN"`,
+        /// `"CUSTOM"`,
+        /// `"GROUP_MEMBERSHIP_ADMIN"`,
+        /// `"HELP_DESK_ADMIN"`,
+        /// `"MOBILE_ADMIN"`,
+        /// `"ORG_ADMIN"`,
+        /// `"READ_ONLY_ADMIN"`,
+        /// `"REPORT_ADMIN"`,
+        /// `"SUPER_ADMIN"`,
+        /// `"USER_ADMIN"`
+        /// .
         /// </summary>
         [Input("roleType", required: true)]
         public Input<string> RoleType { get; set; } = null!;

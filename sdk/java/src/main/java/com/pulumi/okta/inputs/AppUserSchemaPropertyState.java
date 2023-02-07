@@ -246,14 +246,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * determines whether an app user attribute can be set at the Individual or Group Level.
+     * determines whether an app user attribute can be set at the Personal `&#34;SELF&#34;` or Group `&#34;NONE&#34;` level. Default value is `&#34;NONE&#34;`.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
-     * @return determines whether an app user attribute can be set at the Individual or Group Level.
+     * @return determines whether an app user attribute can be set at the Personal `&#34;SELF&#34;` or Group `&#34;NONE&#34;` level. Default value is `&#34;NONE&#34;`.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -291,14 +291,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Used to assign attribute group priority. Can not be set to &#39;true&#39; if `scope` is set to Individual level.
+     * If `type` is set to `&#34;array&#34;`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `&#34;SELF&#34;`.
      * 
      */
     @Import(name="union")
     private @Nullable Output<Boolean> union;
 
     /**
-     * @return Used to assign attribute group priority. Can not be set to &#39;true&#39; if `scope` is set to Individual level.
+     * @return If `type` is set to `&#34;array&#34;`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `&#34;SELF&#34;`.
      * 
      */
     public Optional<Output<Boolean>> union() {
@@ -735,7 +735,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param scope determines whether an app user attribute can be set at the Individual or Group Level.
+         * @param scope determines whether an app user attribute can be set at the Personal `&#34;SELF&#34;` or Group `&#34;NONE&#34;` level. Default value is `&#34;NONE&#34;`.
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param scope determines whether an app user attribute can be set at the Individual or Group Level.
+         * @param scope determines whether an app user attribute can be set at the Personal `&#34;SELF&#34;` or Group `&#34;NONE&#34;` level. Default value is `&#34;NONE&#34;`.
          * 
          * @return builder
          * 
@@ -798,7 +798,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param union Used to assign attribute group priority. Can not be set to &#39;true&#39; if `scope` is set to Individual level.
+         * @param union If `type` is set to `&#34;array&#34;`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `&#34;SELF&#34;`.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param union Used to assign attribute group priority. Can not be set to &#39;true&#39; if `scope` is set to Individual level.
+         * @param union If `type` is set to `&#34;array&#34;`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `&#34;SELF&#34;`.
          * 
          * @return builder
          * 

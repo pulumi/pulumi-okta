@@ -59,6 +59,10 @@ export class BookmarkApp extends pulumi.CustomResource {
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
+     * Id of this apps authentication policy
+     */
+    public readonly authenticationPolicy!: pulumi.Output<string | undefined>;
+    /**
      * Display auto submit toolbar
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
@@ -142,6 +146,7 @@ export class BookmarkApp extends pulumi.CustomResource {
             resourceInputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             resourceInputs["adminNote"] = state ? state.adminNote : undefined;
             resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
+            resourceInputs["authenticationPolicy"] = state ? state.authenticationPolicy : undefined;
             resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
             resourceInputs["groups"] = state ? state.groups : undefined;
@@ -171,6 +176,7 @@ export class BookmarkApp extends pulumi.CustomResource {
             resourceInputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             resourceInputs["adminNote"] = args ? args.adminNote : undefined;
             resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
+            resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
             resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
             resourceInputs["groups"] = args ? args.groups : undefined;
@@ -217,6 +223,10 @@ export interface BookmarkAppState {
      * Displays specific appLinks for the app
      */
     appLinksJson?: pulumi.Input<string>;
+    /**
+     * Id of this apps authentication policy
+     */
+    authenticationPolicy?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
@@ -305,6 +315,10 @@ export interface BookmarkAppArgs {
      * Displays specific appLinks for the app
      */
     appLinksJson?: pulumi.Input<string>;
+    /**
+     * Id of this apps authentication policy
+     */
+    authenticationPolicy?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */

@@ -15,6 +15,8 @@ import (
 //
 // This resource allows you to create and configure a Profile Enrollment Policy Rule.
 //
+// It is documented in the Okta public API's [Profile Enrollment Action object](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-action-object) section.
+//
 // ## Example Usage
 //
 // ```go
@@ -111,12 +113,14 @@ type PolicyRuleProfileEnrollment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Policy ID.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// A list of attributes to prompt the user during registration or progressive profiling.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayOutput `pulumi:"profileAttributes"`
 	// Status of the Rule.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The ID of a Group that this User should be added to.
 	TargetGroupId pulumi.StringPtrOutput `pulumi:"targetGroupId"`
+	// Value created by the backend. If present all policy updates must include this attribute/value.
+	UiSchemaId pulumi.StringPtrOutput `pulumi:"uiSchemaId"`
 	// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
 	UnknownUserAction pulumi.StringOutput `pulumi:"unknownUserAction"`
 }
@@ -166,12 +170,14 @@ type policyRuleProfileEnrollmentState struct {
 	Name *string `pulumi:"name"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
-	// A list of attributes to prompt the user during registration or progressive profiling.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
 	ProfileAttributes []PolicyRuleProfileEnrollmentProfileAttribute `pulumi:"profileAttributes"`
 	// Status of the Rule.
 	Status *string `pulumi:"status"`
 	// The ID of a Group that this User should be added to.
 	TargetGroupId *string `pulumi:"targetGroupId"`
+	// Value created by the backend. If present all policy updates must include this attribute/value.
+	UiSchemaId *string `pulumi:"uiSchemaId"`
 	// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
 	UnknownUserAction *string `pulumi:"unknownUserAction"`
 }
@@ -187,12 +193,14 @@ type PolicyRuleProfileEnrollmentState struct {
 	Name pulumi.StringPtrInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
-	// A list of attributes to prompt the user during registration or progressive profiling.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayInput
 	// Status of the Rule.
 	Status pulumi.StringPtrInput
 	// The ID of a Group that this User should be added to.
 	TargetGroupId pulumi.StringPtrInput
+	// Value created by the backend. If present all policy updates must include this attribute/value.
+	UiSchemaId pulumi.StringPtrInput
 	// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
 	UnknownUserAction pulumi.StringPtrInput
 }
@@ -210,10 +218,12 @@ type policyRuleProfileEnrollmentArgs struct {
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// Policy ID.
 	PolicyId string `pulumi:"policyId"`
-	// A list of attributes to prompt the user during registration or progressive profiling.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
 	ProfileAttributes []PolicyRuleProfileEnrollmentProfileAttribute `pulumi:"profileAttributes"`
 	// The ID of a Group that this User should be added to.
 	TargetGroupId *string `pulumi:"targetGroupId"`
+	// Value created by the backend. If present all policy updates must include this attribute/value.
+	UiSchemaId *string `pulumi:"uiSchemaId"`
 	// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
 	UnknownUserAction string `pulumi:"unknownUserAction"`
 }
@@ -228,10 +238,12 @@ type PolicyRuleProfileEnrollmentArgs struct {
 	InlineHookId pulumi.StringPtrInput
 	// Policy ID.
 	PolicyId pulumi.StringInput
-	// A list of attributes to prompt the user during registration or progressive profiling.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayInput
 	// The ID of a Group that this User should be added to.
 	TargetGroupId pulumi.StringPtrInput
+	// Value created by the backend. If present all policy updates must include this attribute/value.
+	UiSchemaId pulumi.StringPtrInput
 	// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
 	UnknownUserAction pulumi.StringInput
 }
@@ -348,7 +360,7 @@ func (o PolicyRuleProfileEnrollmentOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// A list of attributes to prompt the user during registration or progressive profiling.
+// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
 func (o PolicyRuleProfileEnrollmentOutput) ProfileAttributes() PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
 		return v.ProfileAttributes
@@ -363,6 +375,11 @@ func (o PolicyRuleProfileEnrollmentOutput) Status() pulumi.StringOutput {
 // The ID of a Group that this User should be added to.
 func (o PolicyRuleProfileEnrollmentOutput) TargetGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.TargetGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Value created by the backend. If present all policy updates must include this attribute/value.
+func (o PolicyRuleProfileEnrollmentOutput) UiSchemaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.UiSchemaId }).(pulumi.StringPtrOutput)
 }
 
 // Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.

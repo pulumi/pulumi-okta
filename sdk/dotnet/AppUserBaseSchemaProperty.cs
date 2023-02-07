@@ -95,7 +95,7 @@ namespace Pulumi.Okta
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID. By default, it is `"default"`.
         /// </summary>
         [Output("userType")]
         public Output<string?> UserType { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Okta
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID. By default, it is `"default"`.
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Okta
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID. By default, it is `"default"`.
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }

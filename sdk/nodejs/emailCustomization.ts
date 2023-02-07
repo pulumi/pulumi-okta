@@ -8,6 +8,24 @@ import * as utilities from "./utilities";
  * Use this resource to create an [email
  * customization](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)
  * of an email template belonging to a brand in an Okta organization.
+ *
+ * > Okta's public API is strict regarding the behavior of the `isDefault`
+ * property in [an email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#email-customization).
+ * When a customization is
+ * [created](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)
+ * it can not be created with an `isDefault` value of `true` if there is already a
+ * default customization. If an email customization is the last of the template
+ * type it can not be
+ * [deleted](https://developer.okta.com/docs/reference/api/brands/#delete-email-customization).
+ * And the `isDefault` value can't be set to false when updating the last
+ * remaining customization. **To allow this resource to be more flexible** set the
+ * `forceIsDefault` property to `create`, `destroy`, or `create,destroy`. This
+ * will cause all the customizations to be
+ * [reset/deleted](https://developer.okta.com/docs/reference/api/brands/#delete-all-email-customizations)
+ * for a create when there is a `create` value in `forceIsDefault` and
+ * `isDefault` is `true`.  Likewise reset will be called for a delete when there
+ * is a `delete` value in `forceIsDefault` and `isDefault` is `true`.
  */
 export class EmailCustomization extends pulumi.CustomResource {
     /**
@@ -46,15 +64,52 @@ export class EmailCustomization extends pulumi.CustomResource {
      */
     public readonly brandId!: pulumi.Output<string>;
     /**
-     * Whether the customization is the default. If `isDefault` is true and there is already a default customization when this resource is created will cause an error. Only set to true for updating a resource.
+     * Force `isDefault` on the create and delete operation by
+     * deleting all email customizations. See Note above explaing email customization API
+     * behavior and [API
+     * documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
+     * Valid values `create`, `delete`, `create,delete`.
+     */
+    public readonly forceIsDefault!: pulumi.Output<string | undefined>;
+    /**
+     * Whether the customization is the default
+     * - Setting `isDefault` to true when there is already a default customization will cause an error when this resource is created.
      */
     public readonly isDefault!: pulumi.Output<boolean | undefined>;
     /**
      * The language supported by the customization
+     * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
+     * `"cs"`,
+     * `"da"`,
+     * `"de"`,
+     * `"el"`,
+     * `"en"`,
+     * `"es"`,
+     * `"fi"`,
+     * `"fr"`,
+     * `"hu"`,
+     * `"id"`,
+     * `"it"`,
+     * `"ja"`,
+     * `"ko"`,
+     * `"ms"`,
+     * `"nb"`,
+     * `"nl-NL"`,
+     * `"pl"`,
+     * `"pt-BR"`,
+     * `"ro"`,
+     * `"ru"`,
+     * `"sv"`,
+     * `"th"`,
+     * `"tr"`,
+     * `"uk"`,
+     * `"vi"`,
+     * `"zh-CN"`,
+     * `"zh-TW"`
      */
     public readonly language!: pulumi.Output<string | undefined>;
     /**
-     * (Read-Only) Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     * Link relations for this object - JSON HAL - Discoverable resources related to the email template
      */
     public /*out*/ readonly links!: pulumi.Output<string>;
     /**
@@ -63,6 +118,38 @@ export class EmailCustomization extends pulumi.CustomResource {
     public readonly subject!: pulumi.Output<string | undefined>;
     /**
      * Template Name
+     * - Example values: `"AccountLockout"`,
+     * `"ADForgotPassword"`,
+     * `"ADForgotPasswordDenied"`,
+     * `"ADSelfServiceUnlock"`,
+     * `"ADUserActivation"`,
+     * `"AuthenticatorEnrolled"`,
+     * `"AuthenticatorReset"`,
+     * `"ChangeEmailConfirmation"`,
+     * `"EmailChallenge"`,
+     * `"EmailChangeConfirmation"`,
+     * `"EmailFactorVerification"`,
+     * `"ForgotPassword"`,
+     * `"ForgotPasswordDenied"`,
+     * `"IGAReviewerEndNotification"`,
+     * `"IGAReviewerNotification"`,
+     * `"IGAReviewerPendingNotification"`,
+     * `"IGAReviewerReassigned"`,
+     * `"LDAPForgotPassword"`,
+     * `"LDAPForgotPasswordDenied"`,
+     * `"LDAPSelfServiceUnlock"`,
+     * `"LDAPUserActivation"`,
+     * `"MyAccountChangeConfirmation"`,
+     * `"NewSignOnNotification"`,
+     * `"OktaVerifyActivation"`,
+     * `"PasswordChanged"`,
+     * `"PasswordResetByAdmin"`,
+     * `"PendingEmailChange"`,
+     * `"RegistrationActivation"`,
+     * `"RegistrationEmailVerification"`,
+     * `"SelfServiceUnlock"`,
+     * `"SelfServiceUnlockOnUnlockedAccount"`,
+     * `"UserActivation"`
      */
     public readonly templateName!: pulumi.Output<string>;
 
@@ -81,6 +168,7 @@ export class EmailCustomization extends pulumi.CustomResource {
             const state = argsOrState as EmailCustomizationState | undefined;
             resourceInputs["body"] = state ? state.body : undefined;
             resourceInputs["brandId"] = state ? state.brandId : undefined;
+            resourceInputs["forceIsDefault"] = state ? state.forceIsDefault : undefined;
             resourceInputs["isDefault"] = state ? state.isDefault : undefined;
             resourceInputs["language"] = state ? state.language : undefined;
             resourceInputs["links"] = state ? state.links : undefined;
@@ -96,6 +184,7 @@ export class EmailCustomization extends pulumi.CustomResource {
             }
             resourceInputs["body"] = args ? args.body : undefined;
             resourceInputs["brandId"] = args ? args.brandId : undefined;
+            resourceInputs["forceIsDefault"] = args ? args.forceIsDefault : undefined;
             resourceInputs["isDefault"] = args ? args.isDefault : undefined;
             resourceInputs["language"] = args ? args.language : undefined;
             resourceInputs["subject"] = args ? args.subject : undefined;
@@ -120,15 +209,52 @@ export interface EmailCustomizationState {
      */
     brandId?: pulumi.Input<string>;
     /**
-     * Whether the customization is the default. If `isDefault` is true and there is already a default customization when this resource is created will cause an error. Only set to true for updating a resource.
+     * Force `isDefault` on the create and delete operation by
+     * deleting all email customizations. See Note above explaing email customization API
+     * behavior and [API
+     * documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
+     * Valid values `create`, `delete`, `create,delete`.
+     */
+    forceIsDefault?: pulumi.Input<string>;
+    /**
+     * Whether the customization is the default
+     * - Setting `isDefault` to true when there is already a default customization will cause an error when this resource is created.
      */
     isDefault?: pulumi.Input<boolean>;
     /**
      * The language supported by the customization
+     * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
+     * `"cs"`,
+     * `"da"`,
+     * `"de"`,
+     * `"el"`,
+     * `"en"`,
+     * `"es"`,
+     * `"fi"`,
+     * `"fr"`,
+     * `"hu"`,
+     * `"id"`,
+     * `"it"`,
+     * `"ja"`,
+     * `"ko"`,
+     * `"ms"`,
+     * `"nb"`,
+     * `"nl-NL"`,
+     * `"pl"`,
+     * `"pt-BR"`,
+     * `"ro"`,
+     * `"ru"`,
+     * `"sv"`,
+     * `"th"`,
+     * `"tr"`,
+     * `"uk"`,
+     * `"vi"`,
+     * `"zh-CN"`,
+     * `"zh-TW"`
      */
     language?: pulumi.Input<string>;
     /**
-     * (Read-Only) Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     * Link relations for this object - JSON HAL - Discoverable resources related to the email template
      */
     links?: pulumi.Input<string>;
     /**
@@ -137,6 +263,38 @@ export interface EmailCustomizationState {
     subject?: pulumi.Input<string>;
     /**
      * Template Name
+     * - Example values: `"AccountLockout"`,
+     * `"ADForgotPassword"`,
+     * `"ADForgotPasswordDenied"`,
+     * `"ADSelfServiceUnlock"`,
+     * `"ADUserActivation"`,
+     * `"AuthenticatorEnrolled"`,
+     * `"AuthenticatorReset"`,
+     * `"ChangeEmailConfirmation"`,
+     * `"EmailChallenge"`,
+     * `"EmailChangeConfirmation"`,
+     * `"EmailFactorVerification"`,
+     * `"ForgotPassword"`,
+     * `"ForgotPasswordDenied"`,
+     * `"IGAReviewerEndNotification"`,
+     * `"IGAReviewerNotification"`,
+     * `"IGAReviewerPendingNotification"`,
+     * `"IGAReviewerReassigned"`,
+     * `"LDAPForgotPassword"`,
+     * `"LDAPForgotPasswordDenied"`,
+     * `"LDAPSelfServiceUnlock"`,
+     * `"LDAPUserActivation"`,
+     * `"MyAccountChangeConfirmation"`,
+     * `"NewSignOnNotification"`,
+     * `"OktaVerifyActivation"`,
+     * `"PasswordChanged"`,
+     * `"PasswordResetByAdmin"`,
+     * `"PendingEmailChange"`,
+     * `"RegistrationActivation"`,
+     * `"RegistrationEmailVerification"`,
+     * `"SelfServiceUnlock"`,
+     * `"SelfServiceUnlockOnUnlockedAccount"`,
+     * `"UserActivation"`
      */
     templateName?: pulumi.Input<string>;
 }
@@ -154,11 +312,48 @@ export interface EmailCustomizationArgs {
      */
     brandId: pulumi.Input<string>;
     /**
-     * Whether the customization is the default. If `isDefault` is true and there is already a default customization when this resource is created will cause an error. Only set to true for updating a resource.
+     * Force `isDefault` on the create and delete operation by
+     * deleting all email customizations. See Note above explaing email customization API
+     * behavior and [API
+     * documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
+     * Valid values `create`, `delete`, `create,delete`.
+     */
+    forceIsDefault?: pulumi.Input<string>;
+    /**
+     * Whether the customization is the default
+     * - Setting `isDefault` to true when there is already a default customization will cause an error when this resource is created.
      */
     isDefault?: pulumi.Input<boolean>;
     /**
      * The language supported by the customization
+     * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
+     * `"cs"`,
+     * `"da"`,
+     * `"de"`,
+     * `"el"`,
+     * `"en"`,
+     * `"es"`,
+     * `"fi"`,
+     * `"fr"`,
+     * `"hu"`,
+     * `"id"`,
+     * `"it"`,
+     * `"ja"`,
+     * `"ko"`,
+     * `"ms"`,
+     * `"nb"`,
+     * `"nl-NL"`,
+     * `"pl"`,
+     * `"pt-BR"`,
+     * `"ro"`,
+     * `"ru"`,
+     * `"sv"`,
+     * `"th"`,
+     * `"tr"`,
+     * `"uk"`,
+     * `"vi"`,
+     * `"zh-CN"`,
+     * `"zh-TW"`
      */
     language?: pulumi.Input<string>;
     /**
@@ -167,6 +362,38 @@ export interface EmailCustomizationArgs {
     subject?: pulumi.Input<string>;
     /**
      * Template Name
+     * - Example values: `"AccountLockout"`,
+     * `"ADForgotPassword"`,
+     * `"ADForgotPasswordDenied"`,
+     * `"ADSelfServiceUnlock"`,
+     * `"ADUserActivation"`,
+     * `"AuthenticatorEnrolled"`,
+     * `"AuthenticatorReset"`,
+     * `"ChangeEmailConfirmation"`,
+     * `"EmailChallenge"`,
+     * `"EmailChangeConfirmation"`,
+     * `"EmailFactorVerification"`,
+     * `"ForgotPassword"`,
+     * `"ForgotPasswordDenied"`,
+     * `"IGAReviewerEndNotification"`,
+     * `"IGAReviewerNotification"`,
+     * `"IGAReviewerPendingNotification"`,
+     * `"IGAReviewerReassigned"`,
+     * `"LDAPForgotPassword"`,
+     * `"LDAPForgotPasswordDenied"`,
+     * `"LDAPSelfServiceUnlock"`,
+     * `"LDAPUserActivation"`,
+     * `"MyAccountChangeConfirmation"`,
+     * `"NewSignOnNotification"`,
+     * `"OktaVerifyActivation"`,
+     * `"PasswordChanged"`,
+     * `"PasswordResetByAdmin"`,
+     * `"PendingEmailChange"`,
+     * `"RegistrationActivation"`,
+     * `"RegistrationEmailVerification"`,
+     * `"SelfServiceUnlock"`,
+     * `"SelfServiceUnlockOnUnlockedAccount"`,
+     * `"UserActivation"`
      */
     templateName: pulumi.Input<string>;
 }

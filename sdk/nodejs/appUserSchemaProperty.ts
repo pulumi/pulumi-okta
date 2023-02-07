@@ -121,7 +121,7 @@ export class AppUserSchemaProperty extends pulumi.CustomResource {
      */
     public readonly required!: pulumi.Output<boolean | undefined>;
     /**
-     * determines whether an app user attribute can be set at the Individual or Group Level.
+     * determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
      */
     public readonly scope!: pulumi.Output<string | undefined>;
     /**
@@ -133,7 +133,7 @@ export class AppUserSchemaProperty extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+     * If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
      */
     public readonly union!: pulumi.Output<boolean | undefined>;
     /**
@@ -285,7 +285,7 @@ export interface AppUserSchemaPropertyState {
      */
     required?: pulumi.Input<boolean>;
     /**
-     * determines whether an app user attribute can be set at the Individual or Group Level.
+     * determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
      */
     scope?: pulumi.Input<string>;
     /**
@@ -297,7 +297,7 @@ export interface AppUserSchemaPropertyState {
      */
     type?: pulumi.Input<string>;
     /**
-     * Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+     * If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
      */
     union?: pulumi.Input<boolean>;
     /**
@@ -375,7 +375,7 @@ export interface AppUserSchemaPropertyArgs {
      */
     required?: pulumi.Input<boolean>;
     /**
-     * determines whether an app user attribute can be set at the Individual or Group Level.
+     * determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
      */
     scope?: pulumi.Input<string>;
     /**
@@ -387,7 +387,7 @@ export interface AppUserSchemaPropertyArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+     * If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
      */
     union?: pulumi.Input<boolean>;
     /**

@@ -18,14 +18,14 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
     public static final ServerPolicyRuleState Empty = new ServerPolicyRuleState();
 
     /**
-     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
      * 
      */
     @Import(name="accessTokenLifetimeMinutes")
     private @Nullable Output<Integer> accessTokenLifetimeMinutes;
 
     /**
-     * @return Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+     * @return Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
      * 
      */
     public Optional<Output<Integer>> accessTokenLifetimeMinutes() {
@@ -82,14 +82,14 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: &#34;EVERYONE&#34;.
+     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
      * 
      */
     @Import(name="groupWhitelists")
     private @Nullable Output<List<String>> groupWhitelists;
 
     /**
-     * @return Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: &#34;EVERYONE&#34;.
+     * @return Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
      * 
      */
     public Optional<Output<List<String>>> groupWhitelists() {
@@ -172,7 +172,7 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
      * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
      * 
      */
@@ -180,7 +180,7 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
     private @Nullable Output<Integer> refreshTokenWindowMinutes;
 
     /**
-     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
      * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
      * 
      */
@@ -303,7 +303,7 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accessTokenLifetimeMinutes Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+         * @param accessTokenLifetimeMinutes Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accessTokenLifetimeMinutes Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+         * @param accessTokenLifetimeMinutes Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: &#34;EVERYONE&#34;.
+         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: &#34;EVERYONE&#34;.
+         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: &#34;EVERYONE&#34;.
+         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
          * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
          * 
          * @return builder
@@ -561,7 +561,7 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
          * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
          * 
          * @return builder

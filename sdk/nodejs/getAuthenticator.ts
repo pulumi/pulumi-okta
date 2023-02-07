@@ -71,18 +71,37 @@ export interface GetAuthenticatorResult {
      * Name of the authenticator.
      */
     readonly name?: string;
+    /**
+     * (Specific to `securityKey`) The provider server port (for example 1812).
+     */
     readonly providerAuthPort: number;
+    /**
+     * (Specific to `securityKey`) Server host name or IP address.
+     */
     readonly providerHostname: string;
+    /**
+     * (Specific to `securityKey`) App Instance ID.
+     */
     readonly providerInstanceId: string;
+    readonly providerJson: string;
+    /**
+     * Provider type.
+     */
     readonly providerType: string;
+    /**
+     * Username template expected by the provider.
+     */
     readonly providerUserNameTemplate: string;
     /**
-     * Settings for the authenticator.
+     * Settings for the authenticator (expressed in JSON).
      */
     readonly settings: string;
+    /**
+     * Status of the Authenticator.
+     */
     readonly status: string;
     /**
-     * Type of the Authenticator.
+     * The type of Authenticator.
      */
     readonly type: string;
 }

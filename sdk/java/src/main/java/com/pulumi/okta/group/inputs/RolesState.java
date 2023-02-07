@@ -17,14 +17,38 @@ public final class RolesState extends com.pulumi.resources.ResourceArgs {
     public static final RolesState Empty = new RolesState();
 
     /**
-     * Admin roles associated with the group. It can be any of the following values `&#34;SUPER_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`.
+     * Admin roles associated with the group. It can be any of the following values:
+     * `&#34;API_ADMIN&#34;`,
+     * `&#34;APP_ADMIN&#34;`,
+     * `&#34;CUSTOM&#34;`,
+     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+     * `&#34;HELP_DESK_ADMIN&#34;`,
+     * `&#34;MOBILE_ADMIN&#34;`,
+     * `&#34;ORG_ADMIN&#34;`,
+     * `&#34;READ_ONLY_ADMIN&#34;`,
+     * `&#34;REPORT_ADMIN&#34;`,
+     * `&#34;SUPER_ADMIN&#34;`,
+     * `&#34;USER_ADMIN&#34;`
+     * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     @Import(name="adminRoles")
     private @Nullable Output<List<String>> adminRoles;
 
     /**
-     * @return Admin roles associated with the group. It can be any of the following values `&#34;SUPER_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`.
+     * @return Admin roles associated with the group. It can be any of the following values:
+     * `&#34;API_ADMIN&#34;`,
+     * `&#34;APP_ADMIN&#34;`,
+     * `&#34;CUSTOM&#34;`,
+     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+     * `&#34;HELP_DESK_ADMIN&#34;`,
+     * `&#34;MOBILE_ADMIN&#34;`,
+     * `&#34;ORG_ADMIN&#34;`,
+     * `&#34;READ_ONLY_ADMIN&#34;`,
+     * `&#34;REPORT_ADMIN&#34;`,
+     * `&#34;SUPER_ADMIN&#34;`,
+     * `&#34;USER_ADMIN&#34;`
+     * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     public Optional<Output<List<String>>> adminRoles() {
@@ -72,7 +96,19 @@ public final class RolesState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminRoles Admin roles associated with the group. It can be any of the following values `&#34;SUPER_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`.
+         * @param adminRoles Admin roles associated with the group. It can be any of the following values:
+         * `&#34;API_ADMIN&#34;`,
+         * `&#34;APP_ADMIN&#34;`,
+         * `&#34;CUSTOM&#34;`,
+         * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+         * `&#34;HELP_DESK_ADMIN&#34;`,
+         * `&#34;MOBILE_ADMIN&#34;`,
+         * `&#34;ORG_ADMIN&#34;`,
+         * `&#34;READ_ONLY_ADMIN&#34;`,
+         * `&#34;REPORT_ADMIN&#34;`,
+         * `&#34;SUPER_ADMIN&#34;`,
+         * `&#34;USER_ADMIN&#34;`
+         * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
          * 
          * @return builder
          * 
@@ -83,7 +119,19 @@ public final class RolesState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminRoles Admin roles associated with the group. It can be any of the following values `&#34;SUPER_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`.
+         * @param adminRoles Admin roles associated with the group. It can be any of the following values:
+         * `&#34;API_ADMIN&#34;`,
+         * `&#34;APP_ADMIN&#34;`,
+         * `&#34;CUSTOM&#34;`,
+         * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+         * `&#34;HELP_DESK_ADMIN&#34;`,
+         * `&#34;MOBILE_ADMIN&#34;`,
+         * `&#34;ORG_ADMIN&#34;`,
+         * `&#34;READ_ONLY_ADMIN&#34;`,
+         * `&#34;REPORT_ADMIN&#34;`,
+         * `&#34;SUPER_ADMIN&#34;`,
+         * `&#34;USER_ADMIN&#34;`
+         * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
          * 
          * @return builder
          * 
@@ -93,7 +141,19 @@ public final class RolesState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminRoles Admin roles associated with the group. It can be any of the following values `&#34;SUPER_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`.
+         * @param adminRoles Admin roles associated with the group. It can be any of the following values:
+         * `&#34;API_ADMIN&#34;`,
+         * `&#34;APP_ADMIN&#34;`,
+         * `&#34;CUSTOM&#34;`,
+         * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+         * `&#34;HELP_DESK_ADMIN&#34;`,
+         * `&#34;MOBILE_ADMIN&#34;`,
+         * `&#34;ORG_ADMIN&#34;`,
+         * `&#34;READ_ONLY_ADMIN&#34;`,
+         * `&#34;REPORT_ADMIN&#34;`,
+         * `&#34;SUPER_ADMIN&#34;`,
+         * `&#34;USER_ADMIN&#34;`
+         * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
          * 
          * @return builder
          * 

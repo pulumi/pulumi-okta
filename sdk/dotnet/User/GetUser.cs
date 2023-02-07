@@ -112,7 +112,7 @@ namespace Pulumi.Okta.User
         public bool? SkipGroups { get; set; }
 
         /// <summary>
-        /// Additional API call to collect user's roles will not be made.
+        /// Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
         /// </summary>
         [Input("skipRoles")]
         public bool? SkipRoles { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Okta.User
         public Input<bool>? SkipGroups { get; set; }
 
         /// <summary>
-        /// Additional API call to collect user's roles will not be made.
+        /// Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
         /// </summary>
         [Input("skipRoles")]
         public Input<bool>? SkipRoles { get; set; }

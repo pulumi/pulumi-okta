@@ -137,14 +137,14 @@ public final class AppUserBaseSchemaPropertyState extends com.pulumi.resources.R
     }
 
     /**
-     * Custom subschema user type
+     * User type ID. By default, it is `&#34;default&#34;`.
      * 
      */
     @Import(name="userType")
     private @Nullable Output<String> userType;
 
     /**
-     * @return Custom subschema user type
+     * @return User type ID. By default, it is `&#34;default&#34;`.
      * 
      */
     public Optional<Output<String>> userType() {
@@ -352,7 +352,7 @@ public final class AppUserBaseSchemaPropertyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param userType Custom subschema user type
+         * @param userType User type ID. By default, it is `&#34;default&#34;`.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class AppUserBaseSchemaPropertyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param userType Custom subschema user type
+         * @param userType User type ID. By default, it is `&#34;default&#34;`.
          * 
          * @return builder
          * 

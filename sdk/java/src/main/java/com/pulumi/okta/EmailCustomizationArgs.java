@@ -47,14 +47,39 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Whether the customization is the default. If `is_default` is true and there is already a default customization when this resource is created will cause an error. Only set to true for updating a resource.
+     * Force `is_default` on the create and delete operation by
+     * deleting all email customizations. See Note above explaing email customization API
+     * behavior and [API
+     * documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
+     * Valid values `create`, `delete`, `create,delete`.
+     * 
+     */
+    @Import(name="forceIsDefault")
+    private @Nullable Output<String> forceIsDefault;
+
+    /**
+     * @return Force `is_default` on the create and delete operation by
+     * deleting all email customizations. See Note above explaing email customization API
+     * behavior and [API
+     * documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
+     * Valid values `create`, `delete`, `create,delete`.
+     * 
+     */
+    public Optional<Output<String>> forceIsDefault() {
+        return Optional.ofNullable(this.forceIsDefault);
+    }
+
+    /**
+     * Whether the customization is the default
+     * - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
      * 
      */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
     /**
-     * @return Whether the customization is the default. If `is_default` is true and there is already a default customization when this resource is created will cause an error. Only set to true for updating a resource.
+     * @return Whether the customization is the default
+     * - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
      * 
      */
     public Optional<Output<Boolean>> isDefault() {
@@ -63,6 +88,34 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
 
     /**
      * The language supported by the customization
+     * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
+     *   `&#34;cs&#34;`,
+     *   `&#34;da&#34;`,
+     *   `&#34;de&#34;`,
+     *   `&#34;el&#34;`,
+     *   `&#34;en&#34;`,
+     *   `&#34;es&#34;`,
+     *   `&#34;fi&#34;`,
+     *   `&#34;fr&#34;`,
+     *   `&#34;hu&#34;`,
+     *   `&#34;id&#34;`,
+     *   `&#34;it&#34;`,
+     *   `&#34;ja&#34;`,
+     *   `&#34;ko&#34;`,
+     *   `&#34;ms&#34;`,
+     *   `&#34;nb&#34;`,
+     *   `&#34;nl-NL&#34;`,
+     *   `&#34;pl&#34;`,
+     *   `&#34;pt-BR&#34;`,
+     *   `&#34;ro&#34;`,
+     *   `&#34;ru&#34;`,
+     *   `&#34;sv&#34;`,
+     *   `&#34;th&#34;`,
+     *   `&#34;tr&#34;`,
+     *   `&#34;uk&#34;`,
+     *   `&#34;vi&#34;`,
+     *   `&#34;zh-CN&#34;`,
+     *   `&#34;zh-TW&#34;`
      * 
      */
     @Import(name="language")
@@ -70,6 +123,34 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return The language supported by the customization
+     * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
+     *   `&#34;cs&#34;`,
+     *   `&#34;da&#34;`,
+     *   `&#34;de&#34;`,
+     *   `&#34;el&#34;`,
+     *   `&#34;en&#34;`,
+     *   `&#34;es&#34;`,
+     *   `&#34;fi&#34;`,
+     *   `&#34;fr&#34;`,
+     *   `&#34;hu&#34;`,
+     *   `&#34;id&#34;`,
+     *   `&#34;it&#34;`,
+     *   `&#34;ja&#34;`,
+     *   `&#34;ko&#34;`,
+     *   `&#34;ms&#34;`,
+     *   `&#34;nb&#34;`,
+     *   `&#34;nl-NL&#34;`,
+     *   `&#34;pl&#34;`,
+     *   `&#34;pt-BR&#34;`,
+     *   `&#34;ro&#34;`,
+     *   `&#34;ru&#34;`,
+     *   `&#34;sv&#34;`,
+     *   `&#34;th&#34;`,
+     *   `&#34;tr&#34;`,
+     *   `&#34;uk&#34;`,
+     *   `&#34;vi&#34;`,
+     *   `&#34;zh-CN&#34;`,
+     *   `&#34;zh-TW&#34;`
      * 
      */
     public Optional<Output<String>> language() {
@@ -93,6 +174,38 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Template Name
+     * - Example values: `&#34;AccountLockout&#34;`,
+     *   `&#34;ADForgotPassword&#34;`,
+     *   `&#34;ADForgotPasswordDenied&#34;`,
+     *   `&#34;ADSelfServiceUnlock&#34;`,
+     *   `&#34;ADUserActivation&#34;`,
+     *   `&#34;AuthenticatorEnrolled&#34;`,
+     *   `&#34;AuthenticatorReset&#34;`,
+     *   `&#34;ChangeEmailConfirmation&#34;`,
+     *   `&#34;EmailChallenge&#34;`,
+     *   `&#34;EmailChangeConfirmation&#34;`,
+     *   `&#34;EmailFactorVerification&#34;`,
+     *   `&#34;ForgotPassword&#34;`,
+     *   `&#34;ForgotPasswordDenied&#34;`,
+     *   `&#34;IGAReviewerEndNotification&#34;`,
+     *   `&#34;IGAReviewerNotification&#34;`,
+     *   `&#34;IGAReviewerPendingNotification&#34;`,
+     *   `&#34;IGAReviewerReassigned&#34;`,
+     *   `&#34;LDAPForgotPassword&#34;`,
+     *   `&#34;LDAPForgotPasswordDenied&#34;`,
+     *   `&#34;LDAPSelfServiceUnlock&#34;`,
+     *   `&#34;LDAPUserActivation&#34;`,
+     *   `&#34;MyAccountChangeConfirmation&#34;`,
+     *   `&#34;NewSignOnNotification&#34;`,
+     *   `&#34;OktaVerifyActivation&#34;`,
+     *   `&#34;PasswordChanged&#34;`,
+     *   `&#34;PasswordResetByAdmin&#34;`,
+     *   `&#34;PendingEmailChange&#34;`,
+     *   `&#34;RegistrationActivation&#34;`,
+     *   `&#34;RegistrationEmailVerification&#34;`,
+     *   `&#34;SelfServiceUnlock&#34;`,
+     *   `&#34;SelfServiceUnlockOnUnlockedAccount&#34;`,
+     *   `&#34;UserActivation&#34;`
      * 
      */
     @Import(name="templateName", required=true)
@@ -100,6 +213,38 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Template Name
+     * - Example values: `&#34;AccountLockout&#34;`,
+     *   `&#34;ADForgotPassword&#34;`,
+     *   `&#34;ADForgotPasswordDenied&#34;`,
+     *   `&#34;ADSelfServiceUnlock&#34;`,
+     *   `&#34;ADUserActivation&#34;`,
+     *   `&#34;AuthenticatorEnrolled&#34;`,
+     *   `&#34;AuthenticatorReset&#34;`,
+     *   `&#34;ChangeEmailConfirmation&#34;`,
+     *   `&#34;EmailChallenge&#34;`,
+     *   `&#34;EmailChangeConfirmation&#34;`,
+     *   `&#34;EmailFactorVerification&#34;`,
+     *   `&#34;ForgotPassword&#34;`,
+     *   `&#34;ForgotPasswordDenied&#34;`,
+     *   `&#34;IGAReviewerEndNotification&#34;`,
+     *   `&#34;IGAReviewerNotification&#34;`,
+     *   `&#34;IGAReviewerPendingNotification&#34;`,
+     *   `&#34;IGAReviewerReassigned&#34;`,
+     *   `&#34;LDAPForgotPassword&#34;`,
+     *   `&#34;LDAPForgotPasswordDenied&#34;`,
+     *   `&#34;LDAPSelfServiceUnlock&#34;`,
+     *   `&#34;LDAPUserActivation&#34;`,
+     *   `&#34;MyAccountChangeConfirmation&#34;`,
+     *   `&#34;NewSignOnNotification&#34;`,
+     *   `&#34;OktaVerifyActivation&#34;`,
+     *   `&#34;PasswordChanged&#34;`,
+     *   `&#34;PasswordResetByAdmin&#34;`,
+     *   `&#34;PendingEmailChange&#34;`,
+     *   `&#34;RegistrationActivation&#34;`,
+     *   `&#34;RegistrationEmailVerification&#34;`,
+     *   `&#34;SelfServiceUnlock&#34;`,
+     *   `&#34;SelfServiceUnlockOnUnlockedAccount&#34;`,
+     *   `&#34;UserActivation&#34;`
      * 
      */
     public Output<String> templateName() {
@@ -111,6 +256,7 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
     private EmailCustomizationArgs(EmailCustomizationArgs $) {
         this.body = $.body;
         this.brandId = $.brandId;
+        this.forceIsDefault = $.forceIsDefault;
         this.isDefault = $.isDefault;
         this.language = $.language;
         this.subject = $.subject;
@@ -178,7 +324,37 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param isDefault Whether the customization is the default. If `is_default` is true and there is already a default customization when this resource is created will cause an error. Only set to true for updating a resource.
+         * @param forceIsDefault Force `is_default` on the create and delete operation by
+         * deleting all email customizations. See Note above explaing email customization API
+         * behavior and [API
+         * documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
+         * Valid values `create`, `delete`, `create,delete`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceIsDefault(@Nullable Output<String> forceIsDefault) {
+            $.forceIsDefault = forceIsDefault;
+            return this;
+        }
+
+        /**
+         * @param forceIsDefault Force `is_default` on the create and delete operation by
+         * deleting all email customizations. See Note above explaing email customization API
+         * behavior and [API
+         * documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
+         * Valid values `create`, `delete`, `create,delete`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceIsDefault(String forceIsDefault) {
+            return forceIsDefault(Output.of(forceIsDefault));
+        }
+
+        /**
+         * @param isDefault Whether the customization is the default
+         * - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
          * 
          * @return builder
          * 
@@ -189,7 +365,8 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param isDefault Whether the customization is the default. If `is_default` is true and there is already a default customization when this resource is created will cause an error. Only set to true for updating a resource.
+         * @param isDefault Whether the customization is the default
+         * - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
          * 
          * @return builder
          * 
@@ -200,6 +377,34 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param language The language supported by the customization
+         * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
+         *   `&#34;cs&#34;`,
+         *   `&#34;da&#34;`,
+         *   `&#34;de&#34;`,
+         *   `&#34;el&#34;`,
+         *   `&#34;en&#34;`,
+         *   `&#34;es&#34;`,
+         *   `&#34;fi&#34;`,
+         *   `&#34;fr&#34;`,
+         *   `&#34;hu&#34;`,
+         *   `&#34;id&#34;`,
+         *   `&#34;it&#34;`,
+         *   `&#34;ja&#34;`,
+         *   `&#34;ko&#34;`,
+         *   `&#34;ms&#34;`,
+         *   `&#34;nb&#34;`,
+         *   `&#34;nl-NL&#34;`,
+         *   `&#34;pl&#34;`,
+         *   `&#34;pt-BR&#34;`,
+         *   `&#34;ro&#34;`,
+         *   `&#34;ru&#34;`,
+         *   `&#34;sv&#34;`,
+         *   `&#34;th&#34;`,
+         *   `&#34;tr&#34;`,
+         *   `&#34;uk&#34;`,
+         *   `&#34;vi&#34;`,
+         *   `&#34;zh-CN&#34;`,
+         *   `&#34;zh-TW&#34;`
          * 
          * @return builder
          * 
@@ -211,6 +416,34 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param language The language supported by the customization
+         * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
+         *   `&#34;cs&#34;`,
+         *   `&#34;da&#34;`,
+         *   `&#34;de&#34;`,
+         *   `&#34;el&#34;`,
+         *   `&#34;en&#34;`,
+         *   `&#34;es&#34;`,
+         *   `&#34;fi&#34;`,
+         *   `&#34;fr&#34;`,
+         *   `&#34;hu&#34;`,
+         *   `&#34;id&#34;`,
+         *   `&#34;it&#34;`,
+         *   `&#34;ja&#34;`,
+         *   `&#34;ko&#34;`,
+         *   `&#34;ms&#34;`,
+         *   `&#34;nb&#34;`,
+         *   `&#34;nl-NL&#34;`,
+         *   `&#34;pl&#34;`,
+         *   `&#34;pt-BR&#34;`,
+         *   `&#34;ro&#34;`,
+         *   `&#34;ru&#34;`,
+         *   `&#34;sv&#34;`,
+         *   `&#34;th&#34;`,
+         *   `&#34;tr&#34;`,
+         *   `&#34;uk&#34;`,
+         *   `&#34;vi&#34;`,
+         *   `&#34;zh-CN&#34;`,
+         *   `&#34;zh-TW&#34;`
          * 
          * @return builder
          * 
@@ -242,6 +475,38 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param templateName Template Name
+         * - Example values: `&#34;AccountLockout&#34;`,
+         *   `&#34;ADForgotPassword&#34;`,
+         *   `&#34;ADForgotPasswordDenied&#34;`,
+         *   `&#34;ADSelfServiceUnlock&#34;`,
+         *   `&#34;ADUserActivation&#34;`,
+         *   `&#34;AuthenticatorEnrolled&#34;`,
+         *   `&#34;AuthenticatorReset&#34;`,
+         *   `&#34;ChangeEmailConfirmation&#34;`,
+         *   `&#34;EmailChallenge&#34;`,
+         *   `&#34;EmailChangeConfirmation&#34;`,
+         *   `&#34;EmailFactorVerification&#34;`,
+         *   `&#34;ForgotPassword&#34;`,
+         *   `&#34;ForgotPasswordDenied&#34;`,
+         *   `&#34;IGAReviewerEndNotification&#34;`,
+         *   `&#34;IGAReviewerNotification&#34;`,
+         *   `&#34;IGAReviewerPendingNotification&#34;`,
+         *   `&#34;IGAReviewerReassigned&#34;`,
+         *   `&#34;LDAPForgotPassword&#34;`,
+         *   `&#34;LDAPForgotPasswordDenied&#34;`,
+         *   `&#34;LDAPSelfServiceUnlock&#34;`,
+         *   `&#34;LDAPUserActivation&#34;`,
+         *   `&#34;MyAccountChangeConfirmation&#34;`,
+         *   `&#34;NewSignOnNotification&#34;`,
+         *   `&#34;OktaVerifyActivation&#34;`,
+         *   `&#34;PasswordChanged&#34;`,
+         *   `&#34;PasswordResetByAdmin&#34;`,
+         *   `&#34;PendingEmailChange&#34;`,
+         *   `&#34;RegistrationActivation&#34;`,
+         *   `&#34;RegistrationEmailVerification&#34;`,
+         *   `&#34;SelfServiceUnlock&#34;`,
+         *   `&#34;SelfServiceUnlockOnUnlockedAccount&#34;`,
+         *   `&#34;UserActivation&#34;`
          * 
          * @return builder
          * 
@@ -253,6 +518,38 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param templateName Template Name
+         * - Example values: `&#34;AccountLockout&#34;`,
+         *   `&#34;ADForgotPassword&#34;`,
+         *   `&#34;ADForgotPasswordDenied&#34;`,
+         *   `&#34;ADSelfServiceUnlock&#34;`,
+         *   `&#34;ADUserActivation&#34;`,
+         *   `&#34;AuthenticatorEnrolled&#34;`,
+         *   `&#34;AuthenticatorReset&#34;`,
+         *   `&#34;ChangeEmailConfirmation&#34;`,
+         *   `&#34;EmailChallenge&#34;`,
+         *   `&#34;EmailChangeConfirmation&#34;`,
+         *   `&#34;EmailFactorVerification&#34;`,
+         *   `&#34;ForgotPassword&#34;`,
+         *   `&#34;ForgotPasswordDenied&#34;`,
+         *   `&#34;IGAReviewerEndNotification&#34;`,
+         *   `&#34;IGAReviewerNotification&#34;`,
+         *   `&#34;IGAReviewerPendingNotification&#34;`,
+         *   `&#34;IGAReviewerReassigned&#34;`,
+         *   `&#34;LDAPForgotPassword&#34;`,
+         *   `&#34;LDAPForgotPasswordDenied&#34;`,
+         *   `&#34;LDAPSelfServiceUnlock&#34;`,
+         *   `&#34;LDAPUserActivation&#34;`,
+         *   `&#34;MyAccountChangeConfirmation&#34;`,
+         *   `&#34;NewSignOnNotification&#34;`,
+         *   `&#34;OktaVerifyActivation&#34;`,
+         *   `&#34;PasswordChanged&#34;`,
+         *   `&#34;PasswordResetByAdmin&#34;`,
+         *   `&#34;PendingEmailChange&#34;`,
+         *   `&#34;RegistrationActivation&#34;`,
+         *   `&#34;RegistrationEmailVerification&#34;`,
+         *   `&#34;SelfServiceUnlock&#34;`,
+         *   `&#34;SelfServiceUnlockOnUnlockedAccount&#34;`,
+         *   `&#34;UserActivation&#34;`
          * 
          * @return builder
          * 

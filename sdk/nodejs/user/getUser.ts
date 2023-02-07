@@ -57,7 +57,7 @@ export interface GetUserArgs {
      */
     skipGroups?: boolean;
     /**
-     * Additional API call to collect user's roles will not be made.
+     * Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
      */
     skipRoles?: boolean;
     /**
@@ -262,7 +262,7 @@ export interface GetUserOutputArgs {
      */
     skipGroups?: pulumi.Input<boolean>;
     /**
-     * Additional API call to collect user's roles will not be made.
+     * Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
      */
     skipRoles?: pulumi.Input<boolean>;
     /**

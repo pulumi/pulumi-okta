@@ -33,7 +33,19 @@ class RoleSubscriptionArgs:
                - `"REPORT_SUSPICIOUS_ACTIVITY"` - User reporting of suspicious activity.
                - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
                - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
-        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+        :param pulumi.Input[str] role_type: Type of the role. Valid values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
         pulumi.set(__self__, "notification_type", notification_type)
@@ -70,7 +82,19 @@ class RoleSubscriptionArgs:
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Input[str]:
         """
-        Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+        Type of the role. Valid values:
+        `"API_ADMIN"`,
+        `"APP_ADMIN"`,
+        `"CUSTOM"`,
+        `"GROUP_MEMBERSHIP_ADMIN"`,
+        `"HELP_DESK_ADMIN"`,
+        `"MOBILE_ADMIN"`,
+        `"ORG_ADMIN"`,
+        `"READ_ONLY_ADMIN"`,
+        `"REPORT_ADMIN"`,
+        `"SUPER_ADMIN"`,
+        `"USER_ADMIN"`
+        . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
         """
         return pulumi.get(self, "role_type")
 
@@ -113,7 +137,19 @@ class _RoleSubscriptionState:
                - `"REPORT_SUSPICIOUS_ACTIVITY"` - User reporting of suspicious activity.
                - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
                - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
-        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+        :param pulumi.Input[str] role_type: Type of the role. Valid values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
         if notification_type is not None:
@@ -152,7 +188,19 @@ class _RoleSubscriptionState:
     @pulumi.getter(name="roleType")
     def role_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+        Type of the role. Valid values:
+        `"API_ADMIN"`,
+        `"APP_ADMIN"`,
+        `"CUSTOM"`,
+        `"GROUP_MEMBERSHIP_ADMIN"`,
+        `"HELP_DESK_ADMIN"`,
+        `"MOBILE_ADMIN"`,
+        `"ORG_ADMIN"`,
+        `"READ_ONLY_ADMIN"`,
+        `"REPORT_ADMIN"`,
+        `"SUPER_ADMIN"`,
+        `"USER_ADMIN"`
+        . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
         """
         return pulumi.get(self, "role_type")
 
@@ -223,7 +271,19 @@ class RoleSubscription(pulumi.CustomResource):
                - `"REPORT_SUSPICIOUS_ACTIVITY"` - User reporting of suspicious activity.
                - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
                - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
-        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+        :param pulumi.Input[str] role_type: Type of the role. Valid values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
         ...
@@ -325,7 +385,19 @@ class RoleSubscription(pulumi.CustomResource):
                - `"REPORT_SUSPICIOUS_ACTIVITY"` - User reporting of suspicious activity.
                - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
                - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
-        :param pulumi.Input[str] role_type: Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+        :param pulumi.Input[str] role_type: Type of the role. Valid values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
         :param pulumi.Input[str] status: Subscription status. Valid values: `"subscribed"`, `"unsubscribed"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -362,7 +434,19 @@ class RoleSubscription(pulumi.CustomResource):
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Output[str]:
         """
-        Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+        Type of the role. Valid values:
+        `"API_ADMIN"`,
+        `"APP_ADMIN"`,
+        `"CUSTOM"`,
+        `"GROUP_MEMBERSHIP_ADMIN"`,
+        `"HELP_DESK_ADMIN"`,
+        `"MOBILE_ADMIN"`,
+        `"ORG_ADMIN"`,
+        `"READ_ONLY_ADMIN"`,
+        `"REPORT_ADMIN"`,
+        `"SUPER_ADMIN"`,
+        `"USER_ADMIN"`
+        . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
         """
         return pulumi.get(self, "role_type")
 

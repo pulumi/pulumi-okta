@@ -11,6 +11,8 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to create and configure a Profile Enrollment Policy Rule.
  *
+ * It is documented in the Okta public API's [Profile Enrollment Action object](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-action-object) section.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -114,7 +116,7 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
      */
     public readonly policyId!: pulumi.Output<string>;
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling.
+     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
      */
     public readonly profileAttributes!: pulumi.Output<outputs.PolicyRuleProfileEnrollmentProfileAttribute[] | undefined>;
     /**
@@ -125,6 +127,10 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
      * The ID of a Group that this User should be added to.
      */
     public readonly targetGroupId!: pulumi.Output<string | undefined>;
+    /**
+     * Value created by the backend. If present all policy updates must include this attribute/value.
+     */
+    public readonly uiSchemaId!: pulumi.Output<string | undefined>;
     /**
      * Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
      */
@@ -151,6 +157,7 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
             resourceInputs["profileAttributes"] = state ? state.profileAttributes : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["targetGroupId"] = state ? state.targetGroupId : undefined;
+            resourceInputs["uiSchemaId"] = state ? state.uiSchemaId : undefined;
             resourceInputs["unknownUserAction"] = state ? state.unknownUserAction : undefined;
         } else {
             const args = argsOrState as PolicyRuleProfileEnrollmentArgs | undefined;
@@ -166,6 +173,7 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
             resourceInputs["policyId"] = args ? args.policyId : undefined;
             resourceInputs["profileAttributes"] = args ? args.profileAttributes : undefined;
             resourceInputs["targetGroupId"] = args ? args.targetGroupId : undefined;
+            resourceInputs["uiSchemaId"] = args ? args.uiSchemaId : undefined;
             resourceInputs["unknownUserAction"] = args ? args.unknownUserAction : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -200,7 +208,7 @@ export interface PolicyRuleProfileEnrollmentState {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling.
+     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
      */
     profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[]>;
     /**
@@ -211,6 +219,10 @@ export interface PolicyRuleProfileEnrollmentState {
      * The ID of a Group that this User should be added to.
      */
     targetGroupId?: pulumi.Input<string>;
+    /**
+     * Value created by the backend. If present all policy updates must include this attribute/value.
+     */
+    uiSchemaId?: pulumi.Input<string>;
     /**
      * Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
      */
@@ -238,13 +250,17 @@ export interface PolicyRuleProfileEnrollmentArgs {
      */
     policyId: pulumi.Input<string>;
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling.
+     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
      */
     profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[]>;
     /**
      * The ID of a Group that this User should be added to.
      */
     targetGroupId?: pulumi.Input<string>;
+    /**
+     * Value created by the backend. If present all policy updates must include this attribute/value.
+     */
+    uiSchemaId?: pulumi.Input<string>;
     /**
      * Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
      */

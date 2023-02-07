@@ -19,7 +19,19 @@ class RolesArgs:
         """
         The set of arguments for constructing a Roles resource.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Admin roles associated with the group. It can be any of the following values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         pulumi.set(__self__, "group_id", group_id)
         if admin_roles is not None:
@@ -41,7 +53,19 @@ class RolesArgs:
     @pulumi.getter(name="adminRoles")
     def admin_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        Admin roles associated with the group. It can be any of the following values:
+        `"API_ADMIN"`,
+        `"APP_ADMIN"`,
+        `"CUSTOM"`,
+        `"GROUP_MEMBERSHIP_ADMIN"`,
+        `"HELP_DESK_ADMIN"`,
+        `"MOBILE_ADMIN"`,
+        `"ORG_ADMIN"`,
+        `"READ_ONLY_ADMIN"`,
+        `"REPORT_ADMIN"`,
+        `"SUPER_ADMIN"`,
+        `"USER_ADMIN"`
+        . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "admin_roles")
 
@@ -57,7 +81,19 @@ class _RolesState:
                  group_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Roles resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Admin roles associated with the group. It can be any of the following values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
         """
         if admin_roles is not None:
@@ -69,7 +105,19 @@ class _RolesState:
     @pulumi.getter(name="adminRoles")
     def admin_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        Admin roles associated with the group. It can be any of the following values:
+        `"API_ADMIN"`,
+        `"APP_ADMIN"`,
+        `"CUSTOM"`,
+        `"GROUP_MEMBERSHIP_ADMIN"`,
+        `"HELP_DESK_ADMIN"`,
+        `"MOBILE_ADMIN"`,
+        `"ORG_ADMIN"`,
+        `"READ_ONLY_ADMIN"`,
+        `"REPORT_ADMIN"`,
+        `"SUPER_ADMIN"`,
+        `"USER_ADMIN"`
+        . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "admin_roles")
 
@@ -124,7 +172,19 @@ class Roles(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Admin roles associated with the group. It can be any of the following values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
         """
         ...
@@ -206,7 +266,19 @@ class Roles(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Admin roles associated with the group. It can be any of the following values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -221,7 +293,19 @@ class Roles(pulumi.CustomResource):
     @pulumi.getter(name="adminRoles")
     def admin_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Admin roles associated with the group. It can be any of the following values `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        Admin roles associated with the group. It can be any of the following values:
+        `"API_ADMIN"`,
+        `"APP_ADMIN"`,
+        `"CUSTOM"`,
+        `"GROUP_MEMBERSHIP_ADMIN"`,
+        `"HELP_DESK_ADMIN"`,
+        `"MOBILE_ADMIN"`,
+        `"ORG_ADMIN"`,
+        `"READ_ONLY_ADMIN"`,
+        `"REPORT_ADMIN"`,
+        `"SUPER_ADMIN"`,
+        `"USER_ADMIN"`
+        . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "admin_roles")
 

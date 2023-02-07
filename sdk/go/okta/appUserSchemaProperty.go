@@ -85,13 +85,13 @@ type AppUserSchemaProperty struct {
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
 	Required pulumi.BoolPtrOutput `pulumi:"required"`
-	// determines whether an app user attribute can be set at the Individual or Group Level.
+	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// display name for the enum value.
 	Title pulumi.StringOutput `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union pulumi.BoolPtrOutput `pulumi:"union"`
 	// Subschema unique restriction
 	Unique pulumi.StringPtrOutput `pulumi:"unique"`
@@ -170,13 +170,13 @@ type appUserSchemaPropertyState struct {
 	Permissions *string `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
 	Required *bool `pulumi:"required"`
-	// determines whether an app user attribute can be set at the Individual or Group Level.
+	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope *string `pulumi:"scope"`
 	// display name for the enum value.
 	Title *string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
-	// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union *bool `pulumi:"union"`
 	// Subschema unique restriction
 	Unique *string `pulumi:"unique"`
@@ -215,13 +215,13 @@ type AppUserSchemaPropertyState struct {
 	Permissions pulumi.StringPtrInput
 	// Whether the property is required for this application's users.
 	Required pulumi.BoolPtrInput
-	// determines whether an app user attribute can be set at the Individual or Group Level.
+	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope pulumi.StringPtrInput
 	// display name for the enum value.
 	Title pulumi.StringPtrInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
-	// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union pulumi.BoolPtrInput
 	// Subschema unique restriction
 	Unique pulumi.StringPtrInput
@@ -264,13 +264,13 @@ type appUserSchemaPropertyArgs struct {
 	Permissions *string `pulumi:"permissions"`
 	// Whether the property is required for this application's users.
 	Required *bool `pulumi:"required"`
-	// determines whether an app user attribute can be set at the Individual or Group Level.
+	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope *string `pulumi:"scope"`
 	// display name for the enum value.
 	Title string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
-	// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union *bool `pulumi:"union"`
 	// Subschema unique restriction
 	Unique *string `pulumi:"unique"`
@@ -310,13 +310,13 @@ type AppUserSchemaPropertyArgs struct {
 	Permissions pulumi.StringPtrInput
 	// Whether the property is required for this application's users.
 	Required pulumi.BoolPtrInput
-	// determines whether an app user attribute can be set at the Individual or Group Level.
+	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope pulumi.StringPtrInput
 	// display name for the enum value.
 	Title pulumi.StringInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
-	// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union pulumi.BoolPtrInput
 	// Subschema unique restriction
 	Unique pulumi.StringPtrInput
@@ -486,7 +486,7 @@ func (o AppUserSchemaPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.BoolPtrOutput { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
-// determines whether an app user attribute can be set at the Individual or Group Level.
+// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 func (o AppUserSchemaPropertyOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
 }
@@ -501,7 +501,7 @@ func (o AppUserSchemaPropertyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 func (o AppUserSchemaPropertyOutput) Union() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.BoolPtrOutput { return v.Union }).(pulumi.BoolPtrOutput)
 }

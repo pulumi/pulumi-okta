@@ -68,9 +68,19 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly groupId!: pulumi.Output<string>;
     /**
-     * Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-     * , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-     * , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+     * Admin role assigned to the group. It can be any one of the following values:
+     * `"API_ADMIN"`,
+     * `"APP_ADMIN"`,
+     * `"CUSTOM"`,
+     * `"GROUP_MEMBERSHIP_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`,
+     * `"MOBILE_ADMIN"`,
+     * `"ORG_ADMIN"`,
+     * `"READ_ONLY_ADMIN"`,
+     * `"REPORT_ADMIN"`,
+     * `"SUPER_ADMIN"`,
+     * `"USER_ADMIN"`
+     * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     public readonly roleType!: pulumi.Output<string>;
     /**
@@ -137,9 +147,19 @@ export interface RoleState {
      */
     groupId?: pulumi.Input<string>;
     /**
-     * Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-     * , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-     * , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+     * Admin role assigned to the group. It can be any one of the following values:
+     * `"API_ADMIN"`,
+     * `"APP_ADMIN"`,
+     * `"CUSTOM"`,
+     * `"GROUP_MEMBERSHIP_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`,
+     * `"MOBILE_ADMIN"`,
+     * `"ORG_ADMIN"`,
+     * `"READ_ONLY_ADMIN"`,
+     * `"REPORT_ADMIN"`,
+     * `"SUPER_ADMIN"`,
+     * `"USER_ADMIN"`
+     * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     roleType?: pulumi.Input<string>;
     /**
@@ -170,9 +190,19 @@ export interface RoleArgs {
      */
     groupId: pulumi.Input<string>;
     /**
-     * Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-     * , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-     * , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+     * Admin role assigned to the group. It can be any one of the following values:
+     * `"API_ADMIN"`,
+     * `"APP_ADMIN"`,
+     * `"CUSTOM"`,
+     * `"GROUP_MEMBERSHIP_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`,
+     * `"MOBILE_ADMIN"`,
+     * `"ORG_ADMIN"`,
+     * `"READ_ONLY_ADMIN"`,
+     * `"REPORT_ADMIN"`,
+     * `"SUPER_ADMIN"`,
+     * `"USER_ADMIN"`
+     * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     roleType: pulumi.Input<string>;
     /**

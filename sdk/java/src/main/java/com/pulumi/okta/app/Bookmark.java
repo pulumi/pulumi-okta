@@ -147,6 +147,20 @@ public class Bookmark extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appLinksJson);
     }
     /**
+     * The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     * 
+     */
+    @Export(name="authenticationPolicy", type=String.class, parameters={})
+    private Output</* @Nullable */ String> authenticationPolicy;
+
+    /**
+     * @return The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     * 
+     */
+    public Output<Optional<String>> authenticationPolicy() {
+        return Codegen.optional(this.authenticationPolicy);
+    }
+    /**
      * Display auto submit toolbar.
      * 
      */

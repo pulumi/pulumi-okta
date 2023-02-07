@@ -47,7 +47,7 @@ export interface AppSignonPolicyRulePlatformInclude {
 
 export interface AppUserSchemaPropertyArrayOneOf {
     /**
-     * value mapping to member of `enum`.
+     * value mapping to member of `arrayEnum`.
      */
     const: string;
     /**
@@ -58,7 +58,7 @@ export interface AppUserSchemaPropertyArrayOneOf {
 
 export interface AppUserSchemaPropertyOneOf {
     /**
-     * value mapping to member of `enum`.
+     * value mapping to member of `arrayEnum`.
      */
     const: string;
     /**

@@ -32,18 +32,38 @@ public final class GetRoleSubscriptionPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * Type of the role. Valid values: `&#34;SUPER_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`,
-     * `&#34;HELP_DESK_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`,
-     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`.
+     * Type of the role. Valid values:
+     * `&#34;API_ADMIN&#34;`,
+     * `&#34;APP_ADMIN&#34;`,
+     * `&#34;CUSTOM&#34;`,
+     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+     * `&#34;HELP_DESK_ADMIN&#34;`,
+     * `&#34;MOBILE_ADMIN&#34;`,
+     * `&#34;ORG_ADMIN&#34;`,
+     * `&#34;READ_ONLY_ADMIN&#34;`,
+     * `&#34;REPORT_ADMIN&#34;`,
+     * `&#34;SUPER_ADMIN&#34;`,
+     * `&#34;USER_ADMIN&#34;`
+     * .
      * 
      */
     @Import(name="roleType", required=true)
     private String roleType;
 
     /**
-     * @return Type of the role. Valid values: `&#34;SUPER_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`,
-     * `&#34;HELP_DESK_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`,
-     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`.
+     * @return Type of the role. Valid values:
+     * `&#34;API_ADMIN&#34;`,
+     * `&#34;APP_ADMIN&#34;`,
+     * `&#34;CUSTOM&#34;`,
+     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+     * `&#34;HELP_DESK_ADMIN&#34;`,
+     * `&#34;MOBILE_ADMIN&#34;`,
+     * `&#34;ORG_ADMIN&#34;`,
+     * `&#34;READ_ONLY_ADMIN&#34;`,
+     * `&#34;REPORT_ADMIN&#34;`,
+     * `&#34;SUPER_ADMIN&#34;`,
+     * `&#34;USER_ADMIN&#34;`
+     * .
      * 
      */
     public String roleType() {
@@ -89,9 +109,19 @@ public final class GetRoleSubscriptionPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param roleType Type of the role. Valid values: `&#34;SUPER_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`,
-         * `&#34;HELP_DESK_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`,
-         * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`.
+         * @param roleType Type of the role. Valid values:
+         * `&#34;API_ADMIN&#34;`,
+         * `&#34;APP_ADMIN&#34;`,
+         * `&#34;CUSTOM&#34;`,
+         * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+         * `&#34;HELP_DESK_ADMIN&#34;`,
+         * `&#34;MOBILE_ADMIN&#34;`,
+         * `&#34;ORG_ADMIN&#34;`,
+         * `&#34;READ_ONLY_ADMIN&#34;`,
+         * `&#34;REPORT_ADMIN&#34;`,
+         * `&#34;SUPER_ADMIN&#34;`,
+         * `&#34;USER_ADMIN&#34;`
+         * .
          * 
          * @return builder
          * 

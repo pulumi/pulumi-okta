@@ -51,6 +51,7 @@ class UserArgs:
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
+                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -101,6 +102,7 @@ class UserArgs:
         :param pulumi.Input[str] recovery_answer: User password recovery answer.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[bool] skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -181,6 +183,8 @@ class UserArgs:
             pulumi.set(__self__, "recovery_question", recovery_question)
         if second_email is not None:
             pulumi.set(__self__, "second_email", second_email)
+        if skip_roles is not None:
+            pulumi.set(__self__, "skip_roles", skip_roles)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if status is not None:
@@ -623,6 +627,18 @@ class UserArgs:
         pulumi.set(self, "second_email", value)
 
     @property
+    @pulumi.getter(name="skipRoles")
+    def skip_roles(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
+        """
+        return pulumi.get(self, "skip_roles")
+
+    @skip_roles.setter
+    def skip_roles(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_roles", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
@@ -746,6 +762,7 @@ class _UserState:
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
+                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -797,6 +814,7 @@ class _UserState:
         :param pulumi.Input[str] recovery_answer: User password recovery answer.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[bool] skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -883,6 +901,8 @@ class _UserState:
             pulumi.set(__self__, "recovery_question", recovery_question)
         if second_email is not None:
             pulumi.set(__self__, "second_email", second_email)
+        if skip_roles is not None:
+            pulumi.set(__self__, "skip_roles", skip_roles)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if status is not None:
@@ -1337,6 +1357,18 @@ class _UserState:
         pulumi.set(self, "second_email", value)
 
     @property
+    @pulumi.getter(name="skipRoles")
+    def skip_roles(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
+        """
+        return pulumi.get(self, "skip_roles")
+
+    @skip_roles.setter
+    def skip_roles(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_roles", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1461,6 +1493,7 @@ class User(pulumi.CustomResource):
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
+                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -1473,6 +1506,16 @@ class User(pulumi.CustomResource):
         Creates an Okta User.
 
         This resource allows you to create and configure an Okta User.
+
+        > **IMPORTANT** If the provider is executed with a non-super user API token a
+        403 occurs when the provider attempts to inspect the user's admin roles. This
+        403 is swallowed and a warning is logged allowing the resource to continue
+        without this error hindering it. An empty `admin_roles` array will be present in
+        the resource state.
+
+        > **IMPORTANT** Use `skip_roles=true` to avoid `admin_roles` being present in
+        resource state. This also prevents the underlying API call for those values to
+        be made.
 
         ## Example Usage
 
@@ -1581,6 +1624,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] recovery_answer: User password recovery answer.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[bool] skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -1599,6 +1643,16 @@ class User(pulumi.CustomResource):
         Creates an Okta User.
 
         This resource allows you to create and configure an Okta User.
+
+        > **IMPORTANT** If the provider is executed with a non-super user API token a
+        403 occurs when the provider attempts to inspect the user's admin roles. This
+        403 is swallowed and a warning is logged allowing the resource to continue
+        without this error hindering it. An empty `admin_roles` array will be present in
+        the resource state.
+
+        > **IMPORTANT** Use `skip_roles=true` to avoid `admin_roles` being present in
+        resource state. This also prevents the underlying API call for those values to
+        be made.
 
         ## Example Usage
 
@@ -1714,6 +1768,7 @@ class User(pulumi.CustomResource):
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
+                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -1779,6 +1834,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["recovery_answer"] = None if recovery_answer is None else pulumi.Output.secret(recovery_answer)
             __props__.__dict__["recovery_question"] = recovery_question
             __props__.__dict__["second_email"] = second_email
+            __props__.__dict__["skip_roles"] = skip_roles
             __props__.__dict__["state"] = state
             __props__.__dict__["status"] = status
             __props__.__dict__["street_address"] = street_address
@@ -1835,6 +1891,7 @@ class User(pulumi.CustomResource):
             recovery_answer: Optional[pulumi.Input[str]] = None,
             recovery_question: Optional[pulumi.Input[str]] = None,
             second_email: Optional[pulumi.Input[str]] = None,
+            skip_roles: Optional[pulumi.Input[bool]] = None,
             state: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             street_address: Optional[pulumi.Input[str]] = None,
@@ -1891,6 +1948,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] recovery_answer: User password recovery answer.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[bool] skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -1939,6 +1997,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["recovery_answer"] = recovery_answer
         __props__.__dict__["recovery_question"] = recovery_question
         __props__.__dict__["second_email"] = second_email
+        __props__.__dict__["skip_roles"] = skip_roles
         __props__.__dict__["state"] = state
         __props__.__dict__["status"] = status
         __props__.__dict__["street_address"] = street_address
@@ -2241,6 +2300,14 @@ class User(pulumi.CustomResource):
         User profile property.
         """
         return pulumi.get(self, "second_email")
+
+    @property
+    @pulumi.getter(name="skipRoles")
+    def skip_roles(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
+        """
+        return pulumi.get(self, "skip_roles")
 
     @property
     @pulumi.getter

@@ -23,19 +23,44 @@ public final class GetAuthenticatorResult {
      * 
      */
     private @Nullable String name;
+    /**
+     * @return (Specific to `security_key`) The provider server port (for example 1812).
+     * 
+     */
     private Integer providerAuthPort;
+    /**
+     * @return (Specific to `security_key`) Server host name or IP address.
+     * 
+     */
     private String providerHostname;
+    /**
+     * @return (Specific to `security_key`) App Instance ID.
+     * 
+     */
     private String providerInstanceId;
+    private String providerJson;
+    /**
+     * @return Provider type.
+     * 
+     */
     private String providerType;
+    /**
+     * @return Username template expected by the provider.
+     * 
+     */
     private String providerUserNameTemplate;
     /**
-     * @return Settings for the authenticator.
+     * @return Settings for the authenticator (expressed in JSON).
      * 
      */
     private String settings;
+    /**
+     * @return Status of the Authenticator.
+     * 
+     */
     private String status;
     /**
-     * @return Type of the Authenticator.
+     * @return The type of Authenticator.
      * 
      */
     private String type;
@@ -58,33 +83,60 @@ public final class GetAuthenticatorResult {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return (Specific to `security_key`) The provider server port (for example 1812).
+     * 
+     */
     public Integer providerAuthPort() {
         return this.providerAuthPort;
     }
+    /**
+     * @return (Specific to `security_key`) Server host name or IP address.
+     * 
+     */
     public String providerHostname() {
         return this.providerHostname;
     }
+    /**
+     * @return (Specific to `security_key`) App Instance ID.
+     * 
+     */
     public String providerInstanceId() {
         return this.providerInstanceId;
     }
+    public String providerJson() {
+        return this.providerJson;
+    }
+    /**
+     * @return Provider type.
+     * 
+     */
     public String providerType() {
         return this.providerType;
     }
+    /**
+     * @return Username template expected by the provider.
+     * 
+     */
     public String providerUserNameTemplate() {
         return this.providerUserNameTemplate;
     }
     /**
-     * @return Settings for the authenticator.
+     * @return Settings for the authenticator (expressed in JSON).
      * 
      */
     public String settings() {
         return this.settings;
     }
+    /**
+     * @return Status of the Authenticator.
+     * 
+     */
     public String status() {
         return this.status;
     }
     /**
-     * @return Type of the Authenticator.
+     * @return The type of Authenticator.
      * 
      */
     public String type() {
@@ -106,6 +158,7 @@ public final class GetAuthenticatorResult {
         private Integer providerAuthPort;
         private String providerHostname;
         private String providerInstanceId;
+        private String providerJson;
         private String providerType;
         private String providerUserNameTemplate;
         private String settings;
@@ -120,6 +173,7 @@ public final class GetAuthenticatorResult {
     	      this.providerAuthPort = defaults.providerAuthPort;
     	      this.providerHostname = defaults.providerHostname;
     	      this.providerInstanceId = defaults.providerInstanceId;
+    	      this.providerJson = defaults.providerJson;
     	      this.providerType = defaults.providerType;
     	      this.providerUserNameTemplate = defaults.providerUserNameTemplate;
     	      this.settings = defaults.settings;
@@ -158,6 +212,11 @@ public final class GetAuthenticatorResult {
             return this;
         }
         @CustomType.Setter
+        public Builder providerJson(String providerJson) {
+            this.providerJson = Objects.requireNonNull(providerJson);
+            return this;
+        }
+        @CustomType.Setter
         public Builder providerType(String providerType) {
             this.providerType = Objects.requireNonNull(providerType);
             return this;
@@ -190,6 +249,7 @@ public final class GetAuthenticatorResult {
             o.providerAuthPort = providerAuthPort;
             o.providerHostname = providerHostname;
             o.providerInstanceId = providerInstanceId;
+            o.providerJson = providerJson;
             o.providerType = providerType;
             o.providerUserNameTemplate = providerUserNameTemplate;
             o.settings = settings;

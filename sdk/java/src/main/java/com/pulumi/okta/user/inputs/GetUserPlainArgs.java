@@ -78,14 +78,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Additional API call to collect user&#39;s roles will not be made.
+     * Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
      * 
      */
     @Import(name="skipRoles")
     private @Nullable Boolean skipRoles;
 
     /**
-     * @return Additional API call to collect user&#39;s roles will not be made.
+     * @return Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
      * 
      */
     public Optional<Boolean> skipRoles() {
@@ -191,7 +191,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param skipRoles Additional API call to collect user&#39;s roles will not be made.
+         * @param skipRoles Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
          * 
          * @return builder
          * 

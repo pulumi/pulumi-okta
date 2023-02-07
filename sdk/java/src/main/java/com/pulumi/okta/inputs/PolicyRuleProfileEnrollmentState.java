@@ -94,14 +94,14 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     }
 
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling.
+     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
      * 
      */
     @Import(name="profileAttributes")
     private @Nullable Output<List<PolicyRuleProfileEnrollmentProfileAttributeArgs>> profileAttributes;
 
     /**
-     * @return A list of attributes to prompt the user during registration or progressive profiling.
+     * @return A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
      * 
      */
     public Optional<Output<List<PolicyRuleProfileEnrollmentProfileAttributeArgs>>> profileAttributes() {
@@ -139,6 +139,21 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     }
 
     /**
+     * Value created by the backend. If present all policy updates must include this attribute/value.
+     * 
+     */
+    @Import(name="uiSchemaId")
+    private @Nullable Output<String> uiSchemaId;
+
+    /**
+     * @return Value created by the backend. If present all policy updates must include this attribute/value.
+     * 
+     */
+    public Optional<Output<String>> uiSchemaId() {
+        return Optional.ofNullable(this.uiSchemaId);
+    }
+
+    /**
      * Which action should be taken if this User is new. Valid values are: `&#34;DENY&#34;`, `&#34;REGISTER&#34;`.
      * 
      */
@@ -164,6 +179,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         this.profileAttributes = $.profileAttributes;
         this.status = $.status;
         this.targetGroupId = $.targetGroupId;
+        this.uiSchemaId = $.uiSchemaId;
         this.unknownUserAction = $.unknownUserAction;
     }
 
@@ -291,7 +307,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling.
+         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
          * 
          * @return builder
          * 
@@ -302,7 +318,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling.
+         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
          * 
          * @return builder
          * 
@@ -312,7 +328,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling.
+         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
          * 
          * @return builder
          * 
@@ -361,6 +377,27 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
          */
         public Builder targetGroupId(String targetGroupId) {
             return targetGroupId(Output.of(targetGroupId));
+        }
+
+        /**
+         * @param uiSchemaId Value created by the backend. If present all policy updates must include this attribute/value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uiSchemaId(@Nullable Output<String> uiSchemaId) {
+            $.uiSchemaId = uiSchemaId;
+            return this;
+        }
+
+        /**
+         * @param uiSchemaId Value created by the backend. If present all policy updates must include this attribute/value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uiSchemaId(String uiSchemaId) {
+            return uiSchemaId(Output.of(uiSchemaId));
         }
 
         /**

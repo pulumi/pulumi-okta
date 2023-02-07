@@ -60,9 +60,19 @@ type Role struct {
 	DisableNotifications pulumi.BoolPtrOutput `pulumi:"disableNotifications"`
 	// The ID of group to attach admin roles to.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+	// Admin role assigned to the group. It can be any one of the following values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
 	// A list of app names (name represents set of app instances, like 'salesforce' or '
 	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
@@ -114,9 +124,19 @@ type roleState struct {
 	DisableNotifications *bool `pulumi:"disableNotifications"`
 	// The ID of group to attach admin roles to.
 	GroupId *string `pulumi:"groupId"`
-	// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+	// Admin role assigned to the group. It can be any one of the following values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType *string `pulumi:"roleType"`
 	// A list of app names (name represents set of app instances, like 'salesforce' or '
 	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
@@ -134,9 +154,19 @@ type RoleState struct {
 	DisableNotifications pulumi.BoolPtrInput
 	// The ID of group to attach admin roles to.
 	GroupId pulumi.StringPtrInput
-	// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+	// Admin role assigned to the group. It can be any one of the following values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType pulumi.StringPtrInput
 	// A list of app names (name represents set of app instances, like 'salesforce' or '
 	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
@@ -158,9 +188,19 @@ type roleArgs struct {
 	DisableNotifications *bool `pulumi:"disableNotifications"`
 	// The ID of group to attach admin roles to.
 	GroupId string `pulumi:"groupId"`
-	// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+	// Admin role assigned to the group. It can be any one of the following values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType string `pulumi:"roleType"`
 	// A list of app names (name represents set of app instances, like 'salesforce' or '
 	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
@@ -179,9 +219,19 @@ type RoleArgs struct {
 	DisableNotifications pulumi.BoolPtrInput
 	// The ID of group to attach admin roles to.
 	GroupId pulumi.StringInput
-	// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-	// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-	// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+	// Admin role assigned to the group. It can be any one of the following values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType pulumi.StringInput
 	// A list of app names (name represents set of app instances, like 'salesforce' or '
 	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
@@ -291,9 +341,19 @@ func (o RoleOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-// , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-// , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+// Admin role assigned to the group. It can be any one of the following values:
+// `"API_ADMIN"`,
+// `"APP_ADMIN"`,
+// `"CUSTOM"`,
+// `"GROUP_MEMBERSHIP_ADMIN"`,
+// `"HELP_DESK_ADMIN"`,
+// `"MOBILE_ADMIN"`,
+// `"ORG_ADMIN"`,
+// `"READ_ONLY_ADMIN"`,
+// `"REPORT_ADMIN"`,
+// `"SUPER_ADMIN"`,
+// `"USER_ADMIN"`
+// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 func (o RoleOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
 }

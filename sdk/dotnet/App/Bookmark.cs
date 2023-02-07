@@ -86,6 +86,12 @@ namespace Pulumi.Okta.App
         public Output<string?> AppLinksJson { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// </summary>
+        [Output("authenticationPolicy")]
+        public Output<string?> AuthenticationPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Display auto submit toolbar.
         /// </summary>
         [Output("autoSubmitToolbar")]
@@ -258,6 +264,12 @@ namespace Pulumi.Okta.App
         public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
+        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
+
+        /// <summary>
         /// Display auto submit toolbar.
         /// </summary>
         [Input("autoSubmitToolbar")]
@@ -386,6 +398,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
+
+        /// <summary>
+        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
         /// Display auto submit toolbar.

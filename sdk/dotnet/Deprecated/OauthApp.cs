@@ -215,8 +215,8 @@ namespace Pulumi.Okta.Deprecated
         public Output<bool?> OmitSecret { get; private set; } = null!;
 
         /// <summary>
-        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-        /// `native` application types.
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        /// https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Output("pkceRequired")]
         public Output<bool?> PkceRequired { get; private set; } = null!;
@@ -612,8 +612,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
-        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-        /// `native` application types.
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        /// https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Input("pkceRequired")]
         public Input<bool>? PkceRequired { get; set; }
@@ -1013,8 +1013,8 @@ namespace Pulumi.Okta.Deprecated
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
-        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-        /// `native` application types.
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        /// https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Input("pkceRequired")]
         public Input<bool>? PkceRequired { get; set; }

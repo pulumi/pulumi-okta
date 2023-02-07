@@ -17,7 +17,11 @@ class AuthenticatorArgs:
                  key: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  provider_auth_port: Optional[pulumi.Input[int]] = None,
+                 provider_host: Optional[pulumi.Input[str]] = None,
                  provider_hostname: Optional[pulumi.Input[str]] = None,
+                 provider_integration_key: Optional[pulumi.Input[str]] = None,
+                 provider_json: Optional[pulumi.Input[str]] = None,
+                 provider_secret_key: Optional[pulumi.Input[str]] = None,
                  provider_shared_secret: Optional[pulumi.Input[str]] = None,
                  provider_user_name_template: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
@@ -26,11 +30,21 @@ class AuthenticatorArgs:
         The set of arguments for constructing a Authenticator resource.
         :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         :param pulumi.Input[str] name: Name of the authenticator.
-        :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] provider_shared_secret: An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] provider_user_name_template: Username template expected by the provider. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] settings: Settings for the authenticator. Settings object contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
+        :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_host: (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_integration_key: (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_json: Provider JSON allows for expressive provider
+               values. This argument conflicts with the other `provider_xxx` arguments.  The
+               [Create
+               Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+               illustrates detailed provider values for a Duo authenticator.  [Provider
+               values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+               are listed in Okta API.
+        :param pulumi.Input[str] provider_secret_key: (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_shared_secret: An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_user_name_template: Username template expected by the provider. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] settings: Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
         :param pulumi.Input[str] status: Status of the authenticator. Default is `ACTIVE`.
         """
         pulumi.set(__self__, "key", key)
@@ -38,8 +52,16 @@ class AuthenticatorArgs:
             pulumi.set(__self__, "name", name)
         if provider_auth_port is not None:
             pulumi.set(__self__, "provider_auth_port", provider_auth_port)
+        if provider_host is not None:
+            pulumi.set(__self__, "provider_host", provider_host)
         if provider_hostname is not None:
             pulumi.set(__self__, "provider_hostname", provider_hostname)
+        if provider_integration_key is not None:
+            pulumi.set(__self__, "provider_integration_key", provider_integration_key)
+        if provider_json is not None:
+            pulumi.set(__self__, "provider_json", provider_json)
+        if provider_secret_key is not None:
+            pulumi.set(__self__, "provider_secret_key", provider_secret_key)
         if provider_shared_secret is not None:
             pulumi.set(__self__, "provider_shared_secret", provider_shared_secret)
         if provider_user_name_template is not None:
@@ -77,7 +99,7 @@ class AuthenticatorArgs:
     @pulumi.getter(name="providerAuthPort")
     def provider_auth_port(self) -> Optional[pulumi.Input[int]]:
         """
-        The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"security_key"`.
+        The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_auth_port")
 
@@ -86,10 +108,22 @@ class AuthenticatorArgs:
         pulumi.set(self, "provider_auth_port", value)
 
     @property
+    @pulumi.getter(name="providerHost")
+    def provider_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
+        """
+        return pulumi.get(self, "provider_host")
+
+    @provider_host.setter
+    def provider_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_host", value)
+
+    @property
     @pulumi.getter(name="providerHostname")
     def provider_hostname(self) -> Optional[pulumi.Input[str]]:
         """
-        Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.
+        Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_hostname")
 
@@ -98,10 +132,52 @@ class AuthenticatorArgs:
         pulumi.set(self, "provider_hostname", value)
 
     @property
+    @pulumi.getter(name="providerIntegrationKey")
+    def provider_integration_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
+        """
+        return pulumi.get(self, "provider_integration_key")
+
+    @provider_integration_key.setter
+    def provider_integration_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_integration_key", value)
+
+    @property
+    @pulumi.getter(name="providerJson")
+    def provider_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provider JSON allows for expressive provider
+        values. This argument conflicts with the other `provider_xxx` arguments.  The
+        [Create
+        Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+        illustrates detailed provider values for a Duo authenticator.  [Provider
+        values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+        are listed in Okta API.
+        """
+        return pulumi.get(self, "provider_json")
+
+    @provider_json.setter
+    def provider_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_json", value)
+
+    @property
+    @pulumi.getter(name="providerSecretKey")
+    def provider_secret_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
+        """
+        return pulumi.get(self, "provider_secret_key")
+
+    @provider_secret_key.setter
+    def provider_secret_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_secret_key", value)
+
+    @property
     @pulumi.getter(name="providerSharedSecret")
     def provider_shared_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.
+        An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_shared_secret")
 
@@ -113,7 +189,7 @@ class AuthenticatorArgs:
     @pulumi.getter(name="providerUserNameTemplate")
     def provider_user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template expected by the provider. Used only for authenticators with type `"security_key"`.
+        Username template expected by the provider. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_user_name_template")
 
@@ -125,7 +201,7 @@ class AuthenticatorArgs:
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[str]]:
         """
-        Settings for the authenticator. Settings object contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
+        Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
         """
         return pulumi.get(self, "settings")
 
@@ -152,8 +228,12 @@ class _AuthenticatorState:
                  key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provider_auth_port: Optional[pulumi.Input[int]] = None,
+                 provider_host: Optional[pulumi.Input[str]] = None,
                  provider_hostname: Optional[pulumi.Input[str]] = None,
                  provider_instance_id: Optional[pulumi.Input[str]] = None,
+                 provider_integration_key: Optional[pulumi.Input[str]] = None,
+                 provider_json: Optional[pulumi.Input[str]] = None,
+                 provider_secret_key: Optional[pulumi.Input[str]] = None,
                  provider_shared_secret: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
                  provider_user_name_template: Optional[pulumi.Input[str]] = None,
@@ -164,15 +244,25 @@ class _AuthenticatorState:
         Input properties used for looking up and filtering Authenticator resources.
         :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         :param pulumi.Input[str] name: Name of the authenticator.
-        :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.
+        :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_host: (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         :param pulumi.Input[str] provider_instance_id: App Instance ID.
-        :param pulumi.Input[str] provider_shared_secret: An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] provider_type: The type of Authenticator. Values include: `"password"`, `"security_question"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"security_key"`.
-        :param pulumi.Input[str] provider_user_name_template: Username template expected by the provider. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] settings: Settings for the authenticator. Settings object contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
+        :param pulumi.Input[str] provider_integration_key: (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_json: Provider JSON allows for expressive provider
+               values. This argument conflicts with the other `provider_xxx` arguments.  The
+               [Create
+               Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+               illustrates detailed provider values for a Duo authenticator.  [Provider
+               values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+               are listed in Okta API.
+        :param pulumi.Input[str] provider_secret_key: (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_shared_secret: An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_type: Provider type. Supported value for Duo: `DUO`. Supported value for Custom App: `PUSH`
+        :param pulumi.Input[str] provider_user_name_template: Username template expected by the provider. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] settings: Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
         :param pulumi.Input[str] status: Status of the authenticator. Default is `ACTIVE`.
-        :param pulumi.Input[str] type: Type of the Authenticator.
+        :param pulumi.Input[str] type: The type of Authenticator. Values include: `"password"`, `"security_question"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"security_key"`.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -180,10 +270,18 @@ class _AuthenticatorState:
             pulumi.set(__self__, "name", name)
         if provider_auth_port is not None:
             pulumi.set(__self__, "provider_auth_port", provider_auth_port)
+        if provider_host is not None:
+            pulumi.set(__self__, "provider_host", provider_host)
         if provider_hostname is not None:
             pulumi.set(__self__, "provider_hostname", provider_hostname)
         if provider_instance_id is not None:
             pulumi.set(__self__, "provider_instance_id", provider_instance_id)
+        if provider_integration_key is not None:
+            pulumi.set(__self__, "provider_integration_key", provider_integration_key)
+        if provider_json is not None:
+            pulumi.set(__self__, "provider_json", provider_json)
+        if provider_secret_key is not None:
+            pulumi.set(__self__, "provider_secret_key", provider_secret_key)
         if provider_shared_secret is not None:
             pulumi.set(__self__, "provider_shared_secret", provider_shared_secret)
         if provider_type is not None:
@@ -225,7 +323,7 @@ class _AuthenticatorState:
     @pulumi.getter(name="providerAuthPort")
     def provider_auth_port(self) -> Optional[pulumi.Input[int]]:
         """
-        The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"security_key"`.
+        The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_auth_port")
 
@@ -234,10 +332,22 @@ class _AuthenticatorState:
         pulumi.set(self, "provider_auth_port", value)
 
     @property
+    @pulumi.getter(name="providerHost")
+    def provider_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
+        """
+        return pulumi.get(self, "provider_host")
+
+    @provider_host.setter
+    def provider_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_host", value)
+
+    @property
     @pulumi.getter(name="providerHostname")
     def provider_hostname(self) -> Optional[pulumi.Input[str]]:
         """
-        Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.
+        Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_hostname")
 
@@ -258,10 +368,52 @@ class _AuthenticatorState:
         pulumi.set(self, "provider_instance_id", value)
 
     @property
+    @pulumi.getter(name="providerIntegrationKey")
+    def provider_integration_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
+        """
+        return pulumi.get(self, "provider_integration_key")
+
+    @provider_integration_key.setter
+    def provider_integration_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_integration_key", value)
+
+    @property
+    @pulumi.getter(name="providerJson")
+    def provider_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provider JSON allows for expressive provider
+        values. This argument conflicts with the other `provider_xxx` arguments.  The
+        [Create
+        Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+        illustrates detailed provider values for a Duo authenticator.  [Provider
+        values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+        are listed in Okta API.
+        """
+        return pulumi.get(self, "provider_json")
+
+    @provider_json.setter
+    def provider_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_json", value)
+
+    @property
+    @pulumi.getter(name="providerSecretKey")
+    def provider_secret_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
+        """
+        return pulumi.get(self, "provider_secret_key")
+
+    @provider_secret_key.setter
+    def provider_secret_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_secret_key", value)
+
+    @property
     @pulumi.getter(name="providerSharedSecret")
     def provider_shared_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.
+        An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_shared_secret")
 
@@ -273,7 +425,7 @@ class _AuthenticatorState:
     @pulumi.getter(name="providerType")
     def provider_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of Authenticator. Values include: `"password"`, `"security_question"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"security_key"`.
+        Provider type. Supported value for Duo: `DUO`. Supported value for Custom App: `PUSH`
         """
         return pulumi.get(self, "provider_type")
 
@@ -285,7 +437,7 @@ class _AuthenticatorState:
     @pulumi.getter(name="providerUserNameTemplate")
     def provider_user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template expected by the provider. Used only for authenticators with type `"security_key"`.
+        Username template expected by the provider. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_user_name_template")
 
@@ -297,7 +449,7 @@ class _AuthenticatorState:
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[str]]:
         """
-        Settings for the authenticator. Settings object contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
+        Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
         """
         return pulumi.get(self, "settings")
 
@@ -321,7 +473,7 @@ class _AuthenticatorState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the Authenticator.
+        The type of Authenticator. Values include: `"password"`, `"security_question"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"security_key"`.
         """
         return pulumi.get(self, "type")
 
@@ -338,7 +490,11 @@ class Authenticator(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provider_auth_port: Optional[pulumi.Input[int]] = None,
+                 provider_host: Optional[pulumi.Input[str]] = None,
                  provider_hostname: Optional[pulumi.Input[str]] = None,
+                 provider_integration_key: Optional[pulumi.Input[str]] = None,
+                 provider_json: Optional[pulumi.Input[str]] = None,
+                 provider_secret_key: Optional[pulumi.Input[str]] = None,
                  provider_shared_secret: Optional[pulumi.Input[str]] = None,
                  provider_user_name_template: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
@@ -349,7 +505,16 @@ class Authenticator(pulumi.CustomResource):
 
         This resource allows you to configure different authenticators.
 
-        > **NOTE:** An authenticator can only be deleted if it's not in use by any policy.
+        > **Create:** The Okta API has an odd notion of create for authenticators. If
+        the authenticator doesn't exist then a one time `POST /api/v1/authenticators` to
+        create the authenticator (hard create) will be performed. Thereafter, that
+        authenticator is never deleted, it is only deactivated (soft delete). Therefore,
+        if the authenticator already exists create is just a soft import of an existing
+        authenticator.
+
+        > **Delete:** Authenticators can not be truly deleted therefore delete is soft.
+        Delete will attempt to deativate the authenticator. An authenticator can only be
+        deactivated if it's not in use by any other policy.
 
         ## Example Usage
 
@@ -377,11 +542,21 @@ class Authenticator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         :param pulumi.Input[str] name: Name of the authenticator.
-        :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] provider_shared_secret: An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] provider_user_name_template: Username template expected by the provider. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] settings: Settings for the authenticator. Settings object contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
+        :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_host: (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_integration_key: (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_json: Provider JSON allows for expressive provider
+               values. This argument conflicts with the other `provider_xxx` arguments.  The
+               [Create
+               Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+               illustrates detailed provider values for a Duo authenticator.  [Provider
+               values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+               are listed in Okta API.
+        :param pulumi.Input[str] provider_secret_key: (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_shared_secret: An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_user_name_template: Username template expected by the provider. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] settings: Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
         :param pulumi.Input[str] status: Status of the authenticator. Default is `ACTIVE`.
         """
         ...
@@ -395,7 +570,16 @@ class Authenticator(pulumi.CustomResource):
 
         This resource allows you to configure different authenticators.
 
-        > **NOTE:** An authenticator can only be deleted if it's not in use by any policy.
+        > **Create:** The Okta API has an odd notion of create for authenticators. If
+        the authenticator doesn't exist then a one time `POST /api/v1/authenticators` to
+        create the authenticator (hard create) will be performed. Thereafter, that
+        authenticator is never deleted, it is only deactivated (soft delete). Therefore,
+        if the authenticator already exists create is just a soft import of an existing
+        authenticator.
+
+        > **Delete:** Authenticators can not be truly deleted therefore delete is soft.
+        Delete will attempt to deativate the authenticator. An authenticator can only be
+        deactivated if it's not in use by any other policy.
 
         ## Example Usage
 
@@ -437,7 +621,11 @@ class Authenticator(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provider_auth_port: Optional[pulumi.Input[int]] = None,
+                 provider_host: Optional[pulumi.Input[str]] = None,
                  provider_hostname: Optional[pulumi.Input[str]] = None,
+                 provider_integration_key: Optional[pulumi.Input[str]] = None,
+                 provider_json: Optional[pulumi.Input[str]] = None,
+                 provider_secret_key: Optional[pulumi.Input[str]] = None,
                  provider_shared_secret: Optional[pulumi.Input[str]] = None,
                  provider_user_name_template: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
@@ -456,7 +644,11 @@ class Authenticator(pulumi.CustomResource):
             __props__.__dict__["key"] = key
             __props__.__dict__["name"] = name
             __props__.__dict__["provider_auth_port"] = provider_auth_port
+            __props__.__dict__["provider_host"] = provider_host
             __props__.__dict__["provider_hostname"] = provider_hostname
+            __props__.__dict__["provider_integration_key"] = provider_integration_key
+            __props__.__dict__["provider_json"] = provider_json
+            __props__.__dict__["provider_secret_key"] = provider_secret_key
             __props__.__dict__["provider_shared_secret"] = None if provider_shared_secret is None else pulumi.Output.secret(provider_shared_secret)
             __props__.__dict__["provider_user_name_template"] = provider_user_name_template
             __props__.__dict__["settings"] = settings
@@ -479,8 +671,12 @@ class Authenticator(pulumi.CustomResource):
             key: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             provider_auth_port: Optional[pulumi.Input[int]] = None,
+            provider_host: Optional[pulumi.Input[str]] = None,
             provider_hostname: Optional[pulumi.Input[str]] = None,
             provider_instance_id: Optional[pulumi.Input[str]] = None,
+            provider_integration_key: Optional[pulumi.Input[str]] = None,
+            provider_json: Optional[pulumi.Input[str]] = None,
+            provider_secret_key: Optional[pulumi.Input[str]] = None,
             provider_shared_secret: Optional[pulumi.Input[str]] = None,
             provider_type: Optional[pulumi.Input[str]] = None,
             provider_user_name_template: Optional[pulumi.Input[str]] = None,
@@ -496,15 +692,25 @@ class Authenticator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         :param pulumi.Input[str] name: Name of the authenticator.
-        :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.
+        :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_host: (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_hostname: Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         :param pulumi.Input[str] provider_instance_id: App Instance ID.
-        :param pulumi.Input[str] provider_shared_secret: An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] provider_type: The type of Authenticator. Values include: `"password"`, `"security_question"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"security_key"`.
-        :param pulumi.Input[str] provider_user_name_template: Username template expected by the provider. Used only for authenticators with type `"security_key"`.
-        :param pulumi.Input[str] settings: Settings for the authenticator. Settings object contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
+        :param pulumi.Input[str] provider_integration_key: (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_json: Provider JSON allows for expressive provider
+               values. This argument conflicts with the other `provider_xxx` arguments.  The
+               [Create
+               Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+               illustrates detailed provider values for a Duo authenticator.  [Provider
+               values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+               are listed in Okta API.
+        :param pulumi.Input[str] provider_secret_key: (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_shared_secret: An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] provider_type: Provider type. Supported value for Duo: `DUO`. Supported value for Custom App: `PUSH`
+        :param pulumi.Input[str] provider_user_name_template: Username template expected by the provider. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        :param pulumi.Input[str] settings: Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
         :param pulumi.Input[str] status: Status of the authenticator. Default is `ACTIVE`.
-        :param pulumi.Input[str] type: Type of the Authenticator.
+        :param pulumi.Input[str] type: The type of Authenticator. Values include: `"password"`, `"security_question"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"security_key"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -513,8 +719,12 @@ class Authenticator(pulumi.CustomResource):
         __props__.__dict__["key"] = key
         __props__.__dict__["name"] = name
         __props__.__dict__["provider_auth_port"] = provider_auth_port
+        __props__.__dict__["provider_host"] = provider_host
         __props__.__dict__["provider_hostname"] = provider_hostname
         __props__.__dict__["provider_instance_id"] = provider_instance_id
+        __props__.__dict__["provider_integration_key"] = provider_integration_key
+        __props__.__dict__["provider_json"] = provider_json
+        __props__.__dict__["provider_secret_key"] = provider_secret_key
         __props__.__dict__["provider_shared_secret"] = provider_shared_secret
         __props__.__dict__["provider_type"] = provider_type
         __props__.__dict__["provider_user_name_template"] = provider_user_name_template
@@ -543,15 +753,23 @@ class Authenticator(pulumi.CustomResource):
     @pulumi.getter(name="providerAuthPort")
     def provider_auth_port(self) -> pulumi.Output[Optional[int]]:
         """
-        The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Default is `9000`. Used only for authenticators with type `"security_key"`.
+        The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_auth_port")
+
+    @property
+    @pulumi.getter(name="providerHost")
+    def provider_host(self) -> pulumi.Output[Optional[str]]:
+        """
+        (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
+        """
+        return pulumi.get(self, "provider_host")
 
     @property
     @pulumi.getter(name="providerHostname")
     def provider_hostname(self) -> pulumi.Output[Optional[str]]:
         """
-        Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.
+        Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_hostname")
 
@@ -564,10 +782,40 @@ class Authenticator(pulumi.CustomResource):
         return pulumi.get(self, "provider_instance_id")
 
     @property
+    @pulumi.getter(name="providerIntegrationKey")
+    def provider_integration_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
+        """
+        return pulumi.get(self, "provider_integration_key")
+
+    @property
+    @pulumi.getter(name="providerJson")
+    def provider_json(self) -> pulumi.Output[Optional[str]]:
+        """
+        Provider JSON allows for expressive provider
+        values. This argument conflicts with the other `provider_xxx` arguments.  The
+        [Create
+        Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+        illustrates detailed provider values for a Duo authenticator.  [Provider
+        values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+        are listed in Okta API.
+        """
+        return pulumi.get(self, "provider_json")
+
+    @property
+    @pulumi.getter(name="providerSecretKey")
+    def provider_secret_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
+        """
+        return pulumi.get(self, "provider_secret_key")
+
+    @property
     @pulumi.getter(name="providerSharedSecret")
     def provider_shared_secret(self) -> pulumi.Output[Optional[str]]:
         """
-        An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.
+        An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_shared_secret")
 
@@ -575,7 +823,7 @@ class Authenticator(pulumi.CustomResource):
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Output[str]:
         """
-        The type of Authenticator. Values include: `"password"`, `"security_question"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"security_key"`.
+        Provider type. Supported value for Duo: `DUO`. Supported value for Custom App: `PUSH`
         """
         return pulumi.get(self, "provider_type")
 
@@ -583,7 +831,7 @@ class Authenticator(pulumi.CustomResource):
     @pulumi.getter(name="providerUserNameTemplate")
     def provider_user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template expected by the provider. Used only for authenticators with type `"security_key"`.
+        Username template expected by the provider. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_user_name_template")
 
@@ -591,7 +839,7 @@ class Authenticator(pulumi.CustomResource):
     @pulumi.getter
     def settings(self) -> pulumi.Output[Optional[str]]:
         """
-        Settings for the authenticator. Settings object contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
+        Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
         """
         return pulumi.get(self, "settings")
 
@@ -607,7 +855,7 @@ class Authenticator(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the Authenticator.
+        The type of Authenticator. Values include: `"password"`, `"security_question"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"security_key"`.
         """
         return pulumi.get(self, "type")
 

@@ -56,8 +56,8 @@ class AppUserSchemaPropertyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
-        :param pulumi.Input[bool] union: Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
+        :param pulumi.Input[bool] union: If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         :param pulumi.Input[str] unique: Subschema unique restriction
         :param pulumi.Input[str] user_type: Custom subschema user type
         """
@@ -308,7 +308,7 @@ class AppUserSchemaPropertyArgs:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        determines whether an app user attribute can be set at the Individual or Group Level.
+        determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
         """
         return pulumi.get(self, "scope")
 
@@ -320,7 +320,7 @@ class AppUserSchemaPropertyArgs:
     @pulumi.getter
     def union(self) -> Optional[pulumi.Input[bool]]:
         """
-        Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         """
         return pulumi.get(self, "union")
 
@@ -394,10 +394,10 @@ class _AppUserSchemaPropertyState:
         :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
+        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[bool] union: Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        :param pulumi.Input[bool] union: If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         :param pulumi.Input[str] unique: Subschema unique restriction
         :param pulumi.Input[str] user_type: Custom subschema user type
         """
@@ -628,7 +628,7 @@ class _AppUserSchemaPropertyState:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        determines whether an app user attribute can be set at the Individual or Group Level.
+        determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
         """
         return pulumi.get(self, "scope")
 
@@ -664,7 +664,7 @@ class _AppUserSchemaPropertyState:
     @pulumi.getter
     def union(self) -> Optional[pulumi.Input[bool]]:
         """
-        Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         """
         return pulumi.get(self, "union")
 
@@ -766,10 +766,10 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
+        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[bool] union: Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        :param pulumi.Input[bool] union: If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         :param pulumi.Input[str] unique: Subschema unique restriction
         :param pulumi.Input[str] user_type: Custom subschema user type
         """
@@ -931,10 +931,10 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
+        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[bool] union: Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        :param pulumi.Input[bool] union: If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         :param pulumi.Input[str] unique: Subschema unique restriction
         :param pulumi.Input[str] user_type: Custom subschema user type
         """
@@ -1089,7 +1089,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional[str]]:
         """
-        determines whether an app user attribute can be set at the Individual or Group Level.
+        determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
         """
         return pulumi.get(self, "scope")
 
@@ -1113,7 +1113,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def union(self) -> pulumi.Output[Optional[bool]]:
         """
-        Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         """
         return pulumi.get(self, "union")
 

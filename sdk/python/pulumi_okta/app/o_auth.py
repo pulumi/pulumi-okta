@@ -77,9 +77,13 @@ class OAuthArgs:
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.  If
+               `auto_key_rotation` isn't specified, the client automatically opts in for Okta's
+               key rotation. You can update this property via the API or via the administrator
+               UI.
+               See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
+        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
@@ -103,18 +107,39 @@ class OAuthArgs:
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for
+               additional verification.  If `pkce_required` isn't specified when adding a new
+               application, Okta sets it to `true` by default for `"browser"` and `"native"`
+               application types.
+               See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service.
         :param pulumi.Input[int] refresh_token_leeway: Grace period for token rotation. Valid values: 0 to 60 seconds.
         :param pulumi.Input[str] refresh_token_rotation: Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings. Array
+               values of `"code"`, `"token"`, `"id_token"`. The `grant_types` and `response_types`
+               values described are partially orthogonal, as they refer to arguments
+               passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+               However, they are related in that the `grant_types` available to a client
+               influence the `response_types` that the client is allowed to use, and vice versa.
+               For instance, a grant_types value that includes authorization_code implies a
+               `response_types` value that includes code, as both values are defined as part of
+               the OAuth 2.0 authorization code grant.
+               See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for
+               the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
+               `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.  Use
+               `pkce_required` to require PKCE for your confidential clients using the
+               Authorization Code flow. If `"token_endpoint_auth_method"` is `"none"`,
+               `pkce_required` needs to be `true`. If `pkce_required` isn't specified when
+               adding a new application, Okta sets it to `true` by default for `"browser"` and
+               `"native"` application types.
+               See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
@@ -343,7 +368,11 @@ class OAuthArgs:
     @pulumi.getter(name="autoKeyRotation")
     def auto_key_rotation(self) -> Optional[pulumi.Input[bool]]:
         """
-        Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Requested key rotation mode.  If
+        `auto_key_rotation` isn't specified, the client automatically opts in for Okta's
+        key rotation. You can update this property via the API or via the administrator
+        UI.
+        See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "auto_key_rotation")
 
@@ -367,7 +396,7 @@ class OAuthArgs:
     @pulumi.getter(name="clientBasicSecret")
     def client_basic_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
+        OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
         """
         return pulumi.get(self, "client_basic_secret")
 
@@ -611,7 +640,11 @@ class OAuthArgs:
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Require Proof Key for Code Exchange (PKCE) for
+        additional verification.  If `pkce_required` isn't specified when adding a new
+        application, Okta sets it to `true` by default for `"browser"` and `"native"`
+        application types.
+        See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "pkce_required")
 
@@ -695,7 +728,16 @@ class OAuthArgs:
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of OAuth 2.0 response type strings.
+        List of OAuth 2.0 response type strings. Array
+        values of `"code"`, `"token"`, `"id_token"`. The `grant_types` and `response_types`
+        values described are partially orthogonal, as they refer to arguments
+        passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+        However, they are related in that the `grant_types` available to a client
+        influence the `response_types` that the client is allowed to use, and vice versa.
+        For instance, a grant_types value that includes authorization_code implies a
+        `response_types` value that includes code, as both values are defined as part of
+        the OAuth 2.0 authorization code grant.
+        See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
         """
         return pulumi.get(self, "response_types")
 
@@ -743,7 +785,15 @@ class OAuthArgs:
     @pulumi.getter(name="tokenEndpointAuthMethod")
     def token_endpoint_auth_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Requested authentication method for
+        the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
+        `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.  Use
+        `pkce_required` to require PKCE for your confidential clients using the
+        Authorization Code flow. If `"token_endpoint_auth_method"` is `"none"`,
+        `pkce_required` needs to be `true`. If `pkce_required` isn't specified when
+        adding a new application, Okta sets it to `true` by default for `"browser"` and
+        `"native"` application types.
+        See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "token_endpoint_auth_method")
 
@@ -902,9 +952,13 @@ class _OAuthState:
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.  If
+               `auto_key_rotation` isn't specified, the client automatically opts in for Okta's
+               key rotation. You can update this property via the API or via the administrator
+               UI.
+               See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
+        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_secret: The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
@@ -932,19 +986,40 @@ class _OAuthState:
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name of the claim that will be used in the token.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for
+               additional verification.  If `pkce_required` isn't specified when adding a new
+               application, Okta sets it to `true` by default for `"browser"` and `"native"`
+               application types.
+               See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service.
         :param pulumi.Input[int] refresh_token_leeway: Grace period for token rotation. Valid values: 0 to 60 seconds.
         :param pulumi.Input[str] refresh_token_rotation: Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings. Array
+               values of `"code"`, `"token"`, `"id_token"`. The `grant_types` and `response_types`
+               values described are partially orthogonal, as they refer to arguments
+               passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+               However, they are related in that the `grant_types` available to a client
+               influence the `response_types` that the client is allowed to use, and vice versa.
+               For instance, a grant_types value that includes authorization_code implies a
+               `response_types` value that includes code, as both values are defined as part of
+               the OAuth 2.0 authorization code grant.
+               See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for
+               the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
+               `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.  Use
+               `pkce_required` to require PKCE for your confidential clients using the
+               Authorization Code flow. If `"token_endpoint_auth_method"` is `"none"`,
+               `pkce_required` needs to be `true`. If `pkce_required` isn't specified when
+               adding a new application, Okta sets it to `true` by default for `"browser"` and
+               `"native"` application types.
+               See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
@@ -1160,7 +1235,11 @@ class _OAuthState:
     @pulumi.getter(name="autoKeyRotation")
     def auto_key_rotation(self) -> Optional[pulumi.Input[bool]]:
         """
-        Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Requested key rotation mode.  If
+        `auto_key_rotation` isn't specified, the client automatically opts in for Okta's
+        key rotation. You can update this property via the API or via the administrator
+        UI.
+        See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "auto_key_rotation")
 
@@ -1184,7 +1263,7 @@ class _OAuthState:
     @pulumi.getter(name="clientBasicSecret")
     def client_basic_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
+        OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
         """
         return pulumi.get(self, "client_basic_secret")
 
@@ -1476,7 +1555,11 @@ class _OAuthState:
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Require Proof Key for Code Exchange (PKCE) for
+        additional verification.  If `pkce_required` isn't specified when adding a new
+        application, Okta sets it to `true` by default for `"browser"` and `"native"`
+        application types.
+        See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "pkce_required")
 
@@ -1560,7 +1643,16 @@ class _OAuthState:
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of OAuth 2.0 response type strings.
+        List of OAuth 2.0 response type strings. Array
+        values of `"code"`, `"token"`, `"id_token"`. The `grant_types` and `response_types`
+        values described are partially orthogonal, as they refer to arguments
+        passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+        However, they are related in that the `grant_types` available to a client
+        influence the `response_types` that the client is allowed to use, and vice versa.
+        For instance, a grant_types value that includes authorization_code implies a
+        `response_types` value that includes code, as both values are defined as part of
+        the OAuth 2.0 authorization code grant.
+        See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
         """
         return pulumi.get(self, "response_types")
 
@@ -1620,7 +1712,15 @@ class _OAuthState:
     @pulumi.getter(name="tokenEndpointAuthMethod")
     def token_endpoint_auth_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Requested authentication method for
+        the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
+        `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.  Use
+        `pkce_required` to require PKCE for your confidential clients using the
+        Authorization Code flow. If `"token_endpoint_auth_method"` is `"none"`,
+        `pkce_required` needs to be `true`. If `pkce_required` isn't specified when
+        adding a new application, Okta sets it to `true` by default for `"browser"` and
+        `"native"` application types.
+        See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "token_endpoint_auth_method")
 
@@ -1797,6 +1897,9 @@ class OAuth(pulumi.CustomResource):
             response_types=["code"],
             type="web")
         ```
+        ### With JWKS value
+
+        See also Advanced PEM secrets and JWKS example.
 
         ```python
         import pulumi
@@ -1818,7 +1921,11 @@ class OAuth(pulumi.CustomResource):
         ## Etc.
 
         ### Resetting client secret
-        If the client secret needs to be reset run an apply with `omit_secret` set to true in the resource. This causes `client_secret` to be set to blank. Remove `omit_secret` and run apply again. The resource will set a new `client_secret` for the app.
+
+        If the client secret needs to be reset run an apply with `omit_secret` set to
+        true in the resource. This causes `client_secret` to be set to blank. Remove
+        `omit_secret` and run apply again. The resource will set a new `client_secret`
+        for the app.
 
         ## Import
 
@@ -1851,9 +1958,13 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.  If
+               `auto_key_rotation` isn't specified, the client automatically opts in for Okta's
+               key rotation. You can update this property via the API or via the administrator
+               UI.
+               See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
+        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
@@ -1878,18 +1989,39 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for
+               additional verification.  If `pkce_required` isn't specified when adding a new
+               application, Okta sets it to `true` by default for `"browser"` and `"native"`
+               application types.
+               See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service.
         :param pulumi.Input[int] refresh_token_leeway: Grace period for token rotation. Valid values: 0 to 60 seconds.
         :param pulumi.Input[str] refresh_token_rotation: Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings. Array
+               values of `"code"`, `"token"`, `"id_token"`. The `grant_types` and `response_types`
+               values described are partially orthogonal, as they refer to arguments
+               passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+               However, they are related in that the `grant_types` available to a client
+               influence the `response_types` that the client is allowed to use, and vice versa.
+               For instance, a grant_types value that includes authorization_code implies a
+               `response_types` value that includes code, as both values are defined as part of
+               the OAuth 2.0 authorization code grant.
+               See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for
+               the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
+               `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.  Use
+               `pkce_required` to require PKCE for your confidential clients using the
+               Authorization Code flow. If `"token_endpoint_auth_method"` is `"none"`,
+               `pkce_required` needs to be `true`. If `pkce_required` isn't specified when
+               adding a new application, Okta sets it to `true` by default for `"browser"` and
+               `"native"` application types.
+               See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
@@ -1921,6 +2053,9 @@ class OAuth(pulumi.CustomResource):
             response_types=["code"],
             type="web")
         ```
+        ### With JWKS value
+
+        See also Advanced PEM secrets and JWKS example.
 
         ```python
         import pulumi
@@ -1942,7 +2077,11 @@ class OAuth(pulumi.CustomResource):
         ## Etc.
 
         ### Resetting client secret
-        If the client secret needs to be reset run an apply with `omit_secret` set to true in the resource. This causes `client_secret` to be set to blank. Remove `omit_secret` and run apply again. The resource will set a new `client_secret` for the app.
+
+        If the client secret needs to be reset run an apply with `omit_secret` set to
+        true in the resource. This causes `client_secret` to be set to blank. Remove
+        `omit_secret` and run apply again. The resource will set a new `client_secret`
+        for the app.
 
         ## Import
 
@@ -2187,9 +2326,13 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode.  If
+               `auto_key_rotation` isn't specified, the client automatically opts in for Okta's
+               key rotation. You can update this property via the API or via the administrator
+               UI.
+               See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
+        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_secret: The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
@@ -2217,19 +2360,40 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name of the claim that will be used in the token.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for
+               additional verification.  If `pkce_required` isn't specified when adding a new
+               application, Okta sets it to `true` by default for `"browser"` and `"native"`
+               application types.
+               See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service.
         :param pulumi.Input[int] refresh_token_leeway: Grace period for token rotation. Valid values: 0 to 60 seconds.
         :param pulumi.Input[str] refresh_token_rotation: Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings. Array
+               values of `"code"`, `"token"`, `"id_token"`. The `grant_types` and `response_types`
+               values described are partially orthogonal, as they refer to arguments
+               passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+               However, they are related in that the `grant_types` available to a client
+               influence the `response_types` that the client is allowed to use, and vice versa.
+               For instance, a grant_types value that includes authorization_code implies a
+               `response_types` value that includes code, as both values are defined as part of
+               the OAuth 2.0 authorization code grant.
+               See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for
+               the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
+               `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.  Use
+               `pkce_required` to require PKCE for your confidential clients using the
+               Authorization Code flow. If `"token_endpoint_auth_method"` is `"none"`,
+               `pkce_required` needs to be `true`. If `pkce_required` isn't specified when
+               adding a new application, Okta sets it to `true` by default for `"browser"` and
+               `"native"` application types.
+               See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
@@ -2359,7 +2523,11 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="autoKeyRotation")
     def auto_key_rotation(self) -> pulumi.Output[Optional[bool]]:
         """
-        Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Requested key rotation mode.  If
+        `auto_key_rotation` isn't specified, the client automatically opts in for Okta's
+        key rotation. You can update this property via the API or via the administrator
+        UI.
+        See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "auto_key_rotation")
 
@@ -2375,7 +2543,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="clientBasicSecret")
     def client_basic_secret(self) -> pulumi.Output[Optional[str]]:
         """
-        OAuth client secret key, this can be set when token_endpoint_auth_method is client_secret_basic.
+        OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
         """
         return pulumi.get(self, "client_basic_secret")
 
@@ -2571,7 +2739,11 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> pulumi.Output[Optional[bool]]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Require Proof Key for Code Exchange (PKCE) for
+        additional verification.  If `pkce_required` isn't specified when adding a new
+        application, Okta sets it to `true` by default for `"browser"` and `"native"`
+        application types.
+        See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "pkce_required")
 
@@ -2627,7 +2799,16 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of OAuth 2.0 response type strings.
+        List of OAuth 2.0 response type strings. Array
+        values of `"code"`, `"token"`, `"id_token"`. The `grant_types` and `response_types`
+        values described are partially orthogonal, as they refer to arguments
+        passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+        However, they are related in that the `grant_types` available to a client
+        influence the `response_types` that the client is allowed to use, and vice versa.
+        For instance, a grant_types value that includes authorization_code implies a
+        `response_types` value that includes code, as both values are defined as part of
+        the OAuth 2.0 authorization code grant.
+        See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
         """
         return pulumi.get(self, "response_types")
 
@@ -2667,7 +2848,15 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="tokenEndpointAuthMethod")
     def token_endpoint_auth_method(self) -> pulumi.Output[Optional[str]]:
         """
-        Requested authentication method for the token endpoint. It can be set to `"none"`, `"client_secret_post"`, `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Requested authentication method for
+        the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
+        `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.  Use
+        `pkce_required` to require PKCE for your confidential clients using the
+        Authorization Code flow. If `"token_endpoint_auth_method"` is `"none"`,
+        `pkce_required` needs to be `true`. If `pkce_required` isn't specified when
+        adding a new application, Okta sets it to `true` by default for `"browser"` and
+        `"native"` application types.
+        See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "token_endpoint_auth_method")
 

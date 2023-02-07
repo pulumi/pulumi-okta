@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * 
  * This resource allows you to create and configure a Profile Enrollment Policy Rule.
  * 
+ * It is documented in the Okta public API&#39;s [Profile Enrollment Action object](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-action-object) section.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -179,14 +181,14 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
         return this.policyId;
     }
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling.
+     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
      * 
      */
     @Export(name="profileAttributes", type=List.class, parameters={PolicyRuleProfileEnrollmentProfileAttribute.class})
     private Output</* @Nullable */ List<PolicyRuleProfileEnrollmentProfileAttribute>> profileAttributes;
 
     /**
-     * @return A list of attributes to prompt the user during registration or progressive profiling.
+     * @return A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
      * 
      */
     public Output<Optional<List<PolicyRuleProfileEnrollmentProfileAttribute>>> profileAttributes() {
@@ -219,6 +221,20 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
      */
     public Output<Optional<String>> targetGroupId() {
         return Codegen.optional(this.targetGroupId);
+    }
+    /**
+     * Value created by the backend. If present all policy updates must include this attribute/value.
+     * 
+     */
+    @Export(name="uiSchemaId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> uiSchemaId;
+
+    /**
+     * @return Value created by the backend. If present all policy updates must include this attribute/value.
+     * 
+     */
+    public Output<Optional<String>> uiSchemaId() {
+        return Codegen.optional(this.uiSchemaId);
     }
     /**
      * Which action should be taken if this User is new. Valid values are: `&#34;DENY&#34;`, `&#34;REGISTER&#34;`.

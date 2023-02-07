@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class AppUserSchemaPropertyArrayOneOf {
     /**
-     * @return value mapping to member of `enum`.
+     * @return value mapping to member of `array_enum`.
      * 
      */
     private String const_;
@@ -22,7 +22,7 @@ public final class AppUserSchemaPropertyArrayOneOf {
 
     private AppUserSchemaPropertyArrayOneOf() {}
     /**
-     * @return value mapping to member of `enum`.
+     * @return value mapping to member of `array_enum`.
      * 
      */
     public String const_() {

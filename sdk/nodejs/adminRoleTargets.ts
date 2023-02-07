@@ -75,7 +75,7 @@ export class AdminRoleTargets extends pulumi.CustomResource {
      */
     public /*out*/ readonly roleId!: pulumi.Output<string>;
     /**
-     * Name of the role associated with the user.
+     * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     public readonly roleType!: pulumi.Output<string>;
     /**
@@ -137,7 +137,7 @@ export interface AdminRoleTargetsState {
      */
     roleId?: pulumi.Input<string>;
     /**
-     * Name of the role associated with the user.
+     * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     roleType?: pulumi.Input<string>;
     /**
@@ -159,7 +159,7 @@ export interface AdminRoleTargetsArgs {
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the role associated with the user.
+     * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     roleType: pulumi.Input<string>;
     /**

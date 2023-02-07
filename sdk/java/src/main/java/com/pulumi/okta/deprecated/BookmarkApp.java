@@ -96,6 +96,20 @@ public class BookmarkApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appLinksJson);
     }
     /**
+     * Id of this apps authentication policy
+     * 
+     */
+    @Export(name="authenticationPolicy", type=String.class, parameters={})
+    private Output</* @Nullable */ String> authenticationPolicy;
+
+    /**
+     * @return Id of this apps authentication policy
+     * 
+     */
+    public Output<Optional<String>> authenticationPolicy() {
+        return Codegen.optional(this.authenticationPolicy);
+    }
+    /**
      * Display auto submit toolbar
      * 
      */

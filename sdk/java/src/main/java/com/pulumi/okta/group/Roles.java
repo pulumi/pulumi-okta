@@ -63,14 +63,38 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:group/roles:Roles")
 public class Roles extends com.pulumi.resources.CustomResource {
     /**
-     * Admin roles associated with the group. It can be any of the following values `&#34;SUPER_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`.
+     * Admin roles associated with the group. It can be any of the following values:
+     * `&#34;API_ADMIN&#34;`,
+     * `&#34;APP_ADMIN&#34;`,
+     * `&#34;CUSTOM&#34;`,
+     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+     * `&#34;HELP_DESK_ADMIN&#34;`,
+     * `&#34;MOBILE_ADMIN&#34;`,
+     * `&#34;ORG_ADMIN&#34;`,
+     * `&#34;READ_ONLY_ADMIN&#34;`,
+     * `&#34;REPORT_ADMIN&#34;`,
+     * `&#34;SUPER_ADMIN&#34;`,
+     * `&#34;USER_ADMIN&#34;`
+     * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     @Export(name="adminRoles", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> adminRoles;
 
     /**
-     * @return Admin roles associated with the group. It can be any of the following values `&#34;SUPER_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`.
+     * @return Admin roles associated with the group. It can be any of the following values:
+     * `&#34;API_ADMIN&#34;`,
+     * `&#34;APP_ADMIN&#34;`,
+     * `&#34;CUSTOM&#34;`,
+     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+     * `&#34;HELP_DESK_ADMIN&#34;`,
+     * `&#34;MOBILE_ADMIN&#34;`,
+     * `&#34;ORG_ADMIN&#34;`,
+     * `&#34;READ_ONLY_ADMIN&#34;`,
+     * `&#34;REPORT_ADMIN&#34;`,
+     * `&#34;SUPER_ADMIN&#34;`,
+     * `&#34;USER_ADMIN&#34;`
+     * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     public Output<Optional<List<String>>> adminRoles() {
