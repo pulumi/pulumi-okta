@@ -76,14 +76,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/userAdminRoles:UserAdminRoles")
 public class UserAdminRoles extends com.pulumi.resources.CustomResource {
     /**
-     * The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]`
+     * The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     @Export(name="adminRoles", type=List.class, parameters={String.class})
     private Output<List<String>> adminRoles;
 
     /**
-     * @return The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]`
+     * @return The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     public Output<List<String>> adminRoles() {

@@ -14,6 +14,16 @@ namespace Pulumi.Okta.User
     /// 
     /// This resource allows you to create and configure an Okta User.
     /// 
+    /// &gt; **IMPORTANT** If the provider is executed with a non-super user API token a
+    /// 403 occurs when the provider attempts to inspect the user's admin roles. This
+    /// 403 is swallowed and a warning is logged allowing the resource to continue
+    /// without this error hindering it. An empty `admin_roles` array will be present in
+    /// the resource state.
+    /// 
+    /// &gt; **IMPORTANT** Use `skip_roles=true` to avoid `admin_roles` being present in
+    /// resource state. This also prevents the underlying API call for those values to
+    /// be made.
+    /// 
     /// ## Example Usage
     /// 
     /// Full profile:
@@ -316,6 +326,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("secondEmail")]
         public Output<string?> SecondEmail { get; private set; } = null!;
+
+        /// <summary>
+        /// Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
+        /// </summary>
+        [Output("skipRoles")]
+        public Output<bool?> SkipRoles { get; private set; } = null!;
 
         /// <summary>
         /// User profile property.
@@ -672,6 +688,12 @@ namespace Pulumi.Okta.User
         public Input<string>? SecondEmail { get; set; }
 
         /// <summary>
+        /// Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
+        /// </summary>
+        [Input("skipRoles")]
+        public Input<bool>? SkipRoles { get; set; }
+
+        /// <summary>
         /// User profile property.
         /// </summary>
         [Input("state")]
@@ -986,6 +1008,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("secondEmail")]
         public Input<string>? SecondEmail { get; set; }
+
+        /// <summary>
+        /// Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
+        /// </summary>
+        [Input("skipRoles")]
+        public Input<bool>? SkipRoles { get; set; }
 
         /// <summary>
         /// User profile property.

@@ -587,6 +587,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
+     * 
+     */
+    @Import(name="skipRoles")
+    private @Nullable Output<Boolean> skipRoles;
+
+    /**
+     * @return Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
+     * 
+     */
+    public Optional<Output<Boolean>> skipRoles() {
+        return Optional.ofNullable(this.skipRoles);
+    }
+
+    /**
      * User profile property.
      * 
      */
@@ -730,6 +745,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.recoveryAnswer = $.recoveryAnswer;
         this.recoveryQuestion = $.recoveryQuestion;
         this.secondEmail = $.secondEmail;
+        this.skipRoles = $.skipRoles;
         this.state = $.state;
         this.status = $.status;
         this.streetAddress = $.streetAddress;
@@ -1567,6 +1583,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder secondEmail(String secondEmail) {
             return secondEmail(Output.of(secondEmail));
+        }
+
+        /**
+         * @param skipRoles Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipRoles(@Nullable Output<Boolean> skipRoles) {
+            $.skipRoles = skipRoles;
+            return this;
+        }
+
+        /**
+         * @param skipRoles Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipRoles(Boolean skipRoles) {
+            return skipRoles(Output.of(skipRoles));
         }
 
         /**

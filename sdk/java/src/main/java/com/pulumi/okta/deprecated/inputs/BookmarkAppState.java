@@ -94,6 +94,21 @@ public final class BookmarkAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Id of this apps authentication policy
+     * 
+     */
+    @Import(name="authenticationPolicy")
+    private @Nullable Output<String> authenticationPolicy;
+
+    /**
+     * @return Id of this apps authentication policy
+     * 
+     */
+    public Optional<Output<String>> authenticationPolicy() {
+        return Optional.ofNullable(this.authenticationPolicy);
+    }
+
+    /**
      * Display auto submit toolbar
      * 
      */
@@ -341,6 +356,7 @@ public final class BookmarkAppState extends com.pulumi.resources.ResourceArgs {
         this.accessibilitySelfService = $.accessibilitySelfService;
         this.adminNote = $.adminNote;
         this.appLinksJson = $.appLinksJson;
+        this.authenticationPolicy = $.authenticationPolicy;
         this.autoSubmitToolbar = $.autoSubmitToolbar;
         this.enduserNote = $.enduserNote;
         this.groups = $.groups;
@@ -480,6 +496,27 @@ public final class BookmarkAppState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder appLinksJson(String appLinksJson) {
             return appLinksJson(Output.of(appLinksJson));
+        }
+
+        /**
+         * @param authenticationPolicy Id of this apps authentication policy
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationPolicy(@Nullable Output<String> authenticationPolicy) {
+            $.authenticationPolicy = authenticationPolicy;
+            return this;
+        }
+
+        /**
+         * @param authenticationPolicy Id of this apps authentication policy
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationPolicy(String authenticationPolicy) {
+            return authenticationPolicy(Output.of(authenticationPolicy));
         }
 
         /**

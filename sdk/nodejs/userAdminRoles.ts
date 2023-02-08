@@ -67,11 +67,11 @@ export class UserAdminRoles extends pulumi.CustomResource {
     }
 
     /**
-     * The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
+     * The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     public readonly adminRoles!: pulumi.Output<string[]>;
     /**
-     * When this setting is enabled, the admins won't receive any of the default Okta 
+     * When this setting is enabled, the admins won't receive any of the default Okta
      * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
      */
     public readonly disableNotifications!: pulumi.Output<boolean | undefined>;
@@ -118,11 +118,11 @@ export class UserAdminRoles extends pulumi.CustomResource {
  */
 export interface UserAdminRolesState {
     /**
-     * The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
+     * The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When this setting is enabled, the admins won't receive any of the default Okta 
+     * When this setting is enabled, the admins won't receive any of the default Okta
      * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
      */
     disableNotifications?: pulumi.Input<boolean>;
@@ -137,11 +137,11 @@ export interface UserAdminRolesState {
  */
 export interface UserAdminRolesArgs {
     /**
-     * The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
+     * The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     adminRoles: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When this setting is enabled, the admins won't receive any of the default Okta 
+     * When this setting is enabled, the admins won't receive any of the default Okta
      * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
      */
     disableNotifications?: pulumi.Input<boolean>;

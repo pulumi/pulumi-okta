@@ -93,7 +93,7 @@ export class AppUserBaseSchemaProperty extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Custom subschema user type
+     * User type ID. By default, it is `"default"`.
      */
     public readonly userType!: pulumi.Output<string | undefined>;
 
@@ -185,7 +185,7 @@ export interface AppUserBaseSchemaPropertyState {
      */
     type?: pulumi.Input<string>;
     /**
-     * Custom subschema user type
+     * User type ID. By default, it is `"default"`.
      */
     userType?: pulumi.Input<string>;
 }
@@ -227,7 +227,7 @@ export interface AppUserBaseSchemaPropertyArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * Custom subschema user type
+     * User type ID. By default, it is `"default"`.
      */
     userType?: pulumi.Input<string>;
 }

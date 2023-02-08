@@ -19,9 +19,9 @@ class UserAdminRolesArgs:
                  disable_notifications: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a UserAdminRoles resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[str] user_id: Okta user ID.
-        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta 
+        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         """
         pulumi.set(__self__, "admin_roles", admin_roles)
@@ -33,7 +33,7 @@ class UserAdminRolesArgs:
     @pulumi.getter(name="adminRoles")
     def admin_roles(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
+        The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "admin_roles")
 
@@ -57,7 +57,7 @@ class UserAdminRolesArgs:
     @pulumi.getter(name="disableNotifications")
     def disable_notifications(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this setting is enabled, the admins won't receive any of the default Okta 
+        When this setting is enabled, the admins won't receive any of the default Okta
         administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         """
         return pulumi.get(self, "disable_notifications")
@@ -75,8 +75,8 @@ class _UserAdminRolesState:
                  user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserAdminRoles resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
-        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] user_id: Okta user ID.
         """
@@ -91,7 +91,7 @@ class _UserAdminRolesState:
     @pulumi.getter(name="adminRoles")
     def admin_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
+        The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "admin_roles")
 
@@ -103,7 +103,7 @@ class _UserAdminRolesState:
     @pulumi.getter(name="disableNotifications")
     def disable_notifications(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this setting is enabled, the admins won't receive any of the default Okta 
+        When this setting is enabled, the admins won't receive any of the default Okta
         administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         """
         return pulumi.get(self, "disable_notifications")
@@ -168,8 +168,8 @@ class UserAdminRoles(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
-        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] user_id: Okta user ID.
         """
@@ -265,8 +265,8 @@ class UserAdminRoles(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
-        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] user_id: Okta user ID.
         """
@@ -283,7 +283,7 @@ class UserAdminRoles(pulumi.CustomResource):
     @pulumi.getter(name="adminRoles")
     def admin_roles(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]`
+        The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "admin_roles")
 
@@ -291,7 +291,7 @@ class UserAdminRoles(pulumi.CustomResource):
     @pulumi.getter(name="disableNotifications")
     def disable_notifications(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this setting is enabled, the admins won't receive any of the default Okta 
+        When this setting is enabled, the admins won't receive any of the default Okta
         administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         """
         return pulumi.get(self, "disable_notifications")

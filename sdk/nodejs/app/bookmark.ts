@@ -92,6 +92,10 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     */
+    public readonly authenticationPolicy!: pulumi.Output<string | undefined>;
+    /**
      * Display auto submit toolbar.
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
@@ -178,6 +182,7 @@ export class Bookmark extends pulumi.CustomResource {
             resourceInputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             resourceInputs["adminNote"] = state ? state.adminNote : undefined;
             resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
+            resourceInputs["authenticationPolicy"] = state ? state.authenticationPolicy : undefined;
             resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
             resourceInputs["groups"] = state ? state.groups : undefined;
@@ -207,6 +212,7 @@ export class Bookmark extends pulumi.CustomResource {
             resourceInputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             resourceInputs["adminNote"] = args ? args.adminNote : undefined;
             resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
+            resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
             resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
             resourceInputs["groups"] = args ? args.groups : undefined;
@@ -253,6 +259,10 @@ export interface BookmarkState {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
+    /**
+     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     */
+    authenticationPolicy?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */
@@ -347,6 +357,10 @@ export interface BookmarkArgs {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
+    /**
+     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     */
+    authenticationPolicy?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar.
      */

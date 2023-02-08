@@ -296,7 +296,7 @@ namespace Pulumi.Okta
     ///         },
     ///         UserTypesIncludeds = new[]
     ///         {
-    ///             @default.Apply(getUserTypeResult =&gt; getUserTypeResult).Apply(@default =&gt; @default.Apply(getUserTypeResult =&gt; getUserTypeResult.Id)),
+    ///             @default.Apply(@default =&gt; @default.Apply(getUserTypeResult =&gt; getUserTypeResult.Id)),
     ///         },
     ///         UsersExcludeds = new[]
     ///         {

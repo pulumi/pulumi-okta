@@ -20,7 +20,7 @@ class AdminRoleTargetsArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AdminRoleTargets resource.
-        :param pulumi.Input[str] role_type: Name of the role associated with the user.
+        :param pulumi.Input[str] role_type: Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[str] user_id: ID of the user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of group IDs. Conflicts with `apps`.
@@ -36,7 +36,7 @@ class AdminRoleTargetsArgs:
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Input[str]:
         """
-        Name of the role associated with the user.
+        Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "role_type")
 
@@ -94,7 +94,7 @@ class _AdminRoleTargetsState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of group IDs. Conflicts with `apps`.
         :param pulumi.Input[str] role_id: Role ID.
-        :param pulumi.Input[str] role_type: Name of the role associated with the user.
+        :param pulumi.Input[str] role_type: Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[str] user_id: ID of the user.
         """
         if apps is not None:
@@ -148,7 +148,7 @@ class _AdminRoleTargetsState:
     @pulumi.getter(name="roleType")
     def role_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the role associated with the user.
+        Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "role_type")
 
@@ -212,7 +212,7 @@ class AdminRoleTargets(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of group IDs. Conflicts with `apps`.
-        :param pulumi.Input[str] role_type: Name of the role associated with the user.
+        :param pulumi.Input[str] role_type: Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[str] user_id: ID of the user.
         """
         ...
@@ -312,7 +312,7 @@ class AdminRoleTargets(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of group IDs. Conflicts with `apps`.
         :param pulumi.Input[str] role_id: Role ID.
-        :param pulumi.Input[str] role_type: Name of the role associated with the user.
+        :param pulumi.Input[str] role_type: Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[str] user_id: ID of the user.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -354,7 +354,7 @@ class AdminRoleTargets(pulumi.CustomResource):
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Output[str]:
         """
-        Name of the role associated with the user.
+        Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "role_type")
 

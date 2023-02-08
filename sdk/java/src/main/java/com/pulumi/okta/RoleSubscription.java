@@ -103,14 +103,38 @@ public class RoleSubscription extends com.pulumi.resources.CustomResource {
         return this.notificationType;
     }
     /**
-     * Type of the role. Valid values: `&#34;API_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;SUPER_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+     * Type of the role. Valid values:
+     * `&#34;API_ADMIN&#34;`,
+     * `&#34;APP_ADMIN&#34;`,
+     * `&#34;CUSTOM&#34;`,
+     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+     * `&#34;HELP_DESK_ADMIN&#34;`,
+     * `&#34;MOBILE_ADMIN&#34;`,
+     * `&#34;ORG_ADMIN&#34;`,
+     * `&#34;READ_ONLY_ADMIN&#34;`,
+     * `&#34;REPORT_ADMIN&#34;`,
+     * `&#34;SUPER_ADMIN&#34;`,
+     * `&#34;USER_ADMIN&#34;`
+     * . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
      * 
      */
     @Export(name="roleType", type=String.class, parameters={})
     private Output<String> roleType;
 
     /**
-     * @return Type of the role. Valid values: `&#34;API_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;SUPER_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+     * @return Type of the role. Valid values:
+     * `&#34;API_ADMIN&#34;`,
+     * `&#34;APP_ADMIN&#34;`,
+     * `&#34;CUSTOM&#34;`,
+     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+     * `&#34;HELP_DESK_ADMIN&#34;`,
+     * `&#34;MOBILE_ADMIN&#34;`,
+     * `&#34;ORG_ADMIN&#34;`,
+     * `&#34;READ_ONLY_ADMIN&#34;`,
+     * `&#34;REPORT_ADMIN&#34;`,
+     * `&#34;SUPER_ADMIN&#34;`,
+     * `&#34;USER_ADMIN&#34;`
+     * . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
      * 
      */
     public Output<String> roleType() {

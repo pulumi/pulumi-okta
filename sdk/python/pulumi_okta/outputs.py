@@ -189,7 +189,7 @@ class AppUserSchemaPropertyArrayOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: value mapping to member of `enum`.
+        :param str const: value mapping to member of `array_enum`.
         :param str title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
@@ -199,7 +199,7 @@ class AppUserSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        value mapping to member of `enum`.
+        value mapping to member of `array_enum`.
         """
         return pulumi.get(self, "const")
 
@@ -218,7 +218,7 @@ class AppUserSchemaPropertyOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: value mapping to member of `enum`.
+        :param str const: value mapping to member of `array_enum`.
         :param str title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
@@ -228,7 +228,7 @@ class AppUserSchemaPropertyOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        value mapping to member of `enum`.
+        value mapping to member of `array_enum`.
         """
         return pulumi.get(self, "const")
 

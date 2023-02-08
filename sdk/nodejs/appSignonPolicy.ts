@@ -5,12 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
- *
- * This resource allows you to create and configure a sign-on policy for the application. (Inside the product this is referenced as an _authentication policy_)
- *
- * A newly create app sign-on policy will always contain a default `Catch-all Rule`.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -28,8 +22,6 @@ import * as utilities from "./utilities";
  *     authenticationPolicy: myAppPolicy.id,
  * });
  * ```
- *
- * \_The same mechanism is in place for `okta.app.OAuth` and `okta.app.Saml`.
  *
  * The created policy can be extended using `appSignonPolicyRules`.
  *

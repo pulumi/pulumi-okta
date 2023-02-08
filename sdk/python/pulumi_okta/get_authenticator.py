@@ -21,7 +21,7 @@ class GetAuthenticatorResult:
     """
     A collection of values returned by getAuthenticator.
     """
-    def __init__(__self__, id=None, key=None, name=None, provider_auth_port=None, provider_hostname=None, provider_instance_id=None, provider_type=None, provider_user_name_template=None, settings=None, status=None, type=None):
+    def __init__(__self__, id=None, key=None, name=None, provider_auth_port=None, provider_hostname=None, provider_instance_id=None, provider_json=None, provider_type=None, provider_user_name_template=None, settings=None, status=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +40,9 @@ class GetAuthenticatorResult:
         if provider_instance_id and not isinstance(provider_instance_id, str):
             raise TypeError("Expected argument 'provider_instance_id' to be a str")
         pulumi.set(__self__, "provider_instance_id", provider_instance_id)
+        if provider_json and not isinstance(provider_json, str):
+            raise TypeError("Expected argument 'provider_json' to be a str")
+        pulumi.set(__self__, "provider_json", provider_json)
         if provider_type and not isinstance(provider_type, str):
             raise TypeError("Expected argument 'provider_type' to be a str")
         pulumi.set(__self__, "provider_type", provider_type)
@@ -80,46 +83,69 @@ class GetAuthenticatorResult:
     @property
     @pulumi.getter(name="providerAuthPort")
     def provider_auth_port(self) -> int:
+        """
+        (Specific to `security_key`) The provider server port (for example 1812).
+        """
         return pulumi.get(self, "provider_auth_port")
 
     @property
     @pulumi.getter(name="providerHostname")
     def provider_hostname(self) -> str:
+        """
+        (Specific to `security_key`) Server host name or IP address.
+        """
         return pulumi.get(self, "provider_hostname")
 
     @property
     @pulumi.getter(name="providerInstanceId")
     def provider_instance_id(self) -> str:
+        """
+        (Specific to `security_key`) App Instance ID.
+        """
         return pulumi.get(self, "provider_instance_id")
+
+    @property
+    @pulumi.getter(name="providerJson")
+    def provider_json(self) -> str:
+        return pulumi.get(self, "provider_json")
 
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> str:
+        """
+        Provider type.
+        """
         return pulumi.get(self, "provider_type")
 
     @property
     @pulumi.getter(name="providerUserNameTemplate")
     def provider_user_name_template(self) -> str:
+        """
+        Username template expected by the provider.
+        """
         return pulumi.get(self, "provider_user_name_template")
 
     @property
     @pulumi.getter
     def settings(self) -> str:
         """
-        Settings for the authenticator.
+        Settings for the authenticator (expressed in JSON).
         """
         return pulumi.get(self, "settings")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of the Authenticator.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the Authenticator.
+        The type of Authenticator.
         """
         return pulumi.get(self, "type")
 
@@ -136,6 +162,7 @@ class AwaitableGetAuthenticatorResult(GetAuthenticatorResult):
             provider_auth_port=self.provider_auth_port,
             provider_hostname=self.provider_hostname,
             provider_instance_id=self.provider_instance_id,
+            provider_json=self.provider_json,
             provider_type=self.provider_type,
             provider_user_name_template=self.provider_user_name_template,
             settings=self.settings,
@@ -187,6 +214,7 @@ def get_authenticator(id: Optional[str] = None,
         provider_auth_port=__ret__.provider_auth_port,
         provider_hostname=__ret__.provider_hostname,
         provider_instance_id=__ret__.provider_instance_id,
+        provider_json=__ret__.provider_json,
         provider_type=__ret__.provider_type,
         provider_user_name_template=__ret__.provider_user_name_template,
         settings=__ret__.settings,

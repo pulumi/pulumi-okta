@@ -201,7 +201,7 @@ class AppUserSchemaPropertyArrayOneOfArgs:
                  const: pulumi.Input[str],
                  title: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] const: value mapping to member of `enum`.
+        :param pulumi.Input[str] const: value mapping to member of `array_enum`.
         :param pulumi.Input[str] title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
@@ -211,7 +211,7 @@ class AppUserSchemaPropertyArrayOneOfArgs:
     @pulumi.getter
     def const(self) -> pulumi.Input[str]:
         """
-        value mapping to member of `enum`.
+        value mapping to member of `array_enum`.
         """
         return pulumi.get(self, "const")
 
@@ -238,7 +238,7 @@ class AppUserSchemaPropertyOneOfArgs:
                  const: pulumi.Input[str],
                  title: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] const: value mapping to member of `enum`.
+        :param pulumi.Input[str] const: value mapping to member of `array_enum`.
         :param pulumi.Input[str] title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
@@ -248,7 +248,7 @@ class AppUserSchemaPropertyOneOfArgs:
     @pulumi.getter
     def const(self) -> pulumi.Input[str]:
         """
-        value mapping to member of `enum`.
+        value mapping to member of `array_enum`.
         """
         return pulumi.get(self, "const")
 

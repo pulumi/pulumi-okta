@@ -82,6 +82,8 @@ type Bookmark struct {
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy pulumi.StringPtrOutput `pulumi:"authenticationPolicy"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -165,6 +167,8 @@ type bookmarkState struct {
 	AdminNote *string `pulumi:"adminNote"`
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -214,6 +218,8 @@ type BookmarkState struct {
 	AdminNote pulumi.StringPtrInput
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
@@ -267,6 +273,8 @@ type bookmarkArgs struct {
 	AdminNote *string `pulumi:"adminNote"`
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -311,6 +319,8 @@ type BookmarkArgs struct {
 	AdminNote pulumi.StringPtrInput
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
@@ -453,6 +463,11 @@ func (o BookmarkOutput) AdminNote() pulumi.StringPtrOutput {
 // Displays specific appLinks for the app. The value for each application link should be boolean.
 func (o BookmarkOutput) AppLinksJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+func (o BookmarkOutput) AuthenticationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.AuthenticationPolicy }).(pulumi.StringPtrOutput)
 }
 
 // Display auto submit toolbar.

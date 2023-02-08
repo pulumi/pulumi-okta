@@ -99,12 +99,6 @@ class AppSignonPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        This resource allows you to create and configure a sign-on policy for the application. (Inside the product this is referenced as an _authentication policy_)
-
-        A newly create app sign-on policy will always contain a default `Catch-all Rule`.
-
         ## Example Usage
 
         ```python
@@ -121,8 +115,6 @@ class AppSignonPolicy(pulumi.CustomResource):
             response_types=["code"],
             authentication_policy=my_app_policy.id)
         ```
-
-        \\_The same mechanism is in place for `app.OAuth` and `app.Saml`.
 
         The created policy can be extended using `app_signon_policy_rules`.
 
@@ -155,12 +147,6 @@ class AppSignonPolicy(pulumi.CustomResource):
                  args: AppSignonPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        This resource allows you to create and configure a sign-on policy for the application. (Inside the product this is referenced as an _authentication policy_)
-
-        A newly create app sign-on policy will always contain a default `Catch-all Rule`.
-
         ## Example Usage
 
         ```python
@@ -177,8 +163,6 @@ class AppSignonPolicy(pulumi.CustomResource):
             response_types=["code"],
             authentication_policy=my_app_policy.id)
         ```
-
-        \\_The same mechanism is in place for `app.OAuth` and `app.Saml`.
 
         The created policy can be extended using `app_signon_policy_rules`.
 

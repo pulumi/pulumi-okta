@@ -76,7 +76,19 @@ export class RoleSubscription extends pulumi.CustomResource {
      */
     public readonly notificationType!: pulumi.Output<string>;
     /**
-     * Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+     * Type of the role. Valid values:
+     * `"API_ADMIN"`,
+     * `"APP_ADMIN"`,
+     * `"CUSTOM"`,
+     * `"GROUP_MEMBERSHIP_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`,
+     * `"MOBILE_ADMIN"`,
+     * `"ORG_ADMIN"`,
+     * `"READ_ONLY_ADMIN"`,
+     * `"REPORT_ADMIN"`,
+     * `"SUPER_ADMIN"`,
+     * `"USER_ADMIN"`
+     * . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
      */
     public readonly roleType!: pulumi.Output<string>;
     /**
@@ -139,7 +151,19 @@ export interface RoleSubscriptionState {
      */
     notificationType?: pulumi.Input<string>;
     /**
-     * Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+     * Type of the role. Valid values:
+     * `"API_ADMIN"`,
+     * `"APP_ADMIN"`,
+     * `"CUSTOM"`,
+     * `"GROUP_MEMBERSHIP_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`,
+     * `"MOBILE_ADMIN"`,
+     * `"ORG_ADMIN"`,
+     * `"READ_ONLY_ADMIN"`,
+     * `"REPORT_ADMIN"`,
+     * `"SUPER_ADMIN"`,
+     * `"USER_ADMIN"`
+     * . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
      */
     roleType?: pulumi.Input<string>;
     /**
@@ -170,7 +194,19 @@ export interface RoleSubscriptionArgs {
      */
     notificationType: pulumi.Input<string>;
     /**
-     * Type of the role. Valid values: `"API_ADMIN"`, `"APP_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`, `"HELP_DESK_ADMIN"`, `"MOBILE_ADMIN"`, `"ORG_ADMIN"`, `"READ_ONLY_ADMIN"`, `"REPORT_ADMIN"`, `"SUPER_ADMIN"`, `"USER_ADMIN"`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+     * Type of the role. Valid values:
+     * `"API_ADMIN"`,
+     * `"APP_ADMIN"`,
+     * `"CUSTOM"`,
+     * `"GROUP_MEMBERSHIP_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`,
+     * `"MOBILE_ADMIN"`,
+     * `"ORG_ADMIN"`,
+     * `"READ_ONLY_ADMIN"`,
+     * `"REPORT_ADMIN"`,
+     * `"SUPER_ADMIN"`,
+     * `"USER_ADMIN"`
+     * . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
      */
     roleType: pulumi.Input<string>;
     /**

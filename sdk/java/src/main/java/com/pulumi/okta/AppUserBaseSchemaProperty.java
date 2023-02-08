@@ -178,14 +178,14 @@ public class AppUserBaseSchemaProperty extends com.pulumi.resources.CustomResour
         return this.type;
     }
     /**
-     * Custom subschema user type
+     * User type ID. By default, it is `&#34;default&#34;`.
      * 
      */
     @Export(name="userType", type=String.class, parameters={})
     private Output</* @Nullable */ String> userType;
 
     /**
-     * @return Custom subschema user type
+     * @return User type ID. By default, it is `&#34;default&#34;`.
      * 
      */
     public Output<Optional<String>> userType() {

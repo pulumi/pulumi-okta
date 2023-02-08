@@ -135,7 +135,7 @@ namespace Pulumi.Okta
         public Output<bool?> Required { get; private set; } = null!;
 
         /// <summary>
-        /// determines whether an app user attribute can be set at the Individual or Group Level.
+        /// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
         /// </summary>
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Okta
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        /// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         /// </summary>
         [Output("union")]
         public Output<bool?> Union { get; private set; } = null!;
@@ -331,7 +331,7 @@ namespace Pulumi.Okta
         public Input<bool>? Required { get; set; }
 
         /// <summary>
-        /// determines whether an app user attribute can be set at the Individual or Group Level.
+        /// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Okta
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        /// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         /// </summary>
         [Input("union")]
         public Input<bool>? Union { get; set; }
@@ -489,7 +489,7 @@ namespace Pulumi.Okta
         public Input<bool>? Required { get; set; }
 
         /// <summary>
-        /// determines whether an app user attribute can be set at the Individual or Group Level.
+        /// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -507,7 +507,7 @@ namespace Pulumi.Okta
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Used to assign attribute group priority. Can not be set to 'true' if `scope` is set to Individual level.
+        /// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         /// </summary>
         [Input("union")]
         public Input<bool>? Union { get; set; }

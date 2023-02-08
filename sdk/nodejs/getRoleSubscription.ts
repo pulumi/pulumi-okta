@@ -39,9 +39,19 @@ export interface GetRoleSubscriptionArgs {
      */
     notificationType: string;
     /**
-     * Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, 
-     * `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
-     * `"GROUP_MEMBERSHIP_ADMIN"`.
+     * Type of the role. Valid values:
+     * `"API_ADMIN"`,
+     * `"APP_ADMIN"`,
+     * `"CUSTOM"`,
+     * `"GROUP_MEMBERSHIP_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`,
+     * `"MOBILE_ADMIN"`,
+     * `"ORG_ADMIN"`,
+     * `"READ_ONLY_ADMIN"`,
+     * `"REPORT_ADMIN"`,
+     * `"SUPER_ADMIN"`,
+     * `"USER_ADMIN"`
+     * .
      */
     roleType: string;
 }
@@ -91,9 +101,19 @@ export interface GetRoleSubscriptionOutputArgs {
      */
     notificationType: pulumi.Input<string>;
     /**
-     * Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, 
-     * `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
-     * `"GROUP_MEMBERSHIP_ADMIN"`.
+     * Type of the role. Valid values:
+     * `"API_ADMIN"`,
+     * `"APP_ADMIN"`,
+     * `"CUSTOM"`,
+     * `"GROUP_MEMBERSHIP_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`,
+     * `"MOBILE_ADMIN"`,
+     * `"ORG_ADMIN"`,
+     * `"READ_ONLY_ADMIN"`,
+     * `"REPORT_ADMIN"`,
+     * `"SUPER_ADMIN"`,
+     * `"USER_ADMIN"`
+     * .
      */
     roleType: pulumi.Input<string>;
 }

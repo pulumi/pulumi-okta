@@ -24,7 +24,8 @@ class ThreatInsightSettingsArgs:
                requests in the System Log and blocks the requests.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type. 
                IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-               This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+               This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+               is not guarantee from the API sides
         """
         pulumi.set(__self__, "action", action)
         if network_excludes is not None:
@@ -51,7 +52,8 @@ class ThreatInsightSettingsArgs:
         """
         Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type. 
         IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-        This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+        This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+        is not guarantee from the API sides
         """
         return pulumi.get(self, "network_excludes")
 
@@ -73,7 +75,8 @@ class _ThreatInsightSettingsState:
                requests in the System Log and blocks the requests.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type. 
                IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-               This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+               This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+               is not guarantee from the API sides
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -101,7 +104,8 @@ class _ThreatInsightSettingsState:
         """
         Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type. 
         IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-        This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+        This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+        is not guarantee from the API sides
         """
         return pulumi.get(self, "network_excludes")
 
@@ -158,7 +162,8 @@ class ThreatInsightSettings(pulumi.CustomResource):
                requests in the System Log and blocks the requests.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type. 
                IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-               This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+               This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+               is not guarantee from the API sides
         """
         ...
     @overload
@@ -253,7 +258,8 @@ class ThreatInsightSettings(pulumi.CustomResource):
                requests in the System Log and blocks the requests.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type. 
                IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-               This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+               This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+               is not guarantee from the API sides
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -280,7 +286,8 @@ class ThreatInsightSettings(pulumi.CustomResource):
         """
         Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type. 
         IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-        This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+        This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+        is not guarantee from the API sides
         """
         return pulumi.get(self, "network_excludes")
 

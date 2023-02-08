@@ -90,8 +90,8 @@ type OauthApp struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-	// `native` application types.
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+	// https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolPtrOutput `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrOutput `pulumi:"policyUri"`
@@ -257,8 +257,8 @@ type oauthAppState struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret *bool `pulumi:"omitSecret"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-	// `native` application types.
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+	// https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
@@ -382,8 +382,8 @@ type OauthAppState struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret pulumi.BoolPtrInput
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-	// `native` application types.
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+	// https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
@@ -505,8 +505,8 @@ type oauthAppArgs struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret *bool `pulumi:"omitSecret"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-	// `native` application types.
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+	// https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
@@ -623,8 +623,8 @@ type OauthAppArgs struct {
 	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
 	// your app will be recreated.
 	OmitSecret pulumi.BoolPtrInput
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-	// `native` application types.
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+	// https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
@@ -931,8 +931,8 @@ func (o OauthAppOutput) OmitSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OauthApp) pulumi.BoolPtrOutput { return v.OmitSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-// `native` application types.
+// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+// https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 func (o OauthAppOutput) PkceRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OauthApp) pulumi.BoolPtrOutput { return v.PkceRequired }).(pulumi.BoolPtrOutput)
 }

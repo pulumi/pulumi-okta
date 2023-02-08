@@ -65,7 +65,7 @@ type AdminRoleTargets struct {
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Role ID.
 	RoleId pulumi.StringOutput `pulumi:"roleId"`
-	// Name of the role associated with the user.
+	// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
 	// ID of the user.
 	UserId pulumi.StringOutput `pulumi:"userId"`
@@ -112,7 +112,7 @@ type adminRoleTargetsState struct {
 	Groups []string `pulumi:"groups"`
 	// Role ID.
 	RoleId *string `pulumi:"roleId"`
-	// Name of the role associated with the user.
+	// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType *string `pulumi:"roleType"`
 	// ID of the user.
 	UserId *string `pulumi:"userId"`
@@ -125,7 +125,7 @@ type AdminRoleTargetsState struct {
 	Groups pulumi.StringArrayInput
 	// Role ID.
 	RoleId pulumi.StringPtrInput
-	// Name of the role associated with the user.
+	// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType pulumi.StringPtrInput
 	// ID of the user.
 	UserId pulumi.StringPtrInput
@@ -140,7 +140,7 @@ type adminRoleTargetsArgs struct {
 	Apps []string `pulumi:"apps"`
 	// List of group IDs. Conflicts with `apps`.
 	Groups []string `pulumi:"groups"`
-	// Name of the role associated with the user.
+	// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType string `pulumi:"roleType"`
 	// ID of the user.
 	UserId string `pulumi:"userId"`
@@ -152,7 +152,7 @@ type AdminRoleTargetsArgs struct {
 	Apps pulumi.StringArrayInput
 	// List of group IDs. Conflicts with `apps`.
 	Groups pulumi.StringArrayInput
-	// Name of the role associated with the user.
+	// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType pulumi.StringInput
 	// ID of the user.
 	UserId pulumi.StringInput
@@ -260,7 +260,7 @@ func (o AdminRoleTargetsOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringOutput { return v.RoleId }).(pulumi.StringOutput)
 }
 
-// Name of the role associated with the user.
+// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 func (o AdminRoleTargetsOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
 }

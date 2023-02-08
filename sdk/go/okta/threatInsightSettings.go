@@ -76,7 +76,8 @@ type ThreatInsightSettings struct {
 	Action pulumi.StringOutput `pulumi:"action"`
 	// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
 	// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+	// is not guarantee from the API sides
 	NetworkExcludes pulumi.StringArrayOutput `pulumi:"networkExcludes"`
 }
 
@@ -119,7 +120,8 @@ type threatInsightSettingsState struct {
 	Action *string `pulumi:"action"`
 	// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
 	// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+	// is not guarantee from the API sides
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 }
 
@@ -131,7 +133,8 @@ type ThreatInsightSettingsState struct {
 	Action pulumi.StringPtrInput
 	// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
 	// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+	// is not guarantee from the API sides
 	NetworkExcludes pulumi.StringArrayInput
 }
 
@@ -147,7 +150,8 @@ type threatInsightSettingsArgs struct {
 	Action string `pulumi:"action"`
 	// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
 	// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+	// is not guarantee from the API sides
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 }
 
@@ -160,7 +164,8 @@ type ThreatInsightSettingsArgs struct {
 	Action pulumi.StringInput
 	// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
 	// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+	// is not guarantee from the API sides
 	NetworkExcludes pulumi.StringArrayInput
 }
 
@@ -261,7 +266,8 @@ func (o ThreatInsightSettingsOutput) Action() pulumi.StringOutput {
 
 // Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
 // IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked.
+// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+// is not guarantee from the API sides
 func (o ThreatInsightSettingsOutput) NetworkExcludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ThreatInsightSettings) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
 }

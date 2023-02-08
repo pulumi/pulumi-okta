@@ -57,14 +57,38 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Type of the role. Valid values: `&#34;API_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;SUPER_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+     * Type of the role. Valid values:
+     * `&#34;API_ADMIN&#34;`,
+     * `&#34;APP_ADMIN&#34;`,
+     * `&#34;CUSTOM&#34;`,
+     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+     * `&#34;HELP_DESK_ADMIN&#34;`,
+     * `&#34;MOBILE_ADMIN&#34;`,
+     * `&#34;ORG_ADMIN&#34;`,
+     * `&#34;READ_ONLY_ADMIN&#34;`,
+     * `&#34;REPORT_ADMIN&#34;`,
+     * `&#34;SUPER_ADMIN&#34;`,
+     * `&#34;USER_ADMIN&#34;`
+     * . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
      * 
      */
     @Import(name="roleType")
     private @Nullable Output<String> roleType;
 
     /**
-     * @return Type of the role. Valid values: `&#34;API_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;SUPER_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+     * @return Type of the role. Valid values:
+     * `&#34;API_ADMIN&#34;`,
+     * `&#34;APP_ADMIN&#34;`,
+     * `&#34;CUSTOM&#34;`,
+     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+     * `&#34;HELP_DESK_ADMIN&#34;`,
+     * `&#34;MOBILE_ADMIN&#34;`,
+     * `&#34;ORG_ADMIN&#34;`,
+     * `&#34;READ_ONLY_ADMIN&#34;`,
+     * `&#34;REPORT_ADMIN&#34;`,
+     * `&#34;SUPER_ADMIN&#34;`,
+     * `&#34;USER_ADMIN&#34;`
+     * . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
      * 
      */
     public Optional<Output<String>> roleType() {
@@ -160,7 +184,19 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param roleType Type of the role. Valid values: `&#34;API_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;SUPER_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+         * @param roleType Type of the role. Valid values:
+         * `&#34;API_ADMIN&#34;`,
+         * `&#34;APP_ADMIN&#34;`,
+         * `&#34;CUSTOM&#34;`,
+         * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+         * `&#34;HELP_DESK_ADMIN&#34;`,
+         * `&#34;MOBILE_ADMIN&#34;`,
+         * `&#34;ORG_ADMIN&#34;`,
+         * `&#34;READ_ONLY_ADMIN&#34;`,
+         * `&#34;REPORT_ADMIN&#34;`,
+         * `&#34;SUPER_ADMIN&#34;`,
+         * `&#34;USER_ADMIN&#34;`
+         * . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
          * 
          * @return builder
          * 
@@ -171,7 +207,19 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param roleType Type of the role. Valid values: `&#34;API_ADMIN&#34;`, `&#34;APP_ADMIN&#34;`, `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`, `&#34;HELP_DESK_ADMIN&#34;`, `&#34;MOBILE_ADMIN&#34;`, `&#34;ORG_ADMIN&#34;`, `&#34;READ_ONLY_ADMIN&#34;`, `&#34;REPORT_ADMIN&#34;`, `&#34;SUPER_ADMIN&#34;`, `&#34;USER_ADMIN&#34;`.  See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
+         * @param roleType Type of the role. Valid values:
+         * `&#34;API_ADMIN&#34;`,
+         * `&#34;APP_ADMIN&#34;`,
+         * `&#34;CUSTOM&#34;`,
+         * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
+         * `&#34;HELP_DESK_ADMIN&#34;`,
+         * `&#34;MOBILE_ADMIN&#34;`,
+         * `&#34;ORG_ADMIN&#34;`,
+         * `&#34;READ_ONLY_ADMIN&#34;`,
+         * `&#34;REPORT_ADMIN&#34;`,
+         * `&#34;SUPER_ADMIN&#34;`,
+         * `&#34;USER_ADMIN&#34;`
+         * . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
          * 
          * @return builder
          * 

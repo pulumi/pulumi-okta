@@ -62,14 +62,14 @@ public final class AdminRoleTargetsState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Name of the role associated with the user.
+     * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     @Import(name="roleType")
     private @Nullable Output<String> roleType;
 
     /**
-     * @return Name of the role associated with the user.
+     * @return Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     public Optional<Output<String>> roleType() {
@@ -203,7 +203,7 @@ public final class AdminRoleTargetsState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param roleType Name of the role associated with the user.
+         * @param roleType Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class AdminRoleTargetsState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param roleType Name of the role associated with the user.
+         * @param roleType Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
          * 
          * @return builder
          * 

@@ -546,7 +546,7 @@ def get_user(compound_search_operator: Optional[str] = None,
     :param str delay_read_seconds: Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
     :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
     :param bool skip_groups: Additional API call to collect user's groups will not be made.
-    :param bool skip_roles: Additional API call to collect user's roles will not be made.
+    :param bool skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
     :param str user_id: String representing a specific user's id value
     """
     __args__ = dict()
@@ -631,7 +631,7 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
     :param str delay_read_seconds: Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
     :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
     :param bool skip_groups: Additional API call to collect user's groups will not be made.
-    :param bool skip_roles: Additional API call to collect user's roles will not be made.
+    :param bool skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
     :param str user_id: String representing a specific user's id value
     """
     ...

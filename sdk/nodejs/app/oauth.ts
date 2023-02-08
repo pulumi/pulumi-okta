@@ -23,6 +23,9 @@ import * as utilities from "../utilities";
  *     type: "web",
  * });
  * ```
+ * ### With JWKS value
+ *
+ * See also Advanced PEM secrets and JWKS example.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -45,7 +48,11 @@ import * as utilities from "../utilities";
  * ## Etc.
  *
  * ### Resetting client secret
- * If the client secret needs to be reset run an apply with `omitSecret` set to true in the resource. This causes `clientSecret` to be set to blank. Remove `omitSecret` and run apply again. The resource will set a new `clientSecret` for the app.
+ *
+ * If the client secret needs to be reset run an apply with `omitSecret` set to
+ * true in the resource. This causes `clientSecret` to be set to blank. Remove
+ * `omitSecret` and run apply again. The resource will set a new `clientSecret`
+ * for the app.
  *
  * ## Import
  *
@@ -126,7 +133,11 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly authenticationPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Requested key rotation mode.  If
+     * `autoKeyRotation` isn't specified, the client automatically opts in for Okta's
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     public readonly autoKeyRotation!: pulumi.Output<boolean | undefined>;
     /**
@@ -134,7 +145,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
-     * OAuth client secret key, this can be set when tokenEndpointAuthMethod is client_secret_basic.
+     * OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
      */
     public readonly clientBasicSecret!: pulumi.Output<string | undefined>;
     /**
@@ -238,7 +249,11 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly omitSecret!: pulumi.Output<boolean | undefined>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Require Proof Key for Code Exchange (PKCE) for
+     * additional verification.  If `pkceRequired` isn't specified when adding a new
+     * application, Okta sets it to `true` by default for `"browser"` and `"native"`
+     * application types.
+     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     public readonly pkceRequired!: pulumi.Output<boolean | undefined>;
     /**
@@ -266,7 +281,16 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly refreshTokenRotation!: pulumi.Output<string>;
     /**
-     * List of OAuth 2.0 response type strings.
+     * List of OAuth 2.0 response type strings. Array
+     * values of `"code"`, `"token"`, `"idToken"`. The `grantTypes` and `responseTypes`
+     * values described are partially orthogonal, as they refer to arguments
+     * passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+     * However, they are related in that the `grantTypes` available to a client
+     * influence the `responseTypes` that the client is allowed to use, and vice versa.
+     * For instance, a grantTypes value that includes authorizationCode implies a
+     * `responseTypes` value that includes code, as both values are defined as part of
+     * the OAuth 2.0 authorization code grant.
+     * See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
      */
     public readonly responseTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -286,7 +310,15 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Requested authentication method for
+     * the token endpoint. It can be set to `"none"`, `"clientSecretPost"`,
+     * `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.  Use
+     * `pkceRequired` to require PKCE for your confidential clients using the
+     * Authorization Code flow. If `"tokenEndpointAuthMethod"` is `"none"`,
+     * `pkceRequired` needs to be `true`. If `pkceRequired` isn't specified when
+     * adding a new application, Okta sets it to `true` by default for `"browser"` and
+     * `"native"` application types.
+     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     public readonly tokenEndpointAuthMethod!: pulumi.Output<string | undefined>;
     /**
@@ -494,7 +526,11 @@ export interface OAuthState {
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**
-     * Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Requested key rotation mode.  If
+     * `autoKeyRotation` isn't specified, the client automatically opts in for Okta's
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     autoKeyRotation?: pulumi.Input<boolean>;
     /**
@@ -502,7 +538,7 @@ export interface OAuthState {
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * OAuth client secret key, this can be set when tokenEndpointAuthMethod is client_secret_basic.
+     * OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
      */
     clientBasicSecret?: pulumi.Input<string>;
     /**
@@ -606,7 +642,11 @@ export interface OAuthState {
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Require Proof Key for Code Exchange (PKCE) for
+     * additional verification.  If `pkceRequired` isn't specified when adding a new
+     * application, Okta sets it to `true` by default for `"browser"` and `"native"`
+     * application types.
+     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     pkceRequired?: pulumi.Input<boolean>;
     /**
@@ -634,7 +674,16 @@ export interface OAuthState {
      */
     refreshTokenRotation?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 response type strings.
+     * List of OAuth 2.0 response type strings. Array
+     * values of `"code"`, `"token"`, `"idToken"`. The `grantTypes` and `responseTypes`
+     * values described are partially orthogonal, as they refer to arguments
+     * passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+     * However, they are related in that the `grantTypes` available to a client
+     * influence the `responseTypes` that the client is allowed to use, and vice versa.
+     * For instance, a grantTypes value that includes authorizationCode implies a
+     * `responseTypes` value that includes code, as both values are defined as part of
+     * the OAuth 2.0 authorization code grant.
+     * See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
      */
     responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -654,7 +703,15 @@ export interface OAuthState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Requested authentication method for
+     * the token endpoint. It can be set to `"none"`, `"clientSecretPost"`,
+     * `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.  Use
+     * `pkceRequired` to require PKCE for your confidential clients using the
+     * Authorization Code flow. If `"tokenEndpointAuthMethod"` is `"none"`,
+     * `pkceRequired` needs to be `true`. If `pkceRequired` isn't specified when
+     * adding a new application, Okta sets it to `true` by default for `"browser"` and
+     * `"native"` application types.
+     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**
@@ -726,7 +783,11 @@ export interface OAuthArgs {
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**
-     * Requested key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Requested key rotation mode.  If
+     * `autoKeyRotation` isn't specified, the client automatically opts in for Okta's
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     autoKeyRotation?: pulumi.Input<boolean>;
     /**
@@ -734,7 +795,7 @@ export interface OAuthArgs {
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * OAuth client secret key, this can be set when tokenEndpointAuthMethod is client_secret_basic.
+     * OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
      */
     clientBasicSecret?: pulumi.Input<string>;
     /**
@@ -826,7 +887,11 @@ export interface OAuthArgs {
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification. `true` for `browser` and `native` application types. See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Require Proof Key for Code Exchange (PKCE) for
+     * additional verification.  If `pkceRequired` isn't specified when adding a new
+     * application, Okta sets it to `true` by default for `"browser"` and `"native"`
+     * application types.
+     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     pkceRequired?: pulumi.Input<boolean>;
     /**
@@ -854,7 +919,16 @@ export interface OAuthArgs {
      */
     refreshTokenRotation?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 response type strings.
+     * List of OAuth 2.0 response type strings. Array
+     * values of `"code"`, `"token"`, `"idToken"`. The `grantTypes` and `responseTypes`
+     * values described are partially orthogonal, as they refer to arguments
+     * passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+     * However, they are related in that the `grantTypes` available to a client
+     * influence the `responseTypes` that the client is allowed to use, and vice versa.
+     * For instance, a grantTypes value that includes authorizationCode implies a
+     * `responseTypes` value that includes code, as both values are defined as part of
+     * the OAuth 2.0 authorization code grant.
+     * See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
      */
     responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -870,7 +944,15 @@ export interface OAuthArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * Requested authentication method for the token endpoint. It can be set to `"none"`, `"clientSecretPost"`, `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`. To enable PKCE, set this to `"none"`. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Requested authentication method for
+     * the token endpoint. It can be set to `"none"`, `"clientSecretPost"`,
+     * `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.  Use
+     * `pkceRequired` to require PKCE for your confidential clients using the
+     * Authorization Code flow. If `"tokenEndpointAuthMethod"` is `"none"`,
+     * `pkceRequired` needs to be `true`. If `pkceRequired` isn't specified when
+     * adding a new application, Okta sets it to `true` by default for `"browser"` and
+     * `"native"` application types.
+     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**

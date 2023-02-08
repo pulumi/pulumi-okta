@@ -22,9 +22,19 @@ class RoleArgs:
         """
         The set of arguments for constructing a Role resource.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
-        :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-               , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-               , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
@@ -59,9 +69,19 @@ class RoleArgs:
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Input[str]:
         """
-        Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-        , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-        , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        Admin role assigned to the group. It can be any one of the following values:
+        `"API_ADMIN"`,
+        `"APP_ADMIN"`,
+        `"CUSTOM"`,
+        `"GROUP_MEMBERSHIP_ADMIN"`,
+        `"HELP_DESK_ADMIN"`,
+        `"MOBILE_ADMIN"`,
+        `"ORG_ADMIN"`,
+        `"READ_ONLY_ADMIN"`,
+        `"REPORT_ADMIN"`,
+        `"SUPER_ADMIN"`,
+        `"USER_ADMIN"`
+        . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "role_type")
 
@@ -124,9 +144,19 @@ class _RoleState:
         :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
-        :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-               , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-               , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
                facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
                the targets of the admin role.
@@ -174,9 +204,19 @@ class _RoleState:
     @pulumi.getter(name="roleType")
     def role_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-        , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-        , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        Admin role assigned to the group. It can be any one of the following values:
+        `"API_ADMIN"`,
+        `"APP_ADMIN"`,
+        `"CUSTOM"`,
+        `"GROUP_MEMBERSHIP_ADMIN"`,
+        `"HELP_DESK_ADMIN"`,
+        `"MOBILE_ADMIN"`,
+        `"ORG_ADMIN"`,
+        `"READ_ONLY_ADMIN"`,
+        `"REPORT_ADMIN"`,
+        `"SUPER_ADMIN"`,
+        `"USER_ADMIN"`
+        . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "role_type")
 
@@ -254,9 +294,19 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
-        :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-               , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-               , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
                facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
                the targets of the admin role.
@@ -358,9 +408,19 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
-        :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-               , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-               , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values:
+               `"API_ADMIN"`,
+               `"APP_ADMIN"`,
+               `"CUSTOM"`,
+               `"GROUP_MEMBERSHIP_ADMIN"`,
+               `"HELP_DESK_ADMIN"`,
+               `"MOBILE_ADMIN"`,
+               `"ORG_ADMIN"`,
+               `"READ_ONLY_ADMIN"`,
+               `"REPORT_ADMIN"`,
+               `"SUPER_ADMIN"`,
+               `"USER_ADMIN"`
+               . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
                facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
                the targets of the admin role.
@@ -400,9 +460,19 @@ class Role(pulumi.CustomResource):
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Output[str]:
         """
-        Admin role assigned to the group. It can be any one of the following values `"SUPER_ADMIN"`
-        , `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`, `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`
-        , `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`, `"GROUP_MEMBERSHIP_ADMIN"`.
+        Admin role assigned to the group. It can be any one of the following values:
+        `"API_ADMIN"`,
+        `"APP_ADMIN"`,
+        `"CUSTOM"`,
+        `"GROUP_MEMBERSHIP_ADMIN"`,
+        `"HELP_DESK_ADMIN"`,
+        `"MOBILE_ADMIN"`,
+        `"ORG_ADMIN"`,
+        `"READ_ONLY_ADMIN"`,
+        `"REPORT_ADMIN"`,
+        `"SUPER_ADMIN"`,
+        `"USER_ADMIN"`
+        . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         """
         return pulumi.get(self, "role_type")
 

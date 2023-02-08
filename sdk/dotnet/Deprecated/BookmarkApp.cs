@@ -44,6 +44,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<string?> AppLinksJson { get; private set; } = null!;
 
         /// <summary>
+        /// Id of this apps authentication policy
+        /// </summary>
+        [Output("authenticationPolicy")]
+        public Output<string?> AuthenticationPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Display auto submit toolbar
         /// </summary>
         [Output("autoSubmitToolbar")]
@@ -210,6 +216,12 @@ namespace Pulumi.Okta.Deprecated
         public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
+        /// Id of this apps authentication policy
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
+
+        /// <summary>
         /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
@@ -332,6 +344,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
+
+        /// <summary>
+        /// Id of this apps authentication policy
+        /// </summary>
+        [Input("authenticationPolicy")]
+        public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
         /// Display auto submit toolbar

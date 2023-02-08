@@ -58,7 +58,7 @@ export class ServerPolicyRule extends pulumi.CustomResource {
     }
 
     /**
-     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
      */
     public readonly accessTokenLifetimeMinutes!: pulumi.Output<number | undefined>;
     /**
@@ -76,7 +76,7 @@ export class ServerPolicyRule extends pulumi.CustomResource {
      */
     public readonly groupBlacklists!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
+     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
      */
     public readonly groupWhitelists!: pulumi.Output<string[] | undefined>;
     /**
@@ -100,7 +100,7 @@ export class ServerPolicyRule extends pulumi.CustomResource {
      */
     public readonly refreshTokenLifetimeMinutes!: pulumi.Output<number | undefined>;
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
      * `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
      */
     public readonly refreshTokenWindowMinutes!: pulumi.Output<number | undefined>;
@@ -197,7 +197,7 @@ export class ServerPolicyRule extends pulumi.CustomResource {
  */
 export interface ServerPolicyRuleState {
     /**
-     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
      */
     accessTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
@@ -215,7 +215,7 @@ export interface ServerPolicyRuleState {
      */
     groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
+     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
      */
     groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -239,7 +239,7 @@ export interface ServerPolicyRuleState {
      */
     refreshTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
      * `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
      */
     refreshTokenWindowMinutes?: pulumi.Input<number>;
@@ -270,7 +270,7 @@ export interface ServerPolicyRuleState {
  */
 export interface ServerPolicyRuleArgs {
     /**
-     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
      */
     accessTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
@@ -288,7 +288,7 @@ export interface ServerPolicyRuleArgs {
      */
     groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: "EVERYONE".
+     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
      */
     groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -312,7 +312,7 @@ export interface ServerPolicyRuleArgs {
      */
     refreshTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
      * `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
      */
     refreshTokenWindowMinutes?: pulumi.Input<number>;

@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:auth/serverPolicyRule:ServerPolicyRule")
 public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
     /**
-     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+     * Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
      * 
      */
     @Export(name="accessTokenLifetimeMinutes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> accessTokenLifetimeMinutes;
 
     /**
-     * @return Lifetime of access token. Can be set to a value between 5 and 1440 minutes.
+     * @return Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
      * 
      */
     public Output<Optional<Integer>> accessTokenLifetimeMinutes() {
@@ -125,14 +125,14 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.groupBlacklists);
     }
     /**
-     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: &#34;EVERYONE&#34;.
+     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
      * 
      */
     @Export(name="groupWhitelists", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> groupWhitelists;
 
     /**
-     * @return Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: &#34;EVERYONE&#34;.
+     * @return Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
      * 
      */
     public Output<Optional<List<String>>> groupWhitelists() {
@@ -209,7 +209,7 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.refreshTokenLifetimeMinutes);
     }
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
      * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
      * 
      */
@@ -217,7 +217,7 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> refreshTokenWindowMinutes;
 
     /**
-     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes.
+     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
      * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
      * 
      */

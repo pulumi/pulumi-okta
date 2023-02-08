@@ -166,18 +166,37 @@ namespace Pulumi.Okta
         /// Name of the authenticator.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// (Specific to `security_key`) The provider server port (for example 1812).
+        /// </summary>
         public readonly int ProviderAuthPort;
+        /// <summary>
+        /// (Specific to `security_key`) Server host name or IP address.
+        /// </summary>
         public readonly string ProviderHostname;
+        /// <summary>
+        /// (Specific to `security_key`) App Instance ID.
+        /// </summary>
         public readonly string ProviderInstanceId;
+        public readonly string ProviderJson;
+        /// <summary>
+        /// Provider type.
+        /// </summary>
         public readonly string ProviderType;
+        /// <summary>
+        /// Username template expected by the provider.
+        /// </summary>
         public readonly string ProviderUserNameTemplate;
         /// <summary>
-        /// Settings for the authenticator.
+        /// Settings for the authenticator (expressed in JSON).
         /// </summary>
         public readonly string Settings;
+        /// <summary>
+        /// Status of the Authenticator.
+        /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Type of the Authenticator.
+        /// The type of Authenticator.
         /// </summary>
         public readonly string Type;
 
@@ -195,6 +214,8 @@ namespace Pulumi.Okta
 
             string providerInstanceId,
 
+            string providerJson,
+
             string providerType,
 
             string providerUserNameTemplate,
@@ -211,6 +232,7 @@ namespace Pulumi.Okta
             ProviderAuthPort = providerAuthPort;
             ProviderHostname = providerHostname;
             ProviderInstanceId = providerInstanceId;
+            ProviderJson = providerJson;
             ProviderType = providerType;
             ProviderUserNameTemplate = providerUserNameTemplate;
             Settings = settings;

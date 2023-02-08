@@ -53,9 +53,19 @@ type LookupRoleSubscriptionArgs struct {
 	// `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
 	// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
 	NotificationType string `pulumi:"notificationType"`
-	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
-	// `"GROUP_MEMBERSHIP_ADMIN"`.
+	// Type of the role. Valid values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// .
 	RoleType string `pulumi:"roleType"`
 }
 
@@ -88,9 +98,19 @@ type LookupRoleSubscriptionOutputArgs struct {
 	// `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
 	// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
 	NotificationType pulumi.StringInput `pulumi:"notificationType"`
-	// Type of the role. Valid values: `"SUPER_ADMIN"`, `"ORG_ADMIN"`, `"APP_ADMIN"`, `"USER_ADMIN"`,
-	// `"HELP_DESK_ADMIN"`, `"READ_ONLY_ADMIN"`, `"MOBILE_ADMIN"`, `"API_ACCESS_MANAGEMENT_ADMIN"`, `"REPORT_ADMIN"`,
-	// `"GROUP_MEMBERSHIP_ADMIN"`.
+	// Type of the role. Valid values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// .
 	RoleType pulumi.StringInput `pulumi:"roleType"`
 }
 

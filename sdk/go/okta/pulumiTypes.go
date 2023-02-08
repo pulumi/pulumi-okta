@@ -356,7 +356,7 @@ func (o AppSignonPolicyRulePlatformIncludeArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type AppUserSchemaPropertyArrayOneOf struct {
-	// value mapping to member of `enum`.
+	// value mapping to member of `arrayEnum`.
 	Const string `pulumi:"const"`
 	// display name for the enum value.
 	Title string `pulumi:"title"`
@@ -374,7 +374,7 @@ type AppUserSchemaPropertyArrayOneOfInput interface {
 }
 
 type AppUserSchemaPropertyArrayOneOfArgs struct {
-	// value mapping to member of `enum`.
+	// value mapping to member of `arrayEnum`.
 	Const pulumi.StringInput `pulumi:"const"`
 	// display name for the enum value.
 	Title pulumi.StringInput `pulumi:"title"`
@@ -431,7 +431,7 @@ func (o AppUserSchemaPropertyArrayOneOfOutput) ToAppUserSchemaPropertyArrayOneOf
 	return o
 }
 
-// value mapping to member of `enum`.
+// value mapping to member of `arrayEnum`.
 func (o AppUserSchemaPropertyArrayOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v AppUserSchemaPropertyArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
@@ -462,7 +462,7 @@ func (o AppUserSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) App
 }
 
 type AppUserSchemaPropertyOneOf struct {
-	// value mapping to member of `enum`.
+	// value mapping to member of `arrayEnum`.
 	Const string `pulumi:"const"`
 	// display name for the enum value.
 	Title string `pulumi:"title"`
@@ -480,7 +480,7 @@ type AppUserSchemaPropertyOneOfInput interface {
 }
 
 type AppUserSchemaPropertyOneOfArgs struct {
-	// value mapping to member of `enum`.
+	// value mapping to member of `arrayEnum`.
 	Const pulumi.StringInput `pulumi:"const"`
 	// display name for the enum value.
 	Title pulumi.StringInput `pulumi:"title"`
@@ -537,7 +537,7 @@ func (o AppUserSchemaPropertyOneOfOutput) ToAppUserSchemaPropertyOneOfOutputWith
 	return o
 }
 
-// value mapping to member of `enum`.
+// value mapping to member of `arrayEnum`.
 func (o AppUserSchemaPropertyOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v AppUserSchemaPropertyOneOf) string { return v.Const }).(pulumi.StringOutput)
 }

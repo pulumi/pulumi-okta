@@ -109,14 +109,14 @@ public class AdminRoleTargets extends com.pulumi.resources.CustomResource {
         return this.roleId;
     }
     /**
-     * Name of the role associated with the user.
+     * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     @Export(name="roleType", type=String.class, parameters={})
     private Output<String> roleType;
 
     /**
-     * @return Name of the role associated with the user.
+     * @return Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     public Output<String> roleType() {

@@ -22,7 +22,8 @@ class PolicyRuleProfileEnrollmentArgs:
                  email_verification: Optional[pulumi.Input[bool]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
-                 target_group_id: Optional[pulumi.Input[str]] = None):
+                 target_group_id: Optional[pulumi.Input[str]] = None,
+                 ui_schema_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PolicyRuleProfileEnrollment resource.
         :param pulumi.Input[str] policy_id: Policy ID.
@@ -30,8 +31,9 @@ class PolicyRuleProfileEnrollmentArgs:
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
         :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default is `true`.
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to.
+        :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
         """
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "unknown_user_action", unknown_user_action)
@@ -45,6 +47,8 @@ class PolicyRuleProfileEnrollmentArgs:
             pulumi.set(__self__, "profile_attributes", profile_attributes)
         if target_group_id is not None:
             pulumi.set(__self__, "target_group_id", target_group_id)
+        if ui_schema_id is not None:
+            pulumi.set(__self__, "ui_schema_id", ui_schema_id)
 
     @property
     @pulumi.getter(name="policyId")
@@ -110,7 +114,7 @@ class PolicyRuleProfileEnrollmentArgs:
     @pulumi.getter(name="profileAttributes")
     def profile_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]:
         """
-        A list of attributes to prompt the user during registration or progressive profiling.
+        A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         """
         return pulumi.get(self, "profile_attributes")
 
@@ -130,6 +134,18 @@ class PolicyRuleProfileEnrollmentArgs:
     def target_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_group_id", value)
 
+    @property
+    @pulumi.getter(name="uiSchemaId")
+    def ui_schema_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value created by the backend. If present all policy updates must include this attribute/value.
+        """
+        return pulumi.get(self, "ui_schema_id")
+
+    @ui_schema_id.setter
+    def ui_schema_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ui_schema_id", value)
+
 
 @pulumi.input_type
 class _PolicyRuleProfileEnrollmentState:
@@ -142,6 +158,7 @@ class _PolicyRuleProfileEnrollmentState:
                  profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  target_group_id: Optional[pulumi.Input[str]] = None,
+                 ui_schema_id: Optional[pulumi.Input[str]] = None,
                  unknown_user_action: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PolicyRuleProfileEnrollment resources.
@@ -150,9 +167,10 @@ class _PolicyRuleProfileEnrollmentState:
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook.
         :param pulumi.Input[str] name: The name of a User Profile property
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         :param pulumi.Input[str] status: Status of the Rule.
         :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to.
+        :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
         :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
         """
         if access is not None:
@@ -171,6 +189,8 @@ class _PolicyRuleProfileEnrollmentState:
             pulumi.set(__self__, "status", status)
         if target_group_id is not None:
             pulumi.set(__self__, "target_group_id", target_group_id)
+        if ui_schema_id is not None:
+            pulumi.set(__self__, "ui_schema_id", ui_schema_id)
         if unknown_user_action is not None:
             pulumi.set(__self__, "unknown_user_action", unknown_user_action)
 
@@ -238,7 +258,7 @@ class _PolicyRuleProfileEnrollmentState:
     @pulumi.getter(name="profileAttributes")
     def profile_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]:
         """
-        A list of attributes to prompt the user during registration or progressive profiling.
+        A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         """
         return pulumi.get(self, "profile_attributes")
 
@@ -271,6 +291,18 @@ class _PolicyRuleProfileEnrollmentState:
         pulumi.set(self, "target_group_id", value)
 
     @property
+    @pulumi.getter(name="uiSchemaId")
+    def ui_schema_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value created by the backend. If present all policy updates must include this attribute/value.
+        """
+        return pulumi.get(self, "ui_schema_id")
+
+    @ui_schema_id.setter
+    def ui_schema_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ui_schema_id", value)
+
+    @property
     @pulumi.getter(name="unknownUserAction")
     def unknown_user_action(self) -> Optional[pulumi.Input[str]]:
         """
@@ -294,12 +326,15 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  policy_id: Optional[pulumi.Input[str]] = None,
                  profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]] = None,
                  target_group_id: Optional[pulumi.Input[str]] = None,
+                 ui_schema_id: Optional[pulumi.Input[str]] = None,
                  unknown_user_action: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
 
         This resource allows you to create and configure a Profile Enrollment Policy Rule.
+
+        It is documented in the Okta public API's [Profile Enrollment Action object](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-action-object) section.
 
         ## Example Usage
 
@@ -359,8 +394,9 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default is `true`.
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to.
+        :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
         :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
         """
         ...
@@ -373,6 +409,8 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
 
         This resource allows you to create and configure a Profile Enrollment Policy Rule.
+
+        It is documented in the Okta public API's [Profile Enrollment Action object](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-action-object) section.
 
         ## Example Usage
 
@@ -447,6 +485,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  policy_id: Optional[pulumi.Input[str]] = None,
                  profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]] = None,
                  target_group_id: Optional[pulumi.Input[str]] = None,
+                 ui_schema_id: Optional[pulumi.Input[str]] = None,
                  unknown_user_action: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -465,6 +504,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["profile_attributes"] = profile_attributes
             __props__.__dict__["target_group_id"] = target_group_id
+            __props__.__dict__["ui_schema_id"] = ui_schema_id
             if unknown_user_action is None and not opts.urn:
                 raise TypeError("Missing required property 'unknown_user_action'")
             __props__.__dict__["unknown_user_action"] = unknown_user_action
@@ -488,6 +528,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
             profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             target_group_id: Optional[pulumi.Input[str]] = None,
+            ui_schema_id: Optional[pulumi.Input[str]] = None,
             unknown_user_action: Optional[pulumi.Input[str]] = None) -> 'PolicyRuleProfileEnrollment':
         """
         Get an existing PolicyRuleProfileEnrollment resource's state with the given name, id, and optional extra
@@ -501,9 +542,10 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook.
         :param pulumi.Input[str] name: The name of a User Profile property
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         :param pulumi.Input[str] status: Status of the Rule.
         :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to.
+        :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
         :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -518,6 +560,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         __props__.__dict__["profile_attributes"] = profile_attributes
         __props__.__dict__["status"] = status
         __props__.__dict__["target_group_id"] = target_group_id
+        __props__.__dict__["ui_schema_id"] = ui_schema_id
         __props__.__dict__["unknown_user_action"] = unknown_user_action
         return PolicyRuleProfileEnrollment(resource_name, opts=opts, __props__=__props__)
 
@@ -565,7 +608,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter(name="profileAttributes")
     def profile_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.PolicyRuleProfileEnrollmentProfileAttribute']]]:
         """
-        A list of attributes to prompt the user during registration or progressive profiling.
+        A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         """
         return pulumi.get(self, "profile_attributes")
 
@@ -584,6 +627,14 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         The ID of a Group that this User should be added to.
         """
         return pulumi.get(self, "target_group_id")
+
+    @property
+    @pulumi.getter(name="uiSchemaId")
+    def ui_schema_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Value created by the backend. If present all policy updates must include this attribute/value.
+        """
+        return pulumi.get(self, "ui_schema_id")
 
     @property
     @pulumi.getter(name="unknownUserAction")

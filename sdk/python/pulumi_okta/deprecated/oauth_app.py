@@ -104,8 +104,8 @@ class OauthAppArgs:
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-               `native` application types.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+               https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
                in a decentralized way.
@@ -614,8 +614,8 @@ class OauthAppArgs:
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-        `native` application types.
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "pkce_required")
 
@@ -939,8 +939,8 @@ class _OauthAppState:
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-               `native` application types.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+               https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
                in a decentralized way.
@@ -1485,8 +1485,8 @@ class _OauthAppState:
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-        `native` application types.
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "pkce_required")
 
@@ -1837,8 +1837,8 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-               `native` application types.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+               https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
                in a decentralized way.
@@ -2122,8 +2122,8 @@ class OauthApp(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. If this is ever changes from true => false
                your app will be recreated.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-               `native` application types.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+               https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta_app_oauth_post_logout_redirect_uri for appending to this list
                in a decentralized way.
@@ -2478,8 +2478,8 @@ class OauthApp(pulumi.CustomResource):
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> pulumi.Output[Optional[bool]]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-        `native` application types.
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "pkce_required")
 

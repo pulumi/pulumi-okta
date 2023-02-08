@@ -537,16 +537,16 @@ public final class OauthAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-     * `native` application types.
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+     * https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Import(name="pkceRequired")
     private @Nullable Output<Boolean> pkceRequired;
 
     /**
-     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-     * `native` application types.
+     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+     * https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Optional<Output<Boolean>> pkceRequired() {
@@ -1692,8 +1692,8 @@ public final class OauthAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-         * `native` application types.
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+         * https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 
@@ -1704,8 +1704,8 @@ public final class OauthAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. `true` for `browser` and
-         * `native` application types.
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+         * https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 

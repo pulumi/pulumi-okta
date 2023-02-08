@@ -11,6 +11,16 @@ import * as utilities from "../utilities";
  *
  * This resource allows you to create and configure an Okta User.
  *
+ * > **IMPORTANT** If the provider is executed with a non-super user API token a
+ * 403 occurs when the provider attempts to inspect the user's admin roles. This
+ * 403 is swallowed and a warning is logged allowing the resource to continue
+ * without this error hindering it. An empty `adminRoles` array will be present in
+ * the resource state.
+ *
+ * > **IMPORTANT** Use `skip_roles=true` to avoid `adminRoles` being present in
+ * resource state. This also prevents the underlying API call for those values to
+ * be made.
+ *
  * ## Example Usage
  *
  * Full profile:
@@ -260,6 +270,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly secondEmail!: pulumi.Output<string | undefined>;
     /**
+     * Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
+     */
+    public readonly skipRoles!: pulumi.Output<boolean | undefined>;
+    /**
      * User profile property.
      */
     public readonly state!: pulumi.Output<string | undefined>;
@@ -337,6 +351,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["recoveryAnswer"] = state ? state.recoveryAnswer : undefined;
             resourceInputs["recoveryQuestion"] = state ? state.recoveryQuestion : undefined;
             resourceInputs["secondEmail"] = state ? state.secondEmail : undefined;
+            resourceInputs["skipRoles"] = state ? state.skipRoles : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["streetAddress"] = state ? state.streetAddress : undefined;
@@ -393,6 +408,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["recoveryAnswer"] = args?.recoveryAnswer ? pulumi.secret(args.recoveryAnswer) : undefined;
             resourceInputs["recoveryQuestion"] = args ? args.recoveryQuestion : undefined;
             resourceInputs["secondEmail"] = args ? args.secondEmail : undefined;
+            resourceInputs["skipRoles"] = args ? args.skipRoles : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["streetAddress"] = args ? args.streetAddress : undefined;
@@ -567,6 +583,10 @@ export interface UserState {
      * User profile property.
      */
     secondEmail?: pulumi.Input<string>;
+    /**
+     * Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
+     */
+    skipRoles?: pulumi.Input<boolean>;
     /**
      * User profile property.
      */
@@ -751,6 +771,10 @@ export interface UserArgs {
      * User profile property.
      */
     secondEmail?: pulumi.Input<string>;
+    /**
+     * Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
+     */
+    skipRoles?: pulumi.Input<boolean>;
     /**
      * User profile property.
      */

@@ -25,6 +25,8 @@ type BookmarkApp struct {
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Displays specific appLinks for the app
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
+	// Id of this apps authentication policy
+	AuthenticationPolicy pulumi.StringPtrOutput `pulumi:"authenticationPolicy"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -106,6 +108,8 @@ type bookmarkAppState struct {
 	AdminNote *string `pulumi:"adminNote"`
 	// Displays specific appLinks for the app
 	AppLinksJson *string `pulumi:"appLinksJson"`
+	// Id of this apps authentication policy
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -153,6 +157,8 @@ type BookmarkAppState struct {
 	AdminNote pulumi.StringPtrInput
 	// Displays specific appLinks for the app
 	AppLinksJson pulumi.StringPtrInput
+	// Id of this apps authentication policy
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
@@ -204,6 +210,8 @@ type bookmarkAppArgs struct {
 	AdminNote *string `pulumi:"adminNote"`
 	// Displays specific appLinks for the app
 	AppLinksJson *string `pulumi:"appLinksJson"`
+	// Id of this apps authentication policy
+	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
@@ -246,6 +254,8 @@ type BookmarkAppArgs struct {
 	AdminNote pulumi.StringPtrInput
 	// Displays specific appLinks for the app
 	AppLinksJson pulumi.StringPtrInput
+	// Id of this apps authentication policy
+	AuthenticationPolicy pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
@@ -386,6 +396,11 @@ func (o BookmarkAppOutput) AdminNote() pulumi.StringPtrOutput {
 // Displays specific appLinks for the app
 func (o BookmarkAppOutput) AppLinksJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BookmarkApp) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Id of this apps authentication policy
+func (o BookmarkAppOutput) AuthenticationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkApp) pulumi.StringPtrOutput { return v.AuthenticationPolicy }).(pulumi.StringPtrOutput)
 }
 
 // Display auto submit toolbar

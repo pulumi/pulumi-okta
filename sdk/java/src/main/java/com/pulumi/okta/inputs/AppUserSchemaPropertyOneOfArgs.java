@@ -14,14 +14,14 @@ public final class AppUserSchemaPropertyOneOfArgs extends com.pulumi.resources.R
     public static final AppUserSchemaPropertyOneOfArgs Empty = new AppUserSchemaPropertyOneOfArgs();
 
     /**
-     * value mapping to member of `enum`.
+     * value mapping to member of `array_enum`.
      * 
      */
     @Import(name="const", required=true)
     private Output<String> const_;
 
     /**
-     * @return value mapping to member of `enum`.
+     * @return value mapping to member of `array_enum`.
      * 
      */
     public Output<String> const_() {
@@ -69,7 +69,7 @@ public final class AppUserSchemaPropertyOneOfArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param const_ value mapping to member of `enum`.
+         * @param const_ value mapping to member of `array_enum`.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class AppUserSchemaPropertyOneOfArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param const_ value mapping to member of `enum`.
+         * @param const_ value mapping to member of `array_enum`.
          * 
          * @return builder
          * 
