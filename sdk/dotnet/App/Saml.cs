@@ -326,7 +326,7 @@ namespace Pulumi.Okta.App
         public Output<string?> DigestAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// The url that can be used to embed this application in other portals.
+        /// Url that can be used to embed this application into another portal.
         /// </summary>
         [Output("embedUrl")]
         public Output<string> EmbedUrl { get; private set; } = null!;
@@ -1094,7 +1094,7 @@ namespace Pulumi.Okta.App
         public Input<string>? DigestAlgorithm { get; set; }
 
         /// <summary>
-        /// The url that can be used to embed this application in other portals.
+        /// Url that can be used to embed this application into another portal.
         /// </summary>
         [Input("embedUrl")]
         public Input<string>? EmbedUrl { get; set; }

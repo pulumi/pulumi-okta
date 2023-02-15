@@ -156,6 +156,11 @@ public final class GetUserResult {
      * 
      */
     private String profileUrl;
+    /**
+     * @return All roles assigned to user.
+     * 
+     */
+    private List<String> roles;
     private @Nullable List<GetUserSearch> searches;
     /**
      * @return Secondary email address of user typically used for account recovery.
@@ -404,6 +409,13 @@ public final class GetUserResult {
     public String profileUrl() {
         return this.profileUrl;
     }
+    /**
+     * @return All roles assigned to user.
+     * 
+     */
+    public List<String> roles() {
+        return this.roles;
+    }
     public List<GetUserSearch> searches() {
         return this.searches == null ? List.of() : this.searches;
     }
@@ -512,6 +524,7 @@ public final class GetUserResult {
         private String preferredLanguage;
         private String primaryPhone;
         private String profileUrl;
+        private List<String> roles;
         private @Nullable List<GetUserSearch> searches;
         private String secondEmail;
         private @Nullable Boolean skipGroups;
@@ -557,6 +570,7 @@ public final class GetUserResult {
     	      this.preferredLanguage = defaults.preferredLanguage;
     	      this.primaryPhone = defaults.primaryPhone;
     	      this.profileUrl = defaults.profileUrl;
+    	      this.roles = defaults.roles;
     	      this.searches = defaults.searches;
     	      this.secondEmail = defaults.secondEmail;
     	      this.skipGroups = defaults.skipGroups;
@@ -728,6 +742,14 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder roles(List<String> roles) {
+            this.roles = Objects.requireNonNull(roles);
+            return this;
+        }
+        public Builder roles(String... roles) {
+            return roles(List.of(roles));
+        }
+        @CustomType.Setter
         public Builder searches(@Nullable List<GetUserSearch> searches) {
             this.searches = searches;
             return this;
@@ -822,6 +844,7 @@ public final class GetUserResult {
             o.preferredLanguage = preferredLanguage;
             o.primaryPhone = primaryPhone;
             o.profileUrl = profileUrl;
+            o.roles = roles;
             o.searches = searches;
             o.secondEmail = secondEmail;
             o.skipGroups = skipGroups;

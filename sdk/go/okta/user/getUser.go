@@ -125,8 +125,10 @@ type LookupUserResult struct {
 	// Primary phone number of user such as home number.
 	PrimaryPhone string `pulumi:"primaryPhone"`
 	// URL of user's online profile (e.g. a web page).
-	ProfileUrl string          `pulumi:"profileUrl"`
-	Searches   []GetUserSearch `pulumi:"searches"`
+	ProfileUrl string `pulumi:"profileUrl"`
+	// All roles assigned to user.
+	Roles    []string        `pulumi:"roles"`
+	Searches []GetUserSearch `pulumi:"searches"`
 	// Secondary email address of user typically used for account recovery.
 	SecondEmail string `pulumi:"secondEmail"`
 	SkipGroups  *bool  `pulumi:"skipGroups"`
@@ -342,6 +344,11 @@ func (o LookupUserResultOutput) PrimaryPhone() pulumi.StringOutput {
 // URL of user's online profile (e.g. a web page).
 func (o LookupUserResultOutput) ProfileUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.ProfileUrl }).(pulumi.StringOutput)
+}
+
+// All roles assigned to user.
+func (o LookupUserResultOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupUserResultOutput) Searches() GetUserSearchArrayOutput {

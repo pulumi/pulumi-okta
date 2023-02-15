@@ -184,6 +184,10 @@ export interface GetUserResult {
      * URL of user's online profile (e.g. a web page).
      */
     readonly profileUrl: string;
+    /**
+     * All roles assigned to user.
+     */
+    readonly roles: string[];
     readonly searches?: outputs.user.GetUserSearch[];
     /**
      * Secondary email address of user typically used for account recovery.

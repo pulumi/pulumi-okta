@@ -298,7 +298,7 @@ type Saml struct {
 	Destination pulumi.StringPtrOutput `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm pulumi.StringPtrOutput `pulumi:"digestAlgorithm"`
-	// The url that can be used to embed this application in other portals.
+	// Url that can be used to embed this application into another portal.
 	EmbedUrl pulumi.StringOutput `pulumi:"embedUrl"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
@@ -464,7 +464,7 @@ type samlState struct {
 	Destination *string `pulumi:"destination"`
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
-	// The url that can be used to embed this application in other portals.
+	// Url that can be used to embed this application into another portal.
 	EmbedUrl *string `pulumi:"embedUrl"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
@@ -599,7 +599,7 @@ type SamlState struct {
 	Destination pulumi.StringPtrInput
 	// Determines the digest algorithm used to digitally sign the SAML assertion and response
 	DigestAlgorithm pulumi.StringPtrInput
-	// The url that can be used to embed this application in other portals.
+	// Url that can be used to embed this application into another portal.
 	EmbedUrl pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
@@ -1090,7 +1090,7 @@ func (o SamlOutput) DigestAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.DigestAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// The url that can be used to embed this application in other portals.
+// Url that can be used to embed this application into another portal.
 func (o SamlOutput) EmbedUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.EmbedUrl }).(pulumi.StringOutput)
 }

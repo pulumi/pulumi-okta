@@ -373,6 +373,7 @@ import * as deprecated from "./deprecated";
 import * as factor from "./factor";
 import * as group from "./group";
 import * as idp from "./idp";
+import * as index from "./index";
 import * as inline from "./inline";
 import * as network from "./network";
 import * as policy from "./policy";
@@ -390,6 +391,7 @@ export {
     factor,
     group,
     idp,
+    index,
     inline,
     network,
     policy,

@@ -23,7 +23,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, admin_roles=None, city=None, compound_search_operator=None, cost_center=None, country_code=None, custom_profile_attributes=None, delay_read_seconds=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, searches=None, second_email=None, skip_groups=None, skip_roles=None, state=None, status=None, street_address=None, timezone=None, title=None, user_id=None, user_type=None, zip_code=None):
+    def __init__(__self__, admin_roles=None, city=None, compound_search_operator=None, cost_center=None, country_code=None, custom_profile_attributes=None, delay_read_seconds=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, roles=None, searches=None, second_email=None, skip_groups=None, skip_roles=None, state=None, status=None, street_address=None, timezone=None, title=None, user_id=None, user_type=None, zip_code=None):
         if admin_roles and not isinstance(admin_roles, list):
             raise TypeError("Expected argument 'admin_roles' to be a list")
         pulumi.set(__self__, "admin_roles", admin_roles)
@@ -114,6 +114,9 @@ class GetUserResult:
         if profile_url and not isinstance(profile_url, str):
             raise TypeError("Expected argument 'profile_url' to be a str")
         pulumi.set(__self__, "profile_url", profile_url)
+        if roles and not isinstance(roles, list):
+            raise TypeError("Expected argument 'roles' to be a list")
+        pulumi.set(__self__, "roles", roles)
         if searches and not isinstance(searches, list):
             raise TypeError("Expected argument 'searches' to be a list")
         pulumi.set(__self__, "searches", searches)
@@ -387,6 +390,14 @@ class GetUserResult:
 
     @property
     @pulumi.getter
+    def roles(self) -> Sequence[str]:
+        """
+        All roles assigned to user.
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter
     def searches(self) -> Optional[Sequence['outputs.GetUserSearchResult']]:
         return pulumi.get(self, "searches")
 
@@ -506,6 +517,7 @@ class AwaitableGetUserResult(GetUserResult):
             preferred_language=self.preferred_language,
             primary_phone=self.primary_phone,
             profile_url=self.profile_url,
+            roles=self.roles,
             searches=self.searches,
             second_email=self.second_email,
             skip_groups=self.skip_groups,
@@ -590,6 +602,7 @@ def get_user(compound_search_operator: Optional[str] = None,
         preferred_language=__ret__.preferred_language,
         primary_phone=__ret__.primary_phone,
         profile_url=__ret__.profile_url,
+        roles=__ret__.roles,
         searches=__ret__.searches,
         second_email=__ret__.second_email,
         skip_groups=__ret__.skip_groups,
