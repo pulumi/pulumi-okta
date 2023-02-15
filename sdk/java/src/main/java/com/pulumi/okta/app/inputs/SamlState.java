@@ -277,14 +277,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The url that can be used to embed this application in other portals.
+     * Url that can be used to embed this application into another portal.
      * 
      */
     @Import(name="embedUrl")
     private @Nullable Output<String> embedUrl;
 
     /**
-     * @return The url that can be used to embed this application in other portals.
+     * @return Url that can be used to embed this application into another portal.
      * 
      */
     public Optional<Output<String>> embedUrl() {
@@ -1450,7 +1450,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param embedUrl The url that can be used to embed this application in other portals.
+         * @param embedUrl Url that can be used to embed this application into another portal.
          * 
          * @return builder
          * 
@@ -1461,7 +1461,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param embedUrl The url that can be used to embed this application in other portals.
+         * @param embedUrl Url that can be used to embed this application into another portal.
          * 
          * @return builder
          * 

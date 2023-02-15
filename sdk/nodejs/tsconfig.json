@@ -134,6 +134,8 @@
         "idp/samlKey.ts",
         "idp/social.ts",
         "index.ts",
+        "index/getDomain.ts",
+        "index/index.ts",
         "inline/hook.ts",
         "inline/index.ts",
         "linkDefinition.ts",

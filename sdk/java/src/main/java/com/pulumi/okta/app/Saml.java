@@ -518,14 +518,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.digestAlgorithm);
     }
     /**
-     * The url that can be used to embed this application in other portals.
+     * Url that can be used to embed this application into another portal.
      * 
      */
     @Export(name="embedUrl", type=String.class, parameters={})
     private Output<String> embedUrl;
 
     /**
-     * @return The url that can be used to embed this application in other portals.
+     * @return Url that can be used to embed this application into another portal.
      * 
      */
     public Output<String> embedUrl() {

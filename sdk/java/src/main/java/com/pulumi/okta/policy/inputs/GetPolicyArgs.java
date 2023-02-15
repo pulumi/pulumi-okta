@@ -29,16 +29,16 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Type of policy to retrieve. Valid values: `&#34;OKTA_SIGN_ON&#34;`, `&#34;PASSWORD&#34;`, `&#34;MFA_ENROLL&#34;`,
-     * `&#34;IDP_DISCOVERY&#34;`, `&#34;ACCESS_POLICY&#34;` (**only available as a part of the Identity Engine**), `&#34;PROFILE_ENROLLMENT&#34;` (**only available as a part of the Identity Engine**)
+     * Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+     * - All:
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of policy to retrieve. Valid values: `&#34;OKTA_SIGN_ON&#34;`, `&#34;PASSWORD&#34;`, `&#34;MFA_ENROLL&#34;`,
-     * `&#34;IDP_DISCOVERY&#34;`, `&#34;ACCESS_POLICY&#34;` (**only available as a part of the Identity Engine**), `&#34;PROFILE_ENROLLMENT&#34;` (**only available as a part of the Identity Engine**)
+     * @return Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+     * - All:
      * 
      */
     public Output<String> type() {
@@ -92,8 +92,8 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type Type of policy to retrieve. Valid values: `&#34;OKTA_SIGN_ON&#34;`, `&#34;PASSWORD&#34;`, `&#34;MFA_ENROLL&#34;`,
-         * `&#34;IDP_DISCOVERY&#34;`, `&#34;ACCESS_POLICY&#34;` (**only available as a part of the Identity Engine**), `&#34;PROFILE_ENROLLMENT&#34;` (**only available as a part of the Identity Engine**)
+         * @param type Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+         * - All:
          * 
          * @return builder
          * 
@@ -104,8 +104,8 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type Type of policy to retrieve. Valid values: `&#34;OKTA_SIGN_ON&#34;`, `&#34;PASSWORD&#34;`, `&#34;MFA_ENROLL&#34;`,
-         * `&#34;IDP_DISCOVERY&#34;`, `&#34;ACCESS_POLICY&#34;` (**only available as a part of the Identity Engine**), `&#34;PROFILE_ENROLLMENT&#34;` (**only available as a part of the Identity Engine**)
+         * @param type Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+         * - All:
          * 
          * @return builder
          * 

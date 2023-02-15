@@ -51,8 +51,8 @@ func GetPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOp
 type GetPolicyArgs struct {
 	// Name of policy to retrieve.
 	Name string `pulumi:"name"`
-	// Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`,
-	// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
+	// Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+	// - All:
 	Type string `pulumi:"type"`
 }
 
@@ -84,8 +84,8 @@ func GetPolicyOutput(ctx *pulumi.Context, args GetPolicyOutputArgs, opts ...pulu
 type GetPolicyOutputArgs struct {
 	// Name of policy to retrieve.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`,
-	// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
+	// Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+	// - All:
 	Type pulumi.StringInput `pulumi:"type"`
 }
 

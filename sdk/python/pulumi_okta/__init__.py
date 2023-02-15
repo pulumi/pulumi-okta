@@ -96,6 +96,8 @@ if typing.TYPE_CHECKING:
     group = __group
     import pulumi_okta.idp as __idp
     idp = __idp
+    import pulumi_okta.index as __index
+    index = __index
     import pulumi_okta.inline as __inline
     inline = __inline
     import pulumi_okta.network as __network
@@ -118,6 +120,7 @@ else:
     factor = _utilities.lazy_import('pulumi_okta.factor')
     group = _utilities.lazy_import('pulumi_okta.group')
     idp = _utilities.lazy_import('pulumi_okta.idp')
+    index = _utilities.lazy_import('pulumi_okta.index')
     inline = _utilities.lazy_import('pulumi_okta.inline')
     network = _utilities.lazy_import('pulumi_okta.network')
     policy = _utilities.lazy_import('pulumi_okta.policy')

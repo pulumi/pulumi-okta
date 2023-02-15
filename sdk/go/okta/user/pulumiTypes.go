@@ -856,7 +856,8 @@ type GetUsersUser struct {
 	// Primary phone number of user such as home number.
 	PrimaryPhone string `pulumi:"primaryPhone"`
 	// URL of user's online profile (e.g. a web page).
-	ProfileUrl string `pulumi:"profileUrl"`
+	ProfileUrl string   `pulumi:"profileUrl"`
+	Roles      []string `pulumi:"roles"`
 	// Secondary email address of user typically used for account recovery.
 	SecondEmail string `pulumi:"secondEmail"`
 	// State or region component of user's address (region).
@@ -941,7 +942,8 @@ type GetUsersUserArgs struct {
 	// Primary phone number of user such as home number.
 	PrimaryPhone pulumi.StringInput `pulumi:"primaryPhone"`
 	// URL of user's online profile (e.g. a web page).
-	ProfileUrl pulumi.StringInput `pulumi:"profileUrl"`
+	ProfileUrl pulumi.StringInput      `pulumi:"profileUrl"`
+	Roles      pulumi.StringArrayInput `pulumi:"roles"`
 	// Secondary email address of user typically used for account recovery.
 	SecondEmail pulumi.StringInput `pulumi:"secondEmail"`
 	// State or region component of user's address (region).
@@ -1148,6 +1150,10 @@ func (o GetUsersUserOutput) PrimaryPhone() pulumi.StringOutput {
 // URL of user's online profile (e.g. a web page).
 func (o GetUsersUserOutput) ProfileUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.ProfileUrl }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUsersUser) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
 // Secondary email address of user typically used for account recovery.

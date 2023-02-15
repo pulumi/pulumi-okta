@@ -95,8 +95,8 @@ def get_policy(name: Optional[str] = None,
 
 
     :param str name: Name of policy to retrieve.
-    :param str type: Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`, 
-           `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
+    :param str type: Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+           - All:
     """
     __args__ = dict()
     __args__['name'] = name
@@ -130,7 +130,7 @@ def get_policy_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Name of policy to retrieve.
-    :param str type: Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`, 
-           `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
+    :param str type: Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+           - All:
     """
     ...

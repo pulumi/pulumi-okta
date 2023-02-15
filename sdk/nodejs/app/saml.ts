@@ -274,7 +274,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly digestAlgorithm!: pulumi.Output<string | undefined>;
     /**
-     * The url that can be used to embed this application in other portals.
+     * Url that can be used to embed this application into another portal.
      */
     public /*out*/ readonly embedUrl!: pulumi.Output<string>;
     /**
@@ -687,7 +687,7 @@ export interface SamlState {
      */
     digestAlgorithm?: pulumi.Input<string>;
     /**
-     * The url that can be used to embed this application in other portals.
+     * Url that can be used to embed this application into another portal.
      */
     embedUrl?: pulumi.Input<string>;
     /**

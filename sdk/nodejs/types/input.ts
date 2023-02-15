@@ -203,6 +203,9 @@ export interface UserSchemaPropertyOneOf {
      */
     title: pulumi.Input<string>;
 }
+export namespace Index {
+}
+
 export namespace app {
     export interface AutoLoginUser {
         id?: pulumi.Input<string>;

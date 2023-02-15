@@ -78,8 +78,8 @@ namespace Pulumi.Okta.Policy
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`, 
-        /// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
+        /// Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+        /// - All:
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
@@ -99,8 +99,8 @@ namespace Pulumi.Okta.Policy
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Type of policy to retrieve. Valid values: `"OKTA_SIGN_ON"`, `"PASSWORD"`, `"MFA_ENROLL"`, 
-        /// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
+        /// Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+        /// - All:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

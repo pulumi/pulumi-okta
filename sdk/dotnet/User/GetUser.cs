@@ -297,6 +297,10 @@ namespace Pulumi.Okta.User
         /// URL of user's online profile (e.g. a web page).
         /// </summary>
         public readonly string ProfileUrl;
+        /// <summary>
+        /// All roles assigned to user.
+        /// </summary>
+        public readonly ImmutableArray<string> Roles;
         public readonly ImmutableArray<Outputs.GetUserSearchResult> Searches;
         /// <summary>
         /// Secondary email address of user typically used for account recovery.
@@ -396,6 +400,8 @@ namespace Pulumi.Okta.User
 
             string profileUrl,
 
+            ImmutableArray<string> roles,
+
             ImmutableArray<Outputs.GetUserSearchResult> searches,
 
             string secondEmail,
@@ -450,6 +456,7 @@ namespace Pulumi.Okta.User
             PreferredLanguage = preferredLanguage;
             PrimaryPhone = primaryPhone;
             ProfileUrl = profileUrl;
+            Roles = roles;
             Searches = searches;
             SecondEmail = secondEmail;
             SkipGroups = skipGroups;

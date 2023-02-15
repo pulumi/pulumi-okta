@@ -336,6 +336,7 @@ class GetUsersUserResult(dict):
                  preferred_language: str,
                  primary_phone: str,
                  profile_url: str,
+                 roles: Sequence[str],
                  second_email: str,
                  state: str,
                  status: str,
@@ -409,6 +410,7 @@ class GetUsersUserResult(dict):
         pulumi.set(__self__, "preferred_language", preferred_language)
         pulumi.set(__self__, "primary_phone", primary_phone)
         pulumi.set(__self__, "profile_url", profile_url)
+        pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "second_email", second_email)
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "status", status)
@@ -638,6 +640,11 @@ class GetUsersUserResult(dict):
         URL of user's online profile (e.g. a web page).
         """
         return pulumi.get(self, "profile_url")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Sequence[str]:
+        return pulumi.get(self, "roles")
 
     @property
     @pulumi.getter(name="secondEmail")

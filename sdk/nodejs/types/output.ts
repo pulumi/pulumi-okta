@@ -357,6 +357,28 @@ export interface UserSchemaPropertyOneOf {
     title: string;
 }
 
+export namespace Index {
+    export interface GetDomainDnsRecord {
+        /**
+         * TXT record expiration.
+         */
+        expiration: string;
+        /**
+         * DNS record name.
+         */
+        fqdn: string;
+        /**
+         * Record type can be TXT or CNAME.
+         */
+        recordType: string;
+        /**
+         * DNS verification value
+         */
+        values: string[];
+    }
+
+}
+
 export namespace app {
     export interface AutoLoginUser {
         id?: string;
@@ -1042,6 +1064,7 @@ export namespace user {
          * URL of user's online profile (e.g. a web page).
          */
         profileUrl: string;
+        roles: string[];
         /**
          * Secondary email address of user typically used for account recovery.
          */

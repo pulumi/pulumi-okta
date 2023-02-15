@@ -899,7 +899,7 @@ class _SamlState:
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
-        :param pulumi.Input[str] embed_url: The url that can be used to embed this application in other portals.
+        :param pulumi.Input[str] embed_url: Url that can be used to embed this application into another portal.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
         :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
@@ -1289,7 +1289,7 @@ class _SamlState:
     @pulumi.getter(name="embedUrl")
     def embed_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The url that can be used to embed this application in other portals.
+        Url that can be used to embed this application into another portal.
         """
         return pulumi.get(self, "embed_url")
 
@@ -2526,7 +2526,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
-        :param pulumi.Input[str] embed_url: The url that can be used to embed this application in other portals.
+        :param pulumi.Input[str] embed_url: Url that can be used to embed this application into another portal.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
         :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
@@ -2784,7 +2784,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="embedUrl")
     def embed_url(self) -> pulumi.Output[str]:
         """
-        The url that can be used to embed this application in other portals.
+        Url that can be used to embed this application into another portal.
         """
         return pulumi.get(self, "embed_url")
 

@@ -146,6 +146,7 @@ public final class GetUsersUser {
      * 
      */
     private String profileUrl;
+    private List<String> roles;
     /**
      * @return Secondary email address of user typically used for account recovery.
      * 
@@ -380,6 +381,9 @@ public final class GetUsersUser {
     public String profileUrl() {
         return this.profileUrl;
     }
+    public List<String> roles() {
+        return this.roles;
+    }
     /**
      * @return Secondary email address of user typically used for account recovery.
      * 
@@ -474,6 +478,7 @@ public final class GetUsersUser {
         private String preferredLanguage;
         private String primaryPhone;
         private String profileUrl;
+        private List<String> roles;
         private String secondEmail;
         private String state;
         private String status;
@@ -513,6 +518,7 @@ public final class GetUsersUser {
     	      this.preferredLanguage = defaults.preferredLanguage;
     	      this.primaryPhone = defaults.primaryPhone;
     	      this.profileUrl = defaults.profileUrl;
+    	      this.roles = defaults.roles;
     	      this.secondEmail = defaults.secondEmail;
     	      this.state = defaults.state;
     	      this.status = defaults.status;
@@ -670,6 +676,14 @@ public final class GetUsersUser {
             return this;
         }
         @CustomType.Setter
+        public Builder roles(List<String> roles) {
+            this.roles = Objects.requireNonNull(roles);
+            return this;
+        }
+        public Builder roles(String... roles) {
+            return roles(List.of(roles));
+        }
+        @CustomType.Setter
         public Builder secondEmail(String secondEmail) {
             this.secondEmail = Objects.requireNonNull(secondEmail);
             return this;
@@ -739,6 +753,7 @@ public final class GetUsersUser {
             o.preferredLanguage = preferredLanguage;
             o.primaryPhone = primaryPhone;
             o.profileUrl = profileUrl;
+            o.roles = roles;
             o.secondEmail = secondEmail;
             o.state = state;
             o.status = status;
