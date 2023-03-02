@@ -80,15 +80,16 @@ func makeResource(mod string, res string) tokens.Type {
 func Provider() tfbridge.ProviderInfo {
 	p := shimv2.NewProvider(okta.Provider())
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "okta",
-		Description: "A Pulumi package for creating and managing okta resources.",
-		Keywords:    []string{"pulumi", "okta"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		GitHubOrg:   "okta",
-		Repository:  "https://github.com/pulumi/pulumi-okta",
-		Config:      map[string]*tfbridge.SchemaInfo{},
+		P:                p,
+		Name:             "okta",
+		Description:      "A Pulumi package for creating and managing okta resources.",
+		Keywords:         []string{"pulumi", "okta"},
+		License:          "Apache-2.0",
+		Homepage:         "https://pulumi.io",
+		GitHubOrg:        "okta",
+		Repository:       "https://github.com/pulumi/pulumi-okta",
+		Config:           map[string]*tfbridge.SchemaInfo{},
+		UpstreamRepoPath: "./upstream",
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// App Resources
 			"okta_app_auto_login": {

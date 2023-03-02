@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-okta/provider/v3
 go 1.19
 
 require (
-	github.com/okta/terraform-provider-okta v0.0.0-20230210190701-a5e865312640
+	github.com/okta/terraform-provider-okta v0.0.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.40.0
 	github.com/pulumi/pulumi/sdk/v3 v3.53.1
 )
@@ -11,6 +11,7 @@ require (
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220725190814-23001ad6ec03
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
+	github.com/okta/terraform-provider-okta => ../upstream
 )
 
 require (
