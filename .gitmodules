@@ -1,0 +1,4 @@
+[submodule "upstream"]
+	path = upstream
+	url = https://github.com/okta/terraform-provider-okta.git
+	ignore = dirty
