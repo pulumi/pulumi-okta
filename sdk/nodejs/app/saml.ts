@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     signatureAlgorithm: "RSA_SHA256",
  *     ssoUrl: "https://example.com",
  *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
- *     subjectNameIdTemplate: `${user.userName}`,
+ *     subjectNameIdTemplate: "${user.userName}",
  * });
  * ```
  * ### With inline hook
@@ -68,7 +68,7 @@ import * as utilities from "../utilities";
  *     recipient: "https://here.com",
  *     destination: "https://its-about-the-journey.com",
  *     audience: "https://audience.com",
- *     subjectNameIdTemplate: `${user.userName}`,
+ *     subjectNameIdTemplate: "${user.userName}",
  *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
  *     responseSigned: true,
  *     signatureAlgorithm: "RSA_SHA256",
@@ -103,7 +103,7 @@ import * as utilities from "../utilities";
  *     preconfiguredApp: "sharepoint_onpremise",
  *     samlVersion: "1.1",
  *     status: "ACTIVE",
- *     userNameTemplate: `${source.login}`,
+ *     userNameTemplate: "${source.login}",
  *     userNameTemplateType: "BUILT_IN",
  * });
  * ```

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,8 +48,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -58,7 +56,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := app.NewAutoLogin(ctx, "example", &app.AutoLoginArgs{
-//				AppSettingsJson:  pulumi.String(fmt.Sprintf("{\n    \"domain\": \"okta\",\n    \"afwOnly\": false\n}\n\n")),
+//				AppSettingsJson:  pulumi.String("{\n    \"domain\": \"okta\",\n    \"afwOnly\": false\n}\n\n"),
 //				Label:            pulumi.String("Google Example App"),
 //				PreconfiguredApp: pulumi.String("google"),
 //				Status:           pulumi.String("ACTIVE"),

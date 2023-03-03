@@ -18,15 +18,15 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.TemplateSms("example", {
- *     template: `Your ${org.name} code is: ${code}`,
+ *     template: "Your ${org.name} code is: ${code}",
  *     translations: [
  *         {
  *             language: "en",
- *             template: `Your ${org.name} code is: ${code}`,
+ *             template: "Your ${org.name} code is: ${code}",
  *         },
  *         {
  *             language: "es",
- *             template: `Tu código de ${org.name} es: ${code}.`,
+ *             template: "Tu código de ${org.name} es: ${code}.",
  *         },
  *     ],
  *     type: "SMS_VERIFY_CODE",

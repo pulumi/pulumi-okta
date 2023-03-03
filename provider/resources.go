@@ -23,6 +23,7 @@ import (
 	"github.com/okta/terraform-provider-okta/okta"
 	"github.com/pulumi/pulumi-okta/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -558,8 +559,21 @@ func Provider() tfbridge.ProviderInfo {
 				Source: "auth_server_policy_rule.html.markdown"},
 		})
 
-	err := prov.ComputeDefaults(tfbridge.TokensSingleModule(
-		"okta_", mainMod, tfbridge.MakeStandardToken(mainPkg)))
+	err := x.ComputeDefaults(&prov, x.TokensKnownModules("okta_", mainMod, []string{
+		"app_",
+		"auth_",
+		"factor_",
+		"group_",
+		"idp_",
+		"inline_",
+		"network_",
+		"policy_",
+		"profile_",
+		"template_",
+		"trusted_origin_",
+		"user_",
+	}, x.MakeStandardToken(mainPkg)))
+
 	contract.AssertNoError(err)
 	prov.SetAutonaming(255, "-")
 

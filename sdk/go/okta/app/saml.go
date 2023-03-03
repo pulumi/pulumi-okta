@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -53,7 +51,7 @@ import (
 //				SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
 //				SsoUrl:                pulumi.String("https://example.com"),
 //				SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
-//				SubjectNameIdTemplate: pulumi.String(fmt.Sprintf("${user.userName}")),
+//				SubjectNameIdTemplate: pulumi.String("${user.userName}"),
 //			})
 //			if err != nil {
 //				return err
@@ -69,8 +67,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline"
@@ -105,7 +101,7 @@ import (
 //				Recipient:             pulumi.String("https://here.com"),
 //				Destination:           pulumi.String("https://its-about-the-journey.com"),
 //				Audience:              pulumi.String("https://audience.com"),
-//				SubjectNameIdTemplate: pulumi.String(fmt.Sprintf("${user.userName}")),
+//				SubjectNameIdTemplate: pulumi.String("${user.userName}"),
 //				SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
 //				ResponseSigned:        pulumi.Bool(true),
 //				SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
@@ -139,8 +135,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -149,12 +143,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := app.NewSaml(ctx, "test", &app.SamlArgs{
-//				AppSettingsJson:      pulumi.String(fmt.Sprintf("{\n    \"groupFilter\": \"app1.*\",\n    \"siteURL\": \"https://www.okta.com\"\n}\n\n")),
+//				AppSettingsJson:      pulumi.String("{\n    \"groupFilter\": \"app1.*\",\n    \"siteURL\": \"https://www.okta.com\"\n}\n\n"),
 //				Label:                pulumi.String("SharePoint (On-Premise)"),
 //				PreconfiguredApp:     pulumi.String("sharepoint_onpremise"),
 //				SamlVersion:          pulumi.String("1.1"),
 //				Status:               pulumi.String("ACTIVE"),
-//				UserNameTemplate:     pulumi.String(fmt.Sprintf("${source.login}")),
+//				UserNameTemplate:     pulumi.String("${source.login}"),
 //				UserNameTemplateType: pulumi.String("BUILT_IN"),
 //			})
 //			if err != nil {
@@ -172,8 +166,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -182,42 +174,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := app.NewSaml(ctx, "office365", &app.SamlArgs{
-//				AppLinksJson: pulumi.String(fmt.Sprintf(`  {
-//	      "calendar": false,
-//	      "crm": false,
-//	      "delve": false,
-//	      "excel": false,
-//	      "forms": false,
-//	      "mail": false,
-//	      "newsfeed": false,
-//	      "onedrive": false,
-//	      "people": false,
-//	      "planner": false,
-//	      "powerbi": false,
-//	      "powerpoint": false,
-//	      "sites": false,
-//	      "sway": false,
-//	      "tasks": false,
-//	      "teams": false,
-//	      "video": false,
-//	      "word": false,
-//	      "yammer": false,
-//	      "login": true
-//	  }
-//
-// `)),
-//
-//				AppSettingsJson: pulumi.String(fmt.Sprintf(`    {
-//	       "wsFedConfigureType": "AUTO",
-//	       "windowsTransportEnabled": false,
-//	       "domain": "okta.com",
-//	       "msftTenant": "okta",
-//	       "domains": [],
-//	       "requireAdminConsent": false
-//	    }
-//
-// `)),
-//
+//				AppLinksJson:     pulumi.String("  {\n      \"calendar\": false,\n      \"crm\": false,\n      \"delve\": false,\n      \"excel\": false,\n      \"forms\": false,\n      \"mail\": false,\n      \"newsfeed\": false,\n      \"onedrive\": false,\n      \"people\": false,\n      \"planner\": false,\n      \"powerbi\": false,\n      \"powerpoint\": false,\n      \"sites\": false,\n      \"sway\": false,\n      \"tasks\": false,\n      \"teams\": false,\n      \"video\": false,\n      \"word\": false,\n      \"yammer\": false,\n      \"login\": true\n  }\n\n"),
+//				AppSettingsJson:  pulumi.String("    {\n       \"wsFedConfigureType\": \"AUTO\",\n       \"windowsTransportEnabled\": false,\n       \"domain\": \"okta.com\",\n       \"msftTenant\": \"okta\",\n       \"domains\": [],\n       \"requireAdminConsent\": false\n    }\n\n"),
 //				Label:            pulumi.String("Microsoft Office 365"),
 //				PreconfiguredApp: pulumi.String("office365"),
 //				SamlVersion:      pulumi.String("1.1"),
