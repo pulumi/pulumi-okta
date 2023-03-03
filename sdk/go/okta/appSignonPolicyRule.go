@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -178,7 +178,7 @@ import (
 //				Recipient:               pulumi.String("https://here.com"),
 //				Destination:             pulumi.String("https://its-about-the-journey.com"),
 //				Audience:                pulumi.String("https://audience.com"),
-//				SubjectNameIdTemplate:   pulumi.String(fmt.Sprintf("${user.userName}")),
+//				SubjectNameIdTemplate:   pulumi.String("${user.userName}"),
 //				SubjectNameIdFormat:     pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
 //				ResponseSigned:          pulumi.Bool(true),
 //				SignatureAlgorithm:      pulumi.String("RSA_SHA256"),

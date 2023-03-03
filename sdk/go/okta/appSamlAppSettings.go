@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,6 @@ import (
 // import (
 //
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
@@ -46,7 +45,7 @@ import (
 //				"groupFilter":        "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)",
 //				"joinAllRoles":       false,
 //				"loginURL":           "https://console.aws.amazon.com/ec2/home",
-//				"roleValuePattern":   fmt.Sprintf("arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}"),
+//				"roleValuePattern":   "arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}",
 //				"sessionDuration":    3200,
 //				"useGroupMapping":    false,
 //			})

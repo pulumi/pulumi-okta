@@ -81,7 +81,7 @@ import * as utilities from "./utilities";
  *     recipient: "https://here.com",
  *     destination: "https://its-about-the-journey.com",
  *     audience: "https://audience.com",
- *     subjectNameIdTemplate: `${user.userName}`,
+ *     subjectNameIdTemplate: "${user.userName}",
  *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
  *     responseSigned: true,
  *     signatureAlgorithm: "RSA_SHA256",

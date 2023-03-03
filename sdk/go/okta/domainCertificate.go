@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,8 +17,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -34,9 +32,9 @@ import (
 //			_, err = okta.NewDomainCertificate(ctx, "test", &okta.DomainCertificateArgs{
 //				DomainId:         pulumi.Any(okta_domain.Test.Id),
 //				Type:             pulumi.String("PEM"),
-//				Certificate:      pulumi.String(fmt.Sprintf("-----BEGIN CERTIFICATE-----\nMIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA\n...\nNSgRtSXq11j8O4JONi8EXe7cEtvzUiLR5PL3itsK2svtrZ9jIwQ95wOPaA==\n-----END CERTIFICATE-----\n")),
-//				CertificateChain: pulumi.String(fmt.Sprintf("-----BEGIN CERTIFICATE-----\nMIIFFjCCAv6gAwIBAgIRAJErCErPDBinU/bWLiWnX1owDQYJKoZIhvcNAQELBQAw\n...\nDfvp7OOGAN6dEOM4+qR9sdjoSYKEBpsr6GtPAQw4dy753ec5\n-----END CERTIFICATE-----\n")),
-//				PrivateKey:       pulumi.String(fmt.Sprintf("-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC5cyk6x63iBJSW\n...\nnUFLNE8pXSnsqb0eOL74f3uQ\n-----END PRIVATE KEY-----\n")),
+//				Certificate:      pulumi.String("-----BEGIN CERTIFICATE-----\nMIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA\n...\nNSgRtSXq11j8O4JONi8EXe7cEtvzUiLR5PL3itsK2svtrZ9jIwQ95wOPaA==\n-----END CERTIFICATE-----\n"),
+//				CertificateChain: pulumi.String("-----BEGIN CERTIFICATE-----\nMIIFFjCCAv6gAwIBAgIRAJErCErPDBinU/bWLiWnX1owDQYJKoZIhvcNAQELBQAw\n...\nDfvp7OOGAN6dEOM4+qR9sdjoSYKEBpsr6GtPAQw4dy753ec5\n-----END CERTIFICATE-----\n"),
+//				PrivateKey:       pulumi.String("-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC5cyk6x63iBJSW\n...\nnUFLNE8pXSnsqb0eOL74f3uQ\n-----END PRIVATE KEY-----\n"),
 //			})
 //			if err != nil {
 //				return err

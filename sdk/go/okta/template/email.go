@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +24,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/template"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -38,12 +36,12 @@ import (
 //					&template.EmailTranslationArgs{
 //						Language: pulumi.String("en"),
 //						Subject:  pulumi.String("Stuff"),
-//						Template: pulumi.String(fmt.Sprintf("Hi $user.firstName,<br/><br/>Blah blah $resetPasswordLink")),
+//						Template: pulumi.String("Hi $user.firstName,<br/><br/>Blah blah $resetPasswordLink"),
 //					},
 //					&template.EmailTranslationArgs{
 //						Language: pulumi.String("es"),
 //						Subject:  pulumi.String("Cosas"),
-//						Template: pulumi.String(fmt.Sprintf("Hola $user.firstName,<br/><br/>Puedo ir al bano $resetPasswordLink")),
+//						Template: pulumi.String("Hola $user.firstName,<br/><br/>Puedo ir al bano $resetPasswordLink"),
 //					},
 //				},
 //				Type: pulumi.String("email.forgotPassword"),
