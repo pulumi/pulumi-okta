@@ -110,8 +110,7 @@ export interface GetSamlResult {
      */
     readonly audience: string;
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication
-     * statement.
+     * Identifies the SAML authentication context class for the assertion’s authentication statement.
      */
     readonly authnContextClassRef: string;
     /**
@@ -178,7 +177,7 @@ export interface GetSamlResult {
      */
     readonly links: string;
     /**
-     * The name of the attribute statement.
+     * name of application.
      */
     readonly name: string;
     /**
@@ -193,6 +192,10 @@ export interface GetSamlResult {
      * Determines whether the SAML auth response message is digitally signed.
      */
     readonly responseSigned: boolean;
+    /**
+     * SAML Signed Request enabled
+     */
+    readonly samlSignedRequestEnabled: boolean;
     /**
      * Signature algorithm used ot digitally sign the assertion and response.
      */

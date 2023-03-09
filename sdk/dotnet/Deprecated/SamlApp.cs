@@ -281,6 +281,12 @@ namespace Pulumi.Okta.Deprecated
         public Output<bool?> ResponseSigned { get; private set; } = null!;
 
         /// <summary>
+        /// SAML Signed Request enabled
+        /// </summary>
+        [Output("samlSignedRequestEnabled")]
+        public Output<bool?> SamlSignedRequestEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// SAML version for the app's sign-on mode
         /// </summary>
         [Output("samlVersion")]
@@ -640,6 +646,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("responseSigned")]
         public Input<bool>? ResponseSigned { get; set; }
+
+        /// <summary>
+        /// SAML Signed Request enabled
+        /// </summary>
+        [Input("samlSignedRequestEnabled")]
+        public Input<bool>? SamlSignedRequestEnabled { get; set; }
 
         /// <summary>
         /// SAML version for the app's sign-on mode
@@ -1054,6 +1066,12 @@ namespace Pulumi.Okta.Deprecated
         /// </summary>
         [Input("responseSigned")]
         public Input<bool>? ResponseSigned { get; set; }
+
+        /// <summary>
+        /// SAML Signed Request enabled
+        /// </summary>
+        [Input("samlSignedRequestEnabled")]
+        public Input<bool>? SamlSignedRequestEnabled { get; set; }
 
         /// <summary>
         /// SAML version for the app's sign-on mode

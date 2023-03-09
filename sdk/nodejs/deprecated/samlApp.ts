@@ -218,6 +218,10 @@ export class SamlApp extends pulumi.CustomResource {
      */
     public readonly responseSigned!: pulumi.Output<boolean | undefined>;
     /**
+     * SAML Signed Request enabled
+     */
+    public readonly samlSignedRequestEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * SAML version for the app's sign-on mode
      */
     public readonly samlVersion!: pulumi.Output<string | undefined>;
@@ -353,6 +357,7 @@ export class SamlApp extends pulumi.CustomResource {
             resourceInputs["recipient"] = state ? state.recipient : undefined;
             resourceInputs["requestCompressed"] = state ? state.requestCompressed : undefined;
             resourceInputs["responseSigned"] = state ? state.responseSigned : undefined;
+            resourceInputs["samlSignedRequestEnabled"] = state ? state.samlSignedRequestEnabled : undefined;
             resourceInputs["samlVersion"] = state ? state.samlVersion : undefined;
             resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
             resourceInputs["signatureAlgorithm"] = state ? state.signatureAlgorithm : undefined;
@@ -408,6 +413,7 @@ export class SamlApp extends pulumi.CustomResource {
             resourceInputs["recipient"] = args ? args.recipient : undefined;
             resourceInputs["requestCompressed"] = args ? args.requestCompressed : undefined;
             resourceInputs["responseSigned"] = args ? args.responseSigned : undefined;
+            resourceInputs["samlSignedRequestEnabled"] = args ? args.samlSignedRequestEnabled : undefined;
             resourceInputs["samlVersion"] = args ? args.samlVersion : undefined;
             resourceInputs["signatureAlgorithm"] = args ? args.signatureAlgorithm : undefined;
             resourceInputs["singleLogoutCertificate"] = args ? args.singleLogoutCertificate : undefined;
@@ -629,6 +635,10 @@ export interface SamlAppState {
      */
     responseSigned?: pulumi.Input<boolean>;
     /**
+     * SAML Signed Request enabled
+     */
+    samlSignedRequestEnabled?: pulumi.Input<boolean>;
+    /**
      * SAML version for the app's sign-on mode
      */
     samlVersion?: pulumi.Input<string>;
@@ -835,6 +845,10 @@ export interface SamlAppArgs {
      * Determines whether the SAML auth response message is digitally signed
      */
     responseSigned?: pulumi.Input<boolean>;
+    /**
+     * SAML Signed Request enabled
+     */
+    samlSignedRequestEnabled?: pulumi.Input<boolean>;
     /**
      * SAML version for the app's sign-on mode
      */

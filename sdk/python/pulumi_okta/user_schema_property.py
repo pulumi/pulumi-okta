@@ -744,10 +744,10 @@ class UserSchemaProperty(pulumi.CustomResource):
 
         ## Import
 
-        User schema property of default user type can be imported via the property index.
+        User schema property of default user type can be imported via the property variableName.
 
         ```sh
-         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;index&#62;
+         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;variableName&#62;
         ```
 
          User schema property of custom user type can be imported via user type id and property index
@@ -805,10 +805,10 @@ class UserSchemaProperty(pulumi.CustomResource):
 
         ## Import
 
-        User schema property of default user type can be imported via the property index.
+        User schema property of default user type can be imported via the property variableName.
 
         ```sh
-         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;index&#62;
+         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;variableName&#62;
         ```
 
          User schema property of custom user type can be imported via user type id and property index

@@ -1784,7 +1784,7 @@ type GetSamlAttributeStatement struct {
 	FilterType string `pulumi:"filterType"`
 	// Filter value to use.
 	FilterValue string `pulumi:"filterValue"`
-	// The name of the attribute statement.
+	// name of application.
 	Name string `pulumi:"name"`
 	// The attribute namespace.
 	Namespace string `pulumi:"namespace"`
@@ -1810,7 +1810,7 @@ type GetSamlAttributeStatementArgs struct {
 	FilterType pulumi.StringInput `pulumi:"filterType"`
 	// Filter value to use.
 	FilterValue pulumi.StringInput `pulumi:"filterValue"`
-	// The name of the attribute statement.
+	// name of application.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The attribute namespace.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
@@ -1881,7 +1881,7 @@ func (o GetSamlAttributeStatementOutput) FilterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) string { return v.FilterValue }).(pulumi.StringOutput)
 }
 
-// The name of the attribute statement.
+// name of application.
 func (o GetSamlAttributeStatementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) string { return v.Name }).(pulumi.StringOutput)
 }

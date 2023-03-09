@@ -645,16 +645,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.\
-     * If not provided the following arguments are required:
+     * name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      * 
      */
     @Import(name="preconfiguredApp")
     private @Nullable Output<String> preconfiguredApp;
 
     /**
-     * @return name of application from the Okta Integration Network, if not included a custom app will be created.\
-     * If not provided the following arguments are required:
+     * @return name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      * 
      */
     public Optional<Output<String>> preconfiguredApp() {
@@ -707,6 +705,21 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * SAML Signed Request enabled
+     * 
+     */
+    @Import(name="samlSignedRequestEnabled")
+    private @Nullable Output<Boolean> samlSignedRequestEnabled;
+
+    /**
+     * @return SAML Signed Request enabled
+     * 
+     */
+    public Optional<Output<Boolean>> samlSignedRequestEnabled() {
+        return Optional.ofNullable(this.samlSignedRequestEnabled);
+    }
+
+    /**
      * SAML version for the app&#39;s sign-on mode. Valid values are: `&#34;2.0&#34;` or `&#34;1.1&#34;`. Default is `&#34;2.0&#34;`.
      * 
      */
@@ -752,16 +765,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-     * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      * 
      */
     @Import(name="singleLogoutCertificate")
     private @Nullable Output<String> singleLogoutCertificate;
 
     /**
-     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-     * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      * 
      */
     public Optional<Output<String>> singleLogoutCertificate() {
@@ -1034,6 +1045,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         this.recipient = $.recipient;
         this.requestCompressed = $.requestCompressed;
         this.responseSigned = $.responseSigned;
+        this.samlSignedRequestEnabled = $.samlSignedRequestEnabled;
         this.samlVersion = $.samlVersion;
         this.signOnMode = $.signOnMode;
         this.signatureAlgorithm = $.signatureAlgorithm;
@@ -1996,8 +2008,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preconfiguredApp name of application from the Okta Integration Network, if not included a custom app will be created.\
-         * If not provided the following arguments are required:
+         * @param preconfiguredApp name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
          * 
          * @return builder
          * 
@@ -2008,8 +2019,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preconfiguredApp name of application from the Okta Integration Network, if not included a custom app will be created.\
-         * If not provided the following arguments are required:
+         * @param preconfiguredApp name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
          * 
          * @return builder
          * 
@@ -2082,6 +2092,27 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param samlSignedRequestEnabled SAML Signed Request enabled
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlSignedRequestEnabled(@Nullable Output<Boolean> samlSignedRequestEnabled) {
+            $.samlSignedRequestEnabled = samlSignedRequestEnabled;
+            return this;
+        }
+
+        /**
+         * @param samlSignedRequestEnabled SAML Signed Request enabled
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlSignedRequestEnabled(Boolean samlSignedRequestEnabled) {
+            return samlSignedRequestEnabled(Output.of(samlSignedRequestEnabled));
+        }
+
+        /**
          * @param samlVersion SAML version for the app&#39;s sign-on mode. Valid values are: `&#34;2.0&#34;` or `&#34;1.1&#34;`. Default is `&#34;2.0&#34;`.
          * 
          * @return builder
@@ -2145,8 +2176,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singleLogoutCertificate x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-         * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+         * @param singleLogoutCertificate x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
          * 
          * @return builder
          * 
@@ -2157,8 +2187,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singleLogoutCertificate x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-         * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+         * @param singleLogoutCertificate x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
          * 
          * @return builder
          * 

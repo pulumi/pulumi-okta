@@ -136,7 +136,11 @@ export class User extends pulumi.CustomResource {
     /**
      * raw JSON containing all custom profile attributes.
      */
-    public readonly customProfileAttributes!: pulumi.Output<string | undefined>;
+    public readonly customProfileAttributes!: pulumi.Output<string>;
+    /**
+     * List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+     */
+    public readonly customProfileAttributesToIgnores!: pulumi.Output<string[] | undefined>;
     /**
      * User profile property.
      */
@@ -213,7 +217,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly nickName!: pulumi.Output<string | undefined>;
     /**
-     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
      * outside the provider. After successful password change this field should be removed and `password` field should be used
      * for further changes.
      */
@@ -231,7 +235,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly passwordHash!: pulumi.Output<outputs.user.UserPasswordHash | undefined>;
     /**
-     * Specifies that a Password Import Inline Hook should be triggered to handle verification 
+     * Specifies that a Password Import Inline Hook should be triggered to handle verification
      * of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
      * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
      * field should not be specified when using Password Import Inline Hook.
@@ -320,6 +324,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["costCenter"] = state ? state.costCenter : undefined;
             resourceInputs["countryCode"] = state ? state.countryCode : undefined;
             resourceInputs["customProfileAttributes"] = state ? state.customProfileAttributes : undefined;
+            resourceInputs["customProfileAttributesToIgnores"] = state ? state.customProfileAttributesToIgnores : undefined;
             resourceInputs["department"] = state ? state.department : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["division"] = state ? state.division : undefined;
@@ -378,6 +383,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["costCenter"] = args ? args.costCenter : undefined;
             resourceInputs["countryCode"] = args ? args.countryCode : undefined;
             resourceInputs["customProfileAttributes"] = args ? args.customProfileAttributes : undefined;
+            resourceInputs["customProfileAttributesToIgnores"] = args ? args.customProfileAttributesToIgnores : undefined;
             resourceInputs["department"] = args ? args.department : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["division"] = args ? args.division : undefined;
@@ -451,6 +457,10 @@ export interface UserState {
      * raw JSON containing all custom profile attributes.
      */
     customProfileAttributes?: pulumi.Input<string>;
+    /**
+     * List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+     */
+    customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User profile property.
      */
@@ -527,7 +537,7 @@ export interface UserState {
      */
     nickName?: pulumi.Input<string>;
     /**
-     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
      * outside the provider. After successful password change this field should be removed and `password` field should be used
      * for further changes.
      */
@@ -545,7 +555,7 @@ export interface UserState {
      */
     passwordHash?: pulumi.Input<inputs.user.UserPasswordHash>;
     /**
-     * Specifies that a Password Import Inline Hook should be triggered to handle verification 
+     * Specifies that a Password Import Inline Hook should be triggered to handle verification
      * of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
      * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
      * field should not be specified when using Password Import Inline Hook.
@@ -644,6 +654,10 @@ export interface UserArgs {
      */
     customProfileAttributes?: pulumi.Input<string>;
     /**
+     * List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+     */
+    customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * User profile property.
      */
     department?: pulumi.Input<string>;
@@ -719,7 +733,7 @@ export interface UserArgs {
      */
     nickName?: pulumi.Input<string>;
     /**
-     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
      * outside the provider. After successful password change this field should be removed and `password` field should be used
      * for further changes.
      */
@@ -737,7 +751,7 @@ export interface UserArgs {
      */
     passwordHash?: pulumi.Input<inputs.user.UserPasswordHash>;
     /**
-     * Specifies that a Password Import Inline Hook should be triggered to handle verification 
+     * Specifies that a Password Import Inline Hook should be triggered to handle verification
      * of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
      * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
      * field should not be specified when using Password Import Inline Hook.

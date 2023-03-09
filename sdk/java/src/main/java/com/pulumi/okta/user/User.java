@@ -204,14 +204,28 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="customProfileAttributes", type=String.class, parameters={})
-    private Output</* @Nullable */ String> customProfileAttributes;
+    private Output<String> customProfileAttributes;
 
     /**
      * @return raw JSON containing all custom profile attributes.
      * 
      */
-    public Output<Optional<String>> customProfileAttributes() {
-        return Codegen.optional(this.customProfileAttributes);
+    public Output<String> customProfileAttributes() {
+        return this.customProfileAttributes;
+    }
+    /**
+     * List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+     * 
+     */
+    @Export(name="customProfileAttributesToIgnores", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> customProfileAttributesToIgnores;
+
+    /**
+     * @return List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+     * 
+     */
+    public Output<Optional<List<String>>> customProfileAttributesToIgnores() {
+        return Codegen.optional(this.customProfileAttributesToIgnores);
     }
     /**
      * User profile property.

@@ -48,6 +48,7 @@ class SamlArgs:
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
                  response_signed: Optional[pulumi.Input[bool]] = None,
+                 saml_signed_request_enabled: Optional[pulumi.Input[bool]] = None,
                  saml_version: Optional[pulumi.Input[str]] = None,
                  signature_algorithm: Optional[pulumi.Input[str]] = None,
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
@@ -95,15 +96,14 @@ class SamlArgs:
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  
-               If not provided the following arguments are required:
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
+        :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
         :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-               Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
@@ -185,6 +185,8 @@ class SamlArgs:
             pulumi.set(__self__, "request_compressed", request_compressed)
         if response_signed is not None:
             pulumi.set(__self__, "response_signed", response_signed)
+        if saml_signed_request_enabled is not None:
+            pulumi.set(__self__, "saml_signed_request_enabled", saml_signed_request_enabled)
         if saml_version is not None:
             pulumi.set(__self__, "saml_version", saml_version)
         if signature_algorithm is not None:
@@ -563,8 +565,7 @@ class SamlArgs:
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> Optional[pulumi.Input[str]]:
         """
-        name of application from the Okta Integration Network, if not included a custom app will be created.  
-        If not provided the following arguments are required:
+        name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -609,6 +610,18 @@ class SamlArgs:
         pulumi.set(self, "response_signed", value)
 
     @property
+    @pulumi.getter(name="samlSignedRequestEnabled")
+    def saml_signed_request_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        SAML Signed Request enabled
+        """
+        return pulumi.get(self, "saml_signed_request_enabled")
+
+    @saml_signed_request_enabled.setter
+    def saml_signed_request_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "saml_signed_request_enabled", value)
+
+    @property
     @pulumi.getter(name="samlVersion")
     def saml_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -636,8 +649,7 @@ class SamlArgs:
     @pulumi.getter(name="singleLogoutCertificate")
     def single_logout_certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-        Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         """
         return pulumi.get(self, "single_logout_certificate")
 
@@ -862,6 +874,7 @@ class _SamlState:
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
                  response_signed: Optional[pulumi.Input[bool]] = None,
+                 saml_signed_request_enabled: Optional[pulumi.Input[bool]] = None,
                  saml_version: Optional[pulumi.Input[str]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
                  signature_algorithm: Optional[pulumi.Input[str]] = None,
@@ -923,16 +936,15 @@ class _SamlState:
         :param pulumi.Input[str] metadata: The raw SAML metadata in XML.
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL.
         :param pulumi.Input[str] name: The name of the attribute statement.
-        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  
-               If not provided the following arguments are required:
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
+        :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
         :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-               Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
@@ -1041,6 +1053,8 @@ class _SamlState:
             pulumi.set(__self__, "request_compressed", request_compressed)
         if response_signed is not None:
             pulumi.set(__self__, "response_signed", response_signed)
+        if saml_signed_request_enabled is not None:
+            pulumi.set(__self__, "saml_signed_request_enabled", saml_signed_request_enabled)
         if saml_version is not None:
             pulumi.set(__self__, "saml_version", saml_version)
         if sign_on_mode is not None:
@@ -1577,8 +1591,7 @@ class _SamlState:
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> Optional[pulumi.Input[str]]:
         """
-        name of application from the Okta Integration Network, if not included a custom app will be created.  
-        If not provided the following arguments are required:
+        name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -1623,6 +1636,18 @@ class _SamlState:
         pulumi.set(self, "response_signed", value)
 
     @property
+    @pulumi.getter(name="samlSignedRequestEnabled")
+    def saml_signed_request_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        SAML Signed Request enabled
+        """
+        return pulumi.get(self, "saml_signed_request_enabled")
+
+    @saml_signed_request_enabled.setter
+    def saml_signed_request_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "saml_signed_request_enabled", value)
+
+    @property
     @pulumi.getter(name="samlVersion")
     def saml_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1662,8 +1687,7 @@ class _SamlState:
     @pulumi.getter(name="singleLogoutCertificate")
     def single_logout_certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-        Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         """
         return pulumi.get(self, "single_logout_certificate")
 
@@ -1877,6 +1901,7 @@ class Saml(pulumi.CustomResource):
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
                  response_signed: Optional[pulumi.Input[bool]] = None,
+                 saml_signed_request_enabled: Optional[pulumi.Input[bool]] = None,
                  saml_version: Optional[pulumi.Input[str]] = None,
                  signature_algorithm: Optional[pulumi.Input[str]] = None,
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
@@ -2090,15 +2115,14 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
         :param pulumi.Input[str] label: label of application.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  
-               If not provided the following arguments are required:
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
+        :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
         :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-               Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
@@ -2332,6 +2356,7 @@ class Saml(pulumi.CustomResource):
                  recipient: Optional[pulumi.Input[str]] = None,
                  request_compressed: Optional[pulumi.Input[bool]] = None,
                  response_signed: Optional[pulumi.Input[bool]] = None,
+                 saml_signed_request_enabled: Optional[pulumi.Input[bool]] = None,
                  saml_version: Optional[pulumi.Input[str]] = None,
                  signature_algorithm: Optional[pulumi.Input[str]] = None,
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
@@ -2395,6 +2420,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["recipient"] = recipient
             __props__.__dict__["request_compressed"] = request_compressed
             __props__.__dict__["response_signed"] = response_signed
+            __props__.__dict__["saml_signed_request_enabled"] = saml_signed_request_enabled
             __props__.__dict__["saml_version"] = saml_version
             __props__.__dict__["signature_algorithm"] = signature_algorithm
             __props__.__dict__["single_logout_certificate"] = single_logout_certificate
@@ -2484,6 +2510,7 @@ class Saml(pulumi.CustomResource):
             recipient: Optional[pulumi.Input[str]] = None,
             request_compressed: Optional[pulumi.Input[bool]] = None,
             response_signed: Optional[pulumi.Input[bool]] = None,
+            saml_signed_request_enabled: Optional[pulumi.Input[bool]] = None,
             saml_version: Optional[pulumi.Input[str]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
             signature_algorithm: Optional[pulumi.Input[str]] = None,
@@ -2550,16 +2577,15 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] metadata: The raw SAML metadata in XML.
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL.
         :param pulumi.Input[str] name: The name of the attribute statement.
-        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  
-               If not provided the following arguments are required:
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
+        :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
         :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
         :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-               Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
         :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
@@ -2624,6 +2650,7 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["recipient"] = recipient
         __props__.__dict__["request_compressed"] = request_compressed
         __props__.__dict__["response_signed"] = response_signed
+        __props__.__dict__["saml_signed_request_enabled"] = saml_signed_request_enabled
         __props__.__dict__["saml_version"] = saml_version
         __props__.__dict__["sign_on_mode"] = sign_on_mode
         __props__.__dict__["signature_algorithm"] = signature_algorithm
@@ -2976,8 +3003,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> pulumi.Output[Optional[str]]:
         """
-        name of application from the Okta Integration Network, if not included a custom app will be created.  
-        If not provided the following arguments are required:
+        name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -3004,6 +3030,14 @@ class Saml(pulumi.CustomResource):
         Determines whether the SAML auth response message is digitally signed.
         """
         return pulumi.get(self, "response_signed")
+
+    @property
+    @pulumi.getter(name="samlSignedRequestEnabled")
+    def saml_signed_request_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        SAML Signed Request enabled
+        """
+        return pulumi.get(self, "saml_signed_request_enabled")
 
     @property
     @pulumi.getter(name="samlVersion")
@@ -3033,8 +3067,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="singleLogoutCertificate")
     def single_logout_certificate(self) -> pulumi.Output[Optional[str]]:
         """
-        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-        Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         """
         return pulumi.get(self, "single_logout_certificate")
 

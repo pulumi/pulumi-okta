@@ -133,7 +133,13 @@ namespace Pulumi.Okta.User
         /// raw JSON containing all custom profile attributes.
         /// </summary>
         [Output("customProfileAttributes")]
-        public Output<string?> CustomProfileAttributes { get; private set; } = null!;
+        public Output<string> CustomProfileAttributes { get; private set; } = null!;
+
+        /// <summary>
+        /// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+        /// </summary>
+        [Output("customProfileAttributesToIgnores")]
+        public Output<ImmutableArray<string>> CustomProfileAttributesToIgnores { get; private set; } = null!;
 
         /// <summary>
         /// User profile property.
@@ -245,7 +251,7 @@ namespace Pulumi.Okta.User
         public Output<string?> NickName { get; private set; } = null!;
 
         /// <summary>
-        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
         /// outside the provider. After successful password change this field should be removed and `password` field should be used
         /// for further changes.
         /// </summary>
@@ -271,7 +277,7 @@ namespace Pulumi.Okta.User
         public Output<Outputs.UserPasswordHash?> PasswordHash { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        /// Specifies that a Password Import Inline Hook should be triggered to handle verification
         /// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
         /// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
         /// field should not be specified when using Password Import Inline Hook.
@@ -464,6 +470,18 @@ namespace Pulumi.Okta.User
         [Input("customProfileAttributes")]
         public Input<string>? CustomProfileAttributes { get; set; }
 
+        [Input("customProfileAttributesToIgnores")]
+        private InputList<string>? _customProfileAttributesToIgnores;
+
+        /// <summary>
+        /// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+        /// </summary>
+        public InputList<string> CustomProfileAttributesToIgnores
+        {
+            get => _customProfileAttributesToIgnores ?? (_customProfileAttributesToIgnores = new InputList<string>());
+            set => _customProfileAttributesToIgnores = value;
+        }
+
         /// <summary>
         /// User profile property.
         /// </summary>
@@ -584,7 +602,7 @@ namespace Pulumi.Okta.User
         private Input<string>? _oldPassword;
 
         /// <summary>
-        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
         /// outside the provider. After successful password change this field should be removed and `password` field should be used
         /// for further changes.
         /// </summary>
@@ -627,7 +645,7 @@ namespace Pulumi.Okta.User
         public Input<Inputs.UserPasswordHashArgs>? PasswordHash { get; set; }
 
         /// <summary>
-        /// Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        /// Specifies that a Password Import Inline Hook should be triggered to handle verification
         /// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
         /// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
         /// field should not be specified when using Password Import Inline Hook.
@@ -780,6 +798,18 @@ namespace Pulumi.Okta.User
         [Input("customProfileAttributes")]
         public Input<string>? CustomProfileAttributes { get; set; }
 
+        [Input("customProfileAttributesToIgnores")]
+        private InputList<string>? _customProfileAttributesToIgnores;
+
+        /// <summary>
+        /// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+        /// </summary>
+        public InputList<string> CustomProfileAttributesToIgnores
+        {
+            get => _customProfileAttributesToIgnores ?? (_customProfileAttributesToIgnores = new InputList<string>());
+            set => _customProfileAttributesToIgnores = value;
+        }
+
         /// <summary>
         /// User profile property.
         /// </summary>
@@ -900,7 +930,7 @@ namespace Pulumi.Okta.User
         private Input<string>? _oldPassword;
 
         /// <summary>
-        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
         /// outside the provider. After successful password change this field should be removed and `password` field should be used
         /// for further changes.
         /// </summary>
@@ -943,7 +973,7 @@ namespace Pulumi.Okta.User
         public Input<Inputs.UserPasswordHashGetArgs>? PasswordHash { get; set; }
 
         /// <summary>
-        /// Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        /// Specifies that a Password Import Inline Hook should be triggered to handle verification
         /// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
         /// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
         /// field should not be specified when using Password Import Inline Hook.

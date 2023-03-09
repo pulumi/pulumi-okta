@@ -102,6 +102,21 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+     * 
+     */
+    @Import(name="customProfileAttributesToIgnores")
+    private @Nullable Output<List<String>> customProfileAttributesToIgnores;
+
+    /**
+     * @return List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+     * 
+     */
+    public Optional<Output<List<String>>> customProfileAttributesToIgnores() {
+        return Optional.ofNullable(this.customProfileAttributesToIgnores);
+    }
+
+    /**
      * User profile property.
      * 
      */
@@ -699,6 +714,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         this.costCenter = $.costCenter;
         this.countryCode = $.countryCode;
         this.customProfileAttributes = $.customProfileAttributes;
+        this.customProfileAttributesToIgnores = $.customProfileAttributesToIgnores;
         this.department = $.department;
         this.displayName = $.displayName;
         this.division = $.division;
@@ -882,6 +898,37 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customProfileAttributes(String customProfileAttributes) {
             return customProfileAttributes(Output.of(customProfileAttributes));
+        }
+
+        /**
+         * @param customProfileAttributesToIgnores List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customProfileAttributesToIgnores(@Nullable Output<List<String>> customProfileAttributesToIgnores) {
+            $.customProfileAttributesToIgnores = customProfileAttributesToIgnores;
+            return this;
+        }
+
+        /**
+         * @param customProfileAttributesToIgnores List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customProfileAttributesToIgnores(List<String> customProfileAttributesToIgnores) {
+            return customProfileAttributesToIgnores(Output.of(customProfileAttributesToIgnores));
+        }
+
+        /**
+         * @param customProfileAttributesToIgnores List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customProfileAttributesToIgnores(String... customProfileAttributesToIgnores) {
+            return customProfileAttributesToIgnores(List.of(customProfileAttributesToIgnores));
         }
 
         /**

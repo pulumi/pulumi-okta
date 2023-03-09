@@ -22,7 +22,7 @@ class GetSamlResult:
     """
     A collection of values returned by getSaml.
     """
-    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, inline_hook_id=None, key_id=None, label=None, label_prefix=None, links=None, name=None, recipient=None, request_compressed=None, response_signed=None, signature_algorithm=None, single_logout_certificate=None, single_logout_issuer=None, single_logout_url=None, skip_groups=None, skip_users=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_push_status=None, user_name_template_suffix=None, user_name_template_type=None, users=None):
+    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, inline_hook_id=None, key_id=None, label=None, label_prefix=None, links=None, name=None, recipient=None, request_compressed=None, response_signed=None, saml_signed_request_enabled=None, signature_algorithm=None, single_logout_certificate=None, single_logout_issuer=None, single_logout_url=None, skip_groups=None, skip_users=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_push_status=None, user_name_template_suffix=None, user_name_template_type=None, users=None):
         if accessibility_error_redirect_url and not isinstance(accessibility_error_redirect_url, str):
             raise TypeError("Expected argument 'accessibility_error_redirect_url' to be a str")
         pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -117,6 +117,9 @@ class GetSamlResult:
         if response_signed and not isinstance(response_signed, bool):
             raise TypeError("Expected argument 'response_signed' to be a bool")
         pulumi.set(__self__, "response_signed", response_signed)
+        if saml_signed_request_enabled and not isinstance(saml_signed_request_enabled, bool):
+            raise TypeError("Expected argument 'saml_signed_request_enabled' to be a bool")
+        pulumi.set(__self__, "saml_signed_request_enabled", saml_signed_request_enabled)
         if signature_algorithm and not isinstance(signature_algorithm, str):
             raise TypeError("Expected argument 'signature_algorithm' to be a str")
         pulumi.set(__self__, "signature_algorithm", signature_algorithm)
@@ -243,8 +246,7 @@ class GetSamlResult:
     @pulumi.getter(name="authnContextClassRef")
     def authn_context_class_ref(self) -> str:
         """
-        Identifies the SAML authentication context class for the assertion’s authentication
-        statement.
+        Identifies the SAML authentication context class for the assertion’s authentication statement.
         """
         return pulumi.get(self, "authn_context_class_ref")
 
@@ -377,7 +379,7 @@ class GetSamlResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the attribute statement.
+        name of application.
         """
         return pulumi.get(self, "name")
 
@@ -404,6 +406,14 @@ class GetSamlResult:
         Determines whether the SAML auth response message is digitally signed.
         """
         return pulumi.get(self, "response_signed")
+
+    @property
+    @pulumi.getter(name="samlSignedRequestEnabled")
+    def saml_signed_request_enabled(self) -> bool:
+        """
+        SAML Signed Request enabled
+        """
+        return pulumi.get(self, "saml_signed_request_enabled")
 
     @property
     @pulumi.getter(name="signatureAlgorithm")
@@ -564,6 +574,7 @@ class AwaitableGetSamlResult(GetSamlResult):
             recipient=self.recipient,
             request_compressed=self.request_compressed,
             response_signed=self.response_signed,
+            saml_signed_request_enabled=self.saml_signed_request_enabled,
             signature_algorithm=self.signature_algorithm,
             single_logout_certificate=self.single_logout_certificate,
             single_logout_issuer=self.single_logout_issuer,
@@ -656,6 +667,7 @@ def get_saml(active_only: Optional[bool] = None,
         recipient=__ret__.recipient,
         request_compressed=__ret__.request_compressed,
         response_signed=__ret__.response_signed,
+        saml_signed_request_enabled=__ret__.saml_signed_request_enabled,
         signature_algorithm=__ret__.signature_algorithm,
         single_logout_certificate=__ret__.single_logout_certificate,
         single_logout_issuer=__ret__.single_logout_issuer,

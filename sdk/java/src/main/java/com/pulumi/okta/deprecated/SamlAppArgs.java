@@ -501,6 +501,21 @@ public final class SamlAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * SAML Signed Request enabled
+     * 
+     */
+    @Import(name="samlSignedRequestEnabled")
+    private @Nullable Output<Boolean> samlSignedRequestEnabled;
+
+    /**
+     * @return SAML Signed Request enabled
+     * 
+     */
+    public Optional<Output<Boolean>> samlSignedRequestEnabled() {
+        return Optional.ofNullable(this.samlSignedRequestEnabled);
+    }
+
+    /**
      * SAML version for the app&#39;s sign-on mode
      * 
      */
@@ -798,6 +813,7 @@ public final class SamlAppArgs extends com.pulumi.resources.ResourceArgs {
         this.recipient = $.recipient;
         this.requestCompressed = $.requestCompressed;
         this.responseSigned = $.responseSigned;
+        this.samlSignedRequestEnabled = $.samlSignedRequestEnabled;
         this.samlVersion = $.samlVersion;
         this.signatureAlgorithm = $.signatureAlgorithm;
         this.singleLogoutCertificate = $.singleLogoutCertificate;
@@ -1529,6 +1545,27 @@ public final class SamlAppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder responseSigned(Boolean responseSigned) {
             return responseSigned(Output.of(responseSigned));
+        }
+
+        /**
+         * @param samlSignedRequestEnabled SAML Signed Request enabled
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlSignedRequestEnabled(@Nullable Output<Boolean> samlSignedRequestEnabled) {
+            $.samlSignedRequestEnabled = samlSignedRequestEnabled;
+            return this;
+        }
+
+        /**
+         * @param samlSignedRequestEnabled SAML Signed Request enabled
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlSignedRequestEnabled(Boolean samlSignedRequestEnabled) {
+            return samlSignedRequestEnabled(Output.of(samlSignedRequestEnabled));
         }
 
         /**
