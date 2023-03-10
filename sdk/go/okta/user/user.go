@@ -136,7 +136,9 @@ type User struct {
 	// User profile property.
 	CountryCode pulumi.StringPtrOutput `pulumi:"countryCode"`
 	// raw JSON containing all custom profile attributes.
-	CustomProfileAttributes pulumi.StringPtrOutput `pulumi:"customProfileAttributes"`
+	CustomProfileAttributes pulumi.StringOutput `pulumi:"customProfileAttributes"`
+	// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+	CustomProfileAttributesToIgnores pulumi.StringArrayOutput `pulumi:"customProfileAttributesToIgnores"`
 	// User profile property.
 	Department pulumi.StringPtrOutput `pulumi:"department"`
 	// User profile property.
@@ -293,6 +295,8 @@ type userState struct {
 	CountryCode *string `pulumi:"countryCode"`
 	// raw JSON containing all custom profile attributes.
 	CustomProfileAttributes *string `pulumi:"customProfileAttributes"`
+	// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+	CustomProfileAttributesToIgnores []string `pulumi:"customProfileAttributesToIgnores"`
 	// User profile property.
 	Department *string `pulumi:"department"`
 	// User profile property.
@@ -394,6 +398,8 @@ type UserState struct {
 	CountryCode pulumi.StringPtrInput
 	// raw JSON containing all custom profile attributes.
 	CustomProfileAttributes pulumi.StringPtrInput
+	// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+	CustomProfileAttributesToIgnores pulumi.StringArrayInput
 	// User profile property.
 	Department pulumi.StringPtrInput
 	// User profile property.
@@ -499,6 +505,8 @@ type userArgs struct {
 	CountryCode *string `pulumi:"countryCode"`
 	// raw JSON containing all custom profile attributes.
 	CustomProfileAttributes *string `pulumi:"customProfileAttributes"`
+	// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+	CustomProfileAttributesToIgnores []string `pulumi:"customProfileAttributesToIgnores"`
 	// User profile property.
 	Department *string `pulumi:"department"`
 	// User profile property.
@@ -599,6 +607,8 @@ type UserArgs struct {
 	CountryCode pulumi.StringPtrInput
 	// raw JSON containing all custom profile attributes.
 	CustomProfileAttributes pulumi.StringPtrInput
+	// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+	CustomProfileAttributesToIgnores pulumi.StringArrayInput
 	// User profile property.
 	Department pulumi.StringPtrInput
 	// User profile property.
@@ -795,8 +805,13 @@ func (o UserOutput) CountryCode() pulumi.StringPtrOutput {
 }
 
 // raw JSON containing all custom profile attributes.
-func (o UserOutput) CustomProfileAttributes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.CustomProfileAttributes }).(pulumi.StringPtrOutput)
+func (o UserOutput) CustomProfileAttributes() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.CustomProfileAttributes }).(pulumi.StringOutput)
+}
+
+// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+func (o UserOutput) CustomProfileAttributesToIgnores() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.CustomProfileAttributesToIgnores }).(pulumi.StringArrayOutput)
 }
 
 // User profile property.

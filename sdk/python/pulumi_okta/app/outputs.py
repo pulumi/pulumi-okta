@@ -782,7 +782,7 @@ class GetSamlAttributeStatementResult(dict):
         """
         :param str filter_type: Type of group attribute filter.
         :param str filter_value: Filter value to use.
-        :param str name: The name of the attribute statement.
+        :param str name: name of application.
         :param str namespace: The attribute namespace.
         :param str type: The type of attribute statement value.
         :param Sequence[str] values: Array of values to use.
@@ -814,7 +814,7 @@ class GetSamlAttributeStatementResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the attribute statement.
+        name of application.
         """
         return pulumi.get(self, "name")
 

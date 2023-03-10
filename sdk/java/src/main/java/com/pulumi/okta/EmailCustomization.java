@@ -38,6 +38,14 @@ import javax.annotation.Nullable;
  * `is_default` is `true`.  Likewise reset will be called for a delete when there
  * is a `delete` value in `force_is_default` and `is_default` is `true`.
  * 
+ * ## Import
+ * 
+ * An email customization can be imported using the customization ID, brand ID and template name.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/emailCustomization:EmailCustomization example &amp;#60;customization_id&amp;#62;/&amp;#60;brand_id&amp;#62;/&amp;#60;template_name&amp;#62;
+ * ```
+ * 
  */
 @ResourceType(type="okta:index/emailCustomization:EmailCustomization")
 public class EmailCustomization extends com.pulumi.resources.CustomResource {

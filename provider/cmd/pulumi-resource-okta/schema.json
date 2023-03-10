@@ -912,7 +912,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the attribute statement.\n",
+                    "description": "name of application.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -3303,7 +3303,7 @@
                 },
                 "salt": {
                     "type": "string",
-                    "description": "Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate \nthe hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.\n",
+                    "description": "Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate\nthe hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -3321,7 +3321,7 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used). \nThis is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing\nthe salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be\nthe Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.\n",
+                    "description": "For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).\nThis is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing\nthe salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be\nthe Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -6076,7 +6076,7 @@
                 },
                 "preconfiguredApp": {
                     "type": "string",
-                    "description": "name of application from the Okta Integration Network, if not included a custom app will be created.  \nIf not provided the following arguments are required:\n"
+                    "description": "name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:\n"
                 },
                 "recipient": {
                     "type": "string",
@@ -6089,6 +6089,10 @@
                 "responseSigned": {
                     "type": "boolean",
                     "description": "Determines whether the SAML auth response message is digitally signed.\n"
+                },
+                "samlSignedRequestEnabled": {
+                    "type": "boolean",
+                    "description": "SAML Signed Request enabled\n"
                 },
                 "samlVersion": {
                     "type": "string",
@@ -6104,7 +6108,7 @@
                 },
                 "singleLogoutCertificate": {
                     "type": "string",
-                    "description": "x509 encoded certificate that the Service Provider uses to sign Single Logout requests.\nNote: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).\n"
+                    "description": "x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).\n"
                 },
                 "singleLogoutIssuer": {
                     "type": "string",
@@ -6309,7 +6313,7 @@
                 },
                 "preconfiguredApp": {
                     "type": "string",
-                    "description": "name of application from the Okta Integration Network, if not included a custom app will be created.  \nIf not provided the following arguments are required:\n",
+                    "description": "name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:\n",
                     "willReplaceOnChanges": true
                 },
                 "recipient": {
@@ -6324,6 +6328,10 @@
                     "type": "boolean",
                     "description": "Determines whether the SAML auth response message is digitally signed.\n"
                 },
+                "samlSignedRequestEnabled": {
+                    "type": "boolean",
+                    "description": "SAML Signed Request enabled\n"
+                },
                 "samlVersion": {
                     "type": "string",
                     "description": "SAML version for the app's sign-on mode. Valid values are: `\"2.0\"` or `\"1.1\"`. Default is `\"2.0\"`.\n"
@@ -6334,7 +6342,7 @@
                 },
                 "singleLogoutCertificate": {
                     "type": "string",
-                    "description": "x509 encoded certificate that the Service Provider uses to sign Single Logout requests.\nNote: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).\n"
+                    "description": "x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).\n"
                 },
                 "singleLogoutIssuer": {
                     "type": "string",
@@ -6585,7 +6593,7 @@
                     },
                     "preconfiguredApp": {
                         "type": "string",
-                        "description": "name of application from the Okta Integration Network, if not included a custom app will be created.  \nIf not provided the following arguments are required:\n",
+                        "description": "name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:\n",
                         "willReplaceOnChanges": true
                     },
                     "recipient": {
@@ -6599,6 +6607,10 @@
                     "responseSigned": {
                         "type": "boolean",
                         "description": "Determines whether the SAML auth response message is digitally signed.\n"
+                    },
+                    "samlSignedRequestEnabled": {
+                        "type": "boolean",
+                        "description": "SAML Signed Request enabled\n"
                     },
                     "samlVersion": {
                         "type": "string",
@@ -6614,7 +6626,7 @@
                     },
                     "singleLogoutCertificate": {
                         "type": "string",
-                        "description": "x509 encoded certificate that the Service Provider uses to sign Single Logout requests.\nNote: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).\n"
+                        "description": "x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).\n"
                     },
                     "singleLogoutIssuer": {
                         "type": "string",
@@ -13000,6 +13012,10 @@
                     "type": "boolean",
                     "description": "Determines whether the SAML auth response message is digitally signed\n"
                 },
+                "samlSignedRequestEnabled": {
+                    "type": "boolean",
+                    "description": "SAML Signed Request enabled\n"
+                },
                 "samlVersion": {
                     "type": "string",
                     "description": "SAML version for the app's sign-on mode\n"
@@ -13232,6 +13248,10 @@
                 "responseSigned": {
                     "type": "boolean",
                     "description": "Determines whether the SAML auth response message is digitally signed\n"
+                },
+                "samlSignedRequestEnabled": {
+                    "type": "boolean",
+                    "description": "SAML Signed Request enabled\n"
                 },
                 "samlVersion": {
                     "type": "string",
@@ -13507,6 +13527,10 @@
                     "responseSigned": {
                         "type": "boolean",
                         "description": "Determines whether the SAML auth response message is digitally signed\n"
+                    },
+                    "samlSignedRequestEnabled": {
+                        "type": "boolean",
+                        "description": "SAML Signed Request enabled\n"
                     },
                     "samlVersion": {
                         "type": "string",
@@ -20795,7 +20819,7 @@
             }
         },
         "okta:index/emailCustomization:EmailCustomization": {
-            "description": "Use this resource to create an [email\ncustomization](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)\nof an email template belonging to a brand in an Okta organization.\n\n\u003e Okta's public API is strict regarding the behavior of the `is_default`\nproperty in [an email\ncustomization](https://developer.okta.com/docs/reference/api/brands/#email-customization).\nWhen a customization is\n[created](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)\nit can not be created with an `is_default` value of `true` if there is already a\ndefault customization. If an email customization is the last of the template\ntype it can not be\n[deleted](https://developer.okta.com/docs/reference/api/brands/#delete-email-customization).\nAnd the `is_default` value can't be set to false when updating the last\nremaining customization. **To allow this resource to be more flexible** set the\n`force_is_default` property to `create`, `destroy`, or `create,destroy`. This\nwill cause all the customizations to be\n[reset/deleted](https://developer.okta.com/docs/reference/api/brands/#delete-all-email-customizations)\nfor a create when there is a `create` value in `force_is_default` and\n`is_default` is `true`.  Likewise reset will be called for a delete when there\nis a `delete` value in `force_is_default` and `is_default` is `true`.\n",
+            "description": "Use this resource to create an [email\ncustomization](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)\nof an email template belonging to a brand in an Okta organization.\n\n\u003e Okta's public API is strict regarding the behavior of the `is_default`\nproperty in [an email\ncustomization](https://developer.okta.com/docs/reference/api/brands/#email-customization).\nWhen a customization is\n[created](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)\nit can not be created with an `is_default` value of `true` if there is already a\ndefault customization. If an email customization is the last of the template\ntype it can not be\n[deleted](https://developer.okta.com/docs/reference/api/brands/#delete-email-customization).\nAnd the `is_default` value can't be set to false when updating the last\nremaining customization. **To allow this resource to be more flexible** set the\n`force_is_default` property to `create`, `destroy`, or `create,destroy`. This\nwill cause all the customizations to be\n[reset/deleted](https://developer.okta.com/docs/reference/api/brands/#delete-all-email-customizations)\nfor a create when there is a `create` value in `force_is_default` and\n`is_default` is `true`.  Likewise reset will be called for a delete when there\nis a `delete` value in `force_is_default` and `is_default` is `true`.\n\n\n## Import\n\nAn email customization can be imported using the customization ID, brand ID and template name.\n\n```sh\n $ pulumi import okta:index/emailCustomization:EmailCustomization example \u0026#60;customization_id\u0026#62;/\u0026#60;brand_id\u0026#62;/\u0026#60;template_name\u0026#62;\n```\n\n ",
             "properties": {
                 "body": {
                     "type": "string",
@@ -24151,7 +24175,7 @@
             }
         },
         "okta:index/userSchemaProperty:UserSchemaProperty": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.UserSchemaProperty(\"example\", {\n    description: \"My custom property name\",\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    scope: \"SELF\",\n    title: \"customPropertyName\",\n    type: \"string\",\n    userType: data.okta_user_type.example.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.UserSchemaProperty(\"example\",\n    description=\"My custom property name\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    scope=\"SELF\",\n    title=\"customPropertyName\",\n    type=\"string\",\n    user_type=data[\"okta_user_type\"][\"example\"][\"id\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.UserSchemaProperty(\"example\", new()\n    {\n        Description = \"My custom property name\",\n        Index = \"customPropertyName\",\n        Master = \"OKTA\",\n        Scope = \"SELF\",\n        Title = \"customPropertyName\",\n        Type = \"string\",\n        UserType = data.Okta_user_type.Example.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewUserSchemaProperty(ctx, \"example\", \u0026okta.UserSchemaPropertyArgs{\n\t\t\tDescription: pulumi.String(\"My custom property name\"),\n\t\t\tIndex:       pulumi.String(\"customPropertyName\"),\n\t\t\tMaster:      pulumi.String(\"OKTA\"),\n\t\t\tScope:       pulumi.String(\"SELF\"),\n\t\t\tTitle:       pulumi.String(\"customPropertyName\"),\n\t\t\tType:        pulumi.String(\"string\"),\n\t\t\tUserType:    pulumi.Any(data.Okta_user_type.Example.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.UserSchemaProperty;\nimport com.pulumi.okta.UserSchemaPropertyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new UserSchemaProperty(\"example\", UserSchemaPropertyArgs.builder()        \n            .description(\"My custom property name\")\n            .index(\"customPropertyName\")\n            .master(\"OKTA\")\n            .scope(\"SELF\")\n            .title(\"customPropertyName\")\n            .type(\"string\")\n            .userType(data.okta_user_type().example().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:UserSchemaProperty\n    properties:\n      description: My custom property name\n      index: customPropertyName\n      master: OKTA\n      scope: SELF\n      title: customPropertyName\n      type: string\n      userType: ${data.okta_user_type.example.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nUser schema property of default user type can be imported via the property index.\n\n```sh\n $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example \u0026#60;index\u0026#62;\n```\n\n User schema property of custom user type can be imported via user type id and property index\n\n```sh\n $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example \u0026#60;user type id\u0026#62;.\u0026#60;index\u0026#62;\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.UserSchemaProperty(\"example\", {\n    description: \"My custom property name\",\n    index: \"customPropertyName\",\n    master: \"OKTA\",\n    scope: \"SELF\",\n    title: \"customPropertyName\",\n    type: \"string\",\n    userType: data.okta_user_type.example.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.UserSchemaProperty(\"example\",\n    description=\"My custom property name\",\n    index=\"customPropertyName\",\n    master=\"OKTA\",\n    scope=\"SELF\",\n    title=\"customPropertyName\",\n    type=\"string\",\n    user_type=data[\"okta_user_type\"][\"example\"][\"id\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.UserSchemaProperty(\"example\", new()\n    {\n        Description = \"My custom property name\",\n        Index = \"customPropertyName\",\n        Master = \"OKTA\",\n        Scope = \"SELF\",\n        Title = \"customPropertyName\",\n        Type = \"string\",\n        UserType = data.Okta_user_type.Example.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v3/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewUserSchemaProperty(ctx, \"example\", \u0026okta.UserSchemaPropertyArgs{\n\t\t\tDescription: pulumi.String(\"My custom property name\"),\n\t\t\tIndex:       pulumi.String(\"customPropertyName\"),\n\t\t\tMaster:      pulumi.String(\"OKTA\"),\n\t\t\tScope:       pulumi.String(\"SELF\"),\n\t\t\tTitle:       pulumi.String(\"customPropertyName\"),\n\t\t\tType:        pulumi.String(\"string\"),\n\t\t\tUserType:    pulumi.Any(data.Okta_user_type.Example.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.UserSchemaProperty;\nimport com.pulumi.okta.UserSchemaPropertyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new UserSchemaProperty(\"example\", UserSchemaPropertyArgs.builder()        \n            .description(\"My custom property name\")\n            .index(\"customPropertyName\")\n            .master(\"OKTA\")\n            .scope(\"SELF\")\n            .title(\"customPropertyName\")\n            .type(\"string\")\n            .userType(data.okta_user_type().example().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:UserSchemaProperty\n    properties:\n      description: My custom property name\n      index: customPropertyName\n      master: OKTA\n      scope: SELF\n      title: customPropertyName\n      type: string\n      userType: ${data.okta_user_type.example.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nUser schema property of default user type can be imported via the property variableName.\n\n```sh\n $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example \u0026#60;variableName\u0026#62;\n```\n\n User schema property of custom user type can be imported via user type id and property index\n\n```sh\n $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example \u0026#60;user type id\u0026#62;.\u0026#60;index\u0026#62;\n```\n\n ",
             "properties": {
                 "arrayEnums": {
                     "type": "array",
@@ -27601,6 +27625,13 @@
                     "type": "string",
                     "description": "raw JSON containing all custom profile attributes.\n"
                 },
+                "customProfileAttributesToIgnores": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of custom_profile_attribute keys that should be excluded from being managed by Terraform.\n"
+                },
                 "department": {
                     "type": "string",
                     "description": "User profile property.\n"
@@ -27679,7 +27710,7 @@
                 },
                 "oldPassword": {
                     "type": "string",
-                    "description": "Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed \noutside the provider. After successful password change this field should be removed and `password` field should be used\nfor further changes.\n",
+                    "description": "Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed\noutside the provider. After successful password change this field should be removed and `password` field should be used\nfor further changes.\n",
                     "secret": true
                 },
                 "organization": {
@@ -27697,7 +27728,7 @@
                 },
                 "passwordInlineHook": {
                     "type": "string",
-                    "description": "Specifies that a Password Import Inline Hook should be triggered to handle verification \nof the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly\nfrom some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`\nfield should not be specified when using Password Import Inline Hook.\n"
+                    "description": "Specifies that a Password Import Inline Hook should be triggered to handle verification\nof the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly\nfrom some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`\nfield should not be specified when using Password Import Inline Hook.\n"
                 },
                 "postalAddress": {
                     "type": "string",
@@ -27766,6 +27797,7 @@
                 }
             },
             "required": [
+                "customProfileAttributes",
                 "email",
                 "firstName",
                 "lastName",
@@ -27796,6 +27828,13 @@
                 "customProfileAttributes": {
                     "type": "string",
                     "description": "raw JSON containing all custom profile attributes.\n"
+                },
+                "customProfileAttributesToIgnores": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of custom_profile_attribute keys that should be excluded from being managed by Terraform.\n"
                 },
                 "department": {
                     "type": "string",
@@ -27875,7 +27914,7 @@
                 },
                 "oldPassword": {
                     "type": "string",
-                    "description": "Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed \noutside the provider. After successful password change this field should be removed and `password` field should be used\nfor further changes.\n",
+                    "description": "Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed\noutside the provider. After successful password change this field should be removed and `password` field should be used\nfor further changes.\n",
                     "secret": true
                 },
                 "organization": {
@@ -27893,7 +27932,7 @@
                 },
                 "passwordInlineHook": {
                     "type": "string",
-                    "description": "Specifies that a Password Import Inline Hook should be triggered to handle verification \nof the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly\nfrom some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`\nfield should not be specified when using Password Import Inline Hook.\n"
+                    "description": "Specifies that a Password Import Inline Hook should be triggered to handle verification\nof the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly\nfrom some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`\nfield should not be specified when using Password Import Inline Hook.\n"
                 },
                 "postalAddress": {
                     "type": "string",
@@ -27990,6 +28029,13 @@
                         "type": "string",
                         "description": "raw JSON containing all custom profile attributes.\n"
                     },
+                    "customProfileAttributesToIgnores": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of custom_profile_attribute keys that should be excluded from being managed by Terraform.\n"
+                    },
                     "department": {
                         "type": "string",
                         "description": "User profile property.\n"
@@ -28068,7 +28114,7 @@
                     },
                     "oldPassword": {
                         "type": "string",
-                        "description": "Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed \noutside the provider. After successful password change this field should be removed and `password` field should be used\nfor further changes.\n",
+                        "description": "Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed\noutside the provider. After successful password change this field should be removed and `password` field should be used\nfor further changes.\n",
                         "secret": true
                     },
                     "organization": {
@@ -28086,7 +28132,7 @@
                     },
                     "passwordInlineHook": {
                         "type": "string",
-                        "description": "Specifies that a Password Import Inline Hook should be triggered to handle verification \nof the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly\nfrom some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`\nfield should not be specified when using Password Import Inline Hook.\n"
+                        "description": "Specifies that a Password Import Inline Hook should be triggered to handle verification\nof the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly\nfrom some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`\nfield should not be specified when using Password Import Inline Hook.\n"
                     },
                     "postalAddress": {
                         "type": "string",
@@ -28721,7 +28767,7 @@
                     },
                     "authnContextClassRef": {
                         "type": "string",
-                        "description": "Identifies the SAML authentication context class for the assertion’s authentication\nstatement.\n"
+                        "description": "Identifies the SAML authentication context class for the assertion’s authentication statement.\n"
                     },
                     "autoSubmitToolbar": {
                         "type": "boolean",
@@ -28795,7 +28841,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the attribute statement.\n"
+                        "description": "name of application.\n"
                     },
                     "recipient": {
                         "type": "string",
@@ -28808,6 +28854,10 @@
                     "responseSigned": {
                         "type": "boolean",
                         "description": "Determines whether the SAML auth response message is digitally signed.\n"
+                    },
+                    "samlSignedRequestEnabled": {
+                        "type": "boolean",
+                        "description": "SAML Signed Request enabled\n"
                     },
                     "signatureAlgorithm": {
                         "type": "string",
@@ -28903,6 +28953,7 @@
                     "name",
                     "recipient",
                     "responseSigned",
+                    "samlSignedRequestEnabled",
                     "signatureAlgorithm",
                     "singleLogoutCertificate",
                     "singleLogoutIssuer",

@@ -22,7 +22,7 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly string FilterValue;
         /// <summary>
-        /// The name of the attribute statement.
+        /// name of application.
         /// </summary>
         public readonly string Name;
         /// <summary>

@@ -139,11 +139,11 @@ class UserPasswordHashArgs:
                  salt_order: Optional[pulumi.Input[str]] = None,
                  work_factor: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] value: For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used). 
+        :param pulumi.Input[str] value: For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
                This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
                the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
                the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
-        :param pulumi.Input[str] salt: Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate 
+        :param pulumi.Input[str] salt: Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
                the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
         :param pulumi.Input[str] salt_order: Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
         :param pulumi.Input[int] work_factor: Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
@@ -170,7 +170,7 @@ class UserPasswordHashArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used). 
+        For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
         This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
         the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
         the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
@@ -185,7 +185,7 @@ class UserPasswordHashArgs:
     @pulumi.getter
     def salt(self) -> Optional[pulumi.Input[str]]:
         """
-        Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate 
+        Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
         the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
         """
         return pulumi.get(self, "salt")

@@ -21,7 +21,7 @@ public final class GetSamlAttributeStatement {
      */
     private String filterValue;
     /**
-     * @return The name of the attribute statement.
+     * @return name of application.
      * 
      */
     private String name;
@@ -57,7 +57,7 @@ public final class GetSamlAttributeStatement {
         return this.filterValue;
     }
     /**
-     * @return The name of the attribute statement.
+     * @return name of application.
      * 
      */
     public String name() {

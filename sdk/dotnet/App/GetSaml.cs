@@ -211,8 +211,7 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string Audience;
         /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication
-        /// statement.
+        /// Identifies the SAML authentication context class for the assertion’s authentication statement.
         /// </summary>
         public readonly string AuthnContextClassRef;
         /// <summary>
@@ -277,7 +276,7 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string Links;
         /// <summary>
-        /// The name of the attribute statement.
+        /// name of application.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -292,6 +291,10 @@ namespace Pulumi.Okta.App
         /// Determines whether the SAML auth response message is digitally signed.
         /// </summary>
         public readonly bool ResponseSigned;
+        /// <summary>
+        /// SAML Signed Request enabled
+        /// </summary>
+        public readonly bool SamlSignedRequestEnabled;
         /// <summary>
         /// Signature algorithm used ot digitally sign the assertion and response.
         /// </summary>
@@ -413,6 +416,8 @@ namespace Pulumi.Okta.App
 
             bool responseSigned,
 
+            bool samlSignedRequestEnabled,
+
             string signatureAlgorithm,
 
             string singleLogoutCertificate,
@@ -475,6 +480,7 @@ namespace Pulumi.Okta.App
             Recipient = recipient;
             RequestCompressed = requestCompressed;
             ResponseSigned = responseSigned;
+            SamlSignedRequestEnabled = samlSignedRequestEnabled;
             SignatureAlgorithm = signatureAlgorithm;
             SingleLogoutCertificate = singleLogoutCertificate;
             SingleLogoutIssuer = singleLogoutIssuer;

@@ -25,6 +25,7 @@ class UserArgs:
                  cost_center: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
+                 custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  department: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  division: Optional[pulumi.Input[str]] = None,
@@ -70,6 +71,7 @@ class UserArgs:
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_profile_attributes_to_ignores: List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
         :param pulumi.Input[str] department: User profile property.
         :param pulumi.Input[str] display_name: User profile property.
         :param pulumi.Input[str] division: User profile property.
@@ -85,13 +87,13 @@ class UserArgs:
         :param pulumi.Input[str] middle_name: User profile property.
         :param pulumi.Input[str] mobile_phone: User profile property.
         :param pulumi.Input[str] nick_name: User profile property.
-        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
                outside the provider. After successful password change this field should be removed and `password` field should be used
                for further changes.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input['UserPasswordHashArgs'] password_hash: Specifies a hashed password to import into Okta.
-        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification
                of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
                from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
                field should not be specified when using Password Import Inline Hook.
@@ -128,6 +130,8 @@ class UserArgs:
             pulumi.set(__self__, "country_code", country_code)
         if custom_profile_attributes is not None:
             pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
+        if custom_profile_attributes_to_ignores is not None:
+            pulumi.set(__self__, "custom_profile_attributes_to_ignores", custom_profile_attributes_to_ignores)
         if department is not None:
             pulumi.set(__self__, "department", department)
         if display_name is not None:
@@ -309,6 +313,18 @@ class UserArgs:
         pulumi.set(self, "custom_profile_attributes", value)
 
     @property
+    @pulumi.getter(name="customProfileAttributesToIgnores")
+    def custom_profile_attributes_to_ignores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+        """
+        return pulumi.get(self, "custom_profile_attributes_to_ignores")
+
+    @custom_profile_attributes_to_ignores.setter
+    def custom_profile_attributes_to_ignores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_profile_attributes_to_ignores", value)
+
+    @property
     @pulumi.getter
     def department(self) -> Optional[pulumi.Input[str]]:
         """
@@ -481,7 +497,7 @@ class UserArgs:
     @pulumi.getter(name="oldPassword")
     def old_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
         outside the provider. After successful password change this field should be removed and `password` field should be used
         for further changes.
         """
@@ -531,7 +547,7 @@ class UserArgs:
     @pulumi.getter(name="passwordInlineHook")
     def password_inline_hook(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        Specifies that a Password Import Inline Hook should be triggered to handle verification
         of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
         from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
         field should not be specified when using Password Import Inline Hook.
@@ -731,6 +747,7 @@ class _UserState:
                  cost_center: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
+                 custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  department: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  division: Optional[pulumi.Input[str]] = None,
@@ -777,6 +794,7 @@ class _UserState:
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_profile_attributes_to_ignores: List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
         :param pulumi.Input[str] department: User profile property.
         :param pulumi.Input[str] display_name: User profile property.
         :param pulumi.Input[str] division: User profile property.
@@ -796,13 +814,13 @@ class _UserState:
         :param pulumi.Input[str] middle_name: User profile property.
         :param pulumi.Input[str] mobile_phone: User profile property.
         :param pulumi.Input[str] nick_name: User profile property.
-        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
                outside the provider. After successful password change this field should be removed and `password` field should be used
                for further changes.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input['UserPasswordHashArgs'] password_hash: Specifies a hashed password to import into Okta.
-        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification
                of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
                from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
                field should not be specified when using Password Import Inline Hook.
@@ -836,6 +854,8 @@ class _UserState:
             pulumi.set(__self__, "country_code", country_code)
         if custom_profile_attributes is not None:
             pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
+        if custom_profile_attributes_to_ignores is not None:
+            pulumi.set(__self__, "custom_profile_attributes_to_ignores", custom_profile_attributes_to_ignores)
         if department is not None:
             pulumi.set(__self__, "department", department)
         if display_name is not None:
@@ -977,6 +997,18 @@ class _UserState:
     @custom_profile_attributes.setter
     def custom_profile_attributes(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_profile_attributes", value)
+
+    @property
+    @pulumi.getter(name="customProfileAttributesToIgnores")
+    def custom_profile_attributes_to_ignores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+        """
+        return pulumi.get(self, "custom_profile_attributes_to_ignores")
+
+    @custom_profile_attributes_to_ignores.setter
+    def custom_profile_attributes_to_ignores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_profile_attributes_to_ignores", value)
 
     @property
     @pulumi.getter
@@ -1199,7 +1231,7 @@ class _UserState:
     @pulumi.getter(name="oldPassword")
     def old_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
         outside the provider. After successful password change this field should be removed and `password` field should be used
         for further changes.
         """
@@ -1249,7 +1281,7 @@ class _UserState:
     @pulumi.getter(name="passwordInlineHook")
     def password_inline_hook(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        Specifies that a Password Import Inline Hook should be triggered to handle verification
         of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
         from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
         field should not be specified when using Password Import Inline Hook.
@@ -1463,6 +1495,7 @@ class User(pulumi.CustomResource):
                  cost_center: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
+                 custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  department: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  division: Optional[pulumi.Input[str]] = None,
@@ -1588,6 +1621,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_profile_attributes_to_ignores: List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
         :param pulumi.Input[str] department: User profile property.
         :param pulumi.Input[str] display_name: User profile property.
         :param pulumi.Input[str] division: User profile property.
@@ -1607,13 +1641,13 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] middle_name: User profile property.
         :param pulumi.Input[str] mobile_phone: User profile property.
         :param pulumi.Input[str] nick_name: User profile property.
-        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
                outside the provider. After successful password change this field should be removed and `password` field should be used
                for further changes.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
-        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification
                of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
                from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
                field should not be specified when using Password Import Inline Hook.
@@ -1738,6 +1772,7 @@ class User(pulumi.CustomResource):
                  cost_center: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
+                 custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  department: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  division: Optional[pulumi.Input[str]] = None,
@@ -1793,6 +1828,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["cost_center"] = cost_center
             __props__.__dict__["country_code"] = country_code
             __props__.__dict__["custom_profile_attributes"] = custom_profile_attributes
+            __props__.__dict__["custom_profile_attributes_to_ignores"] = custom_profile_attributes_to_ignores
             __props__.__dict__["department"] = department
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["division"] = division
@@ -1860,6 +1896,7 @@ class User(pulumi.CustomResource):
             cost_center: Optional[pulumi.Input[str]] = None,
             country_code: Optional[pulumi.Input[str]] = None,
             custom_profile_attributes: Optional[pulumi.Input[str]] = None,
+            custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             department: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             division: Optional[pulumi.Input[str]] = None,
@@ -1911,6 +1948,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_profile_attributes_to_ignores: List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
         :param pulumi.Input[str] department: User profile property.
         :param pulumi.Input[str] display_name: User profile property.
         :param pulumi.Input[str] division: User profile property.
@@ -1930,13 +1968,13 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] middle_name: User profile property.
         :param pulumi.Input[str] mobile_phone: User profile property.
         :param pulumi.Input[str] nick_name: User profile property.
-        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
                outside the provider. After successful password change this field should be removed and `password` field should be used
                for further changes.
         :param pulumi.Input[str] organization: User profile property.
         :param pulumi.Input[str] password: User password.
         :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
-        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification
                of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
                from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
                field should not be specified when using Password Import Inline Hook.
@@ -1966,6 +2004,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["cost_center"] = cost_center
         __props__.__dict__["country_code"] = country_code
         __props__.__dict__["custom_profile_attributes"] = custom_profile_attributes
+        __props__.__dict__["custom_profile_attributes_to_ignores"] = custom_profile_attributes_to_ignores
         __props__.__dict__["department"] = department
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["division"] = division
@@ -2041,11 +2080,19 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customProfileAttributes")
-    def custom_profile_attributes(self) -> pulumi.Output[Optional[str]]:
+    def custom_profile_attributes(self) -> pulumi.Output[str]:
         """
         raw JSON containing all custom profile attributes.
         """
         return pulumi.get(self, "custom_profile_attributes")
+
+    @property
+    @pulumi.getter(name="customProfileAttributesToIgnores")
+    def custom_profile_attributes_to_ignores(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+        """
+        return pulumi.get(self, "custom_profile_attributes_to_ignores")
 
     @property
     @pulumi.getter
@@ -2196,7 +2243,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="oldPassword")
     def old_password(self) -> pulumi.Output[Optional[str]]:
         """
-        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed 
+        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
         outside the provider. After successful password change this field should be removed and `password` field should be used
         for further changes.
         """
@@ -2230,7 +2277,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="passwordInlineHook")
     def password_inline_hook(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies that a Password Import Inline Hook should be triggered to handle verification 
+        Specifies that a Password Import Inline Hook should be triggered to handle verification
         of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
         from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
         field should not be specified when using Password Import Inline Hook.

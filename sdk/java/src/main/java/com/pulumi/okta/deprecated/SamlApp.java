@@ -655,6 +655,20 @@ public class SamlApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.responseSigned);
     }
     /**
+     * SAML Signed Request enabled
+     * 
+     */
+    @Export(name="samlSignedRequestEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> samlSignedRequestEnabled;
+
+    /**
+     * @return SAML Signed Request enabled
+     * 
+     */
+    public Output<Optional<Boolean>> samlSignedRequestEnabled() {
+        return Codegen.optional(this.samlSignedRequestEnabled);
+    }
+    /**
      * SAML version for the app&#39;s sign-on mode
      * 
      */

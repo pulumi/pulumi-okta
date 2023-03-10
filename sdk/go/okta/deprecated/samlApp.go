@@ -106,6 +106,8 @@ type SamlApp struct {
 	RequestCompressed pulumi.BoolPtrOutput `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed
 	ResponseSigned pulumi.BoolPtrOutput `pulumi:"responseSigned"`
+	// SAML Signed Request enabled
+	SamlSignedRequestEnabled pulumi.BoolPtrOutput `pulumi:"samlSignedRequestEnabled"`
 	// SAML version for the app's sign-on mode
 	SamlVersion pulumi.StringPtrOutput `pulumi:"samlVersion"`
 	// Sign on mode of application.
@@ -269,6 +271,8 @@ type samlAppState struct {
 	RequestCompressed *bool `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed
 	ResponseSigned *bool `pulumi:"responseSigned"`
+	// SAML Signed Request enabled
+	SamlSignedRequestEnabled *bool `pulumi:"samlSignedRequestEnabled"`
 	// SAML version for the app's sign-on mode
 	SamlVersion *string `pulumi:"samlVersion"`
 	// Sign on mode of application.
@@ -401,6 +405,8 @@ type SamlAppState struct {
 	RequestCompressed pulumi.BoolPtrInput
 	// Determines whether the SAML auth response message is digitally signed
 	ResponseSigned pulumi.BoolPtrInput
+	// SAML Signed Request enabled
+	SamlSignedRequestEnabled pulumi.BoolPtrInput
 	// SAML version for the app's sign-on mode
 	SamlVersion pulumi.StringPtrInput
 	// Sign on mode of application.
@@ -511,6 +517,8 @@ type samlAppArgs struct {
 	RequestCompressed *bool `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed
 	ResponseSigned *bool `pulumi:"responseSigned"`
+	// SAML Signed Request enabled
+	SamlSignedRequestEnabled *bool `pulumi:"samlSignedRequestEnabled"`
 	// SAML version for the app's sign-on mode
 	SamlVersion *string `pulumi:"samlVersion"`
 	// Signature algorithm used ot digitally sign the assertion and response
@@ -616,6 +624,8 @@ type SamlAppArgs struct {
 	RequestCompressed pulumi.BoolPtrInput
 	// Determines whether the SAML auth response message is digitally signed
 	ResponseSigned pulumi.BoolPtrInput
+	// SAML Signed Request enabled
+	SamlSignedRequestEnabled pulumi.BoolPtrInput
 	// SAML version for the app's sign-on mode
 	SamlVersion pulumi.StringPtrInput
 	// Signature algorithm used ot digitally sign the assertion and response
@@ -965,6 +975,11 @@ func (o SamlAppOutput) RequestCompressed() pulumi.BoolPtrOutput {
 // Determines whether the SAML auth response message is digitally signed
 func (o SamlAppOutput) ResponseSigned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.ResponseSigned }).(pulumi.BoolPtrOutput)
+}
+
+// SAML Signed Request enabled
+func (o SamlAppOutput) SamlSignedRequestEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SamlApp) pulumi.BoolPtrOutput { return v.SamlSignedRequestEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // SAML version for the app's sign-on mode

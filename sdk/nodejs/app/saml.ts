@@ -372,8 +372,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.  
-     * If not provided the following arguments are required:
+     * name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      */
     public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
     /**
@@ -389,6 +388,10 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly responseSigned!: pulumi.Output<boolean | undefined>;
     /**
+     * SAML Signed Request enabled
+     */
+    public readonly samlSignedRequestEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
      */
     public readonly samlVersion!: pulumi.Output<string | undefined>;
@@ -401,8 +404,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly signatureAlgorithm!: pulumi.Output<string | undefined>;
     /**
-     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-     * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      */
     public readonly singleLogoutCertificate!: pulumi.Output<string | undefined>;
     /**
@@ -522,6 +524,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["recipient"] = state ? state.recipient : undefined;
             resourceInputs["requestCompressed"] = state ? state.requestCompressed : undefined;
             resourceInputs["responseSigned"] = state ? state.responseSigned : undefined;
+            resourceInputs["samlSignedRequestEnabled"] = state ? state.samlSignedRequestEnabled : undefined;
             resourceInputs["samlVersion"] = state ? state.samlVersion : undefined;
             resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
             resourceInputs["signatureAlgorithm"] = state ? state.signatureAlgorithm : undefined;
@@ -577,6 +580,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["recipient"] = args ? args.recipient : undefined;
             resourceInputs["requestCompressed"] = args ? args.requestCompressed : undefined;
             resourceInputs["responseSigned"] = args ? args.responseSigned : undefined;
+            resourceInputs["samlSignedRequestEnabled"] = args ? args.samlSignedRequestEnabled : undefined;
             resourceInputs["samlVersion"] = args ? args.samlVersion : undefined;
             resourceInputs["signatureAlgorithm"] = args ? args.signatureAlgorithm : undefined;
             resourceInputs["singleLogoutCertificate"] = args ? args.singleLogoutCertificate : undefined;
@@ -785,8 +789,7 @@ export interface SamlState {
      */
     name?: pulumi.Input<string>;
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.  
-     * If not provided the following arguments are required:
+     * name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
@@ -802,6 +805,10 @@ export interface SamlState {
      */
     responseSigned?: pulumi.Input<boolean>;
     /**
+     * SAML Signed Request enabled
+     */
+    samlSignedRequestEnabled?: pulumi.Input<boolean>;
+    /**
      * SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
      */
     samlVersion?: pulumi.Input<string>;
@@ -814,8 +821,7 @@ export interface SamlState {
      */
     signatureAlgorithm?: pulumi.Input<string>;
     /**
-     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-     * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      */
     singleLogoutCertificate?: pulumi.Input<string>;
     /**
@@ -997,8 +1003,7 @@ export interface SamlArgs {
      */
     logo?: pulumi.Input<string>;
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.  
-     * If not provided the following arguments are required:
+     * name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
@@ -1014,6 +1019,10 @@ export interface SamlArgs {
      */
     responseSigned?: pulumi.Input<boolean>;
     /**
+     * SAML Signed Request enabled
+     */
+    samlSignedRequestEnabled?: pulumi.Input<boolean>;
+    /**
      * SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
      */
     samlVersion?: pulumi.Input<string>;
@@ -1022,8 +1031,7 @@ export interface SamlArgs {
      */
     signatureAlgorithm?: pulumi.Input<string>;
     /**
-     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-     * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      */
     singleLogoutCertificate?: pulumi.Input<string>;
     /**

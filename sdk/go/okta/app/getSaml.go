@@ -86,8 +86,7 @@ type LookupSamlResult struct {
 	AttributeStatements []GetSamlAttributeStatement `pulumi:"attributeStatements"`
 	// Audience restriction.
 	Audience string `pulumi:"audience"`
-	// Identifies the SAML authentication context class for the assertion’s authentication
-	// statement.
+	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar bool `pulumi:"autoSubmitToolbar"`
@@ -122,7 +121,7 @@ type LookupSamlResult struct {
 	LabelPrefix *string `pulumi:"labelPrefix"`
 	// Generic JSON containing discoverable resources related to the app.
 	Links string `pulumi:"links"`
-	// The name of the attribute statement.
+	// name of application.
 	Name string `pulumi:"name"`
 	// The location where the app may present the SAML assertion.
 	Recipient string `pulumi:"recipient"`
@@ -130,6 +129,8 @@ type LookupSamlResult struct {
 	RequestCompressed *bool `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned bool `pulumi:"responseSigned"`
+	// SAML Signed Request enabled
+	SamlSignedRequestEnabled bool `pulumi:"samlSignedRequestEnabled"`
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm string `pulumi:"signatureAlgorithm"`
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
@@ -261,8 +262,7 @@ func (o LookupSamlResultOutput) Audience() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.Audience }).(pulumi.StringOutput)
 }
 
-// Identifies the SAML authentication context class for the assertion’s authentication
-// statement.
+// Identifies the SAML authentication context class for the assertion’s authentication statement.
 func (o LookupSamlResultOutput) AuthnContextClassRef() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.AuthnContextClassRef }).(pulumi.StringOutput)
 }
@@ -348,7 +348,7 @@ func (o LookupSamlResultOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.Links }).(pulumi.StringOutput)
 }
 
-// The name of the attribute statement.
+// name of application.
 func (o LookupSamlResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -366,6 +366,11 @@ func (o LookupSamlResultOutput) RequestCompressed() pulumi.BoolPtrOutput {
 // Determines whether the SAML auth response message is digitally signed.
 func (o LookupSamlResultOutput) ResponseSigned() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSamlResult) bool { return v.ResponseSigned }).(pulumi.BoolOutput)
+}
+
+// SAML Signed Request enabled
+func (o LookupSamlResultOutput) SamlSignedRequestEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSamlResult) bool { return v.SamlSignedRequestEnabled }).(pulumi.BoolOutput)
 }
 
 // Signature algorithm used ot digitally sign the assertion and response.

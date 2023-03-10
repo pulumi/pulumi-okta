@@ -26,6 +26,14 @@ import * as utilities from "./utilities";
  * for a create when there is a `create` value in `forceIsDefault` and
  * `isDefault` is `true`.  Likewise reset will be called for a delete when there
  * is a `delete` value in `forceIsDefault` and `isDefault` is `true`.
+ *
+ * ## Import
+ *
+ * An email customization can be imported using the customization ID, brand ID and template name.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/emailCustomization:EmailCustomization example &#60;customization_id&#62;/&#60;brand_id&#62;/&#60;template_name&#62;
+ * ```
  */
 export class EmailCustomization extends pulumi.CustomResource {
     /**

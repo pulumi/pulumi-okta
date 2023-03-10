@@ -56,8 +56,7 @@ public final class GetSamlResult {
      */
     private String audience;
     /**
-     * @return Identifies the SAML authentication context class for the assertion’s authentication
-     * statement.
+     * @return Identifies the SAML authentication context class for the assertion’s authentication statement.
      * 
      */
     private String authnContextClassRef;
@@ -142,7 +141,7 @@ public final class GetSamlResult {
      */
     private String links;
     /**
-     * @return The name of the attribute statement.
+     * @return name of application.
      * 
      */
     private String name;
@@ -161,6 +160,11 @@ public final class GetSamlResult {
      * 
      */
     private Boolean responseSigned;
+    /**
+     * @return SAML Signed Request enabled
+     * 
+     */
+    private Boolean samlSignedRequestEnabled;
     /**
      * @return Signature algorithm used ot digitally sign the assertion and response.
      * 
@@ -299,8 +303,7 @@ public final class GetSamlResult {
         return this.audience;
     }
     /**
-     * @return Identifies the SAML authentication context class for the assertion’s authentication
-     * statement.
+     * @return Identifies the SAML authentication context class for the assertion’s authentication statement.
      * 
      */
     public String authnContextClassRef() {
@@ -419,7 +422,7 @@ public final class GetSamlResult {
         return this.links;
     }
     /**
-     * @return The name of the attribute statement.
+     * @return name of application.
      * 
      */
     public String name() {
@@ -445,6 +448,13 @@ public final class GetSamlResult {
      */
     public Boolean responseSigned() {
         return this.responseSigned;
+    }
+    /**
+     * @return SAML Signed Request enabled
+     * 
+     */
+    public Boolean samlSignedRequestEnabled() {
+        return this.samlSignedRequestEnabled;
     }
     /**
      * @return Signature algorithm used ot digitally sign the assertion and response.
@@ -594,6 +604,7 @@ public final class GetSamlResult {
         private String recipient;
         private @Nullable Boolean requestCompressed;
         private Boolean responseSigned;
+        private Boolean samlSignedRequestEnabled;
         private String signatureAlgorithm;
         private String singleLogoutCertificate;
         private String singleLogoutIssuer;
@@ -643,6 +654,7 @@ public final class GetSamlResult {
     	      this.recipient = defaults.recipient;
     	      this.requestCompressed = defaults.requestCompressed;
     	      this.responseSigned = defaults.responseSigned;
+    	      this.samlSignedRequestEnabled = defaults.samlSignedRequestEnabled;
     	      this.signatureAlgorithm = defaults.signatureAlgorithm;
     	      this.singleLogoutCertificate = defaults.singleLogoutCertificate;
     	      this.singleLogoutIssuer = defaults.singleLogoutIssuer;
@@ -824,6 +836,11 @@ public final class GetSamlResult {
             return this;
         }
         @CustomType.Setter
+        public Builder samlSignedRequestEnabled(Boolean samlSignedRequestEnabled) {
+            this.samlSignedRequestEnabled = Objects.requireNonNull(samlSignedRequestEnabled);
+            return this;
+        }
+        @CustomType.Setter
         public Builder signatureAlgorithm(String signatureAlgorithm) {
             this.signatureAlgorithm = Objects.requireNonNull(signatureAlgorithm);
             return this;
@@ -938,6 +955,7 @@ public final class GetSamlResult {
             o.recipient = recipient;
             o.requestCompressed = requestCompressed;
             o.responseSigned = responseSigned;
+            o.samlSignedRequestEnabled = samlSignedRequestEnabled;
             o.signatureAlgorithm = signatureAlgorithm;
             o.singleLogoutCertificate = singleLogoutCertificate;
             o.singleLogoutIssuer = singleLogoutIssuer;

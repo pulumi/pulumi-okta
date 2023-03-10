@@ -858,16 +858,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.\
-     * If not provided the following arguments are required:
+     * name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      * 
      */
     @Export(name="preconfiguredApp", type=String.class, parameters={})
     private Output</* @Nullable */ String> preconfiguredApp;
 
     /**
-     * @return name of application from the Okta Integration Network, if not included a custom app will be created.\
-     * If not provided the following arguments are required:
+     * @return name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      * 
      */
     public Output<Optional<String>> preconfiguredApp() {
@@ -916,6 +914,20 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.responseSigned);
     }
     /**
+     * SAML Signed Request enabled
+     * 
+     */
+    @Export(name="samlSignedRequestEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> samlSignedRequestEnabled;
+
+    /**
+     * @return SAML Signed Request enabled
+     * 
+     */
+    public Output<Optional<Boolean>> samlSignedRequestEnabled() {
+        return Codegen.optional(this.samlSignedRequestEnabled);
+    }
+    /**
      * SAML version for the app&#39;s sign-on mode. Valid values are: `&#34;2.0&#34;` or `&#34;1.1&#34;`. Default is `&#34;2.0&#34;`.
      * 
      */
@@ -958,16 +970,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.signatureAlgorithm);
     }
     /**
-     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-     * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      * 
      */
     @Export(name="singleLogoutCertificate", type=String.class, parameters={})
     private Output</* @Nullable */ String> singleLogoutCertificate;
 
     /**
-     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-     * Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      * 
      */
     public Output<Optional<String>> singleLogoutCertificate() {

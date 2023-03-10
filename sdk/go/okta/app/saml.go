@@ -306,8 +306,7 @@ type Saml struct {
 	MetadataUrl pulumi.StringOutput `pulumi:"metadataUrl"`
 	// The name of the attribute statement.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// name of application from the Okta Integration Network, if not included a custom app will be created.\
-	// If not provided the following arguments are required:
+	// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
 	// The location where the app may present the SAML assertion.
 	Recipient pulumi.StringPtrOutput `pulumi:"recipient"`
@@ -315,14 +314,15 @@ type Saml struct {
 	RequestCompressed pulumi.BoolPtrOutput `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned pulumi.BoolPtrOutput `pulumi:"responseSigned"`
+	// SAML Signed Request enabled
+	SamlSignedRequestEnabled pulumi.BoolPtrOutput `pulumi:"samlSignedRequestEnabled"`
 	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
 	SamlVersion pulumi.StringPtrOutput `pulumi:"samlVersion"`
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm pulumi.StringPtrOutput `pulumi:"signatureAlgorithm"`
-	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-	// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
 	SingleLogoutCertificate pulumi.StringPtrOutput `pulumi:"singleLogoutCertificate"`
 	// The issuer of the Service Provider that generates the Single Logout request.
 	SingleLogoutIssuer pulumi.StringPtrOutput `pulumi:"singleLogoutIssuer"`
@@ -472,8 +472,7 @@ type samlState struct {
 	MetadataUrl *string `pulumi:"metadataUrl"`
 	// The name of the attribute statement.
 	Name *string `pulumi:"name"`
-	// name of application from the Okta Integration Network, if not included a custom app will be created.\
-	// If not provided the following arguments are required:
+	// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// The location where the app may present the SAML assertion.
 	Recipient *string `pulumi:"recipient"`
@@ -481,14 +480,15 @@ type samlState struct {
 	RequestCompressed *bool `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned *bool `pulumi:"responseSigned"`
+	// SAML Signed Request enabled
+	SamlSignedRequestEnabled *bool `pulumi:"samlSignedRequestEnabled"`
 	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
 	SamlVersion *string `pulumi:"samlVersion"`
 	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
-	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-	// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
 	SingleLogoutCertificate *string `pulumi:"singleLogoutCertificate"`
 	// The issuer of the Service Provider that generates the Single Logout request.
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
@@ -607,8 +607,7 @@ type SamlState struct {
 	MetadataUrl pulumi.StringPtrInput
 	// The name of the attribute statement.
 	Name pulumi.StringPtrInput
-	// name of application from the Okta Integration Network, if not included a custom app will be created.\
-	// If not provided the following arguments are required:
+	// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
 	PreconfiguredApp pulumi.StringPtrInput
 	// The location where the app may present the SAML assertion.
 	Recipient pulumi.StringPtrInput
@@ -616,14 +615,15 @@ type SamlState struct {
 	RequestCompressed pulumi.BoolPtrInput
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned pulumi.BoolPtrInput
+	// SAML Signed Request enabled
+	SamlSignedRequestEnabled pulumi.BoolPtrInput
 	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
 	SamlVersion pulumi.StringPtrInput
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm pulumi.StringPtrInput
-	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-	// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
 	SingleLogoutCertificate pulumi.StringPtrInput
 	// The issuer of the Service Provider that generates the Single Logout request.
 	SingleLogoutIssuer pulumi.StringPtrInput
@@ -720,8 +720,7 @@ type samlArgs struct {
 	Label string `pulumi:"label"`
 	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
-	// name of application from the Okta Integration Network, if not included a custom app will be created.\
-	// If not provided the following arguments are required:
+	// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// The location where the app may present the SAML assertion.
 	Recipient *string `pulumi:"recipient"`
@@ -729,12 +728,13 @@ type samlArgs struct {
 	RequestCompressed *bool `pulumi:"requestCompressed"`
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned *bool `pulumi:"responseSigned"`
+	// SAML Signed Request enabled
+	SamlSignedRequestEnabled *bool `pulumi:"samlSignedRequestEnabled"`
 	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
 	SamlVersion *string `pulumi:"samlVersion"`
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
-	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-	// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
 	SingleLogoutCertificate *string `pulumi:"singleLogoutCertificate"`
 	// The issuer of the Service Provider that generates the Single Logout request.
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
@@ -828,8 +828,7 @@ type SamlArgs struct {
 	Label pulumi.StringInput
 	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
-	// name of application from the Okta Integration Network, if not included a custom app will be created.\
-	// If not provided the following arguments are required:
+	// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
 	PreconfiguredApp pulumi.StringPtrInput
 	// The location where the app may present the SAML assertion.
 	Recipient pulumi.StringPtrInput
@@ -837,12 +836,13 @@ type SamlArgs struct {
 	RequestCompressed pulumi.BoolPtrInput
 	// Determines whether the SAML auth response message is digitally signed.
 	ResponseSigned pulumi.BoolPtrInput
+	// SAML Signed Request enabled
+	SamlSignedRequestEnabled pulumi.BoolPtrInput
 	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
 	SamlVersion pulumi.StringPtrInput
 	// Signature algorithm used ot digitally sign the assertion and response.
 	SignatureAlgorithm pulumi.StringPtrInput
-	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-	// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
 	SingleLogoutCertificate pulumi.StringPtrInput
 	// The issuer of the Service Provider that generates the Single Logout request.
 	SingleLogoutIssuer pulumi.StringPtrInput
@@ -1170,8 +1170,7 @@ func (o SamlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// name of application from the Okta Integration Network, if not included a custom app will be created.\
-// If not provided the following arguments are required:
+// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
 func (o SamlOutput) PreconfiguredApp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.PreconfiguredApp }).(pulumi.StringPtrOutput)
 }
@@ -1191,6 +1190,11 @@ func (o SamlOutput) ResponseSigned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.ResponseSigned }).(pulumi.BoolPtrOutput)
 }
 
+// SAML Signed Request enabled
+func (o SamlOutput) SamlSignedRequestEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.SamlSignedRequestEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
 func (o SamlOutput) SamlVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SamlVersion }).(pulumi.StringPtrOutput)
@@ -1206,8 +1210,7 @@ func (o SamlOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SignatureAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
-// Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
 func (o SamlOutput) SingleLogoutCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SingleLogoutCertificate }).(pulumi.StringPtrOutput)
 }
