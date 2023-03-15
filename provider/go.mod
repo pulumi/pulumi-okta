@@ -174,7 +174,7 @@ require (
 	github.com/muesli/cancelreader v0.2.2 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/oklog/run v1.1.0 // indirect
-	github.com/okta/okta-sdk-golang/v2 v2.16.1-0.20230303020731-c9f10b776eb6 // indirect
+	github.com/okta/okta-sdk-golang/v2 v2.17.0 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/patrickmn/go-cache v0.0.0-20180815053127-5633e0862627 // indirect
