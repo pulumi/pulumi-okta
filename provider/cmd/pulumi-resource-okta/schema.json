@@ -144,42 +144,22 @@
             "properties": {
                 "expiration": {
                     "type": "string",
-                    "description": "TXT record expiration.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "TXT record expiration.\n"
                 },
                 "fqdn": {
                     "type": "string",
-                    "description": "DNS record name.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "DNS record name.\n"
                 },
                 "recordType": {
                     "type": "string",
-                    "description": "Record type can be TXT or CNAME.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Record type can be TXT or CNAME.\n"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "DNS verification value\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "DNS verification value\n"
                 }
             },
             "type": "object",
@@ -198,36 +178,16 @@
         "okta:app/AutoLoginUser:AutoLoginUser": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -243,36 +203,16 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "ID of the Application.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of the Application.\n"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -288,36 +228,16 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "ID of the Application.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of the Application.\n"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -333,48 +253,23 @@
             "properties": {
                 "filterType": {
                     "type": "string",
-                    "description": "Groups claim filter. Can only be set if type is `\"FILTER\"`. Valid values: `\"EQUALS\"`, `\"STARTS_WITH\"`, `\"CONTAINS\"`, `\"REGEX\"`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Groups claim filter. Can only be set if type is `\"FILTER\"`. Valid values: `\"EQUALS\"`, `\"STARTS_WITH\"`, `\"CONTAINS\"`, `\"REGEX\"`.\n"
                 },
                 "issuerMode": {
                     "type": "string",
-                    "description": "Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.\nValid values: `\"CUSTOM_URL\"`,`\"ORG_URL\"` or `\"DYNAMIC\"`. Default is `\"ORG_URL\"`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.\nValid values: `\"CUSTOM_URL\"`,`\"ORG_URL\"` or `\"DYNAMIC\"`. Default is `\"ORG_URL\"`.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the claim that will be used in the token.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of the claim that will be used in the token.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of OAuth application. Valid values: `\"web\"`, `\"native\"`, `\"browser\"`, `\"service\"`. For SPA apps use `browser`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The type of OAuth application. Valid values: `\"web\"`, `\"native\"`, `\"browser\"`, `\"service\"`. For SPA apps use `browser`.\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.\n"
                 }
             },
             "type": "object",
@@ -397,36 +292,16 @@
         "okta:app/OAuthJwk:OAuthJwk": {
             "properties": {
                 "e": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "kid": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "kty": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "n": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -439,36 +314,16 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "ID of the application.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of the application.\n"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -484,60 +339,30 @@
             "properties": {
                 "filterType": {
                     "type": "string",
-                    "description": "Type of group attribute filter. Valid values are: `\"STARTS_WITH\"`, `\"EQUALS\"`, `\"CONTAINS\"`, or `\"REGEX\"`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Type of group attribute filter. Valid values are: `\"STARTS_WITH\"`, `\"EQUALS\"`, `\"CONTAINS\"`, or `\"REGEX\"`\n"
                 },
                 "filterValue": {
                     "type": "string",
-                    "description": "Filter value to use.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Filter value to use.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the attribute statement.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The name of the attribute statement.\n"
                 },
                 "namespace": {
                     "type": "string",
-                    "description": "The attribute namespace. It can be set to `\"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified\"`, `\"urn:oasis:names:tc:SAML:2.0:attrname-format:uri\"`, or `\"urn:oasis:names:tc:SAML:2.0:attrname-format:basic\"`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The attribute namespace. It can be set to `\"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified\"`, `\"urn:oasis:names:tc:SAML:2.0:attrname-format:uri\"`, or `\"urn:oasis:names:tc:SAML:2.0:attrname-format:basic\"`.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of attribute statement value. Valid values are: `\"EXPRESSION\"` or `\"GROUP\"`. Default is `\"EXPRESSION\"`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The type of attribute statement value. Valid values are: `\"EXPRESSION\"` or `\"GROUP\"`. Default is `\"EXPRESSION\"`.\n"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Array of values to use.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Array of values to use.\n"
                 }
             },
             "type": "object",
@@ -549,96 +374,46 @@
             "properties": {
                 "created": {
                     "type": "string",
-                    "description": "Date created.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Date created.\n"
                 },
                 "e": {
                     "type": "string",
-                    "description": "RSA exponent.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "RSA exponent.\n"
                 },
                 "expiresAt": {
                     "type": "string",
-                    "description": "Date the key expires.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Date the key expires.\n"
                 },
                 "kid": {
                     "type": "string",
-                    "description": "Key ID.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Key ID.\n"
                 },
                 "kty": {
                     "type": "string",
-                    "description": "Identifies the cryptographic algorithm family used with the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Identifies the cryptographic algorithm family used with the key.\n"
                 },
                 "lastUpdated": {
                     "type": "string",
-                    "description": "Date the key was last updated.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Date the key was last updated.\n"
                 },
                 "n": {
                     "type": "string",
-                    "description": "RSA modulus.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "RSA modulus.\n"
                 },
                 "use": {
                     "type": "string",
-                    "description": "Intended use of the public key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Intended use of the public key.\n"
                 },
                 "x5cs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "X.509 certificate chain.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "X.509 certificate chain.\n"
                 },
                 "x5tS256": {
                     "type": "string",
-                    "description": "X.509 certificate SHA-256 thumbprint.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "X.509 certificate SHA-256 thumbprint.\n"
                 }
             },
             "type": "object",
@@ -663,36 +438,16 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "id of application.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "id of application.\n"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -707,36 +462,16 @@
         "okta:app/SecurePasswordStoreUser:SecurePasswordStoreUser": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -751,36 +486,16 @@
         "okta:app/SwaUser:SwaUser": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -795,36 +510,16 @@
         "okta:app/ThreeFieldUser:ThreeFieldUser": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -840,21 +535,11 @@
             "properties": {
                 "const": {
                     "type": "string",
-                    "description": "value mapping to member of `enum`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "value mapping to member of `enum`.\n"
                 },
                 "title": {
                     "type": "string",
-                    "description": "display name for the enum value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "display name for the enum value.\n"
                 }
             },
             "type": "object",
@@ -867,21 +552,11 @@
             "properties": {
                 "const": {
                     "type": "string",
-                    "description": "value mapping to member of `enum`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "value mapping to member of `enum`.\n"
                 },
                 "title": {
                     "type": "string",
-                    "description": "display name for the enum value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "display name for the enum value.\n"
                 }
             },
             "type": "object",
@@ -894,60 +569,30 @@
             "properties": {
                 "filterType": {
                     "type": "string",
-                    "description": "Type of group attribute filter.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Type of group attribute filter.\n"
                 },
                 "filterValue": {
                     "type": "string",
-                    "description": "Filter value to use.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Filter value to use.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "name of application.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "name of application.\n"
                 },
                 "namespace": {
                     "type": "string",
-                    "description": "The attribute namespace.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The attribute namespace.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of attribute statement value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The type of attribute statement value.\n"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Array of values to use.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Array of values to use.\n"
                 }
             },
             "type": "object",
@@ -969,75 +614,35 @@
             "properties": {
                 "consent": {
                     "type": "string",
-                    "description": "Indicates whether a consent dialog is needed for the Scope\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Indicates whether a consent dialog is needed for the Scope\n"
                 },
                 "default": {
                     "type": "boolean",
-                    "description": "Whether the Scope is a default Scope\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Whether the Scope is a default Scope\n"
                 },
                 "description": {
                     "type": "string",
-                    "description": "Description of the Scope\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Description of the Scope\n"
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "Name of the end user displayed in a consent dialog box\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of the end user displayed in a consent dialog box\n"
                 },
                 "id": {
                     "type": "string",
-                    "description": "ID of the Scope\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of the Scope\n"
                 },
                 "metadataPublish": {
                     "type": "string",
-                    "description": "Whether the Scope should be included in the metadata\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Whether the Scope should be included in the metadata\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the Scope\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of the Scope\n"
                 },
                 "system": {
                     "type": "boolean",
-                    "description": "Whether Okta created the Scope\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Whether Okta created the Scope\n"
                 }
             },
             "type": "object",
@@ -1060,36 +665,16 @@
         "okta:deprecated/AuthLoginAppUser:AuthLoginAppUser": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1104,36 +689,16 @@
         "okta:deprecated/BookmarkAppUser:BookmarkAppUser": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1148,28 +713,13 @@
         "okta:deprecated/MfaPolicyRuleAppExclude:MfaPolicyRuleAppExclude": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1180,28 +730,13 @@
         "okta:deprecated/MfaPolicyRuleAppInclude:MfaPolicyRuleAppInclude": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1212,44 +747,19 @@
         "okta:deprecated/OauthAppGroupsClaim:OauthAppGroupsClaim": {
             "properties": {
                 "filterType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "issuerMode": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "value": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1272,36 +782,16 @@
         "okta:deprecated/OauthAppJwk:OauthAppJwk": {
             "properties": {
                 "e": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "kid": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "kty": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "n": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1313,36 +803,16 @@
         "okta:deprecated/OauthAppUser:OauthAppUser": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1357,54 +827,24 @@
         "okta:deprecated/SamlAppAttributeStatement:SamlAppAttributeStatement": {
             "properties": {
                 "filterType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "filterValue": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "namespace": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -1416,87 +856,37 @@
         "okta:deprecated/SamlAppKey:SamlAppKey": {
             "properties": {
                 "created": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "e": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "expiresAt": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "kid": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "kty": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "lastUpdated": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "n": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "use": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "x5cs": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "x5tS256": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1520,36 +910,16 @@
         "okta:deprecated/SamlAppUser:SamlAppUser": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1564,36 +934,16 @@
         "okta:deprecated/SecurePasswordStoreAppUser:SecurePasswordStoreAppUser": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1608,30 +958,15 @@
         "okta:deprecated/SignonPolicyRuleFactorSequence:SignonPolicyRuleFactorSequence": {
             "properties": {
                 "primaryCriteriaFactorType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "primaryCriteriaProvider": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "secondaryCriterias": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:deprecated/SignonPolicyRuleFactorSequenceSecondaryCriteria:SignonPolicyRuleFactorSequenceSecondaryCriteria"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -1644,20 +979,10 @@
         "okta:deprecated/SignonPolicyRuleFactorSequenceSecondaryCriteria:SignonPolicyRuleFactorSequenceSecondaryCriteria": {
             "properties": {
                 "factorType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "provider": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1669,36 +994,16 @@
         "okta:deprecated/SwaAppUser:SwaAppUser": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1713,36 +1018,16 @@
         "okta:deprecated/ThreeFieldAppUser:ThreeFieldAppUser": {
             "properties": {
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1758,30 +1043,15 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "ID of the group to assign.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of the group to assign.\n"
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "Priority of group assignment\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Priority of group assignment\n"
                 },
                 "profile": {
                     "type": "string",
-                    "description": "JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)\n"
                 }
             },
             "type": "object",
@@ -1794,36 +1064,16 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "ID of an app.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of an app.\n"
                 },
                 "password": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1839,30 +1089,15 @@
             "properties": {
                 "osExpression": {
                     "type": "string",
-                    "description": "Only available when using `os_type = \"OTHER\"`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Only available when using `os_type = \"OTHER\"`\n"
                 },
                 "osType": {
                     "type": "string",
-                    "description": "One of: `\"ANY\"`, `\"IOS\"`, `\"WINDOWS\"`, `\"ANDROID\"`, `\"OTHER\"`, `\"OSX\"`, `\"MACOS\"`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "One of: `\"ANY\"`, `\"IOS\"`, `\"WINDOWS\"`, `\"ANDROID\"`, `\"OTHER\"`, `\"OSX\"`, `\"MACOS\"`\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "The Verification Method type. It can be set to `\"ASSURANCE\"`. Default is `\"ASSURANCE\"`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The Verification Method type. It can be set to `\"ASSURANCE\"`. Default is `\"ASSURANCE\"`.\n"
                 }
             },
             "type": "object"
@@ -1871,21 +1106,11 @@
             "properties": {
                 "const": {
                     "type": "string",
-                    "description": "value mapping to member of `array_enum`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "value mapping to member of `array_enum`.\n"
                 },
                 "title": {
                     "type": "string",
-                    "description": "display name for the enum value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "display name for the enum value.\n"
                 }
             },
             "type": "object",
@@ -1898,21 +1123,11 @@
             "properties": {
                 "const": {
                     "type": "string",
-                    "description": "value mapping to member of `array_enum`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "value mapping to member of `array_enum`.\n"
                 },
                 "title": {
                     "type": "string",
-                    "description": "display name for the enum value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "display name for the enum value.\n"
                 }
             },
             "type": "object",
@@ -1925,42 +1140,22 @@
             "properties": {
                 "expiration": {
                     "type": "string",
-                    "description": "TXT record expiration.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "TXT record expiration.\n"
                 },
                 "fqdn": {
                     "type": "string",
-                    "description": "DNS record name.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "DNS record name.\n"
                 },
                 "recordType": {
                     "type": "string",
-                    "description": "Record type can be TXT or CNAME.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Record type can be TXT or CNAME.\n"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "DNS verification value\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "DNS verification value\n"
                 }
             },
             "type": "object",
@@ -1979,30 +1174,15 @@
             "properties": {
                 "fqdn": {
                     "type": "string",
-                    "description": "DNS record name.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "DNS record name.\n"
                 },
                 "recordType": {
                     "type": "string",
-                    "description": "Record type can be TXT or CNAME.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Record type can be TXT or CNAME.\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "DNS verification value\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "DNS verification value\n"
                 }
             },
             "type": "object",
@@ -2020,21 +1200,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Key to use for authentication, usually the header name, for example `\"Authorization\"`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Key to use for authentication, usually the header name, for example `\"Authorization\"`.\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Authentication secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Authentication secret.\n"
                 }
             },
             "type": "object"
@@ -2043,21 +1213,11 @@
             "properties": {
                 "const": {
                     "type": "string",
-                    "description": "value mapping to member of `enum`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "value mapping to member of `enum`.\n"
                 },
                 "title": {
                     "type": "string",
-                    "description": "display name for the enum value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "display name for the enum value.\n"
                 }
             },
             "type": "object",
@@ -2070,21 +1230,11 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "Type of profile source.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Type of profile source.\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "ID of profile source.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of profile source.\n"
                 }
             },
             "type": "object",
@@ -2096,21 +1246,11 @@
             "properties": {
                 "const": {
                     "type": "string",
-                    "description": "value mapping to member of `enum`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "value mapping to member of `enum`.\n"
                 },
                 "title": {
                     "type": "string",
-                    "description": "display name for the enum value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "display name for the enum value.\n"
                 }
             },
             "type": "object",
@@ -2123,30 +1263,15 @@
             "properties": {
                 "label": {
                     "type": "string",
-                    "description": "A display-friendly label for this property\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "A display-friendly label for this property\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of a User Profile property\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The name of a User Profile property\n"
                 },
                 "required": {
                     "type": "boolean",
-                    "description": "Indicates if this property is required for enrollment. Default is `false`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Indicates if this property is required for enrollment. Default is `false`.\n"
                 }
             },
             "type": "object",
@@ -2159,21 +1284,11 @@
             "properties": {
                 "language": {
                     "type": "string",
-                    "description": "The language to map the template to.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The language to map the template to.\n"
                 },
                 "template": {
                     "type": "string",
-                    "description": "The SMS message.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The SMS message.\n"
                 }
             },
             "type": "object",
@@ -2186,21 +1301,11 @@
             "properties": {
                 "const": {
                     "type": "string",
-                    "description": "value mapping to member of `enum`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "value mapping to member of `enum`.\n"
                 },
                 "title": {
                     "type": "string",
-                    "description": "display name for the enum value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "display name for the enum value.\n"
                 }
             },
             "type": "object",
@@ -2213,21 +1318,11 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "Type of profile source.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Type of profile source.\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "ID of profile source.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of profile source.\n"
                 }
             },
             "type": "object",
@@ -2239,21 +1334,11 @@
             "properties": {
                 "const": {
                     "type": "string",
-                    "description": "value mapping to member of `enum`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "value mapping to member of `enum`.\n"
                 },
                 "title": {
                     "type": "string",
-                    "description": "display name for the enum value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "display name for the enum value.\n"
                 }
             },
             "type": "object",
@@ -2266,78 +1351,38 @@
             "properties": {
                 "alwaysIncludeInToken": {
                     "type": "boolean",
-                    "description": "Specifies whether to include Claims in the token.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Specifies whether to include Claims in the token.\n"
                 },
                 "claimType": {
                     "type": "string",
-                    "description": "Specifies whether the Claim is for an access token (`\"RESOURCE\"`) or ID token (`\"IDENTITY\"`).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Specifies whether the Claim is for an access token (`\"RESOURCE\"`) or ID token (`\"IDENTITY\"`).\n"
                 },
                 "id": {
                     "type": "string",
-                    "description": "ID of the claim.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of the claim.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the claim.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of the claim.\n"
                 },
                 "scopes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the scopes for this Claim.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Specifies the scopes for this Claim.\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Status of the claim.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Status of the claim.\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of the claim\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Value of the claim\n"
                 },
                 "valueType": {
                     "type": "string",
-                    "description": "Specifies whether the Claim is an Okta EL expression (`\"EXPRESSION\"`), a set of groups (`\"GROUPS\"`), or a system claim (`\"SYSTEM\"`)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Specifies whether the Claim is an Okta EL expression (`\"EXPRESSION\"`), a set of groups (`\"GROUPS\"`), or a system claim (`\"SYSTEM\"`)\n"
                 }
             },
             "type": "object",
@@ -2361,51 +1406,26 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "Behavior ID.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Behavior ID.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Behavior name.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Behavior name.\n"
                 },
                 "settings": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Map of behavior settings.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Map of behavior settings.\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Behavior status.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Behavior status.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Behavior type.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Behavior type.\n"
                 }
             },
             "type": "object",
@@ -2425,36 +1445,16 @@
         "okta:index/getBrandsBrand:getBrandsBrand": {
             "properties": {
                 "customPrivacyPolicyUrl": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "links": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "removePoweredByOkta": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 }
             },
             "type": "object",
@@ -2473,52 +1473,22 @@
         "okta:index/getEmailCustomizationsEmailCustomization:getEmailCustomizationsEmailCustomization": {
             "properties": {
                 "body": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "isDefault": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "language": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "links": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "subject": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2540,48 +1510,23 @@
             "properties": {
                 "customProfileAttributes": {
                     "type": "string",
-                    "description": "raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.\n"
                 },
                 "description": {
                     "type": "string",
-                    "description": "Group description.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Group description.\n"
                 },
                 "id": {
                     "type": "string",
-                    "description": "Group ID.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Group ID.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Group name.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Group name.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`\n(Imported App Groups), or `BUILT_IN` (Okta System Groups).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`\n(Imported App Groups), or `BUILT_IN` (Okta System Groups).\n"
                 }
             },
             "type": "object",
@@ -2601,20 +1546,10 @@
         "okta:index/getTemplatesEmailTemplate:getTemplatesEmailTemplate": {
             "properties": {
                 "links": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2631,108 +1566,43 @@
         "okta:index/getThemesTheme:getThemesTheme": {
             "properties": {
                 "backgroundImageUrl": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "emailTemplateTouchPointVariant": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "endUserDashboardTouchPointVariant": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "errorPageTouchPointVariant": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "faviconUrl": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "links": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "logoUrl": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "primaryColorContrastHex": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "primaryColorHex": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "secondaryColorContrastHex": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "secondaryColorHex": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "signInPageTouchPointVariant": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2761,51 +1631,26 @@
             "properties": {
                 "active": {
                     "type": "boolean",
-                    "description": "Whether the Trusted Origin is active or not - can only be issued post-creation\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Whether the Trusted Origin is active or not - can only be issued post-creation\n"
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Trusted Origin.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Trusted Origin.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Unique name for this trusted origin.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Unique name for this trusted origin.\n"
                 },
                 "origin": {
                     "type": "string",
-                    "description": "Unique origin URL for this trusted origin.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Unique origin URL for this trusted origin.\n"
                 },
                 "scopes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Scopes of the Trusted Origin\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Scopes of the Trusted Origin\n"
                 }
             },
             "type": "object",
@@ -2826,21 +1671,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Security question unique key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Security question unique key.\n"
                 },
                 "text": {
                     "type": "string",
-                    "description": "Display text for security question.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Display text for security question.\n"
                 }
             },
             "type": "object",
@@ -2858,21 +1693,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Key to use for authentication, usually the header name, for example `\"Authorization\"`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Key to use for authentication, usually the header name, for example `\"Authorization\"`.\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Authentication secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Authentication secret.\n"
                 }
             },
             "type": "object"
@@ -2881,30 +1706,15 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "Use if `type` is `\"APP\"` to indicate the application id to include.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Use if `type` is `\"APP\"` to indicate the application id to include.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "One of: `\"ANY\"`, `\"MOBILE\"`, `\"DESKTOP\"`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "One of: `\"ANY\"`, `\"MOBILE\"`, `\"DESKTOP\"`\n"
                 }
             },
             "type": "object",
@@ -2916,30 +1726,15 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "Use if `type` is `\"APP\"` to indicate the application id to include.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Use if `type` is `\"APP\"` to indicate the application id to include.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "One of: `\"ANY\"`, `\"MOBILE\"`, `\"DESKTOP\"`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "One of: `\"ANY\"`, `\"MOBILE\"`, `\"DESKTOP\"`\n"
                 }
             },
             "type": "object",
@@ -2951,30 +1746,15 @@
             "properties": {
                 "osExpression": {
                     "type": "string",
-                    "description": "Only available when using `os_type = \"OTHER\"`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Only available when using `os_type = \"OTHER\"`\n"
                 },
                 "osType": {
                     "type": "string",
-                    "description": "One of: `\"ANY\"`, `\"IOS\"`, `\"WINDOWS\"`, `\"ANDROID\"`, `\"OTHER\"`, `\"OSX\"`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "One of: `\"ANY\"`, `\"IOS\"`, `\"WINDOWS\"`, `\"ANDROID\"`, `\"OTHER\"`, `\"OSX\"`\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "One of: `\"ANY\"`, `\"MOBILE\"`, `\"DESKTOP\"`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "One of: `\"ANY\"`, `\"MOBILE\"`, `\"DESKTOP\"`\n"
                 }
             },
             "type": "object"
@@ -2983,21 +1763,11 @@
             "properties": {
                 "matchType": {
                     "type": "string",
-                    "description": "The kind of pattern. For regex, use `\"EXPRESSION\"`. For simple string matches, use one of the following: `\"SUFFIX\"`, `\"EQUALS\"`, `\"STARTS_WITH\"`, `\"CONTAINS\"`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The kind of pattern. For regex, use `\"EXPRESSION\"`. For simple string matches, use one of the following: `\"SUFFIX\"`, `\"EQUALS\"`, `\"STARTS_WITH\"`, `\"CONTAINS\"`\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "The regex or simple match string to match against.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The regex or simple match string to match against.\n"
                 }
             },
             "type": "object"
@@ -3006,30 +1776,15 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "Use if `type` is `\"APP\"` to indicate the application id to include.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Use if `type` is `\"APP\"` to indicate the application id to include.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "One of: `\"APP\"`, `\"APP_TYPE\"`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "One of: `\"APP\"`, `\"APP_TYPE\"`\n"
                 }
             },
             "type": "object",
@@ -3041,30 +1796,15 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "Use if `type` is `\"APP\"` to indicate the application id to include.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Use if `type` is `\"APP\"` to indicate the application id to include.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Use if the `type` is `\"APP_TYPE\"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "One of: `\"APP\"`, `\"APP_TYPE\"`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "One of: `\"APP\"`, `\"APP_TYPE\"`\n"
                 }
             },
             "type": "object",
@@ -3076,33 +1816,18 @@
             "properties": {
                 "primaryCriteriaFactorType": {
                     "type": "string",
-                    "description": "Primary factor type of the auth section.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Primary factor type of the auth section.\n"
                 },
                 "primaryCriteriaProvider": {
                     "type": "string",
-                    "description": "Primary provider of the auth section.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Primary provider of the auth section.\n"
                 },
                 "secondaryCriterias": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:policy/RuleSignonFactorSequenceSecondaryCriteria:RuleSignonFactorSequenceSecondaryCriteria"
                     },
-                    "description": "Additional authentication steps.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Additional authentication steps.\n"
                 }
             },
             "type": "object",
@@ -3115,21 +1840,11 @@
             "properties": {
                 "factorType": {
                     "type": "string",
-                    "description": "Factor type of the additional authentication step.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Factor type of the additional authentication step.\n"
                 },
                 "provider": {
                     "type": "string",
-                    "description": "Provider of the additional authentication step.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Provider of the additional authentication step.\n"
                 }
             },
             "type": "object",
@@ -3142,30 +1857,15 @@
             "properties": {
                 "expression": {
                     "type": "string",
-                    "description": "Combination or single source properties that will be mapped to the target property.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Combination or single source properties that will be mapped to the target property.\n"
                 },
                 "id": {
                     "type": "string",
-                    "description": "Key of mapping.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Key of mapping.\n"
                 },
                 "pushStatus": {
                     "type": "string",
-                    "description": "Whether to update target properties on user create \u0026 update or just on create.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Whether to update target properties on user create \u0026 update or just on create.\n"
                 }
             },
             "type": "object",
@@ -3178,30 +1878,15 @@
             "properties": {
                 "language": {
                     "type": "string",
-                    "description": "The language to map the template to.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The language to map the template to.\n"
                 },
                 "subject": {
                     "type": "string",
-                    "description": "The email subject line.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The email subject line.\n"
                 },
                 "template": {
                     "type": "string",
-                    "description": "The email body.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The email body.\n"
                 }
             },
             "type": "object",
@@ -3215,21 +1900,11 @@
             "properties": {
                 "const": {
                     "type": "string",
-                    "description": "value mapping to member of `enum`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "value mapping to member of `enum`.\n"
                 },
                 "title": {
                     "type": "string",
-                    "description": "display name for the enum value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "display name for the enum value.\n"
                 }
             },
             "type": "object",
@@ -3242,21 +1917,11 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "Type of profile source.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Type of profile source.\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "ID of profile source.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "ID of profile source.\n"
                 }
             },
             "type": "object",
@@ -3268,21 +1933,11 @@
             "properties": {
                 "const": {
                     "type": "string",
-                    "description": "value mapping to member of `enum`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "value mapping to member of `enum`.\n"
                 },
                 "title": {
                     "type": "string",
-                    "description": "display name for the enum value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "display name for the enum value.\n"
                 }
             },
             "type": "object",
@@ -3294,48 +1949,23 @@
         "okta:user/UserPasswordHash:UserPasswordHash": {
             "properties": {
                 "algorithm": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "salt": {
                     "type": "string",
-                    "description": "Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate\nthe hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate\nthe hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.\n"
                 },
                 "saltOrder": {
                     "type": "string",
-                    "description": "Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).\nThis is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing\nthe salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be\nthe Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).\nThis is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing\nthe salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be\nthe Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.\n"
                 },
                 "workFactor": {
                     "type": "integer",
-                    "description": "Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.\n"
                 }
             },
             "type": "object",
@@ -3348,39 +1978,19 @@
             "properties": {
                 "comparison": {
                     "type": "string",
-                    "description": "Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).\n"
                 },
                 "expression": {
                     "type": "string",
-                    "description": "A raw search expression string. If present it will override name/comparison/value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "A raw search expression string. If present it will override name/comparison/value.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of property to search against.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of property to search against.\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value to compare with.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Value to compare with.\n"
                 }
             },
             "type": "object"
@@ -3389,39 +1999,19 @@
             "properties": {
                 "comparison": {
                     "type": "string",
-                    "description": "Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).\n"
                 },
                 "expression": {
                     "type": "string",
-                    "description": "A raw search expression string. If present it will override name/comparison/value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "A raw search expression string. If present it will override name/comparison/value.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of property to search against.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of property to search against.\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value to compare with.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Value to compare with.\n"
                 }
             },
             "type": "object"
@@ -3433,340 +2023,155 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Administrator roles assigned to user.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Administrator roles assigned to user.\n"
                 },
                 "city": {
                     "type": "string",
-                    "description": "City or locality component of user's address.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "City or locality component of user's address.\n"
                 },
                 "costCenter": {
                     "type": "string",
-                    "description": "Name of a cost center assigned to user.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of a cost center assigned to user.\n"
                 },
                 "countryCode": {
                     "type": "string",
-                    "description": "Country name component of user's address.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Country name component of user's address.\n"
                 },
                 "customProfileAttributes": {
                     "type": "string",
-                    "description": "Raw JSON containing all custom profile attributes.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Raw JSON containing all custom profile attributes.\n"
                 },
                 "department": {
                     "type": "string",
-                    "description": "Name of user's department.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of user's department.\n"
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "Name of the user, suitable for display to end users.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of the user, suitable for display to end users.\n"
                 },
                 "division": {
                     "type": "string",
-                    "description": "Name of user's division.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of user's division.\n"
                 },
                 "email": {
                     "type": "string",
-                    "description": "Primary email address of user.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Primary email address of user.\n"
                 },
                 "employeeNumber": {
                     "type": "string",
-                    "description": "Organization or company assigned unique identifier for the user.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Organization or company assigned unique identifier for the user.\n"
                 },
                 "firstName": {
                     "type": "string",
-                    "description": "Given name of the user.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Given name of the user.\n"
                 },
                 "groupMemberships": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Groups user belongs to.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Groups user belongs to.\n"
                 },
                 "honorificPrefix": {
                     "type": "string",
-                    "description": "Honorific prefix(es) of the user, or title in most Western languages.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Honorific prefix(es) of the user, or title in most Western languages.\n"
                 },
                 "honorificSuffix": {
                     "type": "string",
-                    "description": "Honorific suffix(es) of the user.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Honorific suffix(es) of the user.\n"
                 },
                 "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "lastName": {
                     "type": "string",
-                    "description": "Family name of the user.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Family name of the user.\n"
                 },
                 "locale": {
                     "type": "string",
-                    "description": "User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.\n"
                 },
                 "login": {
                     "type": "string",
-                    "description": "Unique identifier for the user.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Unique identifier for the user.\n"
                 },
                 "manager": {
                     "type": "string",
-                    "description": "Display name of the user's manager.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Display name of the user's manager.\n"
                 },
                 "managerId": {
                     "type": "string",
-                    "description": "`id` of a user's manager.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "`id` of a user's manager.\n"
                 },
                 "middleName": {
                     "type": "string",
-                    "description": "Middle name(s) of the user.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Middle name(s) of the user.\n"
                 },
                 "mobilePhone": {
                     "type": "string",
-                    "description": "Mobile phone number of user.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Mobile phone number of user.\n"
                 },
                 "nickName": {
                     "type": "string",
-                    "description": "Casual way to address the user in real life.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Casual way to address the user in real life.\n"
                 },
                 "organization": {
                     "type": "string",
-                    "description": "Name of user's organization.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of user's organization.\n"
                 },
                 "postalAddress": {
                     "type": "string",
-                    "description": "Mailing address component of user's address.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Mailing address component of user's address.\n"
                 },
                 "preferredLanguage": {
                     "type": "string",
-                    "description": "User's preferred written or spoken languages.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "User's preferred written or spoken languages.\n"
                 },
                 "primaryPhone": {
                     "type": "string",
-                    "description": "Primary phone number of user such as home number.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Primary phone number of user such as home number.\n"
                 },
                 "profileUrl": {
                     "type": "string",
-                    "description": "URL of user's online profile (e.g. a web page).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "URL of user's online profile (e.g. a web page).\n"
                 },
                 "roles": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "secondEmail": {
                     "type": "string",
-                    "description": "Secondary email address of user typically used for account recovery.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Secondary email address of user typically used for account recovery.\n"
                 },
                 "state": {
                     "type": "string",
-                    "description": "State or region component of user's address (region).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "State or region component of user's address (region).\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Current status of user.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Current status of user.\n"
                 },
                 "streetAddress": {
                     "type": "string",
-                    "description": "Full street address component of user's address.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Full street address component of user's address.\n"
                 },
                 "timezone": {
                     "type": "string",
-                    "description": "User's time zone.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "User's time zone.\n"
                 },
                 "title": {
                     "type": "string",
-                    "description": "User's title, such as \"Vice President\".\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "User's title, such as \"Vice President\".\n"
                 },
                 "userType": {
                     "type": "string",
-                    "description": "Used to describe the organization to user relationship such as \"Employee\" or \"Contractor\".\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Used to describe the organization to user relationship such as \"Employee\" or \"Contractor\".\n"
                 },
                 "zipCode": {
                     "type": "string",
-                    "description": "Zipcode or postal code component of user's address (postalCode)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Zipcode or postal code component of user's address (postalCode)\n"
                 }
             },
             "type": "object",
@@ -16775,11 +15180,11 @@
                 },
                 "requestSignatureAlgorithm": {
                     "type": "string",
-                    "description": "The HMAC Signature Algorithm used when signing an authorization request. It can be `\"HS256\"`, `\"HS384\"`, or `\"HS512\"`.\n"
+                    "description": "The HMAC Signature Algorithm used when signing an authorization request. Defaults to `\"HS256\"`. It can be `\"HS256\"`, `\"HS384\"`, `\"HS512\"`, `\"SHA-256\"`. `\"RS256\"`, `\"RS384\"`, or `\"RS512\"`. NOTE: `\"SHA-256\"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object\n"
                 },
                 "requestSignatureScope": {
                     "type": "string",
-                    "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
+                    "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `\"REQUEST\"`. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
                 },
                 "scopes": {
                     "type": "array",
@@ -16940,11 +15345,11 @@
                 },
                 "requestSignatureAlgorithm": {
                     "type": "string",
-                    "description": "The HMAC Signature Algorithm used when signing an authorization request. It can be `\"HS256\"`, `\"HS384\"`, or `\"HS512\"`.\n"
+                    "description": "The HMAC Signature Algorithm used when signing an authorization request. Defaults to `\"HS256\"`. It can be `\"HS256\"`, `\"HS384\"`, `\"HS512\"`, `\"SHA-256\"`. `\"RS256\"`, `\"RS384\"`, or `\"RS512\"`. NOTE: `\"SHA-256\"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object\n"
                 },
                 "requestSignatureScope": {
                     "type": "string",
-                    "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
+                    "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `\"REQUEST\"`. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
                 },
                 "scopes": {
                     "type": "array",
@@ -17096,11 +15501,11 @@
                     },
                     "requestSignatureAlgorithm": {
                         "type": "string",
-                        "description": "The HMAC Signature Algorithm used when signing an authorization request. It can be `\"HS256\"`, `\"HS384\"`, or `\"HS512\"`.\n"
+                        "description": "The HMAC Signature Algorithm used when signing an authorization request. Defaults to `\"HS256\"`. It can be `\"HS256\"`, `\"HS384\"`, `\"HS512\"`, `\"SHA-256\"`. `\"RS256\"`, `\"RS384\"`, or `\"RS512\"`. NOTE: `\"SHA-256\"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object\n"
                     },
                     "requestSignatureScope": {
                         "type": "string",
-                        "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
+                        "description": "Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `\"REQUEST\"`. It can be `\"REQUEST\"` or `\"NONE\"`.\n"
                     },
                     "scopes": {
                         "type": "array",

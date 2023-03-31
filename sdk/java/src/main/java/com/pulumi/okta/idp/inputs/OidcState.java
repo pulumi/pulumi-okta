@@ -319,14 +319,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HMAC Signature Algorithm used when signing an authorization request. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, or `&#34;HS512&#34;`.
+     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
      * 
      */
     @Import(name="requestSignatureAlgorithm")
     private @Nullable Output<String> requestSignatureAlgorithm;
 
     /**
-     * @return The HMAC Signature Algorithm used when signing an authorization request. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, or `&#34;HS512&#34;`.
+     * @return The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
      * 
      */
     public Optional<Output<String>> requestSignatureAlgorithm() {
@@ -334,14 +334,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
      * 
      */
     @Import(name="requestSignatureScope")
     private @Nullable Output<String> requestSignatureScope;
 
     /**
-     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
      * 
      */
     public Optional<Output<String>> requestSignatureScope() {
@@ -1028,7 +1028,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, or `&#34;HS512&#34;`.
+         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
          * 
          * @return builder
          * 
@@ -1039,7 +1039,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, or `&#34;HS512&#34;`.
+         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
          * 
          * @return builder
          * 
@@ -1049,7 +1049,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
          * 
          * @return builder
          * 
@@ -1060,7 +1060,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
          * 
          * @return builder
          * 

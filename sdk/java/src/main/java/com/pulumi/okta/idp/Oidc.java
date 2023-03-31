@@ -356,28 +356,28 @@ public class Oidc extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.provisioningAction);
     }
     /**
-     * The HMAC Signature Algorithm used when signing an authorization request. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, or `&#34;HS512&#34;`.
+     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
      * 
      */
     @Export(name="requestSignatureAlgorithm", type=String.class, parameters={})
     private Output</* @Nullable */ String> requestSignatureAlgorithm;
 
     /**
-     * @return The HMAC Signature Algorithm used when signing an authorization request. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, or `&#34;HS512&#34;`.
+     * @return The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
      * 
      */
     public Output<Optional<String>> requestSignatureAlgorithm() {
         return Codegen.optional(this.requestSignatureAlgorithm);
     }
     /**
-     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
      * 
      */
     @Export(name="requestSignatureScope", type=String.class, parameters={})
     private Output</* @Nullable */ String> requestSignatureScope;
 
     /**
-     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
      * 
      */
     public Output<Optional<String>> requestSignatureScope() {
