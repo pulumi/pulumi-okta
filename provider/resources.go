@@ -574,7 +574,7 @@ func Provider() tfbridge.ProviderInfo {
 		"user_",
 	}, x.MakeStandardToken(mainPkg)))
 
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "auto token mapping failed")
 	prov.SetAutonaming(255, "-")
 
 	return prov
