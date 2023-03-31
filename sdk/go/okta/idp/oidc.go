@@ -107,9 +107,9 @@ type Oidc struct {
 	ProtocolType pulumi.StringPtrOutput `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
-	// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
+	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
 	RequestSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrOutput `pulumi:"requestSignatureScope"`
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
@@ -242,9 +242,9 @@ type oidcState struct {
 	ProtocolType *string `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
+	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
 	// The scopes of the IdP.
 	Scopes []string `pulumi:"scopes"`
@@ -312,9 +312,9 @@ type OidcState struct {
 	ProtocolType pulumi.StringPtrInput
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrInput
-	// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
+	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrInput
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayInput
@@ -386,9 +386,9 @@ type oidcArgs struct {
 	ProtocolType *string `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
+	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
 	// The scopes of the IdP.
 	Scopes []string `pulumi:"scopes"`
@@ -453,9 +453,9 @@ type OidcArgs struct {
 	ProtocolType pulumi.StringPtrInput
 	// Provisioning action for an IdP user during authentication.
 	ProvisioningAction pulumi.StringPtrInput
-	// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
+	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
 	RequestSignatureScope pulumi.StringPtrInput
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayInput
@@ -665,12 +665,12 @@ func (o OidcOutput) ProvisioningAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
 }
 
-// The HMAC Signature Algorithm used when signing an authorization request. It can be `"HS256"`, `"HS384"`, or `"HS512"`.
+// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
 func (o OidcOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
 func (o OidcOutput) RequestSignatureScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
 }
