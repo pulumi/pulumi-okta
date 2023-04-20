@@ -14,6 +14,7 @@ namespace Pulumi.Okta
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
@@ -54,6 +55,7 @@ namespace Pulumi.Okta
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
