@@ -1,0 +1,2460 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "okta_admin_role_custom": {
+                "current": "okta:index/adminRoleCustom:AdminRoleCustom"
+            },
+            "okta_admin_role_custom_assignments": {
+                "current": "okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments"
+            },
+            "okta_admin_role_targets": {
+                "current": "okta:index/adminRoleTargets:AdminRoleTargets"
+            },
+            "okta_app_auto_login": {
+                "current": "okta:app/autoLogin:AutoLogin"
+            },
+            "okta_app_basic_auth": {
+                "current": "okta:app/basicAuth:BasicAuth"
+            },
+            "okta_app_bookmark": {
+                "current": "okta:app/bookmark:Bookmark"
+            },
+            "okta_app_group_assignment": {
+                "current": "okta:app/groupAssignment:GroupAssignment"
+            },
+            "okta_app_group_assignments": {
+                "current": "okta:index/appGroupAssignments:AppGroupAssignments"
+            },
+            "okta_app_oauth": {
+                "current": "okta:app/oAuth:OAuth"
+            },
+            "okta_app_oauth_api_scope": {
+                "current": "okta:index/appOauthApiScope:AppOauthApiScope"
+            },
+            "okta_app_oauth_post_logout_redirect_uri": {
+                "current": "okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri"
+            },
+            "okta_app_oauth_redirect_uri": {
+                "current": "okta:app/oAuthRedirectUri:OAuthRedirectUri"
+            },
+            "okta_app_saml": {
+                "current": "okta:app/saml:Saml"
+            },
+            "okta_app_saml_app_settings": {
+                "current": "okta:index/appSamlAppSettings:AppSamlAppSettings"
+            },
+            "okta_app_secure_password_store": {
+                "current": "okta:app/securePasswordStore:SecurePasswordStore"
+            },
+            "okta_app_shared_credentials": {
+                "current": "okta:index/appSharedCredentials:AppSharedCredentials"
+            },
+            "okta_app_signon_policy": {
+                "current": "okta:index/appSignonPolicy:AppSignonPolicy"
+            },
+            "okta_app_signon_policy_rule": {
+                "current": "okta:index/appSignonPolicyRule:AppSignonPolicyRule"
+            },
+            "okta_app_swa": {
+                "current": "okta:app/swa:Swa"
+            },
+            "okta_app_three_field": {
+                "current": "okta:app/threeField:ThreeField"
+            },
+            "okta_app_user": {
+                "current": "okta:app/user:User"
+            },
+            "okta_app_user_base_schema": {
+                "current": "okta:app/userBaseSchema:UserBaseSchema"
+            },
+            "okta_app_user_base_schema_property": {
+                "current": "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty"
+            },
+            "okta_app_user_schema": {
+                "current": "okta:app/userSchema:UserSchema"
+            },
+            "okta_app_user_schema_property": {
+                "current": "okta:index/appUserSchemaProperty:AppUserSchemaProperty"
+            },
+            "okta_auth_server": {
+                "current": "okta:auth/server:Server"
+            },
+            "okta_auth_server_claim": {
+                "current": "okta:auth/serverClaim:ServerClaim"
+            },
+            "okta_auth_server_claim_default": {
+                "current": "okta:index/authServerClaimDefault:AuthServerClaimDefault"
+            },
+            "okta_auth_server_default": {
+                "current": "okta:index/authServerDefault:AuthServerDefault"
+            },
+            "okta_auth_server_policy": {
+                "current": "okta:auth/serverPolicy:ServerPolicy"
+            },
+            "okta_auth_server_policy_rule": {
+                "current": "okta:auth/serverPolicyRule:ServerPolicyRule"
+            },
+            "okta_auth_server_policy_rule_legacy": {
+                "current": "okta:auth/serverPolicyClaim:ServerPolicyClaim"
+            },
+            "okta_auth_server_scope": {
+                "current": "okta:auth/serverScope:ServerScope"
+            },
+            "okta_authenticator": {
+                "current": "okta:index/authenticator:Authenticator"
+            },
+            "okta_auto_login_app": {
+                "current": "okta:deprecated/authLoginApp:AuthLoginApp"
+            },
+            "okta_behavior": {
+                "current": "okta:index/behaviour:Behaviour"
+            },
+            "okta_bookmark_app": {
+                "current": "okta:deprecated/bookmarkApp:BookmarkApp"
+            },
+            "okta_brand": {
+                "current": "okta:index/brand:Brand"
+            },
+            "okta_captcha": {
+                "current": "okta:index/captcha:Captcha"
+            },
+            "okta_captcha_org_wide_settings": {
+                "current": "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings"
+            },
+            "okta_domain": {
+                "current": "okta:index/domain:Domain"
+            },
+            "okta_domain_certificate": {
+                "current": "okta:index/domainCertificate:DomainCertificate"
+            },
+            "okta_domain_verification": {
+                "current": "okta:index/domainVerification:DomainVerification"
+            },
+            "okta_email_customization": {
+                "current": "okta:index/emailCustomization:EmailCustomization"
+            },
+            "okta_email_sender": {
+                "current": "okta:index/emailSender:EmailSender"
+            },
+            "okta_email_sender_verification": {
+                "current": "okta:index/emailSenderVerification:EmailSenderVerification"
+            },
+            "okta_event_hook": {
+                "current": "okta:index/eventHook:EventHook"
+            },
+            "okta_event_hook_verification": {
+                "current": "okta:index/eventHookVerification:EventHookVerification"
+            },
+            "okta_factor": {
+                "current": "okta:factor/factor:Factor"
+            },
+            "okta_factor_totp": {
+                "current": "okta:index/factorTotp:FactorTotp"
+            },
+            "okta_group": {
+                "current": "okta:group/group:Group"
+            },
+            "okta_group_membership": {
+                "current": "okta:group/membership:Membership"
+            },
+            "okta_group_memberships": {
+                "current": "okta:index/groupMemberships:GroupMemberships"
+            },
+            "okta_group_role": {
+                "current": "okta:group/role:Role"
+            },
+            "okta_group_roles": {
+                "current": "okta:group/roles:Roles"
+            },
+            "okta_group_rule": {
+                "current": "okta:group/rule:Rule"
+            },
+            "okta_group_schema_property": {
+                "current": "okta:index/groupSchemaProperty:GroupSchemaProperty"
+            },
+            "okta_idp": {
+                "current": "okta:deprecated/idp:Idp"
+            },
+            "okta_idp_oidc": {
+                "current": "okta:idp/oidc:Oidc"
+            },
+            "okta_idp_saml": {
+                "current": "okta:idp/saml:Saml"
+            },
+            "okta_idp_saml_key": {
+                "current": "okta:idp/samlKey:SamlKey"
+            },
+            "okta_idp_social": {
+                "current": "okta:idp/social:Social"
+            },
+            "okta_inline_hook": {
+                "current": "okta:inline/hook:Hook"
+            },
+            "okta_link_definition": {
+                "current": "okta:index/linkDefinition:LinkDefinition"
+            },
+            "okta_link_value": {
+                "current": "okta:index/linkValue:LinkValue"
+            },
+            "okta_mfa_policy": {
+                "current": "okta:deprecated/mfaPolicy:MfaPolicy"
+            },
+            "okta_mfa_policy_rule": {
+                "current": "okta:deprecated/mfaPolicyRule:MfaPolicyRule"
+            },
+            "okta_network_zone": {
+                "current": "okta:network/zone:Zone"
+            },
+            "okta_oauth_app": {
+                "current": "okta:deprecated/oauthApp:OauthApp"
+            },
+            "okta_oauth_app_redirect_uri": {
+                "current": "okta:deprecated/oauthAppRedirectUri:OauthAppRedirectUri"
+            },
+            "okta_org_configuration": {
+                "current": "okta:index/orgConfiguration:OrgConfiguration"
+            },
+            "okta_org_support": {
+                "current": "okta:index/orgSupport:OrgSupport"
+            },
+            "okta_password_policy": {
+                "current": "okta:deprecated/passwordPolicy:PasswordPolicy"
+            },
+            "okta_password_policy_rule": {
+                "current": "okta:deprecated/passwordPolicyRule:PasswordPolicyRule"
+            },
+            "okta_policy_mfa": {
+                "current": "okta:policy/mfa:Mfa"
+            },
+            "okta_policy_mfa_default": {
+                "current": "okta:index/policyMfaDefault:PolicyMfaDefault"
+            },
+            "okta_policy_password": {
+                "current": "okta:policy/password:Password"
+            },
+            "okta_policy_password_default": {
+                "current": "okta:index/policyPasswordDefault:PolicyPasswordDefault"
+            },
+            "okta_policy_profile_enrollment": {
+                "current": "okta:index/policyProfileEnrollment:PolicyProfileEnrollment"
+            },
+            "okta_policy_profile_enrollment_apps": {
+                "current": "okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps"
+            },
+            "okta_policy_rule_idp_discovery": {
+                "current": "okta:policy/ruleIdpDiscovery:RuleIdpDiscovery"
+            },
+            "okta_policy_rule_mfa": {
+                "current": "okta:policy/ruleMfa:RuleMfa"
+            },
+            "okta_policy_rule_password": {
+                "current": "okta:policy/rulePassword:RulePassword"
+            },
+            "okta_policy_rule_profile_enrollment": {
+                "current": "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment"
+            },
+            "okta_policy_rule_signon": {
+                "current": "okta:policy/ruleSignon:RuleSignon"
+            },
+            "okta_policy_signon": {
+                "current": "okta:policy/signon:Signon"
+            },
+            "okta_profile_mapping": {
+                "current": "okta:profile/mapping:Mapping"
+            },
+            "okta_rate_limiting": {
+                "current": "okta:index/rateLimiting:RateLimiting"
+            },
+            "okta_resource_set": {
+                "current": "okta:index/resourceSet:ResourceSet"
+            },
+            "okta_role_subscription": {
+                "current": "okta:index/roleSubscription:RoleSubscription"
+            },
+            "okta_saml_app": {
+                "current": "okta:deprecated/samlApp:SamlApp"
+            },
+            "okta_saml_idp": {
+                "current": "okta:deprecated/samlIdp:SamlIdp"
+            },
+            "okta_saml_idp_signing_key": {
+                "current": "okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey"
+            },
+            "okta_secure_password_store_app": {
+                "current": "okta:deprecated/securePasswordStoreApp:SecurePasswordStoreApp"
+            },
+            "okta_security_notification_emails": {
+                "current": "okta:index/securityNotificationEmails:SecurityNotificationEmails"
+            },
+            "okta_signon_policy": {
+                "current": "okta:deprecated/signonPolicy:SignonPolicy"
+            },
+            "okta_signon_policy_rule": {
+                "current": "okta:deprecated/signonPolicyRule:SignonPolicyRule"
+            },
+            "okta_social_idp": {
+                "current": "okta:deprecated/socialIdp:SocialIdp"
+            },
+            "okta_swa_app": {
+                "current": "okta:deprecated/swaApp:SwaApp"
+            },
+            "okta_template_email": {
+                "current": "okta:template/email:Email"
+            },
+            "okta_template_sms": {
+                "current": "okta:index/templateSms:TemplateSms"
+            },
+            "okta_theme": {
+                "current": "okta:index/theme:Theme"
+            },
+            "okta_threat_insight_settings": {
+                "current": "okta:index/threatInsightSettings:ThreatInsightSettings"
+            },
+            "okta_three_field_app": {
+                "current": "okta:deprecated/threeFieldApp:ThreeFieldApp"
+            },
+            "okta_trusted_origin": {
+                "current": "okta:trustedorigin/origin:Origin"
+            },
+            "okta_user": {
+                "current": "okta:user/user:User"
+            },
+            "okta_user_admin_roles": {
+                "current": "okta:index/userAdminRoles:UserAdminRoles"
+            },
+            "okta_user_base_schema": {
+                "current": "okta:user/baseSchema:BaseSchema"
+            },
+            "okta_user_base_schema_property": {
+                "current": "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty"
+            },
+            "okta_user_factor_question": {
+                "current": "okta:index/userFactorQuestion:UserFactorQuestion"
+            },
+            "okta_user_group_memberships": {
+                "current": "okta:index/userGroupMemberships:UserGroupMemberships"
+            },
+            "okta_user_schema": {
+                "current": "okta:user/schema:Schema"
+            },
+            "okta_user_schema_property": {
+                "current": "okta:index/userSchemaProperty:UserSchemaProperty"
+            },
+            "okta_user_type": {
+                "current": "okta:user/userType:UserType"
+            }
+        },
+        "datasources": {
+            "okta_app": {
+                "current": "okta:app/getApp:getApp"
+            },
+            "okta_app_group_assignments": {
+                "current": "okta:index/getAppGroupAssignments:getAppGroupAssignments"
+            },
+            "okta_app_metadata_saml": {
+                "current": "okta:app/getMetadataSaml:getMetadataSaml"
+            },
+            "okta_app_oauth": {
+                "current": "okta:app/getOauth:getOauth"
+            },
+            "okta_app_saml": {
+                "current": "okta:app/getSaml:getSaml"
+            },
+            "okta_app_signon_policy": {
+                "current": "okta:index/getAppSignonPolicy:getAppSignonPolicy"
+            },
+            "okta_app_user_assignments": {
+                "current": "okta:index/getAppUserAssignments:getAppUserAssignments"
+            },
+            "okta_auth_server": {
+                "current": "okta:auth/getServer:getServer"
+            },
+            "okta_auth_server_claim": {
+                "current": "okta:index/getAuthServerClaim:getAuthServerClaim"
+            },
+            "okta_auth_server_claims": {
+                "current": "okta:index/getAuthServerClaims:getAuthServerClaims"
+            },
+            "okta_auth_server_policy": {
+                "current": "okta:auth/getServerPolicy:getServerPolicy"
+            },
+            "okta_auth_server_scopes": {
+                "current": "okta:auth/getServerScopes:getServerScopes"
+            },
+            "okta_authenticator": {
+                "current": "okta:index/getAuthenticator:getAuthenticator"
+            },
+            "okta_behavior": {
+                "current": "okta:index/getBehaviour:getBehaviour"
+            },
+            "okta_behaviors": {
+                "current": "okta:index/getBehaviours:getBehaviours"
+            },
+            "okta_brand": {
+                "current": "okta:index/getBrand:getBrand"
+            },
+            "okta_brands": {
+                "current": "okta:index/getBrands:getBrands"
+            },
+            "okta_default_policies": {
+                "current": "okta:deprecated/getDefaultPolicies:getDefaultPolicies"
+            },
+            "okta_default_policy": {
+                "current": "okta:policy/getDefaultPolicy:getDefaultPolicy"
+            },
+            "okta_domain": {
+                "current": "okta:Index/getDomain:getDomain"
+            },
+            "okta_email_customization": {
+                "current": "okta:index/getEmailCustomization:getEmailCustomization"
+            },
+            "okta_email_customizations": {
+                "current": "okta:index/getEmailCustomizations:getEmailCustomizations"
+            },
+            "okta_email_template": {
+                "current": "okta:index/getTemplate:getTemplate"
+            },
+            "okta_email_templates": {
+                "current": "okta:index/getTemplates:getTemplates"
+            },
+            "okta_everyone_group": {
+                "current": "okta:group/getEveryoneGroup:getEveryoneGroup"
+            },
+            "okta_group": {
+                "current": "okta:group/getGroup:getGroup"
+            },
+            "okta_groups": {
+                "current": "okta:index/getGroups:getGroups"
+            },
+            "okta_idp_metadata_saml": {
+                "current": "okta:idp/getMetadataSaml:getMetadataSaml"
+            },
+            "okta_idp_oidc": {
+                "current": "okta:idp/getOidc:getOidc"
+            },
+            "okta_idp_saml": {
+                "current": "okta:idp/getSaml:getSaml"
+            },
+            "okta_idp_social": {
+                "current": "okta:idp/getSocial:getSocial"
+            },
+            "okta_network_zone": {
+                "current": "okta:index/getNetworkZone:getNetworkZone"
+            },
+            "okta_policy": {
+                "current": "okta:policy/getPolicy:getPolicy"
+            },
+            "okta_role_subscription": {
+                "current": "okta:index/getRoleSubscription:getRoleSubscription"
+            },
+            "okta_theme": {
+                "current": "okta:index/getTheme:getTheme"
+            },
+            "okta_themes": {
+                "current": "okta:index/getThemes:getThemes"
+            },
+            "okta_trusted_origins": {
+                "current": "okta:index/getTrustedOrigins:getTrustedOrigins"
+            },
+            "okta_user": {
+                "current": "okta:user/getUser:getUser"
+            },
+            "okta_user_profile_mapping_source": {
+                "current": "okta:user/getUserProfileMappingSource:getUserProfileMappingSource"
+            },
+            "okta_user_security_questions": {
+                "current": "okta:index/getUserSecurityQuestions:getUserSecurityQuestions"
+            },
+            "okta_user_type": {
+                "current": "okta:user/getUserType:getUserType"
+            },
+            "okta_users": {
+                "current": "okta:user/getUsers:getUsers"
+            }
+        }
+    },
+    "renames": {
+        "resources": {
+            "okta:app/autoLogin:AutoLogin": "okta_app_auto_login",
+            "okta:app/basicAuth:BasicAuth": "okta_app_basic_auth",
+            "okta:app/bookmark:Bookmark": "okta_app_bookmark",
+            "okta:app/groupAssignment:GroupAssignment": "okta_app_group_assignment",
+            "okta:app/oAuth:OAuth": "okta_app_oauth",
+            "okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri": "okta_app_oauth_post_logout_redirect_uri",
+            "okta:app/oAuthRedirectUri:OAuthRedirectUri": "okta_app_oauth_redirect_uri",
+            "okta:app/saml:Saml": "okta_app_saml",
+            "okta:app/securePasswordStore:SecurePasswordStore": "okta_app_secure_password_store",
+            "okta:app/swa:Swa": "okta_app_swa",
+            "okta:app/threeField:ThreeField": "okta_app_three_field",
+            "okta:app/user:User": "okta_app_user",
+            "okta:app/userBaseSchema:UserBaseSchema": "okta_app_user_base_schema",
+            "okta:app/userSchema:UserSchema": "okta_app_user_schema",
+            "okta:auth/server:Server": "okta_auth_server",
+            "okta:auth/serverClaim:ServerClaim": "okta_auth_server_claim",
+            "okta:auth/serverPolicy:ServerPolicy": "okta_auth_server_policy",
+            "okta:auth/serverPolicyClaim:ServerPolicyClaim": "okta_auth_server_policy_rule_legacy",
+            "okta:auth/serverPolicyRule:ServerPolicyRule": "okta_auth_server_policy_rule",
+            "okta:auth/serverScope:ServerScope": "okta_auth_server_scope",
+            "okta:deprecated/authLoginApp:AuthLoginApp": "okta_auto_login_app",
+            "okta:deprecated/bookmarkApp:BookmarkApp": "okta_bookmark_app",
+            "okta:deprecated/idp:Idp": "okta_idp",
+            "okta:deprecated/mfaPolicy:MfaPolicy": "okta_mfa_policy",
+            "okta:deprecated/mfaPolicyRule:MfaPolicyRule": "okta_mfa_policy_rule",
+            "okta:deprecated/oauthApp:OauthApp": "okta_oauth_app",
+            "okta:deprecated/oauthAppRedirectUri:OauthAppRedirectUri": "okta_oauth_app_redirect_uri",
+            "okta:deprecated/passwordPolicy:PasswordPolicy": "okta_password_policy",
+            "okta:deprecated/passwordPolicyRule:PasswordPolicyRule": "okta_password_policy_rule",
+            "okta:deprecated/samlApp:SamlApp": "okta_saml_app",
+            "okta:deprecated/samlIdp:SamlIdp": "okta_saml_idp",
+            "okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey": "okta_saml_idp_signing_key",
+            "okta:deprecated/securePasswordStoreApp:SecurePasswordStoreApp": "okta_secure_password_store_app",
+            "okta:deprecated/signonPolicy:SignonPolicy": "okta_signon_policy",
+            "okta:deprecated/signonPolicyRule:SignonPolicyRule": "okta_signon_policy_rule",
+            "okta:deprecated/socialIdp:SocialIdp": "okta_social_idp",
+            "okta:deprecated/swaApp:SwaApp": "okta_swa_app",
+            "okta:deprecated/threeFieldApp:ThreeFieldApp": "okta_three_field_app",
+            "okta:factor/factor:Factor": "okta_factor",
+            "okta:group/group:Group": "okta_group",
+            "okta:group/membership:Membership": "okta_group_membership",
+            "okta:group/role:Role": "okta_group_role",
+            "okta:group/roles:Roles": "okta_group_roles",
+            "okta:group/rule:Rule": "okta_group_rule",
+            "okta:idp/oidc:Oidc": "okta_idp_oidc",
+            "okta:idp/saml:Saml": "okta_idp_saml",
+            "okta:idp/samlKey:SamlKey": "okta_idp_saml_key",
+            "okta:idp/social:Social": "okta_idp_social",
+            "okta:index/adminRoleCustom:AdminRoleCustom": "okta_admin_role_custom",
+            "okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments": "okta_admin_role_custom_assignments",
+            "okta:index/adminRoleTargets:AdminRoleTargets": "okta_admin_role_targets",
+            "okta:index/appGroupAssignments:AppGroupAssignments": "okta_app_group_assignments",
+            "okta:index/appOauthApiScope:AppOauthApiScope": "okta_app_oauth_api_scope",
+            "okta:index/appSamlAppSettings:AppSamlAppSettings": "okta_app_saml_app_settings",
+            "okta:index/appSharedCredentials:AppSharedCredentials": "okta_app_shared_credentials",
+            "okta:index/appSignonPolicy:AppSignonPolicy": "okta_app_signon_policy",
+            "okta:index/appSignonPolicyRule:AppSignonPolicyRule": "okta_app_signon_policy_rule",
+            "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty": "okta_app_user_base_schema_property",
+            "okta:index/appUserSchemaProperty:AppUserSchemaProperty": "okta_app_user_schema_property",
+            "okta:index/authServerClaimDefault:AuthServerClaimDefault": "okta_auth_server_claim_default",
+            "okta:index/authServerDefault:AuthServerDefault": "okta_auth_server_default",
+            "okta:index/authenticator:Authenticator": "okta_authenticator",
+            "okta:index/behaviour:Behaviour": "okta_behavior",
+            "okta:index/brand:Brand": "okta_brand",
+            "okta:index/captcha:Captcha": "okta_captcha",
+            "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings": "okta_captcha_org_wide_settings",
+            "okta:index/domain:Domain": "okta_domain",
+            "okta:index/domainCertificate:DomainCertificate": "okta_domain_certificate",
+            "okta:index/domainVerification:DomainVerification": "okta_domain_verification",
+            "okta:index/emailCustomization:EmailCustomization": "okta_email_customization",
+            "okta:index/emailSender:EmailSender": "okta_email_sender",
+            "okta:index/emailSenderVerification:EmailSenderVerification": "okta_email_sender_verification",
+            "okta:index/eventHook:EventHook": "okta_event_hook",
+            "okta:index/eventHookVerification:EventHookVerification": "okta_event_hook_verification",
+            "okta:index/factorTotp:FactorTotp": "okta_factor_totp",
+            "okta:index/groupMemberships:GroupMemberships": "okta_group_memberships",
+            "okta:index/groupSchemaProperty:GroupSchemaProperty": "okta_group_schema_property",
+            "okta:index/linkDefinition:LinkDefinition": "okta_link_definition",
+            "okta:index/linkValue:LinkValue": "okta_link_value",
+            "okta:index/orgConfiguration:OrgConfiguration": "okta_org_configuration",
+            "okta:index/orgSupport:OrgSupport": "okta_org_support",
+            "okta:index/policyMfaDefault:PolicyMfaDefault": "okta_policy_mfa_default",
+            "okta:index/policyPasswordDefault:PolicyPasswordDefault": "okta_policy_password_default",
+            "okta:index/policyProfileEnrollment:PolicyProfileEnrollment": "okta_policy_profile_enrollment",
+            "okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps": "okta_policy_profile_enrollment_apps",
+            "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment": "okta_policy_rule_profile_enrollment",
+            "okta:index/rateLimiting:RateLimiting": "okta_rate_limiting",
+            "okta:index/resourceSet:ResourceSet": "okta_resource_set",
+            "okta:index/roleSubscription:RoleSubscription": "okta_role_subscription",
+            "okta:index/securityNotificationEmails:SecurityNotificationEmails": "okta_security_notification_emails",
+            "okta:index/templateSms:TemplateSms": "okta_template_sms",
+            "okta:index/theme:Theme": "okta_theme",
+            "okta:index/threatInsightSettings:ThreatInsightSettings": "okta_threat_insight_settings",
+            "okta:index/userAdminRoles:UserAdminRoles": "okta_user_admin_roles",
+            "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty": "okta_user_base_schema_property",
+            "okta:index/userFactorQuestion:UserFactorQuestion": "okta_user_factor_question",
+            "okta:index/userGroupMemberships:UserGroupMemberships": "okta_user_group_memberships",
+            "okta:index/userSchemaProperty:UserSchemaProperty": "okta_user_schema_property",
+            "okta:inline/hook:Hook": "okta_inline_hook",
+            "okta:network/zone:Zone": "okta_network_zone",
+            "okta:policy/mfa:Mfa": "okta_policy_mfa",
+            "okta:policy/password:Password": "okta_policy_password",
+            "okta:policy/ruleIdpDiscovery:RuleIdpDiscovery": "okta_policy_rule_idp_discovery",
+            "okta:policy/ruleMfa:RuleMfa": "okta_policy_rule_mfa",
+            "okta:policy/rulePassword:RulePassword": "okta_policy_rule_password",
+            "okta:policy/ruleSignon:RuleSignon": "okta_policy_rule_signon",
+            "okta:policy/signon:Signon": "okta_policy_signon",
+            "okta:profile/mapping:Mapping": "okta_profile_mapping",
+            "okta:template/email:Email": "okta_template_email",
+            "okta:trustedorigin/origin:Origin": "okta_trusted_origin",
+            "okta:user/baseSchema:BaseSchema": "okta_user_base_schema",
+            "okta:user/schema:Schema": "okta_user_schema",
+            "okta:user/user:User": "okta_user",
+            "okta:user/userType:UserType": "okta_user_type"
+        },
+        "functions": {
+            "okta:Index/getDomain:getDomain": "okta_domain",
+            "okta:app/getApp:getApp": "okta_app",
+            "okta:app/getMetadataSaml:getMetadataSaml": "okta_app_metadata_saml",
+            "okta:app/getOauth:getOauth": "okta_app_oauth",
+            "okta:app/getSaml:getSaml": "okta_app_saml",
+            "okta:auth/getServer:getServer": "okta_auth_server",
+            "okta:auth/getServerPolicy:getServerPolicy": "okta_auth_server_policy",
+            "okta:auth/getServerScopes:getServerScopes": "okta_auth_server_scopes",
+            "okta:deprecated/getDefaultPolicies:getDefaultPolicies": "okta_default_policies",
+            "okta:group/getEveryoneGroup:getEveryoneGroup": "okta_everyone_group",
+            "okta:group/getGroup:getGroup": "okta_group",
+            "okta:idp/getMetadataSaml:getMetadataSaml": "okta_idp_metadata_saml",
+            "okta:idp/getOidc:getOidc": "okta_idp_oidc",
+            "okta:idp/getSaml:getSaml": "okta_idp_saml",
+            "okta:idp/getSocial:getSocial": "okta_idp_social",
+            "okta:index/getAppGroupAssignments:getAppGroupAssignments": "okta_app_group_assignments",
+            "okta:index/getAppSignonPolicy:getAppSignonPolicy": "okta_app_signon_policy",
+            "okta:index/getAppUserAssignments:getAppUserAssignments": "okta_app_user_assignments",
+            "okta:index/getAuthServerClaim:getAuthServerClaim": "okta_auth_server_claim",
+            "okta:index/getAuthServerClaims:getAuthServerClaims": "okta_auth_server_claims",
+            "okta:index/getAuthenticator:getAuthenticator": "okta_authenticator",
+            "okta:index/getBehaviour:getBehaviour": "okta_behavior",
+            "okta:index/getBehaviours:getBehaviours": "okta_behaviors",
+            "okta:index/getBrand:getBrand": "okta_brand",
+            "okta:index/getBrands:getBrands": "okta_brands",
+            "okta:index/getEmailCustomization:getEmailCustomization": "okta_email_customization",
+            "okta:index/getEmailCustomizations:getEmailCustomizations": "okta_email_customizations",
+            "okta:index/getGroups:getGroups": "okta_groups",
+            "okta:index/getNetworkZone:getNetworkZone": "okta_network_zone",
+            "okta:index/getRoleSubscription:getRoleSubscription": "okta_role_subscription",
+            "okta:index/getTemplate:getTemplate": "okta_email_template",
+            "okta:index/getTemplates:getTemplates": "okta_email_templates",
+            "okta:index/getTheme:getTheme": "okta_theme",
+            "okta:index/getThemes:getThemes": "okta_themes",
+            "okta:index/getTrustedOrigins:getTrustedOrigins": "okta_trusted_origins",
+            "okta:index/getUserSecurityQuestions:getUserSecurityQuestions": "okta_user_security_questions",
+            "okta:policy/getDefaultPolicy:getDefaultPolicy": "okta_default_policy",
+            "okta:policy/getPolicy:getPolicy": "okta_policy",
+            "okta:user/getUser:getUser": "okta_user",
+            "okta:user/getUserProfileMappingSource:getUserProfileMappingSource": "okta_user_profile_mapping_source",
+            "okta:user/getUserType:getUserType": "okta_user_type",
+            "okta:user/getUsers:getUsers": "okta_users"
+        },
+        "renamedProperties": {
+            "okta:Index/getDomain:getDomain": {
+                "certificateSourceType": "certificate_source_type",
+                "dnsRecords": "dns_records",
+                "domainIdOrName": "domain_id_or_name",
+                "publicCertificate": "public_certificate",
+                "validationStatus": "validation_status"
+            },
+            "okta:Index/getDomainDnsRecord:getDomainDnsRecord": {
+                "recordType": "record_type"
+            },
+            "okta:app/OAuthGroupsClaim:OAuthGroupsClaim": {
+                "filterType": "filter_type",
+                "issuerMode": "issuer_mode"
+            },
+            "okta:app/SamlAttributeStatement:SamlAttributeStatement": {
+                "filterType": "filter_type",
+                "filterValue": "filter_value"
+            },
+            "okta:app/SamlKey:SamlKey": {
+                "expiresAt": "expires_at",
+                "lastUpdated": "last_updated",
+                "x5cs": "x5c",
+                "x5tS256": "x5t_s256"
+            },
+            "okta:app/autoLogin:AutoLogin": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "appSettingsJson": "app_settings_json",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "credentialsScheme": "credentials_scheme",
+                "enduserNote": "enduser_note",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "preconfiguredApp": "preconfigured_app",
+                "revealPassword": "reveal_password",
+                "sharedPassword": "shared_password",
+                "sharedUsername": "shared_username",
+                "signOnMode": "sign_on_mode",
+                "signOnRedirectUrl": "sign_on_redirect_url",
+                "signOnUrl": "sign_on_url",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type"
+            },
+            "okta:app/basicAuth:BasicAuth": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "authUrl": "auth_url",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "enduserNote": "enduser_note",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users"
+            },
+            "okta:app/bookmark:Bookmark": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "authenticationPolicy": "authentication_policy",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "enduserNote": "enduser_note",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "requestIntegration": "request_integration",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users"
+            },
+            "okta:app/getApp:getApp": {
+                "activeOnly": "active_only",
+                "labelPrefix": "label_prefix",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users"
+            },
+            "okta:app/getMetadataSaml:getMetadataSaml": {
+                "appId": "app_id",
+                "entityId": "entity_id",
+                "httpPostBinding": "http_post_binding",
+                "httpRedirectBinding": "http_redirect_binding",
+                "keyId": "key_id",
+                "wantAuthnRequestsSigned": "want_authn_requests_signed"
+            },
+            "okta:app/getOauth:getOauth": {
+                "activeOnly": "active_only",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "clientUri": "client_uri",
+                "grantTypes": "grant_types",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "labelPrefix": "label_prefix",
+                "loginMode": "login_mode",
+                "loginScopes": "login_scopes",
+                "loginUri": "login_uri",
+                "logoUri": "logo_uri",
+                "policyUri": "policy_uri",
+                "postLogoutRedirectUris": "post_logout_redirect_uris",
+                "redirectUris": "redirect_uris",
+                "responseTypes": "response_types",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "wildcardRedirect": "wildcard_redirect"
+            },
+            "okta:app/getSaml:getSaml": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "acsEndpoints": "acs_endpoints",
+                "activeOnly": "active_only",
+                "appSettingsJson": "app_settings_json",
+                "assertionSigned": "assertion_signed",
+                "attributeStatements": "attribute_statements",
+                "authnContextClassRef": "authn_context_class_ref",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "defaultRelayState": "default_relay_state",
+                "digestAlgorithm": "digest_algorithm",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "honorForceAuthn": "honor_force_authn",
+                "idpIssuer": "idp_issuer",
+                "inlineHookId": "inline_hook_id",
+                "keyId": "key_id",
+                "labelPrefix": "label_prefix",
+                "requestCompressed": "request_compressed",
+                "responseSigned": "response_signed",
+                "samlSignedRequestEnabled": "saml_signed_request_enabled",
+                "signatureAlgorithm": "signature_algorithm",
+                "singleLogoutCertificate": "single_logout_certificate",
+                "singleLogoutIssuer": "single_logout_issuer",
+                "singleLogoutUrl": "single_logout_url",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "spIssuer": "sp_issuer",
+                "ssoUrl": "sso_url",
+                "subjectNameIdFormat": "subject_name_id_format",
+                "subjectNameIdTemplate": "subject_name_id_template",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type"
+            },
+            "okta:app/getSamlAttributeStatement:getSamlAttributeStatement": {
+                "filterType": "filter_type",
+                "filterValue": "filter_value"
+            },
+            "okta:app/groupAssignment:GroupAssignment": {
+                "appId": "app_id",
+                "groupId": "group_id",
+                "retainAssignment": "retain_assignment"
+            },
+            "okta:app/oAuth:OAuth": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "appSettingsJson": "app_settings_json",
+                "authenticationPolicy": "authentication_policy",
+                "autoKeyRotation": "auto_key_rotation",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "clientBasicSecret": "client_basic_secret",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "clientUri": "client_uri",
+                "consentMethod": "consent_method",
+                "customClientId": "custom_client_id",
+                "enduserNote": "enduser_note",
+                "grantTypes": "grant_types",
+                "groupsClaim": "groups_claim",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "implicitAssignment": "implicit_assignment",
+                "issuerMode": "issuer_mode",
+                "loginMode": "login_mode",
+                "loginScopes": "login_scopes",
+                "loginUri": "login_uri",
+                "logoUri": "logo_uri",
+                "logoUrl": "logo_url",
+                "omitSecret": "omit_secret",
+                "pkceRequired": "pkce_required",
+                "policyUri": "policy_uri",
+                "postLogoutRedirectUris": "post_logout_redirect_uris",
+                "redirectUris": "redirect_uris",
+                "refreshTokenLeeway": "refresh_token_leeway",
+                "refreshTokenRotation": "refresh_token_rotation",
+                "responseTypes": "response_types",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "tokenEndpointAuthMethod": "token_endpoint_auth_method",
+                "tosUri": "tos_uri",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type",
+                "wildcardRedirect": "wildcard_redirect"
+            },
+            "okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri": {
+                "appId": "app_id"
+            },
+            "okta:app/oAuthRedirectUri:OAuthRedirectUri": {
+                "appId": "app_id"
+            },
+            "okta:app/saml:Saml": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "acsEndpoints": "acs_endpoints",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "appSettingsJson": "app_settings_json",
+                "assertionSigned": "assertion_signed",
+                "attributeStatements": "attribute_statements",
+                "authenticationPolicy": "authentication_policy",
+                "authnContextClassRef": "authn_context_class_ref",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "defaultRelayState": "default_relay_state",
+                "digestAlgorithm": "digest_algorithm",
+                "embedUrl": "embed_url",
+                "enduserNote": "enduser_note",
+                "entityKey": "entity_key",
+                "entityUrl": "entity_url",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "honorForceAuthn": "honor_force_authn",
+                "httpPostBinding": "http_post_binding",
+                "httpRedirectBinding": "http_redirect_binding",
+                "idpIssuer": "idp_issuer",
+                "implicitAssignment": "implicit_assignment",
+                "inlineHookId": "inline_hook_id",
+                "keyId": "key_id",
+                "keyName": "key_name",
+                "keyYearsValid": "key_years_valid",
+                "logoUrl": "logo_url",
+                "metadataUrl": "metadata_url",
+                "preconfiguredApp": "preconfigured_app",
+                "requestCompressed": "request_compressed",
+                "responseSigned": "response_signed",
+                "samlSignedRequestEnabled": "saml_signed_request_enabled",
+                "samlVersion": "saml_version",
+                "signOnMode": "sign_on_mode",
+                "signatureAlgorithm": "signature_algorithm",
+                "singleLogoutCertificate": "single_logout_certificate",
+                "singleLogoutIssuer": "single_logout_issuer",
+                "singleLogoutUrl": "single_logout_url",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "spIssuer": "sp_issuer",
+                "ssoUrl": "sso_url",
+                "subjectNameIdFormat": "subject_name_id_format",
+                "subjectNameIdTemplate": "subject_name_id_template",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type"
+            },
+            "okta:app/securePasswordStore:SecurePasswordStore": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "credentialsScheme": "credentials_scheme",
+                "enduserNote": "enduser_note",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "optionalField1": "optional_field1",
+                "optionalField1Value": "optional_field1_value",
+                "optionalField2": "optional_field2",
+                "optionalField2Value": "optional_field2_value",
+                "optionalField3": "optional_field3",
+                "optionalField3Value": "optional_field3_value",
+                "passwordField": "password_field",
+                "revealPassword": "reveal_password",
+                "sharedPassword": "shared_password",
+                "sharedUsername": "shared_username",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type",
+                "usernameField": "username_field"
+            },
+            "okta:app/swa:Swa": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "buttonField": "button_field",
+                "enduserNote": "enduser_note",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "passwordField": "password_field",
+                "preconfiguredApp": "preconfigured_app",
+                "redirectUrl": "redirect_url",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "urlRegex": "url_regex",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type",
+                "usernameField": "username_field"
+            },
+            "okta:app/threeField:ThreeField": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "buttonSelector": "button_selector",
+                "credentialsScheme": "credentials_scheme",
+                "enduserNote": "enduser_note",
+                "extraFieldSelector": "extra_field_selector",
+                "extraFieldValue": "extra_field_value",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "passwordSelector": "password_selector",
+                "revealPassword": "reveal_password",
+                "sharedPassword": "shared_password",
+                "sharedUsername": "shared_username",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "urlRegex": "url_regex",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type",
+                "usernameSelector": "username_selector"
+            },
+            "okta:app/user:User": {
+                "appId": "app_id",
+                "hasSharedUsername": "has_shared_username",
+                "retainAssignment": "retain_assignment",
+                "userId": "user_id"
+            },
+            "okta:app/userBaseSchema:UserBaseSchema": {
+                "appId": "app_id",
+                "userType": "user_type"
+            },
+            "okta:app/userSchema:UserSchema": {
+                "appId": "app_id",
+                "arrayEnums": "array_enum",
+                "arrayOneOfs": "array_one_of",
+                "arrayType": "array_type",
+                "enums": "enum",
+                "externalName": "external_name",
+                "externalNamespace": "external_namespace",
+                "maxLength": "max_length",
+                "minLength": "min_length",
+                "oneOfs": "one_of",
+                "userType": "user_type"
+            },
+            "okta:auth/getServer:getServer": {
+                "credentialsLastRotated": "credentials_last_rotated",
+                "credentialsNextRotation": "credentials_next_rotation",
+                "credentialsRotationMode": "credentials_rotation_mode",
+                "issuerMode": "issuer_mode"
+            },
+            "okta:auth/getServerPolicy:getServerPolicy": {
+                "assignedClients": "assigned_clients",
+                "authServerId": "auth_server_id"
+            },
+            "okta:auth/getServerScopes:getServerScopes": {
+                "authServerId": "auth_server_id"
+            },
+            "okta:auth/getServerScopesScope:getServerScopesScope": {
+                "displayName": "display_name",
+                "metadataPublish": "metadata_publish"
+            },
+            "okta:auth/server:Server": {
+                "credentialsLastRotated": "credentials_last_rotated",
+                "credentialsNextRotation": "credentials_next_rotation",
+                "credentialsRotationMode": "credentials_rotation_mode",
+                "issuerMode": "issuer_mode"
+            },
+            "okta:auth/serverClaim:ServerClaim": {
+                "alwaysIncludeInToken": "always_include_in_token",
+                "authServerId": "auth_server_id",
+                "claimType": "claim_type",
+                "groupFilterType": "group_filter_type",
+                "valueType": "value_type"
+            },
+            "okta:auth/serverPolicy:ServerPolicy": {
+                "authServerId": "auth_server_id",
+                "clientWhitelists": "client_whitelist"
+            },
+            "okta:auth/serverPolicyClaim:ServerPolicyClaim": {
+                "accessTokenLifetimeMinutes": "access_token_lifetime_minutes",
+                "authServerId": "auth_server_id",
+                "grantTypeWhitelists": "grant_type_whitelist",
+                "groupBlacklists": "group_blacklist",
+                "groupWhitelists": "group_whitelist",
+                "inlineHookId": "inline_hook_id",
+                "policyId": "policy_id",
+                "refreshTokenLifetimeMinutes": "refresh_token_lifetime_minutes",
+                "refreshTokenWindowMinutes": "refresh_token_window_minutes",
+                "scopeWhitelists": "scope_whitelist",
+                "userBlacklists": "user_blacklist",
+                "userWhitelists": "user_whitelist"
+            },
+            "okta:auth/serverPolicyRule:ServerPolicyRule": {
+                "accessTokenLifetimeMinutes": "access_token_lifetime_minutes",
+                "authServerId": "auth_server_id",
+                "grantTypeWhitelists": "grant_type_whitelist",
+                "groupBlacklists": "group_blacklist",
+                "groupWhitelists": "group_whitelist",
+                "inlineHookId": "inline_hook_id",
+                "policyId": "policy_id",
+                "refreshTokenLifetimeMinutes": "refresh_token_lifetime_minutes",
+                "refreshTokenWindowMinutes": "refresh_token_window_minutes",
+                "scopeWhitelists": "scope_whitelist",
+                "userBlacklists": "user_blacklist",
+                "userWhitelists": "user_whitelist"
+            },
+            "okta:auth/serverScope:ServerScope": {
+                "authServerId": "auth_server_id",
+                "displayName": "display_name",
+                "metadataPublish": "metadata_publish"
+            },
+            "okta:deprecated/OauthAppGroupsClaim:OauthAppGroupsClaim": {
+                "filterType": "filter_type",
+                "issuerMode": "issuer_mode"
+            },
+            "okta:deprecated/SamlAppAttributeStatement:SamlAppAttributeStatement": {
+                "filterType": "filter_type",
+                "filterValue": "filter_value"
+            },
+            "okta:deprecated/SamlAppKey:SamlAppKey": {
+                "expiresAt": "expires_at",
+                "lastUpdated": "last_updated",
+                "x5cs": "x5c",
+                "x5tS256": "x5t_s256"
+            },
+            "okta:deprecated/SignonPolicyRuleFactorSequence:SignonPolicyRuleFactorSequence": {
+                "primaryCriteriaFactorType": "primary_criteria_factor_type",
+                "primaryCriteriaProvider": "primary_criteria_provider",
+                "secondaryCriterias": "secondary_criteria"
+            },
+            "okta:deprecated/SignonPolicyRuleFactorSequenceSecondaryCriteria:SignonPolicyRuleFactorSequenceSecondaryCriteria": {
+                "factorType": "factor_type"
+            },
+            "okta:deprecated/authLoginApp:AuthLoginApp": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "appSettingsJson": "app_settings_json",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "credentialsScheme": "credentials_scheme",
+                "enduserNote": "enduser_note",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "preconfiguredApp": "preconfigured_app",
+                "revealPassword": "reveal_password",
+                "sharedPassword": "shared_password",
+                "sharedUsername": "shared_username",
+                "signOnMode": "sign_on_mode",
+                "signOnRedirectUrl": "sign_on_redirect_url",
+                "signOnUrl": "sign_on_url",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type"
+            },
+            "okta:deprecated/bookmarkApp:BookmarkApp": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "authenticationPolicy": "authentication_policy",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "enduserNote": "enduser_note",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "requestIntegration": "request_integration",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users"
+            },
+            "okta:deprecated/idp:Idp": {
+                "accountLinkAction": "account_link_action",
+                "accountLinkGroupIncludes": "account_link_group_include",
+                "authorizationBinding": "authorization_binding",
+                "authorizationUrl": "authorization_url",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "deprovisionedAction": "deprovisioned_action",
+                "groupsAction": "groups_action",
+                "groupsAssignments": "groups_assignment",
+                "groupsAttribute": "groups_attribute",
+                "groupsFilters": "groups_filter",
+                "issuerMode": "issuer_mode",
+                "issuerUrl": "issuer_url",
+                "jwksBinding": "jwks_binding",
+                "jwksUrl": "jwks_url",
+                "maxClockSkew": "max_clock_skew",
+                "profileMaster": "profile_master",
+                "protocolType": "protocol_type",
+                "provisioningAction": "provisioning_action",
+                "requestSignatureAlgorithm": "request_signature_algorithm",
+                "requestSignatureScope": "request_signature_scope",
+                "subjectMatchAttribute": "subject_match_attribute",
+                "subjectMatchType": "subject_match_type",
+                "suspendedAction": "suspended_action",
+                "tokenBinding": "token_binding",
+                "tokenUrl": "token_url",
+                "userInfoBinding": "user_info_binding",
+                "userInfoUrl": "user_info_url",
+                "userTypeId": "user_type_id",
+                "usernameTemplate": "username_template"
+            },
+            "okta:deprecated/mfaPolicy:MfaPolicy": {
+                "externalIdp": "external_idp",
+                "fidoU2f": "fido_u2f",
+                "fidoWebauthn": "fido_webauthn",
+                "googleOtp": "google_otp",
+                "groupsIncludeds": "groups_included",
+                "isOie": "is_oie",
+                "oktaCall": "okta_call",
+                "oktaEmail": "okta_email",
+                "oktaOtp": "okta_otp",
+                "oktaPassword": "okta_password",
+                "oktaPush": "okta_push",
+                "oktaQuestion": "okta_question",
+                "oktaSms": "okta_sms",
+                "oktaVerify": "okta_verify",
+                "onpremMfa": "onprem_mfa",
+                "phoneNumber": "phone_number",
+                "rsaToken": "rsa_token",
+                "securityQuestion": "security_question",
+                "symantecVip": "symantec_vip",
+                "yubikeyToken": "yubikey_token"
+            },
+            "okta:deprecated/mfaPolicyRule:MfaPolicyRule": {
+                "appExcludes": "app_exclude",
+                "appIncludes": "app_include",
+                "networkConnection": "network_connection",
+                "networkExcludes": "network_excludes",
+                "networkIncludes": "network_includes",
+                "policyId": "policy_id",
+                "usersExcludeds": "users_excluded"
+            },
+            "okta:deprecated/oauthApp:OauthApp": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "appSettingsJson": "app_settings_json",
+                "authenticationPolicy": "authentication_policy",
+                "autoKeyRotation": "auto_key_rotation",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "clientBasicSecret": "client_basic_secret",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "clientUri": "client_uri",
+                "consentMethod": "consent_method",
+                "customClientId": "custom_client_id",
+                "enduserNote": "enduser_note",
+                "grantTypes": "grant_types",
+                "groupsClaim": "groups_claim",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "implicitAssignment": "implicit_assignment",
+                "issuerMode": "issuer_mode",
+                "loginMode": "login_mode",
+                "loginScopes": "login_scopes",
+                "loginUri": "login_uri",
+                "logoUri": "logo_uri",
+                "logoUrl": "logo_url",
+                "omitSecret": "omit_secret",
+                "pkceRequired": "pkce_required",
+                "policyUri": "policy_uri",
+                "postLogoutRedirectUris": "post_logout_redirect_uris",
+                "redirectUris": "redirect_uris",
+                "refreshTokenLeeway": "refresh_token_leeway",
+                "refreshTokenRotation": "refresh_token_rotation",
+                "responseTypes": "response_types",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "tokenEndpointAuthMethod": "token_endpoint_auth_method",
+                "tosUri": "tos_uri",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type",
+                "wildcardRedirect": "wildcard_redirect"
+            },
+            "okta:deprecated/oauthAppRedirectUri:OauthAppRedirectUri": {
+                "appId": "app_id"
+            },
+            "okta:deprecated/passwordPolicy:PasswordPolicy": {
+                "authProvider": "auth_provider",
+                "callRecovery": "call_recovery",
+                "emailRecovery": "email_recovery",
+                "groupsIncludeds": "groups_included",
+                "passwordAutoUnlockMinutes": "password_auto_unlock_minutes",
+                "passwordDictionaryLookup": "password_dictionary_lookup",
+                "passwordExcludeFirstName": "password_exclude_first_name",
+                "passwordExcludeLastName": "password_exclude_last_name",
+                "passwordExcludeUsername": "password_exclude_username",
+                "passwordExpireWarnDays": "password_expire_warn_days",
+                "passwordHistoryCount": "password_history_count",
+                "passwordLockoutNotificationChannels": "password_lockout_notification_channels",
+                "passwordMaxAgeDays": "password_max_age_days",
+                "passwordMaxLockoutAttempts": "password_max_lockout_attempts",
+                "passwordMinAgeMinutes": "password_min_age_minutes",
+                "passwordMinLength": "password_min_length",
+                "passwordMinLowercase": "password_min_lowercase",
+                "passwordMinNumber": "password_min_number",
+                "passwordMinSymbol": "password_min_symbol",
+                "passwordMinUppercase": "password_min_uppercase",
+                "passwordShowLockoutFailures": "password_show_lockout_failures",
+                "questionMinLength": "question_min_length",
+                "questionRecovery": "question_recovery",
+                "recoveryEmailToken": "recovery_email_token",
+                "skipUnlock": "skip_unlock",
+                "smsRecovery": "sms_recovery"
+            },
+            "okta:deprecated/passwordPolicyRule:PasswordPolicyRule": {
+                "networkConnection": "network_connection",
+                "networkExcludes": "network_excludes",
+                "networkIncludes": "network_includes",
+                "passwordChange": "password_change",
+                "passwordReset": "password_reset",
+                "passwordUnlock": "password_unlock",
+                "policyId": "policy_id",
+                "usersExcludeds": "users_excluded"
+            },
+            "okta:deprecated/samlApp:SamlApp": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "acsEndpoints": "acs_endpoints",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "appSettingsJson": "app_settings_json",
+                "assertionSigned": "assertion_signed",
+                "attributeStatements": "attribute_statements",
+                "authenticationPolicy": "authentication_policy",
+                "authnContextClassRef": "authn_context_class_ref",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "defaultRelayState": "default_relay_state",
+                "digestAlgorithm": "digest_algorithm",
+                "embedUrl": "embed_url",
+                "enduserNote": "enduser_note",
+                "entityKey": "entity_key",
+                "entityUrl": "entity_url",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "honorForceAuthn": "honor_force_authn",
+                "httpPostBinding": "http_post_binding",
+                "httpRedirectBinding": "http_redirect_binding",
+                "idpIssuer": "idp_issuer",
+                "implicitAssignment": "implicit_assignment",
+                "inlineHookId": "inline_hook_id",
+                "keyId": "key_id",
+                "keyName": "key_name",
+                "keyYearsValid": "key_years_valid",
+                "logoUrl": "logo_url",
+                "metadataUrl": "metadata_url",
+                "preconfiguredApp": "preconfigured_app",
+                "requestCompressed": "request_compressed",
+                "responseSigned": "response_signed",
+                "samlSignedRequestEnabled": "saml_signed_request_enabled",
+                "samlVersion": "saml_version",
+                "signOnMode": "sign_on_mode",
+                "signatureAlgorithm": "signature_algorithm",
+                "singleLogoutCertificate": "single_logout_certificate",
+                "singleLogoutIssuer": "single_logout_issuer",
+                "singleLogoutUrl": "single_logout_url",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "spIssuer": "sp_issuer",
+                "ssoUrl": "sso_url",
+                "subjectNameIdFormat": "subject_name_id_format",
+                "subjectNameIdTemplate": "subject_name_id_template",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type"
+            },
+            "okta:deprecated/samlIdp:SamlIdp": {
+                "accountLinkAction": "account_link_action",
+                "accountLinkGroupIncludes": "account_link_group_include",
+                "acsBinding": "acs_binding",
+                "acsType": "acs_type",
+                "deprovisionedAction": "deprovisioned_action",
+                "groupsAction": "groups_action",
+                "groupsAssignments": "groups_assignment",
+                "groupsAttribute": "groups_attribute",
+                "groupsFilters": "groups_filter",
+                "issuerMode": "issuer_mode",
+                "maxClockSkew": "max_clock_skew",
+                "nameFormat": "name_format",
+                "profileMaster": "profile_master",
+                "provisioningAction": "provisioning_action",
+                "requestSignatureAlgorithm": "request_signature_algorithm",
+                "requestSignatureScope": "request_signature_scope",
+                "responseSignatureAlgorithm": "response_signature_algorithm",
+                "responseSignatureScope": "response_signature_scope",
+                "ssoBinding": "sso_binding",
+                "ssoDestination": "sso_destination",
+                "ssoUrl": "sso_url",
+                "subjectFilter": "subject_filter",
+                "subjectFormats": "subject_format",
+                "subjectMatchAttribute": "subject_match_attribute",
+                "subjectMatchType": "subject_match_type",
+                "suspendedAction": "suspended_action",
+                "userTypeId": "user_type_id",
+                "usernameTemplate": "username_template"
+            },
+            "okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey": {
+                "expiresAt": "expires_at",
+                "x5cs": "x5c",
+                "x5tS256": "x5t_s256"
+            },
+            "okta:deprecated/securePasswordStoreApp:SecurePasswordStoreApp": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "credentialsScheme": "credentials_scheme",
+                "enduserNote": "enduser_note",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "optionalField1": "optional_field1",
+                "optionalField1Value": "optional_field1_value",
+                "optionalField2": "optional_field2",
+                "optionalField2Value": "optional_field2_value",
+                "optionalField3": "optional_field3",
+                "optionalField3Value": "optional_field3_value",
+                "passwordField": "password_field",
+                "revealPassword": "reveal_password",
+                "sharedPassword": "shared_password",
+                "sharedUsername": "shared_username",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type",
+                "usernameField": "username_field"
+            },
+            "okta:deprecated/signonPolicy:SignonPolicy": {
+                "groupsIncludeds": "groups_included"
+            },
+            "okta:deprecated/signonPolicyRule:SignonPolicyRule": {
+                "factorSequences": "factor_sequence",
+                "identityProvider": "identity_provider",
+                "identityProviderIds": "identity_provider_ids",
+                "mfaLifetime": "mfa_lifetime",
+                "mfaPrompt": "mfa_prompt",
+                "mfaRememberDevice": "mfa_remember_device",
+                "mfaRequired": "mfa_required",
+                "networkConnection": "network_connection",
+                "networkExcludes": "network_excludes",
+                "networkIncludes": "network_includes",
+                "policyId": "policy_id",
+                "primaryFactor": "primary_factor",
+                "riscLevel": "risc_level",
+                "sessionIdle": "session_idle",
+                "sessionLifetime": "session_lifetime",
+                "sessionPersistent": "session_persistent",
+                "usersExcludeds": "users_excluded"
+            },
+            "okta:deprecated/socialIdp:SocialIdp": {
+                "accountLinkAction": "account_link_action",
+                "accountLinkGroupIncludes": "account_link_group_include",
+                "appleKid": "apple_kid",
+                "applePrivateKey": "apple_private_key",
+                "appleTeamId": "apple_team_id",
+                "authorizationBinding": "authorization_binding",
+                "authorizationUrl": "authorization_url",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "deprovisionedAction": "deprovisioned_action",
+                "groupsAction": "groups_action",
+                "groupsAssignments": "groups_assignment",
+                "groupsAttribute": "groups_attribute",
+                "groupsFilters": "groups_filter",
+                "issuerMode": "issuer_mode",
+                "matchAttribute": "match_attribute",
+                "matchType": "match_type",
+                "maxClockSkew": "max_clock_skew",
+                "profileMaster": "profile_master",
+                "protocolType": "protocol_type",
+                "provisioningAction": "provisioning_action",
+                "subjectMatchAttribute": "subject_match_attribute",
+                "subjectMatchType": "subject_match_type",
+                "suspendedAction": "suspended_action",
+                "tokenBinding": "token_binding",
+                "tokenUrl": "token_url",
+                "usernameTemplate": "username_template"
+            },
+            "okta:deprecated/swaApp:SwaApp": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "buttonField": "button_field",
+                "enduserNote": "enduser_note",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "passwordField": "password_field",
+                "preconfiguredApp": "preconfigured_app",
+                "redirectUrl": "redirect_url",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "urlRegex": "url_regex",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type",
+                "usernameField": "username_field"
+            },
+            "okta:deprecated/threeFieldApp:ThreeFieldApp": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "buttonSelector": "button_selector",
+                "credentialsScheme": "credentials_scheme",
+                "enduserNote": "enduser_note",
+                "extraFieldSelector": "extra_field_selector",
+                "extraFieldValue": "extra_field_value",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "passwordSelector": "password_selector",
+                "revealPassword": "reveal_password",
+                "sharedPassword": "shared_password",
+                "sharedUsername": "shared_username",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "urlRegex": "url_regex",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type",
+                "usernameSelector": "username_selector"
+            },
+            "okta:factor/factor:Factor": {
+                "providerId": "provider_id"
+            },
+            "okta:group/getEveryoneGroup:getEveryoneGroup": {
+                "includeUsers": "include_users"
+            },
+            "okta:group/getGroup:getGroup": {
+                "delayReadSeconds": "delay_read_seconds",
+                "includeUsers": "include_users"
+            },
+            "okta:group/group:Group": {
+                "customProfileAttributes": "custom_profile_attributes",
+                "skipUsers": "skip_users"
+            },
+            "okta:group/membership:Membership": {
+                "groupId": "group_id",
+                "userId": "user_id"
+            },
+            "okta:group/role:Role": {
+                "disableNotifications": "disable_notifications",
+                "groupId": "group_id",
+                "roleType": "role_type",
+                "targetAppLists": "target_app_list",
+                "targetGroupLists": "target_group_list"
+            },
+            "okta:group/roles:Roles": {
+                "adminRoles": "admin_roles",
+                "groupId": "group_id"
+            },
+            "okta:group/rule:Rule": {
+                "expressionType": "expression_type",
+                "expressionValue": "expression_value",
+                "groupAssignments": "group_assignments",
+                "removeAssignedUsers": "remove_assigned_users",
+                "usersExcludeds": "users_excluded"
+            },
+            "okta:idp/getMetadataSaml:getMetadataSaml": {
+                "assertionsSigned": "assertions_signed",
+                "authnRequestSigned": "authn_request_signed",
+                "encryptionCertificate": "encryption_certificate",
+                "entityId": "entity_id",
+                "httpPostBinding": "http_post_binding",
+                "httpRedirectBinding": "http_redirect_binding",
+                "idpId": "idp_id",
+                "signingCertificate": "signing_certificate"
+            },
+            "okta:idp/getOidc:getOidc": {
+                "authorizationBinding": "authorization_binding",
+                "authorizationUrl": "authorization_url",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "issuerMode": "issuer_mode",
+                "issuerUrl": "issuer_url",
+                "jwksBinding": "jwks_binding",
+                "jwksUrl": "jwks_url",
+                "maxClockSkew": "max_clock_skew",
+                "protocolType": "protocol_type",
+                "tokenBinding": "token_binding",
+                "tokenUrl": "token_url",
+                "userInfoBinding": "user_info_binding",
+                "userInfoUrl": "user_info_url"
+            },
+            "okta:idp/getSaml:getSaml": {
+                "acsBinding": "acs_binding",
+                "acsType": "acs_type",
+                "issuerMode": "issuer_mode",
+                "ssoBinding": "sso_binding",
+                "ssoDestination": "sso_destination",
+                "ssoUrl": "sso_url",
+                "subjectFilter": "subject_filter",
+                "subjectFormats": "subject_format"
+            },
+            "okta:idp/getSocial:getSocial": {
+                "accountLinkAction": "account_link_action",
+                "accountLinkGroupIncludes": "account_link_group_include",
+                "authorizationBinding": "authorization_binding",
+                "authorizationUrl": "authorization_url",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "deprovisionedAction": "deprovisioned_action",
+                "groupsAction": "groups_action",
+                "groupsAssignments": "groups_assignment",
+                "groupsAttribute": "groups_attribute",
+                "groupsFilters": "groups_filter",
+                "issuerMode": "issuer_mode",
+                "maxClockSkew": "max_clock_skew",
+                "profileMaster": "profile_master",
+                "protocolType": "protocol_type",
+                "provisioningAction": "provisioning_action",
+                "subjectMatchAttribute": "subject_match_attribute",
+                "subjectMatchType": "subject_match_type",
+                "suspendedAction": "suspended_action",
+                "tokenBinding": "token_binding",
+                "tokenUrl": "token_url",
+                "usernameTemplate": "username_template"
+            },
+            "okta:idp/oidc:Oidc": {
+                "accountLinkAction": "account_link_action",
+                "accountLinkGroupIncludes": "account_link_group_include",
+                "authorizationBinding": "authorization_binding",
+                "authorizationUrl": "authorization_url",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "deprovisionedAction": "deprovisioned_action",
+                "groupsAction": "groups_action",
+                "groupsAssignments": "groups_assignment",
+                "groupsAttribute": "groups_attribute",
+                "groupsFilters": "groups_filter",
+                "issuerMode": "issuer_mode",
+                "issuerUrl": "issuer_url",
+                "jwksBinding": "jwks_binding",
+                "jwksUrl": "jwks_url",
+                "maxClockSkew": "max_clock_skew",
+                "profileMaster": "profile_master",
+                "protocolType": "protocol_type",
+                "provisioningAction": "provisioning_action",
+                "requestSignatureAlgorithm": "request_signature_algorithm",
+                "requestSignatureScope": "request_signature_scope",
+                "subjectMatchAttribute": "subject_match_attribute",
+                "subjectMatchType": "subject_match_type",
+                "suspendedAction": "suspended_action",
+                "tokenBinding": "token_binding",
+                "tokenUrl": "token_url",
+                "userInfoBinding": "user_info_binding",
+                "userInfoUrl": "user_info_url",
+                "userTypeId": "user_type_id",
+                "usernameTemplate": "username_template"
+            },
+            "okta:idp/saml:Saml": {
+                "accountLinkAction": "account_link_action",
+                "accountLinkGroupIncludes": "account_link_group_include",
+                "acsBinding": "acs_binding",
+                "acsType": "acs_type",
+                "deprovisionedAction": "deprovisioned_action",
+                "groupsAction": "groups_action",
+                "groupsAssignments": "groups_assignment",
+                "groupsAttribute": "groups_attribute",
+                "groupsFilters": "groups_filter",
+                "issuerMode": "issuer_mode",
+                "maxClockSkew": "max_clock_skew",
+                "nameFormat": "name_format",
+                "profileMaster": "profile_master",
+                "provisioningAction": "provisioning_action",
+                "requestSignatureAlgorithm": "request_signature_algorithm",
+                "requestSignatureScope": "request_signature_scope",
+                "responseSignatureAlgorithm": "response_signature_algorithm",
+                "responseSignatureScope": "response_signature_scope",
+                "ssoBinding": "sso_binding",
+                "ssoDestination": "sso_destination",
+                "ssoUrl": "sso_url",
+                "subjectFilter": "subject_filter",
+                "subjectFormats": "subject_format",
+                "subjectMatchAttribute": "subject_match_attribute",
+                "subjectMatchType": "subject_match_type",
+                "suspendedAction": "suspended_action",
+                "userTypeId": "user_type_id",
+                "usernameTemplate": "username_template"
+            },
+            "okta:idp/samlKey:SamlKey": {
+                "expiresAt": "expires_at",
+                "x5cs": "x5c",
+                "x5tS256": "x5t_s256"
+            },
+            "okta:idp/social:Social": {
+                "accountLinkAction": "account_link_action",
+                "accountLinkGroupIncludes": "account_link_group_include",
+                "appleKid": "apple_kid",
+                "applePrivateKey": "apple_private_key",
+                "appleTeamId": "apple_team_id",
+                "authorizationBinding": "authorization_binding",
+                "authorizationUrl": "authorization_url",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "deprovisionedAction": "deprovisioned_action",
+                "groupsAction": "groups_action",
+                "groupsAssignments": "groups_assignment",
+                "groupsAttribute": "groups_attribute",
+                "groupsFilters": "groups_filter",
+                "issuerMode": "issuer_mode",
+                "matchAttribute": "match_attribute",
+                "matchType": "match_type",
+                "maxClockSkew": "max_clock_skew",
+                "profileMaster": "profile_master",
+                "protocolType": "protocol_type",
+                "provisioningAction": "provisioning_action",
+                "subjectMatchAttribute": "subject_match_attribute",
+                "subjectMatchType": "subject_match_type",
+                "suspendedAction": "suspended_action",
+                "tokenBinding": "token_binding",
+                "tokenUrl": "token_url",
+                "usernameTemplate": "username_template"
+            },
+            "okta:index/AppSignonPolicyRulePlatformInclude:AppSignonPolicyRulePlatformInclude": {
+                "osExpression": "os_expression",
+                "osType": "os_type"
+            },
+            "okta:index/DomainDnsRecord:DomainDnsRecord": {
+                "recordType": "record_type"
+            },
+            "okta:index/EmailSenderDnsRecord:EmailSenderDnsRecord": {
+                "recordType": "record_type"
+            },
+            "okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments": {
+                "customRoleId": "custom_role_id",
+                "resourceSetId": "resource_set_id"
+            },
+            "okta:index/adminRoleTargets:AdminRoleTargets": {
+                "roleId": "role_id",
+                "roleType": "role_type",
+                "userId": "user_id"
+            },
+            "okta:index/appGroupAssignments:AppGroupAssignments": {
+                "appId": "app_id",
+                "groups": "group"
+            },
+            "okta:index/appOauthApiScope:AppOauthApiScope": {
+                "appId": "app_id"
+            },
+            "okta:index/appSamlAppSettings:AppSamlAppSettings": {
+                "appId": "app_id"
+            },
+            "okta:index/appSharedCredentials:AppSharedCredentials": {
+                "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
+                "accessibilityLoginRedirectUrl": "accessibility_login_redirect_url",
+                "accessibilitySelfService": "accessibility_self_service",
+                "adminNote": "admin_note",
+                "appLinksJson": "app_links_json",
+                "autoSubmitToolbar": "auto_submit_toolbar",
+                "buttonField": "button_field",
+                "enduserNote": "enduser_note",
+                "hideIos": "hide_ios",
+                "hideWeb": "hide_web",
+                "logoUrl": "logo_url",
+                "passwordField": "password_field",
+                "preconfiguredApp": "preconfigured_app",
+                "redirectUrl": "redirect_url",
+                "sharedPassword": "shared_password",
+                "sharedUsername": "shared_username",
+                "signOnMode": "sign_on_mode",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
+                "urlRegex": "url_regex",
+                "userNameTemplate": "user_name_template",
+                "userNameTemplatePushStatus": "user_name_template_push_status",
+                "userNameTemplateSuffix": "user_name_template_suffix",
+                "userNameTemplateType": "user_name_template_type",
+                "usernameField": "username_field"
+            },
+            "okta:index/appSignonPolicyRule:AppSignonPolicyRule": {
+                "customExpression": "custom_expression",
+                "deviceIsManaged": "device_is_managed",
+                "deviceIsRegistered": "device_is_registered",
+                "factorMode": "factor_mode",
+                "groupsExcludeds": "groups_excluded",
+                "groupsIncludeds": "groups_included",
+                "inactivityPeriod": "inactivity_period",
+                "networkConnection": "network_connection",
+                "networkExcludes": "network_excludes",
+                "networkIncludes": "network_includes",
+                "platformIncludes": "platform_include",
+                "policyId": "policy_id",
+                "reAuthenticationFrequency": "re_authentication_frequency",
+                "userTypesExcludeds": "user_types_excluded",
+                "userTypesIncludeds": "user_types_included",
+                "usersExcludeds": "users_excluded",
+                "usersIncludeds": "users_included"
+            },
+            "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty": {
+                "appId": "app_id",
+                "userType": "user_type"
+            },
+            "okta:index/appUserSchemaProperty:AppUserSchemaProperty": {
+                "appId": "app_id",
+                "arrayEnums": "array_enum",
+                "arrayOneOfs": "array_one_of",
+                "arrayType": "array_type",
+                "enums": "enum",
+                "externalName": "external_name",
+                "externalNamespace": "external_namespace",
+                "maxLength": "max_length",
+                "minLength": "min_length",
+                "oneOfs": "one_of",
+                "userType": "user_type"
+            },
+            "okta:index/authServerClaimDefault:AuthServerClaimDefault": {
+                "alwaysIncludeInToken": "always_include_in_token",
+                "authServerId": "auth_server_id",
+                "claimType": "claim_type",
+                "valueType": "value_type"
+            },
+            "okta:index/authServerDefault:AuthServerDefault": {
+                "credentialsLastRotated": "credentials_last_rotated",
+                "credentialsNextRotation": "credentials_next_rotation",
+                "credentialsRotationMode": "credentials_rotation_mode",
+                "issuerMode": "issuer_mode"
+            },
+            "okta:index/authenticator:Authenticator": {
+                "providerAuthPort": "provider_auth_port",
+                "providerHost": "provider_host",
+                "providerHostname": "provider_hostname",
+                "providerInstanceId": "provider_instance_id",
+                "providerIntegrationKey": "provider_integration_key",
+                "providerJson": "provider_json",
+                "providerSecretKey": "provider_secret_key",
+                "providerSharedSecret": "provider_shared_secret",
+                "providerType": "provider_type",
+                "providerUserNameTemplate": "provider_user_name_template"
+            },
+            "okta:index/behaviour:Behaviour": {
+                "locationGranularityType": "location_granularity_type",
+                "numberOfAuthentications": "number_of_authentications",
+                "radiusFromLocation": "radius_from_location"
+            },
+            "okta:index/brand:Brand": {
+                "agreeToCustomPrivacyPolicy": "agree_to_custom_privacy_policy",
+                "brandId": "brand_id",
+                "customPrivacyPolicyUrl": "custom_privacy_policy_url",
+                "removePoweredByOkta": "remove_powered_by_okta"
+            },
+            "okta:index/captcha:Captcha": {
+                "secretKey": "secret_key",
+                "siteKey": "site_key"
+            },
+            "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings": {
+                "captchaId": "captcha_id",
+                "enabledFors": "enabled_for"
+            },
+            "okta:index/domain:Domain": {
+                "certificateSourceType": "certificate_source_type",
+                "dnsRecords": "dns_records",
+                "validationStatus": "validation_status"
+            },
+            "okta:index/domainCertificate:DomainCertificate": {
+                "certificateChain": "certificate_chain",
+                "domainId": "domain_id",
+                "privateKey": "private_key"
+            },
+            "okta:index/domainVerification:DomainVerification": {
+                "domainId": "domain_id"
+            },
+            "okta:index/emailCustomization:EmailCustomization": {
+                "brandId": "brand_id",
+                "forceIsDefault": "force_is_default",
+                "isDefault": "is_default",
+                "templateName": "template_name"
+            },
+            "okta:index/emailSender:EmailSender": {
+                "dnsRecords": "dns_records",
+                "fromAddress": "from_address",
+                "fromName": "from_name"
+            },
+            "okta:index/emailSenderVerification:EmailSenderVerification": {
+                "senderId": "sender_id"
+            },
+            "okta:index/eventHookVerification:EventHookVerification": {
+                "eventHookId": "event_hook_id"
+            },
+            "okta:index/factorTotp:FactorTotp": {
+                "clockDriftInterval": "clock_drift_interval",
+                "hmacAlgorithm": "hmac_algorithm",
+                "otpLength": "otp_length",
+                "sharedSecretEncoding": "shared_secret_encoding",
+                "timeStep": "time_step"
+            },
+            "okta:index/getAppSignonPolicy:getAppSignonPolicy": {
+                "appId": "app_id"
+            },
+            "okta:index/getAuthServerClaim:getAuthServerClaim": {
+                "alwaysIncludeInToken": "always_include_in_token",
+                "authServerId": "auth_server_id",
+                "claimType": "claim_type",
+                "valueType": "value_type"
+            },
+            "okta:index/getAuthServerClaims:getAuthServerClaims": {
+                "authServerId": "auth_server_id"
+            },
+            "okta:index/getAuthServerClaimsClaim:getAuthServerClaimsClaim": {
+                "alwaysIncludeInToken": "always_include_in_token",
+                "claimType": "claim_type",
+                "valueType": "value_type"
+            },
+            "okta:index/getAuthenticator:getAuthenticator": {
+                "providerAuthPort": "provider_auth_port",
+                "providerHostname": "provider_hostname",
+                "providerInstanceId": "provider_instance_id",
+                "providerJson": "provider_json",
+                "providerType": "provider_type",
+                "providerUserNameTemplate": "provider_user_name_template"
+            },
+            "okta:index/getBrand:getBrand": {
+                "brandId": "brand_id",
+                "customPrivacyPolicyUrl": "custom_privacy_policy_url",
+                "removePoweredByOkta": "remove_powered_by_okta"
+            },
+            "okta:index/getBrandsBrand:getBrandsBrand": {
+                "customPrivacyPolicyUrl": "custom_privacy_policy_url",
+                "removePoweredByOkta": "remove_powered_by_okta"
+            },
+            "okta:index/getEmailCustomization:getEmailCustomization": {
+                "brandId": "brand_id",
+                "customizationId": "customization_id",
+                "isDefault": "is_default",
+                "templateName": "template_name"
+            },
+            "okta:index/getEmailCustomizations:getEmailCustomizations": {
+                "brandId": "brand_id",
+                "emailCustomizations": "email_customizations",
+                "templateName": "template_name"
+            },
+            "okta:index/getEmailCustomizationsEmailCustomization:getEmailCustomizationsEmailCustomization": {
+                "isDefault": "is_default"
+            },
+            "okta:index/getGroupsGroup:getGroupsGroup": {
+                "customProfileAttributes": "custom_profile_attributes"
+            },
+            "okta:index/getNetworkZone:getNetworkZone": {
+                "dynamicLocations": "dynamic_locations",
+                "dynamicProxyType": "dynamic_proxy_type"
+            },
+            "okta:index/getRoleSubscription:getRoleSubscription": {
+                "notificationType": "notification_type",
+                "roleType": "role_type"
+            },
+            "okta:index/getTemplate:getTemplate": {
+                "brandId": "brand_id"
+            },
+            "okta:index/getTemplates:getTemplates": {
+                "brandId": "brand_id",
+                "emailTemplates": "email_templates"
+            },
+            "okta:index/getTheme:getTheme": {
+                "backgroundImageUrl": "background_image_url",
+                "brandId": "brand_id",
+                "emailTemplateTouchPointVariant": "email_template_touch_point_variant",
+                "endUserDashboardTouchPointVariant": "end_user_dashboard_touch_point_variant",
+                "errorPageTouchPointVariant": "error_page_touch_point_variant",
+                "faviconUrl": "favicon_url",
+                "logoUrl": "logo_url",
+                "primaryColorContrastHex": "primary_color_contrast_hex",
+                "primaryColorHex": "primary_color_hex",
+                "secondaryColorContrastHex": "secondary_color_contrast_hex",
+                "secondaryColorHex": "secondary_color_hex",
+                "signInPageTouchPointVariant": "sign_in_page_touch_point_variant",
+                "themeId": "theme_id"
+            },
+            "okta:index/getThemes:getThemes": {
+                "brandId": "brand_id"
+            },
+            "okta:index/getThemesTheme:getThemesTheme": {
+                "backgroundImageUrl": "background_image_url",
+                "emailTemplateTouchPointVariant": "email_template_touch_point_variant",
+                "endUserDashboardTouchPointVariant": "end_user_dashboard_touch_point_variant",
+                "errorPageTouchPointVariant": "error_page_touch_point_variant",
+                "faviconUrl": "favicon_url",
+                "logoUrl": "logo_url",
+                "primaryColorContrastHex": "primary_color_contrast_hex",
+                "primaryColorHex": "primary_color_hex",
+                "secondaryColorContrastHex": "secondary_color_contrast_hex",
+                "secondaryColorHex": "secondary_color_hex",
+                "signInPageTouchPointVariant": "sign_in_page_touch_point_variant"
+            },
+            "okta:index/getTrustedOrigins:getTrustedOrigins": {
+                "trustedOrigins": "trusted_origins"
+            },
+            "okta:index/getUserSecurityQuestions:getUserSecurityQuestions": {
+                "userId": "user_id"
+            },
+            "okta:index/groupMemberships:GroupMemberships": {
+                "groupId": "group_id",
+                "trackAllUsers": "track_all_users"
+            },
+            "okta:index/groupSchemaProperty:GroupSchemaProperty": {
+                "arrayEnums": "array_enum",
+                "arrayOneOfs": "array_one_of",
+                "arrayType": "array_type",
+                "enums": "enum",
+                "externalName": "external_name",
+                "externalNamespace": "external_namespace",
+                "masterOverridePriorities": "master_override_priority",
+                "maxLength": "max_length",
+                "minLength": "min_length",
+                "oneOfs": "one_of"
+            },
+            "okta:index/linkDefinition:LinkDefinition": {
+                "associatedDescription": "associated_description",
+                "associatedName": "associated_name",
+                "associatedTitle": "associated_title",
+                "primaryDescription": "primary_description",
+                "primaryName": "primary_name",
+                "primaryTitle": "primary_title"
+            },
+            "okta:index/linkValue:LinkValue": {
+                "associatedUserIds": "associated_user_ids",
+                "primaryName": "primary_name",
+                "primaryUserId": "primary_user_id"
+            },
+            "okta:index/orgConfiguration:OrgConfiguration": {
+                "address1": "address_1",
+                "address2": "address_2",
+                "billingContactUser": "billing_contact_user",
+                "companyName": "company_name",
+                "endUserSupportHelpUrl": "end_user_support_help_url",
+                "expiresAt": "expires_at",
+                "optOutCommunicationEmails": "opt_out_communication_emails",
+                "phoneNumber": "phone_number",
+                "postalCode": "postal_code",
+                "supportPhoneNumber": "support_phone_number",
+                "technicalContactUser": "technical_contact_user"
+            },
+            "okta:index/orgSupport:OrgSupport": {
+                "extendBy": "extend_by"
+            },
+            "okta:index/policyMfaDefault:PolicyMfaDefault": {
+                "defaultIncludedGroupId": "default_included_group_id",
+                "externalIdp": "external_idp",
+                "fidoU2f": "fido_u2f",
+                "fidoWebauthn": "fido_webauthn",
+                "googleOtp": "google_otp",
+                "isOie": "is_oie",
+                "oktaCall": "okta_call",
+                "oktaEmail": "okta_email",
+                "oktaOtp": "okta_otp",
+                "oktaPassword": "okta_password",
+                "oktaPush": "okta_push",
+                "oktaQuestion": "okta_question",
+                "oktaSms": "okta_sms",
+                "oktaVerify": "okta_verify",
+                "onpremMfa": "onprem_mfa",
+                "phoneNumber": "phone_number",
+                "rsaToken": "rsa_token",
+                "securityQuestion": "security_question",
+                "symantecVip": "symantec_vip",
+                "yubikeyToken": "yubikey_token"
+            },
+            "okta:index/policyPasswordDefault:PolicyPasswordDefault": {
+                "callRecovery": "call_recovery",
+                "defaultAuthProvider": "default_auth_provider",
+                "defaultIncludedGroupId": "default_included_group_id",
+                "emailRecovery": "email_recovery",
+                "passwordAutoUnlockMinutes": "password_auto_unlock_minutes",
+                "passwordDictionaryLookup": "password_dictionary_lookup",
+                "passwordExcludeFirstName": "password_exclude_first_name",
+                "passwordExcludeLastName": "password_exclude_last_name",
+                "passwordExcludeUsername": "password_exclude_username",
+                "passwordExpireWarnDays": "password_expire_warn_days",
+                "passwordHistoryCount": "password_history_count",
+                "passwordLockoutNotificationChannels": "password_lockout_notification_channels",
+                "passwordMaxAgeDays": "password_max_age_days",
+                "passwordMaxLockoutAttempts": "password_max_lockout_attempts",
+                "passwordMinAgeMinutes": "password_min_age_minutes",
+                "passwordMinLength": "password_min_length",
+                "passwordMinLowercase": "password_min_lowercase",
+                "passwordMinNumber": "password_min_number",
+                "passwordMinSymbol": "password_min_symbol",
+                "passwordMinUppercase": "password_min_uppercase",
+                "passwordShowLockoutFailures": "password_show_lockout_failures",
+                "questionMinLength": "question_min_length",
+                "questionRecovery": "question_recovery",
+                "recoveryEmailToken": "recovery_email_token",
+                "skipUnlock": "skip_unlock",
+                "smsRecovery": "sms_recovery"
+            },
+            "okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps": {
+                "defaultPolicyId": "default_policy_id",
+                "policyId": "policy_id"
+            },
+            "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment": {
+                "emailVerification": "email_verification",
+                "inlineHookId": "inline_hook_id",
+                "policyId": "policy_id",
+                "profileAttributes": "profile_attributes",
+                "targetGroupId": "target_group_id",
+                "uiSchemaId": "ui_schema_id",
+                "unknownUserAction": "unknown_user_action"
+            },
+            "okta:index/rateLimiting:RateLimiting": {
+                "communicationsEnabled": "communications_enabled"
+            },
+            "okta:index/roleSubscription:RoleSubscription": {
+                "notificationType": "notification_type",
+                "roleType": "role_type"
+            },
+            "okta:index/securityNotificationEmails:SecurityNotificationEmails": {
+                "reportSuspiciousActivityEnabled": "report_suspicious_activity_enabled",
+                "sendEmailForFactorEnrollmentEnabled": "send_email_for_factor_enrollment_enabled",
+                "sendEmailForFactorResetEnabled": "send_email_for_factor_reset_enabled",
+                "sendEmailForNewDeviceEnabled": "send_email_for_new_device_enabled",
+                "sendEmailForPasswordChangedEnabled": "send_email_for_password_changed_enabled"
+            },
+            "okta:index/theme:Theme": {
+                "backgroundImage": "background_image",
+                "backgroundImageUrl": "background_image_url",
+                "brandId": "brand_id",
+                "emailTemplateTouchPointVariant": "email_template_touch_point_variant",
+                "endUserDashboardTouchPointVariant": "end_user_dashboard_touch_point_variant",
+                "errorPageTouchPointVariant": "error_page_touch_point_variant",
+                "faviconUrl": "favicon_url",
+                "logoUrl": "logo_url",
+                "primaryColorContrastHex": "primary_color_contrast_hex",
+                "primaryColorHex": "primary_color_hex",
+                "secondaryColorContrastHex": "secondary_color_contrast_hex",
+                "secondaryColorHex": "secondary_color_hex",
+                "signInPageTouchPointVariant": "sign_in_page_touch_point_variant",
+                "themeId": "theme_id"
+            },
+            "okta:index/threatInsightSettings:ThreatInsightSettings": {
+                "networkExcludes": "network_excludes"
+            },
+            "okta:index/userAdminRoles:UserAdminRoles": {
+                "adminRoles": "admin_roles",
+                "disableNotifications": "disable_notifications",
+                "userId": "user_id"
+            },
+            "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty": {
+                "userType": "user_type"
+            },
+            "okta:index/userFactorQuestion:UserFactorQuestion": {
+                "userId": "user_id"
+            },
+            "okta:index/userGroupMemberships:UserGroupMemberships": {
+                "userId": "user_id"
+            },
+            "okta:index/userSchemaProperty:UserSchemaProperty": {
+                "arrayEnums": "array_enum",
+                "arrayOneOfs": "array_one_of",
+                "arrayType": "array_type",
+                "enums": "enum",
+                "externalName": "external_name",
+                "externalNamespace": "external_namespace",
+                "masterOverridePriorities": "master_override_priority",
+                "maxLength": "max_length",
+                "minLength": "min_length",
+                "oneOfs": "one_of",
+                "userType": "user_type"
+            },
+            "okta:index:Provider": {
+                "accessToken": "access_token",
+                "apiToken": "api_token",
+                "baseUrl": "base_url",
+                "clientId": "client_id",
+                "httpProxy": "http_proxy",
+                "logLevel": "log_level",
+                "maxApiCapacity": "max_api_capacity",
+                "maxRetries": "max_retries",
+                "maxWaitSeconds": "max_wait_seconds",
+                "minWaitSeconds": "min_wait_seconds",
+                "orgName": "org_name",
+                "privateKey": "private_key",
+                "privateKeyId": "private_key_id",
+                "requestTimeout": "request_timeout"
+            },
+            "okta:network/zone:Zone": {
+                "dynamicLocations": "dynamic_locations",
+                "dynamicProxyType": "dynamic_proxy_type"
+            },
+            "okta:policy/RuleIdpDiscoveryPlatformInclude:RuleIdpDiscoveryPlatformInclude": {
+                "osExpression": "os_expression",
+                "osType": "os_type"
+            },
+            "okta:policy/RuleIdpDiscoveryUserIdentifierPattern:RuleIdpDiscoveryUserIdentifierPattern": {
+                "matchType": "match_type"
+            },
+            "okta:policy/RuleSignonFactorSequence:RuleSignonFactorSequence": {
+                "primaryCriteriaFactorType": "primary_criteria_factor_type",
+                "primaryCriteriaProvider": "primary_criteria_provider",
+                "secondaryCriterias": "secondary_criteria"
+            },
+            "okta:policy/RuleSignonFactorSequenceSecondaryCriteria:RuleSignonFactorSequenceSecondaryCriteria": {
+                "factorType": "factor_type"
+            },
+            "okta:policy/mfa:Mfa": {
+                "externalIdp": "external_idp",
+                "fidoU2f": "fido_u2f",
+                "fidoWebauthn": "fido_webauthn",
+                "googleOtp": "google_otp",
+                "groupsIncludeds": "groups_included",
+                "isOie": "is_oie",
+                "oktaCall": "okta_call",
+                "oktaEmail": "okta_email",
+                "oktaOtp": "okta_otp",
+                "oktaPassword": "okta_password",
+                "oktaPush": "okta_push",
+                "oktaQuestion": "okta_question",
+                "oktaSms": "okta_sms",
+                "oktaVerify": "okta_verify",
+                "onpremMfa": "onprem_mfa",
+                "phoneNumber": "phone_number",
+                "rsaToken": "rsa_token",
+                "securityQuestion": "security_question",
+                "symantecVip": "symantec_vip",
+                "yubikeyToken": "yubikey_token"
+            },
+            "okta:policy/password:Password": {
+                "authProvider": "auth_provider",
+                "callRecovery": "call_recovery",
+                "emailRecovery": "email_recovery",
+                "groupsIncludeds": "groups_included",
+                "passwordAutoUnlockMinutes": "password_auto_unlock_minutes",
+                "passwordDictionaryLookup": "password_dictionary_lookup",
+                "passwordExcludeFirstName": "password_exclude_first_name",
+                "passwordExcludeLastName": "password_exclude_last_name",
+                "passwordExcludeUsername": "password_exclude_username",
+                "passwordExpireWarnDays": "password_expire_warn_days",
+                "passwordHistoryCount": "password_history_count",
+                "passwordLockoutNotificationChannels": "password_lockout_notification_channels",
+                "passwordMaxAgeDays": "password_max_age_days",
+                "passwordMaxLockoutAttempts": "password_max_lockout_attempts",
+                "passwordMinAgeMinutes": "password_min_age_minutes",
+                "passwordMinLength": "password_min_length",
+                "passwordMinLowercase": "password_min_lowercase",
+                "passwordMinNumber": "password_min_number",
+                "passwordMinSymbol": "password_min_symbol",
+                "passwordMinUppercase": "password_min_uppercase",
+                "passwordShowLockoutFailures": "password_show_lockout_failures",
+                "questionMinLength": "question_min_length",
+                "questionRecovery": "question_recovery",
+                "recoveryEmailToken": "recovery_email_token",
+                "skipUnlock": "skip_unlock",
+                "smsRecovery": "sms_recovery"
+            },
+            "okta:policy/ruleIdpDiscovery:RuleIdpDiscovery": {
+                "appExcludes": "app_exclude",
+                "appIncludes": "app_include",
+                "idpId": "idp_id",
+                "idpType": "idp_type",
+                "networkConnection": "network_connection",
+                "networkExcludes": "network_excludes",
+                "networkIncludes": "network_includes",
+                "platformIncludes": "platform_include",
+                "policyId": "policy_id",
+                "userIdentifierAttribute": "user_identifier_attribute",
+                "userIdentifierPatterns": "user_identifier_patterns",
+                "userIdentifierType": "user_identifier_type"
+            },
+            "okta:policy/ruleMfa:RuleMfa": {
+                "appExcludes": "app_exclude",
+                "appIncludes": "app_include",
+                "networkConnection": "network_connection",
+                "networkExcludes": "network_excludes",
+                "networkIncludes": "network_includes",
+                "policyId": "policy_id",
+                "usersExcludeds": "users_excluded"
+            },
+            "okta:policy/rulePassword:RulePassword": {
+                "networkConnection": "network_connection",
+                "networkExcludes": "network_excludes",
+                "networkIncludes": "network_includes",
+                "passwordChange": "password_change",
+                "passwordReset": "password_reset",
+                "passwordUnlock": "password_unlock",
+                "policyId": "policy_id",
+                "usersExcludeds": "users_excluded"
+            },
+            "okta:policy/ruleSignon:RuleSignon": {
+                "factorSequences": "factor_sequence",
+                "identityProvider": "identity_provider",
+                "identityProviderIds": "identity_provider_ids",
+                "mfaLifetime": "mfa_lifetime",
+                "mfaPrompt": "mfa_prompt",
+                "mfaRememberDevice": "mfa_remember_device",
+                "mfaRequired": "mfa_required",
+                "networkConnection": "network_connection",
+                "networkExcludes": "network_excludes",
+                "networkIncludes": "network_includes",
+                "policyId": "policy_id",
+                "primaryFactor": "primary_factor",
+                "riscLevel": "risc_level",
+                "sessionIdle": "session_idle",
+                "sessionLifetime": "session_lifetime",
+                "sessionPersistent": "session_persistent",
+                "usersExcludeds": "users_excluded"
+            },
+            "okta:policy/signon:Signon": {
+                "groupsIncludeds": "groups_included"
+            },
+            "okta:profile/MappingMapping:MappingMapping": {
+                "pushStatus": "push_status"
+            },
+            "okta:profile/mapping:Mapping": {
+                "alwaysApply": "always_apply",
+                "deleteWhenAbsent": "delete_when_absent",
+                "sourceId": "source_id",
+                "sourceName": "source_name",
+                "sourceType": "source_type",
+                "targetId": "target_id",
+                "targetName": "target_name",
+                "targetType": "target_type"
+            },
+            "okta:template/email:Email": {
+                "defaultLanguage": "default_language"
+            },
+            "okta:user/UserPasswordHash:UserPasswordHash": {
+                "saltOrder": "salt_order",
+                "workFactor": "work_factor"
+            },
+            "okta:user/baseSchema:BaseSchema": {
+                "userType": "user_type"
+            },
+            "okta:user/getUser:getUser": {
+                "adminRoles": "admin_roles",
+                "compoundSearchOperator": "compound_search_operator",
+                "costCenter": "cost_center",
+                "countryCode": "country_code",
+                "customProfileAttributes": "custom_profile_attributes",
+                "delayReadSeconds": "delay_read_seconds",
+                "displayName": "display_name",
+                "employeeNumber": "employee_number",
+                "firstName": "first_name",
+                "groupMemberships": "group_memberships",
+                "honorificPrefix": "honorific_prefix",
+                "honorificSuffix": "honorific_suffix",
+                "lastName": "last_name",
+                "managerId": "manager_id",
+                "middleName": "middle_name",
+                "mobilePhone": "mobile_phone",
+                "nickName": "nick_name",
+                "postalAddress": "postal_address",
+                "preferredLanguage": "preferred_language",
+                "primaryPhone": "primary_phone",
+                "profileUrl": "profile_url",
+                "searches": "search",
+                "secondEmail": "second_email",
+                "skipGroups": "skip_groups",
+                "skipRoles": "skip_roles",
+                "streetAddress": "street_address",
+                "userId": "user_id",
+                "userType": "user_type",
+                "zipCode": "zip_code"
+            },
+            "okta:user/getUserType:getUserType": {
+                "displayName": "display_name"
+            },
+            "okta:user/getUsers:getUsers": {
+                "compoundSearchOperator": "compound_search_operator",
+                "delayReadSeconds": "delay_read_seconds",
+                "groupId": "group_id",
+                "includeGroups": "include_groups",
+                "includeRoles": "include_roles",
+                "searches": "search"
+            },
+            "okta:user/getUsersUser:getUsersUser": {
+                "adminRoles": "admin_roles",
+                "costCenter": "cost_center",
+                "countryCode": "country_code",
+                "customProfileAttributes": "custom_profile_attributes",
+                "displayName": "display_name",
+                "employeeNumber": "employee_number",
+                "firstName": "first_name",
+                "groupMemberships": "group_memberships",
+                "honorificPrefix": "honorific_prefix",
+                "honorificSuffix": "honorific_suffix",
+                "lastName": "last_name",
+                "managerId": "manager_id",
+                "middleName": "middle_name",
+                "mobilePhone": "mobile_phone",
+                "nickName": "nick_name",
+                "postalAddress": "postal_address",
+                "preferredLanguage": "preferred_language",
+                "primaryPhone": "primary_phone",
+                "profileUrl": "profile_url",
+                "secondEmail": "second_email",
+                "streetAddress": "street_address",
+                "userType": "user_type",
+                "zipCode": "zip_code"
+            },
+            "okta:user/schema:Schema": {
+                "arrayEnums": "array_enum",
+                "arrayOneOfs": "array_one_of",
+                "arrayType": "array_type",
+                "enums": "enum",
+                "externalName": "external_name",
+                "externalNamespace": "external_namespace",
+                "masterOverridePriorities": "master_override_priority",
+                "maxLength": "max_length",
+                "minLength": "min_length",
+                "oneOfs": "one_of",
+                "userType": "user_type"
+            },
+            "okta:user/user:User": {
+                "adminRoles": "admin_roles",
+                "costCenter": "cost_center",
+                "countryCode": "country_code",
+                "customProfileAttributes": "custom_profile_attributes",
+                "customProfileAttributesToIgnores": "custom_profile_attributes_to_ignore",
+                "displayName": "display_name",
+                "employeeNumber": "employee_number",
+                "expirePasswordOnCreate": "expire_password_on_create",
+                "firstName": "first_name",
+                "groupMemberships": "group_memberships",
+                "honorificPrefix": "honorific_prefix",
+                "honorificSuffix": "honorific_suffix",
+                "lastName": "last_name",
+                "managerId": "manager_id",
+                "middleName": "middle_name",
+                "mobilePhone": "mobile_phone",
+                "nickName": "nick_name",
+                "oldPassword": "old_password",
+                "passwordHash": "password_hash",
+                "passwordInlineHook": "password_inline_hook",
+                "postalAddress": "postal_address",
+                "preferredLanguage": "preferred_language",
+                "primaryPhone": "primary_phone",
+                "profileUrl": "profile_url",
+                "rawStatus": "raw_status",
+                "recoveryAnswer": "recovery_answer",
+                "recoveryQuestion": "recovery_question",
+                "secondEmail": "second_email",
+                "skipRoles": "skip_roles",
+                "streetAddress": "street_address",
+                "userType": "user_type",
+                "zipCode": "zip_code"
+            },
+            "okta:user/userType:UserType": {
+                "displayName": "display_name"
+            }
+        },
+        "renamedConfigProperties": {
+            "accessToken": "access_token",
+            "apiToken": "api_token",
+            "baseUrl": "base_url",
+            "clientId": "client_id",
+            "httpProxy": "http_proxy",
+            "logLevel": "log_level",
+            "maxApiCapacity": "max_api_capacity",
+            "maxRetries": "max_retries",
+            "maxWaitSeconds": "max_wait_seconds",
+            "minWaitSeconds": "min_wait_seconds",
+            "orgName": "org_name",
+            "privateKey": "private_key",
+            "privateKeyId": "private_key_id",
+            "requestTimeout": "request_timeout"
+        }
+    }
+}

@@ -16,6 +16,8 @@ package okta
 
 import (
 	"fmt"
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
 	"path/filepath"
 	"strings"
 	"unicode"
@@ -549,7 +551,7 @@ func Provider() tfbridge.ProviderInfo {
 				"Pulumi": "3.*",
 			},
 			Namespaces: namespaceMap,
-		},
+		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
 
 	prov.RenameResourceWithAlias("okta_auth_server_policy_rule",
@@ -575,6 +577,8 @@ func Provider() tfbridge.ProviderInfo {
 	}, x.MakeStandardToken(mainPkg)))
 
 	contract.AssertNoErrorf(err, "auto token mapping failed")
+	err = x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "auto aliasing apply failed")
 	prov.SetAutonaming(255, "-")
 
 	return prov
@@ -590,3 +594,6 @@ func formatDeprecationMessage(newResourceName string) string {
 	return fmt.Sprintf("Deprecated. Use %s instead. This resource will be removed in version 4.0 of this provider.",
 		newResourceName)
 }
+
+//go:embed cmd/pulumi-resource-okta/bridge-metadata.json
+var metadata []byte
