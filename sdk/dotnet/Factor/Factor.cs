@@ -18,6 +18,7 @@ namespace Pulumi.Okta.Factor
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 

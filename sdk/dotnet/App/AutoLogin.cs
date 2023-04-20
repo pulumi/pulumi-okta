@@ -16,6 +16,7 @@ namespace Pulumi.Okta.App
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
@@ -35,6 +36,7 @@ namespace Pulumi.Okta.App
     /// ### Pre-configured application
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Okta = Pulumi.Okta;
     /// 
