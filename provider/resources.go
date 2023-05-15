@@ -23,7 +23,7 @@ import (
 	"unicode"
 
 	"github.com/okta/terraform-provider-okta/okta"
-	"github.com/pulumi/pulumi-okta/provider/v3/pkg/version"
+	"github.com/pulumi/pulumi-okta/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
