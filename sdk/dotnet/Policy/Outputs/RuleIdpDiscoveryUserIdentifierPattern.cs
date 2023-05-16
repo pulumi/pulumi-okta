@@ -19,6 +19,16 @@ namespace Pulumi.Okta.Policy.Outputs
         public readonly string? MatchType;
         /// <summary>
         /// The regex or simple match string to match against.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         public readonly string? Value;
 

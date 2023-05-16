@@ -12,10 +12,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSamlResult {
-    /**
-     * @return HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `&#34;HTTP-POST&#34;`).
-     * 
-     */
     private String acsBinding;
     /**
      * @return Determines whether to publish an instance-specific (trust) or organization (shared) ACS endpoint in the SAML metadata.
@@ -84,10 +80,6 @@ public final class GetSamlResult {
     private String type;
 
     private GetSamlResult() {}
-    /**
-     * @return HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `&#34;HTTP-POST&#34;`).
-     * 
-     */
     public String acsBinding() {
         return this.acsBinding;
     }

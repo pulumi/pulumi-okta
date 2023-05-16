@@ -40,6 +40,8 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+        /// 
+        /// &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
         /// </summary>
         [Output("certificateSourceType")]
         public Output<string?> CertificateSourceType { get; private set; } = null!;
@@ -61,12 +63,6 @@ namespace Pulumi.Okta
         /// </summary>
         [Output("validationStatus")]
         public Output<string> ValidationStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates whether the domain should be verified.
-        /// </summary>
-        [Output("verify")]
-        public Output<bool?> Verify { get; private set; } = null!;
 
 
         /// <summary>
@@ -116,6 +112,8 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+        /// 
+        /// &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
         /// </summary>
         [Input("certificateSourceType")]
         public Input<string>? CertificateSourceType { get; set; }
@@ -125,12 +123,6 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Indicates whether the domain should be verified.
-        /// </summary>
-        [Input("verify")]
-        public Input<bool>? Verify { get; set; }
 
         public DomainArgs()
         {
@@ -142,6 +134,8 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+        /// 
+        /// &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
         /// </summary>
         [Input("certificateSourceType")]
         public Input<string>? CertificateSourceType { get; set; }
@@ -169,12 +163,6 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("validationStatus")]
         public Input<string>? ValidationStatus { get; set; }
-
-        /// <summary>
-        /// Indicates whether the domain should be verified.
-        /// </summary>
-        [Input("verify")]
-        public Input<bool>? Verify { get; set; }
 
         public DomainState()
         {

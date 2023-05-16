@@ -40,15 +40,6 @@ public final class GetOauthResult {
      */
     private List<String> grantTypes;
     /**
-     * @return List of groups IDs assigned to the application.
-     * 
-     * @deprecated
-     * The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
-     * 
-     */
-    @Deprecated /* The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments` */
-    private List<String> groups;
-    /**
      * @return Do not display application icon on mobile app.
      * 
      */
@@ -119,8 +110,6 @@ public final class GetOauthResult {
      * 
      */
     private List<String> responseTypes;
-    private @Nullable Boolean skipGroups;
-    private @Nullable Boolean skipUsers;
     /**
      * @return Status of application.
      * 
@@ -131,15 +120,6 @@ public final class GetOauthResult {
      * 
      */
     private String type;
-    /**
-     * @return List of users IDs assigned to the application.
-     * 
-     * @deprecated
-     * The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
-     * 
-     */
-    @Deprecated /* The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments` */
-    private List<String> users;
     private String wildcardRedirect;
 
     private GetOauthResult() {}
@@ -180,17 +160,6 @@ public final class GetOauthResult {
      */
     public List<String> grantTypes() {
         return this.grantTypes;
-    }
-    /**
-     * @return List of groups IDs assigned to the application.
-     * 
-     * @deprecated
-     * The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
-     * 
-     */
-    @Deprecated /* The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments` */
-    public List<String> groups() {
-        return this.groups;
     }
     /**
      * @return Do not display application icon on mobile app.
@@ -293,12 +262,6 @@ public final class GetOauthResult {
     public List<String> responseTypes() {
         return this.responseTypes;
     }
-    public Optional<Boolean> skipGroups() {
-        return Optional.ofNullable(this.skipGroups);
-    }
-    public Optional<Boolean> skipUsers() {
-        return Optional.ofNullable(this.skipUsers);
-    }
     /**
      * @return Status of application.
      * 
@@ -312,17 +275,6 @@ public final class GetOauthResult {
      */
     public String type() {
         return this.type;
-    }
-    /**
-     * @return List of users IDs assigned to the application.
-     * 
-     * @deprecated
-     * The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
-     * 
-     */
-    @Deprecated /* The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments` */
-    public List<String> users() {
-        return this.users;
     }
     public String wildcardRedirect() {
         return this.wildcardRedirect;
@@ -343,7 +295,6 @@ public final class GetOauthResult {
         private String clientSecret;
         private String clientUri;
         private List<String> grantTypes;
-        private List<String> groups;
         private Boolean hideIos;
         private Boolean hideWeb;
         private @Nullable String id;
@@ -359,11 +310,8 @@ public final class GetOauthResult {
         private List<String> postLogoutRedirectUris;
         private List<String> redirectUris;
         private List<String> responseTypes;
-        private @Nullable Boolean skipGroups;
-        private @Nullable Boolean skipUsers;
         private String status;
         private String type;
-        private List<String> users;
         private String wildcardRedirect;
         public Builder() {}
         public Builder(GetOauthResult defaults) {
@@ -374,7 +322,6 @@ public final class GetOauthResult {
     	      this.clientSecret = defaults.clientSecret;
     	      this.clientUri = defaults.clientUri;
     	      this.grantTypes = defaults.grantTypes;
-    	      this.groups = defaults.groups;
     	      this.hideIos = defaults.hideIos;
     	      this.hideWeb = defaults.hideWeb;
     	      this.id = defaults.id;
@@ -390,11 +337,8 @@ public final class GetOauthResult {
     	      this.postLogoutRedirectUris = defaults.postLogoutRedirectUris;
     	      this.redirectUris = defaults.redirectUris;
     	      this.responseTypes = defaults.responseTypes;
-    	      this.skipGroups = defaults.skipGroups;
-    	      this.skipUsers = defaults.skipUsers;
     	      this.status = defaults.status;
     	      this.type = defaults.type;
-    	      this.users = defaults.users;
     	      this.wildcardRedirect = defaults.wildcardRedirect;
         }
 
@@ -430,14 +374,6 @@ public final class GetOauthResult {
         }
         public Builder grantTypes(String... grantTypes) {
             return grantTypes(List.of(grantTypes));
-        }
-        @CustomType.Setter
-        public Builder groups(List<String> groups) {
-            this.groups = Objects.requireNonNull(groups);
-            return this;
-        }
-        public Builder groups(String... groups) {
-            return groups(List.of(groups));
         }
         @CustomType.Setter
         public Builder hideIos(Boolean hideIos) {
@@ -527,16 +463,6 @@ public final class GetOauthResult {
             return responseTypes(List.of(responseTypes));
         }
         @CustomType.Setter
-        public Builder skipGroups(@Nullable Boolean skipGroups) {
-            this.skipGroups = skipGroups;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder skipUsers(@Nullable Boolean skipUsers) {
-            this.skipUsers = skipUsers;
-            return this;
-        }
-        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
@@ -545,14 +471,6 @@ public final class GetOauthResult {
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }
-        @CustomType.Setter
-        public Builder users(List<String> users) {
-            this.users = Objects.requireNonNull(users);
-            return this;
-        }
-        public Builder users(String... users) {
-            return users(List.of(users));
         }
         @CustomType.Setter
         public Builder wildcardRedirect(String wildcardRedirect) {
@@ -567,7 +485,6 @@ public final class GetOauthResult {
             o.clientSecret = clientSecret;
             o.clientUri = clientUri;
             o.grantTypes = grantTypes;
-            o.groups = groups;
             o.hideIos = hideIos;
             o.hideWeb = hideWeb;
             o.id = id;
@@ -583,11 +500,8 @@ public final class GetOauthResult {
             o.postLogoutRedirectUris = postLogoutRedirectUris;
             o.redirectUris = redirectUris;
             o.responseTypes = responseTypes;
-            o.skipGroups = skipGroups;
-            o.skipUsers = skipUsers;
             o.status = status;
             o.type = type;
-            o.users = users;
             o.wildcardRedirect = wildcardRedirect;
             return o;
         }

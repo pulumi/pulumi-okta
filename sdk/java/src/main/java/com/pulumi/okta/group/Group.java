@@ -10,9 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.group.GroupArgs;
 import com.pulumi.okta.group.inputs.GroupState;
-import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -45,37 +43,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
  *             .description(&#34;My Example Group&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * Ignore users sync
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.group.Group;
- * import com.pulumi.okta.group.GroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleSkip = new Group(&#34;exampleSkip&#34;, GroupArgs.builder()        
- *             .description(&#34;My Example Group&#34;)
- *             .skipUsers(true)
  *             .build());
  * 
  *     }
@@ -127,12 +94,6 @@ import javax.annotation.Nullable;
  *  $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;
  * ```
  * 
- *  It&#39;s also possible to import group without users. In this case ID will look like this
- * 
- * ```sh
- *  $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;/skip_users
- * ```
- * 
  */
 @ResourceType(type="okta:group/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
@@ -177,40 +138,6 @@ public class Group extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
-    }
-    /**
-     * Indicator that allows a group to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Export(name="skipUsers", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> skipUsers;
-
-    /**
-     * @return Indicator that allows a group to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> skipUsers() {
-        return Codegen.optional(this.skipUsers);
-    }
-    /**
-     * The users associated with the group. This can also be done per user.
-     * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-     * 
-     * @deprecated
-     * The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-     * 
-     */
-    @Deprecated /* The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships` */
-    @Export(name="users", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> users;
-
-    /**
-     * @return The users associated with the group. This can also be done per user.
-     * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-     * 
-     */
-    public Output<Optional<List<String>>> users() {
-        return Codegen.optional(this.users);
     }
 
     /**

@@ -97,36 +97,6 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.requestCompressed);
     }
 
-    /**
-     * Indicator that allows the app to skip `groups` sync. Default is `false`.
-     * 
-     */
-    @Import(name="skipGroups")
-    private @Nullable Output<Boolean> skipGroups;
-
-    /**
-     * @return Indicator that allows the app to skip `groups` sync. Default is `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> skipGroups() {
-        return Optional.ofNullable(this.skipGroups);
-    }
-
-    /**
-     * Indicator that allows the app to skip `users` sync. Default is `false`.
-     * 
-     */
-    @Import(name="skipUsers")
-    private @Nullable Output<Boolean> skipUsers;
-
-    /**
-     * @return Indicator that allows the app to skip `users` sync. Default is `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> skipUsers() {
-        return Optional.ofNullable(this.skipUsers);
-    }
-
     private GetSamlArgs() {}
 
     private GetSamlArgs(GetSamlArgs $) {
@@ -135,8 +105,6 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         this.label = $.label;
         this.labelPrefix = $.labelPrefix;
         this.requestCompressed = $.requestCompressed;
-        this.skipGroups = $.skipGroups;
-        this.skipUsers = $.skipUsers;
     }
 
     public static Builder builder() {
@@ -266,48 +234,6 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder requestCompressed(Boolean requestCompressed) {
             return requestCompressed(Output.of(requestCompressed));
-        }
-
-        /**
-         * @param skipGroups Indicator that allows the app to skip `groups` sync. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipGroups(@Nullable Output<Boolean> skipGroups) {
-            $.skipGroups = skipGroups;
-            return this;
-        }
-
-        /**
-         * @param skipGroups Indicator that allows the app to skip `groups` sync. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipGroups(Boolean skipGroups) {
-            return skipGroups(Output.of(skipGroups));
-        }
-
-        /**
-         * @param skipUsers Indicator that allows the app to skip `users` sync. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipUsers(@Nullable Output<Boolean> skipUsers) {
-            $.skipUsers = skipUsers;
-            return this;
-        }
-
-        /**
-         * @param skipUsers Indicator that allows the app to skip `users` sync. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipUsers(Boolean skipUsers) {
-            return skipUsers(Output.of(skipUsers));
         }
 
         public GetSamlArgs build() {

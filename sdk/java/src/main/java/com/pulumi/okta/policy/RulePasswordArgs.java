@@ -138,29 +138,6 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy ID.
-     * 
-     * @deprecated
-     * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-     * 
-     */
-    @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-    @Import(name="policyid")
-    private @Nullable Output<String> policyid;
-
-    /**
-     * @return Policy ID.
-     * 
-     * @deprecated
-     * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-     * 
-     */
-    @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-    public Optional<Output<String>> policyid() {
-        return Optional.ofNullable(this.policyid);
-    }
-
-    /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
      * 
      */
@@ -216,7 +193,6 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         this.passwordReset = $.passwordReset;
         this.passwordUnlock = $.passwordUnlock;
         this.policyId = $.policyId;
-        this.policyid = $.policyid;
         this.priority = $.priority;
         this.status = $.status;
         this.usersExcludeds = $.usersExcludeds;
@@ -426,35 +402,6 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
-        }
-
-        /**
-         * @param policyid Policy ID.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-         * 
-         */
-        @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-        public Builder policyid(@Nullable Output<String> policyid) {
-            $.policyid = policyid;
-            return this;
-        }
-
-        /**
-         * @param policyid Policy ID.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-         * 
-         */
-        @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-        public Builder policyid(String policyid) {
-            return policyid(Output.of(policyid));
         }
 
         /**

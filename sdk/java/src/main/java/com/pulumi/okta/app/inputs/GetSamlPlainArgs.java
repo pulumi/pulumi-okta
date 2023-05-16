@@ -96,36 +96,6 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.requestCompressed);
     }
 
-    /**
-     * Indicator that allows the app to skip `groups` sync. Default is `false`.
-     * 
-     */
-    @Import(name="skipGroups")
-    private @Nullable Boolean skipGroups;
-
-    /**
-     * @return Indicator that allows the app to skip `groups` sync. Default is `false`.
-     * 
-     */
-    public Optional<Boolean> skipGroups() {
-        return Optional.ofNullable(this.skipGroups);
-    }
-
-    /**
-     * Indicator that allows the app to skip `users` sync. Default is `false`.
-     * 
-     */
-    @Import(name="skipUsers")
-    private @Nullable Boolean skipUsers;
-
-    /**
-     * @return Indicator that allows the app to skip `users` sync. Default is `false`.
-     * 
-     */
-    public Optional<Boolean> skipUsers() {
-        return Optional.ofNullable(this.skipUsers);
-    }
-
     private GetSamlPlainArgs() {}
 
     private GetSamlPlainArgs(GetSamlPlainArgs $) {
@@ -134,8 +104,6 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.label = $.label;
         this.labelPrefix = $.labelPrefix;
         this.requestCompressed = $.requestCompressed;
-        this.skipGroups = $.skipGroups;
-        this.skipUsers = $.skipUsers;
     }
 
     public static Builder builder() {
@@ -211,28 +179,6 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder requestCompressed(@Nullable Boolean requestCompressed) {
             $.requestCompressed = requestCompressed;
-            return this;
-        }
-
-        /**
-         * @param skipGroups Indicator that allows the app to skip `groups` sync. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipGroups(@Nullable Boolean skipGroups) {
-            $.skipGroups = skipGroups;
-            return this;
-        }
-
-        /**
-         * @param skipUsers Indicator that allows the app to skip `users` sync. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipUsers(@Nullable Boolean skipUsers) {
-            $.skipUsers = skipUsers;
             return this;
         }
 

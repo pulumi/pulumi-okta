@@ -12,7 +12,6 @@ import com.pulumi.okta.app.OAuthArgs;
 import com.pulumi.okta.app.inputs.OAuthState;
 import com.pulumi.okta.app.outputs.OAuthGroupsClaim;
 import com.pulumi.okta.app.outputs.OAuthJwk;
-import com.pulumi.okta.app.outputs.OAuthUser;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -113,20 +112,6 @@ import javax.annotation.Nullable;
  * 
  * ```sh
  *  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;
- * ```
- * 
- *  It&#39;s also possible to import app without groups or/and users. In this case ID may look like this
- * 
- * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;/skip_users
- * ```
- * 
- * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;/skip_users/skip_groups
- * ```
- * 
- * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;/skip_groups
  * ```
  * 
  */
@@ -337,24 +322,6 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.consentMethod);
     }
     /**
-     * This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-     * 
-     * @deprecated
-     * This field is being replaced by client_id. Please set that field instead.
-     * 
-     */
-    @Deprecated /* This field is being replaced by client_id. Please set that field instead. */
-    @Export(name="customClientId", type=String.class, parameters={})
-    private Output</* @Nullable */ String> customClientId;
-
-    /**
-     * @return This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-     * 
-     */
-    public Output<Optional<String>> customClientId() {
-        return Codegen.optional(this.customClientId);
-    }
-    /**
      * Application notes for end users.
      * 
      */
@@ -387,24 +354,6 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> grantTypes() {
         return Codegen.optional(this.grantTypes);
-    }
-    /**
-     * The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     * 
-     * @deprecated
-     * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-    @Export(name="groups", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> groups;
-
-    /**
-     * @return The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     * 
-     */
-    public Output<Optional<List<String>>> groups() {
-        return Codegen.optional(this.groups);
     }
     /**
      * Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
@@ -771,34 +720,6 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return this.signOnMode;
     }
     /**
-     * Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Export(name="skipGroups", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> skipGroups;
-
-    /**
-     * @return Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> skipGroups() {
-        return Codegen.optional(this.skipGroups);
-    }
-    /**
-     * Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Export(name="skipUsers", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> skipUsers;
-
-    /**
-     * @return Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> skipUsers() {
-        return Codegen.optional(this.skipUsers);
-    }
-    /**
      * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
      * 
      */
@@ -925,24 +846,6 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> userNameTemplateType() {
         return Codegen.optional(this.userNameTemplateType);
-    }
-    /**
-     * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     * 
-     * @deprecated
-     * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-    @Export(name="users", type=List.class, parameters={OAuthUser.class})
-    private Output</* @Nullable */ List<OAuthUser>> users;
-
-    /**
-     * @return The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     * 
-     */
-    public Output<Optional<List<OAuthUser>>> users() {
-        return Codegen.optional(this.users);
     }
     /**
      * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `&#34;DISABLED&#34;`, `&#34;SUBDOMAIN&#34;`. Default value is `&#34;DISABLED&#34;`.

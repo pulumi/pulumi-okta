@@ -107,15 +107,9 @@ namespace Pulumi.Okta.User
             set => _searches = value;
         }
 
-        /// <summary>
-        /// Additional API call to collect user's groups will not be made.
-        /// </summary>
         [Input("skipGroups")]
         public bool? SkipGroups { get; set; }
 
-        /// <summary>
-        /// Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
-        /// </summary>
         [Input("skipRoles")]
         public bool? SkipRoles { get; set; }
 
@@ -157,15 +151,9 @@ namespace Pulumi.Okta.User
             set => _searches = value;
         }
 
-        /// <summary>
-        /// Additional API call to collect user's groups will not be made.
-        /// </summary>
         [Input("skipGroups")]
         public Input<bool>? SkipGroups { get; set; }
 
-        /// <summary>
-        /// Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
-        /// </summary>
         [Input("skipRoles")]
         public Input<bool>? SkipRoles { get; set; }
 
@@ -185,9 +173,6 @@ namespace Pulumi.Okta.User
     [OutputType]
     public sealed class GetUserResult
     {
-        /// <summary>
-        /// Administrator roles assigned to user.
-        /// </summary>
         public readonly ImmutableArray<string> AdminRoles;
         /// <summary>
         /// City or locality component of user's address.
@@ -231,9 +216,6 @@ namespace Pulumi.Okta.User
         /// Given name of the user.
         /// </summary>
         public readonly string FirstName;
-        /// <summary>
-        /// Groups user belongs to.
-        /// </summary>
         public readonly ImmutableArray<string> GroupMemberships;
         /// <summary>
         /// Honorific prefix(es) of the user, or title in most Western languages.

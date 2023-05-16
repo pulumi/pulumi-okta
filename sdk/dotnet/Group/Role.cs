@@ -72,6 +72,9 @@ namespace Pulumi.Okta.Group
         /// `"SUPER_ADMIN"`,
         /// `"USER_ADMIN"`
         /// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        /// 
+        /// 
+        /// - `"USER_ADMIN"` is the Group Administrator.
         /// </summary>
         [Output("roleType")]
         public Output<string> RoleType { get; private set; } = null!;
@@ -165,6 +168,9 @@ namespace Pulumi.Okta.Group
         /// `"SUPER_ADMIN"`,
         /// `"USER_ADMIN"`
         /// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        /// 
+        /// 
+        /// - `"USER_ADMIN"` is the Group Administrator.
         /// </summary>
         [Input("roleType", required: true)]
         public Input<string> RoleType { get; set; } = null!;
@@ -232,6 +238,9 @@ namespace Pulumi.Okta.Group
         /// `"SUPER_ADMIN"`,
         /// `"USER_ADMIN"`
         /// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        /// 
+        /// 
+        /// - `"USER_ADMIN"` is the Group Administrator.
         /// </summary>
         [Input("roleType")]
         public Input<string>? RoleType { get; set; }

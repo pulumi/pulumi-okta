@@ -107,29 +107,6 @@ public final class ServerPolicyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * The type of the Auth Server Policy.
-     * 
-     * @deprecated
-     * Policy type can only be of value &#39;OAUTH_AUTHORIZATION_POLICY&#39;, so this will be removed in the future, or set as &#39;Computed&#39; value
-     * 
-     */
-    @Deprecated /* Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value */
-    @Import(name="type")
-    private @Nullable Output<String> type;
-
-    /**
-     * @return The type of the Auth Server Policy.
-     * 
-     * @deprecated
-     * Policy type can only be of value &#39;OAUTH_AUTHORIZATION_POLICY&#39;, so this will be removed in the future, or set as &#39;Computed&#39; value
-     * 
-     */
-    @Deprecated /* Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value */
-    public Optional<Output<String>> type() {
-        return Optional.ofNullable(this.type);
-    }
-
     private ServerPolicyState() {}
 
     private ServerPolicyState(ServerPolicyState $) {
@@ -139,7 +116,6 @@ public final class ServerPolicyState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.priority = $.priority;
         this.status = $.status;
-        this.type = $.type;
     }
 
     public static Builder builder() {
@@ -294,35 +270,6 @@ public final class ServerPolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder status(String status) {
             return status(Output.of(status));
-        }
-
-        /**
-         * @param type The type of the Auth Server Policy.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Policy type can only be of value &#39;OAUTH_AUTHORIZATION_POLICY&#39;, so this will be removed in the future, or set as &#39;Computed&#39; value
-         * 
-         */
-        @Deprecated /* Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value */
-        public Builder type(@Nullable Output<String> type) {
-            $.type = type;
-            return this;
-        }
-
-        /**
-         * @param type The type of the Auth Server Policy.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Policy type can only be of value &#39;OAUTH_AUTHORIZATION_POLICY&#39;, so this will be removed in the future, or set as &#39;Computed&#39; value
-         * 
-         */
-        @Deprecated /* Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value */
-        public Builder type(String type) {
-            return type(Output.of(type));
         }
 
         public ServerPolicyState build() {

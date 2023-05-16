@@ -65,20 +65,6 @@ namespace Pulumi.Okta.App
     /// ```sh
     ///  $ pulumi import okta:app/autoLogin:AutoLogin example &amp;#60;app id&amp;#62;
     /// ```
-    /// 
-    ///  It's also possible to import app without groups or/and users. In this case ID may look like this
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/autoLogin:AutoLogin example &amp;#60;app id&amp;#62;/skip_users
-    /// ```
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/autoLogin:AutoLogin example &amp;#60;app id&amp;#62;/skip_users/skip_groups
-    /// ```
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/autoLogin:AutoLogin example &amp;#60;app id&amp;#62;/skip_groups
-    /// ```
     /// </summary>
     [OktaResourceType("okta:app/autoLogin:AutoLogin")]
     public partial class AutoLogin : global::Pulumi.CustomResource
@@ -136,12 +122,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("enduserNote")]
         public Output<string?> EnduserNote { get; private set; } = null!;
-
-        /// <summary>
-        /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-        /// </summary>
-        [Output("groups")]
-        public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
         /// Do not display application icon on mobile app.
@@ -222,18 +202,6 @@ namespace Pulumi.Okta.App
         public Output<string?> SignOnUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Output("skipGroups")]
-        public Output<bool?> SkipGroups { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Output("skipUsers")]
-        public Output<bool?> SkipUsers { get; private set; } = null!;
-
-        /// <summary>
         /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Output("status")]
@@ -262,12 +230,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
-
-        /// <summary>
-        /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
-        /// </summary>
-        [Output("users")]
-        public Output<ImmutableArray<Outputs.AutoLoginUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -369,19 +331,6 @@ namespace Pulumi.Okta.App
         [Input("enduserNote")]
         public Input<string>? EnduserNote { get; set; }
 
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-        /// </summary>
-        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
-        }
-
         /// <summary>
         /// Do not display application icon on mobile app.
         /// </summary>
@@ -443,18 +392,6 @@ namespace Pulumi.Okta.App
         public Input<string>? SignOnUrl { get; set; }
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public Input<bool>? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
-        /// <summary>
         /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
@@ -483,19 +420,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
-
-        [Input("users")]
-        private InputList<Inputs.AutoLoginUserArgs>? _users;
-
-        /// <summary>
-        /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
-        /// </summary>
-        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
-        public InputList<Inputs.AutoLoginUserArgs> Users
-        {
-            get => _users ?? (_users = new InputList<Inputs.AutoLoginUserArgs>());
-            set => _users = value;
-        }
 
         public AutoLoginArgs()
         {
@@ -558,19 +482,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("enduserNote")]
         public Input<string>? EnduserNote { get; set; }
-
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-        /// </summary>
-        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
-        }
 
         /// <summary>
         /// Do not display application icon on mobile app.
@@ -651,18 +562,6 @@ namespace Pulumi.Okta.App
         public Input<string>? SignOnUrl { get; set; }
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public Input<bool>? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
-        /// <summary>
         /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
@@ -691,19 +590,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
-
-        [Input("users")]
-        private InputList<Inputs.AutoLoginUserGetArgs>? _users;
-
-        /// <summary>
-        /// The users assigned to the application. See `okta.app.User` for a more flexible approach.
-        /// </summary>
-        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
-        public InputList<Inputs.AutoLoginUserGetArgs> Users
-        {
-            get => _users ?? (_users = new InputList<Inputs.AutoLoginUserGetArgs>());
-            set => _users = value;
-        }
 
         public AutoLoginState()
         {

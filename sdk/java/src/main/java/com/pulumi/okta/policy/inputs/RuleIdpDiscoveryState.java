@@ -23,6 +23,28 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
 
     /**
      * Applications to exclude in discovery. See `app_include` for details.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     @Import(name="appExcludes")
@@ -30,6 +52,28 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return Applications to exclude in discovery. See `app_include` for details.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     public Optional<Output<List<RuleIdpDiscoveryAppExcludeArgs>>> appExcludes() {
@@ -164,29 +208,6 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Policy ID.
-     * 
-     * @deprecated
-     * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-     * 
-     */
-    @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-    @Import(name="policyid")
-    private @Nullable Output<String> policyid;
-
-    /**
-     * @return Policy ID.
-     * 
-     * @deprecated
-     * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-     * 
-     */
-    @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-    public Optional<Output<String>> policyid() {
-        return Optional.ofNullable(this.policyid);
-    }
-
-    /**
      * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
@@ -274,7 +295,6 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         this.networkIncludes = $.networkIncludes;
         this.platformIncludes = $.platformIncludes;
         this.policyId = $.policyId;
-        this.policyid = $.policyid;
         this.priority = $.priority;
         this.status = $.status;
         this.userIdentifierAttribute = $.userIdentifierAttribute;
@@ -302,6 +322,28 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 
@@ -313,6 +355,28 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 
@@ -323,6 +387,28 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 
@@ -540,35 +626,6 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
          */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
-        }
-
-        /**
-         * @param policyid Policy ID.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-         * 
-         */
-        @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-        public Builder policyid(@Nullable Output<String> policyid) {
-            $.policyid = policyid;
-            return this;
-        }
-
-        /**
-         * @param policyid Policy ID.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-         * 
-         */
-        @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-        public Builder policyid(String policyid) {
-            return policyid(Output.of(policyid));
         }
 
         /**

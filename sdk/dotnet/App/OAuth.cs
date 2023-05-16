@@ -97,20 +97,6 @@ namespace Pulumi.Okta.App
     /// ```sh
     ///  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;
     /// ```
-    /// 
-    ///  It's also possible to import app without groups or/and users. In this case ID may look like this
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;/skip_users
-    /// ```
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;/skip_users/skip_groups
-    /// ```
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;/skip_groups
-    /// ```
     /// </summary>
     [OktaResourceType("okta:app/oAuth:OAuth")]
     public partial class OAuth : global::Pulumi.CustomResource
@@ -204,12 +190,6 @@ namespace Pulumi.Okta.App
         public Output<string?> ConsentMethod { get; private set; } = null!;
 
         /// <summary>
-        /// This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        /// </summary>
-        [Output("customClientId")]
-        public Output<string?> CustomClientId { get; private set; } = null!;
-
-        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Output("enduserNote")]
@@ -223,12 +203,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("grantTypes")]
         public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
-
-        /// <summary>
-        /// The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-        /// </summary>
-        [Output("groups")]
-        public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
         /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
@@ -389,18 +363,6 @@ namespace Pulumi.Okta.App
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Output("skipGroups")]
-        public Output<bool?> SkipGroups { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Output("skipUsers")]
-        public Output<bool?> SkipUsers { get; private set; } = null!;
-
-        /// <summary>
         /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Output("status")]
@@ -455,12 +417,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
-
-        /// <summary>
-        /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-        /// </summary>
-        [Output("users")]
-        public Output<ImmutableArray<Outputs.OAuthUser>> Users { get; private set; } = null!;
 
         /// <summary>
         /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
@@ -612,12 +568,6 @@ namespace Pulumi.Okta.App
         public Input<string>? ConsentMethod { get; set; }
 
         /// <summary>
-        /// This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        /// </summary>
-        [Input("customClientId")]
-        public Input<string>? CustomClientId { get; set; }
-
-        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -636,19 +586,6 @@ namespace Pulumi.Okta.App
         {
             get => _grantTypes ?? (_grantTypes = new InputList<string>());
             set => _grantTypes = value;
-        }
-
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-        /// </summary>
-        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
         }
 
         /// <summary>
@@ -822,18 +759,6 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public Input<bool>? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
-        /// <summary>
         /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
@@ -888,19 +813,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
-
-        [Input("users")]
-        private InputList<Inputs.OAuthUserArgs>? _users;
-
-        /// <summary>
-        /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-        /// </summary>
-        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
-        public InputList<Inputs.OAuthUserArgs> Users
-        {
-            get => _users ?? (_users = new InputList<Inputs.OAuthUserArgs>());
-            set => _users = value;
-        }
 
         /// <summary>
         /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
@@ -1025,12 +937,6 @@ namespace Pulumi.Okta.App
         public Input<string>? ConsentMethod { get; set; }
 
         /// <summary>
-        /// This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        /// </summary>
-        [Input("customClientId")]
-        public Input<string>? CustomClientId { get; set; }
-
-        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -1049,19 +955,6 @@ namespace Pulumi.Okta.App
         {
             get => _grantTypes ?? (_grantTypes = new InputList<string>());
             set => _grantTypes = value;
-        }
-
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-        /// </summary>
-        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
         }
 
         /// <summary>
@@ -1253,18 +1146,6 @@ namespace Pulumi.Okta.App
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public Input<bool>? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
-        /// <summary>
         /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
@@ -1319,19 +1200,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
-
-        [Input("users")]
-        private InputList<Inputs.OAuthUserGetArgs>? _users;
-
-        /// <summary>
-        /// The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-        /// </summary>
-        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
-        public InputList<Inputs.OAuthUserGetArgs> Users
-        {
-            get => _users ?? (_users = new InputList<Inputs.OAuthUserGetArgs>());
-            set => _users = value;
-        }
 
         /// <summary>
         /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.

@@ -10,10 +10,8 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.app.SwaArgs;
 import com.pulumi.okta.app.inputs.SwaState;
-import com.pulumi.okta.app.outputs.SwaUser;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -60,20 +58,6 @@ import javax.annotation.Nullable;
  * 
  * ```sh
  *  $ pulumi import okta:app/swa:Swa example &amp;#60;app id&amp;#62;
- * ```
- * 
- *  It&#39;s also possible to import app without groups or/and users. In this case ID may look like this
- * 
- * ```sh
- *  $ pulumi import okta:app/swa:Swa example &amp;#60;app id&amp;#62;/skip_users
- * ```
- * 
- * ```sh
- *  $ pulumi import okta:app/swa:Swa example &amp;#60;app id&amp;#62;/skip_users/skip_groups
- * ```
- * 
- * ```sh
- *  $ pulumi import okta:app/swa:Swa example &amp;#60;app id&amp;#62;/skip_groups
  * ```
  * 
  */
@@ -204,24 +188,6 @@ public class Swa extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> enduserNote() {
         return Codegen.optional(this.enduserNote);
-    }
-    /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * 
-     * @deprecated
-     * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-    @Export(name="groups", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> groups;
-
-    /**
-     * @return Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * 
-     */
-    public Output<Optional<List<String>>> groups() {
-        return Codegen.optional(this.groups);
     }
     /**
      * Do not display application icon on mobile app.
@@ -364,34 +330,6 @@ public class Swa extends com.pulumi.resources.CustomResource {
         return this.signOnMode;
     }
     /**
-     * Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Export(name="skipGroups", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> skipGroups;
-
-    /**
-     * @return Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> skipGroups() {
-        return Codegen.optional(this.skipGroups);
-    }
-    /**
-     * Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Export(name="skipUsers", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> skipUsers;
-
-    /**
-     * @return Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> skipUsers() {
-        return Codegen.optional(this.skipUsers);
-    }
-    /**
      * Status of application. By default, it is `&#34;ACTIVE&#34;`.
      * 
      */
@@ -502,24 +440,6 @@ public class Swa extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> usernameField() {
         return Codegen.optional(this.usernameField);
-    }
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * 
-     * @deprecated
-     * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-    @Export(name="users", type=List.class, parameters={SwaUser.class})
-    private Output</* @Nullable */ List<SwaUser>> users;
-
-    /**
-     * @return The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * 
-     */
-    public Output<Optional<List<SwaUser>>> users() {
-        return Codegen.optional(this.users);
     }
 
     /**

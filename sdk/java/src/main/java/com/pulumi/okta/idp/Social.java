@@ -47,8 +47,6 @@ import javax.annotation.Nullable;
  *         var example = new Social(&#34;example&#34;, SocialArgs.builder()        
  *             .clientId(&#34;abcd123&#34;)
  *             .clientSecret(&#34;abcd123&#34;)
- *             .matchAttribute(&#34;customfieldId&#34;)
- *             .matchType(&#34;CUSTOM_ATTRIBUTE&#34;)
  *             .protocolType(&#34;OAUTH2&#34;)
  *             .scopes(            
  *                 &#34;public_profile&#34;,
@@ -285,30 +283,6 @@ public class Social extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> issuerMode() {
         return Codegen.optional(this.issuerMode);
-    }
-    /**
-     * @deprecated
-     * This property was incorrectly added to this resource, you should use &#34;subject_match_attribute&#34;
-     * 
-     */
-    @Deprecated /* This property was incorrectly added to this resource, you should use ""subject_match_attribute"" */
-    @Export(name="matchAttribute", type=String.class, parameters={})
-    private Output</* @Nullable */ String> matchAttribute;
-
-    public Output<Optional<String>> matchAttribute() {
-        return Codegen.optional(this.matchAttribute);
-    }
-    /**
-     * @deprecated
-     * This property was incorrectly added to this resource, you should use &#34;subject_match_type&#34;
-     * 
-     */
-    @Deprecated /* This property was incorrectly added to this resource, you should use ""subject_match_type"" */
-    @Export(name="matchType", type=String.class, parameters={})
-    private Output</* @Nullable */ String> matchType;
-
-    public Output<Optional<String>> matchType() {
-        return Codegen.optional(this.matchType);
     }
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.

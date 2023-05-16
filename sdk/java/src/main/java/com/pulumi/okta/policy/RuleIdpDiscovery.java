@@ -114,6 +114,28 @@ import javax.annotation.Nullable;
 public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
     /**
      * Applications to exclude in discovery. See `app_include` for details.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     @Export(name="appExcludes", type=List.class, parameters={RuleIdpDiscoveryAppExclude.class})
@@ -121,6 +143,28 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Applications to exclude in discovery. See `app_include` for details.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     public Output<Optional<List<RuleIdpDiscoveryAppExclude>>> appExcludes() {
@@ -243,24 +287,6 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> policyId() {
         return Codegen.optional(this.policyId);
-    }
-    /**
-     * Policy ID.
-     * 
-     * @deprecated
-     * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-     * 
-     */
-    @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-    @Export(name="policyid", type=String.class, parameters={})
-    private Output</* @Nullable */ String> policyid;
-
-    /**
-     * @return Policy ID.
-     * 
-     */
-    public Output<Optional<String>> policyid() {
-        return Codegen.optional(this.policyid);
     }
     /**
      * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.

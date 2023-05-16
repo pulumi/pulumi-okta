@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.okta.app.inputs.OAuthGroupsClaimArgs;
 import com.pulumi.okta.app.inputs.OAuthJwkArgs;
-import com.pulumi.okta.app.inputs.OAuthUserArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -240,29 +239,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-     * 
-     * @deprecated
-     * This field is being replaced by client_id. Please set that field instead.
-     * 
-     */
-    @Deprecated /* This field is being replaced by client_id. Please set that field instead. */
-    @Import(name="customClientId")
-    private @Nullable Output<String> customClientId;
-
-    /**
-     * @return This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-     * 
-     * @deprecated
-     * This field is being replaced by client_id. Please set that field instead.
-     * 
-     */
-    @Deprecated /* This field is being replaced by client_id. Please set that field instead. */
-    public Optional<Output<String>> customClientId() {
-        return Optional.ofNullable(this.customClientId);
-    }
-
-    /**
      * Application notes for end users.
      * 
      */
@@ -296,29 +272,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> grantTypes() {
         return Optional.ofNullable(this.grantTypes);
-    }
-
-    /**
-     * The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     * 
-     * @deprecated
-     * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-    @Import(name="groups")
-    private @Nullable Output<List<String>> groups;
-
-    /**
-     * @return The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     * 
-     * @deprecated
-     * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-    public Optional<Output<List<String>>> groups() {
-        return Optional.ofNullable(this.groups);
     }
 
     /**
@@ -710,36 +663,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Import(name="skipGroups")
-    private @Nullable Output<Boolean> skipGroups;
-
-    /**
-     * @return Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> skipGroups() {
-        return Optional.ofNullable(this.skipGroups);
-    }
-
-    /**
-     * Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Import(name="skipUsers")
-    private @Nullable Output<Boolean> skipUsers;
-
-    /**
-     * @return Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> skipUsers() {
-        return Optional.ofNullable(this.skipUsers);
-    }
-
-    /**
      * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
      * 
      */
@@ -876,29 +799,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     * 
-     * @deprecated
-     * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-    @Import(name="users")
-    private @Nullable Output<List<OAuthUserArgs>> users;
-
-    /**
-     * @return The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     * 
-     * @deprecated
-     * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-    public Optional<Output<List<OAuthUserArgs>>> users() {
-        return Optional.ofNullable(this.users);
-    }
-
-    /**
      * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `&#34;DISABLED&#34;`, `&#34;SUBDOMAIN&#34;`. Default value is `&#34;DISABLED&#34;`.
      * 
      */
@@ -930,10 +830,8 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         this.clientSecret = $.clientSecret;
         this.clientUri = $.clientUri;
         this.consentMethod = $.consentMethod;
-        this.customClientId = $.customClientId;
         this.enduserNote = $.enduserNote;
         this.grantTypes = $.grantTypes;
-        this.groups = $.groups;
         this.groupsClaim = $.groupsClaim;
         this.hideIos = $.hideIos;
         this.hideWeb = $.hideWeb;
@@ -958,8 +856,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         this.refreshTokenRotation = $.refreshTokenRotation;
         this.responseTypes = $.responseTypes;
         this.signOnMode = $.signOnMode;
-        this.skipGroups = $.skipGroups;
-        this.skipUsers = $.skipUsers;
         this.status = $.status;
         this.tokenEndpointAuthMethod = $.tokenEndpointAuthMethod;
         this.tosUri = $.tosUri;
@@ -968,7 +864,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         this.userNameTemplatePushStatus = $.userNameTemplatePushStatus;
         this.userNameTemplateSuffix = $.userNameTemplateSuffix;
         this.userNameTemplateType = $.userNameTemplateType;
-        this.users = $.users;
         this.wildcardRedirect = $.wildcardRedirect;
     }
 
@@ -1293,35 +1188,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customClientId This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This field is being replaced by client_id. Please set that field instead.
-         * 
-         */
-        @Deprecated /* This field is being replaced by client_id. Please set that field instead. */
-        public Builder customClientId(@Nullable Output<String> customClientId) {
-            $.customClientId = customClientId;
-            return this;
-        }
-
-        /**
-         * @param customClientId This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This field is being replaced by client_id. Please set that field instead.
-         * 
-         */
-        @Deprecated /* This field is being replaced by client_id. Please set that field instead. */
-        public Builder customClientId(String customClientId) {
-            return customClientId(Output.of(customClientId));
-        }
-
-        /**
          * @param enduserNote Application notes for end users.
          * 
          * @return builder
@@ -1380,49 +1246,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder grantTypes(String... grantTypes) {
             return grantTypes(List.of(grantTypes));
-        }
-
-        /**
-         * @param groups The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-        public Builder groups(@Nullable Output<List<String>> groups) {
-            $.groups = groups;
-            return this;
-        }
-
-        /**
-         * @param groups The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-        public Builder groups(List<String> groups) {
-            return groups(Output.of(groups));
-        }
-
-        /**
-         * @param groups The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-        public Builder groups(String... groups) {
-            return groups(List.of(groups));
         }
 
         /**
@@ -2017,48 +1840,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipGroups Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipGroups(@Nullable Output<Boolean> skipGroups) {
-            $.skipGroups = skipGroups;
-            return this;
-        }
-
-        /**
-         * @param skipGroups Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipGroups(Boolean skipGroups) {
-            return skipGroups(Output.of(skipGroups));
-        }
-
-        /**
-         * @param skipUsers Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipUsers(@Nullable Output<Boolean> skipUsers) {
-            $.skipUsers = skipUsers;
-            return this;
-        }
-
-        /**
-         * @param skipUsers Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipUsers(Boolean skipUsers) {
-            return skipUsers(Output.of(skipUsers));
-        }
-
-        /**
          * @param status The status of the application, by default, it is `&#34;ACTIVE&#34;`.
          * 
          * @return builder
@@ -2240,49 +2021,6 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder userNameTemplateType(String userNameTemplateType) {
             return userNameTemplateType(Output.of(userNameTemplateType));
-        }
-
-        /**
-         * @param users The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-        public Builder users(@Nullable Output<List<OAuthUserArgs>> users) {
-            $.users = users;
-            return this;
-        }
-
-        /**
-         * @param users The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-        public Builder users(List<OAuthUserArgs> users) {
-            return users(Output.of(users));
-        }
-
-        /**
-         * @param users The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-        public Builder users(OAuthUserArgs... users) {
-            return users(List.of(users));
         }
 
         /**

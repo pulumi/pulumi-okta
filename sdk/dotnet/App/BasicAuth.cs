@@ -39,20 +39,6 @@ namespace Pulumi.Okta.App
     /// ```sh
     ///  $ pulumi import okta:app/basicAuth:BasicAuth example &amp;#60;app id&amp;#62;
     /// ```
-    /// 
-    ///  It's also possible to import app without groups or/and users. In this case ID may look like this
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/basicAuth:BasicAuth example &amp;#60;app id&amp;#62;/skip_users
-    /// ```
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/basicAuth:BasicAuth example &amp;#60;app id&amp;#62;/skip_users/skip_groups
-    /// ```
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/basicAuth:BasicAuth example &amp;#60;app id&amp;#62;/skip_groups
-    /// ```
     /// </summary>
     [OktaResourceType("okta:app/basicAuth:BasicAuth")]
     public partial class BasicAuth : global::Pulumi.CustomResource
@@ -106,12 +92,6 @@ namespace Pulumi.Okta.App
         public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
-        /// Groups associated with the application.
-        /// </summary>
-        [Output("groups")]
-        public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
-
-        /// <summary>
         /// Do not display application icon on mobile app.
         /// </summary>
         [Output("hideIos")]
@@ -154,18 +134,6 @@ namespace Pulumi.Okta.App
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Output("skipGroups")]
-        public Output<bool?> SkipGroups { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Output("skipUsers")]
-        public Output<bool?> SkipUsers { get; private set; } = null!;
-
-        /// <summary>
         /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         /// </summary>
         [Output("status")]
@@ -176,12 +144,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
-
-        /// <summary>
-        /// Users associated with the application.
-        /// </summary>
-        [Output("users")]
-        public Output<ImmutableArray<Outputs.BasicAuthUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -277,19 +239,6 @@ namespace Pulumi.Okta.App
         [Input("enduserNote")]
         public Input<string>? EnduserNote { get; set; }
 
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// Groups associated with the application.
-        /// </summary>
-        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
-        }
-
         /// <summary>
         /// Do not display application icon on mobile app.
         /// </summary>
@@ -315,18 +264,6 @@ namespace Pulumi.Okta.App
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public Input<bool>? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
-        /// <summary>
         /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         /// </summary>
         [Input("status")]
@@ -337,19 +274,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
-
-        [Input("users")]
-        private InputList<Inputs.BasicAuthUserArgs>? _users;
-
-        /// <summary>
-        /// Users associated with the application.
-        /// </summary>
-        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
-        public InputList<Inputs.BasicAuthUserArgs> Users
-        {
-            get => _users ?? (_users = new InputList<Inputs.BasicAuthUserArgs>());
-            set => _users = value;
-        }
 
         public BasicAuthArgs()
         {
@@ -407,19 +331,6 @@ namespace Pulumi.Okta.App
         [Input("enduserNote")]
         public Input<string>? EnduserNote { get; set; }
 
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// Groups associated with the application.
-        /// </summary>
-        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
-        }
-
         /// <summary>
         /// Do not display application icon on mobile app.
         /// </summary>
@@ -463,18 +374,6 @@ namespace Pulumi.Okta.App
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public Input<bool>? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
-        /// <summary>
         /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         /// </summary>
         [Input("status")]
@@ -485,19 +384,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
-
-        [Input("users")]
-        private InputList<Inputs.BasicAuthUserGetArgs>? _users;
-
-        /// <summary>
-        /// Users associated with the application.
-        /// </summary>
-        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
-        public InputList<Inputs.BasicAuthUserGetArgs> Users
-        {
-            get => _users ?? (_users = new InputList<Inputs.BasicAuthUserGetArgs>());
-            set => _users = value;
-        }
 
         public BasicAuthState()
         {

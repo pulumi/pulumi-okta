@@ -49,25 +49,6 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This property will be removed in the future, as it can only be set to &#39;HTTP-POST&#39;
-     * 
-     */
-    @Deprecated /* This property will be removed in the future, as it can only be set to 'HTTP-POST' */
-    @Import(name="acsBinding")
-    private @Nullable Output<String> acsBinding;
-
-    /**
-     * @deprecated
-     * This property will be removed in the future, as it can only be set to &#39;HTTP-POST&#39;
-     * 
-     */
-    @Deprecated /* This property will be removed in the future, as it can only be set to 'HTTP-POST' */
-    public Optional<Output<String>> acsBinding() {
-        return Optional.ofNullable(this.acsBinding);
-    }
-
-    /**
      * The type of ACS. It can be `&#34;INSTANCE&#34;` or `&#34;ORG&#34;`.
      * 
      */
@@ -492,7 +473,6 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     private SamlArgs(SamlArgs $) {
         this.accountLinkAction = $.accountLinkAction;
         this.accountLinkGroupIncludes = $.accountLinkGroupIncludes;
-        this.acsBinding = $.acsBinding;
         this.acsType = $.acsType;
         this.deprovisionedAction = $.deprovisionedAction;
         this.groupsAction = $.groupsAction;
@@ -591,31 +571,6 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder accountLinkGroupIncludes(String... accountLinkGroupIncludes) {
             return accountLinkGroupIncludes(List.of(accountLinkGroupIncludes));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property will be removed in the future, as it can only be set to &#39;HTTP-POST&#39;
-         * 
-         */
-        @Deprecated /* This property will be removed in the future, as it can only be set to 'HTTP-POST' */
-        public Builder acsBinding(@Nullable Output<String> acsBinding) {
-            $.acsBinding = acsBinding;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property will be removed in the future, as it can only be set to &#39;HTTP-POST&#39;
-         * 
-         */
-        @Deprecated /* This property will be removed in the future, as it can only be set to 'HTTP-POST' */
-        public Builder acsBinding(String acsBinding) {
-            return acsBinding(Output.of(acsBinding));
         }
 
         /**

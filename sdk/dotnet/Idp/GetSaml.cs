@@ -113,9 +113,6 @@ namespace Pulumi.Okta.Idp
     [OutputType]
     public sealed class GetSamlResult
     {
-        /// <summary>
-        /// HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `"HTTP-POST"`).
-        /// </summary>
         public readonly string AcsBinding;
         /// <summary>
         /// Determines whether to publish an instance-specific (trust) or organization (shared) ACS endpoint in the SAML metadata.

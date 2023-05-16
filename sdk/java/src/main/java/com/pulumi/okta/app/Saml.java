@@ -12,7 +12,6 @@ import com.pulumi.okta.app.SamlArgs;
 import com.pulumi.okta.app.inputs.SamlState;
 import com.pulumi.okta.app.outputs.SamlAttributeStatement;
 import com.pulumi.okta.app.outputs.SamlKey;
-import com.pulumi.okta.app.outputs.SamlUser;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -263,18 +262,6 @@ import javax.annotation.Nullable;
  * ```
  * 
  *  It&#39;s also possible to import app without groups or/and users. In this case ID may look like this
- * 
- * ```sh
- *  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;/skip_users
- * ```
- * 
- * ```sh
- *  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;/skip_users/skip_groups
- * ```
- * 
- * ```sh
- *  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;/skip_groups
- * ```
  * 
  */
 @ResourceType(type="okta:app/saml:Saml")
@@ -588,24 +575,6 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return this.features;
     }
     /**
-     * Groups associated with the application.
-     * 
-     * @deprecated
-     * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-    @Export(name="groups", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> groups;
-
-    /**
-     * @return Groups associated with the application.
-     * 
-     */
-    public Output<Optional<List<String>>> groups() {
-        return Codegen.optional(this.groups);
-    }
-    /**
      * Do not display application icon on mobile app. Default is: `false`
      * 
      */
@@ -690,14 +659,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.idpIssuer);
     }
     /**
-     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
      * 
      */
     @Export(name="implicitAssignment", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> implicitAssignment;
 
     /**
-     * @return _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+     * @return _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
      * 
      */
     public Output<Optional<Boolean>> implicitAssignment() {
@@ -1012,34 +981,6 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.singleLogoutUrl);
     }
     /**
-     * Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-     * 
-     */
-    @Export(name="skipGroups", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> skipGroups;
-
-    /**
-     * @return Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> skipGroups() {
-        return Codegen.optional(this.skipGroups);
-    }
-    /**
-     * Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-     * 
-     */
-    @Export(name="skipUsers", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> skipUsers;
-
-    /**
-     * @return Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> skipUsers() {
-        return Codegen.optional(this.skipUsers);
-    }
-    /**
      * SAML service provider issuer.
      * 
      */
@@ -1164,24 +1105,6 @@ public class Saml extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> userNameTemplateType() {
         return Codegen.optional(this.userNameTemplateType);
-    }
-    /**
-     * Users associated with the application.
-     * 
-     * @deprecated
-     * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-    @Export(name="users", type=List.class, parameters={SamlUser.class})
-    private Output</* @Nullable */ List<SamlUser>> users;
-
-    /**
-     * @return Users associated with the application.
-     * 
-     */
-    public Output<Optional<List<SamlUser>>> users() {
-        return Codegen.optional(this.users);
     }
 
     /**

@@ -145,24 +145,6 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.policyId);
     }
     /**
-     * Policy ID.
-     * 
-     * @deprecated
-     * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-     * 
-     */
-    @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-    @Export(name="policyid", type=String.class, parameters={})
-    private Output</* @Nullable */ String> policyid;
-
-    /**
-     * @return Policy ID.
-     * 
-     */
-    public Output<Optional<String>> policyid() {
-        return Codegen.optional(this.policyid);
-    }
-    /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
      * 
      */
