@@ -133,14 +133,6 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(appMod, "User"),
 				Docs: &tfbridge.DocInfo{Source: "app_user.html.markdown"},
 			},
-			"okta_app_user_base_schema": {
-				Tok:  makeResource(appMod, "UserBaseSchema"),
-				Docs: &tfbridge.DocInfo{Source: "app_user_base_schema.html.markdown"},
-			},
-			"okta_app_user_schema": {
-				Tok:  makeResource(appMod, "UserSchema"),
-				Docs: &tfbridge.DocInfo{Source: "app_user_schema.html.markdown"},
-			},
 			"okta_app_basic_auth": {
 				Tok:  makeResource(appMod, "BasicAuth"),
 				Docs: &tfbridge.DocInfo{Source: "app_basic_auth.html.markdown"},
@@ -175,16 +167,11 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(groupMod, "Group"),
 				Docs: &tfbridge.DocInfo{Source: "group.html.markdown"},
 			},
-			"okta_group_roles": {
-				Tok:  makeResource(groupMod, "Roles"),
-				Docs: &tfbridge.DocInfo{Source: "group_roles.html.markdown"},
-			},
 			"okta_group_rule": {
 				Tok:  makeResource(groupMod, "Rule"),
 				Docs: &tfbridge.DocInfo{Source: "group_rule.html.markdown"},
 			},
-			"okta_group_membership": {Tok: makeResource(groupMod, "Membership")},
-			"okta_group_role":       {Tok: makeResource(groupMod, "Role")},
+			"okta_group_role": {Tok: makeResource(groupMod, "Role")},
 
 			// Idp Resources
 			"okta_idp_oidc": {
@@ -244,12 +231,6 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_policy_signon": {
 				Tok:  makeResource(policyMod, "Signon"),
 				Docs: &tfbridge.DocInfo{Source: "policy_signon.html.markdown"},
-			},
-
-			// Template Resources
-			"okta_template_email": {
-				Tok:  makeResource(templateMod, "Email"),
-				Docs: &tfbridge.DocInfo{Source: "template_email.html.markdown"},
 			},
 
 			// Trusted Origin
@@ -337,94 +318,9 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_theme":                          {Tok: makeResource(mainMod, "Theme")},
 
 			// Deprecated Resources in Upstream Provider
-			"okta_idp": {
-				Tok:                makeResource(deprecatedMod, "Idp"),
-				DeprecationMessage: formatDeprecationMessage("idp.*"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_auto_login_app": {
-				Tok:                makeResource(deprecatedMod, "AuthLoginApp"),
-				DeprecationMessage: formatDeprecationMessage("app.AutoLogin"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_bookmark_app": {
-				Tok:                makeResource(deprecatedMod, "BookmarkApp"),
-				DeprecationMessage: formatDeprecationMessage("app.Bookmark"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_mfa_policy": {
-				Tok:                makeResource(deprecatedMod, "MfaPolicy"),
-				DeprecationMessage: formatDeprecationMessage("policy.Mfa"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_mfa_policy_rule": {
-				Tok:                makeResource(deprecatedMod, "MfaPolicyRule"),
-				DeprecationMessage: formatDeprecationMessage("policy.RuleMfa"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_oauth_app": {
-				Tok:                makeResource(deprecatedMod, "OauthApp"),
-				DeprecationMessage: formatDeprecationMessage("app.OAuth"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_oauth_app_redirect_uri": {
-				Tok:                makeResource(deprecatedMod, "OauthAppRedirectUri"),
-				DeprecationMessage: formatDeprecationMessage("app.OAuthRedirectUri"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_password_policy": {
-				Tok:                makeResource(deprecatedMod, "PasswordPolicy"),
-				DeprecationMessage: formatDeprecationMessage("policy.Password"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_password_policy_rule": {
-				Tok:                makeResource(deprecatedMod, "PasswordPolicyRule"),
-				DeprecationMessage: formatDeprecationMessage("policy.RulePassword"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_signon_policy": {
-				Tok:                makeResource(deprecatedMod, "SignonPolicy"),
-				DeprecationMessage: formatDeprecationMessage("policy.Signon"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_signon_policy_rule": {
-				Tok:                makeResource(deprecatedMod, "SignonPolicyRule"),
-				DeprecationMessage: formatDeprecationMessage("policy.RuleSignon"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_swa_app": {
-				Tok:                makeResource(deprecatedMod, "SwaApp"),
-				DeprecationMessage: formatDeprecationMessage("app.Swa"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_saml_app": {
-				Tok:                makeResource(deprecatedMod, "SamlApp"),
-				DeprecationMessage: formatDeprecationMessage("app.Saml"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_saml_idp": {
-				Tok:                makeResource(deprecatedMod, "SamlIdp"),
-				DeprecationMessage: formatDeprecationMessage("idp.Saml"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_saml_idp_signing_key": {
-				Tok:                makeResource(deprecatedMod, "SamlIdpSigningKey"),
-				DeprecationMessage: formatDeprecationMessage("idp.SamlKey"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_secure_password_store_app": {
-				Tok:                makeResource(deprecatedMod, "SecurePasswordStoreApp"),
-				DeprecationMessage: formatDeprecationMessage("app.SecurePasswordStore"),
-				Docs:               noUpstreamDocs(),
-			},
 			"okta_social_idp": {
 				Tok:                makeResource(deprecatedMod, "SocialIdp"),
 				DeprecationMessage: formatDeprecationMessage("idp.Social"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_three_field_app": {
-				Tok:                makeResource(deprecatedMod, "ThreeFieldApp"),
-				DeprecationMessage: formatDeprecationMessage("app.ThreeField"),
 				Docs:               noUpstreamDocs(),
 			},
 		},
