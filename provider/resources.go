@@ -395,13 +395,6 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_email_templates":         {Tok: makeDataSource(mainMod, "getTemplates")},
 			"okta_theme":                   {Tok: makeDataSource(mainMod, "getTheme")},
 			"okta_themes":                  {Tok: makeDataSource(mainMod, "getThemes")},
-
-			// Deprecated DataSources in Upstream Provider
-			"okta_default_policies": {
-				Tok:                makeDataSource(deprecatedMod, "getDefaultPolicies"),
-				DeprecationMessage: formatDeprecationMessage("policy.getDefaultPolicy"),
-				Docs:               noUpstreamDocs(),
-			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
