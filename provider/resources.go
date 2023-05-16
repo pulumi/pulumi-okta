@@ -46,7 +46,6 @@ const (
 	networkMod       = "Network"
 	policyMod        = "Policy"
 	profileMod       = "Profile"
-	templateMod      = "Template"
 	trustedOriginMod = "TrustedOrigin"
 	userMod          = "User"
 	mainMod          = "Index"
@@ -249,14 +248,6 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(userMod, "User"),
 				Docs: &tfbridge.DocInfo{Source: "user.html.markdown"},
 			},
-			"okta_user_base_schema": {
-				Tok:  makeResource(userMod, "BaseSchema"),
-				Docs: &tfbridge.DocInfo{Source: "user_base_schema.html.markdown"},
-			},
-			"okta_user_schema": {
-				Tok:  makeResource(userMod, "Schema"),
-				Docs: &tfbridge.DocInfo{Source: "user_schema.html.markdown"},
-			},
 			"okta_user_type": {Tok: makeResource(userMod, "UserType")},
 
 			// Profile Resources
@@ -316,13 +307,6 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_brand":                          {Tok: makeResource(mainMod, "Brand")},
 			"okta_email_customization":            {Tok: makeResource(mainMod, "EmailCustomization")},
 			"okta_theme":                          {Tok: makeResource(mainMod, "Theme")},
-
-			// Deprecated Resources in Upstream Provider
-			"okta_social_idp": {
-				Tok:                makeResource(deprecatedMod, "SocialIdp"),
-				DeprecationMessage: formatDeprecationMessage("idp.Social"),
-				Docs:               noUpstreamDocs(),
-			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// App DataSources
