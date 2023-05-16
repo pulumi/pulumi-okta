@@ -31,7 +31,6 @@ class RuleSignonArgs:
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
@@ -47,6 +46,8 @@ class RuleSignonArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs.
         :param pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]] factor_sequences: Auth factor sequences. Should be set if `access = "CHALLENGE"`.
         :param pulumi.Input[str] identity_provider: Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+               
+               > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_provider_ids: When identity_provider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge.
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -57,7 +58,6 @@ class RuleSignonArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
                `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -99,11 +99,6 @@ class RuleSignonArgs:
             pulumi.set(__self__, "network_includes", network_includes)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if policyid is not None:
-            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-        if policyid is not None:
-            pulumi.set(__self__, "policyid", policyid)
         if primary_factor is not None:
             pulumi.set(__self__, "primary_factor", primary_factor)
         if priority is not None:
@@ -174,6 +169,8 @@ class RuleSignonArgs:
     def identity_provider(self) -> Optional[pulumi.Input[str]]:
         """
         Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+
+        > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         """
         return pulumi.get(self, "identity_provider")
 
@@ -300,18 +297,6 @@ class RuleSignonArgs:
     @policy_id.setter
     def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
-
-    @policyid.setter
-    def policyid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policyid", value)
 
     @property
     @pulumi.getter(name="primaryFactor")
@@ -430,7 +415,6 @@ class _RuleSignonState:
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
@@ -446,6 +430,8 @@ class _RuleSignonState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs.
         :param pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]] factor_sequences: Auth factor sequences. Should be set if `access = "CHALLENGE"`.
         :param pulumi.Input[str] identity_provider: Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+               
+               > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_provider_ids: When identity_provider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge.
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -456,7 +442,6 @@ class _RuleSignonState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
                `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -498,11 +483,6 @@ class _RuleSignonState:
             pulumi.set(__self__, "network_includes", network_includes)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if policyid is not None:
-            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-        if policyid is not None:
-            pulumi.set(__self__, "policyid", policyid)
         if primary_factor is not None:
             pulumi.set(__self__, "primary_factor", primary_factor)
         if priority is not None:
@@ -573,6 +553,8 @@ class _RuleSignonState:
     def identity_provider(self) -> Optional[pulumi.Input[str]]:
         """
         Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+
+        > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         """
         return pulumi.get(self, "identity_provider")
 
@@ -699,18 +681,6 @@ class _RuleSignonState:
     @policy_id.setter
     def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
-
-    @policyid.setter
-    def policyid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policyid", value)
 
     @property
     @pulumi.getter(name="primaryFactor")
@@ -831,7 +801,6 @@ class RuleSignon(pulumi.CustomResource):
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
@@ -936,6 +905,8 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]] factor_sequences: Auth factor sequences. Should be set if `access = "CHALLENGE"`.
         :param pulumi.Input[str] identity_provider: Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+               
+               > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_provider_ids: When identity_provider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge.
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -946,7 +917,6 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
                `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -1082,7 +1052,6 @@ class RuleSignon(pulumi.CustomResource):
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
@@ -1115,10 +1084,6 @@ class RuleSignon(pulumi.CustomResource):
             __props__.__dict__["network_excludes"] = network_excludes
             __props__.__dict__["network_includes"] = network_includes
             __props__.__dict__["policy_id"] = policy_id
-            if policyid is not None and not opts.urn:
-                warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-                pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-            __props__.__dict__["policyid"] = policyid
             __props__.__dict__["primary_factor"] = primary_factor
             __props__.__dict__["priority"] = priority
             __props__.__dict__["risc_level"] = risc_level
@@ -1152,7 +1117,6 @@ class RuleSignon(pulumi.CustomResource):
             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
-            policyid: Optional[pulumi.Input[str]] = None,
             primary_factor: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             risc_level: Optional[pulumi.Input[str]] = None,
@@ -1173,6 +1137,8 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]] factor_sequences: Auth factor sequences. Should be set if `access = "CHALLENGE"`.
         :param pulumi.Input[str] identity_provider: Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+               
+               > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_provider_ids: When identity_provider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
         :param pulumi.Input[int] mfa_lifetime: Elapsed time before the next MFA challenge.
         :param pulumi.Input[str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
@@ -1183,7 +1149,6 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
                `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -1214,7 +1179,6 @@ class RuleSignon(pulumi.CustomResource):
         __props__.__dict__["network_excludes"] = network_excludes
         __props__.__dict__["network_includes"] = network_includes
         __props__.__dict__["policy_id"] = policy_id
-        __props__.__dict__["policyid"] = policyid
         __props__.__dict__["primary_factor"] = primary_factor
         __props__.__dict__["priority"] = priority
         __props__.__dict__["risc_level"] = risc_level
@@ -1262,6 +1226,8 @@ class RuleSignon(pulumi.CustomResource):
     def identity_provider(self) -> pulumi.Output[Optional[str]]:
         """
         Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+
+        > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         """
         return pulumi.get(self, "identity_provider")
 
@@ -1344,14 +1310,6 @@ class RuleSignon(pulumi.CustomResource):
         Policy ID.
         """
         return pulumi.get(self, "policy_id")
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> pulumi.Output[Optional[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
 
     @property
     @pulumi.getter(name="primaryFactor")

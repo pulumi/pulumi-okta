@@ -8,8 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['ThreeFieldArgs', 'ThreeField']
 
@@ -31,22 +29,18 @@ class ThreeFieldArgs:
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
                  reveal_password: Optional[pulumi.Input[bool]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]]] = None):
+                 user_name_template_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ThreeField resource.
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
@@ -64,22 +58,18 @@ class ThreeFieldArgs:
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         pulumi.set(__self__, "button_selector", button_selector)
         pulumi.set(__self__, "extra_field_selector", extra_field_selector)
@@ -104,11 +94,6 @@ class ThreeFieldArgs:
             pulumi.set(__self__, "credentials_scheme", credentials_scheme)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
@@ -121,10 +106,6 @@ class ThreeFieldArgs:
             pulumi.set(__self__, "shared_password", shared_password)
         if shared_username is not None:
             pulumi.set(__self__, "shared_username", shared_username)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url_regex is not None:
@@ -137,11 +118,6 @@ class ThreeFieldArgs:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="buttonSelector")
@@ -324,18 +300,6 @@ class ThreeFieldArgs:
         pulumi.set(self, "enduser_note", value)
 
     @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
-
-    @property
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -406,30 +370,6 @@ class ThreeFieldArgs:
     @shared_username.setter
     def shared_username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "shared_username", value)
-
-    @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
 
     @property
     @pulumi.getter
@@ -503,18 +443,6 @@ class ThreeFieldArgs:
     def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name_template_type", value)
 
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]]]:
-        """
-        The users assigned to the application. See `app.User` for a more flexible approach.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]]]):
-        pulumi.set(self, "users", value)
-
 
 @pulumi.input_type
 class _ThreeFieldState:
@@ -530,7 +458,6 @@ class _ThreeFieldState:
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  extra_field_selector: Optional[pulumi.Input[str]] = None,
                  extra_field_value: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -542,8 +469,6 @@ class _ThreeFieldState:
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -551,8 +476,7 @@ class _ThreeFieldState:
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 username_selector: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]]] = None):
+                 username_selector: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ThreeField resources.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -566,7 +490,6 @@ class _ThreeFieldState:
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -578,8 +501,6 @@ class _ThreeFieldState:
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
@@ -588,7 +509,6 @@ class _ThreeFieldState:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
-        :param pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -612,11 +532,6 @@ class _ThreeFieldState:
             pulumi.set(__self__, "extra_field_selector", extra_field_selector)
         if extra_field_value is not None:
             pulumi.set(__self__, "extra_field_value", extra_field_value)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
@@ -639,10 +554,6 @@ class _ThreeFieldState:
             pulumi.set(__self__, "shared_username", shared_username)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
@@ -659,11 +570,6 @@ class _ThreeFieldState:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if username_selector is not None:
             pulumi.set(__self__, "username_selector", username_selector)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -798,18 +704,6 @@ class _ThreeFieldState:
         pulumi.set(self, "extra_field_value", value)
 
     @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
-
-    @property
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -942,30 +836,6 @@ class _ThreeFieldState:
         pulumi.set(self, "sign_on_mode", value)
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1061,18 +931,6 @@ class _ThreeFieldState:
     def username_selector(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username_selector", value)
 
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]]]:
-        """
-        The users assigned to the application. See `app.User` for a more flexible approach.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeFieldUserArgs']]]]):
-        pulumi.set(self, "users", value)
-
 
 class ThreeField(pulumi.CustomResource):
     @overload
@@ -1090,7 +948,6 @@ class ThreeField(pulumi.CustomResource):
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  extra_field_selector: Optional[pulumi.Input[str]] = None,
                  extra_field_value: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -1099,8 +956,6 @@ class ThreeField(pulumi.CustomResource):
                  reveal_password: Optional[pulumi.Input[bool]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -1109,7 +964,6 @@ class ThreeField(pulumi.CustomResource):
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_selector: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]]] = None,
                  __props__=None):
         """
         This resource allows you to create and configure a Three Field Application.
@@ -1120,20 +974,6 @@ class ThreeField(pulumi.CustomResource):
 
         ```sh
          $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
-        ```
-
-         It's also possible to import app without groups or/and users. In this case ID may look like this
-
-        ```sh
-         $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_groups
         ```
 
         :param str resource_name: The name of the resource.
@@ -1149,7 +989,6 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -1158,8 +997,6 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
@@ -1168,7 +1005,6 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         ...
     @overload
@@ -1185,20 +1021,6 @@ class ThreeField(pulumi.CustomResource):
 
         ```sh
          $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
-        ```
-
-         It's also possible to import app without groups or/and users. In this case ID may look like this
-
-        ```sh
-         $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_groups
         ```
 
         :param str resource_name: The name of the resource.
@@ -1227,7 +1049,6 @@ class ThreeField(pulumi.CustomResource):
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  extra_field_selector: Optional[pulumi.Input[str]] = None,
                  extra_field_value: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -1236,8 +1057,6 @@ class ThreeField(pulumi.CustomResource):
                  reveal_password: Optional[pulumi.Input[bool]] = None,
                  shared_password: Optional[pulumi.Input[str]] = None,
                  shared_username: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -1246,7 +1065,6 @@ class ThreeField(pulumi.CustomResource):
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_selector: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1273,10 +1091,6 @@ class ThreeField(pulumi.CustomResource):
             if extra_field_value is None and not opts.urn:
                 raise TypeError("Missing required property 'extra_field_value'")
             __props__.__dict__["extra_field_value"] = extra_field_value
-            if groups is not None and not opts.urn:
-                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-            __props__.__dict__["groups"] = groups
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
             if label is None and not opts.urn:
@@ -1289,8 +1103,6 @@ class ThreeField(pulumi.CustomResource):
             __props__.__dict__["reveal_password"] = reveal_password
             __props__.__dict__["shared_password"] = shared_password
             __props__.__dict__["shared_username"] = shared_username
-            __props__.__dict__["skip_groups"] = skip_groups
-            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["status"] = status
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
@@ -1303,10 +1115,6 @@ class ThreeField(pulumi.CustomResource):
             if username_selector is None and not opts.urn:
                 raise TypeError("Missing required property 'username_selector'")
             __props__.__dict__["username_selector"] = username_selector
-            if users is not None and not opts.urn:
-                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-            __props__.__dict__["users"] = users
             __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
@@ -1331,7 +1139,6 @@ class ThreeField(pulumi.CustomResource):
             enduser_note: Optional[pulumi.Input[str]] = None,
             extra_field_selector: Optional[pulumi.Input[str]] = None,
             extra_field_value: Optional[pulumi.Input[str]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
@@ -1343,8 +1150,6 @@ class ThreeField(pulumi.CustomResource):
             shared_password: Optional[pulumi.Input[str]] = None,
             shared_username: Optional[pulumi.Input[str]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
-            skip_groups: Optional[pulumi.Input[bool]] = None,
-            skip_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
             url_regex: Optional[pulumi.Input[str]] = None,
@@ -1352,8 +1157,7 @@ class ThreeField(pulumi.CustomResource):
             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
-            username_selector: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]]] = None) -> 'ThreeField':
+            username_selector: Optional[pulumi.Input[str]] = None) -> 'ThreeField':
         """
         Get an existing ThreeField resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1372,7 +1176,6 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] extra_field_selector: Extra field CSS selector.
         :param pulumi.Input[str] extra_field_value: Value for extra form field.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -1384,8 +1187,6 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: Login URL.
         :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex.
@@ -1394,7 +1195,6 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_selector: Login username field CSS selector.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreeFieldUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1411,7 +1211,6 @@ class ThreeField(pulumi.CustomResource):
         __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["extra_field_selector"] = extra_field_selector
         __props__.__dict__["extra_field_value"] = extra_field_value
-        __props__.__dict__["groups"] = groups
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
         __props__.__dict__["label"] = label
@@ -1423,8 +1222,6 @@ class ThreeField(pulumi.CustomResource):
         __props__.__dict__["shared_password"] = shared_password
         __props__.__dict__["shared_username"] = shared_username
         __props__.__dict__["sign_on_mode"] = sign_on_mode
-        __props__.__dict__["skip_groups"] = skip_groups
-        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["status"] = status
         __props__.__dict__["url"] = url
         __props__.__dict__["url_regex"] = url_regex
@@ -1433,7 +1230,6 @@ class ThreeField(pulumi.CustomResource):
         __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
         __props__.__dict__["user_name_template_type"] = user_name_template_type
         __props__.__dict__["username_selector"] = username_selector
-        __props__.__dict__["users"] = users
         return ThreeField(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1525,14 +1321,6 @@ class ThreeField(pulumi.CustomResource):
         return pulumi.get(self, "extra_field_value")
 
     @property
-    @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        """
-        return pulumi.get(self, "groups")
-
-    @property
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1621,22 +1409,6 @@ class ThreeField(pulumi.CustomResource):
         return pulumi.get(self, "sign_on_mode")
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1699,12 +1471,4 @@ class ThreeField(pulumi.CustomResource):
         Login username field CSS selector.
         """
         return pulumi.get(self, "username_selector")
-
-    @property
-    @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[Sequence['outputs.ThreeFieldUser']]]:
-        """
-        The users assigned to the application. See `app.User` for a more flexible approach.
-        """
-        return pulumi.get(self, "users")
 

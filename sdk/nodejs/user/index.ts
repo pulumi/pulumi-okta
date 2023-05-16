@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { BaseSchemaArgs, BaseSchemaState } from "./baseSchema";
-export type BaseSchema = import("./baseSchema").BaseSchema;
-export const BaseSchema: typeof import("./baseSchema").BaseSchema = null as any;
-utilities.lazyLoad(exports, ["BaseSchema"], () => require("./baseSchema"));
-
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
@@ -29,11 +24,6 @@ export const getUsers: typeof import("./getUsers").getUsers = null as any;
 export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
 utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
 
-export { SchemaArgs, SchemaState } from "./schema";
-export type Schema = import("./schema").Schema;
-export const Schema: typeof import("./schema").Schema = null as any;
-utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
-
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -49,10 +39,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "okta:user/baseSchema:BaseSchema":
-                return new BaseSchema(name, <any>undefined, { urn })
-            case "okta:user/schema:Schema":
-                return new Schema(name, <any>undefined, { urn })
             case "okta:user/user:User":
                 return new User(name, <any>undefined, { urn })
             case "okta:user/userType:UserType":
@@ -62,7 +48,5 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("okta", "user/baseSchema", _module)
-pulumi.runtime.registerResourceModule("okta", "user/schema", _module)
 pulumi.runtime.registerResourceModule("okta", "user/user", _module)
 pulumi.runtime.registerResourceModule("okta", "user/userType", _module)

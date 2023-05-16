@@ -19,7 +19,6 @@ class SamlArgs:
                  sso_url: pulumi.Input[str],
                  account_link_action: Optional[pulumi.Input[str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 acs_binding: Optional[pulumi.Input[str]] = None,
                  acs_type: Optional[pulumi.Input[str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[str]] = None,
                  groups_action: Optional[pulumi.Input[str]] = None,
@@ -85,11 +84,6 @@ class SamlArgs:
             pulumi.set(__self__, "account_link_action", account_link_action)
         if account_link_group_includes is not None:
             pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
-        if acs_binding is not None:
-            warnings.warn("""This property will be removed in the future, as it can only be set to 'HTTP-POST'""", DeprecationWarning)
-            pulumi.log.warn("""acs_binding is deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'""")
-        if acs_binding is not None:
-            pulumi.set(__self__, "acs_binding", acs_binding)
         if acs_type is not None:
             pulumi.set(__self__, "acs_type", acs_type)
         if deprovisioned_action is not None:
@@ -200,15 +194,6 @@ class SamlArgs:
     @account_link_group_includes.setter
     def account_link_group_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "account_link_group_includes", value)
-
-    @property
-    @pulumi.getter(name="acsBinding")
-    def acs_binding(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "acs_binding")
-
-    @acs_binding.setter
-    def acs_binding(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "acs_binding", value)
 
     @property
     @pulumi.getter(name="acsType")
@@ -588,9 +573,6 @@ class _SamlState:
             pulumi.set(__self__, "account_link_action", account_link_action)
         if account_link_group_includes is not None:
             pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
-        if acs_binding is not None:
-            warnings.warn("""This property will be removed in the future, as it can only be set to 'HTTP-POST'""", DeprecationWarning)
-            pulumi.log.warn("""acs_binding is deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'""")
         if acs_binding is not None:
             pulumi.set(__self__, "acs_binding", acs_binding)
         if acs_type is not None:
@@ -1069,7 +1051,6 @@ class Saml(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 acs_binding: Optional[pulumi.Input[str]] = None,
                  acs_type: Optional[pulumi.Input[str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[str]] = None,
                  groups_action: Optional[pulumi.Input[str]] = None,
@@ -1217,7 +1198,6 @@ class Saml(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_link_action: Optional[pulumi.Input[str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 acs_binding: Optional[pulumi.Input[str]] = None,
                  acs_type: Optional[pulumi.Input[str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[str]] = None,
                  groups_action: Optional[pulumi.Input[str]] = None,
@@ -1257,10 +1237,6 @@ class Saml(pulumi.CustomResource):
 
             __props__.__dict__["account_link_action"] = account_link_action
             __props__.__dict__["account_link_group_includes"] = account_link_group_includes
-            if acs_binding is not None and not opts.urn:
-                warnings.warn("""This property will be removed in the future, as it can only be set to 'HTTP-POST'""", DeprecationWarning)
-                pulumi.log.warn("""acs_binding is deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'""")
-            __props__.__dict__["acs_binding"] = acs_binding
             __props__.__dict__["acs_type"] = acs_type
             __props__.__dict__["deprovisioned_action"] = deprovisioned_action
             __props__.__dict__["groups_action"] = groups_action
@@ -1295,6 +1271,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["subject_match_type"] = subject_match_type
             __props__.__dict__["suspended_action"] = suspended_action
             __props__.__dict__["username_template"] = username_template
+            __props__.__dict__["acs_binding"] = None
             __props__.__dict__["audience"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["user_type_id"] = None
@@ -1441,7 +1418,7 @@ class Saml(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acsBinding")
-    def acs_binding(self) -> pulumi.Output[Optional[str]]:
+    def acs_binding(self) -> pulumi.Output[str]:
         return pulumi.get(self, "acs_binding")
 
     @property

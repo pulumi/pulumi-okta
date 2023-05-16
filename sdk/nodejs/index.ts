@@ -369,7 +369,6 @@ utilities.lazyLoad(exports, ["UserSchemaProperty"], () => require("./userSchemaP
 import * as app from "./app";
 import * as auth from "./auth";
 import * as config from "./config";
-import * as deprecated from "./deprecated";
 import * as factor from "./factor";
 import * as group from "./group";
 import * as idp from "./idp";
@@ -378,7 +377,6 @@ import * as inline from "./inline";
 import * as network from "./network";
 import * as policy from "./policy";
 import * as profile from "./profile";
-import * as template from "./template";
 import * as trustedorigin from "./trustedorigin";
 import * as types from "./types";
 import * as user from "./user";
@@ -387,7 +385,6 @@ export {
     app,
     auth,
     config,
-    deprecated,
     factor,
     group,
     idp,
@@ -396,7 +393,6 @@ export {
     network,
     policy,
     profile,
-    template,
     trustedorigin,
     types,
     user,

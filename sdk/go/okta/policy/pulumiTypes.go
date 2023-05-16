@@ -244,6 +244,20 @@ type RuleIdpDiscoveryPlatformInclude struct {
 	// Only available when using `osType = "OTHER"`
 	OsExpression *string `pulumi:"osExpression"`
 	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	OsType *string `pulumi:"osType"`
 	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
 	Type *string `pulumi:"type"`
@@ -264,6 +278,20 @@ type RuleIdpDiscoveryPlatformIncludeArgs struct {
 	// Only available when using `osType = "OTHER"`
 	OsExpression pulumi.StringPtrInput `pulumi:"osExpression"`
 	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -326,6 +354,23 @@ func (o RuleIdpDiscoveryPlatformIncludeOutput) OsExpression() pulumi.StringPtrOu
 }
 
 // One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o RuleIdpDiscoveryPlatformIncludeOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryPlatformInclude) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
@@ -359,6 +404,20 @@ type RuleIdpDiscoveryUserIdentifierPattern struct {
 	// The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
 	MatchType *string `pulumi:"matchType"`
 	// The regex or simple match string to match against.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Value *string `pulumi:"value"`
 }
 
@@ -377,6 +436,20 @@ type RuleIdpDiscoveryUserIdentifierPatternArgs struct {
 	// The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
 	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
 	// The regex or simple match string to match against.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -437,6 +510,23 @@ func (o RuleIdpDiscoveryUserIdentifierPatternOutput) MatchType() pulumi.StringPt
 }
 
 // The regex or simple match string to match against.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o RuleIdpDiscoveryUserIdentifierPatternOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryUserIdentifierPattern) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

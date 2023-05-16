@@ -52,13 +52,7 @@ export interface GetUserArgs {
      * Map of search criteria. It supports the following properties.
      */
     searches?: inputs.user.GetUserSearch[];
-    /**
-     * Additional API call to collect user's groups will not be made.
-     */
     skipGroups?: boolean;
-    /**
-     * Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-     */
     skipRoles?: boolean;
     /**
      * String representing a specific user's id value
@@ -70,9 +64,6 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
-    /**
-     * Administrator roles assigned to user.
-     */
     readonly adminRoles: string[];
     /**
      * City or locality component of user's address.
@@ -116,9 +107,6 @@ export interface GetUserResult {
      * Given name of the user.
      */
     readonly firstName: string;
-    /**
-     * Groups user belongs to.
-     */
     readonly groupMemberships: string[];
     /**
      * Honorific prefix(es) of the user, or title in most Western languages.
@@ -261,13 +249,7 @@ export interface GetUserOutputArgs {
      * Map of search criteria. It supports the following properties.
      */
     searches?: pulumi.Input<pulumi.Input<inputs.user.GetUserSearchArgs>[]>;
-    /**
-     * Additional API call to collect user's groups will not be made.
-     */
     skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-     */
     skipRoles?: pulumi.Input<boolean>;
     /**
      * String representing a specific user's id value

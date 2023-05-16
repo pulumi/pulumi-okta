@@ -81,6 +81,9 @@ export class Role extends pulumi.CustomResource {
      * `"SUPER_ADMIN"`,
      * `"USER_ADMIN"`
      * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     *
+     *
+     * - `"USER_ADMIN"` is the Group Administrator.
      */
     public readonly roleType!: pulumi.Output<string>;
     /**
@@ -160,6 +163,9 @@ export interface RoleState {
      * `"SUPER_ADMIN"`,
      * `"USER_ADMIN"`
      * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     *
+     *
+     * - `"USER_ADMIN"` is the Group Administrator.
      */
     roleType?: pulumi.Input<string>;
     /**
@@ -203,6 +209,9 @@ export interface RoleArgs {
      * `"SUPER_ADMIN"`,
      * `"USER_ADMIN"`
      * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     *
+     *
+     * - `"USER_ADMIN"` is the Group Administrator.
      */
     roleType: pulumi.Input<string>;
     /**

@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,10 +61,6 @@ type LookupSamlArgs struct {
 	LabelPrefix *string `pulumi:"labelPrefix"`
 	// Denotes whether the request is compressed or not.
 	RequestCompressed *bool `pulumi:"requestCompressed"`
-	// Indicator that allows the app to skip `groups` sync. Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync. Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 }
 
 // A collection of values returned by getSaml.
@@ -139,8 +135,6 @@ type LookupSamlResult struct {
 	SingleLogoutIssuer string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl string `pulumi:"singleLogoutUrl"`
-	SkipGroups      *bool  `pulumi:"skipGroups"`
-	SkipUsers       *bool  `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer string `pulumi:"spIssuer"`
 	// Single Sign-on Url.
@@ -159,8 +153,6 @@ type LookupSamlResult struct {
 	UserNameTemplateSuffix string `pulumi:"userNameTemplateSuffix"`
 	// Username template type.
 	UserNameTemplateType string `pulumi:"userNameTemplateType"`
-	// List of users IDs assigned to the application.
-	//
 	// Deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
 	Users []string `pulumi:"users"`
 }
@@ -193,10 +185,6 @@ type LookupSamlOutputArgs struct {
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
 	// Denotes whether the request is compressed or not.
 	RequestCompressed pulumi.BoolPtrInput `pulumi:"requestCompressed"`
-	// Indicator that allows the app to skip `groups` sync. Default is `false`.
-	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync. Default is `false`.
-	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
 }
 
 func (LookupSamlOutputArgs) ElementType() reflect.Type {
@@ -393,14 +381,6 @@ func (o LookupSamlResultOutput) SingleLogoutUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.SingleLogoutUrl }).(pulumi.StringOutput)
 }
 
-func (o LookupSamlResultOutput) SkipGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
-}
-
-func (o LookupSamlResultOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupSamlResult) *bool { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
 // SAML service provider issuer.
 func (o LookupSamlResultOutput) SpIssuer() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.SpIssuer }).(pulumi.StringOutput)
@@ -446,8 +426,6 @@ func (o LookupSamlResultOutput) UserNameTemplateType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.UserNameTemplateType }).(pulumi.StringOutput)
 }
 
-// List of users IDs assigned to the application.
-//
 // Deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
 func (o LookupSamlResultOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSamlResult) []string { return v.Users }).(pulumi.StringArrayOutput)

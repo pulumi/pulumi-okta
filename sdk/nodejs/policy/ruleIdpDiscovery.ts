@@ -101,6 +101,10 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
 
     /**
      * Applications to exclude in discovery. See `appInclude` for details.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly appExcludes!: pulumi.Output<outputs.policy.RuleIdpDiscoveryAppExclude[] | undefined>;
     /**
@@ -136,12 +140,6 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
      * Policy ID.
      */
     public readonly policyId!: pulumi.Output<string | undefined>;
-    /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    public readonly policyid!: pulumi.Output<string | undefined>;
     /**
      * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
@@ -186,7 +184,6 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
             resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
             resourceInputs["platformIncludes"] = state ? state.platformIncludes : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["policyid"] = state ? state.policyid : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["userIdentifierAttribute"] = state ? state.userIdentifierAttribute : undefined;
@@ -204,7 +201,6 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
             resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
             resourceInputs["platformIncludes"] = args ? args.platformIncludes : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["policyid"] = args ? args.policyid : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["userIdentifierAttribute"] = args ? args.userIdentifierAttribute : undefined;
@@ -222,6 +218,10 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
 export interface RuleIdpDiscoveryState {
     /**
      * Applications to exclude in discovery. See `appInclude` for details.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
     /**
@@ -257,12 +257,6 @@ export interface RuleIdpDiscoveryState {
      * Policy ID.
      */
     policyId?: pulumi.Input<string>;
-    /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    policyid?: pulumi.Input<string>;
     /**
      * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
@@ -291,6 +285,10 @@ export interface RuleIdpDiscoveryState {
 export interface RuleIdpDiscoveryArgs {
     /**
      * Applications to exclude in discovery. See `appInclude` for details.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
     /**
@@ -326,12 +324,6 @@ export interface RuleIdpDiscoveryArgs {
      * Policy ID.
      */
     policyId?: pulumi.Input<string>;
-    /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    policyid?: pulumi.Input<string>;
     /**
      * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */

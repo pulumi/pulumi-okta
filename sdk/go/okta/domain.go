@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,6 +49,8 @@ type Domain struct {
 	pulumi.CustomResourceState
 
 	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+	//
+	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
 	CertificateSourceType pulumi.StringPtrOutput `pulumi:"certificateSourceType"`
 	// TXT and CNAME records to be registered for the Domain.
 	DnsRecords DomainDnsRecordArrayOutput `pulumi:"dnsRecords"`
@@ -56,10 +58,6 @@ type Domain struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of the domain.
 	ValidationStatus pulumi.StringOutput `pulumi:"validationStatus"`
-	// Indicates whether the domain should be verified.
-	//
-	// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-	Verify pulumi.BoolPtrOutput `pulumi:"verify"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -92,6 +90,8 @@ func GetDomain(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
 	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+	//
+	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
 	CertificateSourceType *string `pulumi:"certificateSourceType"`
 	// TXT and CNAME records to be registered for the Domain.
 	DnsRecords []DomainDnsRecord `pulumi:"dnsRecords"`
@@ -99,14 +99,12 @@ type domainState struct {
 	Name *string `pulumi:"name"`
 	// Status of the domain.
 	ValidationStatus *string `pulumi:"validationStatus"`
-	// Indicates whether the domain should be verified.
-	//
-	// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-	Verify *bool `pulumi:"verify"`
 }
 
 type DomainState struct {
 	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+	//
+	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
 	CertificateSourceType pulumi.StringPtrInput
 	// TXT and CNAME records to be registered for the Domain.
 	DnsRecords DomainDnsRecordArrayInput
@@ -114,10 +112,6 @@ type DomainState struct {
 	Name pulumi.StringPtrInput
 	// Status of the domain.
 	ValidationStatus pulumi.StringPtrInput
-	// Indicates whether the domain should be verified.
-	//
-	// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-	Verify pulumi.BoolPtrInput
 }
 
 func (DomainState) ElementType() reflect.Type {
@@ -126,25 +120,21 @@ func (DomainState) ElementType() reflect.Type {
 
 type domainArgs struct {
 	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+	//
+	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
 	CertificateSourceType *string `pulumi:"certificateSourceType"`
 	// Custom Domain name.
 	Name *string `pulumi:"name"`
-	// Indicates whether the domain should be verified.
-	//
-	// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-	Verify *bool `pulumi:"verify"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+	//
+	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
 	CertificateSourceType pulumi.StringPtrInput
 	// Custom Domain name.
 	Name pulumi.StringPtrInput
-	// Indicates whether the domain should be verified.
-	//
-	// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-	Verify pulumi.BoolPtrInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -235,6 +225,8 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 }
 
 // Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+//
+// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
 func (o DomainOutput) CertificateSourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.CertificateSourceType }).(pulumi.StringPtrOutput)
 }
@@ -252,13 +244,6 @@ func (o DomainOutput) Name() pulumi.StringOutput {
 // Status of the domain.
 func (o DomainOutput) ValidationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.ValidationStatus }).(pulumi.StringOutput)
-}
-
-// Indicates whether the domain should be verified.
-//
-// Deprecated: The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-func (o DomainOutput) Verify() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Domain) pulumi.BoolPtrOutput { return v.Verify }).(pulumi.BoolPtrOutput)
 }
 
 type DomainArrayOutput struct{ *pulumi.OutputState }

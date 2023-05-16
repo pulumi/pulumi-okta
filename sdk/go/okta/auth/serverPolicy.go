@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/auth"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/auth"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,10 +71,6 @@ type ServerPolicy struct {
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The status of the Auth Server Policy.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The type of the Auth Server Policy.
-	//
-	// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
-	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewServerPolicy registers a new resource with the given unique name, arguments, and options.
@@ -130,10 +126,6 @@ type serverPolicyState struct {
 	Priority *int `pulumi:"priority"`
 	// The status of the Auth Server Policy.
 	Status *string `pulumi:"status"`
-	// The type of the Auth Server Policy.
-	//
-	// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
-	Type *string `pulumi:"type"`
 }
 
 type ServerPolicyState struct {
@@ -149,10 +141,6 @@ type ServerPolicyState struct {
 	Priority pulumi.IntPtrInput
 	// The status of the Auth Server Policy.
 	Status pulumi.StringPtrInput
-	// The type of the Auth Server Policy.
-	//
-	// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
-	Type pulumi.StringPtrInput
 }
 
 func (ServerPolicyState) ElementType() reflect.Type {
@@ -172,10 +160,6 @@ type serverPolicyArgs struct {
 	Priority int `pulumi:"priority"`
 	// The status of the Auth Server Policy.
 	Status *string `pulumi:"status"`
-	// The type of the Auth Server Policy.
-	//
-	// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
-	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ServerPolicy resource.
@@ -192,10 +176,6 @@ type ServerPolicyArgs struct {
 	Priority pulumi.IntInput
 	// The status of the Auth Server Policy.
 	Status pulumi.StringPtrInput
-	// The type of the Auth Server Policy.
-	//
-	// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
-	Type pulumi.StringPtrInput
 }
 
 func (ServerPolicyArgs) ElementType() reflect.Type {
@@ -313,13 +293,6 @@ func (o ServerPolicyOutput) Priority() pulumi.IntOutput {
 // The status of the Auth Server Policy.
 func (o ServerPolicyOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerPolicy) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// The type of the Auth Server Policy.
-//
-// Deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
-func (o ServerPolicyOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPolicy) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ServerPolicyArrayOutput struct{ *pulumi.OutputState }

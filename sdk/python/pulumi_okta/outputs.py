@@ -11,7 +11,6 @@ from . import _utilities
 
 __all__ = [
     'AppGroupAssignmentsGroup',
-    'AppSharedCredentialsUser',
     'AppSignonPolicyRulePlatformInclude',
     'AppUserSchemaPropertyArrayOneOf',
     'AppUserSchemaPropertyOneOf',
@@ -76,49 +75,6 @@ class AppGroupAssignmentsGroup(dict):
         Priority of group assignment
         """
         return pulumi.get(self, "priority")
-
-
-@pulumi.output_type
-class AppSharedCredentialsUser(dict):
-    def __init__(__self__, *,
-                 id: Optional[str] = None,
-                 password: Optional[str] = None,
-                 scope: Optional[str] = None,
-                 username: Optional[str] = None):
-        """
-        :param str id: ID of an app.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        ID of an app.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional[str]:
-        return pulumi.get(self, "scope")
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[str]:
-        return pulumi.get(self, "username")
 
 
 @pulumi.output_type

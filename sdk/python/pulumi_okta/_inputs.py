@@ -11,7 +11,6 @@ from . import _utilities
 
 __all__ = [
     'AppGroupAssignmentsGroupArgs',
-    'AppSharedCredentialsUserArgs',
     'AppSignonPolicyRulePlatformIncludeArgs',
     'AppUserSchemaPropertyArrayOneOfArgs',
     'AppUserSchemaPropertyOneOfArgs',
@@ -79,65 +78,6 @@ class AppGroupAssignmentsGroupArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
-
-
-@pulumi.input_type
-class AppSharedCredentialsUserArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None,
-                 password: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] id: ID of an app.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of an app.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scope")
-
-    @scope.setter
-    def scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scope", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type

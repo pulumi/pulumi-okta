@@ -34,7 +34,6 @@ class SamlArgs:
                  destination: Optional[pulumi.Input[str]] = None,
                  digest_algorithm: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
@@ -54,8 +53,6 @@ class SamlArgs:
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -64,8 +61,7 @@ class SamlArgs:
                  user_name_template: Optional[pulumi.Input[str]] = None,
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]]] = None):
+                 user_name_template_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Saml resource.
         :param pulumi.Input[str] label: label of application.
@@ -86,12 +82,11 @@ class SamlArgs:
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
         :param pulumi.Input[bool] hide_web: Do not display application icon to users. Default is: `false`
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it. Default is: `false`
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
-        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
@@ -106,8 +101,6 @@ class SamlArgs:
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
         :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
         :param pulumi.Input[str] sso_url: Single Sign-on Url.
         :param pulumi.Input[str] status: status of application.
@@ -117,7 +110,6 @@ class SamlArgs:
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default is: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]] users: Users associated with the application.
         """
         pulumi.set(__self__, "label", label)
         if accessibility_error_redirect_url is not None:
@@ -154,11 +146,6 @@ class SamlArgs:
             pulumi.set(__self__, "digest_algorithm", digest_algorithm)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
@@ -197,10 +184,6 @@ class SamlArgs:
             pulumi.set(__self__, "single_logout_issuer", single_logout_issuer)
         if single_logout_url is not None:
             pulumi.set(__self__, "single_logout_url", single_logout_url)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if sp_issuer is not None:
             pulumi.set(__self__, "sp_issuer", sp_issuer)
         if sso_url is not None:
@@ -219,11 +202,6 @@ class SamlArgs:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter
@@ -442,18 +420,6 @@ class SamlArgs:
         pulumi.set(self, "enduser_note", value)
 
     @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Groups associated with the application.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
-
-    @property
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -505,7 +471,7 @@ class SamlArgs:
     @pulumi.getter(name="implicitAssignment")
     def implicit_assignment(self) -> Optional[pulumi.Input[bool]]:
         """
-        _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         """
         return pulumi.get(self, "implicit_assignment")
 
@@ -682,30 +648,6 @@ class SamlArgs:
         pulumi.set(self, "single_logout_url", value)
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> Optional[pulumi.Input[str]]:
         """
@@ -813,18 +755,6 @@ class SamlArgs:
     def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name_template_type", value)
 
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]]]:
-        """
-        Users associated with the application.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]]]):
-        pulumi.set(self, "users", value)
-
 
 @pulumi.input_type
 class _SamlState:
@@ -851,7 +781,6 @@ class _SamlState:
                  entity_key: Optional[pulumi.Input[str]] = None,
                  entity_url: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
@@ -881,8 +810,6 @@ class _SamlState:
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -891,8 +818,7 @@ class _SamlState:
                  user_name_template: Optional[pulumi.Input[str]] = None,
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]]] = None):
+                 user_name_template_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Saml resources.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -917,14 +843,13 @@ class _SamlState:
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
         :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
         :param pulumi.Input[bool] hide_web: Do not display application icon to users. Default is: `false`
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it. Default is: `false`
         :param pulumi.Input[str] http_post_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
         :param pulumi.Input[str] http_redirect_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
-        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_id: Certificate key ID.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
@@ -947,8 +872,6 @@ class _SamlState:
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
         :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
         :param pulumi.Input[str] sso_url: Single Sign-on Url.
         :param pulumi.Input[str] status: status of application.
@@ -958,7 +881,6 @@ class _SamlState:
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default is: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]] users: Users associated with the application.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -1004,11 +926,6 @@ class _SamlState:
             pulumi.set(__self__, "entity_url", entity_url)
         if features is not None:
             pulumi.set(__self__, "features", features)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
@@ -1067,10 +984,6 @@ class _SamlState:
             pulumi.set(__self__, "single_logout_issuer", single_logout_issuer)
         if single_logout_url is not None:
             pulumi.set(__self__, "single_logout_url", single_logout_url)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if sp_issuer is not None:
             pulumi.set(__self__, "sp_issuer", sp_issuer)
         if sso_url is not None:
@@ -1089,11 +1002,6 @@ class _SamlState:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -1360,18 +1268,6 @@ class _SamlState:
         pulumi.set(self, "features", value)
 
     @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Groups associated with the application.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
-
-    @property
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1447,7 +1343,7 @@ class _SamlState:
     @pulumi.getter(name="implicitAssignment")
     def implicit_assignment(self) -> Optional[pulumi.Input[bool]]:
         """
-        _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         """
         return pulumi.get(self, "implicit_assignment")
 
@@ -1720,30 +1616,6 @@ class _SamlState:
         pulumi.set(self, "single_logout_url", value)
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1851,18 +1723,6 @@ class _SamlState:
     def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name_template_type", value)
 
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]]]:
-        """
-        Users associated with the application.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamlUserArgs']]]]):
-        pulumi.set(self, "users", value)
-
 
 class Saml(pulumi.CustomResource):
     @overload
@@ -1886,7 +1746,6 @@ class Saml(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[str]] = None,
                  digest_algorithm: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
@@ -1907,8 +1766,6 @@ class Saml(pulumi.CustomResource):
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -1918,7 +1775,6 @@ class Saml(pulumi.CustomResource):
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]]] = None,
                  __props__=None):
         """
         This resource allows you to create and configure a SAML Application.
@@ -2073,18 +1929,6 @@ class Saml(pulumi.CustomResource):
 
          It's also possible to import app without groups or/and users. In this case ID may look like this
 
-        ```sh
-         $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_groups
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -2104,12 +1948,11 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
         :param pulumi.Input[bool] hide_web: Do not display application icon to users. Default is: `false`
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it. Default is: `false`
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
-        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
@@ -2125,8 +1968,6 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
         :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
         :param pulumi.Input[str] sso_url: Single Sign-on Url.
         :param pulumi.Input[str] status: status of application.
@@ -2136,7 +1977,6 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default is: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]] users: Users associated with the application.
         """
         ...
     @overload
@@ -2297,18 +2137,6 @@ class Saml(pulumi.CustomResource):
 
          It's also possible to import app without groups or/and users. In this case ID may look like this
 
-        ```sh
-         $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_groups
-        ```
-
         :param str resource_name: The name of the resource.
         :param SamlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2341,7 +2169,6 @@ class Saml(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[str]] = None,
                  digest_algorithm: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  honor_force_authn: Optional[pulumi.Input[bool]] = None,
@@ -2362,8 +2189,6 @@ class Saml(pulumi.CustomResource):
                  single_logout_certificate: Optional[pulumi.Input[str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[str]] = None,
                  single_logout_url: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  sp_issuer: Optional[pulumi.Input[str]] = None,
                  sso_url: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -2373,7 +2198,6 @@ class Saml(pulumi.CustomResource):
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2400,10 +2224,6 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["destination"] = destination
             __props__.__dict__["digest_algorithm"] = digest_algorithm
             __props__.__dict__["enduser_note"] = enduser_note
-            if groups is not None and not opts.urn:
-                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-            __props__.__dict__["groups"] = groups
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
             __props__.__dict__["honor_force_authn"] = honor_force_authn
@@ -2426,8 +2246,6 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["single_logout_certificate"] = single_logout_certificate
             __props__.__dict__["single_logout_issuer"] = single_logout_issuer
             __props__.__dict__["single_logout_url"] = single_logout_url
-            __props__.__dict__["skip_groups"] = skip_groups
-            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["sp_issuer"] = sp_issuer
             __props__.__dict__["sso_url"] = sso_url
             __props__.__dict__["status"] = status
@@ -2437,10 +2255,6 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
-            if users is not None and not opts.urn:
-                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-            __props__.__dict__["users"] = users
             __props__.__dict__["certificate"] = None
             __props__.__dict__["embed_url"] = None
             __props__.__dict__["entity_key"] = None
@@ -2487,7 +2301,6 @@ class Saml(pulumi.CustomResource):
             entity_key: Optional[pulumi.Input[str]] = None,
             entity_url: Optional[pulumi.Input[str]] = None,
             features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             honor_force_authn: Optional[pulumi.Input[bool]] = None,
@@ -2517,8 +2330,6 @@ class Saml(pulumi.CustomResource):
             single_logout_certificate: Optional[pulumi.Input[str]] = None,
             single_logout_issuer: Optional[pulumi.Input[str]] = None,
             single_logout_url: Optional[pulumi.Input[str]] = None,
-            skip_groups: Optional[pulumi.Input[bool]] = None,
-            skip_users: Optional[pulumi.Input[bool]] = None,
             sp_issuer: Optional[pulumi.Input[str]] = None,
             sso_url: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -2527,8 +2338,7 @@ class Saml(pulumi.CustomResource):
             user_name_template: Optional[pulumi.Input[str]] = None,
             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
-            user_name_template_type: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]]] = None) -> 'Saml':
+            user_name_template_type: Optional[pulumi.Input[str]] = None) -> 'Saml':
         """
         Get an existing Saml resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -2558,14 +2368,13 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
         :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
         :param pulumi.Input[bool] hide_web: Do not display application icon to users. Default is: `false`
         :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it. Default is: `false`
         :param pulumi.Input[str] http_post_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
         :param pulumi.Input[str] http_redirect_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
         :param pulumi.Input[str] idp_issuer: SAML issuer ID.
-        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
         :param pulumi.Input[str] key_id: Certificate key ID.
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
@@ -2588,8 +2397,6 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
         :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
         :param pulumi.Input[str] sso_url: Single Sign-on Url.
         :param pulumi.Input[str] status: status of application.
@@ -2599,7 +2406,6 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default is: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlUserArgs']]]] users: Users associated with the application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2627,7 +2433,6 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["entity_key"] = entity_key
         __props__.__dict__["entity_url"] = entity_url
         __props__.__dict__["features"] = features
-        __props__.__dict__["groups"] = groups
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
         __props__.__dict__["honor_force_authn"] = honor_force_authn
@@ -2657,8 +2462,6 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["single_logout_certificate"] = single_logout_certificate
         __props__.__dict__["single_logout_issuer"] = single_logout_issuer
         __props__.__dict__["single_logout_url"] = single_logout_url
-        __props__.__dict__["skip_groups"] = skip_groups
-        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["sp_issuer"] = sp_issuer
         __props__.__dict__["sso_url"] = sso_url
         __props__.__dict__["status"] = status
@@ -2668,7 +2471,6 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
         __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
         __props__.__dict__["user_name_template_type"] = user_name_template_type
-        __props__.__dict__["users"] = users
         return Saml(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -2848,14 +2650,6 @@ class Saml(pulumi.CustomResource):
         return pulumi.get(self, "features")
 
     @property
-    @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Groups associated with the application.
-        """
-        return pulumi.get(self, "groups")
-
-    @property
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -2907,7 +2701,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="implicitAssignment")
     def implicit_assignment(self) -> pulumi.Output[Optional[bool]]:
         """
-        _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         """
         return pulumi.get(self, "implicit_assignment")
 
@@ -3088,22 +2882,6 @@ class Saml(pulumi.CustomResource):
         return pulumi.get(self, "single_logout_url")
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @property
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> pulumi.Output[Optional[str]]:
         """
@@ -3174,12 +2952,4 @@ class Saml(pulumi.CustomResource):
         Username template type. Default is: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
-
-    @property
-    @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[Sequence['outputs.SamlUser']]]:
-        """
-        Users associated with the application.
-        """
-        return pulumi.get(self, "users")
 

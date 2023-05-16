@@ -30,8 +30,6 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
         "label": args.label,
         "labelPrefix": args.labelPrefix,
         "requestCompressed": args.requestCompressed,
-        "skipGroups": args.skipGroups,
-        "skipUsers": args.skipUsers,
     }, opts);
 }
 
@@ -62,14 +60,6 @@ export interface GetSamlArgs {
      * Denotes whether the request is compressed or not.
      */
     requestCompressed?: boolean;
-    /**
-     * Indicator that allows the app to skip `groups` sync. Default is `false`.
-     */
-    skipGroups?: boolean;
-    /**
-     * Indicator that allows the app to skip `users` sync. Default is `false`.
-     */
-    skipUsers?: boolean;
 }
 
 /**
@@ -212,8 +202,6 @@ export interface GetSamlResult {
      * The location where the logout response is sent.
      */
     readonly singleLogoutUrl: string;
-    readonly skipGroups?: boolean;
-    readonly skipUsers?: boolean;
     /**
      * SAML service provider issuer.
      */
@@ -251,8 +239,6 @@ export interface GetSamlResult {
      */
     readonly userNameTemplateType: string;
     /**
-     * List of users IDs assigned to the application.
-     *
      * @deprecated The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users: string[];
@@ -302,12 +288,4 @@ export interface GetSamlOutputArgs {
      * Denotes whether the request is compressed or not.
      */
     requestCompressed?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `groups` sync. Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync. Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
 }

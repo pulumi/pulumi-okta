@@ -9,134 +9,6 @@ import * as utilities from "../utilities";
 /**
  * This resource allows you to create and configure an MFA Policy Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
- *     type: "MFA_ENROLL",
- * });
- * const exampleOAuth = new okta.app.OAuth("exampleOAuth", {
- *     label: "My App",
- *     type: "web",
- *     grantTypes: ["authorization_code"],
- *     redirectUris: ["http://localhost:8000"],
- *     responseTypes: ["code"],
- *     skipGroups: true,
- * });
- * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {
- *     policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id),
- *     status: "ACTIVE",
- *     enroll: "LOGIN",
- *     appIncludes: [
- *         {
- *             id: exampleOAuth.id,
- *             type: "APP",
- *         },
- *         {
- *             type: "APP_TYPE",
- *             name: "yahoo_mail",
- *         },
- *     ],
- * });
- * ```
- *
- * Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
- *     type: "MFA_ENROLL",
- * });
- * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {
- *     policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id),
- *     appExcludes: [{
- *         name: "okta",
- *         type: "APP_TYPE",
- *     }],
- * });
- * ```
- *
- * Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
- *     type: "MFA_ENROLL",
- * });
- * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {
- *     policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id),
- *     appExcludes: [{
- *         name: "okta",
- *         type: "APP_TYPE",
- *     }],
- *     appIncludes: [{
- *         id: "some_app_id",
- *         type: "APP",
- *     }],
- * });
- * ```
- *
- * Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
- *     type: "MFA_ENROLL",
- * });
- * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {
- *     policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id),
- *     appIncludes: [{
- *         name: "okta",
- *         type: "APP_TYPE",
- *     }],
- * });
- * ```
- *
- * Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
- *     type: "MFA_ENROLL",
- * });
- * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id)});
- * ```
- *
- * Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleDefaultPolicy = okta.policy.getDefaultPolicy({
- *     type: "MFA_ENROLL",
- * });
- * const exampleRuleMfa = new okta.policy.RuleMfa("exampleRuleMfa", {
- *     policyId: exampleDefaultPolicy.then(exampleDefaultPolicy => exampleDefaultPolicy.id),
- *     appIncludes: [
- *         {
- *             name: "okta",
- *             type: "APP_TYPE",
- *         },
- *         {
- *             id: "some_app_id",
- *             type: "APP",
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * A Policy Rule can be imported via the Policy and Rule ID.
@@ -206,12 +78,6 @@ export class RuleMfa extends pulumi.CustomResource {
      */
     public readonly policyId!: pulumi.Output<string | undefined>;
     /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    public readonly policyid!: pulumi.Output<string | undefined>;
-    /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
@@ -245,7 +111,6 @@ export class RuleMfa extends pulumi.CustomResource {
             resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
             resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["policyid"] = state ? state.policyid : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
@@ -259,7 +124,6 @@ export class RuleMfa extends pulumi.CustomResource {
             resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
             resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["policyid"] = args ? args.policyid : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
@@ -305,12 +169,6 @@ export interface RuleMfaState {
      * Policy ID.
      */
     policyId?: pulumi.Input<string>;
-    /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
@@ -361,12 +219,6 @@ export interface RuleMfaArgs {
      * Policy ID.
      */
     policyId?: pulumi.Input<string>;
-    /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */

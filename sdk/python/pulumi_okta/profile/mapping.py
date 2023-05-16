@@ -26,6 +26,8 @@ class MappingArgs:
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
         :param pulumi.Input[str] target_id: ID of the mapping target.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
+               
+               > **WARNING**: `always_apply` is available only when using api token in the provider config.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]] mappings: Priority of the policy.
         """
@@ -67,6 +69,8 @@ class MappingArgs:
     def always_apply(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
+
+        > **WARNING**: `always_apply` is available only when using api token in the provider config.
         """
         return pulumi.get(self, "always_apply")
 
@@ -114,6 +118,8 @@ class _MappingState:
         """
         Input properties used for looking up and filtering Mapping resources.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
+               
+               > **WARNING**: `always_apply` is available only when using api token in the provider config.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]] mappings: Priority of the policy.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
@@ -147,6 +153,8 @@ class _MappingState:
     def always_apply(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
+
+        > **WARNING**: `always_apply` is available only when using api token in the provider config.
         """
         return pulumi.get(self, "always_apply")
 
@@ -305,6 +313,8 @@ class Mapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
+               
+               > **WARNING**: `always_apply` is available only when using api token in the provider config.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
@@ -425,6 +435,8 @@ class Mapping(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
+               
+               > **WARNING**: `always_apply` is available only when using api token in the provider config.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
@@ -454,6 +466,8 @@ class Mapping(pulumi.CustomResource):
     def always_apply(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
+
+        > **WARNING**: `always_apply` is available only when using api token in the provider config.
         """
         return pulumi.get(self, "always_apply")
 

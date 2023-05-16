@@ -68,9 +68,6 @@ class GetSamlResult:
     @property
     @pulumi.getter(name="acsBinding")
     def acs_binding(self) -> str:
-        """
-        HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `"HTTP-POST"`).
-        """
         return pulumi.get(self, "acs_binding")
 
     @property

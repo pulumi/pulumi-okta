@@ -19,8 +19,7 @@ class ServerPolicyArgs:
                  description: pulumi.Input[str],
                  priority: pulumi.Input[int],
                  name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerPolicy resource.
         :param pulumi.Input[str] auth_server_id: The ID of the Auth Server.
@@ -29,7 +28,6 @@ class ServerPolicyArgs:
         :param pulumi.Input[int] priority: The priority of the Auth Server Policy.
         :param pulumi.Input[str] name: The name of the Auth Server Policy.
         :param pulumi.Input[str] status: The status of the Auth Server Policy.
-        :param pulumi.Input[str] type: The type of the Auth Server Policy.
         """
         pulumi.set(__self__, "auth_server_id", auth_server_id)
         pulumi.set(__self__, "client_whitelists", client_whitelists)
@@ -39,11 +37,6 @@ class ServerPolicyArgs:
             pulumi.set(__self__, "name", name)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if type is not None:
-            warnings.warn("""Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""", DeprecationWarning)
-            pulumi.log.warn("""type is deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""")
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -117,18 +110,6 @@ class ServerPolicyArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of the Auth Server Policy.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
 
 @pulumi.input_type
 class _ServerPolicyState:
@@ -138,8 +119,7 @@ class _ServerPolicyState:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServerPolicy resources.
         :param pulumi.Input[str] auth_server_id: The ID of the Auth Server.
@@ -148,7 +128,6 @@ class _ServerPolicyState:
         :param pulumi.Input[str] name: The name of the Auth Server Policy.
         :param pulumi.Input[int] priority: The priority of the Auth Server Policy.
         :param pulumi.Input[str] status: The status of the Auth Server Policy.
-        :param pulumi.Input[str] type: The type of the Auth Server Policy.
         """
         if auth_server_id is not None:
             pulumi.set(__self__, "auth_server_id", auth_server_id)
@@ -162,11 +141,6 @@ class _ServerPolicyState:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if type is not None:
-            warnings.warn("""Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""", DeprecationWarning)
-            pulumi.log.warn("""type is deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""")
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -240,18 +214,6 @@ class _ServerPolicyState:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of the Auth Server Policy.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
 
 class ServerPolicy(pulumi.CustomResource):
     @overload
@@ -264,7 +226,6 @@ class ServerPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Creates an Authorization Server Policy.
@@ -301,7 +262,6 @@ class ServerPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Auth Server Policy.
         :param pulumi.Input[int] priority: The priority of the Auth Server Policy.
         :param pulumi.Input[str] status: The status of the Auth Server Policy.
-        :param pulumi.Input[str] type: The type of the Auth Server Policy.
         """
         ...
     @overload
@@ -357,7 +317,6 @@ class ServerPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -381,10 +340,6 @@ class ServerPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
             __props__.__dict__["status"] = status
-            if type is not None and not opts.urn:
-                warnings.warn("""Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""", DeprecationWarning)
-                pulumi.log.warn("""type is deprecated: Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value""")
-            __props__.__dict__["type"] = type
         super(ServerPolicy, __self__).__init__(
             'okta:auth/serverPolicy:ServerPolicy',
             resource_name,
@@ -400,8 +355,7 @@ class ServerPolicy(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
-            status: Optional[pulumi.Input[str]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'ServerPolicy':
+            status: Optional[pulumi.Input[str]] = None) -> 'ServerPolicy':
         """
         Get an existing ServerPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -415,7 +369,6 @@ class ServerPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Auth Server Policy.
         :param pulumi.Input[int] priority: The priority of the Auth Server Policy.
         :param pulumi.Input[str] status: The status of the Auth Server Policy.
-        :param pulumi.Input[str] type: The type of the Auth Server Policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -427,7 +380,6 @@ class ServerPolicy(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["priority"] = priority
         __props__.__dict__["status"] = status
-        __props__.__dict__["type"] = type
         return ServerPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -477,12 +429,4 @@ class ServerPolicy(pulumi.CustomResource):
         The status of the Auth Server Policy.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of the Auth Server Policy.
-        """
-        return pulumi.get(self, "type")
 

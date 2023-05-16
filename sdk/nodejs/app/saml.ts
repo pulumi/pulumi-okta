@@ -164,18 +164,6 @@ import * as utilities from "../utilities";
  * ```
  *
  *  It's also possible to import app without groups or/and users. In this case ID may look like this
- *
- * ```sh
- *  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users
- * ```
- *
- * ```sh
- *  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users/skip_groups
- * ```
- *
- * ```sh
- *  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_groups
- * ```
  */
 export class Saml extends pulumi.CustomResource {
     /**
@@ -294,12 +282,6 @@ export class Saml extends pulumi.CustomResource {
      */
     public /*out*/ readonly features!: pulumi.Output<string[]>;
     /**
-     * Groups associated with the application.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    public readonly groups!: pulumi.Output<string[] | undefined>;
-    /**
      * Do not display application icon on mobile app. Default is: `false`
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
@@ -324,7 +306,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly idpIssuer!: pulumi.Output<string | undefined>;
     /**
-     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
      */
     public readonly implicitAssignment!: pulumi.Output<boolean | undefined>;
     /**
@@ -416,14 +398,6 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly singleLogoutUrl!: pulumi.Output<string | undefined>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-     */
-    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-     */
-    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
-    /**
      * SAML service provider issuer.
      */
     public readonly spIssuer!: pulumi.Output<string | undefined>;
@@ -459,12 +433,6 @@ export class Saml extends pulumi.CustomResource {
      * Username template type. Default is: `"BUILT_IN"`.
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
-    /**
-     * Users associated with the application.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    public readonly users!: pulumi.Output<outputs.app.SamlUser[] | undefined>;
 
     /**
      * Create a Saml resource with the given unique name, arguments, and options.
@@ -501,7 +469,6 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["entityKey"] = state ? state.entityKey : undefined;
             resourceInputs["entityUrl"] = state ? state.entityUrl : undefined;
             resourceInputs["features"] = state ? state.features : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
             resourceInputs["hideIos"] = state ? state.hideIos : undefined;
             resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
             resourceInputs["honorForceAuthn"] = state ? state.honorForceAuthn : undefined;
@@ -531,8 +498,6 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["singleLogoutCertificate"] = state ? state.singleLogoutCertificate : undefined;
             resourceInputs["singleLogoutIssuer"] = state ? state.singleLogoutIssuer : undefined;
             resourceInputs["singleLogoutUrl"] = state ? state.singleLogoutUrl : undefined;
-            resourceInputs["skipGroups"] = state ? state.skipGroups : undefined;
-            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
             resourceInputs["spIssuer"] = state ? state.spIssuer : undefined;
             resourceInputs["ssoUrl"] = state ? state.ssoUrl : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -542,7 +507,6 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             resourceInputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             resourceInputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as SamlArgs | undefined;
             if ((!args || args.label === undefined) && !opts.urn) {
@@ -565,7 +529,6 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["digestAlgorithm"] = args ? args.digestAlgorithm : undefined;
             resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["hideIos"] = args ? args.hideIos : undefined;
             resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
             resourceInputs["honorForceAuthn"] = args ? args.honorForceAuthn : undefined;
@@ -586,8 +549,6 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["singleLogoutCertificate"] = args ? args.singleLogoutCertificate : undefined;
             resourceInputs["singleLogoutIssuer"] = args ? args.singleLogoutIssuer : undefined;
             resourceInputs["singleLogoutUrl"] = args ? args.singleLogoutUrl : undefined;
-            resourceInputs["skipGroups"] = args ? args.skipGroups : undefined;
-            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
             resourceInputs["spIssuer"] = args ? args.spIssuer : undefined;
             resourceInputs["ssoUrl"] = args ? args.ssoUrl : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
@@ -597,7 +558,6 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             resourceInputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["embedUrl"] = undefined /*out*/;
             resourceInputs["entityKey"] = undefined /*out*/;
@@ -711,12 +671,6 @@ export interface SamlState {
      */
     features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Groups associated with the application.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Do not display application icon on mobile app. Default is: `false`
      */
     hideIos?: pulumi.Input<boolean>;
@@ -741,7 +695,7 @@ export interface SamlState {
      */
     idpIssuer?: pulumi.Input<string>;
     /**
-     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
      */
     implicitAssignment?: pulumi.Input<boolean>;
     /**
@@ -833,14 +787,6 @@ export interface SamlState {
      */
     singleLogoutUrl?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * SAML service provider issuer.
      */
     spIssuer?: pulumi.Input<string>;
@@ -876,12 +822,6 @@ export interface SamlState {
      * Username template type. Default is: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
-    /**
-     * Users associated with the application.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.app.SamlUser>[]>;
 }
 
 /**
@@ -957,12 +897,6 @@ export interface SamlArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Groups associated with the application.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Do not display application icon on mobile app. Default is: `false`
      */
     hideIos?: pulumi.Input<boolean>;
@@ -979,7 +913,7 @@ export interface SamlArgs {
      */
     idpIssuer?: pulumi.Input<string>;
     /**
-     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
      */
     implicitAssignment?: pulumi.Input<boolean>;
     /**
@@ -1043,14 +977,6 @@ export interface SamlArgs {
      */
     singleLogoutUrl?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * SAML service provider issuer.
      */
     spIssuer?: pulumi.Input<string>;
@@ -1086,10 +1012,4 @@ export interface SamlArgs {
      * Username template type. Default is: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
-    /**
-     * Users associated with the application.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.app.SamlUser>[]>;
 }

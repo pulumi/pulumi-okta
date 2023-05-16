@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,26 +52,6 @@ import (
 //	$ pulumi import okta:app/swa:Swa example &#60;app id&#62;
 //
 // ```
-//
-//	It's also possible to import app without groups or/and users. In this case ID may look like this
-//
-// ```sh
-//
-//	$ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users/skip_groups
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_groups
-//
-// ```
 type Swa struct {
 	pulumi.CustomResourceState
 
@@ -93,10 +73,6 @@ type Swa struct {
 	Checkbox pulumi.StringPtrOutput `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -117,10 +93,6 @@ type Swa struct {
 	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -137,10 +109,6 @@ type Swa struct {
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Login username field.
 	UsernameField pulumi.StringPtrOutput `pulumi:"usernameField"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users SwaUserArrayOutput `pulumi:"users"`
 }
 
 // NewSwa registers a new resource with the given unique name, arguments, and options.
@@ -193,10 +161,6 @@ type swaState struct {
 	Checkbox *string `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -217,10 +181,6 @@ type swaState struct {
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -237,10 +197,6 @@ type swaState struct {
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field.
 	UsernameField *string `pulumi:"usernameField"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []SwaUser `pulumi:"users"`
 }
 
 type SwaState struct {
@@ -262,10 +218,6 @@ type SwaState struct {
 	Checkbox pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -286,10 +238,6 @@ type SwaState struct {
 	RedirectUrl pulumi.StringPtrInput
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
@@ -306,10 +254,6 @@ type SwaState struct {
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field.
 	UsernameField pulumi.StringPtrInput
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users SwaUserArrayInput
 }
 
 func (SwaState) ElementType() reflect.Type {
@@ -335,10 +279,6 @@ type swaArgs struct {
 	Checkbox *string `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -353,10 +293,6 @@ type swaArgs struct {
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl *string `pulumi:"redirectUrl"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -373,10 +309,6 @@ type swaArgs struct {
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field.
 	UsernameField *string `pulumi:"usernameField"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []SwaUser `pulumi:"users"`
 }
 
 // The set of arguments for constructing a Swa resource.
@@ -399,10 +331,6 @@ type SwaArgs struct {
 	Checkbox pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -417,10 +345,6 @@ type SwaArgs struct {
 	PreconfiguredApp pulumi.StringPtrInput
 	// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
 	RedirectUrl pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
@@ -437,10 +361,6 @@ type SwaArgs struct {
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field.
 	UsernameField pulumi.StringPtrInput
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users SwaUserArrayInput
 }
 
 func (SwaArgs) ElementType() reflect.Type {
@@ -575,13 +495,6 @@ func (o SwaOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
-// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-//
-// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-func (o SwaOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Swa) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
-}
-
 // Do not display application icon on mobile app.
 func (o SwaOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Swa) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
@@ -632,16 +545,6 @@ func (o SwaOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Swa) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-func (o SwaOutput) SkipGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Swa) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
-}
-
-// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-func (o SwaOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Swa) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
 // Status of application. By default, it is `"ACTIVE"`.
 func (o SwaOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
@@ -680,13 +583,6 @@ func (o SwaOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 // Login username field.
 func (o SwaOutput) UsernameField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.UsernameField }).(pulumi.StringPtrOutput)
-}
-
-// The users assigned to the application. See `app.User` for a more flexible approach.
-//
-// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-func (o SwaOutput) Users() SwaUserArrayOutput {
-	return o.ApplyT(func(v *Swa) SwaUserArrayOutput { return v.Users }).(SwaUserArrayOutput)
 }
 
 type SwaArrayOutput struct{ *pulumi.OutputState }

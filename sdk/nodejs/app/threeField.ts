@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,20 +13,6 @@ import * as utilities from "../utilities";
  *
  * ```sh
  *  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
- * ```
- *
- *  It's also possible to import app without groups or/and users. In this case ID may look like this
- *
- * ```sh
- *  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users
- * ```
- *
- * ```sh
- *  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users/skip_groups
- * ```
- *
- * ```sh
- *  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_groups
  * ```
  */
 export class ThreeField extends pulumi.CustomResource {
@@ -104,12 +88,6 @@ export class ThreeField extends pulumi.CustomResource {
      */
     public readonly extraFieldValue!: pulumi.Output<string>;
     /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    public readonly groups!: pulumi.Output<string[] | undefined>;
-    /**
      * Do not display application icon on mobile app.
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
@@ -154,14 +132,6 @@ export class ThreeField extends pulumi.CustomResource {
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
-    /**
      * Status of application. By default, it is `"ACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -193,12 +163,6 @@ export class ThreeField extends pulumi.CustomResource {
      * Login username field CSS selector.
      */
     public readonly usernameSelector!: pulumi.Output<string>;
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    public readonly users!: pulumi.Output<outputs.app.ThreeFieldUser[] | undefined>;
 
     /**
      * Create a ThreeField resource with the given unique name, arguments, and options.
@@ -224,7 +188,6 @@ export class ThreeField extends pulumi.CustomResource {
             resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
             resourceInputs["extraFieldSelector"] = state ? state.extraFieldSelector : undefined;
             resourceInputs["extraFieldValue"] = state ? state.extraFieldValue : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
             resourceInputs["hideIos"] = state ? state.hideIos : undefined;
             resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
             resourceInputs["label"] = state ? state.label : undefined;
@@ -236,8 +199,6 @@ export class ThreeField extends pulumi.CustomResource {
             resourceInputs["sharedPassword"] = state ? state.sharedPassword : undefined;
             resourceInputs["sharedUsername"] = state ? state.sharedUsername : undefined;
             resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
-            resourceInputs["skipGroups"] = state ? state.skipGroups : undefined;
-            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
             resourceInputs["urlRegex"] = state ? state.urlRegex : undefined;
@@ -246,7 +207,6 @@ export class ThreeField extends pulumi.CustomResource {
             resourceInputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             resourceInputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             resourceInputs["usernameSelector"] = state ? state.usernameSelector : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as ThreeFieldArgs | undefined;
             if ((!args || args.buttonSelector === undefined) && !opts.urn) {
@@ -281,7 +241,6 @@ export class ThreeField extends pulumi.CustomResource {
             resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
             resourceInputs["extraFieldSelector"] = args ? args.extraFieldSelector : undefined;
             resourceInputs["extraFieldValue"] = args ? args.extraFieldValue : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["hideIos"] = args ? args.hideIos : undefined;
             resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
             resourceInputs["label"] = args ? args.label : undefined;
@@ -290,8 +249,6 @@ export class ThreeField extends pulumi.CustomResource {
             resourceInputs["revealPassword"] = args ? args.revealPassword : undefined;
             resourceInputs["sharedPassword"] = args ? args.sharedPassword : undefined;
             resourceInputs["sharedUsername"] = args ? args.sharedUsername : undefined;
-            resourceInputs["skipGroups"] = args ? args.skipGroups : undefined;
-            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["urlRegex"] = args ? args.urlRegex : undefined;
@@ -300,7 +257,6 @@ export class ThreeField extends pulumi.CustomResource {
             resourceInputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             resourceInputs["usernameSelector"] = args ? args.usernameSelector : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
             resourceInputs["logoUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["signOnMode"] = undefined /*out*/;
@@ -359,12 +315,6 @@ export interface ThreeFieldState {
      */
     extraFieldValue?: pulumi.Input<string>;
     /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Do not display application icon on mobile app.
      */
     hideIos?: pulumi.Input<boolean>;
@@ -409,14 +359,6 @@ export interface ThreeFieldState {
      */
     signOnMode?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * Status of application. By default, it is `"ACTIVE"`.
      */
     status?: pulumi.Input<string>;
@@ -448,12 +390,6 @@ export interface ThreeFieldState {
      * Login username field CSS selector.
      */
     usernameSelector?: pulumi.Input<string>;
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.app.ThreeFieldUser>[]>;
 }
 
 /**
@@ -505,12 +441,6 @@ export interface ThreeFieldArgs {
      */
     extraFieldValue: pulumi.Input<string>;
     /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Do not display application icon on mobile app.
      */
     hideIos?: pulumi.Input<boolean>;
@@ -543,14 +473,6 @@ export interface ThreeFieldArgs {
      */
     sharedUsername?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * Status of application. By default, it is `"ACTIVE"`.
      */
     status?: pulumi.Input<string>;
@@ -582,10 +504,4 @@ export interface ThreeFieldArgs {
      * Login username field CSS selector.
      */
     usernameSelector: pulumi.Input<string>;
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.app.ThreeFieldUser>[]>;
 }

@@ -125,121 +125,6 @@ func (o AppGroupAssignmentsGroupArrayOutput) Index(i pulumi.IntInput) AppGroupAs
 	}).(AppGroupAssignmentsGroupOutput)
 }
 
-type AppSharedCredentialsUser struct {
-	// ID of an app.
-	Id       *string `pulumi:"id"`
-	Password *string `pulumi:"password"`
-	Scope    *string `pulumi:"scope"`
-	Username *string `pulumi:"username"`
-}
-
-// AppSharedCredentialsUserInput is an input type that accepts AppSharedCredentialsUserArgs and AppSharedCredentialsUserOutput values.
-// You can construct a concrete instance of `AppSharedCredentialsUserInput` via:
-//
-//	AppSharedCredentialsUserArgs{...}
-type AppSharedCredentialsUserInput interface {
-	pulumi.Input
-
-	ToAppSharedCredentialsUserOutput() AppSharedCredentialsUserOutput
-	ToAppSharedCredentialsUserOutputWithContext(context.Context) AppSharedCredentialsUserOutput
-}
-
-type AppSharedCredentialsUserArgs struct {
-	// ID of an app.
-	Id       pulumi.StringPtrInput `pulumi:"id"`
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	Scope    pulumi.StringPtrInput `pulumi:"scope"`
-	Username pulumi.StringPtrInput `pulumi:"username"`
-}
-
-func (AppSharedCredentialsUserArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppSharedCredentialsUser)(nil)).Elem()
-}
-
-func (i AppSharedCredentialsUserArgs) ToAppSharedCredentialsUserOutput() AppSharedCredentialsUserOutput {
-	return i.ToAppSharedCredentialsUserOutputWithContext(context.Background())
-}
-
-func (i AppSharedCredentialsUserArgs) ToAppSharedCredentialsUserOutputWithContext(ctx context.Context) AppSharedCredentialsUserOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSharedCredentialsUserOutput)
-}
-
-// AppSharedCredentialsUserArrayInput is an input type that accepts AppSharedCredentialsUserArray and AppSharedCredentialsUserArrayOutput values.
-// You can construct a concrete instance of `AppSharedCredentialsUserArrayInput` via:
-//
-//	AppSharedCredentialsUserArray{ AppSharedCredentialsUserArgs{...} }
-type AppSharedCredentialsUserArrayInput interface {
-	pulumi.Input
-
-	ToAppSharedCredentialsUserArrayOutput() AppSharedCredentialsUserArrayOutput
-	ToAppSharedCredentialsUserArrayOutputWithContext(context.Context) AppSharedCredentialsUserArrayOutput
-}
-
-type AppSharedCredentialsUserArray []AppSharedCredentialsUserInput
-
-func (AppSharedCredentialsUserArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppSharedCredentialsUser)(nil)).Elem()
-}
-
-func (i AppSharedCredentialsUserArray) ToAppSharedCredentialsUserArrayOutput() AppSharedCredentialsUserArrayOutput {
-	return i.ToAppSharedCredentialsUserArrayOutputWithContext(context.Background())
-}
-
-func (i AppSharedCredentialsUserArray) ToAppSharedCredentialsUserArrayOutputWithContext(ctx context.Context) AppSharedCredentialsUserArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSharedCredentialsUserArrayOutput)
-}
-
-type AppSharedCredentialsUserOutput struct{ *pulumi.OutputState }
-
-func (AppSharedCredentialsUserOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppSharedCredentialsUser)(nil)).Elem()
-}
-
-func (o AppSharedCredentialsUserOutput) ToAppSharedCredentialsUserOutput() AppSharedCredentialsUserOutput {
-	return o
-}
-
-func (o AppSharedCredentialsUserOutput) ToAppSharedCredentialsUserOutputWithContext(ctx context.Context) AppSharedCredentialsUserOutput {
-	return o
-}
-
-// ID of an app.
-func (o AppSharedCredentialsUserOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppSharedCredentialsUser) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o AppSharedCredentialsUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppSharedCredentialsUser) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-func (o AppSharedCredentialsUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppSharedCredentialsUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
-}
-
-func (o AppSharedCredentialsUserOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppSharedCredentialsUser) *string { return v.Username }).(pulumi.StringPtrOutput)
-}
-
-type AppSharedCredentialsUserArrayOutput struct{ *pulumi.OutputState }
-
-func (AppSharedCredentialsUserArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppSharedCredentialsUser)(nil)).Elem()
-}
-
-func (o AppSharedCredentialsUserArrayOutput) ToAppSharedCredentialsUserArrayOutput() AppSharedCredentialsUserArrayOutput {
-	return o
-}
-
-func (o AppSharedCredentialsUserArrayOutput) ToAppSharedCredentialsUserArrayOutputWithContext(ctx context.Context) AppSharedCredentialsUserArrayOutput {
-	return o
-}
-
-func (o AppSharedCredentialsUserArrayOutput) Index(i pulumi.IntInput) AppSharedCredentialsUserOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppSharedCredentialsUser {
-		return vs[0].([]AppSharedCredentialsUser)[vs[1].(int)]
-	}).(AppSharedCredentialsUserOutput)
-}
-
 type AppSignonPolicyRulePlatformInclude struct {
 	// Only available when using `osType = "OTHER"`
 	OsExpression *string `pulumi:"osExpression"`
@@ -2942,8 +2827,6 @@ func (o GetUserSecurityQuestionsQuestionArrayOutput) Index(i pulumi.IntInput) Ge
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppGroupAssignmentsGroupInput)(nil)).Elem(), AppGroupAssignmentsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppGroupAssignmentsGroupArrayInput)(nil)).Elem(), AppGroupAssignmentsGroupArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsUserInput)(nil)).Elem(), AppSharedCredentialsUserArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppSharedCredentialsUserArrayInput)(nil)).Elem(), AppSharedCredentialsUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRulePlatformIncludeInput)(nil)).Elem(), AppSignonPolicyRulePlatformIncludeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRulePlatformIncludeArrayInput)(nil)).Elem(), AppSignonPolicyRulePlatformIncludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyArrayOneOfInput)(nil)).Elem(), AppUserSchemaPropertyArrayOneOfArgs{})
@@ -2992,8 +2875,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSecurityQuestionsQuestionArrayInput)(nil)).Elem(), GetUserSecurityQuestionsQuestionArray{})
 	pulumi.RegisterOutputType(AppGroupAssignmentsGroupOutput{})
 	pulumi.RegisterOutputType(AppGroupAssignmentsGroupArrayOutput{})
-	pulumi.RegisterOutputType(AppSharedCredentialsUserOutput{})
-	pulumi.RegisterOutputType(AppSharedCredentialsUserArrayOutput{})
 	pulumi.RegisterOutputType(AppSignonPolicyRulePlatformIncludeOutput{})
 	pulumi.RegisterOutputType(AppSignonPolicyRulePlatformIncludeArrayOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyArrayOneOfOutput{})

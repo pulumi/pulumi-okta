@@ -35,6 +35,9 @@ class RoleArgs:
                `"SUPER_ADMIN"`,
                `"USER_ADMIN"`
                . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+               
+               
+               - `"USER_ADMIN"` is the Group Administrator.
         :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
@@ -82,6 +85,9 @@ class RoleArgs:
         `"SUPER_ADMIN"`,
         `"USER_ADMIN"`
         . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+
+
+        - `"USER_ADMIN"` is the Group Administrator.
         """
         return pulumi.get(self, "role_type")
 
@@ -157,6 +163,9 @@ class _RoleState:
                `"SUPER_ADMIN"`,
                `"USER_ADMIN"`
                . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+               
+               
+               - `"USER_ADMIN"` is the Group Administrator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
                facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
                the targets of the admin role.
@@ -217,6 +226,9 @@ class _RoleState:
         `"SUPER_ADMIN"`,
         `"USER_ADMIN"`
         . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+
+
+        - `"USER_ADMIN"` is the Group Administrator.
         """
         return pulumi.get(self, "role_type")
 
@@ -307,6 +319,9 @@ class Role(pulumi.CustomResource):
                `"SUPER_ADMIN"`,
                `"USER_ADMIN"`
                . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+               
+               
+               - `"USER_ADMIN"` is the Group Administrator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
                facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
                the targets of the admin role.
@@ -421,6 +436,9 @@ class Role(pulumi.CustomResource):
                `"SUPER_ADMIN"`,
                `"USER_ADMIN"`
                . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+               
+               
+               - `"USER_ADMIN"` is the Group Administrator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or '
                facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
                the targets of the admin role.
@@ -473,6 +491,9 @@ class Role(pulumi.CustomResource):
         `"SUPER_ADMIN"`,
         `"USER_ADMIN"`
         . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+
+
+        - `"USER_ADMIN"` is the Group Administrator.
         """
         return pulumi.get(self, "role_type")
 

@@ -88,8 +88,6 @@ if typing.TYPE_CHECKING:
     auth = __auth
     import pulumi_okta.config as __config
     config = __config
-    import pulumi_okta.deprecated as __deprecated
-    deprecated = __deprecated
     import pulumi_okta.factor as __factor
     factor = __factor
     import pulumi_okta.group as __group
@@ -106,8 +104,6 @@ if typing.TYPE_CHECKING:
     policy = __policy
     import pulumi_okta.profile as __profile
     profile = __profile
-    import pulumi_okta.template as __template
-    template = __template
     import pulumi_okta.trustedorigin as __trustedorigin
     trustedorigin = __trustedorigin
     import pulumi_okta.user as __user
@@ -116,7 +112,6 @@ else:
     app = _utilities.lazy_import('pulumi_okta.app')
     auth = _utilities.lazy_import('pulumi_okta.auth')
     config = _utilities.lazy_import('pulumi_okta.config')
-    deprecated = _utilities.lazy_import('pulumi_okta.deprecated')
     factor = _utilities.lazy_import('pulumi_okta.factor')
     group = _utilities.lazy_import('pulumi_okta.group')
     idp = _utilities.lazy_import('pulumi_okta.idp')
@@ -125,7 +120,6 @@ else:
     network = _utilities.lazy_import('pulumi_okta.network')
     policy = _utilities.lazy_import('pulumi_okta.policy')
     profile = _utilities.lazy_import('pulumi_okta.profile')
-    template = _utilities.lazy_import('pulumi_okta.template')
     trustedorigin = _utilities.lazy_import('pulumi_okta.trustedorigin')
     user = _utilities.lazy_import('pulumi_okta.user')
 
@@ -230,22 +224,6 @@ _utilities.register(
  },
  {
   "pkg": "okta",
-  "mod": "app/userBaseSchema",
-  "fqn": "pulumi_okta.app",
-  "classes": {
-   "okta:app/userBaseSchema:UserBaseSchema": "UserBaseSchema"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "app/userSchema",
-  "fqn": "pulumi_okta.app",
-  "classes": {
-   "okta:app/userSchema:UserSchema": "UserSchema"
-  }
- },
- {
-  "pkg": "okta",
   "mod": "auth/server",
   "fqn": "pulumi_okta.auth",
   "classes": {
@@ -294,150 +272,6 @@ _utilities.register(
  },
  {
   "pkg": "okta",
-  "mod": "deprecated/authLoginApp",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/authLoginApp:AuthLoginApp": "AuthLoginApp"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/bookmarkApp",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/bookmarkApp:BookmarkApp": "BookmarkApp"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/idp",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/idp:Idp": "Idp"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/mfaPolicy",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/mfaPolicy:MfaPolicy": "MfaPolicy"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/mfaPolicyRule",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/mfaPolicyRule:MfaPolicyRule": "MfaPolicyRule"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/oauthApp",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/oauthApp:OauthApp": "OauthApp"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/oauthAppRedirectUri",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/oauthAppRedirectUri:OauthAppRedirectUri": "OauthAppRedirectUri"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/passwordPolicy",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/passwordPolicy:PasswordPolicy": "PasswordPolicy"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/passwordPolicyRule",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/passwordPolicyRule:PasswordPolicyRule": "PasswordPolicyRule"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/samlApp",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/samlApp:SamlApp": "SamlApp"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/samlIdp",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/samlIdp:SamlIdp": "SamlIdp"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/samlIdpSigningKey",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/samlIdpSigningKey:SamlIdpSigningKey": "SamlIdpSigningKey"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/securePasswordStoreApp",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/securePasswordStoreApp:SecurePasswordStoreApp": "SecurePasswordStoreApp"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/signonPolicy",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/signonPolicy:SignonPolicy": "SignonPolicy"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/signonPolicyRule",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/signonPolicyRule:SignonPolicyRule": "SignonPolicyRule"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/socialIdp",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/socialIdp:SocialIdp": "SocialIdp"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/swaApp",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/swaApp:SwaApp": "SwaApp"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "deprecated/threeFieldApp",
-  "fqn": "pulumi_okta.deprecated",
-  "classes": {
-   "okta:deprecated/threeFieldApp:ThreeFieldApp": "ThreeFieldApp"
-  }
- },
- {
-  "pkg": "okta",
   "mod": "factor/factor",
   "fqn": "pulumi_okta.factor",
   "classes": {
@@ -454,26 +288,10 @@ _utilities.register(
  },
  {
   "pkg": "okta",
-  "mod": "group/membership",
-  "fqn": "pulumi_okta.group",
-  "classes": {
-   "okta:group/membership:Membership": "Membership"
-  }
- },
- {
-  "pkg": "okta",
   "mod": "group/role",
   "fqn": "pulumi_okta.group",
   "classes": {
    "okta:group/role:Role": "Role"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "group/roles",
-  "fqn": "pulumi_okta.group",
-  "classes": {
-   "okta:group/roles:Roles": "Roles"
   }
  },
  {
@@ -998,34 +816,10 @@ _utilities.register(
  },
  {
   "pkg": "okta",
-  "mod": "template/email",
-  "fqn": "pulumi_okta.template",
-  "classes": {
-   "okta:template/email:Email": "Email"
-  }
- },
- {
-  "pkg": "okta",
   "mod": "trustedorigin/origin",
   "fqn": "pulumi_okta.trustedorigin",
   "classes": {
    "okta:trustedorigin/origin:Origin": "Origin"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "user/baseSchema",
-  "fqn": "pulumi_okta.user",
-  "classes": {
-   "okta:user/baseSchema:BaseSchema": "BaseSchema"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "user/schema",
-  "fqn": "pulumi_okta.user",
-  "classes": {
-   "okta:user/schema:Schema": "Schema"
   }
  },
  {

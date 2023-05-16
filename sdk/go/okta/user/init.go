@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "okta:user/baseSchema:BaseSchema":
-		r = &BaseSchema{}
-	case "okta:user/schema:Schema":
-		r = &Schema{}
 	case "okta:user/user:User":
 		r = &User{}
 	case "okta:user/userType:UserType":
@@ -42,16 +38,6 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
-	pulumi.RegisterResourceModule(
-		"okta",
-		"user/baseSchema",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"okta",
-		"user/schema",
-		&module{version},
-	)
 	pulumi.RegisterResourceModule(
 		"okta",
 		"user/user",

@@ -15,16 +15,6 @@ import (
 //
 // This resource allows you to create and configure an Okta User.
 //
-// > **IMPORTANT** If the provider is executed with a non-super user API token a
-// 403 occurs when the provider attempts to inspect the user's admin roles. This
-// 403 is swallowed and a warning is logged allowing the resource to continue
-// without this error hindering it. An empty `adminRoles` array will be present in
-// the resource state.
-//
-// > **IMPORTANT** Use `skip_roles=true` to avoid `adminRoles` being present in
-// resource state. This also prevents the underlying API call for those values to
-// be made.
-//
 // ## Example Usage
 //
 // Full profile:
@@ -34,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,7 +80,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -125,10 +115,6 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
-	// Administrator roles assigned to User.
-	//
-	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-	AdminRoles pulumi.StringArrayOutput `pulumi:"adminRoles"`
 	// User profile property.
 	City pulumi.StringPtrOutput `pulumi:"city"`
 	// User profile property.
@@ -154,10 +140,6 @@ type User struct {
 	ExpirePasswordOnCreate pulumi.BoolPtrOutput `pulumi:"expirePasswordOnCreate"`
 	// User's First Name, required by default.
 	FirstName pulumi.StringOutput `pulumi:"firstName"`
-	// User profile property.
-	//
-	// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-	GroupMemberships pulumi.StringArrayOutput `pulumi:"groupMemberships"`
 	// User profile property.
 	HonorificPrefix pulumi.StringPtrOutput `pulumi:"honorificPrefix"`
 	// User profile property.
@@ -204,13 +186,14 @@ type User struct {
 	// The raw status of the User in Okta - (status is mapped)
 	RawStatus pulumi.StringOutput `pulumi:"rawStatus"`
 	// User password recovery answer.
+	//
+	// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+	// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
 	RecoveryAnswer pulumi.StringPtrOutput `pulumi:"recoveryAnswer"`
 	// User password recovery question.
 	RecoveryQuestion pulumi.StringPtrOutput `pulumi:"recoveryQuestion"`
 	// User profile property.
 	SecondEmail pulumi.StringPtrOutput `pulumi:"secondEmail"`
-	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-	SkipRoles pulumi.BoolPtrOutput `pulumi:"skipRoles"`
 	// User profile property.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -283,10 +266,6 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// Administrator roles assigned to User.
-	//
-	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-	AdminRoles []string `pulumi:"adminRoles"`
 	// User profile property.
 	City *string `pulumi:"city"`
 	// User profile property.
@@ -312,10 +291,6 @@ type userState struct {
 	ExpirePasswordOnCreate *bool `pulumi:"expirePasswordOnCreate"`
 	// User's First Name, required by default.
 	FirstName *string `pulumi:"firstName"`
-	// User profile property.
-	//
-	// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-	GroupMemberships []string `pulumi:"groupMemberships"`
 	// User profile property.
 	HonorificPrefix *string `pulumi:"honorificPrefix"`
 	// User profile property.
@@ -362,13 +337,14 @@ type userState struct {
 	// The raw status of the User in Okta - (status is mapped)
 	RawStatus *string `pulumi:"rawStatus"`
 	// User password recovery answer.
+	//
+	// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+	// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
 	RecoveryAnswer *string `pulumi:"recoveryAnswer"`
 	// User password recovery question.
 	RecoveryQuestion *string `pulumi:"recoveryQuestion"`
 	// User profile property.
 	SecondEmail *string `pulumi:"secondEmail"`
-	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-	SkipRoles *bool `pulumi:"skipRoles"`
 	// User profile property.
 	State *string `pulumi:"state"`
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -386,10 +362,6 @@ type userState struct {
 }
 
 type UserState struct {
-	// Administrator roles assigned to User.
-	//
-	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-	AdminRoles pulumi.StringArrayInput
 	// User profile property.
 	City pulumi.StringPtrInput
 	// User profile property.
@@ -415,10 +387,6 @@ type UserState struct {
 	ExpirePasswordOnCreate pulumi.BoolPtrInput
 	// User's First Name, required by default.
 	FirstName pulumi.StringPtrInput
-	// User profile property.
-	//
-	// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-	GroupMemberships pulumi.StringArrayInput
 	// User profile property.
 	HonorificPrefix pulumi.StringPtrInput
 	// User profile property.
@@ -465,13 +433,14 @@ type UserState struct {
 	// The raw status of the User in Okta - (status is mapped)
 	RawStatus pulumi.StringPtrInput
 	// User password recovery answer.
+	//
+	// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+	// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
 	RecoveryAnswer pulumi.StringPtrInput
 	// User password recovery question.
 	RecoveryQuestion pulumi.StringPtrInput
 	// User profile property.
 	SecondEmail pulumi.StringPtrInput
-	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-	SkipRoles pulumi.BoolPtrInput
 	// User profile property.
 	State pulumi.StringPtrInput
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -493,10 +462,6 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// Administrator roles assigned to User.
-	//
-	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-	AdminRoles []string `pulumi:"adminRoles"`
 	// User profile property.
 	City *string `pulumi:"city"`
 	// User profile property.
@@ -522,10 +487,6 @@ type userArgs struct {
 	ExpirePasswordOnCreate *bool `pulumi:"expirePasswordOnCreate"`
 	// User's First Name, required by default.
 	FirstName string `pulumi:"firstName"`
-	// User profile property.
-	//
-	// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-	GroupMemberships []string `pulumi:"groupMemberships"`
 	// User profile property.
 	HonorificPrefix *string `pulumi:"honorificPrefix"`
 	// User profile property.
@@ -570,13 +531,14 @@ type userArgs struct {
 	// User profile property.
 	ProfileUrl *string `pulumi:"profileUrl"`
 	// User password recovery answer.
+	//
+	// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+	// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
 	RecoveryAnswer *string `pulumi:"recoveryAnswer"`
 	// User password recovery question.
 	RecoveryQuestion *string `pulumi:"recoveryQuestion"`
 	// User profile property.
 	SecondEmail *string `pulumi:"secondEmail"`
-	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-	SkipRoles *bool `pulumi:"skipRoles"`
 	// User profile property.
 	State *string `pulumi:"state"`
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -595,10 +557,6 @@ type userArgs struct {
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// Administrator roles assigned to User.
-	//
-	// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-	AdminRoles pulumi.StringArrayInput
 	// User profile property.
 	City pulumi.StringPtrInput
 	// User profile property.
@@ -624,10 +582,6 @@ type UserArgs struct {
 	ExpirePasswordOnCreate pulumi.BoolPtrInput
 	// User's First Name, required by default.
 	FirstName pulumi.StringInput
-	// User profile property.
-	//
-	// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-	GroupMemberships pulumi.StringArrayInput
 	// User profile property.
 	HonorificPrefix pulumi.StringPtrInput
 	// User profile property.
@@ -672,13 +626,14 @@ type UserArgs struct {
 	// User profile property.
 	ProfileUrl pulumi.StringPtrInput
 	// User password recovery answer.
+	//
+	// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+	// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
 	RecoveryAnswer pulumi.StringPtrInput
 	// User password recovery question.
 	RecoveryQuestion pulumi.StringPtrInput
 	// User profile property.
 	SecondEmail pulumi.StringPtrInput
-	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-	SkipRoles pulumi.BoolPtrInput
 	// User profile property.
 	State pulumi.StringPtrInput
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -782,13 +737,6 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-// Administrator roles assigned to User.
-//
-// Deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-func (o UserOutput) AdminRoles() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.AdminRoles }).(pulumi.StringArrayOutput)
-}
-
 // User profile property.
 func (o UserOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.City }).(pulumi.StringPtrOutput)
@@ -848,13 +796,6 @@ func (o UserOutput) ExpirePasswordOnCreate() pulumi.BoolPtrOutput {
 // User's First Name, required by default.
 func (o UserOutput) FirstName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.FirstName }).(pulumi.StringOutput)
-}
-
-// User profile property.
-//
-// Deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-func (o UserOutput) GroupMemberships() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.GroupMemberships }).(pulumi.StringArrayOutput)
 }
 
 // User profile property.
@@ -963,6 +904,9 @@ func (o UserOutput) RawStatus() pulumi.StringOutput {
 }
 
 // User password recovery answer.
+//
+// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
 func (o UserOutput) RecoveryAnswer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.RecoveryAnswer }).(pulumi.StringPtrOutput)
 }
@@ -975,11 +919,6 @@ func (o UserOutput) RecoveryQuestion() pulumi.StringPtrOutput {
 // User profile property.
 func (o UserOutput) SecondEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.SecondEmail }).(pulumi.StringPtrOutput)
-}
-
-// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-func (o UserOutput) SkipRoles() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.SkipRoles }).(pulumi.BoolPtrOutput)
 }
 
 // User profile property.

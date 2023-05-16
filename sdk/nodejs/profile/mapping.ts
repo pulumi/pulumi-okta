@@ -77,6 +77,8 @@ export class Mapping extends pulumi.CustomResource {
 
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
+     *
+     * > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
      */
     public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
     /**
@@ -163,6 +165,8 @@ export class Mapping extends pulumi.CustomResource {
 export interface MappingState {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
+     *
+     * > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
      */
     alwaysApply?: pulumi.Input<boolean>;
     /**
@@ -205,6 +209,8 @@ export interface MappingState {
 export interface MappingArgs {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
+     *
+     * > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
      */
     alwaysApply?: pulumi.Input<boolean>;
     /**

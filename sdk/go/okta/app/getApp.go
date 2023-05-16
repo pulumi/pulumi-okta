@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,17 +61,11 @@ type GetAppArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
-	// Indicator that allows the app to skip `groups` sync. Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync. Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 }
 
 // A collection of values returned by getApp.
 type GetAppResult struct {
 	ActiveOnly *bool `pulumi:"activeOnly"`
-	// List of groups IDs assigned to the application.
-	//
 	// Deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
 	Groups []string `pulumi:"groups"`
 	// Application ID.
@@ -82,13 +76,9 @@ type GetAppResult struct {
 	// Generic JSON containing discoverable resources related to the app.
 	Links string `pulumi:"links"`
 	// Application name.
-	Name       string `pulumi:"name"`
-	SkipGroups *bool  `pulumi:"skipGroups"`
-	SkipUsers  *bool  `pulumi:"skipUsers"`
+	Name string `pulumi:"name"`
 	// Application status.
 	Status string `pulumi:"status"`
-	// List of users IDs assigned to the application.
-	//
 	// Deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
 	Users []string `pulumi:"users"`
 }
@@ -121,10 +111,6 @@ type GetAppOutputArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
-	// Indicator that allows the app to skip `groups` sync. Default is `false`.
-	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync. Default is `false`.
-	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
 }
 
 func (GetAppOutputArgs) ElementType() reflect.Type {
@@ -150,8 +136,6 @@ func (o GetAppResultOutput) ActiveOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetAppResult) *bool { return v.ActiveOnly }).(pulumi.BoolPtrOutput)
 }
 
-// List of groups IDs assigned to the application.
-//
 // Deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
 func (o GetAppResultOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
@@ -181,21 +165,11 @@ func (o GetAppResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o GetAppResultOutput) SkipGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetAppResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
-}
-
-func (o GetAppResultOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetAppResult) *bool { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
 // Application status.
 func (o GetAppResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// List of users IDs assigned to the application.
-//
 // Deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
 func (o GetAppResultOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppResult) []string { return v.Users }).(pulumi.StringArrayOutput)

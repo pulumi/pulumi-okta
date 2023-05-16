@@ -29,8 +29,6 @@ class SocialArgs:
                  groups_attribute: Optional[pulumi.Input[str]] = None,
                  groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
-                 match_attribute: Optional[pulumi.Input[str]] = None,
-                 match_type: Optional[pulumi.Input[str]] = None,
                  max_clock_skew: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_master: Optional[pulumi.Input[bool]] = None,
@@ -99,16 +97,6 @@ class SocialArgs:
             pulumi.set(__self__, "groups_filters", groups_filters)
         if issuer_mode is not None:
             pulumi.set(__self__, "issuer_mode", issuer_mode)
-        if match_attribute is not None:
-            warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_attribute\"""", DeprecationWarning)
-            pulumi.log.warn("""match_attribute is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_attribute\"""")
-        if match_attribute is not None:
-            pulumi.set(__self__, "match_attribute", match_attribute)
-        if match_type is not None:
-            warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_type\"""", DeprecationWarning)
-            pulumi.log.warn("""match_type is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_type\"""")
-        if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
         if max_clock_skew is not None:
             pulumi.set(__self__, "max_clock_skew", max_clock_skew)
         if name is not None:
@@ -313,24 +301,6 @@ class SocialArgs:
         pulumi.set(self, "issuer_mode", value)
 
     @property
-    @pulumi.getter(name="matchAttribute")
-    def match_attribute(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "match_attribute")
-
-    @match_attribute.setter
-    def match_attribute(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "match_attribute", value)
-
-    @property
-    @pulumi.getter(name="matchType")
-    def match_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "match_type")
-
-    @match_type.setter
-    def match_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "match_type", value)
-
-    @property
     @pulumi.getter(name="maxClockSkew")
     def max_clock_skew(self) -> Optional[pulumi.Input[int]]:
         """
@@ -469,8 +439,6 @@ class _SocialState:
                  groups_attribute: Optional[pulumi.Input[str]] = None,
                  groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
-                 match_attribute: Optional[pulumi.Input[str]] = None,
-                 match_type: Optional[pulumi.Input[str]] = None,
                  max_clock_skew: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_master: Optional[pulumi.Input[bool]] = None,
@@ -549,16 +517,6 @@ class _SocialState:
             pulumi.set(__self__, "groups_filters", groups_filters)
         if issuer_mode is not None:
             pulumi.set(__self__, "issuer_mode", issuer_mode)
-        if match_attribute is not None:
-            warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_attribute\"""", DeprecationWarning)
-            pulumi.log.warn("""match_attribute is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_attribute\"""")
-        if match_attribute is not None:
-            pulumi.set(__self__, "match_attribute", match_attribute)
-        if match_type is not None:
-            warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_type\"""", DeprecationWarning)
-            pulumi.log.warn("""match_type is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_type\"""")
-        if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
         if max_clock_skew is not None:
             pulumi.set(__self__, "max_clock_skew", max_clock_skew)
         if name is not None:
@@ -771,24 +729,6 @@ class _SocialState:
         pulumi.set(self, "issuer_mode", value)
 
     @property
-    @pulumi.getter(name="matchAttribute")
-    def match_attribute(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "match_attribute")
-
-    @match_attribute.setter
-    def match_attribute(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "match_attribute", value)
-
-    @property
-    @pulumi.getter(name="matchType")
-    def match_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "match_type")
-
-    @match_type.setter
-    def match_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "match_type", value)
-
-    @property
     @pulumi.getter(name="maxClockSkew")
     def max_clock_skew(self) -> Optional[pulumi.Input[int]]:
         """
@@ -975,8 +915,6 @@ class Social(pulumi.CustomResource):
                  groups_attribute: Optional[pulumi.Input[str]] = None,
                  groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
-                 match_attribute: Optional[pulumi.Input[str]] = None,
-                 match_type: Optional[pulumi.Input[str]] = None,
                  max_clock_skew: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_master: Optional[pulumi.Input[bool]] = None,
@@ -1004,8 +942,6 @@ class Social(pulumi.CustomResource):
         example = okta.idp.Social("example",
             client_id="abcd123",
             client_secret="abcd123",
-            match_attribute="customfieldId",
-            match_type="CUSTOM_ATTRIBUTE",
             protocol_type="OAUTH2",
             scopes=[
                 "public_profile",
@@ -1073,8 +1009,6 @@ class Social(pulumi.CustomResource):
         example = okta.idp.Social("example",
             client_id="abcd123",
             client_secret="abcd123",
-            match_attribute="customfieldId",
-            match_type="CUSTOM_ATTRIBUTE",
             protocol_type="OAUTH2",
             scopes=[
                 "public_profile",
@@ -1120,8 +1054,6 @@ class Social(pulumi.CustomResource):
                  groups_attribute: Optional[pulumi.Input[str]] = None,
                  groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
-                 match_attribute: Optional[pulumi.Input[str]] = None,
-                 match_type: Optional[pulumi.Input[str]] = None,
                  max_clock_skew: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_master: Optional[pulumi.Input[bool]] = None,
@@ -1156,14 +1088,6 @@ class Social(pulumi.CustomResource):
             __props__.__dict__["groups_attribute"] = groups_attribute
             __props__.__dict__["groups_filters"] = groups_filters
             __props__.__dict__["issuer_mode"] = issuer_mode
-            if match_attribute is not None and not opts.urn:
-                warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_attribute\"""", DeprecationWarning)
-                pulumi.log.warn("""match_attribute is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_attribute\"""")
-            __props__.__dict__["match_attribute"] = match_attribute
-            if match_type is not None and not opts.urn:
-                warnings.warn("""This property was incorrectly added to this resource, you should use \"subject_match_type\"""", DeprecationWarning)
-                pulumi.log.warn("""match_type is deprecated: This property was incorrectly added to this resource, you should use \"subject_match_type\"""")
-            __props__.__dict__["match_type"] = match_type
             __props__.__dict__["max_clock_skew"] = max_clock_skew
             __props__.__dict__["name"] = name
             __props__.__dict__["profile_master"] = profile_master
@@ -1211,8 +1135,6 @@ class Social(pulumi.CustomResource):
             groups_attribute: Optional[pulumi.Input[str]] = None,
             groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             issuer_mode: Optional[pulumi.Input[str]] = None,
-            match_attribute: Optional[pulumi.Input[str]] = None,
-            match_type: Optional[pulumi.Input[str]] = None,
             max_clock_skew: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             profile_master: Optional[pulumi.Input[bool]] = None,
@@ -1285,8 +1207,6 @@ class Social(pulumi.CustomResource):
         __props__.__dict__["groups_attribute"] = groups_attribute
         __props__.__dict__["groups_filters"] = groups_filters
         __props__.__dict__["issuer_mode"] = issuer_mode
-        __props__.__dict__["match_attribute"] = match_attribute
-        __props__.__dict__["match_type"] = match_type
         __props__.__dict__["max_clock_skew"] = max_clock_skew
         __props__.__dict__["name"] = name
         __props__.__dict__["profile_master"] = profile_master
@@ -1424,16 +1344,6 @@ class Social(pulumi.CustomResource):
         Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         """
         return pulumi.get(self, "issuer_mode")
-
-    @property
-    @pulumi.getter(name="matchAttribute")
-    def match_attribute(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "match_attribute")
-
-    @property
-    @pulumi.getter(name="matchType")
-    def match_type(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "match_type")
 
     @property
     @pulumi.getter(name="maxClockSkew")

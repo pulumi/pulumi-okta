@@ -20,16 +20,6 @@ export interface AppGroupAssignmentsGroup {
     profile: pulumi.Input<string>;
 }
 
-export interface AppSharedCredentialsUser {
-    /**
-     * ID of an app.
-     */
-    id?: pulumi.Input<string>;
-    password?: pulumi.Input<string>;
-    scope?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
-}
-
 export interface AppSignonPolicyRulePlatformInclude {
     /**
      * Only available when using `osType = "OTHER"`
@@ -207,33 +197,6 @@ export namespace Index {
 }
 
 export namespace app {
-    export interface AutoLoginUser {
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface BasicAuthUser {
-        /**
-         * ID of the Application.
-         */
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface BookmarkUser {
-        /**
-         * ID of the Application.
-         */
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
     export interface OAuthGroupsClaim {
         /**
          * Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
@@ -263,16 +226,6 @@ export namespace app {
         kid: pulumi.Input<string>;
         kty: pulumi.Input<string>;
         n?: pulumi.Input<string>;
-    }
-
-    export interface OAuthUser {
-        /**
-         * ID of the application.
-         */
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
     }
 
     export interface SamlAttributeStatement {
@@ -344,173 +297,9 @@ export namespace app {
          */
         x5tS256?: pulumi.Input<string>;
     }
-
-    export interface SamlUser {
-        /**
-         * id of application.
-         */
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface SecurePasswordStoreUser {
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface SwaUser {
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface ThreeFieldUser {
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface UserSchemaArrayOneOf {
-        /**
-         * value mapping to member of `enum`.
-         */
-        const: pulumi.Input<string>;
-        /**
-         * display name for the enum value.
-         */
-        title: pulumi.Input<string>;
-    }
-
-    export interface UserSchemaOneOf {
-        /**
-         * value mapping to member of `enum`.
-         */
-        const: pulumi.Input<string>;
-        /**
-         * display name for the enum value.
-         */
-        title: pulumi.Input<string>;
-    }
 }
 
 export namespace auth {
-}
-
-export namespace deprecated {
-    export interface AuthLoginAppUser {
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface BookmarkAppUser {
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface MfaPolicyRuleAppExclude {
-        id?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
-        type: pulumi.Input<string>;
-    }
-
-    export interface MfaPolicyRuleAppInclude {
-        id?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
-        type: pulumi.Input<string>;
-    }
-
-    export interface OauthAppGroupsClaim {
-        filterType?: pulumi.Input<string>;
-        issuerMode?: pulumi.Input<string>;
-        name: pulumi.Input<string>;
-        type: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface OauthAppJwk {
-        e?: pulumi.Input<string>;
-        kid: pulumi.Input<string>;
-        kty: pulumi.Input<string>;
-        n?: pulumi.Input<string>;
-    }
-
-    export interface OauthAppUser {
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface SamlAppAttributeStatement {
-        filterType?: pulumi.Input<string>;
-        filterValue?: pulumi.Input<string>;
-        name: pulumi.Input<string>;
-        namespace?: pulumi.Input<string>;
-        type?: pulumi.Input<string>;
-        values?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface SamlAppKey {
-        created?: pulumi.Input<string>;
-        e?: pulumi.Input<string>;
-        expiresAt?: pulumi.Input<string>;
-        kid?: pulumi.Input<string>;
-        kty?: pulumi.Input<string>;
-        lastUpdated?: pulumi.Input<string>;
-        n?: pulumi.Input<string>;
-        use?: pulumi.Input<string>;
-        x5cs?: pulumi.Input<pulumi.Input<string>[]>;
-        x5tS256?: pulumi.Input<string>;
-    }
-
-    export interface SamlAppUser {
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface SecurePasswordStoreAppUser {
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface SignonPolicyRuleFactorSequence {
-        primaryCriteriaFactorType: pulumi.Input<string>;
-        primaryCriteriaProvider: pulumi.Input<string>;
-        secondaryCriterias?: pulumi.Input<pulumi.Input<inputs.deprecated.SignonPolicyRuleFactorSequenceSecondaryCriteria>[]>;
-    }
-
-    export interface SignonPolicyRuleFactorSequenceSecondaryCriteria {
-        factorType: pulumi.Input<string>;
-        provider: pulumi.Input<string>;
-    }
-
-    export interface SwaAppUser {
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
-
-    export interface ThreeFieldAppUser {
-        id?: pulumi.Input<string>;
-        password?: pulumi.Input<string>;
-        scope?: pulumi.Input<string>;
-        username?: pulumi.Input<string>;
-    }
 }
 
 export namespace inline {
@@ -564,6 +353,10 @@ export namespace policy {
         osExpression?: pulumi.Input<string>;
         /**
          * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          */
         osType?: pulumi.Input<string>;
         /**
@@ -579,6 +372,10 @@ export namespace policy {
         matchType?: pulumi.Input<string>;
         /**
          * The regex or simple match string to match against.
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          */
         value?: pulumi.Input<string>;
     }
@@ -657,23 +454,6 @@ export namespace profile {
     }
 }
 
-export namespace template {
-    export interface EmailTranslation {
-        /**
-         * The language to map the template to.
-         */
-        language: pulumi.Input<string>;
-        /**
-         * The email subject line.
-         */
-        subject: pulumi.Input<string>;
-        /**
-         * The email body.
-         */
-        template: pulumi.Input<string>;
-    }
-}
-
 export namespace user {
     export interface GetUserSearch {
         /**
@@ -749,39 +529,6 @@ export namespace user {
          * Value to compare with.
          */
         value?: pulumi.Input<string>;
-    }
-
-    export interface SchemaArrayOneOf {
-        /**
-         * value mapping to member of `enum`.
-         */
-        const: pulumi.Input<string>;
-        /**
-         * display name for the enum value.
-         */
-        title: pulumi.Input<string>;
-    }
-
-    export interface SchemaMasterOverridePriority {
-        /**
-         * Type of profile source.
-         */
-        type?: pulumi.Input<string>;
-        /**
-         * ID of profile source.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface SchemaOneOf {
-        /**
-         * value mapping to member of `enum`.
-         */
-        const: pulumi.Input<string>;
-        /**
-         * display name for the enum value.
-         */
-        title: pulumi.Input<string>;
     }
 
     export interface UserPasswordHash {

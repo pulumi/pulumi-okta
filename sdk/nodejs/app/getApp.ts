@@ -27,8 +27,6 @@ export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<
         "id": args.id,
         "label": args.label,
         "labelPrefix": args.labelPrefix,
-        "skipGroups": args.skipGroups,
-        "skipUsers": args.skipUsers,
     }, opts);
 }
 
@@ -57,14 +55,6 @@ export interface GetAppArgs {
      * provider to do a `starts with` query as opposed to an `equals` query.
      */
     labelPrefix?: string;
-    /**
-     * Indicator that allows the app to skip `groups` sync. Default is `false`.
-     */
-    skipGroups?: boolean;
-    /**
-     * Indicator that allows the app to skip `users` sync. Default is `false`.
-     */
-    skipUsers?: boolean;
 }
 
 /**
@@ -73,8 +63,6 @@ export interface GetAppArgs {
 export interface GetAppResult {
     readonly activeOnly?: boolean;
     /**
-     * List of groups IDs assigned to the application.
-     *
      * @deprecated The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
      */
     readonly groups: string[];
@@ -95,15 +83,11 @@ export interface GetAppResult {
      * Application name.
      */
     readonly name: string;
-    readonly skipGroups?: boolean;
-    readonly skipUsers?: boolean;
     /**
      * Application status.
      */
     readonly status: string;
     /**
-     * List of users IDs assigned to the application.
-     *
      * @deprecated The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users: string[];
@@ -151,12 +135,4 @@ export interface GetAppOutputArgs {
      * provider to do a `starts with` query as opposed to an `equals` query.
      */
     labelPrefix?: pulumi.Input<string>;
-    /**
-     * Indicator that allows the app to skip `groups` sync. Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync. Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
 }

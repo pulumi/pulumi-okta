@@ -12,262 +12,6 @@ import (
 
 // This resource allows you to create and configure an MFA Policy Rule.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-//				Type: "MFA_ENROLL",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleOAuth, err := app.NewOAuth(ctx, "exampleOAuth", &app.OAuthArgs{
-//				Label: pulumi.String("My App"),
-//				Type:  pulumi.String("web"),
-//				GrantTypes: pulumi.StringArray{
-//					pulumi.String("authorization_code"),
-//				},
-//				RedirectUris: pulumi.StringArray{
-//					pulumi.String("http://localhost:8000"),
-//				},
-//				ResponseTypes: pulumi.StringArray{
-//					pulumi.String("code"),
-//				},
-//				SkipGroups: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
-//				Status:   pulumi.String("ACTIVE"),
-//				Enroll:   pulumi.String("LOGIN"),
-//				AppIncludes: policy.RuleMfaAppIncludeArray{
-//					&policy.RuleMfaAppIncludeArgs{
-//						Id:   exampleOAuth.ID(),
-//						Type: pulumi.String("APP"),
-//					},
-//					&policy.RuleMfaAppIncludeArgs{
-//						Type: pulumi.String("APP_TYPE"),
-//						Name: pulumi.String("yahoo_mail"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-//				Type: "MFA_ENROLL",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
-//				AppExcludes: policy.RuleMfaAppExcludeArray{
-//					&policy.RuleMfaAppExcludeArgs{
-//						Name: pulumi.String("okta"),
-//						Type: pulumi.String("APP_TYPE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-//				Type: "MFA_ENROLL",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
-//				AppExcludes: policy.RuleMfaAppExcludeArray{
-//					&policy.RuleMfaAppExcludeArgs{
-//						Name: pulumi.String("okta"),
-//						Type: pulumi.String("APP_TYPE"),
-//					},
-//				},
-//				AppIncludes: policy.RuleMfaAppIncludeArray{
-//					&policy.RuleMfaAppIncludeArgs{
-//						Id:   pulumi.String("some_app_id"),
-//						Type: pulumi.String("APP"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-//				Type: "MFA_ENROLL",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
-//				AppIncludes: policy.RuleMfaAppIncludeArray{
-//					&policy.RuleMfaAppIncludeArgs{
-//						Name: pulumi.String("okta"),
-//						Type: pulumi.String("APP_TYPE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-//				Type: "MFA_ENROLL",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDefaultPolicy, err := policy.GetDefaultPolicy(ctx, &policy.GetDefaultPolicyArgs{
-//				Type: "MFA_ENROLL",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = policy.NewRuleMfa(ctx, "exampleRuleMfa", &policy.RuleMfaArgs{
-//				PolicyId: *pulumi.String(exampleDefaultPolicy.Id),
-//				AppIncludes: policy.RuleMfaAppIncludeArray{
-//					&policy.RuleMfaAppIncludeArgs{
-//						Name: pulumi.String("okta"),
-//						Type: pulumi.String("APP_TYPE"),
-//					},
-//					&policy.RuleMfaAppIncludeArgs{
-//						Id:   pulumi.String("some_app_id"),
-//						Type: pulumi.String("APP"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // A Policy Rule can be imported via the Policy and Rule ID.
@@ -296,10 +40,6 @@ type RuleMfa struct {
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
 	// Policy ID.
 	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrOutput `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
@@ -353,10 +93,6 @@ type ruleMfaState struct {
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
@@ -382,10 +118,6 @@ type RuleMfaState struct {
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
@@ -415,10 +147,6 @@ type ruleMfaArgs struct {
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
@@ -445,10 +173,6 @@ type RuleMfaArgs struct {
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
@@ -582,13 +306,6 @@ func (o RuleMfaOutput) NetworkIncludes() pulumi.StringArrayOutput {
 // Policy ID.
 func (o RuleMfaOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
-}
-
-// Policy ID.
-//
-// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-func (o RuleMfaOutput) Policyid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.Policyid }).(pulumi.StringPtrOutput)
 }
 
 // Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.

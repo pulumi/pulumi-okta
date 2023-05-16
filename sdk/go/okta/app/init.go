@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,10 +45,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ThreeField{}
 	case "okta:app/user:User":
 		r = &User{}
-	case "okta:app/userBaseSchema:UserBaseSchema":
-		r = &UserBaseSchema{}
-	case "okta:app/userSchema:UserSchema":
-		r = &UserSchema{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -120,16 +116,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"app/user",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"okta",
-		"app/userBaseSchema",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"okta",
-		"app/userSchema",
 		&module{version},
 	)
 }

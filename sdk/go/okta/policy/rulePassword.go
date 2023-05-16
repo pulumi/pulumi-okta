@@ -42,10 +42,6 @@ type RulePassword struct {
 	PasswordUnlock pulumi.StringPtrOutput `pulumi:"passwordUnlock"`
 	// Policy ID.
 	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrOutput `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
@@ -99,10 +95,6 @@ type rulePasswordState struct {
 	PasswordUnlock *string `pulumi:"passwordUnlock"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
@@ -128,10 +120,6 @@ type RulePasswordState struct {
 	PasswordUnlock pulumi.StringPtrInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
@@ -161,10 +149,6 @@ type rulePasswordArgs struct {
 	PasswordUnlock *string `pulumi:"passwordUnlock"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid *string `pulumi:"policyid"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
@@ -191,10 +175,6 @@ type RulePasswordArgs struct {
 	PasswordUnlock pulumi.StringPtrInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
@@ -328,13 +308,6 @@ func (o RulePasswordOutput) PasswordUnlock() pulumi.StringPtrOutput {
 // Policy ID.
 func (o RulePasswordOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
-}
-
-// Policy ID.
-//
-// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-func (o RulePasswordOutput) Policyid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.Policyid }).(pulumi.StringPtrOutput)
 }
 
 // Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`

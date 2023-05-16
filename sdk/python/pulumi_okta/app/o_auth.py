@@ -31,10 +31,8 @@ class OAuthArgs:
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_uri: Optional[pulumi.Input[str]] = None,
                  consent_method: Optional[pulumi.Input[str]] = None,
-                 custom_client_id: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_claim: Optional[pulumi.Input['OAuthGroupsClaimArgs']] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -55,8 +53,6 @@ class OAuthArgs:
                  refresh_token_leeway: Optional[pulumi.Input[int]] = None,
                  refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
@@ -64,7 +60,6 @@ class OAuthArgs:
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OAuth resource.
@@ -87,13 +82,11 @@ class OAuthArgs:
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
-        :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
         :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -128,8 +121,6 @@ class OAuthArgs:
                `response_types` value that includes code, as both values are defined as part of
                the OAuth 2.0 authorization code grant.
                See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for
                the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
@@ -145,7 +136,6 @@ class OAuthArgs:
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         pulumi.set(__self__, "label", label)
@@ -176,20 +166,10 @@ class OAuthArgs:
             pulumi.set(__self__, "client_uri", client_uri)
         if consent_method is not None:
             pulumi.set(__self__, "consent_method", consent_method)
-        if custom_client_id is not None:
-            warnings.warn("""This field is being replaced by client_id. Please set that field instead.""", DeprecationWarning)
-            pulumi.log.warn("""custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.""")
-        if custom_client_id is not None:
-            pulumi.set(__self__, "custom_client_id", custom_client_id)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
         if grant_types is not None:
             pulumi.set(__self__, "grant_types", grant_types)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if groups_claim is not None:
             pulumi.set(__self__, "groups_claim", groups_claim)
         if hide_ios is not None:
@@ -230,10 +210,6 @@ class OAuthArgs:
             pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
         if response_types is not None:
             pulumi.set(__self__, "response_types", response_types)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if token_endpoint_auth_method is not None:
@@ -248,11 +224,6 @@ class OAuthArgs:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
         if wildcard_redirect is not None:
             pulumi.set(__self__, "wildcard_redirect", wildcard_redirect)
 
@@ -441,18 +412,6 @@ class OAuthArgs:
         pulumi.set(self, "consent_method", value)
 
     @property
-    @pulumi.getter(name="customClientId")
-    def custom_client_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        """
-        return pulumi.get(self, "custom_client_id")
-
-    @custom_client_id.setter
-    def custom_client_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_client_id", value)
-
-    @property
     @pulumi.getter(name="enduserNote")
     def enduser_note(self) -> Optional[pulumi.Input[str]]:
         """
@@ -478,18 +437,6 @@ class OAuthArgs:
     @grant_types.setter
     def grant_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "grant_types", value)
-
-    @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
 
     @property
     @pulumi.getter(name="groupsClaim")
@@ -746,30 +693,6 @@ class OAuthArgs:
         pulumi.set(self, "response_types", value)
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -862,18 +785,6 @@ class OAuthArgs:
         pulumi.set(self, "user_name_template_type", value)
 
     @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]:
-        """
-        The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]):
-        pulumi.set(self, "users", value)
-
-    @property
     @pulumi.getter(name="wildcardRedirect")
     def wildcard_redirect(self) -> Optional[pulumi.Input[str]]:
         """
@@ -903,10 +814,8 @@ class _OAuthState:
                  client_secret: Optional[pulumi.Input[str]] = None,
                  client_uri: Optional[pulumi.Input[str]] = None,
                  consent_method: Optional[pulumi.Input[str]] = None,
-                 custom_client_id: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_claim: Optional[pulumi.Input['OAuthGroupsClaimArgs']] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -931,8 +840,6 @@ class _OAuthState:
                  refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
@@ -941,7 +848,6 @@ class _OAuthState:
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OAuth resources.
@@ -963,13 +869,11 @@ class _OAuthState:
         :param pulumi.Input[str] client_secret: The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
-        :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
         :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -1008,8 +912,6 @@ class _OAuthState:
                the OAuth 2.0 authorization code grant.
                See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for
                the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
@@ -1026,7 +928,6 @@ class _OAuthState:
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         if accessibility_error_redirect_url is not None:
@@ -1057,20 +958,10 @@ class _OAuthState:
             pulumi.set(__self__, "client_uri", client_uri)
         if consent_method is not None:
             pulumi.set(__self__, "consent_method", consent_method)
-        if custom_client_id is not None:
-            warnings.warn("""This field is being replaced by client_id. Please set that field instead.""", DeprecationWarning)
-            pulumi.log.warn("""custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.""")
-        if custom_client_id is not None:
-            pulumi.set(__self__, "custom_client_id", custom_client_id)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
         if grant_types is not None:
             pulumi.set(__self__, "grant_types", grant_types)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if groups_claim is not None:
             pulumi.set(__self__, "groups_claim", groups_claim)
         if hide_ios is not None:
@@ -1119,10 +1010,6 @@ class _OAuthState:
             pulumi.set(__self__, "response_types", response_types)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if token_endpoint_auth_method is not None:
@@ -1139,11 +1026,6 @@ class _OAuthState:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
         if wildcard_redirect is not None:
             pulumi.set(__self__, "wildcard_redirect", wildcard_redirect)
 
@@ -1320,18 +1202,6 @@ class _OAuthState:
         pulumi.set(self, "consent_method", value)
 
     @property
-    @pulumi.getter(name="customClientId")
-    def custom_client_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        """
-        return pulumi.get(self, "custom_client_id")
-
-    @custom_client_id.setter
-    def custom_client_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_client_id", value)
-
-    @property
     @pulumi.getter(name="enduserNote")
     def enduser_note(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1357,18 +1227,6 @@ class _OAuthState:
     @grant_types.setter
     def grant_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "grant_types", value)
-
-    @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
 
     @property
     @pulumi.getter(name="groupsClaim")
@@ -1673,30 +1531,6 @@ class _OAuthState:
         pulumi.set(self, "sign_on_mode", value)
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1801,18 +1635,6 @@ class _OAuthState:
         pulumi.set(self, "user_name_template_type", value)
 
     @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]:
-        """
-        The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthUserArgs']]]]):
-        pulumi.set(self, "users", value)
-
-    @property
     @pulumi.getter(name="wildcardRedirect")
     def wildcard_redirect(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1843,10 +1665,8 @@ class OAuth(pulumi.CustomResource):
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_uri: Optional[pulumi.Input[str]] = None,
                  consent_method: Optional[pulumi.Input[str]] = None,
-                 custom_client_id: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_claim: Optional[pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -1868,8 +1688,6 @@ class OAuth(pulumi.CustomResource):
                  refresh_token_leeway: Optional[pulumi.Input[int]] = None,
                  refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
@@ -1878,7 +1696,6 @@ class OAuth(pulumi.CustomResource):
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -1935,20 +1752,6 @@ class OAuth(pulumi.CustomResource):
          $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
         ```
 
-         It's also possible to import app without groups or/and users. In this case ID may look like this
-
-        ```sh
-         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_groups
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -1968,13 +1771,11 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
-        :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
         :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -2010,8 +1811,6 @@ class OAuth(pulumi.CustomResource):
                `response_types` value that includes code, as both values are defined as part of
                the OAuth 2.0 authorization code grant.
                See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for
                the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
@@ -2028,7 +1827,6 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         ...
@@ -2091,20 +1889,6 @@ class OAuth(pulumi.CustomResource):
          $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
         ```
 
-         It's also possible to import app without groups or/and users. In this case ID may look like this
-
-        ```sh
-         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_groups
-        ```
-
         :param str resource_name: The name of the resource.
         :param OAuthArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2133,10 +1917,8 @@ class OAuth(pulumi.CustomResource):
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_uri: Optional[pulumi.Input[str]] = None,
                  consent_method: Optional[pulumi.Input[str]] = None,
-                 custom_client_id: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups_claim: Optional[pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
@@ -2158,8 +1940,6 @@ class OAuth(pulumi.CustomResource):
                  refresh_token_leeway: Optional[pulumi.Input[int]] = None,
                  refresh_token_rotation: Optional[pulumi.Input[str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
                  tos_uri: Optional[pulumi.Input[str]] = None,
@@ -2168,7 +1948,6 @@ class OAuth(pulumi.CustomResource):
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]]] = None,
                  wildcard_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -2192,16 +1971,8 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["client_uri"] = client_uri
             __props__.__dict__["consent_method"] = consent_method
-            if custom_client_id is not None and not opts.urn:
-                warnings.warn("""This field is being replaced by client_id. Please set that field instead.""", DeprecationWarning)
-                pulumi.log.warn("""custom_client_id is deprecated: This field is being replaced by client_id. Please set that field instead.""")
-            __props__.__dict__["custom_client_id"] = custom_client_id
             __props__.__dict__["enduser_note"] = enduser_note
             __props__.__dict__["grant_types"] = grant_types
-            if groups is not None and not opts.urn:
-                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-            __props__.__dict__["groups"] = groups
             __props__.__dict__["groups_claim"] = groups_claim
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
@@ -2225,8 +1996,6 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["refresh_token_leeway"] = refresh_token_leeway
             __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
             __props__.__dict__["response_types"] = response_types
-            __props__.__dict__["skip_groups"] = skip_groups
-            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["status"] = status
             __props__.__dict__["token_endpoint_auth_method"] = token_endpoint_auth_method
             __props__.__dict__["tos_uri"] = tos_uri
@@ -2237,10 +2006,6 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
-            if users is not None and not opts.urn:
-                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-            __props__.__dict__["users"] = users
             __props__.__dict__["wildcard_redirect"] = wildcard_redirect
             __props__.__dict__["client_secret"] = None
             __props__.__dict__["logo_url"] = None
@@ -2272,10 +2037,8 @@ class OAuth(pulumi.CustomResource):
             client_secret: Optional[pulumi.Input[str]] = None,
             client_uri: Optional[pulumi.Input[str]] = None,
             consent_method: Optional[pulumi.Input[str]] = None,
-            custom_client_id: Optional[pulumi.Input[str]] = None,
             enduser_note: Optional[pulumi.Input[str]] = None,
             grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             groups_claim: Optional[pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
@@ -2300,8 +2063,6 @@ class OAuth(pulumi.CustomResource):
             refresh_token_rotation: Optional[pulumi.Input[str]] = None,
             response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
-            skip_groups: Optional[pulumi.Input[bool]] = None,
-            skip_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
             tos_uri: Optional[pulumi.Input[str]] = None,
@@ -2310,7 +2071,6 @@ class OAuth(pulumi.CustomResource):
             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]]] = None,
             wildcard_redirect: Optional[pulumi.Input[str]] = None) -> 'OAuth':
         """
         Get an existing OAuth resource's state with the given name, id, and optional extra
@@ -2337,13 +2097,11 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] client_secret: The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
-        :param pulumi.Input[str] custom_client_id: This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
         :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
@@ -2382,8 +2140,6 @@ class OAuth(pulumi.CustomResource):
                the OAuth 2.0 authorization code grant.
                See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for
                the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
@@ -2400,7 +2156,6 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthUserArgs']]]] users: The users assigned to the application. It is recommended not to use this and instead use `app.User`.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -2421,10 +2176,8 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["client_secret"] = client_secret
         __props__.__dict__["client_uri"] = client_uri
         __props__.__dict__["consent_method"] = consent_method
-        __props__.__dict__["custom_client_id"] = custom_client_id
         __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["grant_types"] = grant_types
-        __props__.__dict__["groups"] = groups
         __props__.__dict__["groups_claim"] = groups_claim
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
@@ -2449,8 +2202,6 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
         __props__.__dict__["response_types"] = response_types
         __props__.__dict__["sign_on_mode"] = sign_on_mode
-        __props__.__dict__["skip_groups"] = skip_groups
-        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["status"] = status
         __props__.__dict__["token_endpoint_auth_method"] = token_endpoint_auth_method
         __props__.__dict__["tos_uri"] = tos_uri
@@ -2459,7 +2210,6 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
         __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
         __props__.__dict__["user_name_template_type"] = user_name_template_type
-        __props__.__dict__["users"] = users
         __props__.__dict__["wildcard_redirect"] = wildcard_redirect
         return OAuth(resource_name, opts=opts, __props__=__props__)
 
@@ -2580,14 +2330,6 @@ class OAuth(pulumi.CustomResource):
         return pulumi.get(self, "consent_method")
 
     @property
-    @pulumi.getter(name="customClientId")
-    def custom_client_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        This property allows you to set your client_id during creation. NOTE: updating after creation will be a no-op, use client_id for that behavior instead.
-        """
-        return pulumi.get(self, "custom_client_id")
-
-    @property
     @pulumi.getter(name="enduserNote")
     def enduser_note(self) -> pulumi.Output[Optional[str]]:
         """
@@ -2605,14 +2347,6 @@ class OAuth(pulumi.CustomResource):
         `"interaction_code"` (*OIE only*).
         """
         return pulumi.get(self, "grant_types")
-
-    @property
-    @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-        """
-        return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter(name="groupsClaim")
@@ -2821,22 +2555,6 @@ class OAuth(pulumi.CustomResource):
         return pulumi.get(self, "sign_on_mode")
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
@@ -2907,14 +2625,6 @@ class OAuth(pulumi.CustomResource):
         Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
-
-    @property
-    @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[Sequence['outputs.OAuthUser']]]:
-        """
-        The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-        """
-        return pulumi.get(self, "users")
 
     @property
     @pulumi.getter(name="wildcardRedirect")

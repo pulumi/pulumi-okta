@@ -21,7 +21,7 @@ class GetOauthResult:
     """
     A collection of values returned by getOauth.
     """
-    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_secret=None, client_uri=None, grant_types=None, groups=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, skip_groups=None, skip_users=None, status=None, type=None, users=None, wildcard_redirect=None):
+    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_secret=None, client_uri=None, grant_types=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, status=None, type=None, wildcard_redirect=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
@@ -40,13 +40,6 @@ class GetOauthResult:
         if grant_types and not isinstance(grant_types, list):
             raise TypeError("Expected argument 'grant_types' to be a list")
         pulumi.set(__self__, "grant_types", grant_types)
-        if groups and not isinstance(groups, list):
-            raise TypeError("Expected argument 'groups' to be a list")
-        if groups is not None:
-            warnings.warn("""The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`""")
-
-        pulumi.set(__self__, "groups", groups)
         if hide_ios and not isinstance(hide_ios, bool):
             raise TypeError("Expected argument 'hide_ios' to be a bool")
         pulumi.set(__self__, "hide_ios", hide_ios)
@@ -92,25 +85,12 @@ class GetOauthResult:
         if response_types and not isinstance(response_types, list):
             raise TypeError("Expected argument 'response_types' to be a list")
         pulumi.set(__self__, "response_types", response_types)
-        if skip_groups and not isinstance(skip_groups, bool):
-            raise TypeError("Expected argument 'skip_groups' to be a bool")
-        pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users and not isinstance(skip_users, bool):
-            raise TypeError("Expected argument 'skip_users' to be a bool")
-        pulumi.set(__self__, "skip_users", skip_users)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if users and not isinstance(users, list):
-            raise TypeError("Expected argument 'users' to be a list")
-        if users is not None:
-            warnings.warn("""The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`""")
-
-        pulumi.set(__self__, "users", users)
         if wildcard_redirect and not isinstance(wildcard_redirect, str):
             raise TypeError("Expected argument 'wildcard_redirect' to be a str")
         pulumi.set(__self__, "wildcard_redirect", wildcard_redirect)
@@ -159,14 +139,6 @@ class GetOauthResult:
         List of OAuth 2.0 grant types.
         """
         return pulumi.get(self, "grant_types")
-
-    @property
-    @pulumi.getter
-    def groups(self) -> Sequence[str]:
-        """
-        List of groups IDs assigned to the application.
-        """
-        return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter(name="hideIos")
@@ -286,16 +258,6 @@ class GetOauthResult:
         return pulumi.get(self, "response_types")
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[bool]:
-        return pulumi.get(self, "skip_groups")
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[bool]:
-        return pulumi.get(self, "skip_users")
-
-    @property
     @pulumi.getter
     def status(self) -> str:
         """
@@ -310,14 +272,6 @@ class GetOauthResult:
         The type of OAuth application.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def users(self) -> Sequence[str]:
-        """
-        List of users IDs assigned to the application.
-        """
-        return pulumi.get(self, "users")
 
     @property
     @pulumi.getter(name="wildcardRedirect")
@@ -337,7 +291,6 @@ class AwaitableGetOauthResult(GetOauthResult):
             client_secret=self.client_secret,
             client_uri=self.client_uri,
             grant_types=self.grant_types,
-            groups=self.groups,
             hide_ios=self.hide_ios,
             hide_web=self.hide_web,
             id=self.id,
@@ -353,11 +306,8 @@ class AwaitableGetOauthResult(GetOauthResult):
             post_logout_redirect_uris=self.post_logout_redirect_uris,
             redirect_uris=self.redirect_uris,
             response_types=self.response_types,
-            skip_groups=self.skip_groups,
-            skip_users=self.skip_users,
             status=self.status,
             type=self.type,
-            users=self.users,
             wildcard_redirect=self.wildcard_redirect)
 
 
@@ -365,8 +315,6 @@ def get_oauth(active_only: Optional[bool] = None,
               id: Optional[str] = None,
               label: Optional[str] = None,
               label_prefix: Optional[str] = None,
-              skip_groups: Optional[bool] = None,
-              skip_users: Optional[bool] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOauthResult:
     """
     Use this data source to retrieve an OIDC application from Okta.
@@ -392,16 +340,12 @@ def get_oauth(active_only: Optional[bool] = None,
            https://developer.okta.com/docs/reference/api/apps/#list-applications
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
            provider to do a `starts with` query as opposed to an `equals` query.
-    :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.
-    :param bool skip_users: Indicator that allows the app to skip `users` sync. Default is `false`.
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only
     __args__['id'] = id
     __args__['label'] = label
     __args__['labelPrefix'] = label_prefix
-    __args__['skipGroups'] = skip_groups
-    __args__['skipUsers'] = skip_users
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('okta:app/getOauth:getOauth', __args__, opts=opts, typ=GetOauthResult).value
 
@@ -412,7 +356,6 @@ def get_oauth(active_only: Optional[bool] = None,
         client_secret=__ret__.client_secret,
         client_uri=__ret__.client_uri,
         grant_types=__ret__.grant_types,
-        groups=__ret__.groups,
         hide_ios=__ret__.hide_ios,
         hide_web=__ret__.hide_web,
         id=__ret__.id,
@@ -428,11 +371,8 @@ def get_oauth(active_only: Optional[bool] = None,
         post_logout_redirect_uris=__ret__.post_logout_redirect_uris,
         redirect_uris=__ret__.redirect_uris,
         response_types=__ret__.response_types,
-        skip_groups=__ret__.skip_groups,
-        skip_users=__ret__.skip_users,
         status=__ret__.status,
         type=__ret__.type,
-        users=__ret__.users,
         wildcard_redirect=__ret__.wildcard_redirect)
 
 
@@ -441,8 +381,6 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                      id: Optional[pulumi.Input[Optional[str]]] = None,
                      label: Optional[pulumi.Input[Optional[str]]] = None,
                      label_prefix: Optional[pulumi.Input[Optional[str]]] = None,
-                     skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
-                     skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOauthResult]:
     """
     Use this data source to retrieve an OIDC application from Okta.
@@ -468,7 +406,5 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
            https://developer.okta.com/docs/reference/api/apps/#list-applications
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
            provider to do a `starts with` query as opposed to an `equals` query.
-    :param bool skip_groups: Indicator that allows the app to skip `groups` sync. Default is `false`.
-    :param bool skip_users: Indicator that allows the app to skip `users` sync. Default is `false`.
     """
     ...

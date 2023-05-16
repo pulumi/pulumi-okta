@@ -22,26 +22,6 @@ import (
 //	$ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
 //
 // ```
-//
-//	It's also possible to import app without groups or/and users. In this case ID may look like this
-//
-// ```sh
-//
-//	$ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_users/skip_groups
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;/skip_groups
-//
-// ```
 type ThreeField struct {
 	pulumi.CustomResourceState
 
@@ -67,10 +47,6 @@ type ThreeField struct {
 	ExtraFieldSelector pulumi.StringOutput `pulumi:"extraFieldSelector"`
 	// Value for extra form field.
 	ExtraFieldValue pulumi.StringOutput `pulumi:"extraFieldValue"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -93,10 +69,6 @@ type ThreeField struct {
 	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Login URL.
@@ -113,10 +85,6 @@ type ThreeField struct {
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringOutput `pulumi:"usernameSelector"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users ThreeFieldUserArrayOutput `pulumi:"users"`
 }
 
 // NewThreeField registers a new resource with the given unique name, arguments, and options.
@@ -191,10 +159,6 @@ type threeFieldState struct {
 	ExtraFieldSelector *string `pulumi:"extraFieldSelector"`
 	// Value for extra form field.
 	ExtraFieldValue *string `pulumi:"extraFieldValue"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -217,10 +181,6 @@ type threeFieldState struct {
 	SharedUsername *string `pulumi:"sharedUsername"`
 	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Login URL.
@@ -237,10 +197,6 @@ type threeFieldState struct {
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector.
 	UsernameSelector *string `pulumi:"usernameSelector"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []ThreeFieldUser `pulumi:"users"`
 }
 
 type ThreeFieldState struct {
@@ -266,10 +222,6 @@ type ThreeFieldState struct {
 	ExtraFieldSelector pulumi.StringPtrInput
 	// Value for extra form field.
 	ExtraFieldValue pulumi.StringPtrInput
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -292,10 +244,6 @@ type ThreeFieldState struct {
 	SharedUsername pulumi.StringPtrInput
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Login URL.
@@ -312,10 +260,6 @@ type ThreeFieldState struct {
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringPtrInput
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users ThreeFieldUserArrayInput
 }
 
 func (ThreeFieldState) ElementType() reflect.Type {
@@ -345,10 +289,6 @@ type threeFieldArgs struct {
 	ExtraFieldSelector string `pulumi:"extraFieldSelector"`
 	// Value for extra form field.
 	ExtraFieldValue string `pulumi:"extraFieldValue"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -365,10 +305,6 @@ type threeFieldArgs struct {
 	SharedPassword *string `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes.
 	SharedUsername *string `pulumi:"sharedUsername"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Login URL.
@@ -385,10 +321,6 @@ type threeFieldArgs struct {
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// Login username field CSS selector.
 	UsernameSelector string `pulumi:"usernameSelector"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []ThreeFieldUser `pulumi:"users"`
 }
 
 // The set of arguments for constructing a ThreeField resource.
@@ -415,10 +347,6 @@ type ThreeFieldArgs struct {
 	ExtraFieldSelector pulumi.StringInput
 	// Value for extra form field.
 	ExtraFieldValue pulumi.StringInput
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -435,10 +363,6 @@ type ThreeFieldArgs struct {
 	SharedPassword pulumi.StringPtrInput
 	// Shared username, required for certain schemes.
 	SharedUsername pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Login URL.
@@ -455,10 +379,6 @@ type ThreeFieldArgs struct {
 	UserNameTemplateType pulumi.StringPtrInput
 	// Login username field CSS selector.
 	UsernameSelector pulumi.StringInput
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users ThreeFieldUserArrayInput
 }
 
 func (ThreeFieldArgs) ElementType() reflect.Type {
@@ -603,13 +523,6 @@ func (o ThreeFieldOutput) ExtraFieldValue() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreeField) pulumi.StringOutput { return v.ExtraFieldValue }).(pulumi.StringOutput)
 }
 
-// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-//
-// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-func (o ThreeFieldOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ThreeField) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
-}
-
 // Do not display application icon on mobile app.
 func (o ThreeFieldOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThreeField) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
@@ -665,16 +578,6 @@ func (o ThreeFieldOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreeField) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-func (o ThreeFieldOutput) SkipGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ThreeField) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
-}
-
-// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-func (o ThreeFieldOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ThreeField) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
 // Status of application. By default, it is `"ACTIVE"`.
 func (o ThreeFieldOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThreeField) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
@@ -713,13 +616,6 @@ func (o ThreeFieldOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 // Login username field CSS selector.
 func (o ThreeFieldOutput) UsernameSelector() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreeField) pulumi.StringOutput { return v.UsernameSelector }).(pulumi.StringOutput)
-}
-
-// The users assigned to the application. See `app.User` for a more flexible approach.
-//
-// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-func (o ThreeFieldOutput) Users() ThreeFieldUserArrayOutput {
-	return o.ApplyT(func(v *ThreeField) ThreeFieldUserArrayOutput { return v.Users }).(ThreeFieldUserArrayOutput)
 }
 
 type ThreeFieldArrayOutput struct{ *pulumi.OutputState }

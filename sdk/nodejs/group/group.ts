@@ -18,17 +18,6 @@ import * as utilities from "../utilities";
  * const example = new okta.group.Group("example", {description: "My Example Group"});
  * ```
  *
- * Ignore users sync
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleSkip = new okta.group.Group("exampleSkip", {
- *     description: "My Example Group",
- *     skipUsers: true,
- * });
- * ```
- *
  * Custom profile attributes
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -50,12 +39,6 @@ import * as utilities from "../utilities";
  *
  * ```sh
  *  $ pulumi import okta:group/group:Group example &#60;group id&#62;
- * ```
- *
- *  It's also possible to import group without users. In this case ID will look like this
- *
- * ```sh
- *  $ pulumi import okta:group/group:Group example &#60;group id&#62;/skip_users
  * ```
  */
 export class Group extends pulumi.CustomResource {
@@ -98,17 +81,6 @@ export class Group extends pulumi.CustomResource {
      * The name of the Okta Group.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
-    /**
-     * The users associated with the group. This can also be done per user.
-     * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-     *
-     * @deprecated The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-     */
-    public readonly users!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -126,15 +98,11 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["customProfileAttributes"] = state ? state.customProfileAttributes : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             resourceInputs["customProfileAttributes"] = args ? args.customProfileAttributes : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Group.__pulumiType, name, resourceInputs, opts);
@@ -157,17 +125,6 @@ export interface GroupState {
      * The name of the Okta Group.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
-     * The users associated with the group. This can also be done per user.
-     * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-     *
-     * @deprecated The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-     */
-    users?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -186,15 +143,4 @@ export interface GroupArgs {
      * The name of the Okta Group.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
-     * The users associated with the group. This can also be done per user.
-     * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-     *
-     * @deprecated The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-     */
-    users?: pulumi.Input<pulumi.Input<string>[]>;
 }

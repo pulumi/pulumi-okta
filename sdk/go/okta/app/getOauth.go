@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,10 +63,6 @@ type GetOauthArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
-	// Indicator that allows the app to skip `groups` sync. Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync. Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 }
 
 // A collection of values returned by getOauth.
@@ -82,10 +78,6 @@ type GetOauthResult struct {
 	ClientUri string `pulumi:"clientUri"`
 	// List of OAuth 2.0 grant types.
 	GrantTypes []string `pulumi:"grantTypes"`
-	// List of groups IDs assigned to the application.
-	//
-	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -115,17 +107,11 @@ type GetOauthResult struct {
 	RedirectUris []string `pulumi:"redirectUris"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes []string `pulumi:"responseTypes"`
-	SkipGroups    *bool    `pulumi:"skipGroups"`
-	SkipUsers     *bool    `pulumi:"skipUsers"`
 	// Status of application.
 	Status string `pulumi:"status"`
 	// The type of OAuth application.
-	Type string `pulumi:"type"`
-	// List of users IDs assigned to the application.
-	//
-	// Deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
-	Users            []string `pulumi:"users"`
-	WildcardRedirect string   `pulumi:"wildcardRedirect"`
+	Type             string `pulumi:"type"`
+	WildcardRedirect string `pulumi:"wildcardRedirect"`
 }
 
 func GetOauthOutput(ctx *pulumi.Context, args GetOauthOutputArgs, opts ...pulumi.InvokeOption) GetOauthResultOutput {
@@ -158,10 +144,6 @@ type GetOauthOutputArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
-	// Indicator that allows the app to skip `groups` sync. Default is `false`.
-	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync. Default is `false`.
-	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
 }
 
 func (GetOauthOutputArgs) ElementType() reflect.Type {
@@ -210,13 +192,6 @@ func (o GetOauthResultOutput) ClientUri() pulumi.StringOutput {
 // List of OAuth 2.0 grant types.
 func (o GetOauthResultOutput) GrantTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOauthResult) []string { return v.GrantTypes }).(pulumi.StringArrayOutput)
-}
-
-// List of groups IDs assigned to the application.
-//
-// Deprecated: The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
-func (o GetOauthResultOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
 // Do not display application icon on mobile app.
@@ -293,14 +268,6 @@ func (o GetOauthResultOutput) ResponseTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOauthResult) []string { return v.ResponseTypes }).(pulumi.StringArrayOutput)
 }
 
-func (o GetOauthResultOutput) SkipGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetOauthResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
-}
-
-func (o GetOauthResultOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetOauthResult) *bool { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
 // Status of application.
 func (o GetOauthResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.Status }).(pulumi.StringOutput)
@@ -309,13 +276,6 @@ func (o GetOauthResultOutput) Status() pulumi.StringOutput {
 // The type of OAuth application.
 func (o GetOauthResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// List of users IDs assigned to the application.
-//
-// Deprecated: The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
-func (o GetOauthResultOutput) Users() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthResult) []string { return v.Users }).(pulumi.StringArrayOutput)
 }
 
 func (o GetOauthResultOutput) WildcardRedirect() pulumi.StringOutput {

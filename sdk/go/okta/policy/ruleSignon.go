@@ -20,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -138,6 +138,8 @@ type RuleSignon struct {
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences RuleSignonFactorSequenceArrayOutput `pulumi:"factorSequences"`
 	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+	//
+	// > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
 	IdentityProvider pulumi.StringPtrOutput `pulumi:"identityProvider"`
 	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
 	IdentityProviderIds pulumi.StringArrayOutput `pulumi:"identityProviderIds"`
@@ -159,10 +161,6 @@ type RuleSignon struct {
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
 	// Policy ID.
 	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrOutput `pulumi:"policyid"`
 	// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
 	// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
 	PrimaryFactor pulumi.StringOutput `pulumi:"primaryFactor"`
@@ -221,6 +219,8 @@ type ruleSignonState struct {
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences []RuleSignonFactorSequence `pulumi:"factorSequences"`
 	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+	//
+	// > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
 	IdentityProvider *string `pulumi:"identityProvider"`
 	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
 	IdentityProviderIds []string `pulumi:"identityProviderIds"`
@@ -242,10 +242,6 @@ type ruleSignonState struct {
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid *string `pulumi:"policyid"`
 	// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
 	// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
 	PrimaryFactor *string `pulumi:"primaryFactor"`
@@ -276,6 +272,8 @@ type RuleSignonState struct {
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences RuleSignonFactorSequenceArrayInput
 	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+	//
+	// > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
 	IdentityProvider pulumi.StringPtrInput
 	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
 	IdentityProviderIds pulumi.StringArrayInput
@@ -297,10 +295,6 @@ type RuleSignonState struct {
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrInput
 	// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
 	// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
 	PrimaryFactor pulumi.StringPtrInput
@@ -335,6 +329,8 @@ type ruleSignonArgs struct {
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences []RuleSignonFactorSequence `pulumi:"factorSequences"`
 	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+	//
+	// > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
 	IdentityProvider *string `pulumi:"identityProvider"`
 	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
 	IdentityProviderIds []string `pulumi:"identityProviderIds"`
@@ -356,10 +352,6 @@ type ruleSignonArgs struct {
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid *string `pulumi:"policyid"`
 	// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
 	// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
 	PrimaryFactor *string `pulumi:"primaryFactor"`
@@ -391,6 +383,8 @@ type RuleSignonArgs struct {
 	// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
 	FactorSequences RuleSignonFactorSequenceArrayInput
 	// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+	//
+	// > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
 	IdentityProvider pulumi.StringPtrInput
 	// When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
 	IdentityProviderIds pulumi.StringArrayInput
@@ -412,10 +406,6 @@ type RuleSignonArgs struct {
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrInput
 	// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
 	// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
 	PrimaryFactor pulumi.StringPtrInput
@@ -544,6 +534,8 @@ func (o RuleSignonOutput) FactorSequences() RuleSignonFactorSequenceArrayOutput 
 }
 
 // Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+//
+// > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
 func (o RuleSignonOutput) IdentityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.IdentityProvider }).(pulumi.StringPtrOutput)
 }
@@ -596,13 +588,6 @@ func (o RuleSignonOutput) NetworkIncludes() pulumi.StringArrayOutput {
 // Policy ID.
 func (o RuleSignonOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
-}
-
-// Policy ID.
-//
-// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-func (o RuleSignonOutput) Policyid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.Policyid }).(pulumi.StringPtrOutput)
 }
 
 // Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:

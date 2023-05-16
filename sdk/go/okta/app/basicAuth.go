@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,26 +50,6 @@ import (
 //	$ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
 //
 // ```
-//
-//	It's also possible to import app without groups or/and users. In this case ID may look like this
-//
-// ```sh
-//
-//	$ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users/skip_groups
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_groups
-//
-// ```
 type BasicAuth struct {
 	pulumi.CustomResourceState
 
@@ -89,10 +69,6 @@ type BasicAuth struct {
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -107,18 +83,10 @@ type BasicAuth struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The URL of the sign-in page for this app.
 	Url pulumi.StringOutput `pulumi:"url"`
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users BasicAuthUserArrayOutput `pulumi:"users"`
 }
 
 // NewBasicAuth registers a new resource with the given unique name, arguments, and options.
@@ -175,10 +143,6 @@ type basicAuthState struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -193,18 +157,10 @@ type basicAuthState struct {
 	Name *string `pulumi:"name"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
 	Url *string `pulumi:"url"`
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []BasicAuthUser `pulumi:"users"`
 }
 
 type BasicAuthState struct {
@@ -224,10 +180,6 @@ type BasicAuthState struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -242,18 +194,10 @@ type BasicAuthState struct {
 	Name pulumi.StringPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
 	Url pulumi.StringPtrInput
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users BasicAuthUserArrayInput
 }
 
 func (BasicAuthState) ElementType() reflect.Type {
@@ -277,10 +221,6 @@ type basicAuthArgs struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -289,18 +229,10 @@ type basicAuthArgs struct {
 	Label string `pulumi:"label"`
 	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
 	Url string `pulumi:"url"`
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []BasicAuthUser `pulumi:"users"`
 }
 
 // The set of arguments for constructing a BasicAuth resource.
@@ -321,10 +253,6 @@ type BasicAuthArgs struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -333,18 +261,10 @@ type BasicAuthArgs struct {
 	Label pulumi.StringInput
 	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
 	Url pulumi.StringInput
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users BasicAuthUserArrayInput
 }
 
 func (BasicAuthArgs) ElementType() reflect.Type {
@@ -474,13 +394,6 @@ func (o BasicAuthOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
-// Groups associated with the application.
-//
-// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-func (o BasicAuthOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BasicAuth) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
-}
-
 // Do not display application icon on mobile app.
 func (o BasicAuthOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
@@ -516,16 +429,6 @@ func (o BasicAuthOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-func (o BasicAuthOutput) SkipGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
-}
-
-// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-func (o BasicAuthOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
 // Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 func (o BasicAuthOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
@@ -534,13 +437,6 @@ func (o BasicAuthOutput) Status() pulumi.StringPtrOutput {
 // The URL of the sign-in page for this app.
 func (o BasicAuthOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
-}
-
-// Users associated with the application.
-//
-// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-func (o BasicAuthOutput) Users() BasicAuthUserArrayOutput {
-	return o.ApplyT(func(v *BasicAuth) BasicAuthUserArrayOutput { return v.Users }).(BasicAuthUserArrayOutput)
 }
 
 type BasicAuthArrayOutput struct{ *pulumi.OutputState }

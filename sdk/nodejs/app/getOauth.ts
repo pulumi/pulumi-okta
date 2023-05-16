@@ -27,8 +27,6 @@ export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Prom
         "id": args.id,
         "label": args.label,
         "labelPrefix": args.labelPrefix,
-        "skipGroups": args.skipGroups,
-        "skipUsers": args.skipUsers,
     }, opts);
 }
 
@@ -59,14 +57,6 @@ export interface GetOauthArgs {
      * provider to do a `starts with` query as opposed to an `equals` query.
      */
     labelPrefix?: string;
-    /**
-     * Indicator that allows the app to skip `groups` sync. Default is `false`.
-     */
-    skipGroups?: boolean;
-    /**
-     * Indicator that allows the app to skip `users` sync. Default is `false`.
-     */
-    skipUsers?: boolean;
 }
 
 /**
@@ -94,12 +84,6 @@ export interface GetOauthResult {
      * List of OAuth 2.0 grant types.
      */
     readonly grantTypes: string[];
-    /**
-     * List of groups IDs assigned to the application.
-     *
-     * @deprecated The `groups` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_group_assignments`
-     */
-    readonly groups: string[];
     /**
      * Do not display application icon on mobile app.
      */
@@ -157,8 +141,6 @@ export interface GetOauthResult {
      * List of OAuth 2.0 response type strings.
      */
     readonly responseTypes: string[];
-    readonly skipGroups?: boolean;
-    readonly skipUsers?: boolean;
     /**
      * Status of application.
      */
@@ -167,12 +149,6 @@ export interface GetOauthResult {
      * The type of OAuth application.
      */
     readonly type: string;
-    /**
-     * List of users IDs assigned to the application.
-     *
-     * @deprecated The `users` field is now deprecated for the data source `okta_app_oauth`, please replace all uses of this with: `okta_app_user_assignments`
-     */
-    readonly users: string[];
     readonly wildcardRedirect: string;
 }
 /**
@@ -220,12 +196,4 @@ export interface GetOauthOutputArgs {
      * provider to do a `starts with` query as opposed to an `equals` query.
      */
     labelPrefix?: pulumi.Input<string>;
-    /**
-     * Indicator that allows the app to skip `groups` sync. Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync. Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
 }
