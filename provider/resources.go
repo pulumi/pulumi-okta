@@ -49,9 +49,6 @@ const (
 	trustedOriginMod = "TrustedOrigin"
 	userMod          = "User"
 	mainMod          = "Index"
-
-	// DeprecatedResourcesMod - these are resources that were renamed upstream and exist only to satisfy tfgen warnings
-	deprecatedMod = "Deprecated"
 )
 
 var namespaceMap = map[string]string{
@@ -455,17 +452,6 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
-}
-
-func noUpstreamDocs() *tfbridge.DocInfo {
-	return &tfbridge.DocInfo{
-		Markdown: []byte(" "),
-	}
-}
-
-func formatDeprecationMessage(newResourceName string) string {
-	return fmt.Sprintf("Deprecated. Use %s instead. This resource will be removed in version 4.0 of this provider.",
-		newResourceName)
 }
 
 //go:embed cmd/pulumi-resource-okta/bridge-metadata.json
