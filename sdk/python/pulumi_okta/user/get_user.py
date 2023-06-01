@@ -157,9 +157,6 @@ class GetUserResult:
     @property
     @pulumi.getter(name="adminRoles")
     def admin_roles(self) -> Sequence[str]:
-        """
-        Administrator roles assigned to user.
-        """
         return pulumi.get(self, "admin_roles")
 
     @property
@@ -255,9 +252,6 @@ class GetUserResult:
     @property
     @pulumi.getter(name="groupMemberships")
     def group_memberships(self) -> Sequence[str]:
-        """
-        Groups user belongs to.
-        """
         return pulumi.get(self, "group_memberships")
 
     @property
@@ -557,8 +551,6 @@ def get_user(compound_search_operator: Optional[str] = None,
     :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
     :param str delay_read_seconds: Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
     :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
-    :param bool skip_groups: Additional API call to collect user's groups will not be made.
-    :param bool skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
     :param str user_id: String representing a specific user's id value
     """
     __args__ = dict()
@@ -643,8 +635,6 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
     :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
     :param str delay_read_seconds: Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
     :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
-    :param bool skip_groups: Additional API call to collect user's groups will not be made.
-    :param bool skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
     :param str user_id: String representing a specific user's id value
     """
     ...

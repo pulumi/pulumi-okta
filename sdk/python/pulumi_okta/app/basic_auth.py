@@ -8,8 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['BasicAuthArgs', 'BasicAuth']
 
@@ -26,14 +24,10 @@ class BasicAuthArgs:
                  app_links_json: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]]] = None):
+                 status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BasicAuth resource.
         :param pulumi.Input[str] auth_url: The URL of the authenticating site for this app.
@@ -46,14 +40,10 @@ class BasicAuthArgs:
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
-        :param pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]] users: Users associated with the application.
         """
         pulumi.set(__self__, "auth_url", auth_url)
         pulumi.set(__self__, "label", label)
@@ -72,28 +62,14 @@ class BasicAuthArgs:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
             pulumi.set(__self__, "hide_web", hide_web)
         if logo is not None:
             pulumi.set(__self__, "logo", logo)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="authUrl")
@@ -216,18 +192,6 @@ class BasicAuthArgs:
         pulumi.set(self, "enduser_note", value)
 
     @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Groups associated with the application.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
-
-    @property
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -264,30 +228,6 @@ class BasicAuthArgs:
         pulumi.set(self, "logo", value)
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -298,18 +238,6 @@ class BasicAuthArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]]]:
-        """
-        Users associated with the application.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]]]):
-        pulumi.set(self, "users", value)
 
 
 @pulumi.input_type
@@ -323,7 +251,6 @@ class _BasicAuthState:
                  auth_url: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -331,11 +258,8 @@ class _BasicAuthState:
                  logo_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 url: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]]] = None):
+                 url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BasicAuth resources.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -346,7 +270,6 @@ class _BasicAuthState:
         :param pulumi.Input[str] auth_url: The URL of the authenticating site for this app.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -354,11 +277,8 @@ class _BasicAuthState:
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
-        :param pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]] users: Users associated with the application.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -376,11 +296,6 @@ class _BasicAuthState:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
@@ -395,19 +310,10 @@ class _BasicAuthState:
             pulumi.set(__self__, "name", name)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
             pulumi.set(__self__, "url", url)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -506,18 +412,6 @@ class _BasicAuthState:
         pulumi.set(self, "enduser_note", value)
 
     @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Groups associated with the application.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
-
-    @property
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -602,30 +496,6 @@ class _BasicAuthState:
         pulumi.set(self, "sign_on_mode", value)
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -649,18 +519,6 @@ class _BasicAuthState:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]]]:
-        """
-        Users associated with the application.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BasicAuthUserArgs']]]]):
-        pulumi.set(self, "users", value)
-
 
 class BasicAuth(pulumi.CustomResource):
     @overload
@@ -675,16 +533,12 @@ class BasicAuth(pulumi.CustomResource):
                  auth_url: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]]] = None,
                  __props__=None):
         """
         This resource allows you to create and configure a Basic Auth Application.
@@ -709,20 +563,6 @@ class BasicAuth(pulumi.CustomResource):
          $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
         ```
 
-         It's also possible to import app without groups or/and users. In this case ID may look like this
-
-        ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_groups
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -733,16 +573,12 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.Input[str] auth_url: The URL of the authenticating site for this app.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] logo: Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]] users: Users associated with the application.
         """
         ...
     @overload
@@ -773,20 +609,6 @@ class BasicAuth(pulumi.CustomResource):
          $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
         ```
 
-         It's also possible to import app without groups or/and users. In this case ID may look like this
-
-        ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;/skip_groups
-        ```
-
         :param str resource_name: The name of the resource.
         :param BasicAuthArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -810,16 +632,12 @@ class BasicAuth(pulumi.CustomResource):
                  auth_url: Optional[pulumi.Input[str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -839,26 +657,16 @@ class BasicAuth(pulumi.CustomResource):
             __props__.__dict__["auth_url"] = auth_url
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["enduser_note"] = enduser_note
-            if groups is not None and not opts.urn:
-                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-            __props__.__dict__["groups"] = groups
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
             if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__.__dict__["label"] = label
             __props__.__dict__["logo"] = logo
-            __props__.__dict__["skip_groups"] = skip_groups
-            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["status"] = status
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
-            if users is not None and not opts.urn:
-                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-            __props__.__dict__["users"] = users
             __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
@@ -880,7 +688,6 @@ class BasicAuth(pulumi.CustomResource):
             auth_url: Optional[pulumi.Input[str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             enduser_note: Optional[pulumi.Input[str]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
@@ -888,11 +695,8 @@ class BasicAuth(pulumi.CustomResource):
             logo_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
-            skip_groups: Optional[pulumi.Input[bool]] = None,
-            skip_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            url: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]]] = None) -> 'BasicAuth':
+            url: Optional[pulumi.Input[str]] = None) -> 'BasicAuth':
         """
         Get an existing BasicAuth resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -908,7 +712,6 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.Input[str] auth_url: The URL of the authenticating site for this app.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -916,11 +719,8 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BasicAuthUserArgs']]]] users: Users associated with the application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -934,7 +734,6 @@ class BasicAuth(pulumi.CustomResource):
         __props__.__dict__["auth_url"] = auth_url
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["enduser_note"] = enduser_note
-        __props__.__dict__["groups"] = groups
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
         __props__.__dict__["label"] = label
@@ -942,11 +741,8 @@ class BasicAuth(pulumi.CustomResource):
         __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["name"] = name
         __props__.__dict__["sign_on_mode"] = sign_on_mode
-        __props__.__dict__["skip_groups"] = skip_groups
-        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["status"] = status
         __props__.__dict__["url"] = url
-        __props__.__dict__["users"] = users
         return BasicAuth(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1014,14 +810,6 @@ class BasicAuth(pulumi.CustomResource):
         return pulumi.get(self, "enduser_note")
 
     @property
-    @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Groups associated with the application.
-        """
-        return pulumi.get(self, "groups")
-
-    @property
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1078,22 +866,6 @@ class BasicAuth(pulumi.CustomResource):
         return pulumi.get(self, "sign_on_mode")
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1108,12 +880,4 @@ class BasicAuth(pulumi.CustomResource):
         The URL of the sign-in page for this app.
         """
         return pulumi.get(self, "url")
-
-    @property
-    @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[Sequence['outputs.BasicAuthUser']]]:
-        """
-        Users associated with the application.
-        """
-        return pulumi.get(self, "users")
 

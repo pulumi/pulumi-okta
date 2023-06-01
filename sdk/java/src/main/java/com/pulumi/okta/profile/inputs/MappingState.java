@@ -21,12 +21,16 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * 
+     * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
+     * 
      */
     @Import(name="alwaysApply")
     private @Nullable Output<Boolean> alwaysApply;
 
     /**
      * @return Whether apply the changes to all users with this profile after updating or creating the these mappings.
+     * 
+     * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
      * 
      */
     public Optional<Output<Boolean>> alwaysApply() {
@@ -188,6 +192,8 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param alwaysApply Whether apply the changes to all users with this profile after updating or creating the these mappings.
          * 
+         * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
+         * 
          * @return builder
          * 
          */
@@ -198,6 +204,8 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param alwaysApply Whether apply the changes to all users with this profile after updating or creating the these mappings.
+         * 
+         * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
          * 
          * @return builder
          * 

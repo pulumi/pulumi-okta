@@ -22,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/profile"
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/profile"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,6 +73,8 @@ type Mapping struct {
 	pulumi.CustomResourceState
 
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+	//
+	// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
 	AlwaysApply pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent pulumi.BoolPtrOutput `pulumi:"deleteWhenAbsent"`
@@ -128,6 +130,8 @@ func GetMapping(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Mapping resources.
 type mappingState struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+	//
+	// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
 	AlwaysApply *bool `pulumi:"alwaysApply"`
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
@@ -149,6 +153,8 @@ type mappingState struct {
 
 type MappingState struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+	//
+	// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
 	AlwaysApply pulumi.BoolPtrInput
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent pulumi.BoolPtrInput
@@ -174,6 +180,8 @@ func (MappingState) ElementType() reflect.Type {
 
 type mappingArgs struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+	//
+	// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
 	AlwaysApply *bool `pulumi:"alwaysApply"`
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
@@ -188,6 +196,8 @@ type mappingArgs struct {
 // The set of arguments for constructing a Mapping resource.
 type MappingArgs struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
+	//
+	// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
 	AlwaysApply pulumi.BoolPtrInput
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent pulumi.BoolPtrInput
@@ -287,6 +297,8 @@ func (o MappingOutput) ToMappingOutputWithContext(ctx context.Context) MappingOu
 }
 
 // Whether apply the changes to all users with this profile after updating or creating the these mappings.
+//
+// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
 func (o MappingOutput) AlwaysApply() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Mapping) pulumi.BoolPtrOutput { return v.AlwaysApply }).(pulumi.BoolPtrOutput)
 }

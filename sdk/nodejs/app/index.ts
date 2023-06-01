@@ -85,16 +85,6 @@ export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
-export { UserBaseSchemaArgs, UserBaseSchemaState } from "./userBaseSchema";
-export type UserBaseSchema = import("./userBaseSchema").UserBaseSchema;
-export const UserBaseSchema: typeof import("./userBaseSchema").UserBaseSchema = null as any;
-utilities.lazyLoad(exports, ["UserBaseSchema"], () => require("./userBaseSchema"));
-
-export { UserSchemaArgs, UserSchemaState } from "./userSchema";
-export type UserSchema = import("./userSchema").UserSchema;
-export const UserSchema: typeof import("./userSchema").UserSchema = null as any;
-utilities.lazyLoad(exports, ["UserSchema"], () => require("./userSchema"));
-
 
 const _module = {
     version: utilities.getVersion(),
@@ -124,10 +114,6 @@ const _module = {
                 return new ThreeField(name, <any>undefined, { urn })
             case "okta:app/user:User":
                 return new User(name, <any>undefined, { urn })
-            case "okta:app/userBaseSchema:UserBaseSchema":
-                return new UserBaseSchema(name, <any>undefined, { urn })
-            case "okta:app/userSchema:UserSchema":
-                return new UserSchema(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -145,5 +131,3 @@ pulumi.runtime.registerResourceModule("okta", "app/securePasswordStore", _module
 pulumi.runtime.registerResourceModule("okta", "app/swa", _module)
 pulumi.runtime.registerResourceModule("okta", "app/threeField", _module)
 pulumi.runtime.registerResourceModule("okta", "app/user", _module)
-pulumi.runtime.registerResourceModule("okta", "app/userBaseSchema", _module)
-pulumi.runtime.registerResourceModule("okta", "app/userSchema", _module)

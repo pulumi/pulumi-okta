@@ -150,24 +150,6 @@ public class ServerPolicy extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
-    /**
-     * The type of the Auth Server Policy.
-     * 
-     * @deprecated
-     * Policy type can only be of value &#39;OAUTH_AUTHORIZATION_POLICY&#39;, so this will be removed in the future, or set as &#39;Computed&#39; value
-     * 
-     */
-    @Deprecated /* Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value */
-    @Export(name="type", type=String.class, parameters={})
-    private Output</* @Nullable */ String> type;
-
-    /**
-     * @return The type of the Auth Server Policy.
-     * 
-     */
-    public Output<Optional<String>> type() {
-        return Codegen.optional(this.type);
-    }
 
     /**
      *

@@ -11,7 +11,6 @@ import com.pulumi.okta.DomainArgs;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.inputs.DomainState;
 import com.pulumi.okta.outputs.DomainDnsRecord;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -61,12 +60,16 @@ public class Domain extends com.pulumi.resources.CustomResource {
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
      * 
+     * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+     * 
      */
     @Export(name="certificateSourceType", type=String.class, parameters={})
     private Output</* @Nullable */ String> certificateSourceType;
 
     /**
      * @return Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+     * 
+     * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
      * 
      */
     public Output<Optional<String>> certificateSourceType() {
@@ -113,24 +116,6 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<String> validationStatus() {
         return this.validationStatus;
-    }
-    /**
-     * Indicates whether the domain should be verified.
-     * 
-     * @deprecated
-     * The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-     * 
-     */
-    @Deprecated /* The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality. */
-    @Export(name="verify", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> verify;
-
-    /**
-     * @return Indicates whether the domain should be verified.
-     * 
-     */
-    public Output<Optional<Boolean>> verify() {
-        return Codegen.optional(this.verify);
     }
 
     /**

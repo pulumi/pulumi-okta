@@ -20,7 +20,6 @@ class UserArgs:
                  first_name: pulumi.Input[str],
                  last_name: pulumi.Input[str],
                  login: pulumi.Input[str],
-                 admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  city: Optional[pulumi.Input[str]] = None,
                  cost_center: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
@@ -31,7 +30,6 @@ class UserArgs:
                  division: Optional[pulumi.Input[str]] = None,
                  employee_number: Optional[pulumi.Input[str]] = None,
                  expire_password_on_create: Optional[pulumi.Input[bool]] = None,
-                 group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  honorific_prefix: Optional[pulumi.Input[str]] = None,
                  honorific_suffix: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
@@ -52,7 +50,6 @@ class UserArgs:
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
-                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -66,7 +63,6 @@ class UserArgs:
         :param pulumi.Input[str] first_name: User's First Name, required by default.
         :param pulumi.Input[str] last_name: User's Last Name, required by default.
         :param pulumi.Input[str] login: User profile property.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -78,7 +74,6 @@ class UserArgs:
         :param pulumi.Input[str] employee_number: User profile property.
         :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
                when user is being created and works only when `password` field is set. Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
         :param pulumi.Input[str] honorific_suffix: User profile property.
         :param pulumi.Input[str] locale: User profile property.
@@ -102,9 +97,11 @@ class UserArgs:
         :param pulumi.Input[str] primary_phone: User profile property.
         :param pulumi.Input[str] profile_url: User profile property.
         :param pulumi.Input[str] recovery_answer: User password recovery answer.
+               
+               - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+               - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
-        :param pulumi.Input[bool] skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -117,11 +114,6 @@ class UserArgs:
         pulumi.set(__self__, "first_name", first_name)
         pulumi.set(__self__, "last_name", last_name)
         pulumi.set(__self__, "login", login)
-        if admin_roles is not None:
-            warnings.warn("""The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""", DeprecationWarning)
-            pulumi.log.warn("""admin_roles is deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""")
-        if admin_roles is not None:
-            pulumi.set(__self__, "admin_roles", admin_roles)
         if city is not None:
             pulumi.set(__self__, "city", city)
         if cost_center is not None:
@@ -142,11 +134,6 @@ class UserArgs:
             pulumi.set(__self__, "employee_number", employee_number)
         if expire_password_on_create is not None:
             pulumi.set(__self__, "expire_password_on_create", expire_password_on_create)
-        if group_memberships is not None:
-            warnings.warn("""The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""", DeprecationWarning)
-            pulumi.log.warn("""group_memberships is deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""")
-        if group_memberships is not None:
-            pulumi.set(__self__, "group_memberships", group_memberships)
         if honorific_prefix is not None:
             pulumi.set(__self__, "honorific_prefix", honorific_prefix)
         if honorific_suffix is not None:
@@ -187,8 +174,6 @@ class UserArgs:
             pulumi.set(__self__, "recovery_question", recovery_question)
         if second_email is not None:
             pulumi.set(__self__, "second_email", second_email)
-        if skip_roles is not None:
-            pulumi.set(__self__, "skip_roles", skip_roles)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if status is not None:
@@ -251,18 +236,6 @@ class UserArgs:
     @login.setter
     def login(self, value: pulumi.Input[str]):
         pulumi.set(self, "login", value)
-
-    @property
-    @pulumi.getter(name="adminRoles")
-    def admin_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Administrator roles assigned to User.
-        """
-        return pulumi.get(self, "admin_roles")
-
-    @admin_roles.setter
-    def admin_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "admin_roles", value)
 
     @property
     @pulumi.getter
@@ -384,18 +357,6 @@ class UserArgs:
     @expire_password_on_create.setter
     def expire_password_on_create(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "expire_password_on_create", value)
-
-    @property
-    @pulumi.getter(name="groupMemberships")
-    def group_memberships(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        User profile property.
-        """
-        return pulumi.get(self, "group_memberships")
-
-    @group_memberships.setter
-    def group_memberships(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "group_memberships", value)
 
     @property
     @pulumi.getter(name="honorificPrefix")
@@ -611,6 +572,9 @@ class UserArgs:
     def recovery_answer(self) -> Optional[pulumi.Input[str]]:
         """
         User password recovery answer.
+
+        - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+        - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         """
         return pulumi.get(self, "recovery_answer")
 
@@ -641,18 +605,6 @@ class UserArgs:
     @second_email.setter
     def second_email(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "second_email", value)
-
-    @property
-    @pulumi.getter(name="skipRoles")
-    def skip_roles(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
-        """
-        return pulumi.get(self, "skip_roles")
-
-    @skip_roles.setter
-    def skip_roles(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_roles", value)
 
     @property
     @pulumi.getter
@@ -742,7 +694,6 @@ class UserArgs:
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
-                 admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  city: Optional[pulumi.Input[str]] = None,
                  cost_center: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
@@ -755,7 +706,6 @@ class _UserState:
                  employee_number: Optional[pulumi.Input[str]] = None,
                  expire_password_on_create: Optional[pulumi.Input[bool]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
-                 group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  honorific_prefix: Optional[pulumi.Input[str]] = None,
                  honorific_suffix: Optional[pulumi.Input[str]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
@@ -779,7 +729,6 @@ class _UserState:
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
-                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -789,7 +738,6 @@ class _UserState:
                  zip_code: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -803,7 +751,6 @@ class _UserState:
         :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
                when user is being created and works only when `password` field is set. Default is `false`.
         :param pulumi.Input[str] first_name: User's First Name, required by default.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
         :param pulumi.Input[str] honorific_suffix: User profile property.
         :param pulumi.Input[str] last_name: User's Last Name, required by default.
@@ -830,9 +777,11 @@ class _UserState:
         :param pulumi.Input[str] profile_url: User profile property.
         :param pulumi.Input[str] raw_status: The raw status of the User in Okta - (status is mapped)
         :param pulumi.Input[str] recovery_answer: User password recovery answer.
+               
+               - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+               - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
-        :param pulumi.Input[bool] skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -841,11 +790,6 @@ class _UserState:
         :param pulumi.Input[str] user_type: User profile property.
         :param pulumi.Input[str] zip_code: User profile property.
         """
-        if admin_roles is not None:
-            warnings.warn("""The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""", DeprecationWarning)
-            pulumi.log.warn("""admin_roles is deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""")
-        if admin_roles is not None:
-            pulumi.set(__self__, "admin_roles", admin_roles)
         if city is not None:
             pulumi.set(__self__, "city", city)
         if cost_center is not None:
@@ -870,11 +814,6 @@ class _UserState:
             pulumi.set(__self__, "expire_password_on_create", expire_password_on_create)
         if first_name is not None:
             pulumi.set(__self__, "first_name", first_name)
-        if group_memberships is not None:
-            warnings.warn("""The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""", DeprecationWarning)
-            pulumi.log.warn("""group_memberships is deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""")
-        if group_memberships is not None:
-            pulumi.set(__self__, "group_memberships", group_memberships)
         if honorific_prefix is not None:
             pulumi.set(__self__, "honorific_prefix", honorific_prefix)
         if honorific_suffix is not None:
@@ -921,8 +860,6 @@ class _UserState:
             pulumi.set(__self__, "recovery_question", recovery_question)
         if second_email is not None:
             pulumi.set(__self__, "second_email", second_email)
-        if skip_roles is not None:
-            pulumi.set(__self__, "skip_roles", skip_roles)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if status is not None:
@@ -937,18 +874,6 @@ class _UserState:
             pulumi.set(__self__, "user_type", user_type)
         if zip_code is not None:
             pulumi.set(__self__, "zip_code", zip_code)
-
-    @property
-    @pulumi.getter(name="adminRoles")
-    def admin_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Administrator roles assigned to User.
-        """
-        return pulumi.get(self, "admin_roles")
-
-    @admin_roles.setter
-    def admin_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "admin_roles", value)
 
     @property
     @pulumi.getter
@@ -1094,18 +1019,6 @@ class _UserState:
     @first_name.setter
     def first_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "first_name", value)
-
-    @property
-    @pulumi.getter(name="groupMemberships")
-    def group_memberships(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        User profile property.
-        """
-        return pulumi.get(self, "group_memberships")
-
-    @group_memberships.setter
-    def group_memberships(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "group_memberships", value)
 
     @property
     @pulumi.getter(name="honorificPrefix")
@@ -1357,6 +1270,9 @@ class _UserState:
     def recovery_answer(self) -> Optional[pulumi.Input[str]]:
         """
         User password recovery answer.
+
+        - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+        - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         """
         return pulumi.get(self, "recovery_answer")
 
@@ -1387,18 +1303,6 @@ class _UserState:
     @second_email.setter
     def second_email(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "second_email", value)
-
-    @property
-    @pulumi.getter(name="skipRoles")
-    def skip_roles(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
-        """
-        return pulumi.get(self, "skip_roles")
-
-    @skip_roles.setter
-    def skip_roles(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_roles", value)
 
     @property
     @pulumi.getter
@@ -1490,7 +1394,6 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  city: Optional[pulumi.Input[str]] = None,
                  cost_center: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
@@ -1503,7 +1406,6 @@ class User(pulumi.CustomResource):
                  employee_number: Optional[pulumi.Input[str]] = None,
                  expire_password_on_create: Optional[pulumi.Input[bool]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
-                 group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  honorific_prefix: Optional[pulumi.Input[str]] = None,
                  honorific_suffix: Optional[pulumi.Input[str]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
@@ -1526,7 +1428,6 @@ class User(pulumi.CustomResource):
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
-                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -1539,16 +1440,6 @@ class User(pulumi.CustomResource):
         Creates an Okta User.
 
         This resource allows you to create and configure an Okta User.
-
-        > **IMPORTANT** If the provider is executed with a non-super user API token a
-        403 occurs when the provider attempts to inspect the user's admin roles. This
-        403 is swallowed and a warning is logged allowing the resource to continue
-        without this error hindering it. An empty `admin_roles` array will be present in
-        the resource state.
-
-        > **IMPORTANT** Use `skip_roles=true` to avoid `admin_roles` being present in
-        resource state. This also prevents the underlying API call for those values to
-        be made.
 
         ## Example Usage
 
@@ -1616,7 +1507,6 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -1630,7 +1520,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
                when user is being created and works only when `password` field is set. Default is `false`.
         :param pulumi.Input[str] first_name: User's First Name, required by default.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
         :param pulumi.Input[str] honorific_suffix: User profile property.
         :param pulumi.Input[str] last_name: User's Last Name, required by default.
@@ -1656,9 +1545,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] primary_phone: User profile property.
         :param pulumi.Input[str] profile_url: User profile property.
         :param pulumi.Input[str] recovery_answer: User password recovery answer.
+               
+               - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+               - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
-        :param pulumi.Input[bool] skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -1677,16 +1568,6 @@ class User(pulumi.CustomResource):
         Creates an Okta User.
 
         This resource allows you to create and configure an Okta User.
-
-        > **IMPORTANT** If the provider is executed with a non-super user API token a
-        403 occurs when the provider attempts to inspect the user's admin roles. This
-        403 is swallowed and a warning is logged allowing the resource to continue
-        without this error hindering it. An empty `admin_roles` array will be present in
-        the resource state.
-
-        > **IMPORTANT** Use `skip_roles=true` to avoid `admin_roles` being present in
-        resource state. This also prevents the underlying API call for those values to
-        be made.
 
         ## Example Usage
 
@@ -1767,7 +1648,6 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  city: Optional[pulumi.Input[str]] = None,
                  cost_center: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
@@ -1780,7 +1660,6 @@ class User(pulumi.CustomResource):
                  employee_number: Optional[pulumi.Input[str]] = None,
                  expire_password_on_create: Optional[pulumi.Input[bool]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
-                 group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  honorific_prefix: Optional[pulumi.Input[str]] = None,
                  honorific_suffix: Optional[pulumi.Input[str]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
@@ -1803,7 +1682,6 @@ class User(pulumi.CustomResource):
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
-                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -1820,10 +1698,6 @@ class User(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserArgs.__new__(UserArgs)
 
-            if admin_roles is not None and not opts.urn:
-                warnings.warn("""The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""", DeprecationWarning)
-                pulumi.log.warn("""admin_roles is deprecated: The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`""")
-            __props__.__dict__["admin_roles"] = admin_roles
             __props__.__dict__["city"] = city
             __props__.__dict__["cost_center"] = cost_center
             __props__.__dict__["country_code"] = country_code
@@ -1840,10 +1714,6 @@ class User(pulumi.CustomResource):
             if first_name is None and not opts.urn:
                 raise TypeError("Missing required property 'first_name'")
             __props__.__dict__["first_name"] = first_name
-            if group_memberships is not None and not opts.urn:
-                warnings.warn("""The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""", DeprecationWarning)
-                pulumi.log.warn("""group_memberships is deprecated: The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`""")
-            __props__.__dict__["group_memberships"] = group_memberships
             __props__.__dict__["honorific_prefix"] = honorific_prefix
             __props__.__dict__["honorific_suffix"] = honorific_suffix
             if last_name is None and not opts.urn:
@@ -1870,7 +1740,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["recovery_answer"] = None if recovery_answer is None else pulumi.Output.secret(recovery_answer)
             __props__.__dict__["recovery_question"] = recovery_question
             __props__.__dict__["second_email"] = second_email
-            __props__.__dict__["skip_roles"] = skip_roles
             __props__.__dict__["state"] = state
             __props__.__dict__["status"] = status
             __props__.__dict__["street_address"] = street_address
@@ -1891,7 +1760,6 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             city: Optional[pulumi.Input[str]] = None,
             cost_center: Optional[pulumi.Input[str]] = None,
             country_code: Optional[pulumi.Input[str]] = None,
@@ -1904,7 +1772,6 @@ class User(pulumi.CustomResource):
             employee_number: Optional[pulumi.Input[str]] = None,
             expire_password_on_create: Optional[pulumi.Input[bool]] = None,
             first_name: Optional[pulumi.Input[str]] = None,
-            group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             honorific_prefix: Optional[pulumi.Input[str]] = None,
             honorific_suffix: Optional[pulumi.Input[str]] = None,
             last_name: Optional[pulumi.Input[str]] = None,
@@ -1928,7 +1795,6 @@ class User(pulumi.CustomResource):
             recovery_answer: Optional[pulumi.Input[str]] = None,
             recovery_question: Optional[pulumi.Input[str]] = None,
             second_email: Optional[pulumi.Input[str]] = None,
-            skip_roles: Optional[pulumi.Input[bool]] = None,
             state: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             street_address: Optional[pulumi.Input[str]] = None,
@@ -1943,7 +1809,6 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_roles: Administrator roles assigned to User.
         :param pulumi.Input[str] city: User profile property.
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
@@ -1957,7 +1822,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
                when user is being created and works only when `password` field is set. Default is `false`.
         :param pulumi.Input[str] first_name: User's First Name, required by default.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_memberships: User profile property.
         :param pulumi.Input[str] honorific_prefix: User profile property.
         :param pulumi.Input[str] honorific_suffix: User profile property.
         :param pulumi.Input[str] last_name: User's Last Name, required by default.
@@ -1984,9 +1848,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] profile_url: User profile property.
         :param pulumi.Input[str] raw_status: The raw status of the User in Okta - (status is mapped)
         :param pulumi.Input[str] recovery_answer: User password recovery answer.
+               
+               - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+               - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
-        :param pulumi.Input[bool] skip_roles: Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -1999,7 +1865,6 @@ class User(pulumi.CustomResource):
 
         __props__ = _UserState.__new__(_UserState)
 
-        __props__.__dict__["admin_roles"] = admin_roles
         __props__.__dict__["city"] = city
         __props__.__dict__["cost_center"] = cost_center
         __props__.__dict__["country_code"] = country_code
@@ -2012,7 +1877,6 @@ class User(pulumi.CustomResource):
         __props__.__dict__["employee_number"] = employee_number
         __props__.__dict__["expire_password_on_create"] = expire_password_on_create
         __props__.__dict__["first_name"] = first_name
-        __props__.__dict__["group_memberships"] = group_memberships
         __props__.__dict__["honorific_prefix"] = honorific_prefix
         __props__.__dict__["honorific_suffix"] = honorific_suffix
         __props__.__dict__["last_name"] = last_name
@@ -2036,7 +1900,6 @@ class User(pulumi.CustomResource):
         __props__.__dict__["recovery_answer"] = recovery_answer
         __props__.__dict__["recovery_question"] = recovery_question
         __props__.__dict__["second_email"] = second_email
-        __props__.__dict__["skip_roles"] = skip_roles
         __props__.__dict__["state"] = state
         __props__.__dict__["status"] = status
         __props__.__dict__["street_address"] = street_address
@@ -2045,14 +1908,6 @@ class User(pulumi.CustomResource):
         __props__.__dict__["user_type"] = user_type
         __props__.__dict__["zip_code"] = zip_code
         return User(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="adminRoles")
-    def admin_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Administrator roles assigned to User.
-        """
-        return pulumi.get(self, "admin_roles")
 
     @property
     @pulumi.getter
@@ -2150,14 +2005,6 @@ class User(pulumi.CustomResource):
         User's First Name, required by default.
         """
         return pulumi.get(self, "first_name")
-
-    @property
-    @pulumi.getter(name="groupMemberships")
-    def group_memberships(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        User profile property.
-        """
-        return pulumi.get(self, "group_memberships")
 
     @property
     @pulumi.getter(name="honorificPrefix")
@@ -2329,6 +2176,9 @@ class User(pulumi.CustomResource):
     def recovery_answer(self) -> pulumi.Output[Optional[str]]:
         """
         User password recovery answer.
+
+        - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+        - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         """
         return pulumi.get(self, "recovery_answer")
 
@@ -2347,14 +2197,6 @@ class User(pulumi.CustomResource):
         User profile property.
         """
         return pulumi.get(self, "second_email")
-
-    @property
-    @pulumi.getter(name="skipRoles")
-    def skip_roles(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
-        """
-        return pulumi.get(self, "skip_roles")
 
     @property
     @pulumi.getter

@@ -99,17 +99,11 @@ public class Saml extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> accountLinkGroupIncludes() {
         return Codegen.optional(this.accountLinkGroupIncludes);
     }
-    /**
-     * @deprecated
-     * This property will be removed in the future, as it can only be set to &#39;HTTP-POST&#39;
-     * 
-     */
-    @Deprecated /* This property will be removed in the future, as it can only be set to 'HTTP-POST' */
     @Export(name="acsBinding", type=String.class, parameters={})
-    private Output</* @Nullable */ String> acsBinding;
+    private Output<String> acsBinding;
 
-    public Output<Optional<String>> acsBinding() {
-        return Codegen.optional(this.acsBinding);
+    public Output<String> acsBinding() {
+        return this.acsBinding;
     }
     /**
      * The type of ACS. It can be `&#34;INSTANCE&#34;` or `&#34;ORG&#34;`.

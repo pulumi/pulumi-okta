@@ -5,7 +5,6 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,12 +18,16 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
      * 
+     * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+     * 
      */
     @Import(name="certificateSourceType")
     private @Nullable Output<String> certificateSourceType;
 
     /**
      * @return Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+     * 
+     * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
      * 
      */
     public Optional<Output<String>> certificateSourceType() {
@@ -46,35 +49,11 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Indicates whether the domain should be verified.
-     * 
-     * @deprecated
-     * The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-     * 
-     */
-    @Deprecated /* The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality. */
-    @Import(name="verify")
-    private @Nullable Output<Boolean> verify;
-
-    /**
-     * @return Indicates whether the domain should be verified.
-     * 
-     * @deprecated
-     * The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-     * 
-     */
-    @Deprecated /* The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality. */
-    public Optional<Output<Boolean>> verify() {
-        return Optional.ofNullable(this.verify);
-    }
-
     private DomainArgs() {}
 
     private DomainArgs(DomainArgs $) {
         this.certificateSourceType = $.certificateSourceType;
         this.name = $.name;
-        this.verify = $.verify;
     }
 
     public static Builder builder() {
@@ -98,6 +77,8 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param certificateSourceType Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
          * 
+         * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+         * 
          * @return builder
          * 
          */
@@ -108,6 +89,8 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param certificateSourceType Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+         * 
+         * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
          * 
          * @return builder
          * 
@@ -135,35 +118,6 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @param verify Indicates whether the domain should be verified.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-         * 
-         */
-        @Deprecated /* The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality. */
-        public Builder verify(@Nullable Output<Boolean> verify) {
-            $.verify = verify;
-            return this;
-        }
-
-        /**
-         * @param verify Indicates whether the domain should be verified.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-         * 
-         */
-        @Deprecated /* The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality. */
-        public Builder verify(Boolean verify) {
-            return verify(Output.of(verify));
         }
 
         public DomainArgs build() {

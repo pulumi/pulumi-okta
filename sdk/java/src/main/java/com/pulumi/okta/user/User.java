@@ -22,16 +22,6 @@ import javax.annotation.Nullable;
  * 
  * This resource allows you to create and configure an Okta User.
  * 
- * &gt; **IMPORTANT** If the provider is executed with a non-super user API token a
- * 403 occurs when the provider attempts to inspect the user&#39;s admin roles. This
- * 403 is swallowed and a warning is logged allowing the resource to continue
- * without this error hindering it. An empty `admin_roles` array will be present in
- * the resource state.
- * 
- * &gt; **IMPORTANT** Use `skip_roles=true` to avoid `admin_roles` being present in
- * resource state. This also prevents the underlying API call for those values to
- * be made.
- * 
  * ## Example Usage
  * 
  * Full profile:
@@ -139,24 +129,6 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="okta:user/user:User")
 public class User extends com.pulumi.resources.CustomResource {
-    /**
-     * Administrator roles assigned to User.
-     * 
-     * @deprecated
-     * The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-     * 
-     */
-    @Deprecated /* The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles` */
-    @Export(name="adminRoles", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> adminRoles;
-
-    /**
-     * @return Administrator roles assigned to User.
-     * 
-     */
-    public Output<Optional<List<String>>> adminRoles() {
-        return Codegen.optional(this.adminRoles);
-    }
     /**
      * User profile property.
      * 
@@ -326,24 +298,6 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<String> firstName() {
         return this.firstName;
-    }
-    /**
-     * User profile property.
-     * 
-     * @deprecated
-     * The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-     * 
-     */
-    @Deprecated /* The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships` */
-    @Export(name="groupMemberships", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> groupMemberships;
-
-    /**
-     * @return User profile property.
-     * 
-     */
-    public Output<Optional<List<String>>> groupMemberships() {
-        return Codegen.optional(this.groupMemberships);
     }
     /**
      * User profile property.
@@ -638,12 +592,18 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * User password recovery answer.
      * 
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+     * 
      */
     @Export(name="recoveryAnswer", type=String.class, parameters={})
     private Output</* @Nullable */ String> recoveryAnswer;
 
     /**
      * @return User password recovery answer.
+     * 
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
      * 
      */
     public Output<Optional<String>> recoveryAnswer() {
@@ -676,20 +636,6 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> secondEmail() {
         return Codegen.optional(this.secondEmail);
-    }
-    /**
-     * Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
-     * 
-     */
-    @Export(name="skipRoles", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> skipRoles;
-
-    /**
-     * @return Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
-     * 
-     */
-    public Output<Optional<Boolean>> skipRoles() {
-        return Codegen.optional(this.skipRoles);
     }
     /**
      * User profile property.

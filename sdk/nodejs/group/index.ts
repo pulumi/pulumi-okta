@@ -20,20 +20,10 @@ export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
-export { MembershipArgs, MembershipState } from "./membership";
-export type Membership = import("./membership").Membership;
-export const Membership: typeof import("./membership").Membership = null as any;
-utilities.lazyLoad(exports, ["Membership"], () => require("./membership"));
-
 export { RoleArgs, RoleState } from "./role";
 export type Role = import("./role").Role;
 export const Role: typeof import("./role").Role = null as any;
 utilities.lazyLoad(exports, ["Role"], () => require("./role"));
-
-export { RolesArgs, RolesState } from "./roles";
-export type Roles = import("./roles").Roles;
-export const Roles: typeof import("./roles").Roles = null as any;
-utilities.lazyLoad(exports, ["Roles"], () => require("./roles"));
 
 export { RuleArgs, RuleState } from "./rule";
 export type Rule = import("./rule").Rule;
@@ -47,12 +37,8 @@ const _module = {
         switch (type) {
             case "okta:group/group:Group":
                 return new Group(name, <any>undefined, { urn })
-            case "okta:group/membership:Membership":
-                return new Membership(name, <any>undefined, { urn })
             case "okta:group/role:Role":
                 return new Role(name, <any>undefined, { urn })
-            case "okta:group/roles:Roles":
-                return new Roles(name, <any>undefined, { urn })
             case "okta:group/rule:Rule":
                 return new Rule(name, <any>undefined, { urn })
             default:
@@ -61,7 +47,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("okta", "group/group", _module)
-pulumi.runtime.registerResourceModule("okta", "group/membership", _module)
 pulumi.runtime.registerResourceModule("okta", "group/role", _module)
-pulumi.runtime.registerResourceModule("okta", "group/roles", _module)
 pulumi.runtime.registerResourceModule("okta", "group/rule", _module)

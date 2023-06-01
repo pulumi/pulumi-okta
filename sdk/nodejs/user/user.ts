@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  *
  * This resource allows you to create and configure an Okta User.
  *
- * > **IMPORTANT** If the provider is executed with a non-super user API token a
- * 403 occurs when the provider attempts to inspect the user's admin roles. This
- * 403 is swallowed and a warning is logged allowing the resource to continue
- * without this error hindering it. An empty `adminRoles` array will be present in
- * the resource state.
- *
- * > **IMPORTANT** Use `skip_roles=true` to avoid `adminRoles` being present in
- * resource state. This also prevents the underlying API call for those values to
- * be made.
- *
  * ## Example Usage
  *
  * Full profile:
@@ -116,12 +106,6 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * Administrator roles assigned to User.
-     *
-     * @deprecated The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-     */
-    public readonly adminRoles!: pulumi.Output<string[] | undefined>;
-    /**
      * User profile property.
      */
     public readonly city!: pulumi.Output<string | undefined>;
@@ -170,12 +154,6 @@ export class User extends pulumi.CustomResource {
      * User's First Name, required by default.
      */
     public readonly firstName!: pulumi.Output<string>;
-    /**
-     * User profile property.
-     *
-     * @deprecated The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-     */
-    public readonly groupMemberships!: pulumi.Output<string[] | undefined>;
     /**
      * User profile property.
      */
@@ -263,6 +241,9 @@ export class User extends pulumi.CustomResource {
     public /*out*/ readonly rawStatus!: pulumi.Output<string>;
     /**
      * User password recovery answer.
+     *
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
      */
     public readonly recoveryAnswer!: pulumi.Output<string | undefined>;
     /**
@@ -273,10 +254,6 @@ export class User extends pulumi.CustomResource {
      * User profile property.
      */
     public readonly secondEmail!: pulumi.Output<string | undefined>;
-    /**
-     * Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-     */
-    public readonly skipRoles!: pulumi.Output<boolean | undefined>;
     /**
      * User profile property.
      */
@@ -319,7 +296,6 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["adminRoles"] = state ? state.adminRoles : undefined;
             resourceInputs["city"] = state ? state.city : undefined;
             resourceInputs["costCenter"] = state ? state.costCenter : undefined;
             resourceInputs["countryCode"] = state ? state.countryCode : undefined;
@@ -332,7 +308,6 @@ export class User extends pulumi.CustomResource {
             resourceInputs["employeeNumber"] = state ? state.employeeNumber : undefined;
             resourceInputs["expirePasswordOnCreate"] = state ? state.expirePasswordOnCreate : undefined;
             resourceInputs["firstName"] = state ? state.firstName : undefined;
-            resourceInputs["groupMemberships"] = state ? state.groupMemberships : undefined;
             resourceInputs["honorificPrefix"] = state ? state.honorificPrefix : undefined;
             resourceInputs["honorificSuffix"] = state ? state.honorificSuffix : undefined;
             resourceInputs["lastName"] = state ? state.lastName : undefined;
@@ -356,7 +331,6 @@ export class User extends pulumi.CustomResource {
             resourceInputs["recoveryAnswer"] = state ? state.recoveryAnswer : undefined;
             resourceInputs["recoveryQuestion"] = state ? state.recoveryQuestion : undefined;
             resourceInputs["secondEmail"] = state ? state.secondEmail : undefined;
-            resourceInputs["skipRoles"] = state ? state.skipRoles : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["streetAddress"] = state ? state.streetAddress : undefined;
@@ -378,7 +352,6 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.login === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            resourceInputs["adminRoles"] = args ? args.adminRoles : undefined;
             resourceInputs["city"] = args ? args.city : undefined;
             resourceInputs["costCenter"] = args ? args.costCenter : undefined;
             resourceInputs["countryCode"] = args ? args.countryCode : undefined;
@@ -391,7 +364,6 @@ export class User extends pulumi.CustomResource {
             resourceInputs["employeeNumber"] = args ? args.employeeNumber : undefined;
             resourceInputs["expirePasswordOnCreate"] = args ? args.expirePasswordOnCreate : undefined;
             resourceInputs["firstName"] = args ? args.firstName : undefined;
-            resourceInputs["groupMemberships"] = args ? args.groupMemberships : undefined;
             resourceInputs["honorificPrefix"] = args ? args.honorificPrefix : undefined;
             resourceInputs["honorificSuffix"] = args ? args.honorificSuffix : undefined;
             resourceInputs["lastName"] = args ? args.lastName : undefined;
@@ -414,7 +386,6 @@ export class User extends pulumi.CustomResource {
             resourceInputs["recoveryAnswer"] = args?.recoveryAnswer ? pulumi.secret(args.recoveryAnswer) : undefined;
             resourceInputs["recoveryQuestion"] = args ? args.recoveryQuestion : undefined;
             resourceInputs["secondEmail"] = args ? args.secondEmail : undefined;
-            resourceInputs["skipRoles"] = args ? args.skipRoles : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["streetAddress"] = args ? args.streetAddress : undefined;
@@ -435,12 +406,6 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
-    /**
-     * Administrator roles assigned to User.
-     *
-     * @deprecated The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-     */
-    adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User profile property.
      */
@@ -490,12 +455,6 @@ export interface UserState {
      * User's First Name, required by default.
      */
     firstName?: pulumi.Input<string>;
-    /**
-     * User profile property.
-     *
-     * @deprecated The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-     */
-    groupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User profile property.
      */
@@ -583,6 +542,9 @@ export interface UserState {
     rawStatus?: pulumi.Input<string>;
     /**
      * User password recovery answer.
+     *
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
      */
     recoveryAnswer?: pulumi.Input<string>;
     /**
@@ -593,10 +555,6 @@ export interface UserState {
      * User profile property.
      */
     secondEmail?: pulumi.Input<string>;
-    /**
-     * Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-     */
-    skipRoles?: pulumi.Input<boolean>;
     /**
      * User profile property.
      */
@@ -631,12 +589,6 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
-    /**
-     * Administrator roles assigned to User.
-     *
-     * @deprecated The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-     */
-    adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User profile property.
      */
@@ -686,12 +638,6 @@ export interface UserArgs {
      * User's First Name, required by default.
      */
     firstName: pulumi.Input<string>;
-    /**
-     * User profile property.
-     *
-     * @deprecated The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-     */
-    groupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User profile property.
      */
@@ -775,6 +721,9 @@ export interface UserArgs {
     profileUrl?: pulumi.Input<string>;
     /**
      * User password recovery answer.
+     *
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
      */
     recoveryAnswer?: pulumi.Input<string>;
     /**
@@ -785,10 +734,6 @@ export interface UserArgs {
      * User profile property.
      */
     secondEmail?: pulumi.Input<string>;
-    /**
-     * Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-     */
-    skipRoles?: pulumi.Input<boolean>;
     /**
      * User profile property.
      */

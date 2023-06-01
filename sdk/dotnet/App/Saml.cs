@@ -211,18 +211,6 @@ namespace Pulumi.Okta.App
     /// ```
     /// 
     ///  It's also possible to import app without groups or/and users. In this case ID may look like this
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;/skip_users
-    /// ```
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;/skip_users/skip_groups
-    /// ```
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;/skip_groups
-    /// ```
     /// </summary>
     [OktaResourceType("okta:app/saml:Saml")]
     public partial class Saml : global::Pulumi.CustomResource
@@ -360,12 +348,6 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<string>> Features { get; private set; } = null!;
 
         /// <summary>
-        /// Groups associated with the application.
-        /// </summary>
-        [Output("groups")]
-        public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
-
-        /// <summary>
         /// Do not display application icon on mobile app. Default is: `false`
         /// </summary>
         [Output("hideIos")]
@@ -402,7 +384,7 @@ namespace Pulumi.Okta.App
         public Output<string?> IdpIssuer { get; private set; } = null!;
 
         /// <summary>
-        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         /// </summary>
         [Output("implicitAssignment")]
         public Output<bool?> ImplicitAssignment { get; private set; } = null!;
@@ -540,18 +522,6 @@ namespace Pulumi.Okta.App
         public Output<string?> SingleLogoutUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-        /// </summary>
-        [Output("skipGroups")]
-        public Output<bool?> SkipGroups { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-        /// </summary>
-        [Output("skipUsers")]
-        public Output<bool?> SkipUsers { get; private set; } = null!;
-
-        /// <summary>
         /// SAML service provider issuer.
         /// </summary>
         [Output("spIssuer")]
@@ -604,12 +574,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
-
-        /// <summary>
-        /// Users associated with the application.
-        /// </summary>
-        [Output("users")]
-        public Output<ImmutableArray<Outputs.SamlUser>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -771,19 +735,6 @@ namespace Pulumi.Okta.App
         [Input("enduserNote")]
         public Input<string>? EnduserNote { get; set; }
 
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// Groups associated with the application.
-        /// </summary>
-        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
-        }
-
         /// <summary>
         /// Do not display application icon on mobile app. Default is: `false`
         /// </summary>
@@ -809,7 +760,7 @@ namespace Pulumi.Okta.App
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
-        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         /// </summary>
         [Input("implicitAssignment")]
         public Input<bool>? ImplicitAssignment { get; set; }
@@ -905,18 +856,6 @@ namespace Pulumi.Okta.App
         public Input<string>? SingleLogoutUrl { get; set; }
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public Input<bool>? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
-        /// <summary>
         /// SAML service provider issuer.
         /// </summary>
         [Input("spIssuer")]
@@ -969,19 +908,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
-
-        [Input("users")]
-        private InputList<Inputs.SamlUserArgs>? _users;
-
-        /// <summary>
-        /// Users associated with the application.
-        /// </summary>
-        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
-        public InputList<Inputs.SamlUserArgs> Users
-        {
-            get => _users ?? (_users = new InputList<Inputs.SamlUserArgs>());
-            set => _users = value;
-        }
 
         public SamlArgs()
         {
@@ -1141,19 +1067,6 @@ namespace Pulumi.Okta.App
             set => _features = value;
         }
 
-        [Input("groups")]
-        private InputList<string>? _groups;
-
-        /// <summary>
-        /// Groups associated with the application.
-        /// </summary>
-        [Obsolete(@"The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.")]
-        public InputList<string> Groups
-        {
-            get => _groups ?? (_groups = new InputList<string>());
-            set => _groups = value;
-        }
-
         /// <summary>
         /// Do not display application icon on mobile app. Default is: `false`
         /// </summary>
@@ -1191,7 +1104,7 @@ namespace Pulumi.Okta.App
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
-        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         /// </summary>
         [Input("implicitAssignment")]
         public Input<bool>? ImplicitAssignment { get; set; }
@@ -1335,18 +1248,6 @@ namespace Pulumi.Okta.App
         public Input<string>? SingleLogoutUrl { get; set; }
 
         /// <summary>
-        /// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public Input<bool>? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
-        /// <summary>
         /// SAML service provider issuer.
         /// </summary>
         [Input("spIssuer")]
@@ -1399,19 +1300,6 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
-
-        [Input("users")]
-        private InputList<Inputs.SamlUserGetArgs>? _users;
-
-        /// <summary>
-        /// Users associated with the application.
-        /// </summary>
-        [Obsolete(@"The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.")]
-        public InputList<Inputs.SamlUserGetArgs> Users
-        {
-            get => _users ?? (_users = new InputList<Inputs.SamlUserGetArgs>());
-            set => _users = value;
-        }
 
         public SamlState()
         {

@@ -28,8 +28,6 @@ namespace Pulumi.Okta.Idp
     ///     {
     ///         ClientId = "abcd123",
     ///         ClientSecret = "abcd123",
-    ///         MatchAttribute = "customfieldId",
-    ///         MatchType = "CUSTOM_ATTRIBUTE",
     ///         ProtocolType = "OAUTH2",
     ///         Scopes = new[]
     ///         {
@@ -145,12 +143,6 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
-
-        [Output("matchAttribute")]
-        public Output<string?> MatchAttribute { get; private set; } = null!;
-
-        [Output("matchType")]
-        public Output<string?> MatchType { get; private set; } = null!;
 
         /// <summary>
         /// Maximum allowable clock-skew when processing messages from the IdP.
@@ -405,12 +397,6 @@ namespace Pulumi.Okta.Idp
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
 
-        [Input("matchAttribute")]
-        public Input<string>? MatchAttribute { get; set; }
-
-        [Input("matchType")]
-        public Input<string>? MatchType { get; set; }
-
         /// <summary>
         /// Maximum allowable clock-skew when processing messages from the IdP.
         /// </summary>
@@ -626,12 +612,6 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
-
-        [Input("matchAttribute")]
-        public Input<string>? MatchAttribute { get; set; }
-
-        [Input("matchType")]
-        public Input<string>? MatchType { get; set; }
 
         /// <summary>
         /// Maximum allowable clock-skew when processing messages from the IdP.

@@ -10,102 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'SchemaArrayOneOf',
-    'SchemaMasterOverridePriority',
-    'SchemaOneOf',
     'UserPasswordHash',
     'GetUserSearchResult',
     'GetUsersSearchResult',
     'GetUsersUserResult',
 ]
-
-@pulumi.output_type
-class SchemaArrayOneOf(dict):
-    def __init__(__self__, *,
-                 const: str,
-                 title: str):
-        """
-        :param str const: value mapping to member of `enum`.
-        :param str title: display name for the enum value.
-        """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
-
-    @property
-    @pulumi.getter
-    def const(self) -> str:
-        """
-        value mapping to member of `enum`.
-        """
-        return pulumi.get(self, "const")
-
-    @property
-    @pulumi.getter
-    def title(self) -> str:
-        """
-        display name for the enum value.
-        """
-        return pulumi.get(self, "title")
-
-
-@pulumi.output_type
-class SchemaMasterOverridePriority(dict):
-    def __init__(__self__, *,
-                 value: str,
-                 type: Optional[str] = None):
-        """
-        :param str value: ID of profile source.
-        :param str type: Type of profile source.
-        """
-        pulumi.set(__self__, "value", value)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        ID of profile source.
-        """
-        return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Type of profile source.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class SchemaOneOf(dict):
-    def __init__(__self__, *,
-                 const: str,
-                 title: str):
-        """
-        :param str const: value mapping to member of `enum`.
-        :param str title: display name for the enum value.
-        """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
-
-    @property
-    @pulumi.getter
-    def const(self) -> str:
-        """
-        value mapping to member of `enum`.
-        """
-        return pulumi.get(self, "const")
-
-    @property
-    @pulumi.getter
-    def title(self) -> str:
-        """
-        display name for the enum value.
-        """
-        return pulumi.get(self, "title")
-
 
 @pulumi.output_type
 class UserPasswordHash(dict):

@@ -5,10 +5,8 @@ package com.pulumi.okta.app;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.okta.app.inputs.AutoLoginUserArgs;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -151,29 +149,6 @@ public final class AutoLoginArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> enduserNote() {
         return Optional.ofNullable(this.enduserNote);
-    }
-
-    /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * 
-     * @deprecated
-     * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-    @Import(name="groups")
-    private @Nullable Output<List<String>> groups;
-
-    /**
-     * @return Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * 
-     * @deprecated
-     * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-    public Optional<Output<List<String>>> groups() {
-        return Optional.ofNullable(this.groups);
     }
 
     /**
@@ -327,36 +302,6 @@ public final class AutoLoginArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Import(name="skipGroups")
-    private @Nullable Output<Boolean> skipGroups;
-
-    /**
-     * @return Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> skipGroups() {
-        return Optional.ofNullable(this.skipGroups);
-    }
-
-    /**
-     * Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Import(name="skipUsers")
-    private @Nullable Output<Boolean> skipUsers;
-
-    /**
-     * @return Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> skipUsers() {
-        return Optional.ofNullable(this.skipUsers);
-    }
-
-    /**
      * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
      * 
      */
@@ -431,29 +376,6 @@ public final class AutoLoginArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.userNameTemplateType);
     }
 
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * 
-     * @deprecated
-     * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-    @Import(name="users")
-    private @Nullable Output<List<AutoLoginUserArgs>> users;
-
-    /**
-     * @return The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * 
-     * @deprecated
-     * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-    public Optional<Output<List<AutoLoginUserArgs>>> users() {
-        return Optional.ofNullable(this.users);
-    }
-
     private AutoLoginArgs() {}
 
     private AutoLoginArgs(AutoLoginArgs $) {
@@ -466,7 +388,6 @@ public final class AutoLoginArgs extends com.pulumi.resources.ResourceArgs {
         this.autoSubmitToolbar = $.autoSubmitToolbar;
         this.credentialsScheme = $.credentialsScheme;
         this.enduserNote = $.enduserNote;
-        this.groups = $.groups;
         this.hideIos = $.hideIos;
         this.hideWeb = $.hideWeb;
         this.label = $.label;
@@ -477,14 +398,11 @@ public final class AutoLoginArgs extends com.pulumi.resources.ResourceArgs {
         this.sharedUsername = $.sharedUsername;
         this.signOnRedirectUrl = $.signOnRedirectUrl;
         this.signOnUrl = $.signOnUrl;
-        this.skipGroups = $.skipGroups;
-        this.skipUsers = $.skipUsers;
         this.status = $.status;
         this.userNameTemplate = $.userNameTemplate;
         this.userNameTemplatePushStatus = $.userNameTemplatePushStatus;
         this.userNameTemplateSuffix = $.userNameTemplateSuffix;
         this.userNameTemplateType = $.userNameTemplateType;
-        this.users = $.users;
     }
 
     public static Builder builder() {
@@ -692,49 +610,6 @@ public final class AutoLoginArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enduserNote(String enduserNote) {
             return enduserNote(Output.of(enduserNote));
-        }
-
-        /**
-         * @param groups Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-        public Builder groups(@Nullable Output<List<String>> groups) {
-            $.groups = groups;
-            return this;
-        }
-
-        /**
-         * @param groups Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-        public Builder groups(List<String> groups) {
-            return groups(Output.of(groups));
-        }
-
-        /**
-         * @param groups Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-        public Builder groups(String... groups) {
-            return groups(List.of(groups));
         }
 
         /**
@@ -948,48 +823,6 @@ public final class AutoLoginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipGroups Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipGroups(@Nullable Output<Boolean> skipGroups) {
-            $.skipGroups = skipGroups;
-            return this;
-        }
-
-        /**
-         * @param skipGroups Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipGroups(Boolean skipGroups) {
-            return skipGroups(Output.of(skipGroups));
-        }
-
-        /**
-         * @param skipUsers Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipUsers(@Nullable Output<Boolean> skipUsers) {
-            $.skipUsers = skipUsers;
-            return this;
-        }
-
-        /**
-         * @param skipUsers Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipUsers(Boolean skipUsers) {
-            return skipUsers(Output.of(skipUsers));
-        }
-
-        /**
          * @param status The status of the application, by default, it is `&#34;ACTIVE&#34;`.
          * 
          * @return builder
@@ -1092,49 +925,6 @@ public final class AutoLoginArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder userNameTemplateType(String userNameTemplateType) {
             return userNameTemplateType(Output.of(userNameTemplateType));
-        }
-
-        /**
-         * @param users The users assigned to the application. See `okta.app.User` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-        public Builder users(@Nullable Output<List<AutoLoginUserArgs>> users) {
-            $.users = users;
-            return this;
-        }
-
-        /**
-         * @param users The users assigned to the application. See `okta.app.User` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-        public Builder users(List<AutoLoginUserArgs> users) {
-            return users(Output.of(users));
-        }
-
-        /**
-         * @param users The users assigned to the application. See `okta.app.User` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-        public Builder users(AutoLoginUserArgs... users) {
-            return users(List.of(users));
         }
 
         public AutoLoginArgs build() {

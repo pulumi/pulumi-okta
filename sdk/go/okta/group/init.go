@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,12 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "okta:group/group:Group":
 		r = &Group{}
-	case "okta:group/membership:Membership":
-		r = &Membership{}
 	case "okta:group/role:Role":
 		r = &Role{}
-	case "okta:group/roles:Roles":
-		r = &Roles{}
 	case "okta:group/rule:Rule":
 		r = &Rule{}
 	default:
@@ -51,17 +47,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
-		"group/membership",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"okta",
 		"group/role",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"okta",
-		"group/roles",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

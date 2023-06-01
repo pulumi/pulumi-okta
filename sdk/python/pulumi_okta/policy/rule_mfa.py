@@ -24,7 +24,6 @@ class RuleMfaArgs:
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -38,7 +37,6 @@ class RuleMfaArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
@@ -59,11 +57,6 @@ class RuleMfaArgs:
             pulumi.set(__self__, "network_includes", network_includes)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if policyid is not None:
-            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-        if policyid is not None:
-            pulumi.set(__self__, "policyid", policyid)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
@@ -166,18 +159,6 @@ class RuleMfaArgs:
     @policy_id.setter
     def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
-
-    @policyid.setter
-    def policyid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policyid", value)
 
     @property
     @pulumi.getter
@@ -227,7 +208,6 @@ class _RuleMfaState:
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -241,7 +221,6 @@ class _RuleMfaState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
@@ -262,11 +241,6 @@ class _RuleMfaState:
             pulumi.set(__self__, "network_includes", network_includes)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if policyid is not None:
-            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-        if policyid is not None:
-            pulumi.set(__self__, "policyid", policyid)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
@@ -369,18 +343,6 @@ class _RuleMfaState:
     @policy_id.setter
     def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
-
-    @policyid.setter
-    def policyid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policyid", value)
 
     @property
     @pulumi.getter
@@ -432,123 +394,12 @@ class RuleMfa(pulumi.CustomResource):
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         This resource allows you to create and configure an MFA Policy Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_o_auth = okta.app.OAuth("exampleOAuth",
-            label="My App",
-            type="web",
-            grant_types=["authorization_code"],
-            redirect_uris=["http://localhost:8000"],
-            response_types=["code"],
-            skip_groups=True)
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
-            policy_id=example_default_policy.id,
-            status="ACTIVE",
-            enroll="LOGIN",
-            app_includes=[
-                okta.policy.RuleMfaAppIncludeArgs(
-                    id=example_o_auth.id,
-                    type="APP",
-                ),
-                okta.policy.RuleMfaAppIncludeArgs(
-                    type="APP_TYPE",
-                    name="yahoo_mail",
-                ),
-            ])
-        ```
-
-        Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
-            policy_id=example_default_policy.id,
-            app_excludes=[okta.policy.RuleMfaAppExcludeArgs(
-                name="okta",
-                type="APP_TYPE",
-            )])
-        ```
-
-        Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
-            policy_id=example_default_policy.id,
-            app_excludes=[okta.policy.RuleMfaAppExcludeArgs(
-                name="okta",
-                type="APP_TYPE",
-            )],
-            app_includes=[okta.policy.RuleMfaAppIncludeArgs(
-                id="some_app_id",
-                type="APP",
-            )])
-        ```
-
-        Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
-            policy_id=example_default_policy.id,
-            app_includes=[okta.policy.RuleMfaAppIncludeArgs(
-                name="okta",
-                type="APP_TYPE",
-            )])
-        ```
-
-        Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa", policy_id=example_default_policy.id)
-        ```
-
-        Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
-            policy_id=example_default_policy.id,
-            app_includes=[
-                okta.policy.RuleMfaAppIncludeArgs(
-                    name="okta",
-                    type="APP_TYPE",
-                ),
-                okta.policy.RuleMfaAppIncludeArgs(
-                    id="some_app_id",
-                    type="APP",
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -568,7 +419,6 @@ class RuleMfa(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
@@ -581,116 +431,6 @@ class RuleMfa(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and configure an MFA Policy Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_o_auth = okta.app.OAuth("exampleOAuth",
-            label="My App",
-            type="web",
-            grant_types=["authorization_code"],
-            redirect_uris=["http://localhost:8000"],
-            response_types=["code"],
-            skip_groups=True)
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
-            policy_id=example_default_policy.id,
-            status="ACTIVE",
-            enroll="LOGIN",
-            app_includes=[
-                okta.policy.RuleMfaAppIncludeArgs(
-                    id=example_o_auth.id,
-                    type="APP",
-                ),
-                okta.policy.RuleMfaAppIncludeArgs(
-                    type="APP_TYPE",
-                    name="yahoo_mail",
-                ),
-            ])
-        ```
-
-        Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
-            policy_id=example_default_policy.id,
-            app_excludes=[okta.policy.RuleMfaAppExcludeArgs(
-                name="okta",
-                type="APP_TYPE",
-            )])
-        ```
-
-        Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
-            policy_id=example_default_policy.id,
-            app_excludes=[okta.policy.RuleMfaAppExcludeArgs(
-                name="okta",
-                type="APP_TYPE",
-            )],
-            app_includes=[okta.policy.RuleMfaAppIncludeArgs(
-                id="some_app_id",
-                type="APP",
-            )])
-        ```
-
-        Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
-            policy_id=example_default_policy.id,
-            app_includes=[okta.policy.RuleMfaAppIncludeArgs(
-                name="okta",
-                type="APP_TYPE",
-            )])
-        ```
-
-        Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa", policy_id=example_default_policy.id)
-        ```
-
-        Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_default_policy = okta.policy.get_default_policy(type="MFA_ENROLL")
-        example_rule_mfa = okta.policy.RuleMfa("exampleRuleMfa",
-            policy_id=example_default_policy.id,
-            app_includes=[
-                okta.policy.RuleMfaAppIncludeArgs(
-                    name="okta",
-                    type="APP_TYPE",
-                ),
-                okta.policy.RuleMfaAppIncludeArgs(
-                    id="some_app_id",
-                    type="APP",
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -723,7 +463,6 @@ class RuleMfa(pulumi.CustomResource):
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -744,10 +483,6 @@ class RuleMfa(pulumi.CustomResource):
             __props__.__dict__["network_excludes"] = network_excludes
             __props__.__dict__["network_includes"] = network_includes
             __props__.__dict__["policy_id"] = policy_id
-            if policyid is not None and not opts.urn:
-                warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-                pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-            __props__.__dict__["policyid"] = policyid
             __props__.__dict__["priority"] = priority
             __props__.__dict__["status"] = status
             __props__.__dict__["users_excludeds"] = users_excludeds
@@ -769,7 +504,6 @@ class RuleMfa(pulumi.CustomResource):
             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
-            policyid: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             status: Optional[pulumi.Input[str]] = None,
             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'RuleMfa':
@@ -788,7 +522,6 @@ class RuleMfa(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
@@ -805,7 +538,6 @@ class RuleMfa(pulumi.CustomResource):
         __props__.__dict__["network_excludes"] = network_excludes
         __props__.__dict__["network_includes"] = network_includes
         __props__.__dict__["policy_id"] = policy_id
-        __props__.__dict__["policyid"] = policyid
         __props__.__dict__["priority"] = priority
         __props__.__dict__["status"] = status
         __props__.__dict__["users_excludeds"] = users_excludeds
@@ -874,14 +606,6 @@ class RuleMfa(pulumi.CustomResource):
         Policy ID.
         """
         return pulumi.get(self, "policy_id")
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> pulumi.Output[Optional[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
 
     @property
     @pulumi.getter

@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserResult {
-    /**
-     * @return Administrator roles assigned to user.
-     * 
-     */
     private List<String> adminRoles;
     /**
      * @return City or locality component of user&#39;s address.
@@ -71,10 +67,6 @@ public final class GetUserResult {
      * 
      */
     private String firstName;
-    /**
-     * @return Groups user belongs to.
-     * 
-     */
     private List<String> groupMemberships;
     /**
      * @return Honorific prefix(es) of the user, or title in most Western languages.
@@ -207,10 +199,6 @@ public final class GetUserResult {
     private String zipCode;
 
     private GetUserResult() {}
-    /**
-     * @return Administrator roles assigned to user.
-     * 
-     */
     public List<String> adminRoles() {
         return this.adminRoles;
     }
@@ -290,10 +278,6 @@ public final class GetUserResult {
     public String firstName() {
         return this.firstName;
     }
-    /**
-     * @return Groups user belongs to.
-     * 
-     */
     public List<String> groupMemberships() {
         return this.groupMemberships;
     }

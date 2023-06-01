@@ -102,6 +102,16 @@ namespace Pulumi.Okta.Policy
     {
         /// <summary>
         /// Applications to exclude in discovery. See `app_include` for details.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Output("appExcludes")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppExclude>> AppExcludes { get; private set; } = null!;
@@ -156,12 +166,6 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Output("policyId")]
         public Output<string?> PolicyId { get; private set; } = null!;
-
-        /// <summary>
-        /// Policy ID.
-        /// </summary>
-        [Output("policyid")]
-        public Output<string?> Policyid { get; private set; } = null!;
 
         /// <summary>
         /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
@@ -244,6 +248,16 @@ namespace Pulumi.Okta.Policy
 
         /// <summary>
         /// Applications to exclude in discovery. See `app_include` for details.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppExcludeArgs> AppExcludes
         {
@@ -326,12 +340,6 @@ namespace Pulumi.Okta.Policy
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Policy ID.
-        /// </summary>
-        [Input("policyid")]
-        public Input<string>? Policyid { get; set; }
-
-        /// <summary>
         /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Input("priority")]
@@ -380,6 +388,16 @@ namespace Pulumi.Okta.Policy
 
         /// <summary>
         /// Applications to exclude in discovery. See `app_include` for details.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppExcludeGetArgs> AppExcludes
         {
@@ -460,12 +478,6 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
-
-        /// <summary>
-        /// Policy ID.
-        /// </summary>
-        [Input("policyid")]
-        public Input<string>? Policyid { get; set; }
 
         /// <summary>
         /// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.

@@ -61,20 +61,6 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
  * ```
- *
- *  It's also possible to import app without groups or/and users. In this case ID may look like this
- *
- * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users
- * ```
- *
- * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users/skip_groups
- * ```
- *
- * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_groups
- * ```
  */
 export class OAuth extends pulumi.CustomResource {
     /**
@@ -165,12 +151,6 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly consentMethod!: pulumi.Output<string | undefined>;
     /**
-     * This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-     *
-     * @deprecated This field is being replaced by client_id. Please set that field instead.
-     */
-    public readonly customClientId!: pulumi.Output<string | undefined>;
-    /**
      * Application notes for end users.
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
@@ -181,12 +161,6 @@ export class OAuth extends pulumi.CustomResource {
      * `"interactionCode"` (*OIE only*).
      */
     public readonly grantTypes!: pulumi.Output<string[] | undefined>;
-    /**
-     * The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
      * Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
      */
@@ -298,14 +272,6 @@ export class OAuth extends pulumi.CustomResource {
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
-    /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -346,12 +312,6 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
-     * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    public readonly users!: pulumi.Output<outputs.app.OAuthUser[] | undefined>;
-    /**
      * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
      */
     public readonly wildcardRedirect!: pulumi.Output<string | undefined>;
@@ -383,10 +343,8 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
             resourceInputs["clientUri"] = state ? state.clientUri : undefined;
             resourceInputs["consentMethod"] = state ? state.consentMethod : undefined;
-            resourceInputs["customClientId"] = state ? state.customClientId : undefined;
             resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
             resourceInputs["grantTypes"] = state ? state.grantTypes : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
             resourceInputs["groupsClaim"] = state ? state.groupsClaim : undefined;
             resourceInputs["hideIos"] = state ? state.hideIos : undefined;
             resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
@@ -411,8 +369,6 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["refreshTokenRotation"] = state ? state.refreshTokenRotation : undefined;
             resourceInputs["responseTypes"] = state ? state.responseTypes : undefined;
             resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
-            resourceInputs["skipGroups"] = state ? state.skipGroups : undefined;
-            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tokenEndpointAuthMethod"] = state ? state.tokenEndpointAuthMethod : undefined;
             resourceInputs["tosUri"] = state ? state.tosUri : undefined;
@@ -421,7 +377,6 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             resourceInputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             resourceInputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
             resourceInputs["wildcardRedirect"] = state ? state.wildcardRedirect : undefined;
         } else {
             const args = argsOrState as OAuthArgs | undefined;
@@ -444,10 +399,8 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["clientUri"] = args ? args.clientUri : undefined;
             resourceInputs["consentMethod"] = args ? args.consentMethod : undefined;
-            resourceInputs["customClientId"] = args ? args.customClientId : undefined;
             resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
             resourceInputs["grantTypes"] = args ? args.grantTypes : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["groupsClaim"] = args ? args.groupsClaim : undefined;
             resourceInputs["hideIos"] = args ? args.hideIos : undefined;
             resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
@@ -469,8 +422,6 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["refreshTokenLeeway"] = args ? args.refreshTokenLeeway : undefined;
             resourceInputs["refreshTokenRotation"] = args ? args.refreshTokenRotation : undefined;
             resourceInputs["responseTypes"] = args ? args.responseTypes : undefined;
-            resourceInputs["skipGroups"] = args ? args.skipGroups : undefined;
-            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tokenEndpointAuthMethod"] = args ? args.tokenEndpointAuthMethod : undefined;
             resourceInputs["tosUri"] = args ? args.tosUri : undefined;
@@ -479,7 +430,6 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             resourceInputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
             resourceInputs["wildcardRedirect"] = args ? args.wildcardRedirect : undefined;
             resourceInputs["clientSecret"] = undefined /*out*/;
             resourceInputs["logoUrl"] = undefined /*out*/;
@@ -558,12 +508,6 @@ export interface OAuthState {
      */
     consentMethod?: pulumi.Input<string>;
     /**
-     * This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-     *
-     * @deprecated This field is being replaced by client_id. Please set that field instead.
-     */
-    customClientId?: pulumi.Input<string>;
-    /**
      * Application notes for end users.
      */
     enduserNote?: pulumi.Input<string>;
@@ -574,12 +518,6 @@ export interface OAuthState {
      * `"interactionCode"` (*OIE only*).
      */
     grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
      */
@@ -691,14 +629,6 @@ export interface OAuthState {
      */
     signOnMode?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
     status?: pulumi.Input<string>;
@@ -738,12 +668,6 @@ export interface OAuthState {
      * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
-    /**
-     * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.app.OAuthUser>[]>;
     /**
      * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
      */
@@ -811,12 +735,6 @@ export interface OAuthArgs {
      */
     consentMethod?: pulumi.Input<string>;
     /**
-     * This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-     *
-     * @deprecated This field is being replaced by client_id. Please set that field instead.
-     */
-    customClientId?: pulumi.Input<string>;
-    /**
      * Application notes for end users.
      */
     enduserNote?: pulumi.Input<string>;
@@ -827,12 +745,6 @@ export interface OAuthArgs {
      * `"interactionCode"` (*OIE only*).
      */
     grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The groups assigned to the application. It is recommended not to use this and instead use `okta.app.GroupAssignment`.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
      */
@@ -932,14 +844,6 @@ export interface OAuthArgs {
      */
     responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
     status?: pulumi.Input<string>;
@@ -979,12 +883,6 @@ export interface OAuthArgs {
      * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
-    /**
-     * The users assigned to the application. It is recommended not to use this and instead use `okta.app.User`.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.app.OAuthUser>[]>;
     /**
      * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
      */

@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,26 +49,6 @@ import (
 //	$ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;
 //
 // ```
-//
-//	It's also possible to import app without groups or/and users. In this case ID may look like this
-//
-// ```sh
-//
-//	$ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_users
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_users/skip_groups
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_groups
-//
-// ```
 type Bookmark struct {
 	pulumi.CustomResourceState
 
@@ -88,10 +68,6 @@ type Bookmark struct {
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -108,18 +84,10 @@ type Bookmark struct {
 	RequestIntegration pulumi.BoolPtrOutput `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The URL of the bookmark.
 	Url pulumi.StringOutput `pulumi:"url"`
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users BookmarkUserArrayOutput `pulumi:"users"`
 }
 
 // NewBookmark registers a new resource with the given unique name, arguments, and options.
@@ -173,10 +141,6 @@ type bookmarkState struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -193,18 +157,10 @@ type bookmarkState struct {
 	RequestIntegration *bool `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the bookmark.
 	Url *string `pulumi:"url"`
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []BookmarkUser `pulumi:"users"`
 }
 
 type BookmarkState struct {
@@ -224,10 +180,6 @@ type BookmarkState struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -244,18 +196,10 @@ type BookmarkState struct {
 	RequestIntegration pulumi.BoolPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the bookmark.
 	Url pulumi.StringPtrInput
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users BookmarkUserArrayInput
 }
 
 func (BookmarkState) ElementType() reflect.Type {
@@ -279,10 +223,6 @@ type bookmarkArgs struct {
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -293,18 +233,10 @@ type bookmarkArgs struct {
 	Logo *string `pulumi:"logo"`
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration *bool `pulumi:"requestIntegration"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
 	// The URL of the bookmark.
 	Url string `pulumi:"url"`
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []BookmarkUser `pulumi:"users"`
 }
 
 // The set of arguments for constructing a Bookmark resource.
@@ -325,10 +257,6 @@ type BookmarkArgs struct {
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -339,18 +267,10 @@ type BookmarkArgs struct {
 	Logo pulumi.StringPtrInput
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
 	// The URL of the bookmark.
 	Url pulumi.StringInput
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users BookmarkUserArrayInput
 }
 
 func (BookmarkArgs) ElementType() reflect.Type {
@@ -480,13 +400,6 @@ func (o BookmarkOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
-// Groups associated with the application.
-//
-// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-func (o BookmarkOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Bookmark) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
-}
-
 // Do not display application icon on mobile app.
 func (o BookmarkOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
@@ -527,16 +440,6 @@ func (o BookmarkOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-func (o BookmarkOutput) SkipGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Bookmark) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
-}
-
-// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-func (o BookmarkOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Bookmark) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
 // Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 func (o BookmarkOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
@@ -545,13 +448,6 @@ func (o BookmarkOutput) Status() pulumi.StringPtrOutput {
 // The URL of the bookmark.
 func (o BookmarkOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
-}
-
-// Users associated with the application.
-//
-// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-func (o BookmarkOutput) Users() BookmarkUserArrayOutput {
-	return o.ApplyT(func(v *Bookmark) BookmarkUserArrayOutput { return v.Users }).(BookmarkUserArrayOutput)
 }
 
 type BookmarkArrayOutput struct{ *pulumi.OutputState }

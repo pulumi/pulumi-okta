@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -43,20 +41,6 @@ import * as utilities from "./utilities";
  *
  * ```sh
  *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;
- * ```
- *
- *  It's also possible to import app without groups or/and users. In this case ID may look like this
- *
- * ```sh
- *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users
- * ```
- *
- * ```sh
- *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users/skip_groups
- * ```
- *
- * ```sh
- *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_groups
  * ```
  */
 export class AppSharedCredentials extends pulumi.CustomResource {
@@ -124,12 +108,6 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    public readonly groups!: pulumi.Output<string[] | undefined>;
-    /**
      * Do not display application icon on mobile app.
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
@@ -178,14 +156,6 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
-    /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -217,12 +187,6 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      * CSS selector for the username field.
      */
     public readonly usernameField!: pulumi.Output<string | undefined>;
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    public readonly users!: pulumi.Output<outputs.AppSharedCredentialsUser[] | undefined>;
 
     /**
      * Create a AppSharedCredentials resource with the given unique name, arguments, and options.
@@ -246,7 +210,6 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             resourceInputs["buttonField"] = state ? state.buttonField : undefined;
             resourceInputs["checkbox"] = state ? state.checkbox : undefined;
             resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
             resourceInputs["hideIos"] = state ? state.hideIos : undefined;
             resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
             resourceInputs["label"] = state ? state.label : undefined;
@@ -259,8 +222,6 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             resourceInputs["sharedPassword"] = state ? state.sharedPassword : undefined;
             resourceInputs["sharedUsername"] = state ? state.sharedUsername : undefined;
             resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
-            resourceInputs["skipGroups"] = state ? state.skipGroups : undefined;
-            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
             resourceInputs["urlRegex"] = state ? state.urlRegex : undefined;
@@ -269,7 +230,6 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             resourceInputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             resourceInputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
             resourceInputs["usernameField"] = state ? state.usernameField : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as AppSharedCredentialsArgs | undefined;
             if ((!args || args.label === undefined) && !opts.urn) {
@@ -284,7 +244,6 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             resourceInputs["buttonField"] = args ? args.buttonField : undefined;
             resourceInputs["checkbox"] = args ? args.checkbox : undefined;
             resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["hideIos"] = args ? args.hideIos : undefined;
             resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
             resourceInputs["label"] = args ? args.label : undefined;
@@ -294,8 +253,6 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
             resourceInputs["sharedPassword"] = args ? args.sharedPassword : undefined;
             resourceInputs["sharedUsername"] = args ? args.sharedUsername : undefined;
-            resourceInputs["skipGroups"] = args ? args.skipGroups : undefined;
-            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["urlRegex"] = args ? args.urlRegex : undefined;
@@ -304,7 +261,6 @@ export class AppSharedCredentials extends pulumi.CustomResource {
             resourceInputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             resourceInputs["usernameField"] = args ? args.usernameField : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
             resourceInputs["logoUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["signOnMode"] = undefined /*out*/;
@@ -355,12 +311,6 @@ export interface AppSharedCredentialsState {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Do not display application icon on mobile app.
      */
     hideIos?: pulumi.Input<boolean>;
@@ -409,14 +359,6 @@ export interface AppSharedCredentialsState {
      */
     signOnMode?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
     status?: pulumi.Input<string>;
@@ -448,12 +390,6 @@ export interface AppSharedCredentialsState {
      * CSS selector for the username field.
      */
     usernameField?: pulumi.Input<string>;
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.AppSharedCredentialsUser>[]>;
 }
 
 /**
@@ -497,12 +433,6 @@ export interface AppSharedCredentialsArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Do not display application icon on mobile app.
      */
     hideIos?: pulumi.Input<boolean>;
@@ -539,14 +469,6 @@ export interface AppSharedCredentialsArgs {
      */
     sharedUsername?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
     status?: pulumi.Input<string>;
@@ -578,10 +500,4 @@ export interface AppSharedCredentialsArgs {
      * CSS selector for the username field.
      */
     usernameField?: pulumi.Input<string>;
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.AppSharedCredentialsUser>[]>;
 }

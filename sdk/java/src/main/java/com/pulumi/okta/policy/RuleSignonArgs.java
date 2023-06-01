@@ -82,12 +82,16 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
      * 
+     * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+     * 
      */
     @Import(name="identityProvider")
     private @Nullable Output<String> identityProvider;
 
     /**
      * @return Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
+     * 
+     * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
      * 
      */
     public Optional<Output<String>> identityProvider() {
@@ -245,29 +249,6 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy ID.
-     * 
-     * @deprecated
-     * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-     * 
-     */
-    @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-    @Import(name="policyid")
-    private @Nullable Output<String> policyid;
-
-    /**
-     * @return Policy ID.
-     * 
-     * @deprecated
-     * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-     * 
-     */
-    @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-    public Optional<Output<String>> policyid() {
-        return Optional.ofNullable(this.policyid);
-    }
-
-    /**
      * Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
      * `&#34;PASSWORD_IDP_ANY_FACTOR&#34;`, `&#34;PASSWORD_IDP&#34;`.
      * 
@@ -409,7 +390,6 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         this.networkExcludes = $.networkExcludes;
         this.networkIncludes = $.networkIncludes;
         this.policyId = $.policyId;
-        this.policyid = $.policyid;
         this.primaryFactor = $.primaryFactor;
         this.priority = $.priority;
         this.riscLevel = $.riscLevel;
@@ -545,6 +525,8 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityProvider Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
          * 
+         * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+         * 
          * @return builder
          * 
          */
@@ -555,6 +537,8 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param identityProvider Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
+         * 
+         * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
          * 
          * @return builder
          * 
@@ -801,35 +785,6 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
-        }
-
-        /**
-         * @param policyid Policy ID.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-         * 
-         */
-        @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-        public Builder policyid(@Nullable Output<String> policyid) {
-            $.policyid = policyid;
-            return this;
-        }
-
-        /**
-         * @param policyid Policy ID.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-         * 
-         */
-        @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-        public Builder policyid(String policyid) {
-            return policyid(Output.of(policyid));
         }
 
         /**

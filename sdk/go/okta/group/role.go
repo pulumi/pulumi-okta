@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/group"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,6 +73,8 @@ type Role struct {
 	// `"SUPER_ADMIN"`,
 	// `"USER_ADMIN"`
 	// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+	//
+	// - `"USER_ADMIN"` is the Group Administrator.
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
 	// A list of app names (name represents set of app instances, like 'salesforce' or '
 	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
@@ -137,6 +139,8 @@ type roleState struct {
 	// `"SUPER_ADMIN"`,
 	// `"USER_ADMIN"`
 	// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+	//
+	// - `"USER_ADMIN"` is the Group Administrator.
 	RoleType *string `pulumi:"roleType"`
 	// A list of app names (name represents set of app instances, like 'salesforce' or '
 	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
@@ -167,6 +171,8 @@ type RoleState struct {
 	// `"SUPER_ADMIN"`,
 	// `"USER_ADMIN"`
 	// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+	//
+	// - `"USER_ADMIN"` is the Group Administrator.
 	RoleType pulumi.StringPtrInput
 	// A list of app names (name represents set of app instances, like 'salesforce' or '
 	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
@@ -201,6 +207,8 @@ type roleArgs struct {
 	// `"SUPER_ADMIN"`,
 	// `"USER_ADMIN"`
 	// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+	//
+	// - `"USER_ADMIN"` is the Group Administrator.
 	RoleType string `pulumi:"roleType"`
 	// A list of app names (name represents set of app instances, like 'salesforce' or '
 	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
@@ -232,6 +240,8 @@ type RoleArgs struct {
 	// `"SUPER_ADMIN"`,
 	// `"USER_ADMIN"`
 	// . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+	//
+	// - `"USER_ADMIN"` is the Group Administrator.
 	RoleType pulumi.StringInput
 	// A list of app names (name represents set of app instances, like 'salesforce' or '
 	// facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as
@@ -354,6 +364,8 @@ func (o RoleOutput) GroupId() pulumi.StringOutput {
 // `"SUPER_ADMIN"`,
 // `"USER_ADMIN"`
 // . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+//
+// - `"USER_ADMIN"` is the Group Administrator.
 func (o RoleOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
 }

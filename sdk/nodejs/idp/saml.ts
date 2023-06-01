@@ -72,10 +72,7 @@ export class Saml extends pulumi.CustomResource {
      * Group memberships to determine link candidates.
      */
     public readonly accountLinkGroupIncludes!: pulumi.Output<string[] | undefined>;
-    /**
-     * @deprecated This property will be removed in the future, as it can only be set to 'HTTP-POST'
-     */
-    public readonly acsBinding!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly acsBinding!: pulumi.Output<string>;
     /**
      * The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
      */
@@ -261,7 +258,6 @@ export class Saml extends pulumi.CustomResource {
             }
             resourceInputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
             resourceInputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
-            resourceInputs["acsBinding"] = args ? args.acsBinding : undefined;
             resourceInputs["acsType"] = args ? args.acsType : undefined;
             resourceInputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
             resourceInputs["groupsAction"] = args ? args.groupsAction : undefined;
@@ -290,6 +286,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["subjectMatchType"] = args ? args.subjectMatchType : undefined;
             resourceInputs["suspendedAction"] = args ? args.suspendedAction : undefined;
             resourceInputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
+            resourceInputs["acsBinding"] = undefined /*out*/;
             resourceInputs["audience"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userTypeId"] = undefined /*out*/;
@@ -311,9 +308,6 @@ export interface SamlState {
      * Group memberships to determine link candidates.
      */
     accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * @deprecated This property will be removed in the future, as it can only be set to 'HTTP-POST'
-     */
     acsBinding?: pulumi.Input<string>;
     /**
      * The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
@@ -453,10 +447,6 @@ export interface SamlArgs {
      * Group memberships to determine link candidates.
      */
     accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * @deprecated This property will be removed in the future, as it can only be set to 'HTTP-POST'
-     */
-    acsBinding?: pulumi.Input<string>;
     /**
      * The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
      */

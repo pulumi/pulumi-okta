@@ -74,12 +74,6 @@ namespace Pulumi.Okta.Policy
         public Output<string?> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// Policy ID.
-        /// </summary>
-        [Output("policyid")]
-        public Output<string?> Policyid { get; private set; } = null!;
-
-        /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         /// </summary>
         [Output("priority")]
@@ -204,12 +198,6 @@ namespace Pulumi.Okta.Policy
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Policy ID.
-        /// </summary>
-        [Input("policyid")]
-        public Input<string>? Policyid { get; set; }
-
-        /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         /// </summary>
         [Input("priority")]
@@ -300,12 +288,6 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
-
-        /// <summary>
-        /// Policy ID.
-        /// </summary>
-        [Input("policyid")]
-        public Input<string>? Policyid { get; set; }
 
         /// <summary>
         /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`

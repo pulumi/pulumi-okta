@@ -8,8 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['AutoLoginArgs', 'AutoLogin']
 
@@ -26,7 +24,6 @@ class AutoLoginArgs:
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
@@ -36,14 +33,11 @@ class AutoLoginArgs:
                  shared_username: Optional[pulumi.Input[str]] = None,
                  sign_on_redirect_url: Optional[pulumi.Input[str]] = None,
                  sign_on_url: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]]] = None):
+                 user_name_template_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AutoLogin resource.
         :param pulumi.Input[str] label: The Application's display name.
@@ -56,7 +50,6 @@ class AutoLoginArgs:
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
@@ -66,14 +59,11 @@ class AutoLoginArgs:
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes
         :param pulumi.Input[str] sign_on_redirect_url: Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
         :param pulumi.Input[str] sign_on_url: App login page URL
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         pulumi.set(__self__, "label", label)
         if accessibility_error_redirect_url is not None:
@@ -94,11 +84,6 @@ class AutoLoginArgs:
             pulumi.set(__self__, "credentials_scheme", credentials_scheme)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
@@ -117,10 +102,6 @@ class AutoLoginArgs:
             pulumi.set(__self__, "sign_on_redirect_url", sign_on_redirect_url)
         if sign_on_url is not None:
             pulumi.set(__self__, "sign_on_url", sign_on_url)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if user_name_template is not None:
@@ -131,11 +112,6 @@ class AutoLoginArgs:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter
@@ -258,18 +234,6 @@ class AutoLoginArgs:
         pulumi.set(self, "enduser_note", value)
 
     @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
-
-    @property
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -378,30 +342,6 @@ class AutoLoginArgs:
         pulumi.set(self, "sign_on_url", value)
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -461,18 +401,6 @@ class AutoLoginArgs:
     def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name_template_type", value)
 
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]]]:
-        """
-        The users assigned to the application. See `app.User` for a more flexible approach.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]]]):
-        pulumi.set(self, "users", value)
-
 
 @pulumi.input_type
 class _AutoLoginState:
@@ -486,7 +414,6 @@ class _AutoLoginState:
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -500,14 +427,11 @@ class _AutoLoginState:
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
                  sign_on_redirect_url: Optional[pulumi.Input[str]] = None,
                  sign_on_url: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]]] = None):
+                 user_name_template_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AutoLogin resources.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -519,7 +443,6 @@ class _AutoLoginState:
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -533,14 +456,11 @@ class _AutoLoginState:
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of the application.
         :param pulumi.Input[str] sign_on_redirect_url: Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
         :param pulumi.Input[str] sign_on_url: App login page URL
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -560,11 +480,6 @@ class _AutoLoginState:
             pulumi.set(__self__, "credentials_scheme", credentials_scheme)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
@@ -591,10 +506,6 @@ class _AutoLoginState:
             pulumi.set(__self__, "sign_on_redirect_url", sign_on_redirect_url)
         if sign_on_url is not None:
             pulumi.set(__self__, "sign_on_url", sign_on_url)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if user_name_template is not None:
@@ -605,11 +516,6 @@ class _AutoLoginState:
             pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -718,18 +624,6 @@ class _AutoLoginState:
     @enduser_note.setter
     def enduser_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "enduser_note", value)
-
-    @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
 
     @property
     @pulumi.getter(name="hideIos")
@@ -888,30 +782,6 @@ class _AutoLoginState:
         pulumi.set(self, "sign_on_url", value)
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -971,18 +841,6 @@ class _AutoLoginState:
     def user_name_template_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name_template_type", value)
 
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]]]:
-        """
-        The users assigned to the application. See `app.User` for a more flexible approach.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoLoginUserArgs']]]]):
-        pulumi.set(self, "users", value)
-
 
 class AutoLogin(pulumi.CustomResource):
     @overload
@@ -998,7 +856,6 @@ class AutoLogin(pulumi.CustomResource):
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -1009,14 +866,11 @@ class AutoLogin(pulumi.CustomResource):
                  shared_username: Optional[pulumi.Input[str]] = None,
                  sign_on_redirect_url: Optional[pulumi.Input[str]] = None,
                  sign_on_url: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]]] = None,
                  __props__=None):
         """
         This resource allows you to create and configure an Auto Login Okta Application.
@@ -1059,20 +913,6 @@ class AutoLogin(pulumi.CustomResource):
          $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
         ```
 
-         It's also possible to import app without groups or/and users. In this case ID may look like this
-
-        ```sh
-         $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_groups
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -1084,7 +924,6 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -1095,14 +934,11 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes
         :param pulumi.Input[str] sign_on_redirect_url: Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
         :param pulumi.Input[str] sign_on_url: App login page URL
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         ...
     @overload
@@ -1151,20 +987,6 @@ class AutoLogin(pulumi.CustomResource):
          $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
         ```
 
-         It's also possible to import app without groups or/and users. In this case ID may look like this
-
-        ```sh
-         $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_groups
-        ```
-
         :param str resource_name: The name of the resource.
         :param AutoLoginArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1189,7 +1011,6 @@ class AutoLogin(pulumi.CustomResource):
                  auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
                  credentials_scheme: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -1200,14 +1021,11 @@ class AutoLogin(pulumi.CustomResource):
                  shared_username: Optional[pulumi.Input[str]] = None,
                  sign_on_redirect_url: Optional[pulumi.Input[str]] = None,
                  sign_on_url: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_name_template: Optional[pulumi.Input[str]] = None,
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1226,10 +1044,6 @@ class AutoLogin(pulumi.CustomResource):
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["credentials_scheme"] = credentials_scheme
             __props__.__dict__["enduser_note"] = enduser_note
-            if groups is not None and not opts.urn:
-                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-            __props__.__dict__["groups"] = groups
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
             if label is None and not opts.urn:
@@ -1242,17 +1056,11 @@ class AutoLogin(pulumi.CustomResource):
             __props__.__dict__["shared_username"] = shared_username
             __props__.__dict__["sign_on_redirect_url"] = sign_on_redirect_url
             __props__.__dict__["sign_on_url"] = sign_on_url
-            __props__.__dict__["skip_groups"] = skip_groups
-            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["status"] = status
             __props__.__dict__["user_name_template"] = user_name_template
             __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
-            if users is not None and not opts.urn:
-                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-            __props__.__dict__["users"] = users
             __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
@@ -1275,7 +1083,6 @@ class AutoLogin(pulumi.CustomResource):
             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
             credentials_scheme: Optional[pulumi.Input[str]] = None,
             enduser_note: Optional[pulumi.Input[str]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
@@ -1289,14 +1096,11 @@ class AutoLogin(pulumi.CustomResource):
             sign_on_mode: Optional[pulumi.Input[str]] = None,
             sign_on_redirect_url: Optional[pulumi.Input[str]] = None,
             sign_on_url: Optional[pulumi.Input[str]] = None,
-            skip_groups: Optional[pulumi.Input[bool]] = None,
-            skip_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             user_name_template: Optional[pulumi.Input[str]] = None,
             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
-            user_name_template_type: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]]] = None) -> 'AutoLogin':
+            user_name_template_type: Optional[pulumi.Input[str]] = None) -> 'AutoLogin':
         """
         Get an existing AutoLogin resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1313,7 +1117,6 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The Application's display name.
@@ -1327,14 +1130,11 @@ class AutoLogin(pulumi.CustomResource):
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of the application.
         :param pulumi.Input[str] sign_on_redirect_url: Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
         :param pulumi.Input[str] sign_on_url: App login page URL
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoLoginUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1349,7 +1149,6 @@ class AutoLogin(pulumi.CustomResource):
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["credentials_scheme"] = credentials_scheme
         __props__.__dict__["enduser_note"] = enduser_note
-        __props__.__dict__["groups"] = groups
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
         __props__.__dict__["label"] = label
@@ -1363,14 +1162,11 @@ class AutoLogin(pulumi.CustomResource):
         __props__.__dict__["sign_on_mode"] = sign_on_mode
         __props__.__dict__["sign_on_redirect_url"] = sign_on_redirect_url
         __props__.__dict__["sign_on_url"] = sign_on_url
-        __props__.__dict__["skip_groups"] = skip_groups
-        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["status"] = status
         __props__.__dict__["user_name_template"] = user_name_template
         __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
         __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
         __props__.__dict__["user_name_template_type"] = user_name_template_type
-        __props__.__dict__["users"] = users
         return AutoLogin(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1444,14 +1240,6 @@ class AutoLogin(pulumi.CustomResource):
         Application notes for end users.
         """
         return pulumi.get(self, "enduser_note")
-
-    @property
-    @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        """
-        return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter(name="hideIos")
@@ -1558,22 +1346,6 @@ class AutoLogin(pulumi.CustomResource):
         return pulumi.get(self, "sign_on_url")
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1612,12 +1384,4 @@ class AutoLogin(pulumi.CustomResource):
         Username template type. Default: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
-
-    @property
-    @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[Sequence['outputs.AutoLoginUser']]]:
-        """
-        The users assigned to the application. See `app.User` for a more flexible approach.
-        """
-        return pulumi.get(self, "users")
 

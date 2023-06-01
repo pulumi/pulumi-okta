@@ -48,21 +48,9 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.accountLinkGroupIncludes);
     }
 
-    /**
-     * @deprecated
-     * This property will be removed in the future, as it can only be set to &#39;HTTP-POST&#39;
-     * 
-     */
-    @Deprecated /* This property will be removed in the future, as it can only be set to 'HTTP-POST' */
     @Import(name="acsBinding")
     private @Nullable Output<String> acsBinding;
 
-    /**
-     * @deprecated
-     * This property will be removed in the future, as it can only be set to &#39;HTTP-POST&#39;
-     * 
-     */
-    @Deprecated /* This property will be removed in the future, as it can only be set to 'HTTP-POST' */
     public Optional<Output<String>> acsBinding() {
         return Optional.ofNullable(this.acsBinding);
     }
@@ -641,27 +629,11 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
             return accountLinkGroupIncludes(List.of(accountLinkGroupIncludes));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property will be removed in the future, as it can only be set to &#39;HTTP-POST&#39;
-         * 
-         */
-        @Deprecated /* This property will be removed in the future, as it can only be set to 'HTTP-POST' */
         public Builder acsBinding(@Nullable Output<String> acsBinding) {
             $.acsBinding = acsBinding;
             return this;
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property will be removed in the future, as it can only be set to &#39;HTTP-POST&#39;
-         * 
-         */
-        @Deprecated /* This property will be removed in the future, as it can only be set to 'HTTP-POST' */
         public Builder acsBinding(String acsBinding) {
             return acsBinding(Output.of(acsBinding));
         }

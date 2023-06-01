@@ -19,29 +19,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     public static final UserArgs Empty = new UserArgs();
 
     /**
-     * Administrator roles assigned to User.
-     * 
-     * @deprecated
-     * The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-     * 
-     */
-    @Deprecated /* The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles` */
-    @Import(name="adminRoles")
-    private @Nullable Output<List<String>> adminRoles;
-
-    /**
-     * @return Administrator roles assigned to User.
-     * 
-     * @deprecated
-     * The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-     * 
-     */
-    @Deprecated /* The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles` */
-    public Optional<Output<List<String>>> adminRoles() {
-        return Optional.ofNullable(this.adminRoles);
-    }
-
-    /**
      * User profile property.
      * 
      */
@@ -221,29 +198,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> firstName() {
         return this.firstName;
-    }
-
-    /**
-     * User profile property.
-     * 
-     * @deprecated
-     * The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-     * 
-     */
-    @Deprecated /* The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships` */
-    @Import(name="groupMemberships")
-    private @Nullable Output<List<String>> groupMemberships;
-
-    /**
-     * @return User profile property.
-     * 
-     * @deprecated
-     * The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-     * 
-     */
-    @Deprecated /* The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships` */
-    public Optional<Output<List<String>>> groupMemberships() {
-        return Optional.ofNullable(this.groupMemberships);
     }
 
     /**
@@ -544,12 +498,18 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * User password recovery answer.
      * 
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+     * 
      */
     @Import(name="recoveryAnswer")
     private @Nullable Output<String> recoveryAnswer;
 
     /**
      * @return User password recovery answer.
+     * 
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
      * 
      */
     public Optional<Output<String>> recoveryAnswer() {
@@ -584,21 +544,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> secondEmail() {
         return Optional.ofNullable(this.secondEmail);
-    }
-
-    /**
-     * Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
-     * 
-     */
-    @Import(name="skipRoles")
-    private @Nullable Output<Boolean> skipRoles;
-
-    /**
-     * @return Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
-     * 
-     */
-    public Optional<Output<Boolean>> skipRoles() {
-        return Optional.ofNullable(this.skipRoles);
     }
 
     /**
@@ -709,7 +654,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     private UserArgs() {}
 
     private UserArgs(UserArgs $) {
-        this.adminRoles = $.adminRoles;
         this.city = $.city;
         this.costCenter = $.costCenter;
         this.countryCode = $.countryCode;
@@ -722,7 +666,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         this.employeeNumber = $.employeeNumber;
         this.expirePasswordOnCreate = $.expirePasswordOnCreate;
         this.firstName = $.firstName;
-        this.groupMemberships = $.groupMemberships;
         this.honorificPrefix = $.honorificPrefix;
         this.honorificSuffix = $.honorificSuffix;
         this.lastName = $.lastName;
@@ -745,7 +688,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         this.recoveryAnswer = $.recoveryAnswer;
         this.recoveryQuestion = $.recoveryQuestion;
         this.secondEmail = $.secondEmail;
-        this.skipRoles = $.skipRoles;
         this.state = $.state;
         this.status = $.status;
         this.streetAddress = $.streetAddress;
@@ -771,49 +713,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(UserArgs defaults) {
             $ = new UserArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param adminRoles Administrator roles assigned to User.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-         * 
-         */
-        @Deprecated /* The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles` */
-        public Builder adminRoles(@Nullable Output<List<String>> adminRoles) {
-            $.adminRoles = adminRoles;
-            return this;
-        }
-
-        /**
-         * @param adminRoles Administrator roles assigned to User.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-         * 
-         */
-        @Deprecated /* The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles` */
-        public Builder adminRoles(List<String> adminRoles) {
-            return adminRoles(Output.of(adminRoles));
-        }
-
-        /**
-         * @param adminRoles Administrator roles assigned to User.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`
-         * 
-         */
-        @Deprecated /* The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles` */
-        public Builder adminRoles(String... adminRoles) {
-            return adminRoles(List.of(adminRoles));
         }
 
         /**
@@ -1078,49 +977,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder firstName(String firstName) {
             return firstName(Output.of(firstName));
-        }
-
-        /**
-         * @param groupMemberships User profile property.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-         * 
-         */
-        @Deprecated /* The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships` */
-        public Builder groupMemberships(@Nullable Output<List<String>> groupMemberships) {
-            $.groupMemberships = groupMemberships;
-            return this;
-        }
-
-        /**
-         * @param groupMemberships User profile property.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-         * 
-         */
-        @Deprecated /* The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships` */
-        public Builder groupMemberships(List<String> groupMemberships) {
-            return groupMemberships(Output.of(groupMemberships));
-        }
-
-        /**
-         * @param groupMemberships User profile property.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`
-         * 
-         */
-        @Deprecated /* The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships` */
-        public Builder groupMemberships(String... groupMemberships) {
-            return groupMemberships(List.of(groupMemberships));
         }
 
         /**
@@ -1535,6 +1391,9 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param recoveryAnswer User password recovery answer.
          * 
+         * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+         * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+         * 
          * @return builder
          * 
          */
@@ -1545,6 +1404,9 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param recoveryAnswer User password recovery answer.
+         * 
+         * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+         * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
          * 
          * @return builder
          * 
@@ -1593,27 +1455,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder secondEmail(String secondEmail) {
             return secondEmail(Output.of(secondEmail));
-        }
-
-        /**
-         * @param skipRoles Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipRoles(@Nullable Output<Boolean> skipRoles) {
-            $.skipRoles = skipRoles;
-            return this;
-        }
-
-        /**
-         * @param skipRoles Additional API call to collect user&#39;s roles will not be made. `admin_roles` will not be written to state if skipping roles.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipRoles(Boolean skipRoles) {
-            return skipRoles(Output.of(skipRoles));
         }
 
         /**

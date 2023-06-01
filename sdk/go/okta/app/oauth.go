@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +57,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,26 +109,6 @@ import (
 //	$ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
 //
 // ```
-//
-//	It's also possible to import app without groups or/and users. In this case ID may look like this
-//
-// ```sh
-//
-//	$ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_users/skip_groups
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;/skip_groups
-//
-// ```
 type OAuth struct {
 	pulumi.CustomResourceState
 
@@ -164,10 +144,6 @@ type OAuth struct {
 	ClientUri pulumi.StringPtrOutput `pulumi:"clientUri"`
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrOutput `pulumi:"consentMethod"`
-	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-	//
-	// Deprecated: This field is being replaced by client_id. Please set that field instead.
-	CustomClientId pulumi.StringPtrOutput `pulumi:"customClientId"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
@@ -175,10 +151,6 @@ type OAuth struct {
 	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
-	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
 	GroupsClaim OAuthGroupsClaimPtrOutput `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
@@ -241,10 +213,6 @@ type OAuth struct {
 	ResponseTypes pulumi.StringArrayOutput `pulumi:"responseTypes"`
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Requested authentication method for
@@ -269,10 +237,6 @@ type OAuth struct {
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
-	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users OAuthUserArrayOutput `pulumi:"users"`
 	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
 	WildcardRedirect pulumi.StringPtrOutput `pulumi:"wildcardRedirect"`
 }
@@ -352,10 +316,6 @@ type oauthState struct {
 	ClientUri *string `pulumi:"clientUri"`
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod *string `pulumi:"consentMethod"`
-	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-	//
-	// Deprecated: This field is being replaced by client_id. Please set that field instead.
-	CustomClientId *string `pulumi:"customClientId"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
@@ -363,10 +323,6 @@ type oauthState struct {
 	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes []string `pulumi:"grantTypes"`
-	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
@@ -429,10 +385,6 @@ type oauthState struct {
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Requested authentication method for
@@ -457,10 +409,6 @@ type oauthState struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []OAuthUser `pulumi:"users"`
 	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
 	WildcardRedirect *string `pulumi:"wildcardRedirect"`
 }
@@ -498,10 +446,6 @@ type OAuthState struct {
 	ClientUri pulumi.StringPtrInput
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrInput
-	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-	//
-	// Deprecated: This field is being replaced by client_id. Please set that field instead.
-	CustomClientId pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
@@ -509,10 +453,6 @@ type OAuthState struct {
 	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayInput
-	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
 	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app.
@@ -575,10 +515,6 @@ type OAuthState struct {
 	ResponseTypes pulumi.StringArrayInput
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Requested authentication method for
@@ -603,10 +539,6 @@ type OAuthState struct {
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
-	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users OAuthUserArrayInput
 	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
 	WildcardRedirect pulumi.StringPtrInput
 }
@@ -646,10 +578,6 @@ type oauthArgs struct {
 	ClientUri *string `pulumi:"clientUri"`
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod *string `pulumi:"consentMethod"`
-	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-	//
-	// Deprecated: This field is being replaced by client_id. Please set that field instead.
-	CustomClientId *string `pulumi:"customClientId"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
@@ -657,10 +585,6 @@ type oauthArgs struct {
 	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes []string `pulumi:"grantTypes"`
-	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
@@ -717,10 +641,6 @@ type oauthArgs struct {
 	// the OAuth 2.0 authorization code grant.
 	// See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
 	ResponseTypes []string `pulumi:"responseTypes"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Requested authentication method for
@@ -745,10 +665,6 @@ type oauthArgs struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []OAuthUser `pulumi:"users"`
 	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
 	WildcardRedirect *string `pulumi:"wildcardRedirect"`
 }
@@ -785,10 +701,6 @@ type OAuthArgs struct {
 	ClientUri pulumi.StringPtrInput
 	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrInput
-	// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-	//
-	// Deprecated: This field is being replaced by client_id. Please set that field instead.
-	CustomClientId pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
@@ -796,10 +708,6 @@ type OAuthArgs struct {
 	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayInput
-	// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
 	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app.
@@ -856,10 +764,6 @@ type OAuthArgs struct {
 	// the OAuth 2.0 authorization code grant.
 	// See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
 	ResponseTypes pulumi.StringArrayInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Requested authentication method for
@@ -884,10 +788,6 @@ type OAuthArgs struct {
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
-	// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users OAuthUserArrayInput
 	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
 	WildcardRedirect pulumi.StringPtrInput
 }
@@ -1053,13 +953,6 @@ func (o OAuthOutput) ConsentMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ConsentMethod }).(pulumi.StringPtrOutput)
 }
 
-// This property allows you to set your clientId during creation. NOTE: updating after creation will be a no-op, use clientId for that behavior instead.
-//
-// Deprecated: This field is being replaced by client_id. Please set that field instead.
-func (o OAuthOutput) CustomClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.CustomClientId }).(pulumi.StringPtrOutput)
-}
-
 // Application notes for end users.
 func (o OAuthOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
@@ -1071,13 +964,6 @@ func (o OAuthOutput) EnduserNote() pulumi.StringPtrOutput {
 // `"interactionCode"` (*OIE only*).
 func (o OAuthOutput) GrantTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.GrantTypes }).(pulumi.StringArrayOutput)
-}
-
-// The groups assigned to the application. It is recommended not to use this and instead use `app.GroupAssignment`.
-//
-// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-func (o OAuthOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
 // Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
@@ -1214,16 +1100,6 @@ func (o OAuthOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-func (o OAuthOutput) SkipGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
-}
-
-// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-func (o OAuthOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
 // The status of the application, by default, it is `"ACTIVE"`.
 func (o OAuthOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
@@ -1270,13 +1146,6 @@ func (o OAuthOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
 // Username template type. Default: `"BUILT_IN"`.
 func (o OAuthOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
-}
-
-// The users assigned to the application. It is recommended not to use this and instead use `app.User`.
-//
-// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-func (o OAuthOutput) Users() OAuthUserArrayOutput {
-	return o.ApplyT(func(v *OAuth) OAuthUserArrayOutput { return v.Users }).(OAuthUserArrayOutput)
 }
 
 // *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.

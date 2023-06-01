@@ -86,12 +86,6 @@ namespace Pulumi.Okta.Auth
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of the Auth Server Policy.
-        /// </summary>
-        [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a ServerPolicy resource with the given unique name, arguments, and options.
@@ -180,12 +174,6 @@ namespace Pulumi.Okta.Auth
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The type of the Auth Server Policy.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
         public ServerPolicyArgs()
         {
         }
@@ -235,12 +223,6 @@ namespace Pulumi.Okta.Auth
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
-
-        /// <summary>
-        /// The type of the Auth Server Policy.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
 
         public ServerPolicyState()
         {

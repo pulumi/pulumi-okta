@@ -32,24 +32,6 @@ namespace Pulumi.Okta.Group
     /// });
     /// ```
     /// 
-    /// Ignore users sync
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleSkip = new Okta.Group.Group("exampleSkip", new()
-    ///     {
-    ///         Description = "My Example Group",
-    ///         SkipUsers = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// Custom profile attributes
     /// ```csharp
     /// using System.Collections.Generic;
@@ -81,12 +63,6 @@ namespace Pulumi.Okta.Group
     /// ```sh
     ///  $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;
     /// ```
-    /// 
-    ///  It's also possible to import group without users. In this case ID will look like this
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;/skip_users
-    /// ```
     /// </summary>
     [OktaResourceType("okta:group/group:Group")]
     public partial class Group : global::Pulumi.CustomResource
@@ -108,19 +84,6 @@ namespace Pulumi.Okta.Group
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Output("skipUsers")]
-        public Output<bool?> SkipUsers { get; private set; } = null!;
-
-        /// <summary>
-        /// The users associated with the group. This can also be done per user.
-        /// `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-        /// </summary>
-        [Output("users")]
-        public Output<ImmutableArray<string>> Users { get; private set; } = null!;
 
 
         /// <summary>
@@ -186,26 +149,6 @@ namespace Pulumi.Okta.Group
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
-        [Input("users")]
-        private InputList<string>? _users;
-
-        /// <summary>
-        /// The users associated with the group. This can also be done per user.
-        /// `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-        /// </summary>
-        [Obsolete(@"The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`")]
-        public InputList<string> Users
-        {
-            get => _users ?? (_users = new InputList<string>());
-            set => _users = value;
-        }
-
         public GroupArgs()
         {
         }
@@ -231,26 +174,6 @@ namespace Pulumi.Okta.Group
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
-        [Input("users")]
-        private InputList<string>? _users;
-
-        /// <summary>
-        /// The users associated with the group. This can also be done per user.
-        /// `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-        /// </summary>
-        [Obsolete(@"The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`")]
-        public InputList<string> Users
-        {
-            get => _users ?? (_users = new InputList<string>());
-            set => _users = value;
-        }
 
         public GroupState()
         {

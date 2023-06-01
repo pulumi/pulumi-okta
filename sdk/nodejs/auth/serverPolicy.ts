@@ -84,12 +84,6 @@ export class ServerPolicy extends pulumi.CustomResource {
      * The status of the Auth Server Policy.
      */
     public readonly status!: pulumi.Output<string | undefined>;
-    /**
-     * The type of the Auth Server Policy.
-     *
-     * @deprecated Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
-     */
-    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerPolicy resource with the given unique name, arguments, and options.
@@ -110,7 +104,6 @@ export class ServerPolicy extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServerPolicyArgs | undefined;
             if ((!args || args.authServerId === undefined) && !opts.urn) {
@@ -131,7 +124,6 @@ export class ServerPolicy extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServerPolicy.__pulumiType, name, resourceInputs, opts);
@@ -166,12 +158,6 @@ export interface ServerPolicyState {
      * The status of the Auth Server Policy.
      */
     status?: pulumi.Input<string>;
-    /**
-     * The type of the Auth Server Policy.
-     *
-     * @deprecated Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
-     */
-    type?: pulumi.Input<string>;
 }
 
 /**
@@ -202,10 +188,4 @@ export interface ServerPolicyArgs {
      * The status of the Auth Server Policy.
      */
     status?: pulumi.Input<string>;
-    /**
-     * The type of the Auth Server Policy.
-     *
-     * @deprecated Policy type can only be of value 'OAUTH_AUTHORIZATION_POLICY', so this will be removed in the future, or set as 'Computed' value
-     */
-    type?: pulumi.Input<string>;
 }

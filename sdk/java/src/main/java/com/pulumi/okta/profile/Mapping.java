@@ -85,12 +85,16 @@ public class Mapping extends com.pulumi.resources.CustomResource {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * 
+     * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
+     * 
      */
     @Export(name="alwaysApply", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> alwaysApply;
 
     /**
      * @return Whether apply the changes to all users with this profile after updating or creating the these mappings.
+     * 
+     * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
      * 
      */
     public Output<Optional<Boolean>> alwaysApply() {

@@ -64,6 +64,8 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
      * `&#34;USER_ADMIN&#34;`
      * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
+     * - `&#34;USER_ADMIN&#34;` is the Group Administrator.
+     * 
      */
     @Import(name="roleType", required=true)
     private Output<String> roleType;
@@ -82,6 +84,8 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
      * `&#34;SUPER_ADMIN&#34;`,
      * `&#34;USER_ADMIN&#34;`
      * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * 
+     * - `&#34;USER_ADMIN&#34;` is the Group Administrator.
      * 
      */
     public Output<String> roleType() {
@@ -213,6 +217,8 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
          * `&#34;USER_ADMIN&#34;`
          * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
          * 
+         * - `&#34;USER_ADMIN&#34;` is the Group Administrator.
+         * 
          * @return builder
          * 
          */
@@ -235,6 +241,8 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
          * `&#34;SUPER_ADMIN&#34;`,
          * `&#34;USER_ADMIN&#34;`
          * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+         * 
+         * - `&#34;USER_ADMIN&#34;` is the Group Administrator.
          * 
          * @return builder
          * 

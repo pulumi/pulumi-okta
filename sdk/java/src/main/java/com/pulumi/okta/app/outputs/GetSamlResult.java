@@ -185,8 +185,6 @@ public final class GetSamlResult {
      * 
      */
     private String singleLogoutUrl;
-    private @Nullable Boolean skipGroups;
-    private @Nullable Boolean skipUsers;
     /**
      * @return SAML service provider issuer.
      * 
@@ -233,8 +231,6 @@ public final class GetSamlResult {
      */
     private String userNameTemplateType;
     /**
-     * @return List of users IDs assigned to the application.
-     * 
      * @deprecated
      * The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
      * 
@@ -484,12 +480,6 @@ public final class GetSamlResult {
     public String singleLogoutUrl() {
         return this.singleLogoutUrl;
     }
-    public Optional<Boolean> skipGroups() {
-        return Optional.ofNullable(this.skipGroups);
-    }
-    public Optional<Boolean> skipUsers() {
-        return Optional.ofNullable(this.skipUsers);
-    }
     /**
      * @return SAML service provider issuer.
      * 
@@ -554,8 +544,6 @@ public final class GetSamlResult {
         return this.userNameTemplateType;
     }
     /**
-     * @return List of users IDs assigned to the application.
-     * 
      * @deprecated
      * The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
      * 
@@ -609,8 +597,6 @@ public final class GetSamlResult {
         private String singleLogoutCertificate;
         private String singleLogoutIssuer;
         private String singleLogoutUrl;
-        private @Nullable Boolean skipGroups;
-        private @Nullable Boolean skipUsers;
         private String spIssuer;
         private String ssoUrl;
         private String status;
@@ -659,8 +645,6 @@ public final class GetSamlResult {
     	      this.singleLogoutCertificate = defaults.singleLogoutCertificate;
     	      this.singleLogoutIssuer = defaults.singleLogoutIssuer;
     	      this.singleLogoutUrl = defaults.singleLogoutUrl;
-    	      this.skipGroups = defaults.skipGroups;
-    	      this.skipUsers = defaults.skipUsers;
     	      this.spIssuer = defaults.spIssuer;
     	      this.ssoUrl = defaults.ssoUrl;
     	      this.status = defaults.status;
@@ -861,16 +845,6 @@ public final class GetSamlResult {
             return this;
         }
         @CustomType.Setter
-        public Builder skipGroups(@Nullable Boolean skipGroups) {
-            this.skipGroups = skipGroups;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder skipUsers(@Nullable Boolean skipUsers) {
-            this.skipUsers = skipUsers;
-            return this;
-        }
-        @CustomType.Setter
         public Builder spIssuer(String spIssuer) {
             this.spIssuer = Objects.requireNonNull(spIssuer);
             return this;
@@ -960,8 +934,6 @@ public final class GetSamlResult {
             o.singleLogoutCertificate = singleLogoutCertificate;
             o.singleLogoutIssuer = singleLogoutIssuer;
             o.singleLogoutUrl = singleLogoutUrl;
-            o.skipGroups = skipGroups;
-            o.skipUsers = skipUsers;
             o.spIssuer = spIssuer;
             o.ssoUrl = ssoUrl;
             o.status = status;

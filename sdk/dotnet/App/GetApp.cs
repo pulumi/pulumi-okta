@@ -100,18 +100,6 @@ namespace Pulumi.Okta.App
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
 
-        /// <summary>
-        /// Indicator that allows the app to skip `groups` sync. Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public bool? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync. Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public bool? SkipUsers { get; set; }
-
         public GetAppArgs()
         {
         }
@@ -149,18 +137,6 @@ namespace Pulumi.Okta.App
         [Input("labelPrefix")]
         public Input<string>? LabelPrefix { get; set; }
 
-        /// <summary>
-        /// Indicator that allows the app to skip `groups` sync. Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public Input<bool>? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync. Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
         public GetAppInvokeArgs()
         {
         }
@@ -172,9 +148,6 @@ namespace Pulumi.Okta.App
     public sealed class GetAppResult
     {
         public readonly bool? ActiveOnly;
-        /// <summary>
-        /// List of groups IDs assigned to the application.
-        /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
         /// Application ID.
@@ -193,15 +166,10 @@ namespace Pulumi.Okta.App
         /// Application name.
         /// </summary>
         public readonly string Name;
-        public readonly bool? SkipGroups;
-        public readonly bool? SkipUsers;
         /// <summary>
         /// Application status.
         /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// List of users IDs assigned to the application.
-        /// </summary>
         public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]
@@ -220,10 +188,6 @@ namespace Pulumi.Okta.App
 
             string name,
 
-            bool? skipGroups,
-
-            bool? skipUsers,
-
             string status,
 
             ImmutableArray<string> users)
@@ -235,8 +199,6 @@ namespace Pulumi.Okta.App
             LabelPrefix = labelPrefix;
             Links = links;
             Name = name;
-            SkipGroups = skipGroups;
-            SkipUsers = skipUsers;
             Status = status;
             Users = users;
         }

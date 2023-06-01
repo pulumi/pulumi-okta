@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,8 +68,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/inline"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/inline"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -135,7 +135,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -166,7 +166,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -201,24 +201,6 @@ import (
 // ```
 //
 //	It's also possible to import app without groups or/and users. In this case ID may look like this
-//
-// ```sh
-//
-//	$ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_users/skip_groups
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/saml:Saml example &#60;app id&#62;/skip_groups
-//
-// ```
 type Saml struct {
 	pulumi.CustomResourceState
 
@@ -266,10 +248,6 @@ type Saml struct {
 	EntityUrl pulumi.StringOutput `pulumi:"entityUrl"`
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayOutput `pulumi:"features"`
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app. Default is: `false`
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users. Default is: `false`
@@ -282,7 +260,7 @@ type Saml struct {
 	HttpRedirectBinding pulumi.StringOutput `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrOutput `pulumi:"idpIssuer"`
-	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
 	ImplicitAssignment pulumi.BoolPtrOutput `pulumi:"implicitAssignment"`
 	// Saml Inline Hook associated with the application.
 	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
@@ -328,10 +306,6 @@ type Saml struct {
 	SingleLogoutIssuer pulumi.StringPtrOutput `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl pulumi.StringPtrOutput `pulumi:"singleLogoutUrl"`
-	// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrOutput `pulumi:"spIssuer"`
 	// Single Sign-on Url.
@@ -350,10 +324,6 @@ type Saml struct {
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users SamlUserArrayOutput `pulumi:"users"`
 }
 
 // NewSaml registers a new resource with the given unique name, arguments, and options.
@@ -432,10 +402,6 @@ type samlState struct {
 	EntityUrl *string `pulumi:"entityUrl"`
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features []string `pulumi:"features"`
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app. Default is: `false`
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users. Default is: `false`
@@ -448,7 +414,7 @@ type samlState struct {
 	HttpRedirectBinding *string `pulumi:"httpRedirectBinding"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
-	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Saml Inline Hook associated with the application.
 	InlineHookId *string `pulumi:"inlineHookId"`
@@ -494,10 +460,6 @@ type samlState struct {
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
-	// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign-on Url.
@@ -516,10 +478,6 @@ type samlState struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []SamlUser `pulumi:"users"`
 }
 
 type SamlState struct {
@@ -567,10 +525,6 @@ type SamlState struct {
 	EntityUrl pulumi.StringPtrInput
 	// features enabled. Notice: you can't currently configure provisioning features via the API.
 	Features pulumi.StringArrayInput
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app. Default is: `false`
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users. Default is: `false`
@@ -583,7 +537,7 @@ type SamlState struct {
 	HttpRedirectBinding pulumi.StringPtrInput
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrInput
-	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
 	ImplicitAssignment pulumi.BoolPtrInput
 	// Saml Inline Hook associated with the application.
 	InlineHookId pulumi.StringPtrInput
@@ -629,10 +583,6 @@ type SamlState struct {
 	SingleLogoutIssuer pulumi.StringPtrInput
 	// The location where the logout response is sent.
 	SingleLogoutUrl pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrInput
 	// Single Sign-on Url.
@@ -651,10 +601,6 @@ type SamlState struct {
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users SamlUserArrayInput
 }
 
 func (SamlState) ElementType() reflect.Type {
@@ -696,10 +642,6 @@ type samlArgs struct {
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app. Default is: `false`
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users. Default is: `false`
@@ -708,7 +650,7 @@ type samlArgs struct {
 	HonorForceAuthn *bool `pulumi:"honorForceAuthn"`
 	// SAML issuer ID.
 	IdpIssuer *string `pulumi:"idpIssuer"`
-	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// Saml Inline Hook associated with the application.
 	InlineHookId *string `pulumi:"inlineHookId"`
@@ -740,10 +682,6 @@ type samlArgs struct {
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
-	// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign-on Url.
@@ -762,10 +700,6 @@ type samlArgs struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []SamlUser `pulumi:"users"`
 }
 
 // The set of arguments for constructing a Saml resource.
@@ -804,10 +738,6 @@ type SamlArgs struct {
 	DigestAlgorithm pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app. Default is: `false`
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users. Default is: `false`
@@ -816,7 +746,7 @@ type SamlArgs struct {
 	HonorForceAuthn pulumi.BoolPtrInput
 	// SAML issuer ID.
 	IdpIssuer pulumi.StringPtrInput
-	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+	// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
 	ImplicitAssignment pulumi.BoolPtrInput
 	// Saml Inline Hook associated with the application.
 	InlineHookId pulumi.StringPtrInput
@@ -848,10 +778,6 @@ type SamlArgs struct {
 	SingleLogoutIssuer pulumi.StringPtrInput
 	// The location where the logout response is sent.
 	SingleLogoutUrl pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// SAML service provider issuer.
 	SpIssuer pulumi.StringPtrInput
 	// Single Sign-on Url.
@@ -870,10 +796,6 @@ type SamlArgs struct {
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type. Default is: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
-	// Users associated with the application.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users SamlUserArrayInput
 }
 
 func (SamlArgs) ElementType() reflect.Type {
@@ -1073,13 +995,6 @@ func (o SamlOutput) Features() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringArrayOutput { return v.Features }).(pulumi.StringArrayOutput)
 }
 
-// Groups associated with the application.
-//
-// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-func (o SamlOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Saml) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
-}
-
 // Do not display application icon on mobile app. Default is: `false`
 func (o SamlOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
@@ -1110,7 +1025,7 @@ func (o SamlOutput) IdpIssuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.IdpIssuer }).(pulumi.StringPtrOutput)
 }
 
-// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
 func (o SamlOutput) ImplicitAssignment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.ImplicitAssignment }).(pulumi.BoolPtrOutput)
 }
@@ -1225,16 +1140,6 @@ func (o SamlOutput) SingleLogoutUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SingleLogoutUrl }).(pulumi.StringPtrOutput)
 }
 
-// Indicator that allows the app to skip `groups` sync (it can also be provided during import). Default is `false`.
-func (o SamlOutput) SkipGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
-}
-
-// Indicator that allows the app to skip `users` sync (it can also be provided during import). Default is `false`.
-func (o SamlOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
 // SAML service provider issuer.
 func (o SamlOutput) SpIssuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SpIssuer }).(pulumi.StringPtrOutput)
@@ -1278,13 +1183,6 @@ func (o SamlOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
 // Username template type. Default is: `"BUILT_IN"`.
 func (o SamlOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
-}
-
-// Users associated with the application.
-//
-// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-func (o SamlOutput) Users() SamlUserArrayOutput {
-	return o.ApplyT(func(v *Saml) SamlUserArrayOutput { return v.Users }).(SamlUserArrayOutput)
 }
 
 type SamlArrayOutput struct{ *pulumi.OutputState }

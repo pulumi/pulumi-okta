@@ -5,10 +5,8 @@ package com.pulumi.okta.app;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.okta.app.inputs.ThreeFieldUserArgs;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -184,29 +182,6 @@ public final class ThreeFieldArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * 
-     * @deprecated
-     * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-    @Import(name="groups")
-    private @Nullable Output<List<String>> groups;
-
-    /**
-     * @return Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     * 
-     * @deprecated
-     * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-    public Optional<Output<List<String>>> groups() {
-        return Optional.ofNullable(this.groups);
-    }
-
-    /**
      * Do not display application icon on mobile app.
      * 
      */
@@ -324,36 +299,6 @@ public final class ThreeFieldArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> sharedUsername() {
         return Optional.ofNullable(this.sharedUsername);
-    }
-
-    /**
-     * Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Import(name="skipGroups")
-    private @Nullable Output<Boolean> skipGroups;
-
-    /**
-     * @return Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> skipGroups() {
-        return Optional.ofNullable(this.skipGroups);
-    }
-
-    /**
-     * Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Import(name="skipUsers")
-    private @Nullable Output<Boolean> skipUsers;
-
-    /**
-     * @return Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> skipUsers() {
-        return Optional.ofNullable(this.skipUsers);
     }
 
     /**
@@ -476,29 +421,6 @@ public final class ThreeFieldArgs extends com.pulumi.resources.ResourceArgs {
         return this.usernameSelector;
     }
 
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * 
-     * @deprecated
-     * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-    @Import(name="users")
-    private @Nullable Output<List<ThreeFieldUserArgs>> users;
-
-    /**
-     * @return The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     * 
-     * @deprecated
-     * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     * 
-     */
-    @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-    public Optional<Output<List<ThreeFieldUserArgs>>> users() {
-        return Optional.ofNullable(this.users);
-    }
-
     private ThreeFieldArgs() {}
 
     private ThreeFieldArgs(ThreeFieldArgs $) {
@@ -513,7 +435,6 @@ public final class ThreeFieldArgs extends com.pulumi.resources.ResourceArgs {
         this.enduserNote = $.enduserNote;
         this.extraFieldSelector = $.extraFieldSelector;
         this.extraFieldValue = $.extraFieldValue;
-        this.groups = $.groups;
         this.hideIos = $.hideIos;
         this.hideWeb = $.hideWeb;
         this.label = $.label;
@@ -522,8 +443,6 @@ public final class ThreeFieldArgs extends com.pulumi.resources.ResourceArgs {
         this.revealPassword = $.revealPassword;
         this.sharedPassword = $.sharedPassword;
         this.sharedUsername = $.sharedUsername;
-        this.skipGroups = $.skipGroups;
-        this.skipUsers = $.skipUsers;
         this.status = $.status;
         this.url = $.url;
         this.urlRegex = $.urlRegex;
@@ -532,7 +451,6 @@ public final class ThreeFieldArgs extends com.pulumi.resources.ResourceArgs {
         this.userNameTemplateSuffix = $.userNameTemplateSuffix;
         this.userNameTemplateType = $.userNameTemplateType;
         this.usernameSelector = $.usernameSelector;
-        this.users = $.users;
     }
 
     public static Builder builder() {
@@ -785,49 +703,6 @@ public final class ThreeFieldArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-        public Builder groups(@Nullable Output<List<String>> groups) {
-            $.groups = groups;
-            return this;
-        }
-
-        /**
-         * @param groups Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-        public Builder groups(List<String> groups) {
-            return groups(Output.of(groups));
-        }
-
-        /**
-         * @param groups Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality. */
-        public Builder groups(String... groups) {
-            return groups(List.of(groups));
-        }
-
-        /**
          * @param hideIos Do not display application icon on mobile app.
          * 
          * @return builder
@@ -996,48 +871,6 @@ public final class ThreeFieldArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipGroups Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipGroups(@Nullable Output<Boolean> skipGroups) {
-            $.skipGroups = skipGroups;
-            return this;
-        }
-
-        /**
-         * @param skipGroups Indicator that allows the app to skip `groups` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipGroups(Boolean skipGroups) {
-            return skipGroups(Output.of(skipGroups));
-        }
-
-        /**
-         * @param skipUsers Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipUsers(@Nullable Output<Boolean> skipUsers) {
-            $.skipUsers = skipUsers;
-            return this;
-        }
-
-        /**
-         * @param skipUsers Indicator that allows the app to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipUsers(Boolean skipUsers) {
-            return skipUsers(Output.of(skipUsers));
-        }
-
-        /**
          * @param status Status of application. By default, it is `&#34;ACTIVE&#34;`.
          * 
          * @return builder
@@ -1203,49 +1036,6 @@ public final class ThreeFieldArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder usernameSelector(String usernameSelector) {
             return usernameSelector(Output.of(usernameSelector));
-        }
-
-        /**
-         * @param users The users assigned to the application. See `okta.app.User` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-        public Builder users(@Nullable Output<List<ThreeFieldUserArgs>> users) {
-            $.users = users;
-            return this;
-        }
-
-        /**
-         * @param users The users assigned to the application. See `okta.app.User` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-        public Builder users(List<ThreeFieldUserArgs> users) {
-            return users(Output.of(users));
-        }
-
-        /**
-         * @param users The users assigned to the application. See `okta.app.User` for a more flexible approach.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-         * 
-         */
-        @Deprecated /* The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality. */
-        public Builder users(ThreeFieldUserArgs... users) {
-            return users(List.of(users));
         }
 
         public ThreeFieldArgs build() {

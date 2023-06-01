@@ -18,8 +18,6 @@ import * as utilities from "../utilities";
  * const example = new okta.idp.Social("example", {
  *     clientId: "abcd123",
  *     clientSecret: "abcd123",
- *     matchAttribute: "customfieldId",
- *     matchType: "CUSTOM_ATTRIBUTE",
  *     protocolType: "OAUTH2",
  *     scopes: [
  *         "public_profile",
@@ -129,14 +127,6 @@ export class Social extends pulumi.CustomResource {
      */
     public readonly issuerMode!: pulumi.Output<string | undefined>;
     /**
-     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_attribute"
-     */
-    public readonly matchAttribute!: pulumi.Output<string | undefined>;
-    /**
-     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_type"
-     */
-    public readonly matchType!: pulumi.Output<string | undefined>;
-    /**
      * Maximum allowable clock-skew when processing messages from the IdP.
      */
     public readonly maxClockSkew!: pulumi.Output<number | undefined>;
@@ -221,8 +211,6 @@ export class Social extends pulumi.CustomResource {
             resourceInputs["groupsAttribute"] = state ? state.groupsAttribute : undefined;
             resourceInputs["groupsFilters"] = state ? state.groupsFilters : undefined;
             resourceInputs["issuerMode"] = state ? state.issuerMode : undefined;
-            resourceInputs["matchAttribute"] = state ? state.matchAttribute : undefined;
-            resourceInputs["matchType"] = state ? state.matchType : undefined;
             resourceInputs["maxClockSkew"] = state ? state.maxClockSkew : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["profileMaster"] = state ? state.profileMaster : undefined;
@@ -258,8 +246,6 @@ export class Social extends pulumi.CustomResource {
             resourceInputs["groupsAttribute"] = args ? args.groupsAttribute : undefined;
             resourceInputs["groupsFilters"] = args ? args.groupsFilters : undefined;
             resourceInputs["issuerMode"] = args ? args.issuerMode : undefined;
-            resourceInputs["matchAttribute"] = args ? args.matchAttribute : undefined;
-            resourceInputs["matchType"] = args ? args.matchType : undefined;
             resourceInputs["maxClockSkew"] = args ? args.maxClockSkew : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["profileMaster"] = args ? args.profileMaster : undefined;
@@ -350,14 +336,6 @@ export interface SocialState {
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
      */
     issuerMode?: pulumi.Input<string>;
-    /**
-     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_attribute"
-     */
-    matchAttribute?: pulumi.Input<string>;
-    /**
-     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_type"
-     */
-    matchType?: pulumi.Input<string>;
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.
      */
@@ -474,14 +452,6 @@ export interface SocialArgs {
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
      */
     issuerMode?: pulumi.Input<string>;
-    /**
-     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_attribute"
-     */
-    matchAttribute?: pulumi.Input<string>;
-    /**
-     * @deprecated This property was incorrectly added to this resource, you should use "subject_match_type"
-     */
-    matchType?: pulumi.Input<string>;
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.
      */

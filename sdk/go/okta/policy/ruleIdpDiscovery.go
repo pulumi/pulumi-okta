@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/policy"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,6 +101,20 @@ type RuleIdpDiscovery struct {
 	pulumi.CustomResourceState
 
 	// Applications to exclude in discovery. See `appInclude` for details.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayOutput `pulumi:"appExcludes"`
 	// Applications to include in discovery rule.
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayOutput `pulumi:"appIncludes"`
@@ -119,10 +133,6 @@ type RuleIdpDiscovery struct {
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayOutput `pulumi:"platformIncludes"`
 	// Policy ID.
 	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrOutput `pulumi:"policyid"`
 	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
@@ -165,6 +175,20 @@ func GetRuleIdpDiscovery(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RuleIdpDiscovery resources.
 type ruleIdpDiscoveryState struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	AppExcludes []RuleIdpDiscoveryAppExclude `pulumi:"appExcludes"`
 	// Applications to include in discovery rule.
 	AppIncludes []RuleIdpDiscoveryAppInclude `pulumi:"appIncludes"`
@@ -183,10 +207,6 @@ type ruleIdpDiscoveryState struct {
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid *string `pulumi:"policyid"`
 	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority *int `pulumi:"priority"`
 	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
@@ -201,6 +221,20 @@ type ruleIdpDiscoveryState struct {
 
 type RuleIdpDiscoveryState struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayInput
 	// Applications to include in discovery rule.
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayInput
@@ -219,10 +253,6 @@ type RuleIdpDiscoveryState struct {
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrInput
 	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrInput
 	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
@@ -241,6 +271,20 @@ func (RuleIdpDiscoveryState) ElementType() reflect.Type {
 
 type ruleIdpDiscoveryArgs struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	AppExcludes []RuleIdpDiscoveryAppExclude `pulumi:"appExcludes"`
 	// Applications to include in discovery rule.
 	AppIncludes []RuleIdpDiscoveryAppInclude `pulumi:"appIncludes"`
@@ -259,10 +303,6 @@ type ruleIdpDiscoveryArgs struct {
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid *string `pulumi:"policyid"`
 	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority *int `pulumi:"priority"`
 	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
@@ -278,6 +318,20 @@ type ruleIdpDiscoveryArgs struct {
 // The set of arguments for constructing a RuleIdpDiscovery resource.
 type RuleIdpDiscoveryArgs struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayInput
 	// Applications to include in discovery rule.
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayInput
@@ -296,10 +350,6 @@ type RuleIdpDiscoveryArgs struct {
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
-	// Policy ID.
-	//
-	// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-	Policyid pulumi.StringPtrInput
 	// Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrInput
 	// Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
@@ -400,6 +450,23 @@ func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutputWithContext(ctx context.
 }
 
 // Applications to exclude in discovery. See `appInclude` for details.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o RuleIdpDiscoveryOutput) AppExcludes() RuleIdpDiscoveryAppExcludeArrayOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryAppExcludeArrayOutput { return v.AppExcludes }).(RuleIdpDiscoveryAppExcludeArrayOutput)
 }
@@ -446,13 +513,6 @@ func (o RuleIdpDiscoveryOutput) PlatformIncludes() RuleIdpDiscoveryPlatformInclu
 // Policy ID.
 func (o RuleIdpDiscoveryOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
-}
-
-// Policy ID.
-//
-// Deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-func (o RuleIdpDiscoveryOutput) Policyid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.Policyid }).(pulumi.StringPtrOutput)
 }
 
 // Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.

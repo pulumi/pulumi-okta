@@ -159,6 +159,8 @@ namespace Pulumi.Okta.Policy
 
         /// <summary>
         /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+        /// 
+        /// &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         /// </summary>
         [Output("identityProvider")]
         public Output<string?> IdentityProvider { get; private set; } = null!;
@@ -222,12 +224,6 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Output("policyId")]
         public Output<string?> PolicyId { get; private set; } = null!;
-
-        /// <summary>
-        /// Policy ID.
-        /// </summary>
-        [Output("policyid")]
-        public Output<string?> Policyid { get; private set; } = null!;
 
         /// <summary>
         /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
@@ -363,6 +359,8 @@ namespace Pulumi.Okta.Policy
 
         /// <summary>
         /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+        /// 
+        /// &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         /// </summary>
         [Input("identityProvider")]
         public Input<string>? IdentityProvider { get; set; }
@@ -444,12 +442,6 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
-
-        /// <summary>
-        /// Policy ID.
-        /// </summary>
-        [Input("policyid")]
-        public Input<string>? Policyid { get; set; }
 
         /// <summary>
         /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
@@ -553,6 +545,8 @@ namespace Pulumi.Okta.Policy
 
         /// <summary>
         /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+        /// 
+        /// &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         /// </summary>
         [Input("identityProvider")]
         public Input<string>? IdentityProvider { get; set; }
@@ -634,12 +628,6 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
-
-        /// <summary>
-        /// Policy ID.
-        /// </summary>
-        [Input("policyid")]
-        public Input<string>? Policyid { get; set; }
 
         /// <summary>
         /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 

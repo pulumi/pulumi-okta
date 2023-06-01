@@ -8,8 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['SwaArgs', 'Swa']
 
@@ -26,15 +24,12 @@ class SwaArgs:
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  logo: Optional[pulumi.Input[str]] = None,
                  password_field: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -42,8 +37,7 @@ class SwaArgs:
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 username_field: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]]] = None):
+                 username_field: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Swa resource.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -56,15 +50,12 @@ class SwaArgs:
         :param pulumi.Input[str] button_field: Login button field.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] password_field: Login password field.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
         :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
@@ -73,7 +64,6 @@ class SwaArgs:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: Login username field.
-        :param pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         pulumi.set(__self__, "label", label)
         if accessibility_error_redirect_url is not None:
@@ -94,11 +84,6 @@ class SwaArgs:
             pulumi.set(__self__, "checkbox", checkbox)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
@@ -111,10 +96,6 @@ class SwaArgs:
             pulumi.set(__self__, "preconfigured_app", preconfigured_app)
         if redirect_url is not None:
             pulumi.set(__self__, "redirect_url", redirect_url)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
@@ -131,11 +112,6 @@ class SwaArgs:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter
@@ -258,18 +234,6 @@ class SwaArgs:
         pulumi.set(self, "enduser_note", value)
 
     @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
-
-    @property
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -340,30 +304,6 @@ class SwaArgs:
     @redirect_url.setter
     def redirect_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "redirect_url", value)
-
-    @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
 
     @property
     @pulumi.getter
@@ -461,18 +401,6 @@ class SwaArgs:
     def username_field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username_field", value)
 
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]]]:
-        """
-        The users assigned to the application. See `app.User` for a more flexible approach.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]]]):
-        pulumi.set(self, "users", value)
-
 
 @pulumi.input_type
 class _SwaState:
@@ -486,7 +414,6 @@ class _SwaState:
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -497,8 +424,6 @@ class _SwaState:
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  sign_on_mode: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -506,8 +431,7 @@ class _SwaState:
                  user_name_template_push_status: Optional[pulumi.Input[str]] = None,
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
-                 username_field: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]]] = None):
+                 username_field: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Swa resources.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -519,7 +443,6 @@ class _SwaState:
         :param pulumi.Input[str] button_field: Login button field.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -530,8 +453,6 @@ class _SwaState:
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
         :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
@@ -540,7 +461,6 @@ class _SwaState:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: Login username field.
-        :param pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -560,11 +480,6 @@ class _SwaState:
             pulumi.set(__self__, "checkbox", checkbox)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
-        if groups is not None:
-            warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
         if hide_ios is not None:
             pulumi.set(__self__, "hide_ios", hide_ios)
         if hide_web is not None:
@@ -585,10 +500,6 @@ class _SwaState:
             pulumi.set(__self__, "redirect_url", redirect_url)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
-        if skip_groups is not None:
-            pulumi.set(__self__, "skip_groups", skip_groups)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
@@ -605,11 +516,6 @@ class _SwaState:
             pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
-        if users is not None:
-            warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -718,18 +624,6 @@ class _SwaState:
     @enduser_note.setter
     def enduser_note(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "enduser_note", value)
-
-    @property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "groups", value)
 
     @property
     @pulumi.getter(name="hideIos")
@@ -852,30 +746,6 @@ class _SwaState:
         pulumi.set(self, "sign_on_mode", value)
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @skip_groups.setter
-    def skip_groups(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_groups", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -971,18 +841,6 @@ class _SwaState:
     def username_field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username_field", value)
 
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]]]:
-        """
-        The users assigned to the application. See `app.User` for a more flexible approach.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SwaUserArgs']]]]):
-        pulumi.set(self, "users", value)
-
 
 class Swa(pulumi.CustomResource):
     @overload
@@ -998,7 +856,6 @@ class Swa(pulumi.CustomResource):
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -1006,8 +863,6 @@ class Swa(pulumi.CustomResource):
                  password_field: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -1016,7 +871,6 @@ class Swa(pulumi.CustomResource):
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaUserArgs']]]]] = None,
                  __props__=None):
         """
         This resource allows you to create and configure a SWA Application.
@@ -1043,20 +897,6 @@ class Swa(pulumi.CustomResource):
          $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
         ```
 
-         It's also possible to import app without groups or/and users. In this case ID may look like this
-
-        ```sh
-         $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_groups
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -1068,7 +908,6 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] button_field: Login button field.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -1076,8 +915,6 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] password_field: Login password field.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
         :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
@@ -1086,7 +923,6 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: Login username field.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         ...
     @overload
@@ -1119,20 +955,6 @@ class Swa(pulumi.CustomResource):
          $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
         ```
 
-         It's also possible to import app without groups or/and users. In this case ID may look like this
-
-        ```sh
-         $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users
-        ```
-
-        ```sh
-         $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_users/skip_groups
-        ```
-
-        ```sh
-         $ pulumi import okta:app/swa:Swa example &#60;app id&#62;/skip_groups
-        ```
-
         :param str resource_name: The name of the resource.
         :param SwaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1157,7 +979,6 @@ class Swa(pulumi.CustomResource):
                  button_field: Optional[pulumi.Input[str]] = None,
                  checkbox: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -1165,8 +986,6 @@ class Swa(pulumi.CustomResource):
                  password_field: Optional[pulumi.Input[str]] = None,
                  preconfigured_app: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
-                 skip_groups: Optional[pulumi.Input[bool]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  url_regex: Optional[pulumi.Input[str]] = None,
@@ -1175,7 +994,6 @@ class Swa(pulumi.CustomResource):
                  user_name_template_suffix: Optional[pulumi.Input[str]] = None,
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  username_field: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaUserArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1194,10 +1012,6 @@ class Swa(pulumi.CustomResource):
             __props__.__dict__["button_field"] = button_field
             __props__.__dict__["checkbox"] = checkbox
             __props__.__dict__["enduser_note"] = enduser_note
-            if groups is not None and not opts.urn:
-                warnings.warn("""The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""groups is deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.""")
-            __props__.__dict__["groups"] = groups
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
             if label is None and not opts.urn:
@@ -1207,8 +1021,6 @@ class Swa(pulumi.CustomResource):
             __props__.__dict__["password_field"] = password_field
             __props__.__dict__["preconfigured_app"] = preconfigured_app
             __props__.__dict__["redirect_url"] = redirect_url
-            __props__.__dict__["skip_groups"] = skip_groups
-            __props__.__dict__["skip_users"] = skip_users
             __props__.__dict__["status"] = status
             __props__.__dict__["url"] = url
             __props__.__dict__["url_regex"] = url_regex
@@ -1217,10 +1029,6 @@ class Swa(pulumi.CustomResource):
             __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
             __props__.__dict__["user_name_template_type"] = user_name_template_type
             __props__.__dict__["username_field"] = username_field
-            if users is not None and not opts.urn:
-                warnings.warn("""The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""", DeprecationWarning)
-                pulumi.log.warn("""users is deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.""")
-            __props__.__dict__["users"] = users
             __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
@@ -1243,7 +1051,6 @@ class Swa(pulumi.CustomResource):
             button_field: Optional[pulumi.Input[str]] = None,
             checkbox: Optional[pulumi.Input[str]] = None,
             enduser_note: Optional[pulumi.Input[str]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
@@ -1254,8 +1061,6 @@ class Swa(pulumi.CustomResource):
             preconfigured_app: Optional[pulumi.Input[str]] = None,
             redirect_url: Optional[pulumi.Input[str]] = None,
             sign_on_mode: Optional[pulumi.Input[str]] = None,
-            skip_groups: Optional[pulumi.Input[bool]] = None,
-            skip_users: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
             url_regex: Optional[pulumi.Input[str]] = None,
@@ -1263,8 +1068,7 @@ class Swa(pulumi.CustomResource):
             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
             user_name_template_type: Optional[pulumi.Input[str]] = None,
-            username_field: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaUserArgs']]]]] = None) -> 'Swa':
+            username_field: Optional[pulumi.Input[str]] = None) -> 'Swa':
         """
         Get an existing Swa resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1281,7 +1085,6 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] button_field: Login button field.
         :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[str] label: The display name of the Application.
@@ -1292,8 +1095,6 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
         :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
-        :param pulumi.Input[bool] skip_groups: Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[bool] skip_users: Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
         :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] url: The URL of the sign-in page for this app.
         :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
@@ -1302,7 +1103,6 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: Login username field.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SwaUserArgs']]]] users: The users assigned to the application. See `app.User` for a more flexible approach.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1317,7 +1117,6 @@ class Swa(pulumi.CustomResource):
         __props__.__dict__["button_field"] = button_field
         __props__.__dict__["checkbox"] = checkbox
         __props__.__dict__["enduser_note"] = enduser_note
-        __props__.__dict__["groups"] = groups
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
         __props__.__dict__["label"] = label
@@ -1328,8 +1127,6 @@ class Swa(pulumi.CustomResource):
         __props__.__dict__["preconfigured_app"] = preconfigured_app
         __props__.__dict__["redirect_url"] = redirect_url
         __props__.__dict__["sign_on_mode"] = sign_on_mode
-        __props__.__dict__["skip_groups"] = skip_groups
-        __props__.__dict__["skip_users"] = skip_users
         __props__.__dict__["status"] = status
         __props__.__dict__["url"] = url
         __props__.__dict__["url_regex"] = url_regex
@@ -1338,7 +1135,6 @@ class Swa(pulumi.CustomResource):
         __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
         __props__.__dict__["user_name_template_type"] = user_name_template_type
         __props__.__dict__["username_field"] = username_field
-        __props__.__dict__["users"] = users
         return Swa(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1412,14 +1208,6 @@ class Swa(pulumi.CustomResource):
         Application notes for end users.
         """
         return pulumi.get(self, "enduser_note")
-
-    @property
-    @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-        """
-        return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter(name="hideIos")
@@ -1502,22 +1290,6 @@ class Swa(pulumi.CustomResource):
         return pulumi.get(self, "sign_on_mode")
 
     @property
-    @pulumi.getter(name="skipGroups")
-    def skip_groups(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_groups")
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1580,12 +1352,4 @@ class Swa(pulumi.CustomResource):
         Login username field.
         """
         return pulumi.get(self, "username_field")
-
-    @property
-    @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[Sequence['outputs.SwaUser']]]:
-        """
-        The users assigned to the application. See `app.User` for a more flexible approach.
-        """
-        return pulumi.get(self, "users")
 

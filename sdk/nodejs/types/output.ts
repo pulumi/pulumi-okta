@@ -20,16 +20,6 @@ export interface AppGroupAssignmentsGroup {
     profile: string;
 }
 
-export interface AppSharedCredentialsUser {
-    /**
-     * ID of an app.
-     */
-    id?: string;
-    password?: string;
-    scope: string;
-    username?: string;
-}
-
 export interface AppSignonPolicyRulePlatformInclude {
     /**
      * Only available when using `osType = "OTHER"`
@@ -380,33 +370,6 @@ export namespace Index {
 }
 
 export namespace app {
-    export interface AutoLoginUser {
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface BasicAuthUser {
-        /**
-         * ID of the Application.
-         */
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface BookmarkUser {
-        /**
-         * ID of the Application.
-         */
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
     export interface GetSamlAttributeStatement {
         /**
          * Type of group attribute filter.
@@ -463,16 +426,6 @@ export namespace app {
         kid: string;
         kty: string;
         n?: string;
-    }
-
-    export interface OAuthUser {
-        /**
-         * ID of the application.
-         */
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
     }
 
     export interface SamlAttributeStatement {
@@ -545,59 +498,6 @@ export namespace app {
         x5tS256: string;
     }
 
-    export interface SamlUser {
-        /**
-         * id of application.
-         */
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface SecurePasswordStoreUser {
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface SwaUser {
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface ThreeFieldUser {
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface UserSchemaArrayOneOf {
-        /**
-         * value mapping to member of `enum`.
-         */
-        const: string;
-        /**
-         * display name for the enum value.
-         */
-        title: string;
-    }
-
-    export interface UserSchemaOneOf {
-        /**
-         * value mapping to member of `enum`.
-         */
-        const: string;
-        /**
-         * display name for the enum value.
-         */
-        title: string;
-    }
-
 }
 
 export namespace auth {
@@ -634,118 +534,6 @@ export namespace auth {
          * Whether Okta created the Scope
          */
         system: boolean;
-    }
-
-}
-
-export namespace deprecated {
-    export interface AuthLoginAppUser {
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface BookmarkAppUser {
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface MfaPolicyRuleAppExclude {
-        id?: string;
-        name?: string;
-        type: string;
-    }
-
-    export interface MfaPolicyRuleAppInclude {
-        id?: string;
-        name?: string;
-        type: string;
-    }
-
-    export interface OauthAppGroupsClaim {
-        filterType?: string;
-        issuerMode: string;
-        name: string;
-        type: string;
-        value: string;
-    }
-
-    export interface OauthAppJwk {
-        e?: string;
-        kid: string;
-        kty: string;
-        n?: string;
-    }
-
-    export interface OauthAppUser {
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface SamlAppAttributeStatement {
-        filterType?: string;
-        filterValue?: string;
-        name: string;
-        namespace?: string;
-        type?: string;
-        values?: string[];
-    }
-
-    export interface SamlAppKey {
-        created: string;
-        e: string;
-        expiresAt: string;
-        kid: string;
-        kty: string;
-        lastUpdated: string;
-        n: string;
-        use: string;
-        x5cs: string[];
-        x5tS256: string;
-    }
-
-    export interface SamlAppUser {
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface SecurePasswordStoreAppUser {
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface SignonPolicyRuleFactorSequence {
-        primaryCriteriaFactorType: string;
-        primaryCriteriaProvider: string;
-        secondaryCriterias?: outputs.deprecated.SignonPolicyRuleFactorSequenceSecondaryCriteria[];
-    }
-
-    export interface SignonPolicyRuleFactorSequenceSecondaryCriteria {
-        factorType: string;
-        provider: string;
-    }
-
-    export interface SwaAppUser {
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
-    }
-
-    export interface ThreeFieldAppUser {
-        id?: string;
-        password?: string;
-        scope: string;
-        username?: string;
     }
 
 }
@@ -802,6 +590,10 @@ export namespace policy {
         osExpression?: string;
         /**
          * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          */
         osType?: string;
         /**
@@ -817,6 +609,10 @@ export namespace policy {
         matchType?: string;
         /**
          * The regex or simple match string to match against.
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          */
         value?: string;
     }
@@ -893,24 +689,6 @@ export namespace profile {
          * Whether to update target properties on user create & update or just on create.
          */
         pushStatus?: string;
-    }
-
-}
-
-export namespace template {
-    export interface EmailTranslation {
-        /**
-         * The language to map the template to.
-         */
-        language: string;
-        /**
-         * The email subject line.
-         */
-        subject: string;
-        /**
-         * The email body.
-         */
-        template: string;
     }
 
 }
@@ -1097,39 +875,6 @@ export namespace user {
          * Zipcode or postal code component of user's address (postalCode)
          */
         zipCode: string;
-    }
-
-    export interface SchemaArrayOneOf {
-        /**
-         * value mapping to member of `enum`.
-         */
-        const: string;
-        /**
-         * display name for the enum value.
-         */
-        title: string;
-    }
-
-    export interface SchemaMasterOverridePriority {
-        /**
-         * Type of profile source.
-         */
-        type?: string;
-        /**
-         * ID of profile source.
-         */
-        value: string;
-    }
-
-    export interface SchemaOneOf {
-        /**
-         * value mapping to member of `enum`.
-         */
-        const: string;
-        /**
-         * display name for the enum value.
-         */
-        title: string;
     }
 
     export interface UserPasswordHash {

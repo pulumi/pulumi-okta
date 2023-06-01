@@ -5,9 +5,7 @@ package com.pulumi.okta.group;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,54 +60,12 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Indicator that allows a group to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    @Import(name="skipUsers")
-    private @Nullable Output<Boolean> skipUsers;
-
-    /**
-     * @return Indicator that allows a group to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> skipUsers() {
-        return Optional.ofNullable(this.skipUsers);
-    }
-
-    /**
-     * The users associated with the group. This can also be done per user.
-     * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-     * 
-     * @deprecated
-     * The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-     * 
-     */
-    @Deprecated /* The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships` */
-    @Import(name="users")
-    private @Nullable Output<List<String>> users;
-
-    /**
-     * @return The users associated with the group. This can also be done per user.
-     * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-     * 
-     * @deprecated
-     * The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-     * 
-     */
-    @Deprecated /* The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships` */
-    public Optional<Output<List<String>>> users() {
-        return Optional.ofNullable(this.users);
-    }
-
     private GroupArgs() {}
 
     private GroupArgs(GroupArgs $) {
         this.customProfileAttributes = $.customProfileAttributes;
         this.description = $.description;
         this.name = $.name;
-        this.skipUsers = $.skipUsers;
-        this.users = $.users;
     }
 
     public static Builder builder() {
@@ -191,73 +147,6 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @param skipUsers Indicator that allows a group to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipUsers(@Nullable Output<Boolean> skipUsers) {
-            $.skipUsers = skipUsers;
-            return this;
-        }
-
-        /**
-         * @param skipUsers Indicator that allows a group to skip `users` sync (it&#39;s also can be provided during import). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder skipUsers(Boolean skipUsers) {
-            return skipUsers(Output.of(skipUsers));
-        }
-
-        /**
-         * @param users The users associated with the group. This can also be done per user.
-         * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-         * 
-         */
-        @Deprecated /* The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships` */
-        public Builder users(@Nullable Output<List<String>> users) {
-            $.users = users;
-            return this;
-        }
-
-        /**
-         * @param users The users associated with the group. This can also be done per user.
-         * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-         * 
-         */
-        @Deprecated /* The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships` */
-        public Builder users(List<String> users) {
-            return users(Output.of(users));
-        }
-
-        /**
-         * @param users The users associated with the group. This can also be done per user.
-         * `DEPRECATED`: Please replace usage with the `okta.GroupMemberships` resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-         * 
-         */
-        @Deprecated /* The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships` */
-        public Builder users(String... users) {
-            return users(List.of(users));
         }
 
         public GroupArgs build() {

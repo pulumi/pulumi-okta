@@ -218,44 +218,6 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This property was incorrectly added to this resource, you should use &#34;subject_match_attribute&#34;
-     * 
-     */
-    @Deprecated /* This property was incorrectly added to this resource, you should use ""subject_match_attribute"" */
-    @Import(name="matchAttribute")
-    private @Nullable Output<String> matchAttribute;
-
-    /**
-     * @deprecated
-     * This property was incorrectly added to this resource, you should use &#34;subject_match_attribute&#34;
-     * 
-     */
-    @Deprecated /* This property was incorrectly added to this resource, you should use ""subject_match_attribute"" */
-    public Optional<Output<String>> matchAttribute() {
-        return Optional.ofNullable(this.matchAttribute);
-    }
-
-    /**
-     * @deprecated
-     * This property was incorrectly added to this resource, you should use &#34;subject_match_type&#34;
-     * 
-     */
-    @Deprecated /* This property was incorrectly added to this resource, you should use ""subject_match_type"" */
-    @Import(name="matchType")
-    private @Nullable Output<String> matchType;
-
-    /**
-     * @deprecated
-     * This property was incorrectly added to this resource, you should use &#34;subject_match_type&#34;
-     * 
-     */
-    @Deprecated /* This property was incorrectly added to this resource, you should use ""subject_match_type"" */
-    public Optional<Output<String>> matchType() {
-        return Optional.ofNullable(this.matchType);
-    }
-
-    /**
      * Maximum allowable clock-skew when processing messages from the IdP.
      * 
      */
@@ -451,8 +413,6 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         this.groupsAttribute = $.groupsAttribute;
         this.groupsFilters = $.groupsFilters;
         this.issuerMode = $.issuerMode;
-        this.matchAttribute = $.matchAttribute;
-        this.matchType = $.matchType;
         this.maxClockSkew = $.maxClockSkew;
         this.name = $.name;
         this.profileMaster = $.profileMaster;
@@ -790,56 +750,6 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder issuerMode(String issuerMode) {
             return issuerMode(Output.of(issuerMode));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property was incorrectly added to this resource, you should use &#34;subject_match_attribute&#34;
-         * 
-         */
-        @Deprecated /* This property was incorrectly added to this resource, you should use ""subject_match_attribute"" */
-        public Builder matchAttribute(@Nullable Output<String> matchAttribute) {
-            $.matchAttribute = matchAttribute;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property was incorrectly added to this resource, you should use &#34;subject_match_attribute&#34;
-         * 
-         */
-        @Deprecated /* This property was incorrectly added to this resource, you should use ""subject_match_attribute"" */
-        public Builder matchAttribute(String matchAttribute) {
-            return matchAttribute(Output.of(matchAttribute));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property was incorrectly added to this resource, you should use &#34;subject_match_type&#34;
-         * 
-         */
-        @Deprecated /* This property was incorrectly added to this resource, you should use ""subject_match_type"" */
-        public Builder matchType(@Nullable Output<String> matchType) {
-            $.matchType = matchType;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property was incorrectly added to this resource, you should use &#34;subject_match_type&#34;
-         * 
-         */
-        @Deprecated /* This property was incorrectly added to this resource, you should use ""subject_match_type"" */
-        public Builder matchType(String matchType) {
-            return matchType(Output.of(matchType));
         }
 
         /**

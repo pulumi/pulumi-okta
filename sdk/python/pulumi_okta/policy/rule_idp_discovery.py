@@ -26,7 +26,6 @@ class RuleIdpDiscoveryArgs:
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_identifier_attribute: Optional[pulumi.Input[str]] = None,
@@ -35,6 +34,10 @@ class RuleIdpDiscoveryArgs:
         """
         The set of arguments for constructing a RuleIdpDiscovery resource.
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]] app_includes: Applications to include in discovery rule.
         :param pulumi.Input[str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
         :param pulumi.Input[str] idp_type: Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
@@ -43,7 +46,6 @@ class RuleIdpDiscoveryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
@@ -70,11 +72,6 @@ class RuleIdpDiscoveryArgs:
             pulumi.set(__self__, "platform_includes", platform_includes)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if policyid is not None:
-            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-        if policyid is not None:
-            pulumi.set(__self__, "policyid", policyid)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
@@ -91,6 +88,10 @@ class RuleIdpDiscoveryArgs:
     def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]]:
         """
         Applications to exclude in discovery. See `app_include` for details.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "app_excludes")
 
@@ -202,18 +203,6 @@ class RuleIdpDiscoveryArgs:
     @policy_id.setter
     def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
-
-    @policyid.setter
-    def policyid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policyid", value)
 
     @property
     @pulumi.getter
@@ -289,7 +278,6 @@ class _RuleIdpDiscoveryState:
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_identifier_attribute: Optional[pulumi.Input[str]] = None,
@@ -298,6 +286,10 @@ class _RuleIdpDiscoveryState:
         """
         Input properties used for looking up and filtering RuleIdpDiscovery resources.
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]] app_includes: Applications to include in discovery rule.
         :param pulumi.Input[str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
         :param pulumi.Input[str] idp_type: Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
@@ -306,7 +298,6 @@ class _RuleIdpDiscoveryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
@@ -333,11 +324,6 @@ class _RuleIdpDiscoveryState:
             pulumi.set(__self__, "platform_includes", platform_includes)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if policyid is not None:
-            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-        if policyid is not None:
-            pulumi.set(__self__, "policyid", policyid)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
@@ -354,6 +340,10 @@ class _RuleIdpDiscoveryState:
     def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]]:
         """
         Applications to exclude in discovery. See `app_include` for details.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "app_excludes")
 
@@ -465,18 +455,6 @@ class _RuleIdpDiscoveryState:
     @policy_id.setter
     def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
-
-    @policyid.setter
-    def policyid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policyid", value)
 
     @property
     @pulumi.getter
@@ -554,7 +532,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryPlatformIncludeArgs']]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_identifier_attribute: Optional[pulumi.Input[str]] = None,
@@ -626,6 +603,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]] app_includes: Applications to include in discovery rule.
         :param pulumi.Input[str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
         :param pulumi.Input[str] idp_type: Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
@@ -634,7 +615,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
@@ -734,7 +714,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryPlatformIncludeArgs']]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  user_identifier_attribute: Optional[pulumi.Input[str]] = None,
@@ -759,10 +738,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
             __props__.__dict__["network_includes"] = network_includes
             __props__.__dict__["platform_includes"] = platform_includes
             __props__.__dict__["policy_id"] = policy_id
-            if policyid is not None and not opts.urn:
-                warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-                pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-            __props__.__dict__["policyid"] = policyid
             __props__.__dict__["priority"] = priority
             __props__.__dict__["status"] = status
             __props__.__dict__["user_identifier_attribute"] = user_identifier_attribute
@@ -788,7 +763,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryPlatformIncludeArgs']]]]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
-            policyid: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             status: Optional[pulumi.Input[str]] = None,
             user_identifier_attribute: Optional[pulumi.Input[str]] = None,
@@ -802,6 +776,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]] app_includes: Applications to include in discovery rule.
         :param pulumi.Input[str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
         :param pulumi.Input[str] idp_type: Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
@@ -810,7 +788,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
         :param pulumi.Input[str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
@@ -831,7 +808,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         __props__.__dict__["network_includes"] = network_includes
         __props__.__dict__["platform_includes"] = platform_includes
         __props__.__dict__["policy_id"] = policy_id
-        __props__.__dict__["policyid"] = policyid
         __props__.__dict__["priority"] = priority
         __props__.__dict__["status"] = status
         __props__.__dict__["user_identifier_attribute"] = user_identifier_attribute
@@ -844,6 +820,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     def app_excludes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryAppExclude']]]:
         """
         Applications to exclude in discovery. See `app_include` for details.
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "app_excludes")
 
@@ -915,14 +895,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         Policy ID.
         """
         return pulumi.get(self, "policy_id")
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> pulumi.Output[Optional[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
 
     @property
     @pulumi.getter

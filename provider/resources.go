@@ -23,7 +23,7 @@ import (
 	"unicode"
 
 	"github.com/okta/terraform-provider-okta/okta"
-	"github.com/pulumi/pulumi-okta/provider/v3/pkg/version"
+	"github.com/pulumi/pulumi-okta/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -46,13 +46,9 @@ const (
 	networkMod       = "Network"
 	policyMod        = "Policy"
 	profileMod       = "Profile"
-	templateMod      = "Template"
 	trustedOriginMod = "TrustedOrigin"
 	userMod          = "User"
 	mainMod          = "Index"
-
-	// DeprecatedResourcesMod - these are resources that were renamed upstream and exist only to satisfy tfgen warnings
-	deprecatedMod = "Deprecated"
 )
 
 var namespaceMap = map[string]string{
@@ -133,14 +129,6 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(appMod, "User"),
 				Docs: &tfbridge.DocInfo{Source: "app_user.html.markdown"},
 			},
-			"okta_app_user_base_schema": {
-				Tok:  makeResource(appMod, "UserBaseSchema"),
-				Docs: &tfbridge.DocInfo{Source: "app_user_base_schema.html.markdown"},
-			},
-			"okta_app_user_schema": {
-				Tok:  makeResource(appMod, "UserSchema"),
-				Docs: &tfbridge.DocInfo{Source: "app_user_schema.html.markdown"},
-			},
 			"okta_app_basic_auth": {
 				Tok:  makeResource(appMod, "BasicAuth"),
 				Docs: &tfbridge.DocInfo{Source: "app_basic_auth.html.markdown"},
@@ -175,16 +163,11 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(groupMod, "Group"),
 				Docs: &tfbridge.DocInfo{Source: "group.html.markdown"},
 			},
-			"okta_group_roles": {
-				Tok:  makeResource(groupMod, "Roles"),
-				Docs: &tfbridge.DocInfo{Source: "group_roles.html.markdown"},
-			},
 			"okta_group_rule": {
 				Tok:  makeResource(groupMod, "Rule"),
 				Docs: &tfbridge.DocInfo{Source: "group_rule.html.markdown"},
 			},
-			"okta_group_membership": {Tok: makeResource(groupMod, "Membership")},
-			"okta_group_role":       {Tok: makeResource(groupMod, "Role")},
+			"okta_group_role": {Tok: makeResource(groupMod, "Role")},
 
 			// Idp Resources
 			"okta_idp_oidc": {
@@ -246,12 +229,6 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{Source: "policy_signon.html.markdown"},
 			},
 
-			// Template Resources
-			"okta_template_email": {
-				Tok:  makeResource(templateMod, "Email"),
-				Docs: &tfbridge.DocInfo{Source: "template_email.html.markdown"},
-			},
-
 			// Trusted Origin
 			"okta_trusted_origin": {
 				Tok:  makeResource(trustedOriginMod, "Origin"),
@@ -267,14 +244,6 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_user": {
 				Tok:  makeResource(userMod, "User"),
 				Docs: &tfbridge.DocInfo{Source: "user.html.markdown"},
-			},
-			"okta_user_base_schema": {
-				Tok:  makeResource(userMod, "BaseSchema"),
-				Docs: &tfbridge.DocInfo{Source: "user_base_schema.html.markdown"},
-			},
-			"okta_user_schema": {
-				Tok:  makeResource(userMod, "Schema"),
-				Docs: &tfbridge.DocInfo{Source: "user_schema.html.markdown"},
 			},
 			"okta_user_type": {Tok: makeResource(userMod, "UserType")},
 
@@ -335,98 +304,6 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_brand":                          {Tok: makeResource(mainMod, "Brand")},
 			"okta_email_customization":            {Tok: makeResource(mainMod, "EmailCustomization")},
 			"okta_theme":                          {Tok: makeResource(mainMod, "Theme")},
-
-			// Deprecated Resources in Upstream Provider
-			"okta_idp": {
-				Tok:                makeResource(deprecatedMod, "Idp"),
-				DeprecationMessage: formatDeprecationMessage("idp.*"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_auto_login_app": {
-				Tok:                makeResource(deprecatedMod, "AuthLoginApp"),
-				DeprecationMessage: formatDeprecationMessage("app.AutoLogin"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_bookmark_app": {
-				Tok:                makeResource(deprecatedMod, "BookmarkApp"),
-				DeprecationMessage: formatDeprecationMessage("app.Bookmark"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_mfa_policy": {
-				Tok:                makeResource(deprecatedMod, "MfaPolicy"),
-				DeprecationMessage: formatDeprecationMessage("policy.Mfa"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_mfa_policy_rule": {
-				Tok:                makeResource(deprecatedMod, "MfaPolicyRule"),
-				DeprecationMessage: formatDeprecationMessage("policy.RuleMfa"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_oauth_app": {
-				Tok:                makeResource(deprecatedMod, "OauthApp"),
-				DeprecationMessage: formatDeprecationMessage("app.OAuth"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_oauth_app_redirect_uri": {
-				Tok:                makeResource(deprecatedMod, "OauthAppRedirectUri"),
-				DeprecationMessage: formatDeprecationMessage("app.OAuthRedirectUri"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_password_policy": {
-				Tok:                makeResource(deprecatedMod, "PasswordPolicy"),
-				DeprecationMessage: formatDeprecationMessage("policy.Password"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_password_policy_rule": {
-				Tok:                makeResource(deprecatedMod, "PasswordPolicyRule"),
-				DeprecationMessage: formatDeprecationMessage("policy.RulePassword"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_signon_policy": {
-				Tok:                makeResource(deprecatedMod, "SignonPolicy"),
-				DeprecationMessage: formatDeprecationMessage("policy.Signon"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_signon_policy_rule": {
-				Tok:                makeResource(deprecatedMod, "SignonPolicyRule"),
-				DeprecationMessage: formatDeprecationMessage("policy.RuleSignon"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_swa_app": {
-				Tok:                makeResource(deprecatedMod, "SwaApp"),
-				DeprecationMessage: formatDeprecationMessage("app.Swa"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_saml_app": {
-				Tok:                makeResource(deprecatedMod, "SamlApp"),
-				DeprecationMessage: formatDeprecationMessage("app.Saml"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_saml_idp": {
-				Tok:                makeResource(deprecatedMod, "SamlIdp"),
-				DeprecationMessage: formatDeprecationMessage("idp.Saml"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_saml_idp_signing_key": {
-				Tok:                makeResource(deprecatedMod, "SamlIdpSigningKey"),
-				DeprecationMessage: formatDeprecationMessage("idp.SamlKey"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_secure_password_store_app": {
-				Tok:                makeResource(deprecatedMod, "SecurePasswordStoreApp"),
-				DeprecationMessage: formatDeprecationMessage("app.SecurePasswordStore"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_social_idp": {
-				Tok:                makeResource(deprecatedMod, "SocialIdp"),
-				DeprecationMessage: formatDeprecationMessage("idp.Social"),
-				Docs:               noUpstreamDocs(),
-			},
-			"okta_three_field_app": {
-				Tok:                makeResource(deprecatedMod, "ThreeFieldApp"),
-				DeprecationMessage: formatDeprecationMessage("app.ThreeField"),
-				Docs:               noUpstreamDocs(),
-			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// App DataSources
@@ -515,13 +392,6 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_email_templates":         {Tok: makeDataSource(mainMod, "getTemplates")},
 			"okta_theme":                   {Tok: makeDataSource(mainMod, "getTheme")},
 			"okta_themes":                  {Tok: makeDataSource(mainMod, "getThemes")},
-
-			// Deprecated DataSources in Upstream Provider
-			"okta_default_policies": {
-				Tok:                makeDataSource(deprecatedMod, "getDefaultPolicies"),
-				DeprecationMessage: formatDeprecationMessage("policy.getDefaultPolicy"),
-				Docs:               noUpstreamDocs(),
-			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -582,17 +452,6 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
-}
-
-func noUpstreamDocs() *tfbridge.DocInfo {
-	return &tfbridge.DocInfo{
-		Markdown: []byte(" "),
-	}
-}
-
-func formatDeprecationMessage(newResourceName string) string {
-	return fmt.Sprintf("Deprecated. Use %s instead. This resource will be removed in version 4.0 of this provider.",
-		newResourceName)
 }
 
 //go:embed cmd/pulumi-resource-okta/bridge-metadata.json

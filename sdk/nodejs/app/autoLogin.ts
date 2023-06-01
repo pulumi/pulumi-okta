@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -47,20 +45,6 @@ import * as utilities from "../utilities";
  *
  * ```sh
  *  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
- * ```
- *
- *  It's also possible to import app without groups or/and users. In this case ID may look like this
- *
- * ```sh
- *  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users
- * ```
- *
- * ```sh
- *  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users/skip_groups
- * ```
- *
- * ```sh
- *  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_groups
  * ```
  */
 export class AutoLogin extends pulumi.CustomResource {
@@ -128,12 +112,6 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    public readonly groups!: pulumi.Output<string[] | undefined>;
-    /**
      * Do not display application icon on mobile app.
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
@@ -186,14 +164,6 @@ export class AutoLogin extends pulumi.CustomResource {
      */
     public readonly signOnUrl!: pulumi.Output<string | undefined>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
-    /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -213,12 +183,6 @@ export class AutoLogin extends pulumi.CustomResource {
      * Username template type. Default: `"BUILT_IN"`.
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    public readonly users!: pulumi.Output<outputs.app.AutoLoginUser[] | undefined>;
 
     /**
      * Create a AutoLogin resource with the given unique name, arguments, and options.
@@ -242,7 +206,6 @@ export class AutoLogin extends pulumi.CustomResource {
             resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             resourceInputs["credentialsScheme"] = state ? state.credentialsScheme : undefined;
             resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
             resourceInputs["hideIos"] = state ? state.hideIos : undefined;
             resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
             resourceInputs["label"] = state ? state.label : undefined;
@@ -256,14 +219,11 @@ export class AutoLogin extends pulumi.CustomResource {
             resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
             resourceInputs["signOnRedirectUrl"] = state ? state.signOnRedirectUrl : undefined;
             resourceInputs["signOnUrl"] = state ? state.signOnUrl : undefined;
-            resourceInputs["skipGroups"] = state ? state.skipGroups : undefined;
-            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
             resourceInputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
             resourceInputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
             resourceInputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as AutoLoginArgs | undefined;
             if ((!args || args.label === undefined) && !opts.urn) {
@@ -278,7 +238,6 @@ export class AutoLogin extends pulumi.CustomResource {
             resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             resourceInputs["credentialsScheme"] = args ? args.credentialsScheme : undefined;
             resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["hideIos"] = args ? args.hideIos : undefined;
             resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
             resourceInputs["label"] = args ? args.label : undefined;
@@ -289,14 +248,11 @@ export class AutoLogin extends pulumi.CustomResource {
             resourceInputs["sharedUsername"] = args ? args.sharedUsername : undefined;
             resourceInputs["signOnRedirectUrl"] = args ? args.signOnRedirectUrl : undefined;
             resourceInputs["signOnUrl"] = args ? args.signOnUrl : undefined;
-            resourceInputs["skipGroups"] = args ? args.skipGroups : undefined;
-            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
             resourceInputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
             resourceInputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
             resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
             resourceInputs["logoUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["signOnMode"] = undefined /*out*/;
@@ -346,12 +302,6 @@ export interface AutoLoginState {
      * Application notes for end users.
      */
     enduserNote?: pulumi.Input<string>;
-    /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Do not display application icon on mobile app.
      */
@@ -405,14 +355,6 @@ export interface AutoLoginState {
      */
     signOnUrl?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
     status?: pulumi.Input<string>;
@@ -432,12 +374,6 @@ export interface AutoLoginState {
      * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.app.AutoLoginUser>[]>;
 }
 
 /**
@@ -481,12 +417,6 @@ export interface AutoLoginArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Groups associated with the application. See `okta.app.GroupAssignment` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Do not display application icon on mobile app.
      */
     hideIos?: pulumi.Input<boolean>;
@@ -527,14 +457,6 @@ export interface AutoLoginArgs {
      */
     signOnUrl?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * The status of the application, by default, it is `"ACTIVE"`.
      */
     status?: pulumi.Input<string>;
@@ -554,10 +476,4 @@ export interface AutoLoginArgs {
      * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
-    /**
-     * The users assigned to the application. See `okta.app.User` for a more flexible approach.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.app.AutoLoginUser>[]>;
 }

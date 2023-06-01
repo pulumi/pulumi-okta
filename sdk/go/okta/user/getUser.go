@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/user"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,18 +57,15 @@ type LookupUserArgs struct {
 	// Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
 	DelayReadSeconds *string `pulumi:"delayReadSeconds"`
 	// Map of search criteria. It supports the following properties.
-	Searches []GetUserSearch `pulumi:"searches"`
-	// Additional API call to collect user's groups will not be made.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-	SkipRoles *bool `pulumi:"skipRoles"`
+	Searches   []GetUserSearch `pulumi:"searches"`
+	SkipGroups *bool           `pulumi:"skipGroups"`
+	SkipRoles  *bool           `pulumi:"skipRoles"`
 	// String representing a specific user's id value
 	UserId *string `pulumi:"userId"`
 }
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	// Administrator roles assigned to user.
 	AdminRoles []string `pulumi:"adminRoles"`
 	// City or locality component of user's address.
 	City                   string  `pulumi:"city"`
@@ -91,8 +88,7 @@ type LookupUserResult struct {
 	// Organization or company assigned unique identifier for the user.
 	EmployeeNumber string `pulumi:"employeeNumber"`
 	// Given name of the user.
-	FirstName string `pulumi:"firstName"`
-	// Groups user belongs to.
+	FirstName        string   `pulumi:"firstName"`
 	GroupMemberships []string `pulumi:"groupMemberships"`
 	// Honorific prefix(es) of the user, or title in most Western languages.
 	HonorificPrefix string `pulumi:"honorificPrefix"`
@@ -170,11 +166,9 @@ type LookupUserOutputArgs struct {
 	// Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
 	DelayReadSeconds pulumi.StringPtrInput `pulumi:"delayReadSeconds"`
 	// Map of search criteria. It supports the following properties.
-	Searches GetUserSearchArrayInput `pulumi:"searches"`
-	// Additional API call to collect user's groups will not be made.
-	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
-	// Additional API call to collect user's roles will not be made. `adminRoles` will not be written to state if skipping roles.
-	SkipRoles pulumi.BoolPtrInput `pulumi:"skipRoles"`
+	Searches   GetUserSearchArrayInput `pulumi:"searches"`
+	SkipGroups pulumi.BoolPtrInput     `pulumi:"skipGroups"`
+	SkipRoles  pulumi.BoolPtrInput     `pulumi:"skipRoles"`
 	// String representing a specific user's id value
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
@@ -198,7 +192,6 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
-// Administrator roles assigned to user.
 func (o LookupUserResultOutput) AdminRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.AdminRoles }).(pulumi.StringArrayOutput)
 }
@@ -261,7 +254,6 @@ func (o LookupUserResultOutput) FirstName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.FirstName }).(pulumi.StringOutput)
 }
 
-// Groups user belongs to.
 func (o LookupUserResultOutput) GroupMemberships() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.GroupMemberships }).(pulumi.StringArrayOutput)
 }

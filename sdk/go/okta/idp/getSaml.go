@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/idp"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/idp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +56,6 @@ type LookupSamlArgs struct {
 
 // A collection of values returned by getSaml.
 type LookupSamlResult struct {
-	// HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `"HTTP-POST"`).
 	AcsBinding string `pulumi:"acsBinding"`
 	// Determines whether to publish an instance-specific (trust) or organization (shared) ACS endpoint in the SAML metadata.
 	AcsType string `pulumi:"acsType"`
@@ -126,7 +125,6 @@ func (o LookupSamlResultOutput) ToLookupSamlResultOutputWithContext(ctx context.
 	return o
 }
 
-// HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `"HTTP-POST"`).
 func (o LookupSamlResultOutput) AcsBinding() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.AcsBinding }).(pulumi.StringOutput)
 }

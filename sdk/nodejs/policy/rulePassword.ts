@@ -78,12 +78,6 @@ export class RulePassword extends pulumi.CustomResource {
      */
     public readonly policyId!: pulumi.Output<string | undefined>;
     /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    public readonly policyid!: pulumi.Output<string | undefined>;
-    /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
      */
     public readonly priority!: pulumi.Output<number | undefined>;
@@ -117,7 +111,6 @@ export class RulePassword extends pulumi.CustomResource {
             resourceInputs["passwordReset"] = state ? state.passwordReset : undefined;
             resourceInputs["passwordUnlock"] = state ? state.passwordUnlock : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["policyid"] = state ? state.policyid : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
@@ -131,7 +124,6 @@ export class RulePassword extends pulumi.CustomResource {
             resourceInputs["passwordReset"] = args ? args.passwordReset : undefined;
             resourceInputs["passwordUnlock"] = args ? args.passwordUnlock : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["policyid"] = args ? args.policyid : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
@@ -177,12 +169,6 @@ export interface RulePasswordState {
      * Policy ID.
      */
     policyId?: pulumi.Input<string>;
-    /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
      */
@@ -233,12 +219,6 @@ export interface RulePasswordArgs {
      * Policy ID.
      */
     policyId?: pulumi.Input<string>;
-    /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    policyid?: pulumi.Input<string>;
     /**
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
      */

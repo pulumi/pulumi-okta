@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,26 +79,6 @@ import (
 //	$ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
 //
 // ```
-//
-//	It's also possible to import app without groups or/and users. In this case ID may look like this
-//
-// ```sh
-//
-//	$ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_users/skip_groups
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;/skip_groups
-//
-// ```
 type AutoLogin struct {
 	pulumi.CustomResourceState
 
@@ -120,10 +100,6 @@ type AutoLogin struct {
 	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -150,10 +126,6 @@ type AutoLogin struct {
 	SignOnRedirectUrl pulumi.StringPtrOutput `pulumi:"signOnRedirectUrl"`
 	// App login page URL
 	SignOnUrl pulumi.StringPtrOutput `pulumi:"signOnUrl"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
@@ -164,10 +136,6 @@ type AutoLogin struct {
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users AutoLoginUserArrayOutput `pulumi:"users"`
 }
 
 // NewAutoLogin registers a new resource with the given unique name, arguments, and options.
@@ -220,10 +188,6 @@ type autoLoginState struct {
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -250,10 +214,6 @@ type autoLoginState struct {
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
 	// App login page URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
@@ -264,10 +224,6 @@ type autoLoginState struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []AutoLoginUser `pulumi:"users"`
 }
 
 type AutoLoginState struct {
@@ -289,10 +245,6 @@ type AutoLoginState struct {
 	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -319,10 +271,6 @@ type AutoLoginState struct {
 	SignOnRedirectUrl pulumi.StringPtrInput
 	// App login page URL
 	SignOnUrl pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
@@ -333,10 +281,6 @@ type AutoLoginState struct {
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users AutoLoginUserArrayInput
 }
 
 func (AutoLoginState) ElementType() reflect.Type {
@@ -362,10 +306,6 @@ type autoLoginArgs struct {
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -386,10 +326,6 @@ type autoLoginArgs struct {
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
 	// App login page URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// Username template. Default: `"${source.login}"`
@@ -400,10 +336,6 @@ type autoLoginArgs struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []AutoLoginUser `pulumi:"users"`
 }
 
 // The set of arguments for constructing a AutoLogin resource.
@@ -426,10 +358,6 @@ type AutoLoginArgs struct {
 	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -450,10 +378,6 @@ type AutoLoginArgs struct {
 	SignOnRedirectUrl pulumi.StringPtrInput
 	// App login page URL
 	SignOnUrl pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// Username template. Default: `"${source.login}"`
@@ -464,10 +388,6 @@ type AutoLoginArgs struct {
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users AutoLoginUserArrayInput
 }
 
 func (AutoLoginArgs) ElementType() reflect.Type {
@@ -602,13 +522,6 @@ func (o AutoLoginOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
-// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-//
-// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-func (o AutoLoginOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AutoLogin) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
-}
-
 // Do not display application icon on mobile app.
 func (o AutoLoginOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
@@ -674,16 +587,6 @@ func (o AutoLoginOutput) SignOnUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.SignOnUrl }).(pulumi.StringPtrOutput)
 }
 
-// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-func (o AutoLoginOutput) SkipGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
-}
-
-// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-func (o AutoLoginOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
 // The status of the application, by default, it is `"ACTIVE"`.
 func (o AutoLoginOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
@@ -707,13 +610,6 @@ func (o AutoLoginOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
 // Username template type. Default: `"BUILT_IN"`.
 func (o AutoLoginOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
-}
-
-// The users assigned to the application. See `app.User` for a more flexible approach.
-//
-// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-func (o AutoLoginOutput) Users() AutoLoginUserArrayOutput {
-	return o.ApplyT(func(v *AutoLogin) AutoLoginUserArrayOutput { return v.Users }).(AutoLoginUserArrayOutput)
 }
 
 type AutoLoginArrayOutput struct{ *pulumi.OutputState }

@@ -14,16 +14,6 @@ namespace Pulumi.Okta.User
     /// 
     /// This resource allows you to create and configure an Okta User.
     /// 
-    /// &gt; **IMPORTANT** If the provider is executed with a non-super user API token a
-    /// 403 occurs when the provider attempts to inspect the user's admin roles. This
-    /// 403 is swallowed and a warning is logged allowing the resource to continue
-    /// without this error hindering it. An empty `admin_roles` array will be present in
-    /// the resource state.
-    /// 
-    /// &gt; **IMPORTANT** Use `skip_roles=true` to avoid `admin_roles` being present in
-    /// resource state. This also prevents the underlying API call for those values to
-    /// be made.
-    /// 
     /// ## Example Usage
     /// 
     /// Full profile:
@@ -108,12 +98,6 @@ namespace Pulumi.Okta.User
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Administrator roles assigned to User.
-        /// </summary>
-        [Output("adminRoles")]
-        public Output<ImmutableArray<string>> AdminRoles { get; private set; } = null!;
-
-        /// <summary>
         /// User profile property.
         /// </summary>
         [Output("city")]
@@ -185,12 +169,6 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("firstName")]
         public Output<string> FirstName { get; private set; } = null!;
-
-        /// <summary>
-        /// User profile property.
-        /// </summary>
-        [Output("groupMemberships")]
-        public Output<ImmutableArray<string>> GroupMemberships { get; private set; } = null!;
 
         /// <summary>
         /// User profile property.
@@ -319,6 +297,9 @@ namespace Pulumi.Okta.User
 
         /// <summary>
         /// User password recovery answer.
+        /// 
+        /// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+        /// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         /// </summary>
         [Output("recoveryAnswer")]
         public Output<string?> RecoveryAnswer { get; private set; } = null!;
@@ -334,12 +315,6 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("secondEmail")]
         public Output<string?> SecondEmail { get; private set; } = null!;
-
-        /// <summary>
-        /// Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
-        /// </summary>
-        [Output("skipRoles")]
-        public Output<bool?> SkipRoles { get; private set; } = null!;
 
         /// <summary>
         /// User profile property.
@@ -435,19 +410,6 @@ namespace Pulumi.Okta.User
 
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
-        [Input("adminRoles")]
-        private InputList<string>? _adminRoles;
-
-        /// <summary>
-        /// Administrator roles assigned to User.
-        /// </summary>
-        [Obsolete(@"The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`")]
-        public InputList<string> AdminRoles
-        {
-            get => _adminRoles ?? (_adminRoles = new InputList<string>());
-            set => _adminRoles = value;
-        }
-
         /// <summary>
         /// User profile property.
         /// </summary>
@@ -526,19 +488,6 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("firstName", required: true)]
         public Input<string> FirstName { get; set; } = null!;
-
-        [Input("groupMemberships")]
-        private InputList<string>? _groupMemberships;
-
-        /// <summary>
-        /// User profile property.
-        /// </summary>
-        [Obsolete(@"The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`")]
-        public InputList<string> GroupMemberships
-        {
-            get => _groupMemberships ?? (_groupMemberships = new InputList<string>());
-            set => _groupMemberships = value;
-        }
 
         /// <summary>
         /// User profile property.
@@ -684,6 +633,9 @@ namespace Pulumi.Okta.User
 
         /// <summary>
         /// User password recovery answer.
+        /// 
+        /// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+        /// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         /// </summary>
         public Input<string>? RecoveryAnswer
         {
@@ -706,12 +658,6 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("secondEmail")]
         public Input<string>? SecondEmail { get; set; }
-
-        /// <summary>
-        /// Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
-        /// </summary>
-        [Input("skipRoles")]
-        public Input<bool>? SkipRoles { get; set; }
 
         /// <summary>
         /// User profile property.
@@ -763,19 +709,6 @@ namespace Pulumi.Okta.User
 
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
-        [Input("adminRoles")]
-        private InputList<string>? _adminRoles;
-
-        /// <summary>
-        /// Administrator roles assigned to User.
-        /// </summary>
-        [Obsolete(@"The `admin_roles` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_admin_roles`")]
-        public InputList<string> AdminRoles
-        {
-            get => _adminRoles ?? (_adminRoles = new InputList<string>());
-            set => _adminRoles = value;
-        }
-
         /// <summary>
         /// User profile property.
         /// </summary>
@@ -854,19 +787,6 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("firstName")]
         public Input<string>? FirstName { get; set; }
-
-        [Input("groupMemberships")]
-        private InputList<string>? _groupMemberships;
-
-        /// <summary>
-        /// User profile property.
-        /// </summary>
-        [Obsolete(@"The `group_memberships` field is now deprecated for the resource `okta_user`, please replace all uses of this with: `okta_user_group_memberships`")]
-        public InputList<string> GroupMemberships
-        {
-            get => _groupMemberships ?? (_groupMemberships = new InputList<string>());
-            set => _groupMemberships = value;
-        }
 
         /// <summary>
         /// User profile property.
@@ -1018,6 +938,9 @@ namespace Pulumi.Okta.User
 
         /// <summary>
         /// User password recovery answer.
+        /// 
+        /// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+        /// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         /// </summary>
         public Input<string>? RecoveryAnswer
         {
@@ -1040,12 +963,6 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("secondEmail")]
         public Input<string>? SecondEmail { get; set; }
-
-        /// <summary>
-        /// Additional API call to collect user's roles will not be made. `admin_roles` will not be written to state if skipping roles.
-        /// </summary>
-        [Input("skipRoles")]
-        public Input<bool>? SkipRoles { get; set; }
 
         /// <summary>
         /// User profile property.

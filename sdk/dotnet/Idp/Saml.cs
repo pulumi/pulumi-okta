@@ -64,7 +64,7 @@ namespace Pulumi.Okta.Idp
         public Output<ImmutableArray<string>> AccountLinkGroupIncludes { get; private set; } = null!;
 
         [Output("acsBinding")]
-        public Output<string?> AcsBinding { get; private set; } = null!;
+        public Output<string> AcsBinding { get; private set; } = null!;
 
         /// <summary>
         /// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
@@ -315,9 +315,6 @@ namespace Pulumi.Okta.Idp
             get => _accountLinkGroupIncludes ?? (_accountLinkGroupIncludes = new InputList<string>());
             set => _accountLinkGroupIncludes = value;
         }
-
-        [Input("acsBinding")]
-        public Input<string>? AcsBinding { get; set; }
 
         /// <summary>
         /// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.

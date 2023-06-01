@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/group"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,32 +40,6 @@ import (
 //
 // ```
 //
-// Ignore users sync
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := group.NewGroup(ctx, "exampleSkip", &group.GroupArgs{
-//				Description: pulumi.String("My Example Group"),
-//				SkipUsers:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // Custom profile attributes
 // ```go
 // package main
@@ -74,7 +48,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/group"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/group"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -112,14 +86,6 @@ import (
 //	$ pulumi import okta:group/group:Group example &#60;group id&#62;
 //
 // ```
-//
-//	It's also possible to import group without users. In this case ID will look like this
-//
-// ```sh
-//
-//	$ pulumi import okta:group/group:Group example &#60;group id&#62;/skip_users
-//
-// ```
 type Group struct {
 	pulumi.CustomResourceState
 
@@ -129,13 +95,6 @@ type Group struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the Okta Group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
-	// The users associated with the group. This can also be done per user.
-	// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
-	//
-	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-	Users pulumi.StringArrayOutput `pulumi:"users"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -173,13 +132,6 @@ type groupState struct {
 	Description *string `pulumi:"description"`
 	// The name of the Okta Group.
 	Name *string `pulumi:"name"`
-	// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
-	// The users associated with the group. This can also be done per user.
-	// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
-	//
-	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-	Users []string `pulumi:"users"`
 }
 
 type GroupState struct {
@@ -189,13 +141,6 @@ type GroupState struct {
 	Description pulumi.StringPtrInput
 	// The name of the Okta Group.
 	Name pulumi.StringPtrInput
-	// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
-	// The users associated with the group. This can also be done per user.
-	// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
-	//
-	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-	Users pulumi.StringArrayInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -209,13 +154,6 @@ type groupArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the Okta Group.
 	Name *string `pulumi:"name"`
-	// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
-	// The users associated with the group. This can also be done per user.
-	// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
-	//
-	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-	Users []string `pulumi:"users"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -226,13 +164,6 @@ type GroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the Okta Group.
 	Name pulumi.StringPtrInput
-	// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
-	// The users associated with the group. This can also be done per user.
-	// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
-	//
-	// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-	Users pulumi.StringArrayInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -335,19 +266,6 @@ func (o GroupOutput) Description() pulumi.StringPtrOutput {
 // The name of the Okta Group.
 func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-func (o GroupOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
-// The users associated with the group. This can also be done per user.
-// `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
-//
-// Deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`
-func (o GroupOutput) Users() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
 }
 
 type GroupArrayOutput struct{ *pulumi.OutputState }

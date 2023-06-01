@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -27,20 +25,6 @@ import * as utilities from "../utilities";
  *
  * ```sh
  *  $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;
- * ```
- *
- *  It's also possible to import app without groups or/and users. In this case ID may look like this
- *
- * ```sh
- *  $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_users
- * ```
- *
- * ```sh
- *  $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_users/skip_groups
- * ```
- *
- * ```sh
- *  $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;/skip_groups
  * ```
  */
 export class Bookmark extends pulumi.CustomResource {
@@ -104,12 +88,6 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * Groups associated with the application.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    public readonly groups!: pulumi.Output<string[] | undefined>;
-    /**
      * Do not display application icon on mobile app.
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
@@ -142,14 +120,6 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    public readonly skipGroups!: pulumi.Output<boolean | undefined>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
-    /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -157,12 +127,6 @@ export class Bookmark extends pulumi.CustomResource {
      * The URL of the bookmark.
      */
     public readonly url!: pulumi.Output<string>;
-    /**
-     * Users associated with the application.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    public readonly users!: pulumi.Output<outputs.app.BookmarkUser[] | undefined>;
 
     /**
      * Create a Bookmark resource with the given unique name, arguments, and options.
@@ -185,7 +149,6 @@ export class Bookmark extends pulumi.CustomResource {
             resourceInputs["authenticationPolicy"] = state ? state.authenticationPolicy : undefined;
             resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
             resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
             resourceInputs["hideIos"] = state ? state.hideIos : undefined;
             resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
             resourceInputs["label"] = state ? state.label : undefined;
@@ -194,11 +157,8 @@ export class Bookmark extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["requestIntegration"] = state ? state.requestIntegration : undefined;
             resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
-            resourceInputs["skipGroups"] = state ? state.skipGroups : undefined;
-            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BookmarkArgs | undefined;
             if ((!args || args.label === undefined) && !opts.urn) {
@@ -215,17 +175,13 @@ export class Bookmark extends pulumi.CustomResource {
             resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
             resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
             resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["hideIos"] = args ? args.hideIos : undefined;
             resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
             resourceInputs["label"] = args ? args.label : undefined;
             resourceInputs["logo"] = args ? args.logo : undefined;
             resourceInputs["requestIntegration"] = args ? args.requestIntegration : undefined;
-            resourceInputs["skipGroups"] = args ? args.skipGroups : undefined;
-            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
             resourceInputs["logoUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["signOnMode"] = undefined /*out*/;
@@ -272,12 +228,6 @@ export interface BookmarkState {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Groups associated with the application.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Do not display application icon on mobile app.
      */
     hideIos?: pulumi.Input<boolean>;
@@ -310,14 +260,6 @@ export interface BookmarkState {
      */
     signOnMode?: pulumi.Input<string>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
     status?: pulumi.Input<string>;
@@ -325,12 +267,6 @@ export interface BookmarkState {
      * The URL of the bookmark.
      */
     url?: pulumi.Input<string>;
-    /**
-     * Users associated with the application.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.app.BookmarkUser>[]>;
 }
 
 /**
@@ -370,12 +306,6 @@ export interface BookmarkArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Groups associated with the application.
-     *
-     * @deprecated The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-     */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Do not display application icon on mobile app.
      */
     hideIos?: pulumi.Input<boolean>;
@@ -396,14 +326,6 @@ export interface BookmarkArgs {
      */
     requestIntegration?: pulumi.Input<boolean>;
     /**
-     * Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-     */
-    skipUsers?: pulumi.Input<boolean>;
-    /**
      * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
      */
     status?: pulumi.Input<string>;
@@ -411,10 +333,4 @@ export interface BookmarkArgs {
      * The URL of the bookmark.
      */
     url: pulumi.Input<string>;
-    /**
-     * Users associated with the application.
-     *
-     * @deprecated The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.app.BookmarkUser>[]>;
 }

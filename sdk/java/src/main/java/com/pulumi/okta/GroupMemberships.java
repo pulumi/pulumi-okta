@@ -21,10 +21,8 @@ import javax.annotation.Nullable;
  * 
  * This resource will allow you to bulk manage group membership in Okta for a given
  * group. This offers an interface to pass multiple users into a single resource
- * call, for better API resource usage. Effectively this is the same as using the
- * `okta.group.Membership` resource several times with a single group and different
- * users. If you need a relationship of a single user to many groups, please use
- * the `okta.UserGroupMemberships` resource.
+ * call, for better API resource usage. If you need a relationship of a single
+ * user to many groups, please use the `okta.UserGroupMemberships` resource.
  * 
  * **Important**: The default behavior of the resource is to only maintain the
  * state of user ids that are assigned it. This behavior will signal drift only if

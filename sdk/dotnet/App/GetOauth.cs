@@ -102,18 +102,6 @@ namespace Pulumi.Okta.App
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
 
-        /// <summary>
-        /// Indicator that allows the app to skip `groups` sync. Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public bool? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync. Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public bool? SkipUsers { get; set; }
-
         public GetOauthArgs()
         {
         }
@@ -153,18 +141,6 @@ namespace Pulumi.Okta.App
         [Input("labelPrefix")]
         public Input<string>? LabelPrefix { get; set; }
 
-        /// <summary>
-        /// Indicator that allows the app to skip `groups` sync. Default is `false`.
-        /// </summary>
-        [Input("skipGroups")]
-        public Input<bool>? SkipGroups { get; set; }
-
-        /// <summary>
-        /// Indicator that allows the app to skip `users` sync. Default is `false`.
-        /// </summary>
-        [Input("skipUsers")]
-        public Input<bool>? SkipUsers { get; set; }
-
         public GetOauthInvokeArgs()
         {
         }
@@ -196,10 +172,6 @@ namespace Pulumi.Okta.App
         /// List of OAuth 2.0 grant types.
         /// </summary>
         public readonly ImmutableArray<string> GrantTypes;
-        /// <summary>
-        /// List of groups IDs assigned to the application.
-        /// </summary>
-        public readonly ImmutableArray<string> Groups;
         /// <summary>
         /// Do not display application icon on mobile app.
         /// </summary>
@@ -257,8 +229,6 @@ namespace Pulumi.Okta.App
         /// List of OAuth 2.0 response type strings.
         /// </summary>
         public readonly ImmutableArray<string> ResponseTypes;
-        public readonly bool? SkipGroups;
-        public readonly bool? SkipUsers;
         /// <summary>
         /// Status of application.
         /// </summary>
@@ -267,10 +237,6 @@ namespace Pulumi.Okta.App
         /// The type of OAuth application.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// List of users IDs assigned to the application.
-        /// </summary>
-        public readonly ImmutableArray<string> Users;
         public readonly string WildcardRedirect;
 
         [OutputConstructor]
@@ -286,8 +252,6 @@ namespace Pulumi.Okta.App
             string clientUri,
 
             ImmutableArray<string> grantTypes,
-
-            ImmutableArray<string> groups,
 
             bool hideIos,
 
@@ -319,15 +283,9 @@ namespace Pulumi.Okta.App
 
             ImmutableArray<string> responseTypes,
 
-            bool? skipGroups,
-
-            bool? skipUsers,
-
             string status,
 
             string type,
-
-            ImmutableArray<string> users,
 
             string wildcardRedirect)
         {
@@ -337,7 +295,6 @@ namespace Pulumi.Okta.App
             ClientSecret = clientSecret;
             ClientUri = clientUri;
             GrantTypes = grantTypes;
-            Groups = groups;
             HideIos = hideIos;
             HideWeb = hideWeb;
             Id = id;
@@ -353,11 +310,8 @@ namespace Pulumi.Okta.App
             PostLogoutRedirectUris = postLogoutRedirectUris;
             RedirectUris = redirectUris;
             ResponseTypes = responseTypes;
-            SkipGroups = skipGroups;
-            SkipUsers = skipUsers;
             Status = status;
             Type = type;
-            Users = users;
             WildcardRedirect = wildcardRedirect;
         }
     }

@@ -16,17 +16,12 @@ class GroupArgs:
     def __init__(__self__, *,
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
-        :param pulumi.Input[bool] skip_users: Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The users associated with the group. This can also be done per user.
-               `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
         """
         if custom_profile_attributes is not None:
             pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
@@ -34,13 +29,6 @@ class GroupArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
-        if users is not None:
-            warnings.warn("""The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="customProfileAttributes")
@@ -77,31 +65,6 @@ class GroupArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The users associated with the group. This can also be done per user.
-        `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "users", value)
 
 
 @pulumi.input_type
@@ -109,17 +72,12 @@ class _GroupState:
     def __init__(__self__, *,
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
-        :param pulumi.Input[bool] skip_users: Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The users associated with the group. This can also be done per user.
-               `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
         """
         if custom_profile_attributes is not None:
             pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
@@ -127,13 +85,6 @@ class _GroupState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if skip_users is not None:
-            pulumi.set(__self__, "skip_users", skip_users)
-        if users is not None:
-            warnings.warn("""The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""")
-        if users is not None:
-            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="customProfileAttributes")
@@ -170,31 +121,6 @@ class _GroupState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_users", value)
-
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The users associated with the group. This can also be done per user.
-        `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "users", value)
 
 
 class Group(pulumi.CustomResource):
@@ -205,8 +131,6 @@ class Group(pulumi.CustomResource):
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Creates an Okta Group.
@@ -220,16 +144,6 @@ class Group(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.group.Group("example", description="My Example Group")
-        ```
-
-        Ignore users sync
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_skip = okta.group.Group("exampleSkip",
-            description="My Example Group",
-            skip_users=True)
         ```
 
         Custom profile attributes
@@ -255,20 +169,11 @@ class Group(pulumi.CustomResource):
          $ pulumi import okta:group/group:Group example &#60;group id&#62;
         ```
 
-         It's also possible to import group without users. In this case ID will look like this
-
-        ```sh
-         $ pulumi import okta:group/group:Group example &#60;group id&#62;/skip_users
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
-        :param pulumi.Input[bool] skip_users: Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The users associated with the group. This can also be done per user.
-               `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
         """
         ...
     @overload
@@ -290,16 +195,6 @@ class Group(pulumi.CustomResource):
         example = okta.group.Group("example", description="My Example Group")
         ```
 
-        Ignore users sync
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_skip = okta.group.Group("exampleSkip",
-            description="My Example Group",
-            skip_users=True)
-        ```
-
         Custom profile attributes
         ```python
         import pulumi
@@ -323,12 +218,6 @@ class Group(pulumi.CustomResource):
          $ pulumi import okta:group/group:Group example &#60;group id&#62;
         ```
 
-         It's also possible to import group without users. In this case ID will look like this
-
-        ```sh
-         $ pulumi import okta:group/group:Group example &#60;group id&#62;/skip_users
-        ```
-
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -347,8 +236,6 @@ class Group(pulumi.CustomResource):
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 skip_users: Optional[pulumi.Input[bool]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,11 +248,6 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["custom_profile_attributes"] = custom_profile_attributes
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            __props__.__dict__["skip_users"] = skip_users
-            if users is not None and not opts.urn:
-                warnings.warn("""The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""", DeprecationWarning)
-                pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the resource `okta_group`, please replace all uses of this with: `okta_group_memberships`""")
-            __props__.__dict__["users"] = users
         super(Group, __self__).__init__(
             'okta:group/group:Group',
             resource_name,
@@ -378,9 +260,7 @@ class Group(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_profile_attributes: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None,
-            skip_users: Optional[pulumi.Input[bool]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Group':
+            name: Optional[pulumi.Input[str]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -391,9 +271,6 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
-        :param pulumi.Input[bool] skip_users: Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The users associated with the group. This can also be done per user.
-               `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -402,8 +279,6 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["custom_profile_attributes"] = custom_profile_attributes
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
-        __props__.__dict__["skip_users"] = skip_users
-        __props__.__dict__["users"] = users
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -429,21 +304,4 @@ class Group(pulumi.CustomResource):
         The name of the Okta Group.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="skipUsers")
-    def skip_users(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator that allows a group to skip `users` sync (it's also can be provided during import). Default is `false`.
-        """
-        return pulumi.get(self, "skip_users")
-
-    @property
-    @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The users associated with the group. This can also be done per user.
-        `DEPRECATED`: Please replace usage with the `GroupMemberships` resource.
-        """
-        return pulumi.get(self, "users")
 

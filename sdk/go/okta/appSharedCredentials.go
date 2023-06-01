@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,26 +65,6 @@ import (
 //	$ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;
 //
 // ```
-//
-//	It's also possible to import app without groups or/and users. In this case ID may look like this
-//
-// ```sh
-//
-//	$ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_users/skip_groups
-//
-// ```
-//
-// ```sh
-//
-//	$ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;/skip_groups
-//
-// ```
 type AppSharedCredentials struct {
 	pulumi.CustomResourceState
 
@@ -106,10 +86,6 @@ type AppSharedCredentials struct {
 	Checkbox pulumi.StringPtrOutput `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -134,10 +110,6 @@ type AppSharedCredentials struct {
 	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
 	// Authentication mode of app.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrOutput `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -154,10 +126,6 @@ type AppSharedCredentials struct {
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrOutput `pulumi:"usernameField"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users AppSharedCredentialsUserArrayOutput `pulumi:"users"`
 }
 
 // NewAppSharedCredentials registers a new resource with the given unique name, arguments, and options.
@@ -210,10 +178,6 @@ type appSharedCredentialsState struct {
 	Checkbox *string `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -238,10 +202,6 @@ type appSharedCredentialsState struct {
 	SharedUsername *string `pulumi:"sharedUsername"`
 	// Authentication mode of app.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -258,10 +218,6 @@ type appSharedCredentialsState struct {
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// CSS selector for the username field.
 	UsernameField *string `pulumi:"usernameField"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []AppSharedCredentialsUser `pulumi:"users"`
 }
 
 type AppSharedCredentialsState struct {
@@ -283,10 +239,6 @@ type AppSharedCredentialsState struct {
 	Checkbox pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -311,10 +263,6 @@ type AppSharedCredentialsState struct {
 	SharedUsername pulumi.StringPtrInput
 	// Authentication mode of app.
 	SignOnMode pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
@@ -331,10 +279,6 @@ type AppSharedCredentialsState struct {
 	UserNameTemplateType pulumi.StringPtrInput
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrInput
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users AppSharedCredentialsUserArrayInput
 }
 
 func (AppSharedCredentialsState) ElementType() reflect.Type {
@@ -360,10 +304,6 @@ type appSharedCredentialsArgs struct {
 	Checkbox *string `pulumi:"checkbox"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
 	// Do not display application icon to users.
@@ -382,10 +322,6 @@ type appSharedCredentialsArgs struct {
 	SharedPassword *string `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes.
 	SharedUsername *string `pulumi:"sharedUsername"`
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers *bool `pulumi:"skipUsers"`
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
@@ -402,10 +338,6 @@ type appSharedCredentialsArgs struct {
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 	// CSS selector for the username field.
 	UsernameField *string `pulumi:"usernameField"`
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users []AppSharedCredentialsUser `pulumi:"users"`
 }
 
 // The set of arguments for constructing a AppSharedCredentials resource.
@@ -428,10 +360,6 @@ type AppSharedCredentialsArgs struct {
 	Checkbox pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-	Groups pulumi.StringArrayInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
 	// Do not display application icon to users.
@@ -450,10 +378,6 @@ type AppSharedCredentialsArgs struct {
 	SharedPassword pulumi.StringPtrInput
 	// Shared username, required for certain schemes.
 	SharedUsername pulumi.StringPtrInput
-	// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-	SkipGroups pulumi.BoolPtrInput
-	// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-	SkipUsers pulumi.BoolPtrInput
 	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
@@ -470,10 +394,6 @@ type AppSharedCredentialsArgs struct {
 	UserNameTemplateType pulumi.StringPtrInput
 	// CSS selector for the username field.
 	UsernameField pulumi.StringPtrInput
-	// The users assigned to the application. See `app.User` for a more flexible approach.
-	//
-	// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-	Users AppSharedCredentialsUserArrayInput
 }
 
 func (AppSharedCredentialsArgs) ElementType() reflect.Type {
@@ -608,13 +528,6 @@ func (o AppSharedCredentialsOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
-// Groups associated with the application. See `app.GroupAssignment` for a more flexible approach.
-//
-// Deprecated: The direct configuration of groups in this app resource is deprecated, please ensure you use the resource `okta_app_group_assignments` for this functionality.
-func (o AppSharedCredentialsOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
-}
-
 // Do not display application icon on mobile app.
 func (o AppSharedCredentialsOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppSharedCredentials) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
@@ -675,16 +588,6 @@ func (o AppSharedCredentialsOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Indicator that allows the app to skip `groups` sync (it's also can be provided during import). Default is `false`.
-func (o AppSharedCredentialsOutput) SkipGroups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AppSharedCredentials) pulumi.BoolPtrOutput { return v.SkipGroups }).(pulumi.BoolPtrOutput)
-}
-
-// Indicator that allows the app to skip `users` sync (it's also can be provided during import). Default is `false`.
-func (o AppSharedCredentialsOutput) SkipUsers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AppSharedCredentials) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
-}
-
 // The status of the application, by default, it is `"ACTIVE"`.
 func (o AppSharedCredentialsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
@@ -723,13 +626,6 @@ func (o AppSharedCredentialsOutput) UserNameTemplateType() pulumi.StringPtrOutpu
 // CSS selector for the username field.
 func (o AppSharedCredentialsOutput) UsernameField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSharedCredentials) pulumi.StringPtrOutput { return v.UsernameField }).(pulumi.StringPtrOutput)
-}
-
-// The users assigned to the application. See `app.User` for a more flexible approach.
-//
-// Deprecated: The direct configuration of users in this app resource is deprecated, please ensure you use the resource `okta_app_user` for this functionality.
-func (o AppSharedCredentialsOutput) Users() AppSharedCredentialsUserArrayOutput {
-	return o.ApplyT(func(v *AppSharedCredentials) AppSharedCredentialsUserArrayOutput { return v.Users }).(AppSharedCredentialsUserArrayOutput)
 }
 
 type AppSharedCredentialsArrayOutput struct{ *pulumi.OutputState }

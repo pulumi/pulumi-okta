@@ -46,9 +46,6 @@ export interface GetSamlArgs {
  * A collection of values returned by getSaml.
  */
 export interface GetSamlResult {
-    /**
-     * HTTP binding used to receive a SAMLResponse message from the IdP (always equals to `"HTTP-POST"`).
-     */
     readonly acsBinding: string;
     /**
      * Determines whether to publish an instance-specific (trust) or organization (shared) ACS endpoint in the SAML metadata.

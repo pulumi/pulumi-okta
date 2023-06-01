@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/idp"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/idp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -30,11 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := idp.NewSocial(ctx, "example", &idp.SocialArgs{
-//				ClientId:       pulumi.String("abcd123"),
-//				ClientSecret:   pulumi.String("abcd123"),
-//				MatchAttribute: pulumi.String("customfieldId"),
-//				MatchType:      pulumi.String("CUSTOM_ATTRIBUTE"),
-//				ProtocolType:   pulumi.String("OAUTH2"),
+//				ClientId:     pulumi.String("abcd123"),
+//				ClientSecret: pulumi.String("abcd123"),
+//				ProtocolType: pulumi.String("OAUTH2"),
 //				Scopes: pulumi.StringArray{
 //					pulumi.String("public_profile"),
 //					pulumi.String("email"),
@@ -95,10 +93,6 @@ type Social struct {
 	GroupsFilters pulumi.StringArrayOutput `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
-	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
-	MatchAttribute pulumi.StringPtrOutput `pulumi:"matchAttribute"`
-	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
-	MatchType pulumi.StringPtrOutput `pulumi:"matchType"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrOutput `pulumi:"maxClockSkew"`
 	// The Application's display name.
@@ -207,10 +201,6 @@ type socialState struct {
 	GroupsFilters []string `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
 	IssuerMode *string `pulumi:"issuerMode"`
-	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
-	MatchAttribute *string `pulumi:"matchAttribute"`
-	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
-	MatchType *string `pulumi:"matchType"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// The Application's display name.
@@ -274,10 +264,6 @@ type SocialState struct {
 	GroupsFilters pulumi.StringArrayInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
 	IssuerMode pulumi.StringPtrInput
-	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
-	MatchAttribute pulumi.StringPtrInput
-	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
-	MatchType pulumi.StringPtrInput
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrInput
 	// The Application's display name.
@@ -341,10 +327,6 @@ type socialArgs struct {
 	GroupsFilters []string `pulumi:"groupsFilters"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
 	IssuerMode *string `pulumi:"issuerMode"`
-	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
-	MatchAttribute *string `pulumi:"matchAttribute"`
-	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
-	MatchType *string `pulumi:"matchType"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// The Application's display name.
@@ -401,10 +383,6 @@ type SocialArgs struct {
 	GroupsFilters pulumi.StringArrayInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
 	IssuerMode pulumi.StringPtrInput
-	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
-	MatchAttribute pulumi.StringPtrInput
-	// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
-	MatchType pulumi.StringPtrInput
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrInput
 	// The Application's display name.
@@ -593,16 +571,6 @@ func (o SocialOutput) GroupsFilters() pulumi.StringArrayOutput {
 // Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
 func (o SocialOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_attribute"
-func (o SocialOutput) MatchAttribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.MatchAttribute }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property was incorrectly added to this resource, you should use "subject_match_type"
-func (o SocialOutput) MatchType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.MatchType }).(pulumi.StringPtrOutput)
 }
 
 // Maximum allowable clock-skew when processing messages from the IdP.

@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v3/go/okta/idp"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/idp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,8 +65,7 @@ type Saml struct {
 	AccountLinkAction pulumi.StringPtrOutput `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayOutput `pulumi:"accountLinkGroupIncludes"`
-	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
-	AcsBinding pulumi.StringPtrOutput `pulumi:"acsBinding"`
+	AcsBinding               pulumi.StringOutput      `pulumi:"acsBinding"`
 	// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
 	AcsType pulumi.StringPtrOutput `pulumi:"acsType"`
 	// The audience restriction for the IdP.
@@ -173,8 +172,7 @@ type samlState struct {
 	AccountLinkAction *string `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
-	AcsBinding *string `pulumi:"acsBinding"`
+	AcsBinding               *string  `pulumi:"acsBinding"`
 	// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
 	AcsType *string `pulumi:"acsType"`
 	// The audience restriction for the IdP.
@@ -244,8 +242,7 @@ type SamlState struct {
 	AccountLinkAction pulumi.StringPtrInput
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
-	AcsBinding pulumi.StringPtrInput
+	AcsBinding               pulumi.StringPtrInput
 	// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
 	AcsType pulumi.StringPtrInput
 	// The audience restriction for the IdP.
@@ -319,8 +316,6 @@ type samlArgs struct {
 	AccountLinkAction *string `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
-	AcsBinding *string `pulumi:"acsBinding"`
 	// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
 	AcsType *string `pulumi:"acsType"`
 	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
@@ -385,8 +380,6 @@ type SamlArgs struct {
 	AccountLinkAction pulumi.StringPtrInput
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
-	AcsBinding pulumi.StringPtrInput
 	// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
 	AcsType pulumi.StringPtrInput
 	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
@@ -542,9 +535,8 @@ func (o SamlOutput) AccountLinkGroupIncludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringArrayOutput { return v.AccountLinkGroupIncludes }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: This property will be removed in the future, as it can only be set to 'HTTP-POST'
-func (o SamlOutput) AcsBinding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AcsBinding }).(pulumi.StringPtrOutput)
+func (o SamlOutput) AcsBinding() pulumi.StringOutput {
+	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.AcsBinding }).(pulumi.StringOutput)
 }
 
 // The type of ACS. It can be `"INSTANCE"` or `"ORG"`.

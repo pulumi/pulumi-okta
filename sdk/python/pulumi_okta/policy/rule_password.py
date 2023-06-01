@@ -22,7 +22,6 @@ class RulePasswordArgs:
                  password_reset: Optional[pulumi.Input[str]] = None,
                  password_unlock: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -36,7 +35,6 @@ class RulePasswordArgs:
         :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The users to exclude. Type `"set(string)"`
@@ -57,11 +55,6 @@ class RulePasswordArgs:
             pulumi.set(__self__, "password_unlock", password_unlock)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if policyid is not None:
-            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-        if policyid is not None:
-            pulumi.set(__self__, "policyid", policyid)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
@@ -164,18 +157,6 @@ class RulePasswordArgs:
     @policy_id.setter
     def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
-
-    @policyid.setter
-    def policyid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policyid", value)
 
     @property
     @pulumi.getter
@@ -225,7 +206,6 @@ class _RulePasswordState:
                  password_reset: Optional[pulumi.Input[str]] = None,
                  password_unlock: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -239,7 +219,6 @@ class _RulePasswordState:
         :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The users to exclude. Type `"set(string)"`
@@ -260,11 +239,6 @@ class _RulePasswordState:
             pulumi.set(__self__, "password_unlock", password_unlock)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if policyid is not None:
-            warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-            pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-        if policyid is not None:
-            pulumi.set(__self__, "policyid", policyid)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
@@ -367,18 +341,6 @@ class _RulePasswordState:
     @policy_id.setter
     def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
-
-    @policyid.setter
-    def policyid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policyid", value)
 
     @property
     @pulumi.getter
@@ -430,7 +392,6 @@ class RulePassword(pulumi.CustomResource):
                  password_reset: Optional[pulumi.Input[str]] = None,
                  password_unlock: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -458,7 +419,6 @@ class RulePassword(pulumi.CustomResource):
         :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The users to exclude. Type `"set(string)"`
@@ -505,7 +465,6 @@ class RulePassword(pulumi.CustomResource):
                  password_reset: Optional[pulumi.Input[str]] = None,
                  password_unlock: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 policyid: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -526,10 +485,6 @@ class RulePassword(pulumi.CustomResource):
             __props__.__dict__["password_reset"] = password_reset
             __props__.__dict__["password_unlock"] = password_unlock
             __props__.__dict__["policy_id"] = policy_id
-            if policyid is not None and not opts.urn:
-                warnings.warn("""Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""", DeprecationWarning)
-                pulumi.log.warn("""policyid is deprecated: Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead""")
-            __props__.__dict__["policyid"] = policyid
             __props__.__dict__["priority"] = priority
             __props__.__dict__["status"] = status
             __props__.__dict__["users_excludeds"] = users_excludeds
@@ -551,7 +506,6 @@ class RulePassword(pulumi.CustomResource):
             password_reset: Optional[pulumi.Input[str]] = None,
             password_unlock: Optional[pulumi.Input[str]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
-            policyid: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             status: Optional[pulumi.Input[str]] = None,
             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'RulePassword':
@@ -570,7 +524,6 @@ class RulePassword(pulumi.CustomResource):
         :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
         :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] policyid: Policy ID.
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The users to exclude. Type `"set(string)"`
@@ -587,7 +540,6 @@ class RulePassword(pulumi.CustomResource):
         __props__.__dict__["password_reset"] = password_reset
         __props__.__dict__["password_unlock"] = password_unlock
         __props__.__dict__["policy_id"] = policy_id
-        __props__.__dict__["policyid"] = policyid
         __props__.__dict__["priority"] = priority
         __props__.__dict__["status"] = status
         __props__.__dict__["users_excludeds"] = users_excludeds
@@ -656,14 +608,6 @@ class RulePassword(pulumi.CustomResource):
         Policy ID.
         """
         return pulumi.get(self, "policy_id")
-
-    @property
-    @pulumi.getter
-    def policyid(self) -> pulumi.Output[Optional[str]]:
-        """
-        Policy ID.
-        """
-        return pulumi.get(self, "policyid")
 
     @property
     @pulumi.getter

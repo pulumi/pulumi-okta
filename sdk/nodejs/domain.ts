@@ -56,6 +56,8 @@ export class Domain extends pulumi.CustomResource {
 
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+     *
+     * > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
      */
     public readonly certificateSourceType!: pulumi.Output<string | undefined>;
     /**
@@ -70,12 +72,6 @@ export class Domain extends pulumi.CustomResource {
      * Status of the domain.
      */
     public /*out*/ readonly validationStatus!: pulumi.Output<string>;
-    /**
-     * Indicates whether the domain should be verified.
-     *
-     * @deprecated The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-     */
-    public readonly verify!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -94,12 +90,10 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["dnsRecords"] = state ? state.dnsRecords : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["validationStatus"] = state ? state.validationStatus : undefined;
-            resourceInputs["verify"] = state ? state.verify : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
             resourceInputs["certificateSourceType"] = args ? args.certificateSourceType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["verify"] = args ? args.verify : undefined;
             resourceInputs["dnsRecords"] = undefined /*out*/;
             resourceInputs["validationStatus"] = undefined /*out*/;
         }
@@ -114,6 +108,8 @@ export class Domain extends pulumi.CustomResource {
 export interface DomainState {
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+     *
+     * > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
      */
     certificateSourceType?: pulumi.Input<string>;
     /**
@@ -128,12 +124,6 @@ export interface DomainState {
      * Status of the domain.
      */
     validationStatus?: pulumi.Input<string>;
-    /**
-     * Indicates whether the domain should be verified.
-     *
-     * @deprecated The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-     */
-    verify?: pulumi.Input<boolean>;
 }
 
 /**
@@ -142,16 +132,12 @@ export interface DomainState {
 export interface DomainArgs {
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+     *
+     * > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
      */
     certificateSourceType?: pulumi.Input<string>;
     /**
      * Custom Domain name.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Indicates whether the domain should be verified.
-     *
-     * @deprecated The direct validation for the domain resource is deprecated, please use the `okta_domain_verification` resource for this functionality.
-     */
-    verify?: pulumi.Input<boolean>;
 }

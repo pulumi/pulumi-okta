@@ -196,12 +196,16 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
     /**
      * Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
      * 
+     * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+     * 
      */
     @Export(name="identityProvider", type=String.class, parameters={})
     private Output</* @Nullable */ String> identityProvider;
 
     /**
      * @return Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
+     * 
+     * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
      * 
      */
     public Output<Optional<String>> identityProvider() {
@@ -346,24 +350,6 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> policyId() {
         return Codegen.optional(this.policyId);
-    }
-    /**
-     * Policy ID.
-     * 
-     * @deprecated
-     * Because of incorrect naming, &#39;policyid&#39; field will be deprecated and then removed in the next versions of the provider. Please use &#39;policy_id&#39; instead
-     * 
-     */
-    @Deprecated /* Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead */
-    @Export(name="policyid", type=String.class, parameters={})
-    private Output</* @Nullable */ String> policyid;
-
-    /**
-     * @return Policy ID.
-     * 
-     */
-    public Output<Optional<String>> policyid() {
-        return Codegen.optional(this.policyid);
     }
     /**
      * Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:

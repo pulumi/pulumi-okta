@@ -144,6 +144,8 @@ export class RuleSignon extends pulumi.CustomResource {
     public readonly factorSequences!: pulumi.Output<outputs.policy.RuleSignonFactorSequence[] | undefined>;
     /**
      * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+     *
+     * > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
      */
     public readonly identityProvider!: pulumi.Output<string | undefined>;
     /**
@@ -186,12 +188,6 @@ export class RuleSignon extends pulumi.CustomResource {
      * Policy ID.
      */
     public readonly policyId!: pulumi.Output<string | undefined>;
-    /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    public readonly policyid!: pulumi.Output<string | undefined>;
     /**
      * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
      * `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
@@ -255,7 +251,6 @@ export class RuleSignon extends pulumi.CustomResource {
             resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
             resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["policyid"] = state ? state.policyid : undefined;
             resourceInputs["primaryFactor"] = state ? state.primaryFactor : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["riscLevel"] = state ? state.riscLevel : undefined;
@@ -281,7 +276,6 @@ export class RuleSignon extends pulumi.CustomResource {
             resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
             resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["policyid"] = args ? args.policyid : undefined;
             resourceInputs["primaryFactor"] = args ? args.primaryFactor : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["riscLevel"] = args ? args.riscLevel : undefined;
@@ -318,6 +312,8 @@ export interface RuleSignonState {
     factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
     /**
      * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+     *
+     * > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
      */
     identityProvider?: pulumi.Input<string>;
     /**
@@ -360,12 +356,6 @@ export interface RuleSignonState {
      * Policy ID.
      */
     policyId?: pulumi.Input<string>;
-    /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    policyid?: pulumi.Input<string>;
     /**
      * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
      * `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
@@ -424,6 +414,8 @@ export interface RuleSignonArgs {
     factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
     /**
      * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
+     *
+     * > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
      */
     identityProvider?: pulumi.Input<string>;
     /**
@@ -466,12 +458,6 @@ export interface RuleSignonArgs {
      * Policy ID.
      */
     policyId?: pulumi.Input<string>;
-    /**
-     * Policy ID.
-     *
-     * @deprecated Because of incorrect naming, 'policyid' field will be deprecated and then removed in the next versions of the provider. Please use 'policy_id' instead
-     */
-    policyid?: pulumi.Input<string>;
     /**
      * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
      * `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
