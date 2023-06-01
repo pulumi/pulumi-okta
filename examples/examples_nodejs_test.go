@@ -1,4 +1,5 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+//go:build nodejs || all
 // +build nodejs all
 
 package examples
@@ -22,7 +23,6 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 }
 
 func TestAccUserTs(t *testing.T) {
-	skipIfNoOktaTokens(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "user"),
