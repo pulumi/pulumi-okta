@@ -22,7 +22,7 @@ class GetSamlResult:
     """
     A collection of values returned by getSaml.
     """
-    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, inline_hook_id=None, key_id=None, label=None, label_prefix=None, links=None, name=None, recipient=None, request_compressed=None, response_signed=None, saml_signed_request_enabled=None, signature_algorithm=None, single_logout_certificate=None, single_logout_issuer=None, single_logout_url=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_push_status=None, user_name_template_suffix=None, user_name_template_type=None, users=None):
+    def __init__(__self__, accessibility_error_redirect_url=None, accessibility_login_redirect_url=None, accessibility_self_service=None, acs_endpoints=None, active_only=None, app_settings_json=None, assertion_signed=None, attribute_statements=None, audience=None, authn_context_class_ref=None, auto_submit_toolbar=None, default_relay_state=None, destination=None, digest_algorithm=None, features=None, groups=None, hide_ios=None, hide_web=None, honor_force_authn=None, id=None, idp_issuer=None, inline_hook_id=None, key_id=None, label=None, label_prefix=None, links=None, name=None, recipient=None, request_compressed=None, response_signed=None, saml_signed_request_enabled=None, signature_algorithm=None, single_logout_certificate=None, single_logout_issuer=None, single_logout_url=None, skip_groups=None, skip_users=None, sp_issuer=None, sso_url=None, status=None, subject_name_id_format=None, subject_name_id_template=None, user_name_template=None, user_name_template_push_status=None, user_name_template_suffix=None, user_name_template_type=None, users=None):
         if accessibility_error_redirect_url and not isinstance(accessibility_error_redirect_url, str):
             raise TypeError("Expected argument 'accessibility_error_redirect_url' to be a str")
         pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -132,6 +132,20 @@ class GetSamlResult:
         if single_logout_url and not isinstance(single_logout_url, str):
             raise TypeError("Expected argument 'single_logout_url' to be a str")
         pulumi.set(__self__, "single_logout_url", single_logout_url)
+        if skip_groups and not isinstance(skip_groups, bool):
+            raise TypeError("Expected argument 'skip_groups' to be a bool")
+        if skip_groups is not None:
+            warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+            pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
+
+        pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users and not isinstance(skip_users, bool):
+            raise TypeError("Expected argument 'skip_users' to be a bool")
+        if skip_users is not None:
+            warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+            pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
+
+        pulumi.set(__self__, "skip_users", skip_users)
         if sp_issuer and not isinstance(sp_issuer, str):
             raise TypeError("Expected argument 'sp_issuer' to be a str")
         pulumi.set(__self__, "sp_issuer", sp_issuer)
@@ -442,6 +456,16 @@ class GetSamlResult:
         return pulumi.get(self, "single_logout_url")
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_groups")
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_users")
+
+    @property
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> str:
         """
@@ -560,6 +584,8 @@ class AwaitableGetSamlResult(GetSamlResult):
             single_logout_certificate=self.single_logout_certificate,
             single_logout_issuer=self.single_logout_issuer,
             single_logout_url=self.single_logout_url,
+            skip_groups=self.skip_groups,
+            skip_users=self.skip_users,
             sp_issuer=self.sp_issuer,
             sso_url=self.sso_url,
             status=self.status,
@@ -577,6 +603,8 @@ def get_saml(active_only: Optional[bool] = None,
              label: Optional[str] = None,
              label_prefix: Optional[str] = None,
              request_compressed: Optional[bool] = None,
+             skip_groups: Optional[bool] = None,
+             skip_users: Optional[bool] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSamlResult:
     """
     Use this data source to retrieve an SAML application from Okta.
@@ -606,6 +634,8 @@ def get_saml(active_only: Optional[bool] = None,
     __args__['label'] = label
     __args__['labelPrefix'] = label_prefix
     __args__['requestCompressed'] = request_compressed
+    __args__['skipGroups'] = skip_groups
+    __args__['skipUsers'] = skip_users
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('okta:app/getSaml:getSaml', __args__, opts=opts, typ=GetSamlResult).value
 
@@ -645,6 +675,8 @@ def get_saml(active_only: Optional[bool] = None,
         single_logout_certificate=__ret__.single_logout_certificate,
         single_logout_issuer=__ret__.single_logout_issuer,
         single_logout_url=__ret__.single_logout_url,
+        skip_groups=__ret__.skip_groups,
+        skip_users=__ret__.skip_users,
         sp_issuer=__ret__.sp_issuer,
         sso_url=__ret__.sso_url,
         status=__ret__.status,
@@ -663,6 +695,8 @@ def get_saml_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                     label: Optional[pulumi.Input[Optional[str]]] = None,
                     label_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                     request_compressed: Optional[pulumi.Input[Optional[bool]]] = None,
+                    skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
+                    skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlResult]:
     """
     Use this data source to retrieve an SAML application from Okta.

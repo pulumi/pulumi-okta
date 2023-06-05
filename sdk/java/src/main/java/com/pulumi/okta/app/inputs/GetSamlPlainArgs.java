@@ -96,6 +96,44 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.requestCompressed);
     }
 
+    /**
+     * @deprecated
+     * Because groups has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    @Import(name="skipGroups")
+    private @Nullable Boolean skipGroups;
+
+    /**
+     * @deprecated
+     * Because groups has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    public Optional<Boolean> skipGroups() {
+        return Optional.ofNullable(this.skipGroups);
+    }
+
+    /**
+     * @deprecated
+     * Because users has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    @Import(name="skipUsers")
+    private @Nullable Boolean skipUsers;
+
+    /**
+     * @deprecated
+     * Because users has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    public Optional<Boolean> skipUsers() {
+        return Optional.ofNullable(this.skipUsers);
+    }
+
     private GetSamlPlainArgs() {}
 
     private GetSamlPlainArgs(GetSamlPlainArgs $) {
@@ -104,6 +142,8 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.label = $.label;
         this.labelPrefix = $.labelPrefix;
         this.requestCompressed = $.requestCompressed;
+        this.skipGroups = $.skipGroups;
+        this.skipUsers = $.skipUsers;
     }
 
     public static Builder builder() {
@@ -179,6 +219,32 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder requestCompressed(@Nullable Boolean requestCompressed) {
             $.requestCompressed = requestCompressed;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Because groups has been removed, this attribute is a no op and will be removed
+         * 
+         */
+        @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+        public Builder skipGroups(@Nullable Boolean skipGroups) {
+            $.skipGroups = skipGroups;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Because users has been removed, this attribute is a no op and will be removed
+         * 
+         */
+        @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+        public Builder skipUsers(@Nullable Boolean skipUsers) {
+            $.skipUsers = skipUsers;
             return this;
         }
 

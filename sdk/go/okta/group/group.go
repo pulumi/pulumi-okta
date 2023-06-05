@@ -95,6 +95,10 @@ type Group struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the Okta Group.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	//
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers pulumi.BoolPtrOutput `pulumi:"skipUsers"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -132,6 +136,10 @@ type groupState struct {
 	Description *string `pulumi:"description"`
 	// The name of the Okta Group.
 	Name *string `pulumi:"name"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	//
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers *bool `pulumi:"skipUsers"`
 }
 
 type GroupState struct {
@@ -141,6 +149,10 @@ type GroupState struct {
 	Description pulumi.StringPtrInput
 	// The name of the Okta Group.
 	Name pulumi.StringPtrInput
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	//
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers pulumi.BoolPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -154,6 +166,10 @@ type groupArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the Okta Group.
 	Name *string `pulumi:"name"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	//
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers *bool `pulumi:"skipUsers"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -164,6 +180,10 @@ type GroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the Okta Group.
 	Name pulumi.StringPtrInput
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	//
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers pulumi.BoolPtrInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -266,6 +286,13 @@ func (o GroupOutput) Description() pulumi.StringPtrOutput {
 // The name of the Okta Group.
 func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+//
+// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+func (o GroupOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.SkipUsers }).(pulumi.BoolPtrOutput)
 }
 
 type GroupArrayOutput struct{ *pulumi.OutputState }

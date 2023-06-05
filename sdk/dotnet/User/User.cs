@@ -317,6 +317,12 @@ namespace Pulumi.Okta.User
         public Output<string?> SecondEmail { get; private set; } = null!;
 
         /// <summary>
+        /// Do not populate user roles information (prevents additional API call)
+        /// </summary>
+        [Output("skipRoles")]
+        public Output<bool?> SkipRoles { get; private set; } = null!;
+
+        /// <summary>
         /// User profile property.
         /// </summary>
         [Output("state")]
@@ -660,6 +666,12 @@ namespace Pulumi.Okta.User
         public Input<string>? SecondEmail { get; set; }
 
         /// <summary>
+        /// Do not populate user roles information (prevents additional API call)
+        /// </summary>
+        [Input("skipRoles")]
+        public Input<bool>? SkipRoles { get; set; }
+
+        /// <summary>
         /// User profile property.
         /// </summary>
         [Input("state")]
@@ -963,6 +975,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("secondEmail")]
         public Input<string>? SecondEmail { get; set; }
+
+        /// <summary>
+        /// Do not populate user roles information (prevents additional API call)
+        /// </summary>
+        [Input("skipRoles")]
+        public Input<bool>? SkipRoles { get; set; }
 
         /// <summary>
         /// User profile property.

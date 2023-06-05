@@ -50,6 +50,7 @@ class UserArgs:
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
+                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -102,6 +103,7 @@ class UserArgs:
                - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[bool] skip_roles: Do not populate user roles information (prevents additional API call)
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -174,6 +176,11 @@ class UserArgs:
             pulumi.set(__self__, "recovery_question", recovery_question)
         if second_email is not None:
             pulumi.set(__self__, "second_email", second_email)
+        if skip_roles is not None:
+            warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+            pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
+        if skip_roles is not None:
+            pulumi.set(__self__, "skip_roles", skip_roles)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if status is not None:
@@ -607,6 +614,18 @@ class UserArgs:
         pulumi.set(self, "second_email", value)
 
     @property
+    @pulumi.getter(name="skipRoles")
+    def skip_roles(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not populate user roles information (prevents additional API call)
+        """
+        return pulumi.get(self, "skip_roles")
+
+    @skip_roles.setter
+    def skip_roles(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_roles", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
@@ -729,6 +748,7 @@ class _UserState:
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
+                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -782,6 +802,7 @@ class _UserState:
                - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[bool] skip_roles: Do not populate user roles information (prevents additional API call)
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -860,6 +881,11 @@ class _UserState:
             pulumi.set(__self__, "recovery_question", recovery_question)
         if second_email is not None:
             pulumi.set(__self__, "second_email", second_email)
+        if skip_roles is not None:
+            warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+            pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
+        if skip_roles is not None:
+            pulumi.set(__self__, "skip_roles", skip_roles)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if status is not None:
@@ -1305,6 +1331,18 @@ class _UserState:
         pulumi.set(self, "second_email", value)
 
     @property
+    @pulumi.getter(name="skipRoles")
+    def skip_roles(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not populate user roles information (prevents additional API call)
+        """
+        return pulumi.get(self, "skip_roles")
+
+    @skip_roles.setter
+    def skip_roles(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_roles", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1428,6 +1466,7 @@ class User(pulumi.CustomResource):
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
+                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -1550,6 +1589,7 @@ class User(pulumi.CustomResource):
                - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[bool] skip_roles: Do not populate user roles information (prevents additional API call)
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -1682,6 +1722,7 @@ class User(pulumi.CustomResource):
                  recovery_answer: Optional[pulumi.Input[str]] = None,
                  recovery_question: Optional[pulumi.Input[str]] = None,
                  second_email: Optional[pulumi.Input[str]] = None,
+                 skip_roles: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  street_address: Optional[pulumi.Input[str]] = None,
@@ -1740,6 +1781,10 @@ class User(pulumi.CustomResource):
             __props__.__dict__["recovery_answer"] = None if recovery_answer is None else pulumi.Output.secret(recovery_answer)
             __props__.__dict__["recovery_question"] = recovery_question
             __props__.__dict__["second_email"] = second_email
+            if skip_roles is not None and not opts.urn:
+                warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+                pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
+            __props__.__dict__["skip_roles"] = skip_roles
             __props__.__dict__["state"] = state
             __props__.__dict__["status"] = status
             __props__.__dict__["street_address"] = street_address
@@ -1795,6 +1840,7 @@ class User(pulumi.CustomResource):
             recovery_answer: Optional[pulumi.Input[str]] = None,
             recovery_question: Optional[pulumi.Input[str]] = None,
             second_email: Optional[pulumi.Input[str]] = None,
+            skip_roles: Optional[pulumi.Input[bool]] = None,
             state: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             street_address: Optional[pulumi.Input[str]] = None,
@@ -1853,6 +1899,7 @@ class User(pulumi.CustomResource):
                - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
         :param pulumi.Input[str] recovery_question: User password recovery question.
         :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[bool] skip_roles: Do not populate user roles information (prevents additional API call)
         :param pulumi.Input[str] state: User profile property.
         :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
         :param pulumi.Input[str] street_address: User profile property.
@@ -1900,6 +1947,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["recovery_answer"] = recovery_answer
         __props__.__dict__["recovery_question"] = recovery_question
         __props__.__dict__["second_email"] = second_email
+        __props__.__dict__["skip_roles"] = skip_roles
         __props__.__dict__["state"] = state
         __props__.__dict__["status"] = status
         __props__.__dict__["street_address"] = street_address
@@ -2197,6 +2245,14 @@ class User(pulumi.CustomResource):
         User profile property.
         """
         return pulumi.get(self, "second_email")
+
+    @property
+    @pulumi.getter(name="skipRoles")
+    def skip_roles(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Do not populate user roles information (prevents additional API call)
+        """
+        return pulumi.get(self, "skip_roles")
 
     @property
     @pulumi.getter

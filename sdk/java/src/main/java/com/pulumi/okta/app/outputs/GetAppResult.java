@@ -43,6 +43,20 @@ public final class GetAppResult {
      */
     private String name;
     /**
+     * @deprecated
+     * Because groups has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    private @Nullable Boolean skipGroups;
+    /**
+     * @deprecated
+     * Because users has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    private @Nullable Boolean skipUsers;
+    /**
      * @return Application status.
      * 
      */
@@ -100,6 +114,24 @@ public final class GetAppResult {
         return this.name;
     }
     /**
+     * @deprecated
+     * Because groups has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    public Optional<Boolean> skipGroups() {
+        return Optional.ofNullable(this.skipGroups);
+    }
+    /**
+     * @deprecated
+     * Because users has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    public Optional<Boolean> skipUsers() {
+        return Optional.ofNullable(this.skipUsers);
+    }
+    /**
      * @return Application status.
      * 
      */
@@ -132,6 +164,8 @@ public final class GetAppResult {
         private @Nullable String labelPrefix;
         private String links;
         private String name;
+        private @Nullable Boolean skipGroups;
+        private @Nullable Boolean skipUsers;
         private String status;
         private List<String> users;
         public Builder() {}
@@ -144,6 +178,8 @@ public final class GetAppResult {
     	      this.labelPrefix = defaults.labelPrefix;
     	      this.links = defaults.links;
     	      this.name = defaults.name;
+    	      this.skipGroups = defaults.skipGroups;
+    	      this.skipUsers = defaults.skipUsers;
     	      this.status = defaults.status;
     	      this.users = defaults.users;
         }
@@ -187,6 +223,16 @@ public final class GetAppResult {
             return this;
         }
         @CustomType.Setter
+        public Builder skipGroups(@Nullable Boolean skipGroups) {
+            this.skipGroups = skipGroups;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder skipUsers(@Nullable Boolean skipUsers) {
+            this.skipUsers = skipUsers;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
@@ -208,6 +254,8 @@ public final class GetAppResult {
             o.labelPrefix = labelPrefix;
             o.links = links;
             o.name = name;
+            o.skipGroups = skipGroups;
+            o.skipUsers = skipUsers;
             o.status = status;
             o.users = users;
             return o;

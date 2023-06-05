@@ -81,6 +81,12 @@ export class Group extends pulumi.CustomResource {
      * The name of the Okta Group.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     *
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
+     */
+    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -98,11 +104,13 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["customProfileAttributes"] = state ? state.customProfileAttributes : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             resourceInputs["customProfileAttributes"] = args ? args.customProfileAttributes : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Group.__pulumiType, name, resourceInputs, opts);
@@ -125,6 +133,12 @@ export interface GroupState {
      * The name of the Okta Group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     *
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
+     */
+    skipUsers?: pulumi.Input<boolean>;
 }
 
 /**
@@ -143,4 +157,10 @@ export interface GroupArgs {
      * The name of the Okta Group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     *
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
+     */
+    skipUsers?: pulumi.Input<boolean>;
 }

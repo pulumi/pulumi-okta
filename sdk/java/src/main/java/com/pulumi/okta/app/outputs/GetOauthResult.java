@@ -111,6 +111,20 @@ public final class GetOauthResult {
      */
     private List<String> responseTypes;
     /**
+     * @deprecated
+     * Because groups has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    private @Nullable Boolean skipGroups;
+    /**
+     * @deprecated
+     * Because users has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    private @Nullable Boolean skipUsers;
+    /**
      * @return Status of application.
      * 
      */
@@ -263,6 +277,24 @@ public final class GetOauthResult {
         return this.responseTypes;
     }
     /**
+     * @deprecated
+     * Because groups has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    public Optional<Boolean> skipGroups() {
+        return Optional.ofNullable(this.skipGroups);
+    }
+    /**
+     * @deprecated
+     * Because users has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    public Optional<Boolean> skipUsers() {
+        return Optional.ofNullable(this.skipUsers);
+    }
+    /**
      * @return Status of application.
      * 
      */
@@ -310,6 +342,8 @@ public final class GetOauthResult {
         private List<String> postLogoutRedirectUris;
         private List<String> redirectUris;
         private List<String> responseTypes;
+        private @Nullable Boolean skipGroups;
+        private @Nullable Boolean skipUsers;
         private String status;
         private String type;
         private String wildcardRedirect;
@@ -337,6 +371,8 @@ public final class GetOauthResult {
     	      this.postLogoutRedirectUris = defaults.postLogoutRedirectUris;
     	      this.redirectUris = defaults.redirectUris;
     	      this.responseTypes = defaults.responseTypes;
+    	      this.skipGroups = defaults.skipGroups;
+    	      this.skipUsers = defaults.skipUsers;
     	      this.status = defaults.status;
     	      this.type = defaults.type;
     	      this.wildcardRedirect = defaults.wildcardRedirect;
@@ -463,6 +499,16 @@ public final class GetOauthResult {
             return responseTypes(List.of(responseTypes));
         }
         @CustomType.Setter
+        public Builder skipGroups(@Nullable Boolean skipGroups) {
+            this.skipGroups = skipGroups;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder skipUsers(@Nullable Boolean skipUsers) {
+            this.skipUsers = skipUsers;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
@@ -500,6 +546,8 @@ public final class GetOauthResult {
             o.postLogoutRedirectUris = postLogoutRedirectUris;
             o.redirectUris = redirectUris;
             o.responseTypes = responseTypes;
+            o.skipGroups = skipGroups;
+            o.skipUsers = skipUsers;
             o.status = status;
             o.type = type;
             o.wildcardRedirect = wildcardRedirect;

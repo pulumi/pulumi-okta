@@ -85,6 +85,12 @@ namespace Pulumi.Okta.Group
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        /// </summary>
+        [Output("skipUsers")]
+        public Output<bool?> SkipUsers { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Group resource with the given unique name, arguments, and options.
@@ -149,6 +155,12 @@ namespace Pulumi.Okta.Group
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
+
         public GroupArgs()
         {
         }
@@ -174,6 +186,12 @@ namespace Pulumi.Okta.Group
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        /// </summary>
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
 
         public GroupState()
         {

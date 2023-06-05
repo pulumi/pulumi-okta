@@ -186,6 +186,20 @@ public final class GetSamlResult {
      */
     private String singleLogoutUrl;
     /**
+     * @deprecated
+     * Because groups has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    private @Nullable Boolean skipGroups;
+    /**
+     * @deprecated
+     * Because users has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    private @Nullable Boolean skipUsers;
+    /**
      * @return SAML service provider issuer.
      * 
      */
@@ -481,6 +495,24 @@ public final class GetSamlResult {
         return this.singleLogoutUrl;
     }
     /**
+     * @deprecated
+     * Because groups has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    public Optional<Boolean> skipGroups() {
+        return Optional.ofNullable(this.skipGroups);
+    }
+    /**
+     * @deprecated
+     * Because users has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    public Optional<Boolean> skipUsers() {
+        return Optional.ofNullable(this.skipUsers);
+    }
+    /**
      * @return SAML service provider issuer.
      * 
      */
@@ -597,6 +629,8 @@ public final class GetSamlResult {
         private String singleLogoutCertificate;
         private String singleLogoutIssuer;
         private String singleLogoutUrl;
+        private @Nullable Boolean skipGroups;
+        private @Nullable Boolean skipUsers;
         private String spIssuer;
         private String ssoUrl;
         private String status;
@@ -645,6 +679,8 @@ public final class GetSamlResult {
     	      this.singleLogoutCertificate = defaults.singleLogoutCertificate;
     	      this.singleLogoutIssuer = defaults.singleLogoutIssuer;
     	      this.singleLogoutUrl = defaults.singleLogoutUrl;
+    	      this.skipGroups = defaults.skipGroups;
+    	      this.skipUsers = defaults.skipUsers;
     	      this.spIssuer = defaults.spIssuer;
     	      this.ssoUrl = defaults.ssoUrl;
     	      this.status = defaults.status;
@@ -845,6 +881,16 @@ public final class GetSamlResult {
             return this;
         }
         @CustomType.Setter
+        public Builder skipGroups(@Nullable Boolean skipGroups) {
+            this.skipGroups = skipGroups;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder skipUsers(@Nullable Boolean skipUsers) {
+            this.skipUsers = skipUsers;
+            return this;
+        }
+        @CustomType.Setter
         public Builder spIssuer(String spIssuer) {
             this.spIssuer = Objects.requireNonNull(spIssuer);
             return this;
@@ -934,6 +980,8 @@ public final class GetSamlResult {
             o.singleLogoutCertificate = singleLogoutCertificate;
             o.singleLogoutIssuer = singleLogoutIssuer;
             o.singleLogoutUrl = singleLogoutUrl;
+            o.skipGroups = skipGroups;
+            o.skipUsers = skipUsers;
             o.spIssuer = spIssuer;
             o.ssoUrl = ssoUrl;
             o.status = status;

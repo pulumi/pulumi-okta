@@ -86,6 +86,44 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.labelPrefix);
     }
 
+    /**
+     * @deprecated
+     * Because groups has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    @Import(name="skipGroups")
+    private @Nullable Output<Boolean> skipGroups;
+
+    /**
+     * @deprecated
+     * Because groups has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    public Optional<Output<Boolean>> skipGroups() {
+        return Optional.ofNullable(this.skipGroups);
+    }
+
+    /**
+     * @deprecated
+     * Because users has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    @Import(name="skipUsers")
+    private @Nullable Output<Boolean> skipUsers;
+
+    /**
+     * @deprecated
+     * Because users has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    public Optional<Output<Boolean>> skipUsers() {
+        return Optional.ofNullable(this.skipUsers);
+    }
+
     private GetAppArgs() {}
 
     private GetAppArgs(GetAppArgs $) {
@@ -93,6 +131,8 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         this.id = $.id;
         this.label = $.label;
         this.labelPrefix = $.labelPrefix;
+        this.skipGroups = $.skipGroups;
+        this.skipUsers = $.skipUsers;
     }
 
     public static Builder builder() {
@@ -205,6 +245,56 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder labelPrefix(String labelPrefix) {
             return labelPrefix(Output.of(labelPrefix));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Because groups has been removed, this attribute is a no op and will be removed
+         * 
+         */
+        @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+        public Builder skipGroups(@Nullable Output<Boolean> skipGroups) {
+            $.skipGroups = skipGroups;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Because groups has been removed, this attribute is a no op and will be removed
+         * 
+         */
+        @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+        public Builder skipGroups(Boolean skipGroups) {
+            return skipGroups(Output.of(skipGroups));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Because users has been removed, this attribute is a no op and will be removed
+         * 
+         */
+        @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+        public Builder skipUsers(@Nullable Output<Boolean> skipUsers) {
+            $.skipUsers = skipUsers;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Because users has been removed, this attribute is a no op and will be removed
+         * 
+         */
+        @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+        public Builder skipUsers(Boolean skipUsers) {
+            return skipUsers(Output.of(skipUsers));
         }
 
         public GetAppArgs build() {
