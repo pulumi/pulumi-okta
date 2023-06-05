@@ -27,6 +27,8 @@ export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<
         "id": args.id,
         "label": args.label,
         "labelPrefix": args.labelPrefix,
+        "skipGroups": args.skipGroups,
+        "skipUsers": args.skipUsers,
     }, opts);
 }
 
@@ -55,6 +57,14 @@ export interface GetAppArgs {
      * provider to do a `starts with` query as opposed to an `equals` query.
      */
     labelPrefix?: string;
+    /**
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
+     */
+    skipGroups?: boolean;
+    /**
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
+     */
+    skipUsers?: boolean;
 }
 
 /**
@@ -83,6 +93,14 @@ export interface GetAppResult {
      * Application name.
      */
     readonly name: string;
+    /**
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
+     */
+    readonly skipGroups?: boolean;
+    /**
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
+     */
+    readonly skipUsers?: boolean;
     /**
      * Application status.
      */
@@ -135,4 +153,12 @@ export interface GetAppOutputArgs {
      * provider to do a `starts with` query as opposed to an `equals` query.
      */
     labelPrefix?: pulumi.Input<string>;
+    /**
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
+     */
+    skipUsers?: pulumi.Input<boolean>;
 }

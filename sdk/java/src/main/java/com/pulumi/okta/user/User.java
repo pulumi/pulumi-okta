@@ -638,6 +638,24 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.secondEmail);
     }
     /**
+     * Do not populate user roles information (prevents additional API call)
+     * 
+     * @deprecated
+     * Because admin_roles has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because admin_roles has been removed, this attribute is a no op and will be removed */
+    @Export(name="skipRoles", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> skipRoles;
+
+    /**
+     * @return Do not populate user roles information (prevents additional API call)
+     * 
+     */
+    public Output<Optional<Boolean>> skipRoles() {
+        return Codegen.optional(this.skipRoles);
+    }
+    /**
      * User profile property.
      * 
      */

@@ -16,12 +16,14 @@ class GroupArgs:
     def __init__(__self__, *,
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
         if custom_profile_attributes is not None:
             pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
@@ -29,6 +31,11 @@ class GroupArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if skip_users is not None:
+            warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+            pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
 
     @property
     @pulumi.getter(name="customProfileAttributes")
@@ -65,6 +72,18 @@ class GroupArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
 
 
 @pulumi.input_type
@@ -72,12 +91,14 @@ class _GroupState:
     def __init__(__self__, *,
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
         if custom_profile_attributes is not None:
             pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
@@ -85,6 +106,11 @@ class _GroupState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if skip_users is not None:
+            warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+            pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
+        if skip_users is not None:
+            pulumi.set(__self__, "skip_users", skip_users)
 
     @property
     @pulumi.getter(name="customProfileAttributes")
@@ -121,6 +147,18 @@ class _GroupState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
+
+    @skip_users.setter
+    def skip_users(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_users", value)
 
 
 class Group(pulumi.CustomResource):
@@ -131,6 +169,7 @@ class Group(pulumi.CustomResource):
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Creates an Okta Group.
@@ -174,6 +213,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
         ...
     @overload
@@ -236,6 +276,7 @@ class Group(pulumi.CustomResource):
                  custom_profile_attributes: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 skip_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -248,6 +289,10 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["custom_profile_attributes"] = custom_profile_attributes
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if skip_users is not None and not opts.urn:
+                warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+                pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
+            __props__.__dict__["skip_users"] = skip_users
         super(Group, __self__).__init__(
             'okta:group/group:Group',
             resource_name,
@@ -260,7 +305,8 @@ class Group(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_profile_attributes: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'Group':
+            name: Optional[pulumi.Input[str]] = None,
+            skip_users: Optional[pulumi.Input[bool]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -271,6 +317,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
         :param pulumi.Input[str] description: The description of the Okta Group.
         :param pulumi.Input[str] name: The name of the Okta Group.
+        :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -279,6 +326,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["custom_profile_attributes"] = custom_profile_attributes
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["skip_users"] = skip_users
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -304,4 +352,12 @@ class Group(pulumi.CustomResource):
         The name of the Okta Group.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
+        return pulumi.get(self, "skip_users")
 

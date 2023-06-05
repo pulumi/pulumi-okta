@@ -255,6 +255,12 @@ export class User extends pulumi.CustomResource {
      */
     public readonly secondEmail!: pulumi.Output<string | undefined>;
     /**
+     * Do not populate user roles information (prevents additional API call)
+     *
+     * @deprecated Because admin_roles has been removed, this attribute is a no op and will be removed
+     */
+    public readonly skipRoles!: pulumi.Output<boolean | undefined>;
+    /**
      * User profile property.
      */
     public readonly state!: pulumi.Output<string | undefined>;
@@ -331,6 +337,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["recoveryAnswer"] = state ? state.recoveryAnswer : undefined;
             resourceInputs["recoveryQuestion"] = state ? state.recoveryQuestion : undefined;
             resourceInputs["secondEmail"] = state ? state.secondEmail : undefined;
+            resourceInputs["skipRoles"] = state ? state.skipRoles : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["streetAddress"] = state ? state.streetAddress : undefined;
@@ -386,6 +393,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["recoveryAnswer"] = args?.recoveryAnswer ? pulumi.secret(args.recoveryAnswer) : undefined;
             resourceInputs["recoveryQuestion"] = args ? args.recoveryQuestion : undefined;
             resourceInputs["secondEmail"] = args ? args.secondEmail : undefined;
+            resourceInputs["skipRoles"] = args ? args.skipRoles : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["streetAddress"] = args ? args.streetAddress : undefined;
@@ -555,6 +563,12 @@ export interface UserState {
      * User profile property.
      */
     secondEmail?: pulumi.Input<string>;
+    /**
+     * Do not populate user roles information (prevents additional API call)
+     *
+     * @deprecated Because admin_roles has been removed, this attribute is a no op and will be removed
+     */
+    skipRoles?: pulumi.Input<boolean>;
     /**
      * User profile property.
      */
@@ -734,6 +748,12 @@ export interface UserArgs {
      * User profile property.
      */
     secondEmail?: pulumi.Input<string>;
+    /**
+     * Do not populate user roles information (prevents additional API call)
+     *
+     * @deprecated Because admin_roles has been removed, this attribute is a no op and will be removed
+     */
+    skipRoles?: pulumi.Input<boolean>;
     /**
      * User profile property.
      */

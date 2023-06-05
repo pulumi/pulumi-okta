@@ -61,6 +61,10 @@ type LookupSamlArgs struct {
 	LabelPrefix *string `pulumi:"labelPrefix"`
 	// Denotes whether the request is compressed or not.
 	RequestCompressed *bool `pulumi:"requestCompressed"`
+	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers *bool `pulumi:"skipUsers"`
 }
 
 // A collection of values returned by getSaml.
@@ -135,6 +139,10 @@ type LookupSamlResult struct {
 	SingleLogoutIssuer string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent.
 	SingleLogoutUrl string `pulumi:"singleLogoutUrl"`
+	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// SAML service provider issuer.
 	SpIssuer string `pulumi:"spIssuer"`
 	// Single Sign-on Url.
@@ -185,6 +193,10 @@ type LookupSamlOutputArgs struct {
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
 	// Denotes whether the request is compressed or not.
 	RequestCompressed pulumi.BoolPtrInput `pulumi:"requestCompressed"`
+	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
 }
 
 func (LookupSamlOutputArgs) ElementType() reflect.Type {
@@ -379,6 +391,16 @@ func (o LookupSamlResultOutput) SingleLogoutIssuer() pulumi.StringOutput {
 // The location where the logout response is sent.
 func (o LookupSamlResultOutput) SingleLogoutUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.SingleLogoutUrl }).(pulumi.StringOutput)
+}
+
+// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+func (o LookupSamlResultOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSamlResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+func (o LookupSamlResultOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSamlResult) *bool { return v.SkipUsers }).(pulumi.BoolPtrOutput)
 }
 
 // SAML service provider issuer.

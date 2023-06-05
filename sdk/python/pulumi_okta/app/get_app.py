@@ -21,7 +21,7 @@ class GetAppResult:
     """
     A collection of values returned by getApp.
     """
-    def __init__(__self__, active_only=None, groups=None, id=None, label=None, label_prefix=None, links=None, name=None, status=None, users=None):
+    def __init__(__self__, active_only=None, groups=None, id=None, label=None, label_prefix=None, links=None, name=None, skip_groups=None, skip_users=None, status=None, users=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
@@ -47,6 +47,20 @@ class GetAppResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if skip_groups and not isinstance(skip_groups, bool):
+            raise TypeError("Expected argument 'skip_groups' to be a bool")
+        if skip_groups is not None:
+            warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+            pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
+
+        pulumi.set(__self__, "skip_groups", skip_groups)
+        if skip_users and not isinstance(skip_users, bool):
+            raise TypeError("Expected argument 'skip_users' to be a bool")
+        if skip_users is not None:
+            warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+            pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
+
+        pulumi.set(__self__, "skip_users", skip_users)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -106,6 +120,16 @@ class GetAppResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="skipGroups")
+    def skip_groups(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_groups")
+
+    @property
+    @pulumi.getter(name="skipUsers")
+    def skip_users(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_users")
+
+    @property
     @pulumi.getter
     def status(self) -> str:
         """
@@ -132,6 +156,8 @@ class AwaitableGetAppResult(GetAppResult):
             label_prefix=self.label_prefix,
             links=self.links,
             name=self.name,
+            skip_groups=self.skip_groups,
+            skip_users=self.skip_users,
             status=self.status,
             users=self.users)
 
@@ -140,6 +166,8 @@ def get_app(active_only: Optional[bool] = None,
             id: Optional[str] = None,
             label: Optional[str] = None,
             label_prefix: Optional[str] = None,
+            skip_groups: Optional[bool] = None,
+            skip_users: Optional[bool] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
     Use this data source to retrieve an application from Okta.
@@ -169,6 +197,8 @@ def get_app(active_only: Optional[bool] = None,
     __args__['id'] = id
     __args__['label'] = label
     __args__['labelPrefix'] = label_prefix
+    __args__['skipGroups'] = skip_groups
+    __args__['skipUsers'] = skip_users
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('okta:app/getApp:getApp', __args__, opts=opts, typ=GetAppResult).value
 
@@ -180,6 +210,8 @@ def get_app(active_only: Optional[bool] = None,
         label_prefix=__ret__.label_prefix,
         links=__ret__.links,
         name=__ret__.name,
+        skip_groups=__ret__.skip_groups,
+        skip_users=__ret__.skip_users,
         status=__ret__.status,
         users=__ret__.users)
 
@@ -189,6 +221,8 @@ def get_app_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                    id: Optional[pulumi.Input[Optional[str]]] = None,
                    label: Optional[pulumi.Input[Optional[str]]] = None,
                    label_prefix: Optional[pulumi.Input[Optional[str]]] = None,
+                   skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
+                   skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
     Use this data source to retrieve an application from Okta.

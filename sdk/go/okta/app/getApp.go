@@ -61,6 +61,10 @@ type GetAppArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
+	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers *bool `pulumi:"skipUsers"`
 }
 
 // A collection of values returned by getApp.
@@ -77,6 +81,10 @@ type GetAppResult struct {
 	Links string `pulumi:"links"`
 	// Application name.
 	Name string `pulumi:"name"`
+	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Application status.
 	Status string `pulumi:"status"`
 	// Deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
@@ -111,6 +119,10 @@ type GetAppOutputArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
+	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
 }
 
 func (GetAppOutputArgs) ElementType() reflect.Type {
@@ -163,6 +175,16 @@ func (o GetAppResultOutput) Links() pulumi.StringOutput {
 // Application name.
 func (o GetAppResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+func (o GetAppResultOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAppResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+func (o GetAppResultOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAppResult) *bool { return v.SkipUsers }).(pulumi.BoolPtrOutput)
 }
 
 // Application status.

@@ -63,6 +63,10 @@ type GetOauthArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
+	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers *bool `pulumi:"skipUsers"`
 }
 
 // A collection of values returned by getOauth.
@@ -107,6 +111,10 @@ type GetOauthResult struct {
 	RedirectUris []string `pulumi:"redirectUris"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes []string `pulumi:"responseTypes"`
+	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+	SkipGroups *bool `pulumi:"skipGroups"`
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application.
 	Status string `pulumi:"status"`
 	// The type of OAuth application.
@@ -144,6 +152,10 @@ type GetOauthOutputArgs struct {
 	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
 	// provider to do a `starts with` query as opposed to an `equals` query.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
+	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
+	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
 }
 
 func (GetOauthOutputArgs) ElementType() reflect.Type {
@@ -266,6 +278,16 @@ func (o GetOauthResultOutput) RedirectUris() pulumi.StringArrayOutput {
 // List of OAuth 2.0 response type strings.
 func (o GetOauthResultOutput) ResponseTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOauthResult) []string { return v.ResponseTypes }).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
+func (o GetOauthResultOutput) SkipGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOauthResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Deprecated: Because users has been removed, this attribute is a no op and will be removed
+func (o GetOauthResultOutput) SkipUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOauthResult) *bool { return v.SkipUsers }).(pulumi.BoolPtrOutput)
 }
 
 // Status of application.

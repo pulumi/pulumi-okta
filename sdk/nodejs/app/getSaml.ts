@@ -30,6 +30,8 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
         "label": args.label,
         "labelPrefix": args.labelPrefix,
         "requestCompressed": args.requestCompressed,
+        "skipGroups": args.skipGroups,
+        "skipUsers": args.skipUsers,
     }, opts);
 }
 
@@ -60,6 +62,14 @@ export interface GetSamlArgs {
      * Denotes whether the request is compressed or not.
      */
     requestCompressed?: boolean;
+    /**
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
+     */
+    skipGroups?: boolean;
+    /**
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
+     */
+    skipUsers?: boolean;
 }
 
 /**
@@ -203,6 +213,14 @@ export interface GetSamlResult {
      */
     readonly singleLogoutUrl: string;
     /**
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
+     */
+    readonly skipGroups?: boolean;
+    /**
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
+     */
+    readonly skipUsers?: boolean;
+    /**
      * SAML service provider issuer.
      */
     readonly spIssuer: string;
@@ -288,4 +306,12 @@ export interface GetSamlOutputArgs {
      * Denotes whether the request is compressed or not.
      */
     requestCompressed?: pulumi.Input<boolean>;
+    /**
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
+     */
+    skipGroups?: pulumi.Input<boolean>;
+    /**
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
+     */
+    skipUsers?: pulumi.Input<boolean>;
 }

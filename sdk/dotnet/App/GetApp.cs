@@ -100,6 +100,12 @@ namespace Pulumi.Okta.App
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
 
+        [Input("skipGroups")]
+        public bool? SkipGroups { get; set; }
+
+        [Input("skipUsers")]
+        public bool? SkipUsers { get; set; }
+
         public GetAppArgs()
         {
         }
@@ -137,6 +143,12 @@ namespace Pulumi.Okta.App
         [Input("labelPrefix")]
         public Input<string>? LabelPrefix { get; set; }
 
+        [Input("skipGroups")]
+        public Input<bool>? SkipGroups { get; set; }
+
+        [Input("skipUsers")]
+        public Input<bool>? SkipUsers { get; set; }
+
         public GetAppInvokeArgs()
         {
         }
@@ -166,6 +178,8 @@ namespace Pulumi.Okta.App
         /// Application name.
         /// </summary>
         public readonly string Name;
+        public readonly bool? SkipGroups;
+        public readonly bool? SkipUsers;
         /// <summary>
         /// Application status.
         /// </summary>
@@ -188,6 +202,10 @@ namespace Pulumi.Okta.App
 
             string name,
 
+            bool? skipGroups,
+
+            bool? skipUsers,
+
             string status,
 
             ImmutableArray<string> users)
@@ -199,6 +217,8 @@ namespace Pulumi.Okta.App
             LabelPrefix = labelPrefix;
             Links = links;
             Name = name;
+            SkipGroups = skipGroups;
+            SkipUsers = skipUsers;
             Status = status;
             Users = users;
         }

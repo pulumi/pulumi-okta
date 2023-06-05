@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.group.GroupArgs;
 import com.pulumi.okta.group.inputs.GroupState;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -138,6 +139,24 @@ public class Group extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+     * 
+     * @deprecated
+     * Because users has been removed, this attribute is a no op and will be removed
+     * 
+     */
+    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    @Export(name="skipUsers", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> skipUsers;
+
+    /**
+     * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+     * 
+     */
+    public Output<Optional<Boolean>> skipUsers() {
+        return Codegen.optional(this.skipUsers);
     }
 
     /**

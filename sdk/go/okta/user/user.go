@@ -194,6 +194,10 @@ type User struct {
 	RecoveryQuestion pulumi.StringPtrOutput `pulumi:"recoveryQuestion"`
 	// User profile property.
 	SecondEmail pulumi.StringPtrOutput `pulumi:"secondEmail"`
+	// Do not populate user roles information (prevents additional API call)
+	//
+	// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
+	SkipRoles pulumi.BoolPtrOutput `pulumi:"skipRoles"`
 	// User profile property.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -345,6 +349,10 @@ type userState struct {
 	RecoveryQuestion *string `pulumi:"recoveryQuestion"`
 	// User profile property.
 	SecondEmail *string `pulumi:"secondEmail"`
+	// Do not populate user roles information (prevents additional API call)
+	//
+	// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
+	SkipRoles *bool `pulumi:"skipRoles"`
 	// User profile property.
 	State *string `pulumi:"state"`
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -441,6 +449,10 @@ type UserState struct {
 	RecoveryQuestion pulumi.StringPtrInput
 	// User profile property.
 	SecondEmail pulumi.StringPtrInput
+	// Do not populate user roles information (prevents additional API call)
+	//
+	// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
+	SkipRoles pulumi.BoolPtrInput
 	// User profile property.
 	State pulumi.StringPtrInput
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -539,6 +551,10 @@ type userArgs struct {
 	RecoveryQuestion *string `pulumi:"recoveryQuestion"`
 	// User profile property.
 	SecondEmail *string `pulumi:"secondEmail"`
+	// Do not populate user roles information (prevents additional API call)
+	//
+	// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
+	SkipRoles *bool `pulumi:"skipRoles"`
 	// User profile property.
 	State *string `pulumi:"state"`
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -634,6 +650,10 @@ type UserArgs struct {
 	RecoveryQuestion pulumi.StringPtrInput
 	// User profile property.
 	SecondEmail pulumi.StringPtrInput
+	// Do not populate user roles information (prevents additional API call)
+	//
+	// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
+	SkipRoles pulumi.BoolPtrInput
 	// User profile property.
 	State pulumi.StringPtrInput
 	// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
@@ -919,6 +939,13 @@ func (o UserOutput) RecoveryQuestion() pulumi.StringPtrOutput {
 // User profile property.
 func (o UserOutput) SecondEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.SecondEmail }).(pulumi.StringPtrOutput)
+}
+
+// Do not populate user roles information (prevents additional API call)
+//
+// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
+func (o UserOutput) SkipRoles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.SkipRoles }).(pulumi.BoolPtrOutput)
 }
 
 // User profile property.
