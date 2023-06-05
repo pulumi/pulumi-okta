@@ -1186,7 +1186,9 @@
             },
             "okta:app/getApp:getApp": {
                 "activeOnly": "active_only",
-                "labelPrefix": "label_prefix"
+                "labelPrefix": "label_prefix",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users"
             },
             "okta:app/getMetadataSaml:getMetadataSaml": {
                 "appId": "app_id",
@@ -1214,6 +1216,8 @@
                 "postLogoutRedirectUris": "post_logout_redirect_uris",
                 "redirectUris": "redirect_uris",
                 "responseTypes": "response_types",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
                 "wildcardRedirect": "wildcard_redirect"
             },
             "okta:app/getSaml:getSaml": {
@@ -1243,6 +1247,8 @@
                 "singleLogoutCertificate": "single_logout_certificate",
                 "singleLogoutIssuer": "single_logout_issuer",
                 "singleLogoutUrl": "single_logout_url",
+                "skipGroups": "skip_groups",
+                "skipUsers": "skip_users",
                 "spIssuer": "sp_issuer",
                 "ssoUrl": "sso_url",
                 "subjectNameIdFormat": "subject_name_id_format",
@@ -1525,7 +1531,8 @@
                 "includeUsers": "include_users"
             },
             "okta:group/group:Group": {
-                "customProfileAttributes": "custom_profile_attributes"
+                "customProfileAttributes": "custom_profile_attributes",
+                "skipUsers": "skip_users"
             },
             "okta:group/role:Role": {
                 "disableNotifications": "disable_notifications",
@@ -2387,6 +2394,7 @@
                 "recoveryAnswer": "recovery_answer",
                 "recoveryQuestion": "recovery_question",
                 "secondEmail": "second_email",
+                "skipRoles": "skip_roles",
                 "streetAddress": "street_address",
                 "userType": "user_type",
                 "zipCode": "zip_code"

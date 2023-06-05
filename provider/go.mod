@@ -4,8 +4,8 @@ go 1.19
 
 require (
 	github.com/okta/terraform-provider-okta v0.0.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.47.2
-	github.com/pulumi/pulumi/sdk/v3 v3.64.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.49.0
+	github.com/pulumi/pulumi/sdk/v3 v3.69.0
 )
 
 replace (
@@ -40,7 +40,7 @@ require (
 	github.com/Azure/go-autorest/logger v0.2.1 // indirect
 	github.com/Azure/go-autorest/tracing v0.6.0 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v0.4.0 // indirect
-	github.com/BurntSushi/toml v1.1.0 // indirect
+	github.com/BurntSushi/toml v1.2.1 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/semver/v3 v3.1.1 // indirect
@@ -82,7 +82,7 @@ require (
 	github.com/cenkalti/backoff/v3 v3.2.2 // indirect
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/cheggaaa/pb v1.0.29 // indirect
-	github.com/cloudflare/circl v1.1.0 // indirect
+	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/crewjam/saml v0.4.13 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
@@ -178,7 +178,7 @@ require (
 	github.com/okta/okta-sdk-golang/v3 v3.0.2 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
-	github.com/patrickmn/go-cache v0.0.0-20180815053127-5633e0862627 // indirect
+	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/pgavlin/goldmark v1.1.33-0.20200616210433-b5eb04559386 // indirect
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
@@ -188,12 +188,12 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.9.2 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.3 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
 	github.com/pulumi/pulumi-yaml v1.1.1 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.64.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.69.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e // indirect
-	github.com/rivo/uniseg v0.2.0 // indirect
+	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/russellhaering/goxmldsig v1.2.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
@@ -209,7 +209,7 @@ require (
 	github.com/spf13/cast v1.5.0 // indirect
 	github.com/spf13/cobra v1.7.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/stretchr/testify v1.8.2 // indirect
+	github.com/stretchr/testify v1.8.3 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
@@ -228,7 +228,7 @@ require (
 	gocloud.dev v0.27.0 // indirect
 	gocloud.dev/secrets/hashivault v0.27.0 // indirect
 	golang.org/x/crypto v0.7.0 // indirect
-	golang.org/x/mod v0.8.0 // indirect
+	golang.org/x/mod v0.10.0 // indirect
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/oauth2 v0.4.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
