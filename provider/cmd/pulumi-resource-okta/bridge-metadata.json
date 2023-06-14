@@ -340,6 +340,24 @@
             "okta_email_customization": {
                 "current": "okta:index/emailCustomization:EmailCustomization"
             },
+            "okta_email_domain": {
+                "current": "okta:Index/emailDomain:EmailDomain",
+                "fields": {
+                    "dns_validation_records": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "okta_email_domain_verification": {
+                "current": "okta:Index/emailDomainVerification:EmailDomainVerification"
+            },
             "okta_email_sender": {
                 "current": "okta:index/emailSender:EmailSender",
                 "fields": {
@@ -972,6 +990,8 @@
     },
     "renames": {
         "resources": {
+            "okta:Index/emailDomain:EmailDomain": "okta_email_domain",
+            "okta:Index/emailDomainVerification:EmailDomainVerification": "okta_email_domain_verification",
             "okta:app/autoLogin:AutoLogin": "okta_app_auto_login",
             "okta:app/basicAuth:BasicAuth": "okta_app_basic_auth",
             "okta:app/bookmark:Bookmark": "okta_app_bookmark",
@@ -1106,6 +1126,19 @@
             "okta:user/getUsers:getUsers": "okta_users"
         },
         "renamedProperties": {
+            "okta:Index/EmailDomainDnsValidationRecord:EmailDomainDnsValidationRecord": {
+                "recordType": "record_type"
+            },
+            "okta:Index/emailDomain:EmailDomain": {
+                "brandId": "brand_id",
+                "displayName": "display_name",
+                "dnsValidationRecords": "dns_validation_records",
+                "userName": "user_name",
+                "validationStatus": "validation_status"
+            },
+            "okta:Index/emailDomainVerification:EmailDomainVerification": {
+                "emailDomainId": "email_domain_id"
+            },
             "okta:Index/getDomain:getDomain": {
                 "certificateSourceType": "certificate_source_type",
                 "dnsRecords": "dns_records",

@@ -10,8 +10,73 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'EmailDomainDnsValidationRecord',
     'GetDomainDnsRecordResult',
 ]
+
+@pulumi.output_type
+class EmailDomainDnsValidationRecord(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordType":
+            suggest = "record_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailDomainDnsValidationRecord. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailDomainDnsValidationRecord.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailDomainDnsValidationRecord.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expiration: Optional[str] = None,
+                 fqdn: Optional[str] = None,
+                 record_type: Optional[str] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str fqdn: DNS record name.
+        :param str record_type: Record type can be TXT or cname.
+        """
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if record_type is not None:
+            pulumi.set(__self__, "record_type", record_type)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[str]:
+        return pulumi.get(self, "expiration")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        """
+        DNS record name.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="recordType")
+    def record_type(self) -> Optional[str]:
+        """
+        Record type can be TXT or cname.
+        """
+        return pulumi.get(self, "record_type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "values")
+
 
 @pulumi.output_type
 class GetDomainDnsRecordResult(dict):

@@ -194,6 +194,19 @@ export interface UserSchemaPropertyOneOf {
     title: pulumi.Input<string>;
 }
 export namespace Index {
+    export interface EmailDomainDnsValidationRecord {
+        expiration?: pulumi.Input<string>;
+        /**
+         * DNS record name.
+         */
+        fqdn?: pulumi.Input<string>;
+        /**
+         * Record type can be TXT or cname.
+         */
+        recordType?: pulumi.Input<string>;
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
 }
 
 export namespace app {

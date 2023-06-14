@@ -110,6 +110,8 @@
         "idp/samlKey.ts",
         "idp/social.ts",
         "index.ts",
+        "index/emailDomain.ts",
+        "index/emailDomainVerification.ts",
         "index/getDomain.ts",
         "index/index.ts",
         "inline/hook.ts",

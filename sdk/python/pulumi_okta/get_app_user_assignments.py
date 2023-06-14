@@ -67,7 +67,7 @@ def get_app_user_assignments(id: Optional[str] = None,
     import pulumi
     import pulumi_okta as okta
 
-    test = okta.get_app_user_assignments(id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    test = okta.get_app_user_assignments(id=okta_app_oauth["test"]["id"])
     ```
 
 
@@ -95,7 +95,7 @@ def get_app_user_assignments_output(id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_okta as okta
 
-    test = okta.get_app_user_assignments(id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    test = okta.get_app_user_assignments(id=okta_app_oauth["test"]["id"])
     ```
 
 

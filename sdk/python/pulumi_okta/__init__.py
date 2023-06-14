@@ -128,6 +128,22 @@ _utilities.register(
 [
  {
   "pkg": "okta",
+  "mod": "Index/emailDomain",
+  "fqn": "pulumi_okta.index",
+  "classes": {
+   "okta:Index/emailDomain:EmailDomain": "EmailDomain"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "Index/emailDomainVerification",
+  "fqn": "pulumi_okta.index",
+  "classes": {
+   "okta:Index/emailDomainVerification:EmailDomainVerification": "EmailDomainVerification"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "app/autoLogin",
   "fqn": "pulumi_okta.app",
   "classes": {

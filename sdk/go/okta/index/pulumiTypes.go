@@ -10,6 +10,124 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type EmailDomainDnsValidationRecord struct {
+	Expiration *string `pulumi:"expiration"`
+	// DNS record name.
+	Fqdn *string `pulumi:"fqdn"`
+	// Record type can be TXT or cname.
+	RecordType *string  `pulumi:"recordType"`
+	Values     []string `pulumi:"values"`
+}
+
+// EmailDomainDnsValidationRecordInput is an input type that accepts EmailDomainDnsValidationRecordArgs and EmailDomainDnsValidationRecordOutput values.
+// You can construct a concrete instance of `EmailDomainDnsValidationRecordInput` via:
+//
+//	EmailDomainDnsValidationRecordArgs{...}
+type EmailDomainDnsValidationRecordInput interface {
+	pulumi.Input
+
+	ToEmailDomainDnsValidationRecordOutput() EmailDomainDnsValidationRecordOutput
+	ToEmailDomainDnsValidationRecordOutputWithContext(context.Context) EmailDomainDnsValidationRecordOutput
+}
+
+type EmailDomainDnsValidationRecordArgs struct {
+	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
+	// DNS record name.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// Record type can be TXT or cname.
+	RecordType pulumi.StringPtrInput   `pulumi:"recordType"`
+	Values     pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (EmailDomainDnsValidationRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailDomainDnsValidationRecord)(nil)).Elem()
+}
+
+func (i EmailDomainDnsValidationRecordArgs) ToEmailDomainDnsValidationRecordOutput() EmailDomainDnsValidationRecordOutput {
+	return i.ToEmailDomainDnsValidationRecordOutputWithContext(context.Background())
+}
+
+func (i EmailDomainDnsValidationRecordArgs) ToEmailDomainDnsValidationRecordOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailDomainDnsValidationRecordOutput)
+}
+
+// EmailDomainDnsValidationRecordArrayInput is an input type that accepts EmailDomainDnsValidationRecordArray and EmailDomainDnsValidationRecordArrayOutput values.
+// You can construct a concrete instance of `EmailDomainDnsValidationRecordArrayInput` via:
+//
+//	EmailDomainDnsValidationRecordArray{ EmailDomainDnsValidationRecordArgs{...} }
+type EmailDomainDnsValidationRecordArrayInput interface {
+	pulumi.Input
+
+	ToEmailDomainDnsValidationRecordArrayOutput() EmailDomainDnsValidationRecordArrayOutput
+	ToEmailDomainDnsValidationRecordArrayOutputWithContext(context.Context) EmailDomainDnsValidationRecordArrayOutput
+}
+
+type EmailDomainDnsValidationRecordArray []EmailDomainDnsValidationRecordInput
+
+func (EmailDomainDnsValidationRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailDomainDnsValidationRecord)(nil)).Elem()
+}
+
+func (i EmailDomainDnsValidationRecordArray) ToEmailDomainDnsValidationRecordArrayOutput() EmailDomainDnsValidationRecordArrayOutput {
+	return i.ToEmailDomainDnsValidationRecordArrayOutputWithContext(context.Background())
+}
+
+func (i EmailDomainDnsValidationRecordArray) ToEmailDomainDnsValidationRecordArrayOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailDomainDnsValidationRecordArrayOutput)
+}
+
+type EmailDomainDnsValidationRecordOutput struct{ *pulumi.OutputState }
+
+func (EmailDomainDnsValidationRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailDomainDnsValidationRecord)(nil)).Elem()
+}
+
+func (o EmailDomainDnsValidationRecordOutput) ToEmailDomainDnsValidationRecordOutput() EmailDomainDnsValidationRecordOutput {
+	return o
+}
+
+func (o EmailDomainDnsValidationRecordOutput) ToEmailDomainDnsValidationRecordOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordOutput {
+	return o
+}
+
+func (o EmailDomainDnsValidationRecordOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Expiration }).(pulumi.StringPtrOutput)
+}
+
+// DNS record name.
+func (o EmailDomainDnsValidationRecordOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// Record type can be TXT or cname.
+func (o EmailDomainDnsValidationRecordOutput) RecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.RecordType }).(pulumi.StringPtrOutput)
+}
+
+func (o EmailDomainDnsValidationRecordOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EmailDomainDnsValidationRecord) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type EmailDomainDnsValidationRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (EmailDomainDnsValidationRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailDomainDnsValidationRecord)(nil)).Elem()
+}
+
+func (o EmailDomainDnsValidationRecordArrayOutput) ToEmailDomainDnsValidationRecordArrayOutput() EmailDomainDnsValidationRecordArrayOutput {
+	return o
+}
+
+func (o EmailDomainDnsValidationRecordArrayOutput) ToEmailDomainDnsValidationRecordArrayOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordArrayOutput {
+	return o
+}
+
+func (o EmailDomainDnsValidationRecordArrayOutput) Index(i pulumi.IntInput) EmailDomainDnsValidationRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailDomainDnsValidationRecord {
+		return vs[0].([]EmailDomainDnsValidationRecord)[vs[1].(int)]
+	}).(EmailDomainDnsValidationRecordOutput)
+}
+
 type GetDomainDnsRecord struct {
 	// TXT record expiration.
 	Expiration string `pulumi:"expiration"`
@@ -135,8 +253,12 @@ func (o GetDomainDnsRecordArrayOutput) Index(i pulumi.IntInput) GetDomainDnsReco
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailDomainDnsValidationRecordInput)(nil)).Elem(), EmailDomainDnsValidationRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailDomainDnsValidationRecordArrayInput)(nil)).Elem(), EmailDomainDnsValidationRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordInput)(nil)).Elem(), GetDomainDnsRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordArrayInput)(nil)).Elem(), GetDomainDnsRecordArray{})
+	pulumi.RegisterOutputType(EmailDomainDnsValidationRecordOutput{})
+	pulumi.RegisterOutputType(EmailDomainDnsValidationRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainDnsRecordOutput{})
 	pulumi.RegisterOutputType(GetDomainDnsRecordArrayOutput{})
 }
