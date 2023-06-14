@@ -138,6 +138,38 @@
         }
     },
     "types": {
+        "okta:Index/EmailDomainDnsValidationRecord:EmailDomainDnsValidationRecord": {
+            "properties": {
+                "expiration": {
+                    "type": "string"
+                },
+                "fqdn": {
+                    "type": "string",
+                    "description": "DNS record name.\n"
+                },
+                "recordType": {
+                    "type": "string",
+                    "description": "Record type can be TXT or cname.\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "expiration",
+                        "fqdn",
+                        "recordType",
+                        "values"
+                    ]
+                }
+            }
+        },
         "okta:Index/getDomainDnsRecord:getDomainDnsRecord": {
             "properties": {
                 "expiration": {
@@ -1665,6 +1697,136 @@
         }
     },
     "resources": {
+        "okta:Index/emailDomain:EmailDomain": {
+            "description": "This resource allows you to create and configure an email domain.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.index.EmailDomain(\"example\", {\n    brandId: \"abc123\",\n    displayName: \"test\",\n    domain: \"example.com\",\n    userName: \"paul_atreides\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.index.EmailDomain(\"example\",\n    brand_id=\"abc123\",\n    display_name=\"test\",\n    domain=\"example.com\",\n    user_name=\"paul_atreides\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Index.EmailDomain(\"example\", new()\n    {\n        BrandId = \"abc123\",\n        DisplayName = \"test\",\n        Domain = \"example.com\",\n        UserName = \"paul_atreides\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/Index\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := Index.NewEmailDomain(ctx, \"example\", \u0026Index.EmailDomainArgs{\n\t\t\tBrandId:     pulumi.String(\"abc123\"),\n\t\t\tDisplayName: pulumi.String(\"test\"),\n\t\t\tDomain:      pulumi.String(\"example.com\"),\n\t\t\tUserName:    pulumi.String(\"paul_atreides\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Index.EmailDomain;\nimport com.pulumi.okta.Index.EmailDomainArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new EmailDomain(\"example\", EmailDomainArgs.builder()        \n            .brandId(\"abc123\")\n            .displayName(\"test\")\n            .domain(\"example.com\")\n            .userName(\"paul_atreides\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:Index:EmailDomain\n    properties:\n      brandId: abc123\n      displayName: test\n      domain: example.com\n      userName: paul_atreides\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nCustom email domain can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:Index/emailDomain:EmailDomain example \u0026#60;domain id\u0026#62;\n```\n\n ",
+            "properties": {
+                "brandId": {
+                    "type": "string",
+                    "description": "Brand id of the email domain.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the email domain.\n"
+                },
+                "dnsValidationRecords": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:Index/EmailDomainDnsValidationRecord:EmailDomainDnsValidationRecord"
+                    },
+                    "description": "TXT and CNAME records to be registered for the domain.\n"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "Mail domain to send from.\n"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "User name of the email domain.\n"
+                },
+                "validationStatus": {
+                    "type": "string",
+                    "description": "Status of the email domain (shows whether the domain is verified).\n"
+                }
+            },
+            "required": [
+                "brandId",
+                "displayName",
+                "dnsValidationRecords",
+                "domain",
+                "userName",
+                "validationStatus"
+            ],
+            "inputProperties": {
+                "brandId": {
+                    "type": "string",
+                    "description": "Brand id of the email domain.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the email domain.\n"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "Mail domain to send from.\n"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "User name of the email domain.\n"
+                }
+            },
+            "requiredInputs": [
+                "brandId",
+                "displayName",
+                "domain",
+                "userName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EmailDomain resources.\n",
+                "properties": {
+                    "brandId": {
+                        "type": "string",
+                        "description": "Brand id of the email domain.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "Display name of the email domain.\n"
+                    },
+                    "dnsValidationRecords": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:Index/EmailDomainDnsValidationRecord:EmailDomainDnsValidationRecord"
+                        },
+                        "description": "TXT and CNAME records to be registered for the domain.\n"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "description": "Mail domain to send from.\n"
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "User name of the email domain.\n"
+                    },
+                    "validationStatus": {
+                        "type": "string",
+                        "description": "Status of the email domain (shows whether the domain is verified).\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:Index/emailDomainVerification:EmailDomainVerification": {
+            "description": "Verifies the email domain. The resource won't be created if the email domain could not be verified.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleEmailDomain = new okta.index.EmailDomain(\"exampleEmailDomain\", {\n    brandId: \"abc123\",\n    domain: \"example.com\",\n    displayName: \"test\",\n    userName: \"paul_atreides\",\n});\nconst exampleEmailDomainVerification = new okta.index.EmailDomainVerification(\"exampleEmailDomainVerification\", {emailDomainId: okta_email_domain.valid.id});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_email_domain = okta.index.EmailDomain(\"exampleEmailDomain\",\n    brand_id=\"abc123\",\n    domain=\"example.com\",\n    display_name=\"test\",\n    user_name=\"paul_atreides\")\nexample_email_domain_verification = okta.index.EmailDomainVerification(\"exampleEmailDomainVerification\", email_domain_id=okta_email_domain[\"valid\"][\"id\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleEmailDomain = new Okta.Index.EmailDomain(\"exampleEmailDomain\", new()\n    {\n        BrandId = \"abc123\",\n        Domain = \"example.com\",\n        DisplayName = \"test\",\n        UserName = \"paul_atreides\",\n    });\n\n    var exampleEmailDomainVerification = new Okta.Index.EmailDomainVerification(\"exampleEmailDomainVerification\", new()\n    {\n        EmailDomainId = okta_email_domain.Valid.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/Index\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := Index.NewEmailDomain(ctx, \"exampleEmailDomain\", \u0026Index.EmailDomainArgs{\n\t\t\tBrandId:     pulumi.String(\"abc123\"),\n\t\t\tDomain:      pulumi.String(\"example.com\"),\n\t\t\tDisplayName: pulumi.String(\"test\"),\n\t\t\tUserName:    pulumi.String(\"paul_atreides\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = Index.NewEmailDomainVerification(ctx, \"exampleEmailDomainVerification\", \u0026Index.EmailDomainVerificationArgs{\n\t\t\tEmailDomainId: pulumi.Any(okta_email_domain.Valid.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Index.EmailDomain;\nimport com.pulumi.okta.Index.EmailDomainArgs;\nimport com.pulumi.okta.Index.EmailDomainVerification;\nimport com.pulumi.okta.Index.EmailDomainVerificationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleEmailDomain = new EmailDomain(\"exampleEmailDomain\", EmailDomainArgs.builder()        \n            .brandId(\"abc123\")\n            .domain(\"example.com\")\n            .displayName(\"test\")\n            .userName(\"paul_atreides\")\n            .build());\n\n        var exampleEmailDomainVerification = new EmailDomainVerification(\"exampleEmailDomainVerification\", EmailDomainVerificationArgs.builder()        \n            .emailDomainId(okta_email_domain.valid().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleEmailDomain:\n    type: okta:Index:EmailDomain\n    properties:\n      brandId: abc123\n      domain: example.com\n      displayName: test\n      userName: paul_atreides\n  exampleEmailDomainVerification:\n    type: okta:Index:EmailDomainVerification\n    properties:\n      emailDomainId: ${okta_email_domain.valid.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource does not support importing. ",
+            "properties": {
+                "emailDomainId": {
+                    "type": "string",
+                    "description": "Email domain ID.\n"
+                }
+            },
+            "required": [
+                "emailDomainId"
+            ],
+            "inputProperties": {
+                "emailDomainId": {
+                    "type": "string",
+                    "description": "Email domain ID.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "emailDomainId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EmailDomainVerification resources.\n",
+                "properties": {
+                    "emailDomainId": {
+                        "type": "string",
+                        "description": "Email domain ID.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:app/autoLogin:AutoLogin": {
             "description": "This resource allows you to create and configure an Auto Login Okta Application.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.AutoLogin(\"example\", {\n    credentialsScheme: \"EDIT_USERNAME_AND_PASSWORD\",\n    label: \"Example App\",\n    revealPassword: true,\n    signOnRedirectUrl: \"https://example.com\",\n    signOnUrl: \"https://example.com/login.html\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.AutoLogin(\"example\",\n    credentials_scheme=\"EDIT_USERNAME_AND_PASSWORD\",\n    label=\"Example App\",\n    reveal_password=True,\n    sign_on_redirect_url=\"https://example.com\",\n    sign_on_url=\"https://example.com/login.html\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.App.AutoLogin(\"example\", new()\n    {\n        CredentialsScheme = \"EDIT_USERNAME_AND_PASSWORD\",\n        Label = \"Example App\",\n        RevealPassword = true,\n        SignOnRedirectUrl = \"https://example.com\",\n        SignOnUrl = \"https://example.com/login.html\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewAutoLogin(ctx, \"example\", \u0026app.AutoLoginArgs{\n\t\t\tCredentialsScheme: pulumi.String(\"EDIT_USERNAME_AND_PASSWORD\"),\n\t\t\tLabel:             pulumi.String(\"Example App\"),\n\t\t\tRevealPassword:    pulumi.Bool(true),\n\t\t\tSignOnRedirectUrl: pulumi.String(\"https://example.com\"),\n\t\t\tSignOnUrl:         pulumi.String(\"https://example.com/login.html\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.AutoLogin;\nimport com.pulumi.okta.app.AutoLoginArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new AutoLogin(\"example\", AutoLoginArgs.builder()        \n            .credentialsScheme(\"EDIT_USERNAME_AND_PASSWORD\")\n            .label(\"Example App\")\n            .revealPassword(true)\n            .signOnRedirectUrl(\"https://example.com\")\n            .signOnUrl(\"https://example.com/login.html\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:AutoLogin\n    properties:\n      credentialsScheme: EDIT_USERNAME_AND_PASSWORD\n      label: Example App\n      revealPassword: true\n      signOnRedirectUrl: https://example.com\n      signOnUrl: https://example.com/login.html\n```\n{{% /example %}}\n{{% example %}}\n### Pre-configured application\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.AutoLogin(\"example\", {\n    appSettingsJson: `{\n    \"domain\": \"okta\",\n    \"afwOnly\": false\n}\n\n`,\n    label: \"Google Example App\",\n    preconfiguredApp: \"google\",\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.AutoLogin(\"example\",\n    app_settings_json=\"\"\"{\n    \"domain\": \"okta\",\n    \"afwOnly\": false\n}\n\n\"\"\",\n    label=\"Google Example App\",\n    preconfigured_app=\"google\",\n    status=\"ACTIVE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.App.AutoLogin(\"example\", new()\n    {\n        AppSettingsJson = @\"{\n    \"\"domain\"\": \"\"okta\"\",\n    \"\"afwOnly\"\": false\n}\n\n\",\n        Label = \"Google Example App\",\n        PreconfiguredApp = \"google\",\n        Status = \"ACTIVE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewAutoLogin(ctx, \"example\", \u0026app.AutoLoginArgs{\n\t\t\tAppSettingsJson:  pulumi.String(\"{\\n    \\\"domain\\\": \\\"okta\\\",\\n    \\\"afwOnly\\\": false\\n}\\n\\n\"),\n\t\t\tLabel:            pulumi.String(\"Google Example App\"),\n\t\t\tPreconfiguredApp: pulumi.String(\"google\"),\n\t\t\tStatus:           pulumi.String(\"ACTIVE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.AutoLogin;\nimport com.pulumi.okta.app.AutoLoginArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new AutoLogin(\"example\", AutoLoginArgs.builder()        \n            .appSettingsJson(\"\"\"\n{\n    \"domain\": \"okta\",\n    \"afwOnly\": false\n}\n\n            \"\"\")\n            .label(\"Google Example App\")\n            .preconfiguredApp(\"google\")\n            .status(\"ACTIVE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:AutoLogin\n    properties:\n      appSettingsJson: |+\n        {\n            \"domain\": \"okta\",\n            \"afwOnly\": false\n        }\n\n      label: Google Example App\n      preconfiguredApp: google\n      status: ACTIVE\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nOkta Auto Login App can be imported via the Okta ID.\n\n```sh\n $ pulumi import okta:app/autoLogin:AutoLogin example \u0026#60;app id\u0026#62;\n```\n\n ",
             "properties": {
@@ -18884,7 +19046,7 @@
             }
         },
         "okta:index/getAppGroupAssignments:getAppGroupAssignments": {
-            "description": "Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = okta.getAppGroupAssignments({\n    id: okta_app_oauth.test.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.get_app_group_assignments(id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Okta.GetAppGroupAssignments.Invoke(new()\n    {\n        Id = okta_app_oauth.Test.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.LookupAppGroupAssignments(ctx, \u0026okta.LookupAppGroupAssignmentsArgs{\n\t\t\tId: okta_app_oauth.Test.Id,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetAppGroupAssignmentsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()\n            .id(okta_app_oauth.test().id())\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      Function: okta:getAppGroupAssignments\n      Arguments:\n        id: ${okta_app_oauth.test.id}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = okta.getAppGroupAssignments({\n    id: okta_app_oauth.test.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.get_app_group_assignments(id=okta_app_oauth[\"test\"][\"id\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Okta.GetAppGroupAssignments.Invoke(new()\n    {\n        Id = okta_app_oauth.Test.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.LookupAppGroupAssignments(ctx, \u0026okta.LookupAppGroupAssignmentsArgs{\n\t\t\tId: okta_app_oauth.Test.Id,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetAppGroupAssignmentsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()\n            .id(okta_app_oauth.test().id())\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      Function: okta:getAppGroupAssignments\n      Arguments:\n        id: ${okta_app_oauth.test.id}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getAppGroupAssignments.\n",
                 "properties": {
@@ -18959,7 +19121,7 @@
             }
         },
         "okta:index/getAppUserAssignments:getAppUserAssignments": {
-            "description": "Use this data source to retrieve the list of users assigned to the given Okta application (by ID).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = okta.getAppUserAssignments({\n    id: okta_app_oauth.test.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.get_app_user_assignments(id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Okta.GetAppUserAssignments.Invoke(new()\n    {\n        Id = okta_app_oauth.Test.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.GetAppUserAssignments(ctx, \u0026okta.GetAppUserAssignmentsArgs{\n\t\t\tId: okta_app_oauth.Test.Id,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetAppUserAssignmentsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()\n            .id(okta_app_oauth.test().id())\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      Function: okta:getAppUserAssignments\n      Arguments:\n        id: ${okta_app_oauth.test.id}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source to retrieve the list of users assigned to the given Okta application (by ID).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = okta.getAppUserAssignments({\n    id: okta_app_oauth.test.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.get_app_user_assignments(id=okta_app_oauth[\"test\"][\"id\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Okta.GetAppUserAssignments.Invoke(new()\n    {\n        Id = okta_app_oauth.Test.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.GetAppUserAssignments(ctx, \u0026okta.GetAppUserAssignmentsArgs{\n\t\t\tId: okta_app_oauth.Test.Id,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetAppUserAssignmentsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()\n            .id(okta_app_oauth.test().id())\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      Function: okta:getAppUserAssignments\n      Arguments:\n        id: ${okta_app_oauth.test.id}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getAppUserAssignments.\n",
                 "properties": {
