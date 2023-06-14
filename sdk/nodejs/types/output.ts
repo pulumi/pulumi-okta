@@ -348,6 +348,19 @@ export interface UserSchemaPropertyOneOf {
 }
 
 export namespace Index {
+    export interface EmailDomainDnsValidationRecord {
+        expiration: string;
+        /**
+         * DNS record name.
+         */
+        fqdn: string;
+        /**
+         * Record type can be TXT or cname.
+         */
+        recordType: string;
+        values: string[];
+    }
+
     export interface GetDomainDnsRecord {
         /**
          * TXT record expiration.
