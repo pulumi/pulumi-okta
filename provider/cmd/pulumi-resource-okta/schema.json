@@ -151,11 +151,9 @@
                     "type": "string",
                     "description": "Record type can be TXT or cname.\n"
                 },
-                "values": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                "value": {
+                    "type": "string",
+                    "description": "DNS record value\n- `expiration ` - DNS TXT record expiration\n"
                 }
             },
             "type": "object",
@@ -165,7 +163,7 @@
                         "expiration",
                         "fqdn",
                         "recordType",
-                        "values"
+                        "value"
                     ]
                 }
             }
@@ -851,6 +849,9 @@
                 "links": {
                     "type": "string"
                 },
+                "name": {
+                    "type": "string"
+                },
                 "removePoweredByOkta": {
                     "type": "boolean"
                 }
@@ -860,6 +861,7 @@
                 "customPrivacyPolicyUrl",
                 "id",
                 "links",
+                "name",
                 "removePoweredByOkta"
             ],
             "language": {
@@ -2791,6 +2793,10 @@
                     },
                     "description": "JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)\n"
                 },
+                "jwksUri": {
+                    "type": "string",
+                    "description": "URL reference to JWKS\n"
+                },
                 "label": {
                     "type": "string",
                     "description": "The Application's display name.\n"
@@ -3016,6 +3022,10 @@
                     },
                     "description": "JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)\n"
                 },
+                "jwksUri": {
+                    "type": "string",
+                    "description": "URL reference to JWKS\n"
+                },
                 "label": {
                     "type": "string",
                     "description": "The Application's display name.\n"
@@ -3229,6 +3239,10 @@
                             "$ref": "#/types/okta:app/OAuthJwk:OAuthJwk"
                         },
                         "description": "JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)\n"
+                    },
+                    "jwksUri": {
+                        "type": "string",
+                        "description": "URL reference to JWKS\n"
                     },
                     "label": {
                         "type": "string",
@@ -10444,13 +10458,18 @@
                     "type": "string",
                     "description": "(Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand\n"
                 },
+                "name": {
+                    "type": "string",
+                    "description": "Brand name\n"
+                },
                 "removePoweredByOkta": {
                     "type": "boolean",
                     "description": "(Optional) Removes \"Powered by Okta\" from the Okta-hosted sign-in page, and \"© 2021 Okta, Inc.\" from the Okta End-User Dashboard\n"
                 }
             },
             "required": [
-                "links"
+                "links",
+                "name"
             ],
             "inputProperties": {
                 "agreeToCustomPrivacyPolicy": {
@@ -10488,6 +10507,10 @@
                     "links": {
                         "type": "string",
                         "description": "(Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Brand name\n"
                     },
                     "removePoweredByOkta": {
                         "type": "boolean",
@@ -14669,6 +14692,10 @@
                     },
                     "description": "Array of values in CIDR/range form. Can not be set if `usage` is set to `\"BLOCKLIST\"`.\n"
                 },
+                "status": {
+                    "type": "string",
+                    "description": "Network Status - can either be ACTIVE or INACTIVE only.\n"
+                },
                 "type": {
                     "type": "string",
                     "description": "Type of the Network Zone - can either be `\"IP\"` or `\"DYNAMIC\"` only.\n"
@@ -14718,6 +14745,10 @@
                         "type": "string"
                     },
                     "description": "Array of values in CIDR/range form. Can not be set if `usage` is set to `\"BLOCKLIST\"`.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Network Status - can either be ACTIVE or INACTIVE only.\n"
                 },
                 "type": {
                     "type": "string",
@@ -14769,6 +14800,10 @@
                             "type": "string"
                         },
                         "description": "Array of values in CIDR/range form. Can not be set if `usage` is set to `\"BLOCKLIST\"`.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Network Status - can either be ACTIVE or INACTIVE only.\n"
                     },
                     "type": {
                         "type": "string",
@@ -19481,6 +19516,9 @@
                         "type": "string",
                         "description": "Link relations for this object - JSON HAL - Discoverable resources related to the brand\n"
                     },
+                    "name": {
+                        "type": "string"
+                    },
                     "removePoweredByOkta": {
                         "type": "boolean",
                         "description": "Removes \"Powered by Okta\" from the Okta-hosted sign-in page, and \"© 2021 Okta, Inc.\" from the Okta End-User Dashboard\n"
@@ -19492,6 +19530,7 @@
                     "customPrivacyPolicyUrl",
                     "id",
                     "links",
+                    "name",
                     "removePoweredByOkta"
                 ]
             }
@@ -19757,6 +19796,10 @@
                         },
                         "description": "Array of values in CIDR/range form.\n"
                     },
+                    "status": {
+                        "type": "string",
+                        "description": "Network Status - can either be ACTIVE or INACTIVE only.\n"
+                    },
                     "type": {
                         "type": "string",
                         "description": "Type of the Network Zone.\n"
@@ -19773,6 +19816,7 @@
                     "dynamicProxyType",
                     "gateways",
                     "proxies",
+                    "status",
                     "type",
                     "usage"
                 ]
