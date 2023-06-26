@@ -116,6 +116,20 @@ public class Brand extends com.pulumi.resources.CustomResource {
         return this.links;
     }
     /**
+     * Brand name
+     * 
+     */
+    @Export(name="name", type=String.class, parameters={})
+    private Output<String> name;
+
+    /**
+     * @return Brand name
+     * 
+     */
+    public Output<String> name() {
+        return this.name;
+    }
+    /**
      * (Optional) Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */

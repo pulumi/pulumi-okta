@@ -77,6 +77,21 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Brand name
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return Brand name
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
      * (Optional) Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
@@ -98,6 +113,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         this.brandId = $.brandId;
         this.customPrivacyPolicyUrl = $.customPrivacyPolicyUrl;
         this.links = $.links;
+        this.name = $.name;
         this.removePoweredByOkta = $.removePoweredByOkta;
     }
 
@@ -201,6 +217,27 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder links(String links) {
             return links(Output.of(links));
+        }
+
+        /**
+         * @param name Brand name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name Brand name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         /**

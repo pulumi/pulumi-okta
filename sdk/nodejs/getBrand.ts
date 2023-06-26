@@ -42,6 +42,7 @@ export interface GetBrandResult {
      * Link relations for this object - JSON HAL - Discoverable resources related to the brand
      */
     readonly links: string;
+    readonly name: string;
     /**
      * Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
      */

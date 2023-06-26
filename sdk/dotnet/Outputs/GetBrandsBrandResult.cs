@@ -16,6 +16,7 @@ namespace Pulumi.Okta.Outputs
         public readonly string CustomPrivacyPolicyUrl;
         public readonly string Id;
         public readonly string Links;
+        public readonly string Name;
         public readonly bool RemovePoweredByOkta;
 
         [OutputConstructor]
@@ -26,11 +27,14 @@ namespace Pulumi.Okta.Outputs
 
             string links,
 
+            string name,
+
             bool removePoweredByOkta)
         {
             CustomPrivacyPolicyUrl = customPrivacyPolicyUrl;
             Id = id;
             Links = links;
+            Name = name;
             RemovePoweredByOkta = removePoweredByOkta;
         }
     }

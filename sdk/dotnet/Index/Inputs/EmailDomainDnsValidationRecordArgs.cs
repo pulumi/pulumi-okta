@@ -27,13 +27,12 @@ namespace Pulumi.Okta.Index.Inputs
         [Input("recordType")]
         public Input<string>? RecordType { get; set; }
 
-        [Input("values")]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
+        /// <summary>
+        /// DNS record value
+        /// - `expiration ` - DNS TXT record expiration
+        /// </summary>
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public EmailDomainDnsValidationRecordArgs()
         {

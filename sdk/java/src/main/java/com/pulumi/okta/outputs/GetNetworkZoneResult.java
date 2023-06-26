@@ -48,6 +48,11 @@ public final class GetNetworkZoneResult {
      */
     private List<String> proxies;
     /**
+     * @return Network Status - can either be ACTIVE or INACTIVE only.
+     * 
+     */
+    private String status;
+    /**
      * @return Type of the Network Zone.
      * 
      */
@@ -109,6 +114,13 @@ public final class GetNetworkZoneResult {
         return this.proxies;
     }
     /**
+     * @return Network Status - can either be ACTIVE or INACTIVE only.
+     * 
+     */
+    public String status() {
+        return this.status;
+    }
+    /**
      * @return Type of the Network Zone.
      * 
      */
@@ -139,6 +151,7 @@ public final class GetNetworkZoneResult {
         private @Nullable String id;
         private @Nullable String name;
         private List<String> proxies;
+        private String status;
         private String type;
         private String usage;
         public Builder() {}
@@ -151,6 +164,7 @@ public final class GetNetworkZoneResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.proxies = defaults.proxies;
+    	      this.status = defaults.status;
     	      this.type = defaults.type;
     	      this.usage = defaults.usage;
         }
@@ -203,6 +217,11 @@ public final class GetNetworkZoneResult {
             return proxies(List.of(proxies));
         }
         @CustomType.Setter
+        public Builder status(String status) {
+            this.status = Objects.requireNonNull(status);
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
@@ -221,6 +240,7 @@ public final class GetNetworkZoneResult {
             o.id = id;
             o.name = name;
             o.proxies = proxies;
+            o.status = status;
             o.type = type;
             o.usage = usage;
             return o;

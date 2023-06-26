@@ -769,10 +769,12 @@ class GetBrandsBrandResult(dict):
                  custom_privacy_policy_url: str,
                  id: str,
                  links: str,
+                 name: str,
                  remove_powered_by_okta: bool):
         pulumi.set(__self__, "custom_privacy_policy_url", custom_privacy_policy_url)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "links", links)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "remove_powered_by_okta", remove_powered_by_okta)
 
     @property
@@ -789,6 +791,11 @@ class GetBrandsBrandResult(dict):
     @pulumi.getter
     def links(self) -> str:
         return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="removePoweredByOkta")

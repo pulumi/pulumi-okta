@@ -37,10 +37,12 @@ class EmailDomainDnsValidationRecord(dict):
                  expiration: Optional[str] = None,
                  fqdn: Optional[str] = None,
                  record_type: Optional[str] = None,
-                 values: Optional[Sequence[str]] = None):
+                 value: Optional[str] = None):
         """
         :param str fqdn: DNS record name.
         :param str record_type: Record type can be TXT or cname.
+        :param str value: DNS record value
+               - `expiration ` - DNS TXT record expiration
         """
         if expiration is not None:
             pulumi.set(__self__, "expiration", expiration)
@@ -48,8 +50,8 @@ class EmailDomainDnsValidationRecord(dict):
             pulumi.set(__self__, "fqdn", fqdn)
         if record_type is not None:
             pulumi.set(__self__, "record_type", record_type)
-        if values is not None:
-            pulumi.set(__self__, "values", values)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -74,8 +76,12 @@ class EmailDomainDnsValidationRecord(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "values")
+    def value(self) -> Optional[str]:
+        """
+        DNS record value
+        - `expiration ` - DNS TXT record expiration
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

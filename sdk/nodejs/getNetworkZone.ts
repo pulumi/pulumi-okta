@@ -75,6 +75,10 @@ export interface GetNetworkZoneResult {
      */
     readonly proxies: string[];
     /**
+     * Network Status - can either be ACTIVE or INACTIVE only.
+     */
+    readonly status: string;
+    /**
      * Type of the Network Zone.
      */
     readonly type: string;

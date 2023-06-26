@@ -90,6 +90,7 @@ class _BrandState:
                  brand_id: Optional[pulumi.Input[str]] = None,
                  custom_privacy_policy_url: Optional[pulumi.Input[str]] = None,
                  links: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  remove_powered_by_okta: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Brand resources.
@@ -97,6 +98,7 @@ class _BrandState:
         :param pulumi.Input[str] brand_id: Brand ID, used for read (faux-create)
         :param pulumi.Input[str] custom_privacy_policy_url: (Optional) Custom privacy policy URL
         :param pulumi.Input[str] links: (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        :param pulumi.Input[str] name: Brand name
         :param pulumi.Input[bool] remove_powered_by_okta: (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         if agree_to_custom_privacy_policy is not None:
@@ -107,6 +109,8 @@ class _BrandState:
             pulumi.set(__self__, "custom_privacy_policy_url", custom_privacy_policy_url)
         if links is not None:
             pulumi.set(__self__, "links", links)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if remove_powered_by_okta is not None:
             pulumi.set(__self__, "remove_powered_by_okta", remove_powered_by_okta)
 
@@ -157,6 +161,18 @@ class _BrandState:
     @links.setter
     def links(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "links", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Brand name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="removePoweredByOkta")
@@ -273,6 +289,7 @@ class Brand(pulumi.CustomResource):
             __props__.__dict__["custom_privacy_policy_url"] = custom_privacy_policy_url
             __props__.__dict__["remove_powered_by_okta"] = remove_powered_by_okta
             __props__.__dict__["links"] = None
+            __props__.__dict__["name"] = None
         super(Brand, __self__).__init__(
             'okta:index/brand:Brand',
             resource_name,
@@ -287,6 +304,7 @@ class Brand(pulumi.CustomResource):
             brand_id: Optional[pulumi.Input[str]] = None,
             custom_privacy_policy_url: Optional[pulumi.Input[str]] = None,
             links: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
             remove_powered_by_okta: Optional[pulumi.Input[bool]] = None) -> 'Brand':
         """
         Get an existing Brand resource's state with the given name, id, and optional extra
@@ -299,6 +317,7 @@ class Brand(pulumi.CustomResource):
         :param pulumi.Input[str] brand_id: Brand ID, used for read (faux-create)
         :param pulumi.Input[str] custom_privacy_policy_url: (Optional) Custom privacy policy URL
         :param pulumi.Input[str] links: (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        :param pulumi.Input[str] name: Brand name
         :param pulumi.Input[bool] remove_powered_by_okta: (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -309,6 +328,7 @@ class Brand(pulumi.CustomResource):
         __props__.__dict__["brand_id"] = brand_id
         __props__.__dict__["custom_privacy_policy_url"] = custom_privacy_policy_url
         __props__.__dict__["links"] = links
+        __props__.__dict__["name"] = name
         __props__.__dict__["remove_powered_by_okta"] = remove_powered_by_okta
         return Brand(resource_name, opts=opts, __props__=__props__)
 
@@ -343,6 +363,14 @@ class Brand(pulumi.CustomResource):
         (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
         """
         return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        """
+        Brand name
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="removePoweredByOkta")

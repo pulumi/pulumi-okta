@@ -1322,6 +1322,7 @@
                 "hideWeb": "hide_web",
                 "implicitAssignment": "implicit_assignment",
                 "issuerMode": "issuer_mode",
+                "jwksUri": "jwks_uri",
                 "loginMode": "login_mode",
                 "loginScopes": "login_scopes",
                 "loginUri": "login_uri",

@@ -70,6 +70,8 @@ type GetNetworkZoneResult struct {
 	Name *string `pulumi:"name"`
 	// Array of values in CIDR/range form.
 	Proxies []string `pulumi:"proxies"`
+	// Network Status - can either be ACTIVE or INACTIVE only.
+	Status string `pulumi:"status"`
 	// Type of the Network Zone.
 	Type string `pulumi:"type"`
 	// Usage of the Network Zone.
@@ -149,6 +151,11 @@ func (o GetNetworkZoneResultOutput) Name() pulumi.StringPtrOutput {
 // Array of values in CIDR/range form.
 func (o GetNetworkZoneResultOutput) Proxies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.Proxies }).(pulumi.StringArrayOutput)
+}
+
+// Network Status - can either be ACTIVE or INACTIVE only.
+func (o GetNetworkZoneResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkZoneResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // Type of the Network Zone.

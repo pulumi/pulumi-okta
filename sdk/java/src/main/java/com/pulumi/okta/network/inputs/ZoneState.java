@@ -109,6 +109,21 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Network Status - can either be ACTIVE or INACTIVE only.
+     * 
+     */
+    @Import(name="status")
+    private @Nullable Output<String> status;
+
+    /**
+     * @return Network Status - can either be ACTIVE or INACTIVE only.
+     * 
+     */
+    public Optional<Output<String>> status() {
+        return Optional.ofNullable(this.status);
+    }
+
+    /**
      * Type of the Network Zone - can either be `&#34;IP&#34;` or `&#34;DYNAMIC&#34;` only.
      * 
      */
@@ -147,6 +162,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         this.gateways = $.gateways;
         this.name = $.name;
         this.proxies = $.proxies;
+        this.status = $.status;
         this.type = $.type;
         this.usage = $.usage;
     }
@@ -336,6 +352,27 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder proxies(String... proxies) {
             return proxies(List.of(proxies));
+        }
+
+        /**
+         * @param status Network Status - can either be ACTIVE or INACTIVE only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(@Nullable Output<String> status) {
+            $.status = status;
+            return this;
+        }
+
+        /**
+         * @param status Network Status - can either be ACTIVE or INACTIVE only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(String status) {
+            return status(Output.of(status));
         }
 
         /**

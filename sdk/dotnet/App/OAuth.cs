@@ -242,6 +242,12 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<Outputs.OAuthJwk>> Jwks { get; private set; } = null!;
 
         /// <summary>
+        /// URL reference to JWKS
+        /// </summary>
+        [Output("jwksUri")]
+        public Output<string?> JwksUri { get; private set; } = null!;
+
+        /// <summary>
         /// The Application's display name.
         /// </summary>
         [Output("label")]
@@ -632,6 +638,12 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
+        /// URL reference to JWKS
+        /// </summary>
+        [Input("jwksUri")]
+        public Input<string>? JwksUri { get; set; }
+
+        /// <summary>
         /// The Application's display name.
         /// </summary>
         [Input("label", required: true)]
@@ -999,6 +1011,12 @@ namespace Pulumi.Okta.App
             get => _jwks ?? (_jwks = new InputList<Inputs.OAuthJwkGetArgs>());
             set => _jwks = value;
         }
+
+        /// <summary>
+        /// URL reference to JWKS
+        /// </summary>
+        [Input("jwksUri")]
+        public Input<string>? JwksUri { get; set; }
 
         /// <summary>
         /// The Application's display name.

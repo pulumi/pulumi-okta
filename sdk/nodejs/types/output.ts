@@ -164,6 +164,7 @@ export interface GetBrandsBrand {
     customPrivacyPolicyUrl: string;
     id: string;
     links: string;
+    name: string;
     removePoweredByOkta: boolean;
 }
 
@@ -358,7 +359,11 @@ export namespace Index {
          * Record type can be TXT or cname.
          */
         recordType: string;
-        values: string[];
+        /**
+         * DNS record value
+         * - `expiration ` - DNS TXT record expiration
+         */
+        value: string;
     }
 
     export interface GetDomainDnsRecord {

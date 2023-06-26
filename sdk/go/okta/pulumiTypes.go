@@ -1951,6 +1951,7 @@ type GetBrandsBrand struct {
 	CustomPrivacyPolicyUrl string `pulumi:"customPrivacyPolicyUrl"`
 	Id                     string `pulumi:"id"`
 	Links                  string `pulumi:"links"`
+	Name                   string `pulumi:"name"`
 	RemovePoweredByOkta    bool   `pulumi:"removePoweredByOkta"`
 }
 
@@ -1969,6 +1970,7 @@ type GetBrandsBrandArgs struct {
 	CustomPrivacyPolicyUrl pulumi.StringInput `pulumi:"customPrivacyPolicyUrl"`
 	Id                     pulumi.StringInput `pulumi:"id"`
 	Links                  pulumi.StringInput `pulumi:"links"`
+	Name                   pulumi.StringInput `pulumi:"name"`
 	RemovePoweredByOkta    pulumi.BoolInput   `pulumi:"removePoweredByOkta"`
 }
 
@@ -2033,6 +2035,10 @@ func (o GetBrandsBrandOutput) Id() pulumi.StringOutput {
 
 func (o GetBrandsBrandOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrandsBrand) string { return v.Links }).(pulumi.StringOutput)
+}
+
+func (o GetBrandsBrandOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrandsBrand) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o GetBrandsBrandOutput) RemovePoweredByOkta() pulumi.BoolOutput {

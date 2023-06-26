@@ -142,6 +142,10 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly ImmutableArray<string> Proxies;
         /// <summary>
+        /// Network Status - can either be ACTIVE or INACTIVE only.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
         /// Type of the Network Zone.
         /// </summary>
         public readonly string Type;
@@ -166,6 +170,8 @@ namespace Pulumi.Okta
 
             ImmutableArray<string> proxies,
 
+            string status,
+
             string type,
 
             string usage)
@@ -177,6 +183,7 @@ namespace Pulumi.Okta
             Id = id;
             Name = name;
             Proxies = proxies;
+            Status = status;
             Type = type;
             Usage = usage;
         }

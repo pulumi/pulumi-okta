@@ -73,6 +73,10 @@ export class Brand extends pulumi.CustomResource {
      */
     public /*out*/ readonly links!: pulumi.Output<string>;
     /**
+     * Brand name
+     */
+    public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
      * (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
      */
     public readonly removePoweredByOkta!: pulumi.Output<boolean | undefined>;
@@ -94,6 +98,7 @@ export class Brand extends pulumi.CustomResource {
             resourceInputs["brandId"] = state ? state.brandId : undefined;
             resourceInputs["customPrivacyPolicyUrl"] = state ? state.customPrivacyPolicyUrl : undefined;
             resourceInputs["links"] = state ? state.links : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["removePoweredByOkta"] = state ? state.removePoweredByOkta : undefined;
         } else {
             const args = argsOrState as BrandArgs | undefined;
@@ -102,6 +107,7 @@ export class Brand extends pulumi.CustomResource {
             resourceInputs["customPrivacyPolicyUrl"] = args ? args.customPrivacyPolicyUrl : undefined;
             resourceInputs["removePoweredByOkta"] = args ? args.removePoweredByOkta : undefined;
             resourceInputs["links"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Brand.__pulumiType, name, resourceInputs, opts);
@@ -128,6 +134,10 @@ export interface BrandState {
      * (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
      */
     links?: pulumi.Input<string>;
+    /**
+     * Brand name
+     */
+    name?: pulumi.Input<string>;
     /**
      * (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
      */

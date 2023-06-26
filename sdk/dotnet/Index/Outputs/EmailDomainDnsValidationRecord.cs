@@ -22,7 +22,11 @@ namespace Pulumi.Okta.Index.Outputs
         /// Record type can be TXT or cname.
         /// </summary>
         public readonly string? RecordType;
-        public readonly ImmutableArray<string> Values;
+        /// <summary>
+        /// DNS record value
+        /// - `expiration ` - DNS TXT record expiration
+        /// </summary>
+        public readonly string? Value;
 
         [OutputConstructor]
         private EmailDomainDnsValidationRecord(
@@ -32,12 +36,12 @@ namespace Pulumi.Okta.Index.Outputs
 
             string? recordType,
 
-            ImmutableArray<string> values)
+            string? value)
         {
             Expiration = expiration;
             Fqdn = fqdn;
             RecordType = recordType;
-            Values = values;
+            Value = value;
         }
     }
 }

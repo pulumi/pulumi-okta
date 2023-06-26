@@ -39,6 +39,7 @@ class OAuthArgs:
                  implicit_assignment: Optional[pulumi.Input[bool]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
                  jwks: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]] = None,
+                 jwks_uri: Optional[pulumi.Input[str]] = None,
                  login_mode: Optional[pulumi.Input[str]] = None,
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  login_uri: Optional[pulumi.Input[str]] = None,
@@ -94,6 +95,7 @@ class OAuthArgs:
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        :param pulumi.Input[str] jwks_uri: URL reference to JWKS
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
@@ -182,6 +184,8 @@ class OAuthArgs:
             pulumi.set(__self__, "issuer_mode", issuer_mode)
         if jwks is not None:
             pulumi.set(__self__, "jwks", jwks)
+        if jwks_uri is not None:
+            pulumi.set(__self__, "jwks_uri", jwks_uri)
         if login_mode is not None:
             pulumi.set(__self__, "login_mode", login_mode)
         if login_scopes is not None:
@@ -512,6 +516,18 @@ class OAuthArgs:
         pulumi.set(self, "jwks", value)
 
     @property
+    @pulumi.getter(name="jwksUri")
+    def jwks_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL reference to JWKS
+        """
+        return pulumi.get(self, "jwks_uri")
+
+    @jwks_uri.setter
+    def jwks_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "jwks_uri", value)
+
+    @property
     @pulumi.getter(name="loginMode")
     def login_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -822,6 +838,7 @@ class _OAuthState:
                  implicit_assignment: Optional[pulumi.Input[bool]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
                  jwks: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]] = None,
+                 jwks_uri: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  login_mode: Optional[pulumi.Input[str]] = None,
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -881,6 +898,7 @@ class _OAuthState:
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        :param pulumi.Input[str] jwks_uri: URL reference to JWKS
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -974,6 +992,8 @@ class _OAuthState:
             pulumi.set(__self__, "issuer_mode", issuer_mode)
         if jwks is not None:
             pulumi.set(__self__, "jwks", jwks)
+        if jwks_uri is not None:
+            pulumi.set(__self__, "jwks_uri", jwks_uri)
         if label is not None:
             pulumi.set(__self__, "label", label)
         if login_mode is not None:
@@ -1300,6 +1320,18 @@ class _OAuthState:
     @jwks.setter
     def jwks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]]):
         pulumi.set(self, "jwks", value)
+
+    @property
+    @pulumi.getter(name="jwksUri")
+    def jwks_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL reference to JWKS
+        """
+        return pulumi.get(self, "jwks_uri")
+
+    @jwks_uri.setter
+    def jwks_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "jwks_uri", value)
 
     @property
     @pulumi.getter
@@ -1673,6 +1705,7 @@ class OAuth(pulumi.CustomResource):
                  implicit_assignment: Optional[pulumi.Input[bool]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
                  jwks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]]] = None,
+                 jwks_uri: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  login_mode: Optional[pulumi.Input[str]] = None,
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1783,6 +1816,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        :param pulumi.Input[str] jwks_uri: URL reference to JWKS
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -1925,6 +1959,7 @@ class OAuth(pulumi.CustomResource):
                  implicit_assignment: Optional[pulumi.Input[bool]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
                  jwks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]]] = None,
+                 jwks_uri: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  login_mode: Optional[pulumi.Input[str]] = None,
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1979,6 +2014,7 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["implicit_assignment"] = implicit_assignment
             __props__.__dict__["issuer_mode"] = issuer_mode
             __props__.__dict__["jwks"] = jwks
+            __props__.__dict__["jwks_uri"] = jwks_uri
             if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__.__dict__["label"] = label
@@ -2045,6 +2081,7 @@ class OAuth(pulumi.CustomResource):
             implicit_assignment: Optional[pulumi.Input[bool]] = None,
             issuer_mode: Optional[pulumi.Input[str]] = None,
             jwks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]]] = None,
+            jwks_uri: Optional[pulumi.Input[str]] = None,
             label: Optional[pulumi.Input[str]] = None,
             login_mode: Optional[pulumi.Input[str]] = None,
             login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2109,6 +2146,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        :param pulumi.Input[str] jwks_uri: URL reference to JWKS
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -2184,6 +2222,7 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["implicit_assignment"] = implicit_assignment
         __props__.__dict__["issuer_mode"] = issuer_mode
         __props__.__dict__["jwks"] = jwks
+        __props__.__dict__["jwks_uri"] = jwks_uri
         __props__.__dict__["label"] = label
         __props__.__dict__["login_mode"] = login_mode
         __props__.__dict__["login_scopes"] = login_scopes
@@ -2396,6 +2435,14 @@ class OAuth(pulumi.CustomResource):
         JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
         """
         return pulumi.get(self, "jwks")
+
+    @property
+    @pulumi.getter(name="jwksUri")
+    def jwks_uri(self) -> pulumi.Output[Optional[str]]:
+        """
+        URL reference to JWKS
+        """
+        return pulumi.get(self, "jwks_uri")
 
     @property
     @pulumi.getter

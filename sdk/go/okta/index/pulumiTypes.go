@@ -15,8 +15,10 @@ type EmailDomainDnsValidationRecord struct {
 	// DNS record name.
 	Fqdn *string `pulumi:"fqdn"`
 	// Record type can be TXT or cname.
-	RecordType *string  `pulumi:"recordType"`
-	Values     []string `pulumi:"values"`
+	RecordType *string `pulumi:"recordType"`
+	// DNS record value
+	// - ` expiration  ` - DNS TXT record expiration
+	Value *string `pulumi:"value"`
 }
 
 // EmailDomainDnsValidationRecordInput is an input type that accepts EmailDomainDnsValidationRecordArgs and EmailDomainDnsValidationRecordOutput values.
@@ -35,8 +37,10 @@ type EmailDomainDnsValidationRecordArgs struct {
 	// DNS record name.
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
 	// Record type can be TXT or cname.
-	RecordType pulumi.StringPtrInput   `pulumi:"recordType"`
-	Values     pulumi.StringArrayInput `pulumi:"values"`
+	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
+	// DNS record value
+	// - ` expiration  ` - DNS TXT record expiration
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EmailDomainDnsValidationRecordArgs) ElementType() reflect.Type {
@@ -104,8 +108,10 @@ func (o EmailDomainDnsValidationRecordOutput) RecordType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.RecordType }).(pulumi.StringPtrOutput)
 }
 
-func (o EmailDomainDnsValidationRecordOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EmailDomainDnsValidationRecord) []string { return v.Values }).(pulumi.StringArrayOutput)
+// DNS record value
+// - ` expiration  ` - DNS TXT record expiration
+func (o EmailDomainDnsValidationRecordOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type EmailDomainDnsValidationRecordArrayOutput struct{ *pulumi.OutputState }

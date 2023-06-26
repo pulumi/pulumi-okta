@@ -21,7 +21,7 @@ class GetNetworkZoneResult:
     """
     A collection of values returned by getNetworkZone.
     """
-    def __init__(__self__, asns=None, dynamic_locations=None, dynamic_proxy_type=None, gateways=None, id=None, name=None, proxies=None, type=None, usage=None):
+    def __init__(__self__, asns=None, dynamic_locations=None, dynamic_proxy_type=None, gateways=None, id=None, name=None, proxies=None, status=None, type=None, usage=None):
         if asns and not isinstance(asns, list):
             raise TypeError("Expected argument 'asns' to be a list")
         pulumi.set(__self__, "asns", asns)
@@ -43,6 +43,9 @@ class GetNetworkZoneResult:
         if proxies and not isinstance(proxies, list):
             raise TypeError("Expected argument 'proxies' to be a list")
         pulumi.set(__self__, "proxies", proxies)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -108,6 +111,14 @@ class GetNetworkZoneResult:
 
     @property
     @pulumi.getter
+    def status(self) -> str:
+        """
+        Network Status - can either be ACTIVE or INACTIVE only.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         Type of the Network Zone.
@@ -136,6 +147,7 @@ class AwaitableGetNetworkZoneResult(GetNetworkZoneResult):
             id=self.id,
             name=self.name,
             proxies=self.proxies,
+            status=self.status,
             type=self.type,
             usage=self.usage)
 
@@ -173,6 +185,7 @@ def get_network_zone(id: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         proxies=__ret__.proxies,
+        status=__ret__.status,
         type=__ret__.type,
         usage=__ret__.usage)
 
