@@ -21,6 +21,7 @@ class ZoneArgs:
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
                  usage: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Zone resource.
@@ -32,6 +33,7 @@ class ZoneArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        :param pulumi.Input[str] status: Network Status - can either be ACTIVE or INACTIVE only.
         :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
         """
         pulumi.set(__self__, "type", type)
@@ -47,6 +49,8 @@ class ZoneArgs:
             pulumi.set(__self__, "name", name)
         if proxies is not None:
             pulumi.set(__self__, "proxies", proxies)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
         if usage is not None:
             pulumi.set(__self__, "usage", usage)
 
@@ -137,6 +141,18 @@ class ZoneArgs:
 
     @property
     @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Network Status - can either be ACTIVE or INACTIVE only.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
     def usage(self) -> Optional[pulumi.Input[str]]:
         """
         Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
@@ -157,6 +173,7 @@ class _ZoneState:
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  usage: Optional[pulumi.Input[str]] = None):
         """
@@ -168,6 +185,7 @@ class _ZoneState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        :param pulumi.Input[str] status: Network Status - can either be ACTIVE or INACTIVE only.
         :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
         :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
         """
@@ -183,6 +201,8 @@ class _ZoneState:
             pulumi.set(__self__, "name", name)
         if proxies is not None:
             pulumi.set(__self__, "proxies", proxies)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if usage is not None:
@@ -263,6 +283,18 @@ class _ZoneState:
 
     @property
     @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Network Status - can either be ACTIVE or INACTIVE only.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
@@ -297,6 +329,7 @@ class Zone(pulumi.CustomResource):
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  usage: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -351,6 +384,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        :param pulumi.Input[str] status: Network Status - can either be ACTIVE or INACTIVE only.
         :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
         :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
         """
@@ -423,6 +457,7 @@ class Zone(pulumi.CustomResource):
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  usage: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -440,6 +475,7 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["gateways"] = gateways
             __props__.__dict__["name"] = name
             __props__.__dict__["proxies"] = proxies
+            __props__.__dict__["status"] = status
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -460,6 +496,7 @@ class Zone(pulumi.CustomResource):
             gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            status: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
             usage: Optional[pulumi.Input[str]] = None) -> 'Zone':
         """
@@ -476,6 +513,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
         :param pulumi.Input[str] name: Name of the Network Zone Resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        :param pulumi.Input[str] status: Network Status - can either be ACTIVE or INACTIVE only.
         :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
         :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
         """
@@ -489,6 +527,7 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["gateways"] = gateways
         __props__.__dict__["name"] = name
         __props__.__dict__["proxies"] = proxies
+        __props__.__dict__["status"] = status
         __props__.__dict__["type"] = type
         __props__.__dict__["usage"] = usage
         return Zone(resource_name, opts=opts, __props__=__props__)
@@ -541,6 +580,14 @@ class Zone(pulumi.CustomResource):
         Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
         """
         return pulumi.get(self, "proxies")
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Network Status - can either be ACTIVE or INACTIVE only.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter

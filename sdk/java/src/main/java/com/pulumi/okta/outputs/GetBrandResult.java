@@ -26,6 +26,7 @@ public final class GetBrandResult {
      * 
      */
     private String links;
+    private String name;
     /**
      * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
@@ -57,6 +58,9 @@ public final class GetBrandResult {
     public String links() {
         return this.links;
     }
+    public String name() {
+        return this.name;
+    }
     /**
      * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
@@ -78,6 +82,7 @@ public final class GetBrandResult {
         private String customPrivacyPolicyUrl;
         private String id;
         private String links;
+        private String name;
         private Boolean removePoweredByOkta;
         public Builder() {}
         public Builder(GetBrandResult defaults) {
@@ -86,6 +91,7 @@ public final class GetBrandResult {
     	      this.customPrivacyPolicyUrl = defaults.customPrivacyPolicyUrl;
     	      this.id = defaults.id;
     	      this.links = defaults.links;
+    	      this.name = defaults.name;
     	      this.removePoweredByOkta = defaults.removePoweredByOkta;
         }
 
@@ -110,6 +116,11 @@ public final class GetBrandResult {
             return this;
         }
         @CustomType.Setter
+        public Builder name(String name) {
+            this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
         public Builder removePoweredByOkta(Boolean removePoweredByOkta) {
             this.removePoweredByOkta = Objects.requireNonNull(removePoweredByOkta);
             return this;
@@ -120,6 +131,7 @@ public final class GetBrandResult {
             o.customPrivacyPolicyUrl = customPrivacyPolicyUrl;
             o.id = id;
             o.links = links;
+            o.name = name;
             o.removePoweredByOkta = removePoweredByOkta;
             return o;
         }

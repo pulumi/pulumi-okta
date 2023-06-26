@@ -352,6 +352,21 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * URL reference to JWKS
+     * 
+     */
+    @Import(name="jwksUri")
+    private @Nullable Output<String> jwksUri;
+
+    /**
+     * @return URL reference to JWKS
+     * 
+     */
+    public Optional<Output<String>> jwksUri() {
+        return Optional.ofNullable(this.jwksUri);
+    }
+
+    /**
      * The Application&#39;s display name.
      * 
      */
@@ -777,6 +792,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         this.implicitAssignment = $.implicitAssignment;
         this.issuerMode = $.issuerMode;
         this.jwks = $.jwks;
+        this.jwksUri = $.jwksUri;
         this.label = $.label;
         this.loginMode = $.loginMode;
         this.loginScopes = $.loginScopes;
@@ -1299,6 +1315,27 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder jwks(OAuthJwkArgs... jwks) {
             return jwks(List.of(jwks));
+        }
+
+        /**
+         * @param jwksUri URL reference to JWKS
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwksUri(@Nullable Output<String> jwksUri) {
+            $.jwksUri = jwksUri;
+            return this;
+        }
+
+        /**
+         * @param jwksUri URL reference to JWKS
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwksUri(String jwksUri) {
+            return jwksUri(Output.of(jwksUri));
         }
 
         /**

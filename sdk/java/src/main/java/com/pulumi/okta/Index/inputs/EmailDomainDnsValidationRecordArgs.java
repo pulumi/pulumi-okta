@@ -6,7 +6,6 @@ package com.pulumi.okta.Index.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -53,11 +52,21 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.recordType);
     }
 
-    @Import(name="values")
-    private @Nullable Output<List<String>> values;
+    /**
+     * DNS record value
+     * - ` expiration  ` - DNS TXT record expiration
+     * 
+     */
+    @Import(name="value")
+    private @Nullable Output<String> value;
 
-    public Optional<Output<List<String>>> values() {
-        return Optional.ofNullable(this.values);
+    /**
+     * @return DNS record value
+     * - ` expiration  ` - DNS TXT record expiration
+     * 
+     */
+    public Optional<Output<String>> value() {
+        return Optional.ofNullable(this.value);
     }
 
     private EmailDomainDnsValidationRecordArgs() {}
@@ -66,7 +75,7 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
         this.expiration = $.expiration;
         this.fqdn = $.fqdn;
         this.recordType = $.recordType;
-        this.values = $.values;
+        this.value = $.value;
     }
 
     public static Builder builder() {
@@ -138,17 +147,27 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
             return recordType(Output.of(recordType));
         }
 
-        public Builder values(@Nullable Output<List<String>> values) {
-            $.values = values;
+        /**
+         * @param value DNS record value
+         * - ` expiration  ` - DNS TXT record expiration
+         * 
+         * @return builder
+         * 
+         */
+        public Builder value(@Nullable Output<String> value) {
+            $.value = value;
             return this;
         }
 
-        public Builder values(List<String> values) {
-            return values(Output.of(values));
-        }
-
-        public Builder values(String... values) {
-            return values(List.of(values));
+        /**
+         * @param value DNS record value
+         * - ` expiration  ` - DNS TXT record expiration
+         * 
+         * @return builder
+         * 
+         */
+        public Builder value(String value) {
+            return value(Output.of(value));
         }
 
         public EmailDomainDnsValidationRecordArgs build() {

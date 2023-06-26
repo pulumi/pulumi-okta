@@ -13,6 +13,7 @@ public final class GetBrandsBrand {
     private String customPrivacyPolicyUrl;
     private String id;
     private String links;
+    private String name;
     private Boolean removePoweredByOkta;
 
     private GetBrandsBrand() {}
@@ -24,6 +25,9 @@ public final class GetBrandsBrand {
     }
     public String links() {
         return this.links;
+    }
+    public String name() {
+        return this.name;
     }
     public Boolean removePoweredByOkta() {
         return this.removePoweredByOkta;
@@ -41,6 +45,7 @@ public final class GetBrandsBrand {
         private String customPrivacyPolicyUrl;
         private String id;
         private String links;
+        private String name;
         private Boolean removePoweredByOkta;
         public Builder() {}
         public Builder(GetBrandsBrand defaults) {
@@ -48,6 +53,7 @@ public final class GetBrandsBrand {
     	      this.customPrivacyPolicyUrl = defaults.customPrivacyPolicyUrl;
     	      this.id = defaults.id;
     	      this.links = defaults.links;
+    	      this.name = defaults.name;
     	      this.removePoweredByOkta = defaults.removePoweredByOkta;
         }
 
@@ -67,6 +73,11 @@ public final class GetBrandsBrand {
             return this;
         }
         @CustomType.Setter
+        public Builder name(String name) {
+            this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
         public Builder removePoweredByOkta(Boolean removePoweredByOkta) {
             this.removePoweredByOkta = Objects.requireNonNull(removePoweredByOkta);
             return this;
@@ -76,6 +87,7 @@ public final class GetBrandsBrand {
             o.customPrivacyPolicyUrl = customPrivacyPolicyUrl;
             o.id = id;
             o.links = links;
+            o.name = name;
             o.removePoweredByOkta = removePoweredByOkta;
             return o;
         }

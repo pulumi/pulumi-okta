@@ -68,6 +68,12 @@ namespace Pulumi.Okta
         public Output<string> Links { get; private set; } = null!;
 
         /// <summary>
+        /// Brand name
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
         /// (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         /// </summary>
         [Output("removePoweredByOkta")]
@@ -174,6 +180,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("links")]
         public Input<string>? Links { get; set; }
+
+        /// <summary>
+        /// Brand name
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard

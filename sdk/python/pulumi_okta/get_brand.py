@@ -21,7 +21,7 @@ class GetBrandResult:
     """
     A collection of values returned by getBrand.
     """
-    def __init__(__self__, brand_id=None, custom_privacy_policy_url=None, id=None, links=None, remove_powered_by_okta=None):
+    def __init__(__self__, brand_id=None, custom_privacy_policy_url=None, id=None, links=None, name=None, remove_powered_by_okta=None):
         if brand_id and not isinstance(brand_id, str):
             raise TypeError("Expected argument 'brand_id' to be a str")
         pulumi.set(__self__, "brand_id", brand_id)
@@ -34,6 +34,9 @@ class GetBrandResult:
         if links and not isinstance(links, str):
             raise TypeError("Expected argument 'links' to be a str")
         pulumi.set(__self__, "links", links)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
         if remove_powered_by_okta and not isinstance(remove_powered_by_okta, bool):
             raise TypeError("Expected argument 'remove_powered_by_okta' to be a bool")
         pulumi.set(__self__, "remove_powered_by_okta", remove_powered_by_okta)
@@ -68,6 +71,11 @@ class GetBrandResult:
         return pulumi.get(self, "links")
 
     @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
     @pulumi.getter(name="removePoweredByOkta")
     def remove_powered_by_okta(self) -> bool:
         """
@@ -86,6 +94,7 @@ class AwaitableGetBrandResult(GetBrandResult):
             custom_privacy_policy_url=self.custom_privacy_policy_url,
             id=self.id,
             links=self.links,
+            name=self.name,
             remove_powered_by_okta=self.remove_powered_by_okta)
 
 
@@ -107,6 +116,7 @@ def get_brand(brand_id: Optional[str] = None,
         custom_privacy_policy_url=__ret__.custom_privacy_policy_url,
         id=__ret__.id,
         links=__ret__.links,
+        name=__ret__.name,
         remove_powered_by_okta=__ret__.remove_powered_by_okta)
 
 

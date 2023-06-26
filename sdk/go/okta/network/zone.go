@@ -101,6 +101,8 @@ type Zone struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
 	Proxies pulumi.StringArrayOutput `pulumi:"proxies"`
+	// Network Status - can either be ACTIVE or INACTIVE only.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
@@ -152,6 +154,8 @@ type zoneState struct {
 	Name *string `pulumi:"name"`
 	// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
 	Proxies []string `pulumi:"proxies"`
+	// Network Status - can either be ACTIVE or INACTIVE only.
+	Status *string `pulumi:"status"`
 	// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
 	Type *string `pulumi:"type"`
 	// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
@@ -172,6 +176,8 @@ type ZoneState struct {
 	Name pulumi.StringPtrInput
 	// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
 	Proxies pulumi.StringArrayInput
+	// Network Status - can either be ACTIVE or INACTIVE only.
+	Status pulumi.StringPtrInput
 	// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
 	Type pulumi.StringPtrInput
 	// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
@@ -196,6 +202,8 @@ type zoneArgs struct {
 	Name *string `pulumi:"name"`
 	// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
 	Proxies []string `pulumi:"proxies"`
+	// Network Status - can either be ACTIVE or INACTIVE only.
+	Status *string `pulumi:"status"`
 	// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
 	Type string `pulumi:"type"`
 	// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
@@ -217,6 +225,8 @@ type ZoneArgs struct {
 	Name pulumi.StringPtrInput
 	// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
 	Proxies pulumi.StringArrayInput
+	// Network Status - can either be ACTIVE or INACTIVE only.
+	Status pulumi.StringPtrInput
 	// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
 	Type pulumi.StringInput
 	// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
@@ -339,6 +349,11 @@ func (o ZoneOutput) Name() pulumi.StringOutput {
 // Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
 func (o ZoneOutput) Proxies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringArrayOutput { return v.Proxies }).(pulumi.StringArrayOutput)
+}
+
+// Network Status - can either be ACTIVE or INACTIVE only.
+func (o ZoneOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.

@@ -5,7 +5,6 @@ package com.pulumi.okta.Index.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,7 +22,12 @@ public final class EmailDomainDnsValidationRecord {
      * 
      */
     private @Nullable String recordType;
-    private @Nullable List<String> values;
+    /**
+     * @return DNS record value
+     * - ` expiration  ` - DNS TXT record expiration
+     * 
+     */
+    private @Nullable String value;
 
     private EmailDomainDnsValidationRecord() {}
     public Optional<String> expiration() {
@@ -43,8 +47,13 @@ public final class EmailDomainDnsValidationRecord {
     public Optional<String> recordType() {
         return Optional.ofNullable(this.recordType);
     }
-    public List<String> values() {
-        return this.values == null ? List.of() : this.values;
+    /**
+     * @return DNS record value
+     * - ` expiration  ` - DNS TXT record expiration
+     * 
+     */
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -59,14 +68,14 @@ public final class EmailDomainDnsValidationRecord {
         private @Nullable String expiration;
         private @Nullable String fqdn;
         private @Nullable String recordType;
-        private @Nullable List<String> values;
+        private @Nullable String value;
         public Builder() {}
         public Builder(EmailDomainDnsValidationRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expiration = defaults.expiration;
     	      this.fqdn = defaults.fqdn;
     	      this.recordType = defaults.recordType;
-    	      this.values = defaults.values;
+    	      this.value = defaults.value;
         }
 
         @CustomType.Setter
@@ -85,19 +94,16 @@ public final class EmailDomainDnsValidationRecord {
             return this;
         }
         @CustomType.Setter
-        public Builder values(@Nullable List<String> values) {
-            this.values = values;
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
-        }
-        public Builder values(String... values) {
-            return values(List.of(values));
         }
         public EmailDomainDnsValidationRecord build() {
             final var o = new EmailDomainDnsValidationRecord();
             o.expiration = expiration;
             o.fqdn = fqdn;
             o.recordType = recordType;
-            o.values = values;
+            o.value = value;
             return o;
         }
     }

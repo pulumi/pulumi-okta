@@ -102,6 +102,10 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly proxies!: pulumi.Output<string[] | undefined>;
     /**
+     * Network Status - can either be ACTIVE or INACTIVE only.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
+    /**
      * Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
      */
     public readonly type!: pulumi.Output<string>;
@@ -129,6 +133,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["gateways"] = state ? state.gateways : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["proxies"] = state ? state.proxies : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["usage"] = state ? state.usage : undefined;
         } else {
@@ -142,6 +147,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["gateways"] = args ? args.gateways : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["proxies"] = args ? args.proxies : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["usage"] = args ? args.usage : undefined;
         }
@@ -179,6 +185,10 @@ export interface ZoneState {
      * Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
      */
     proxies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Network Status - can either be ACTIVE or INACTIVE only.
+     */
+    status?: pulumi.Input<string>;
     /**
      * Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
      */
@@ -218,6 +228,10 @@ export interface ZoneArgs {
      * Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
      */
     proxies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Network Status - can either be ACTIVE or INACTIVE only.
+     */
+    status?: pulumi.Input<string>;
     /**
      * Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
      */

@@ -187,6 +187,10 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly jwks!: pulumi.Output<outputs.app.OAuthJwk[] | undefined>;
     /**
+     * URL reference to JWKS
+     */
+    public readonly jwksUri!: pulumi.Output<string | undefined>;
+    /**
      * The Application's display name.
      */
     public readonly label!: pulumi.Output<string>;
@@ -351,6 +355,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["implicitAssignment"] = state ? state.implicitAssignment : undefined;
             resourceInputs["issuerMode"] = state ? state.issuerMode : undefined;
             resourceInputs["jwks"] = state ? state.jwks : undefined;
+            resourceInputs["jwksUri"] = state ? state.jwksUri : undefined;
             resourceInputs["label"] = state ? state.label : undefined;
             resourceInputs["loginMode"] = state ? state.loginMode : undefined;
             resourceInputs["loginScopes"] = state ? state.loginScopes : undefined;
@@ -407,6 +412,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["implicitAssignment"] = args ? args.implicitAssignment : undefined;
             resourceInputs["issuerMode"] = args ? args.issuerMode : undefined;
             resourceInputs["jwks"] = args ? args.jwks : undefined;
+            resourceInputs["jwksUri"] = args ? args.jwksUri : undefined;
             resourceInputs["label"] = args ? args.label : undefined;
             resourceInputs["loginMode"] = args ? args.loginMode : undefined;
             resourceInputs["loginScopes"] = args ? args.loginScopes : undefined;
@@ -543,6 +549,10 @@ export interface OAuthState {
      * JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
      */
     jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
+    /**
+     * URL reference to JWKS
+     */
+    jwksUri?: pulumi.Input<string>;
     /**
      * The Application's display name.
      */
@@ -770,6 +780,10 @@ export interface OAuthArgs {
      * JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
      */
     jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
+    /**
+     * URL reference to JWKS
+     */
+    jwksUri?: pulumi.Input<string>;
     /**
      * The Application's display name.
      */

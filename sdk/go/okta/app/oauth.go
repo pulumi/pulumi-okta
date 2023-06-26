@@ -164,6 +164,8 @@ type OAuth struct {
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
 	Jwks OAuthJwkArrayOutput `pulumi:"jwks"`
+	// URL reference to JWKS
+	JwksUri pulumi.StringPtrOutput `pulumi:"jwksUri"`
 	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
 	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -336,6 +338,8 @@ type oauthState struct {
 	IssuerMode *string `pulumi:"issuerMode"`
 	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
 	Jwks []OAuthJwk `pulumi:"jwks"`
+	// URL reference to JWKS
+	JwksUri *string `pulumi:"jwksUri"`
 	// The Application's display name.
 	Label *string `pulumi:"label"`
 	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -466,6 +470,8 @@ type OAuthState struct {
 	IssuerMode pulumi.StringPtrInput
 	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
 	Jwks OAuthJwkArrayInput
+	// URL reference to JWKS
+	JwksUri pulumi.StringPtrInput
 	// The Application's display name.
 	Label pulumi.StringPtrInput
 	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -598,6 +604,8 @@ type oauthArgs struct {
 	IssuerMode *string `pulumi:"issuerMode"`
 	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
 	Jwks []OAuthJwk `pulumi:"jwks"`
+	// URL reference to JWKS
+	JwksUri *string `pulumi:"jwksUri"`
 	// The Application's display name.
 	Label string `pulumi:"label"`
 	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -721,6 +729,8 @@ type OAuthArgs struct {
 	IssuerMode pulumi.StringPtrInput
 	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
 	Jwks OAuthJwkArrayInput
+	// URL reference to JWKS
+	JwksUri pulumi.StringPtrInput
 	// The Application's display name.
 	Label pulumi.StringInput
 	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -995,6 +1005,11 @@ func (o OAuthOutput) IssuerMode() pulumi.StringPtrOutput {
 // JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
 func (o OAuthOutput) Jwks() OAuthJwkArrayOutput {
 	return o.ApplyT(func(v *OAuth) OAuthJwkArrayOutput { return v.Jwks }).(OAuthJwkArrayOutput)
+}
+
+// URL reference to JWKS
+func (o OAuthOutput) JwksUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.JwksUri }).(pulumi.StringPtrOutput)
 }
 
 // The Application's display name.

@@ -110,6 +110,12 @@ namespace Pulumi.Okta.Network
         public Output<ImmutableArray<string>> Proxies { get; private set; } = null!;
 
         /// <summary>
+        /// Network Status - can either be ACTIVE or INACTIVE only.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
         /// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
         /// </summary>
         [Output("type")]
@@ -229,6 +235,12 @@ namespace Pulumi.Okta.Network
         }
 
         /// <summary>
+        /// Network Status - can either be ACTIVE or INACTIVE only.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
         /// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
         /// </summary>
         [Input("type", required: true)]
@@ -308,6 +320,12 @@ namespace Pulumi.Okta.Network
             get => _proxies ?? (_proxies = new InputList<string>());
             set => _proxies = value;
         }
+
+        /// <summary>
+        /// Network Status - can either be ACTIVE or INACTIVE only.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         /// <summary>
         /// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.

@@ -185,6 +185,20 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.proxies);
     }
     /**
+     * Network Status - can either be ACTIVE or INACTIVE only.
+     * 
+     */
+    @Export(name="status", type=String.class, parameters={})
+    private Output</* @Nullable */ String> status;
+
+    /**
+     * @return Network Status - can either be ACTIVE or INACTIVE only.
+     * 
+     */
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
+    }
+    /**
      * Type of the Network Zone - can either be `&#34;IP&#34;` or `&#34;DYNAMIC&#34;` only.
      * 
      */

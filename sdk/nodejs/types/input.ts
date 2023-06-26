@@ -204,7 +204,11 @@ export namespace Index {
          * Record type can be TXT or cname.
          */
         recordType?: pulumi.Input<string>;
-        values?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * DNS record value
+         * - `expiration ` - DNS TXT record expiration
+         */
+        value?: pulumi.Input<string>;
     }
 
 }

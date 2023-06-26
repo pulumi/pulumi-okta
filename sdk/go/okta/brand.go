@@ -58,6 +58,8 @@ type Brand struct {
 	CustomPrivacyPolicyUrl pulumi.StringPtrOutput `pulumi:"customPrivacyPolicyUrl"`
 	// (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
 	Links pulumi.StringOutput `pulumi:"links"`
+	// Brand name
+	Name pulumi.StringOutput `pulumi:"name"`
 	// (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 	RemovePoweredByOkta pulumi.BoolPtrOutput `pulumi:"removePoweredByOkta"`
 }
@@ -99,6 +101,8 @@ type brandState struct {
 	CustomPrivacyPolicyUrl *string `pulumi:"customPrivacyPolicyUrl"`
 	// (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
 	Links *string `pulumi:"links"`
+	// Brand name
+	Name *string `pulumi:"name"`
 	// (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 	RemovePoweredByOkta *bool `pulumi:"removePoweredByOkta"`
 }
@@ -112,6 +116,8 @@ type BrandState struct {
 	CustomPrivacyPolicyUrl pulumi.StringPtrInput
 	// (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
 	Links pulumi.StringPtrInput
+	// Brand name
+	Name pulumi.StringPtrInput
 	// (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 	RemovePoweredByOkta pulumi.BoolPtrInput
 }
@@ -248,6 +254,11 @@ func (o BrandOutput) CustomPrivacyPolicyUrl() pulumi.StringPtrOutput {
 // (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
 func (o BrandOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v *Brand) pulumi.StringOutput { return v.Links }).(pulumi.StringOutput)
+}
+
+// Brand name
+func (o BrandOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Brand) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard

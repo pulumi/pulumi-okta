@@ -442,6 +442,20 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.jwks);
     }
     /**
+     * URL reference to JWKS
+     * 
+     */
+    @Export(name="jwksUri", type=String.class, parameters={})
+    private Output</* @Nullable */ String> jwksUri;
+
+    /**
+     * @return URL reference to JWKS
+     * 
+     */
+    public Output<Optional<String>> jwksUri() {
+        return Codegen.optional(this.jwksUri);
+    }
+    /**
      * The Application&#39;s display name.
      * 
      */

@@ -35,6 +35,7 @@ type LookupBrandResult struct {
 	Id string `pulumi:"id"`
 	// Link relations for this object - JSON HAL - Discoverable resources related to the brand
 	Links string `pulumi:"links"`
+	Name  string `pulumi:"name"`
 	// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 	RemovePoweredByOkta bool `pulumi:"removePoweredByOkta"`
 }
@@ -94,6 +95,10 @@ func (o LookupBrandResultOutput) Id() pulumi.StringOutput {
 // Link relations for this object - JSON HAL - Discoverable resources related to the brand
 func (o LookupBrandResultOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrandResult) string { return v.Links }).(pulumi.StringOutput)
+}
+
+func (o LookupBrandResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBrandResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard

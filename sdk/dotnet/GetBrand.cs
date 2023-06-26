@@ -70,6 +70,7 @@ namespace Pulumi.Okta
         /// Link relations for this object - JSON HAL - Discoverable resources related to the brand
         /// </summary>
         public readonly string Links;
+        public readonly string Name;
         /// <summary>
         /// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         /// </summary>
@@ -85,12 +86,15 @@ namespace Pulumi.Okta
 
             string links,
 
+            string name,
+
             bool removePoweredByOkta)
         {
             BrandId = brandId;
             CustomPrivacyPolicyUrl = customPrivacyPolicyUrl;
             Id = id;
             Links = links;
+            Name = name;
             RemovePoweredByOkta = removePoweredByOkta;
         }
     }
