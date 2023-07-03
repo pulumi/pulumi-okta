@@ -25,7 +25,7 @@ import (
 	"github.com/okta/terraform-provider-okta/okta"
 	"github.com/pulumi/pulumi-okta/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -431,7 +431,7 @@ func Provider() tfbridge.ProviderInfo {
 				Source: "auth_server_policy_rule.html.markdown"},
 		})
 
-	err := x.ComputeDefaults(&prov, x.TokensKnownModules("okta_", mainMod, []string{
+	err := tfbridge.ComputeTokens(&prov, tfbridge.KnownModules("okta_", mainMod, []string{
 		"app_",
 		"auth_",
 		"factor_",
@@ -444,10 +444,10 @@ func Provider() tfbridge.ProviderInfo {
 		"template_",
 		"trusted_origin_",
 		"user_",
-	}, x.MakeStandardToken(mainPkg)))
+	}, tokens.MakeStandard(mainPkg)))
 
 	contract.AssertNoErrorf(err, "auto token mapping failed")
-	err = x.AutoAliasing(&prov, prov.GetMetadata())
+	err = tfbridge.AutoAliasing(&prov, prov.GetMetadata())
 	contract.AssertNoErrorf(err, "auto aliasing apply failed")
 	prov.SetAutonaming(255, "-")
 
