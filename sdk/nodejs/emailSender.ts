@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **DEPRECATED** use `okta.Index.EmailDomain` instead.
+ *
  * This resource allows you to create and configure a custom email sender.
  *
  * ## Example Usage

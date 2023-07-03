@@ -87,6 +87,6 @@ def get_user_profile_mapping_source(opts: Optional[pulumi.InvokeOptions] = None)
     __ret__ = pulumi.runtime.invoke('okta:user/getUserProfileMappingSource:getUserProfileMappingSource', __args__, opts=opts, typ=GetUserProfileMappingSourceResult).value
 
     return AwaitableGetUserProfileMappingSourceResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))

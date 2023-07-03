@@ -125,12 +125,12 @@ def get_server_policy(auth_server_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:auth/getServerPolicy:getServerPolicy', __args__, opts=opts, typ=GetServerPolicyResult).value
 
     return AwaitableGetServerPolicyResult(
-        assigned_clients=__ret__.assigned_clients,
-        auth_server_id=__ret__.auth_server_id,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        priority=__ret__.priority)
+        assigned_clients=pulumi.get(__ret__, 'assigned_clients'),
+        auth_server_id=pulumi.get(__ret__, 'auth_server_id'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        priority=pulumi.get(__ret__, 'priority'))
 
 
 @_utilities.lift_output_func(get_server_policy)

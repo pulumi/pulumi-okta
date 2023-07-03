@@ -87,9 +87,9 @@ def get_app_signon_policy(app_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getAppSignonPolicy:getAppSignonPolicy', __args__, opts=opts, typ=GetAppSignonPolicyResult).value
 
     return AwaitableGetAppSignonPolicyResult(
-        app_id=__ret__.app_id,
-        id=__ret__.id,
-        name=__ret__.name)
+        app_id=pulumi.get(__ret__, 'app_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_app_signon_policy)

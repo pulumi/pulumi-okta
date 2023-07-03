@@ -261,8 +261,6 @@ import javax.annotation.Nullable;
  *  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;
  * ```
  * 
- *  It&#39;s also possible to import app without groups or/and users. In this case ID may look like this
- * 
  */
 @ResourceType(type="okta:app/saml:Saml")
 public class Saml extends com.pulumi.resources.CustomResource {

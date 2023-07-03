@@ -58,13 +58,8 @@ class EmailCustomizationArgs:
                `"SelfServiceUnlockOnUnlockedAccount"`,
                `"UserActivation"`
         :param pulumi.Input[str] body: The body of the customization
-        :param pulumi.Input[str] force_is_default: Force `is_default` on the create and delete operation by
-               deleting all email customizations. See Note above explaing email customization API
-               behavior and [API
-               documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-               Valid values `create`, `delete`, `create,delete`.
+        :param pulumi.Input[str] force_is_default: `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template",
         :param pulumi.Input[bool] is_default: Whether the customization is the default
-               - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
         :param pulumi.Input[str] language: The language supported by the customization
                - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
                `"cs"`,
@@ -100,6 +95,9 @@ class EmailCustomizationArgs:
         pulumi.set(__self__, "template_name", template_name)
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if force_is_default is not None:
+            warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
+            pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
         if force_is_default is not None:
             pulumi.set(__self__, "force_is_default", force_is_default)
         if is_default is not None:
@@ -181,12 +179,11 @@ class EmailCustomizationArgs:
     @pulumi.getter(name="forceIsDefault")
     def force_is_default(self) -> Optional[pulumi.Input[str]]:
         """
-        Force `is_default` on the create and delete operation by
-        deleting all email customizations. See Note above explaing email customization API
-        behavior and [API
-        documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-        Valid values `create`, `delete`, `create,delete`.
+        `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template",
         """
+        warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
+        pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
+
         return pulumi.get(self, "force_is_default")
 
     @force_is_default.setter
@@ -198,7 +195,6 @@ class EmailCustomizationArgs:
     def is_default(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether the customization is the default
-        - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
         """
         return pulumi.get(self, "is_default")
 
@@ -274,13 +270,8 @@ class _EmailCustomizationState:
         Input properties used for looking up and filtering EmailCustomization resources.
         :param pulumi.Input[str] body: The body of the customization
         :param pulumi.Input[str] brand_id: Brand ID
-        :param pulumi.Input[str] force_is_default: Force `is_default` on the create and delete operation by
-               deleting all email customizations. See Note above explaing email customization API
-               behavior and [API
-               documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-               Valid values `create`, `delete`, `create,delete`.
+        :param pulumi.Input[str] force_is_default: `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template",
         :param pulumi.Input[bool] is_default: Whether the customization is the default
-               - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
         :param pulumi.Input[str] language: The language supported by the customization
                - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
                `"cs"`,
@@ -351,6 +342,9 @@ class _EmailCustomizationState:
         if brand_id is not None:
             pulumi.set(__self__, "brand_id", brand_id)
         if force_is_default is not None:
+            warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
+            pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
+        if force_is_default is not None:
             pulumi.set(__self__, "force_is_default", force_is_default)
         if is_default is not None:
             pulumi.set(__self__, "is_default", is_default)
@@ -391,12 +385,11 @@ class _EmailCustomizationState:
     @pulumi.getter(name="forceIsDefault")
     def force_is_default(self) -> Optional[pulumi.Input[str]]:
         """
-        Force `is_default` on the create and delete operation by
-        deleting all email customizations. See Note above explaing email customization API
-        behavior and [API
-        documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-        Valid values `create`, `delete`, `create,delete`.
+        `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template",
         """
+        warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
+        pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
+
         return pulumi.get(self, "force_is_default")
 
     @force_is_default.setter
@@ -408,7 +401,6 @@ class _EmailCustomizationState:
     def is_default(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether the customization is the default
-        - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
         """
         return pulumi.get(self, "is_default")
 
@@ -546,20 +538,30 @@ class EmailCustomization(pulumi.CustomResource):
         > Okta's public API is strict regarding the behavior of the `is_default`
         property in [an email
         customization](https://developer.okta.com/docs/reference/api/brands/#email-customization).
-        When a customization is
-        [created](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)
-        it can not be created with an `is_default` value of `true` if there is already a
-        default customization. If an email customization is the last of the template
-        type it can not be
-        [deleted](https://developer.okta.com/docs/reference/api/brands/#delete-email-customization).
-        And the `is_default` value can't be set to false when updating the last
-        remaining customization. **To allow this resource to be more flexible** set the
-        `force_is_default` property to `create`, `destroy`, or `create,destroy`. This
-        will cause all the customizations to be
-        [reset/deleted](https://developer.okta.com/docs/reference/api/brands/#delete-all-email-customizations)
-        for a create when there is a `create` value in `force_is_default` and
-        `is_default` is `true`.  Likewise reset will be called for a delete when there
-        is a `delete` value in `force_is_default` and `is_default` is `true`.
+        Make use of `depends_on` meta argument to ensure the provider navigates email customization
+        language versions seamlessly. Have all secondary customizations depend on the primary
+        customization that is marked default. See Example Usage.
+
+        > Caveats for [creating an email
+        customization](https://developer.okta.com/docs/reference/api/brands/#response-body-19).
+        If this is the first customization being created for the email template, and
+        `is_default` is not set for the customization in its resource configuration, the
+        API will respond with the created customization marked as default. The API will
+        400 if the language parameter is not one of the supported languages or the body
+        parameter does not contain a required variable reference. The API will error 409
+        if `is_default` is true and a default customization exists. The API will 404 for
+        an invalid `brand_id` or `template_name`.
+
+        > Caveats for [updating an email
+        customization](https://developer.okta.com/docs/reference/api/brands/#response-body-22).
+        If the `is_default` parameter is true, the previous default email customization
+        has its `is_default` set to false (see previous note about mitigating this with
+        `depends_on` meta argument). The API will 409 if there’s already another email
+        customization for the specified language or the `is_default` parameter is false
+        and the email customization being updated is the default. The API will 400 if
+        the language parameter is not one of the supported locales or the body parameter
+        does not contain a required variable reference.  The API will 404 for an invalid
+        `brand_id` or `template_name`.
 
         ## Import
 
@@ -573,13 +575,8 @@ class EmailCustomization(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: The body of the customization
         :param pulumi.Input[str] brand_id: Brand ID
-        :param pulumi.Input[str] force_is_default: Force `is_default` on the create and delete operation by
-               deleting all email customizations. See Note above explaing email customization API
-               behavior and [API
-               documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-               Valid values `create`, `delete`, `create,delete`.
+        :param pulumi.Input[str] force_is_default: `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template",
         :param pulumi.Input[bool] is_default: Whether the customization is the default
-               - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
         :param pulumi.Input[str] language: The language supported by the customization
                - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
                `"cs"`,
@@ -658,20 +655,30 @@ class EmailCustomization(pulumi.CustomResource):
         > Okta's public API is strict regarding the behavior of the `is_default`
         property in [an email
         customization](https://developer.okta.com/docs/reference/api/brands/#email-customization).
-        When a customization is
-        [created](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)
-        it can not be created with an `is_default` value of `true` if there is already a
-        default customization. If an email customization is the last of the template
-        type it can not be
-        [deleted](https://developer.okta.com/docs/reference/api/brands/#delete-email-customization).
-        And the `is_default` value can't be set to false when updating the last
-        remaining customization. **To allow this resource to be more flexible** set the
-        `force_is_default` property to `create`, `destroy`, or `create,destroy`. This
-        will cause all the customizations to be
-        [reset/deleted](https://developer.okta.com/docs/reference/api/brands/#delete-all-email-customizations)
-        for a create when there is a `create` value in `force_is_default` and
-        `is_default` is `true`.  Likewise reset will be called for a delete when there
-        is a `delete` value in `force_is_default` and `is_default` is `true`.
+        Make use of `depends_on` meta argument to ensure the provider navigates email customization
+        language versions seamlessly. Have all secondary customizations depend on the primary
+        customization that is marked default. See Example Usage.
+
+        > Caveats for [creating an email
+        customization](https://developer.okta.com/docs/reference/api/brands/#response-body-19).
+        If this is the first customization being created for the email template, and
+        `is_default` is not set for the customization in its resource configuration, the
+        API will respond with the created customization marked as default. The API will
+        400 if the language parameter is not one of the supported languages or the body
+        parameter does not contain a required variable reference. The API will error 409
+        if `is_default` is true and a default customization exists. The API will 404 for
+        an invalid `brand_id` or `template_name`.
+
+        > Caveats for [updating an email
+        customization](https://developer.okta.com/docs/reference/api/brands/#response-body-22).
+        If the `is_default` parameter is true, the previous default email customization
+        has its `is_default` set to false (see previous note about mitigating this with
+        `depends_on` meta argument). The API will 409 if there’s already another email
+        customization for the specified language or the `is_default` parameter is false
+        and the email customization being updated is the default. The API will 400 if
+        the language parameter is not one of the supported locales or the body parameter
+        does not contain a required variable reference.  The API will 404 for an invalid
+        `brand_id` or `template_name`.
 
         ## Import
 
@@ -716,6 +723,9 @@ class EmailCustomization(pulumi.CustomResource):
             if brand_id is None and not opts.urn:
                 raise TypeError("Missing required property 'brand_id'")
             __props__.__dict__["brand_id"] = brand_id
+            if force_is_default is not None and not opts.urn:
+                warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
+                pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
             __props__.__dict__["force_is_default"] = force_is_default
             __props__.__dict__["is_default"] = is_default
             __props__.__dict__["language"] = language
@@ -751,13 +761,8 @@ class EmailCustomization(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: The body of the customization
         :param pulumi.Input[str] brand_id: Brand ID
-        :param pulumi.Input[str] force_is_default: Force `is_default` on the create and delete operation by
-               deleting all email customizations. See Note above explaing email customization API
-               behavior and [API
-               documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-               Valid values `create`, `delete`, `create,delete`.
+        :param pulumi.Input[str] force_is_default: `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template",
         :param pulumi.Input[bool] is_default: Whether the customization is the default
-               - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
         :param pulumi.Input[str] language: The language supported by the customization
                - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
                `"cs"`,
@@ -857,12 +862,11 @@ class EmailCustomization(pulumi.CustomResource):
     @pulumi.getter(name="forceIsDefault")
     def force_is_default(self) -> pulumi.Output[Optional[str]]:
         """
-        Force `is_default` on the create and delete operation by
-        deleting all email customizations. See Note above explaing email customization API
-        behavior and [API
-        documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-        Valid values `create`, `delete`, `create,delete`.
+        `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template",
         """
+        warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
+        pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
+
         return pulumi.get(self, "force_is_default")
 
     @property
@@ -870,7 +874,6 @@ class EmailCustomization(pulumi.CustomResource):
     def is_default(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the customization is the default
-        - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
         """
         return pulumi.get(self, "is_default")
 

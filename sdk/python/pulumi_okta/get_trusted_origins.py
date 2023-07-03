@@ -86,9 +86,9 @@ def get_trusted_origins(filter: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getTrustedOrigins:getTrustedOrigins', __args__, opts=opts, typ=GetTrustedOriginsResult).value
 
     return AwaitableGetTrustedOriginsResult(
-        filter=__ret__.filter,
-        id=__ret__.id,
-        trusted_origins=__ret__.trusted_origins)
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        trusted_origins=pulumi.get(__ret__, 'trusted_origins'))
 
 
 @_utilities.lift_output_func(get_trusted_origins)

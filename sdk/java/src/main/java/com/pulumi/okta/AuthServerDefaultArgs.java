@@ -77,14 +77,14 @@ public final class AuthServerDefaultArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the authorization server.
+     * The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the authorization server.
+     * @return The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
      * 
      */
     public Optional<Output<String>> name() {
@@ -230,7 +230,7 @@ public final class AuthServerDefaultArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name of the authorization server.
+         * @param name The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class AuthServerDefaultArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name of the authorization server.
+         * @param name The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
          * 
          * @return builder
          * 

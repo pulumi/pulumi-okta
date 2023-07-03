@@ -103,7 +103,7 @@ class AppSignonPolicyRulePlatformInclude(dict):
                  os_type: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str os_expression: Only available when using `os_type = "OTHER"`
+        :param str os_expression: Only available and required when using `os_type = "OTHER"`
         :param str os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
         :param str type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
         """
@@ -118,7 +118,7 @@ class AppSignonPolicyRulePlatformInclude(dict):
     @pulumi.getter(name="osExpression")
     def os_expression(self) -> Optional[str]:
         """
-        Only available when using `os_type = "OTHER"`
+        Only available and required when using `os_type = "OTHER"`
         """
         return pulumi.get(self, "os_expression")
 

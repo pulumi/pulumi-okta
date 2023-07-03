@@ -79,8 +79,8 @@ def get_app_group_assignments(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getAppGroupAssignments:getAppGroupAssignments', __args__, opts=opts, typ=GetAppGroupAssignmentsResult).value
 
     return AwaitableGetAppGroupAssignmentsResult(
-        groups=__ret__.groups,
-        id=__ret__.id)
+        groups=pulumi.get(__ret__, 'groups'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_app_group_assignments)

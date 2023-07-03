@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **DEPRECATED** use `okta.Index.EmailDomainVerification` instead.
+ * 
  * Verifies the email sender. The resource won&#39;t be created if the email sender could not be verified.
  * 
  * ## Example Usage

@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppSignonPolicyRulePlatformInclude {
     /**
-     * @return Only available when using `os_type = &#34;OTHER&#34;`
+     * @return Only available and required when using `os_type = &#34;OTHER&#34;`
      * 
      */
     private @Nullable String osExpression;
@@ -29,7 +29,7 @@ public final class AppSignonPolicyRulePlatformInclude {
 
     private AppSignonPolicyRulePlatformInclude() {}
     /**
-     * @return Only available when using `os_type = &#34;OTHER&#34;`
+     * @return Only available and required when using `os_type = &#34;OTHER&#34;`
      * 
      */
     public Optional<String> osExpression() {

@@ -22,7 +22,7 @@ export interface AppGroupAssignmentsGroup {
 
 export interface AppSignonPolicyRulePlatformInclude {
     /**
-     * Only available when using `osType = "OTHER"`
+     * Only available and required when using `osType = "OTHER"`
      */
     osExpression?: string;
     /**

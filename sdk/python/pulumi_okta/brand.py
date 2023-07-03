@@ -21,7 +21,7 @@ class BrandArgs:
         """
         The set of arguments for constructing a Brand resource.
         :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
-        :param pulumi.Input[str] brand_id: Brand ID, used for read (faux-create)
+        :param pulumi.Input[str] brand_id: Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         :param pulumi.Input[str] custom_privacy_policy_url: (Optional) Custom privacy policy URL
         :param pulumi.Input[bool] remove_powered_by_okta: (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
@@ -50,7 +50,7 @@ class BrandArgs:
     @pulumi.getter(name="brandId")
     def brand_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Brand ID, used for read (faux-create)
+        Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         """
         return pulumi.get(self, "brand_id")
 
@@ -95,7 +95,7 @@ class _BrandState:
         """
         Input properties used for looking up and filtering Brand resources.
         :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
-        :param pulumi.Input[str] brand_id: Brand ID, used for read (faux-create)
+        :param pulumi.Input[str] brand_id: Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         :param pulumi.Input[str] custom_privacy_policy_url: (Optional) Custom privacy policy URL
         :param pulumi.Input[str] links: (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
         :param pulumi.Input[str] name: Brand name
@@ -130,7 +130,7 @@ class _BrandState:
     @pulumi.getter(name="brandId")
     def brand_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Brand ID, used for read (faux-create)
+        Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         """
         return pulumi.get(self, "brand_id")
 
@@ -210,6 +210,12 @@ class Brand(pulumi.CustomResource):
             agree_to_custom_privacy_policy=True,
             custom_privacy_policy_url="https://example.com/privacy-policy",
             remove_powered_by_okta=True)
+        # setting brand_id to default is equivalent to importing the default brand by its ID
+        default = okta.Brand("default",
+            agree_to_custom_privacy_policy=True,
+            brand_id="default",
+            custom_privacy_policy_url="https://example.com/privacy-policy",
+            remove_powered_by_okta=True)
         ```
 
         ## Import
@@ -223,7 +229,7 @@ class Brand(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
-        :param pulumi.Input[str] brand_id: Brand ID, used for read (faux-create)
+        :param pulumi.Input[str] brand_id: Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         :param pulumi.Input[str] custom_privacy_policy_url: (Optional) Custom privacy policy URL
         :param pulumi.Input[bool] remove_powered_by_okta: (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
@@ -244,6 +250,12 @@ class Brand(pulumi.CustomResource):
         # $ terraform import okta_brand.example <brand id>
         example = okta.Brand("example",
             agree_to_custom_privacy_policy=True,
+            custom_privacy_policy_url="https://example.com/privacy-policy",
+            remove_powered_by_okta=True)
+        # setting brand_id to default is equivalent to importing the default brand by its ID
+        default = okta.Brand("default",
+            agree_to_custom_privacy_policy=True,
+            brand_id="default",
             custom_privacy_policy_url="https://example.com/privacy-policy",
             remove_powered_by_okta=True)
         ```
@@ -314,7 +326,7 @@ class Brand(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
-        :param pulumi.Input[str] brand_id: Brand ID, used for read (faux-create)
+        :param pulumi.Input[str] brand_id: Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         :param pulumi.Input[str] custom_privacy_policy_url: (Optional) Custom privacy policy URL
         :param pulumi.Input[str] links: (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
         :param pulumi.Input[str] name: Brand name
@@ -344,7 +356,7 @@ class Brand(pulumi.CustomResource):
     @pulumi.getter(name="brandId")
     def brand_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Brand ID, used for read (faux-create)
+        Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         """
         return pulumi.get(self, "brand_id")
 

@@ -29,6 +29,15 @@ namespace Pulumi.Okta
     ///         RemovePoweredByOkta = true,
     ///     });
     /// 
+    ///     // setting brand_id to default is equivalent to importing the default brand by its ID
+    ///     var @default = new Okta.Brand("default", new()
+    ///     {
+    ///         AgreeToCustomPrivacyPolicy = true,
+    ///         BrandId = "default",
+    ///         CustomPrivacyPolicyUrl = "https://example.com/privacy-policy",
+    ///         RemovePoweredByOkta = true,
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -50,7 +59,7 @@ namespace Pulumi.Okta
         public Output<bool?> AgreeToCustomPrivacyPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Brand ID, used for read (faux-create)
+        /// Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         /// </summary>
         [Output("brandId")]
         public Output<string?> BrandId { get; private set; } = null!;
@@ -132,7 +141,7 @@ namespace Pulumi.Okta
         public Input<bool>? AgreeToCustomPrivacyPolicy { get; set; }
 
         /// <summary>
-        /// Brand ID, used for read (faux-create)
+        /// Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         /// </summary>
         [Input("brandId")]
         public Input<string>? BrandId { get; set; }
@@ -164,7 +173,7 @@ namespace Pulumi.Okta
         public Input<bool>? AgreeToCustomPrivacyPolicy { get; set; }
 
         /// <summary>
-        /// Brand ID, used for read (faux-create)
+        /// Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         /// </summary>
         [Input("brandId")]
         public Input<string>? BrandId { get; set; }

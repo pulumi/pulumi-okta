@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **DEPRECATED** use `Index.EmailDomainVerification` instead.
+//
 // Verifies the email sender. The resource won't be created if the email sender could not be verified.
 //
 // ## Example Usage

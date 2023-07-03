@@ -142,13 +142,13 @@ def get_domain(domain_id_or_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:Index/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        certificate_source_type=__ret__.certificate_source_type,
-        dns_records=__ret__.dns_records,
-        domain=__ret__.domain,
-        domain_id_or_name=__ret__.domain_id_or_name,
-        id=__ret__.id,
-        public_certificate=__ret__.public_certificate,
-        validation_status=__ret__.validation_status)
+        certificate_source_type=pulumi.get(__ret__, 'certificate_source_type'),
+        dns_records=pulumi.get(__ret__, 'dns_records'),
+        domain=pulumi.get(__ret__, 'domain'),
+        domain_id_or_name=pulumi.get(__ret__, 'domain_id_or_name'),
+        id=pulumi.get(__ret__, 'id'),
+        public_certificate=pulumi.get(__ret__, 'public_certificate'),
+        validation_status=pulumi.get(__ret__, 'validation_status'))
 
 
 @_utilities.lift_output_func(get_domain)

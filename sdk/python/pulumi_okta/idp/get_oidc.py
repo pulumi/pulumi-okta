@@ -274,24 +274,24 @@ def get_oidc(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:idp/getOidc:getOidc', __args__, opts=opts, typ=GetOidcResult).value
 
     return AwaitableGetOidcResult(
-        authorization_binding=__ret__.authorization_binding,
-        authorization_url=__ret__.authorization_url,
-        client_id=__ret__.client_id,
-        client_secret=__ret__.client_secret,
-        id=__ret__.id,
-        issuer_mode=__ret__.issuer_mode,
-        issuer_url=__ret__.issuer_url,
-        jwks_binding=__ret__.jwks_binding,
-        jwks_url=__ret__.jwks_url,
-        max_clock_skew=__ret__.max_clock_skew,
-        name=__ret__.name,
-        protocol_type=__ret__.protocol_type,
-        scopes=__ret__.scopes,
-        token_binding=__ret__.token_binding,
-        token_url=__ret__.token_url,
-        type=__ret__.type,
-        user_info_binding=__ret__.user_info_binding,
-        user_info_url=__ret__.user_info_url)
+        authorization_binding=pulumi.get(__ret__, 'authorization_binding'),
+        authorization_url=pulumi.get(__ret__, 'authorization_url'),
+        client_id=pulumi.get(__ret__, 'client_id'),
+        client_secret=pulumi.get(__ret__, 'client_secret'),
+        id=pulumi.get(__ret__, 'id'),
+        issuer_mode=pulumi.get(__ret__, 'issuer_mode'),
+        issuer_url=pulumi.get(__ret__, 'issuer_url'),
+        jwks_binding=pulumi.get(__ret__, 'jwks_binding'),
+        jwks_url=pulumi.get(__ret__, 'jwks_url'),
+        max_clock_skew=pulumi.get(__ret__, 'max_clock_skew'),
+        name=pulumi.get(__ret__, 'name'),
+        protocol_type=pulumi.get(__ret__, 'protocol_type'),
+        scopes=pulumi.get(__ret__, 'scopes'),
+        token_binding=pulumi.get(__ret__, 'token_binding'),
+        token_url=pulumi.get(__ret__, 'token_url'),
+        type=pulumi.get(__ret__, 'type'),
+        user_info_binding=pulumi.get(__ret__, 'user_info_binding'),
+        user_info_url=pulumi.get(__ret__, 'user_info_url'))
 
 
 @_utilities.lift_output_func(get_oidc)

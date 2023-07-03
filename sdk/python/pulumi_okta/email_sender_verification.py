@@ -66,6 +66,8 @@ class EmailSenderVerification(pulumi.CustomResource):
                  sender_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        > **DEPRECATED** use `Index.EmailDomainVerification` instead.
+
         Verifies the email sender. The resource won't be created if the email sender could not be verified.
 
         ## Example Usage
@@ -96,6 +98,8 @@ class EmailSenderVerification(pulumi.CustomResource):
                  args: EmailSenderVerificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **DEPRECATED** use `Index.EmailDomainVerification` instead.
+
         Verifies the email sender. The resource won't be created if the email sender could not be verified.
 
         ## Example Usage

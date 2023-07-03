@@ -32,6 +32,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = okta.NewBrand(ctx, "default", &okta.BrandArgs{
+//				AgreeToCustomPrivacyPolicy: pulumi.Bool(true),
+//				BrandId:                    pulumi.String("default"),
+//				CustomPrivacyPolicyUrl:     pulumi.String("https://example.com/privacy-policy"),
+//				RemovePoweredByOkta:        pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -52,7 +61,7 @@ type Brand struct {
 
 	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
 	AgreeToCustomPrivacyPolicy pulumi.BoolPtrOutput `pulumi:"agreeToCustomPrivacyPolicy"`
-	// Brand ID, used for read (faux-create)
+	// Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
 	BrandId pulumi.StringPtrOutput `pulumi:"brandId"`
 	// (Optional) Custom privacy policy URL
 	CustomPrivacyPolicyUrl pulumi.StringPtrOutput `pulumi:"customPrivacyPolicyUrl"`
@@ -95,7 +104,7 @@ func GetBrand(ctx *pulumi.Context,
 type brandState struct {
 	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
 	AgreeToCustomPrivacyPolicy *bool `pulumi:"agreeToCustomPrivacyPolicy"`
-	// Brand ID, used for read (faux-create)
+	// Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
 	BrandId *string `pulumi:"brandId"`
 	// (Optional) Custom privacy policy URL
 	CustomPrivacyPolicyUrl *string `pulumi:"customPrivacyPolicyUrl"`
@@ -110,7 +119,7 @@ type brandState struct {
 type BrandState struct {
 	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
 	AgreeToCustomPrivacyPolicy pulumi.BoolPtrInput
-	// Brand ID, used for read (faux-create)
+	// Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
 	BrandId pulumi.StringPtrInput
 	// (Optional) Custom privacy policy URL
 	CustomPrivacyPolicyUrl pulumi.StringPtrInput
@@ -129,7 +138,7 @@ func (BrandState) ElementType() reflect.Type {
 type brandArgs struct {
 	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
 	AgreeToCustomPrivacyPolicy *bool `pulumi:"agreeToCustomPrivacyPolicy"`
-	// Brand ID, used for read (faux-create)
+	// Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
 	BrandId *string `pulumi:"brandId"`
 	// (Optional) Custom privacy policy URL
 	CustomPrivacyPolicyUrl *string `pulumi:"customPrivacyPolicyUrl"`
@@ -141,7 +150,7 @@ type brandArgs struct {
 type BrandArgs struct {
 	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
 	AgreeToCustomPrivacyPolicy pulumi.BoolPtrInput
-	// Brand ID, used for read (faux-create)
+	// Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
 	BrandId pulumi.StringPtrInput
 	// (Optional) Custom privacy policy URL
 	CustomPrivacyPolicyUrl pulumi.StringPtrInput
@@ -241,7 +250,7 @@ func (o BrandOutput) AgreeToCustomPrivacyPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Brand) pulumi.BoolPtrOutput { return v.AgreeToCustomPrivacyPolicy }).(pulumi.BoolPtrOutput)
 }
 
-// Brand ID, used for read (faux-create)
+// Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
 func (o BrandOutput) BrandId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Brand) pulumi.StringPtrOutput { return v.BrandId }).(pulumi.StringPtrOutput)
 }

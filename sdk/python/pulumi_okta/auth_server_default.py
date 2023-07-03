@@ -26,7 +26,7 @@ class AuthServerDefaultArgs:
         :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
         :param pulumi.Input[str] description: The description of the authorization server.
         :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
-        :param pulumi.Input[str] name: The name of the authorization server.
+        :param pulumi.Input[str] name: The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         :param pulumi.Input[str] status: The status of the auth server.
         """
         if audiences is not None:
@@ -94,7 +94,7 @@ class AuthServerDefaultArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the authorization server.
+        The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         """
         return pulumi.get(self, "name")
 
@@ -138,7 +138,7 @@ class _AuthServerDefaultState:
         :param pulumi.Input[str] issuer: The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
         :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
         :param pulumi.Input[str] kid: The ID of the JSON Web Key used for signing tokens issued by the authorization server.
-        :param pulumi.Input[str] name: The name of the authorization server.
+        :param pulumi.Input[str] name: The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         :param pulumi.Input[str] status: The status of the auth server.
         """
         if audiences is not None:
@@ -262,7 +262,7 @@ class _AuthServerDefaultState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the authorization server.
+        The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         """
         return pulumi.get(self, "name")
 
@@ -306,7 +306,9 @@ class AuthServerDefault(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.AuthServerDefault("example")
+        example = okta.AuthServerDefault("example",
+            audiences=["api://default"],
+            description="Default Authorization Server for your Applications")
         ```
 
         ## Import
@@ -314,7 +316,7 @@ class AuthServerDefault(pulumi.CustomResource):
         Authorization Server can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;auth server name&#62;
+         $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -323,7 +325,7 @@ class AuthServerDefault(pulumi.CustomResource):
         :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
         :param pulumi.Input[str] description: The description of the authorization server.
         :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
-        :param pulumi.Input[str] name: The name of the authorization server.
+        :param pulumi.Input[str] name: The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         :param pulumi.Input[str] status: The status of the auth server.
         """
         ...
@@ -343,7 +345,9 @@ class AuthServerDefault(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.AuthServerDefault("example")
+        example = okta.AuthServerDefault("example",
+            audiences=["api://default"],
+            description="Default Authorization Server for your Applications")
         ```
 
         ## Import
@@ -351,7 +355,7 @@ class AuthServerDefault(pulumi.CustomResource):
         Authorization Server can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;auth server name&#62;
+         $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -429,7 +433,7 @@ class AuthServerDefault(pulumi.CustomResource):
         :param pulumi.Input[str] issuer: The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
         :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
         :param pulumi.Input[str] kid: The ID of the JSON Web Key used for signing tokens issued by the authorization server.
-        :param pulumi.Input[str] name: The name of the authorization server.
+        :param pulumi.Input[str] name: The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         :param pulumi.Input[str] status: The status of the auth server.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -516,7 +520,7 @@ class AuthServerDefault(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the authorization server.
+        The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         """
         return pulumi.get(self, "name")
 

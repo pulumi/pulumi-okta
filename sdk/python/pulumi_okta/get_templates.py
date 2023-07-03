@@ -82,9 +82,9 @@ def get_templates(brand_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getTemplates:getTemplates', __args__, opts=opts, typ=GetTemplatesResult).value
 
     return AwaitableGetTemplatesResult(
-        brand_id=__ret__.brand_id,
-        email_templates=__ret__.email_templates,
-        id=__ret__.id)
+        brand_id=pulumi.get(__ret__, 'brand_id'),
+        email_templates=pulumi.get(__ret__, 'email_templates'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_templates)

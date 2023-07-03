@@ -115,10 +115,10 @@ def get_role_subscription(notification_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getRoleSubscription:getRoleSubscription', __args__, opts=opts, typ=GetRoleSubscriptionResult).value
 
     return AwaitableGetRoleSubscriptionResult(
-        id=__ret__.id,
-        notification_type=__ret__.notification_type,
-        role_type=__ret__.role_type,
-        status=__ret__.status)
+        id=pulumi.get(__ret__, 'id'),
+        notification_type=pulumi.get(__ret__, 'notification_type'),
+        role_type=pulumi.get(__ret__, 'role_type'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_role_subscription)

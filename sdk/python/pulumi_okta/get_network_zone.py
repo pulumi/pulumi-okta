@@ -178,16 +178,16 @@ def get_network_zone(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getNetworkZone:getNetworkZone', __args__, opts=opts, typ=GetNetworkZoneResult).value
 
     return AwaitableGetNetworkZoneResult(
-        asns=__ret__.asns,
-        dynamic_locations=__ret__.dynamic_locations,
-        dynamic_proxy_type=__ret__.dynamic_proxy_type,
-        gateways=__ret__.gateways,
-        id=__ret__.id,
-        name=__ret__.name,
-        proxies=__ret__.proxies,
-        status=__ret__.status,
-        type=__ret__.type,
-        usage=__ret__.usage)
+        asns=pulumi.get(__ret__, 'asns'),
+        dynamic_locations=pulumi.get(__ret__, 'dynamic_locations'),
+        dynamic_proxy_type=pulumi.get(__ret__, 'dynamic_proxy_type'),
+        gateways=pulumi.get(__ret__, 'gateways'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        proxies=pulumi.get(__ret__, 'proxies'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'),
+        usage=pulumi.get(__ret__, 'usage'))
 
 
 @_utilities.lift_output_func(get_network_zone)

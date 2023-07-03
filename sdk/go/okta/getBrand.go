@@ -22,7 +22,7 @@ func LookupBrand(ctx *pulumi.Context, args *LookupBrandArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getBrand.
 type LookupBrandArgs struct {
-	// Brand ID
+	// Brand ID. Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
 	BrandId string `pulumi:"brandId"`
 }
 
@@ -55,7 +55,7 @@ func LookupBrandOutput(ctx *pulumi.Context, args LookupBrandOutputArgs, opts ...
 
 // A collection of arguments for invoking getBrand.
 type LookupBrandOutputArgs struct {
-	// Brand ID
+	// Brand ID. Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
 	BrandId pulumi.StringInput `pulumi:"brandId"`
 }
 

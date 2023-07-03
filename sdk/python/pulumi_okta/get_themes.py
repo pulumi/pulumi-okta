@@ -82,9 +82,9 @@ def get_themes(brand_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getThemes:getThemes', __args__, opts=opts, typ=GetThemesResult).value
 
     return AwaitableGetThemesResult(
-        brand_id=__ret__.brand_id,
-        id=__ret__.id,
-        themes=__ret__.themes)
+        brand_id=pulumi.get(__ret__, 'brand_id'),
+        id=pulumi.get(__ret__, 'id'),
+        themes=pulumi.get(__ret__, 'themes'))
 
 
 @_utilities.lift_output_func(get_themes)

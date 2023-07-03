@@ -89,9 +89,9 @@ def get_auth_server_claims(auth_server_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getAuthServerClaims:getAuthServerClaims', __args__, opts=opts, typ=GetAuthServerClaimsResult).value
 
     return AwaitableGetAuthServerClaimsResult(
-        auth_server_id=__ret__.auth_server_id,
-        claims=__ret__.claims,
-        id=__ret__.id)
+        auth_server_id=pulumi.get(__ret__, 'auth_server_id'),
+        claims=pulumi.get(__ret__, 'claims'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_auth_server_claims)

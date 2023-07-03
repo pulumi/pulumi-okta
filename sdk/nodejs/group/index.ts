@@ -15,6 +15,11 @@ export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
+export { GetRuleArgs, GetRuleResult, GetRuleOutputArgs } from "./getRule";
+export const getRule: typeof import("./getRule").getRule = null as any;
+export const getRuleOutput: typeof import("./getRule").getRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getRule","getRuleOutput"], () => require("./getRule"));
+
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;

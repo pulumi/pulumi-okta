@@ -225,21 +225,21 @@ def get_theme(brand_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getTheme:getTheme', __args__, opts=opts, typ=GetThemeResult).value
 
     return AwaitableGetThemeResult(
-        background_image_url=__ret__.background_image_url,
-        brand_id=__ret__.brand_id,
-        email_template_touch_point_variant=__ret__.email_template_touch_point_variant,
-        end_user_dashboard_touch_point_variant=__ret__.end_user_dashboard_touch_point_variant,
-        error_page_touch_point_variant=__ret__.error_page_touch_point_variant,
-        favicon_url=__ret__.favicon_url,
-        id=__ret__.id,
-        links=__ret__.links,
-        logo_url=__ret__.logo_url,
-        primary_color_contrast_hex=__ret__.primary_color_contrast_hex,
-        primary_color_hex=__ret__.primary_color_hex,
-        secondary_color_contrast_hex=__ret__.secondary_color_contrast_hex,
-        secondary_color_hex=__ret__.secondary_color_hex,
-        sign_in_page_touch_point_variant=__ret__.sign_in_page_touch_point_variant,
-        theme_id=__ret__.theme_id)
+        background_image_url=pulumi.get(__ret__, 'background_image_url'),
+        brand_id=pulumi.get(__ret__, 'brand_id'),
+        email_template_touch_point_variant=pulumi.get(__ret__, 'email_template_touch_point_variant'),
+        end_user_dashboard_touch_point_variant=pulumi.get(__ret__, 'end_user_dashboard_touch_point_variant'),
+        error_page_touch_point_variant=pulumi.get(__ret__, 'error_page_touch_point_variant'),
+        favicon_url=pulumi.get(__ret__, 'favicon_url'),
+        id=pulumi.get(__ret__, 'id'),
+        links=pulumi.get(__ret__, 'links'),
+        logo_url=pulumi.get(__ret__, 'logo_url'),
+        primary_color_contrast_hex=pulumi.get(__ret__, 'primary_color_contrast_hex'),
+        primary_color_hex=pulumi.get(__ret__, 'primary_color_hex'),
+        secondary_color_contrast_hex=pulumi.get(__ret__, 'secondary_color_contrast_hex'),
+        secondary_color_hex=pulumi.get(__ret__, 'secondary_color_hex'),
+        sign_in_page_touch_point_variant=pulumi.get(__ret__, 'sign_in_page_touch_point_variant'),
+        theme_id=pulumi.get(__ret__, 'theme_id'))
 
 
 @_utilities.lift_output_func(get_theme)

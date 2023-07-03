@@ -28,7 +28,7 @@ namespace Pulumi.Okta
     public sealed class GetBrandArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Brand ID
+        /// Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         /// </summary>
         [Input("brandId", required: true)]
         public string BrandId { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.Okta
     public sealed class GetBrandInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Brand ID
+        /// Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         /// </summary>
         [Input("brandId", required: true)]
         public Input<string> BrandId { get; set; } = null!;

@@ -12,8 +12,11 @@ import com.pulumi.okta.group.inputs.GetEveryoneGroupArgs;
 import com.pulumi.okta.group.inputs.GetEveryoneGroupPlainArgs;
 import com.pulumi.okta.group.inputs.GetGroupArgs;
 import com.pulumi.okta.group.inputs.GetGroupPlainArgs;
+import com.pulumi.okta.group.inputs.GetRuleArgs;
+import com.pulumi.okta.group.inputs.GetRulePlainArgs;
 import com.pulumi.okta.group.outputs.GetEveryoneGroupResult;
 import com.pulumi.okta.group.outputs.GetGroupResult;
+import com.pulumi.okta.group.outputs.GetRuleResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class GroupFunctions {
@@ -454,5 +457,227 @@ public final class GroupFunctions {
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:group/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a group rule from Okta.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.GroupFunctions;
+     * import com.pulumi.okta.group.inputs.GetRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
+     *             .id(okta_group_rule.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRuleResult> getRule() {
+        return getRule(GetRuleArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a group rule from Okta.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.GroupFunctions;
+     * import com.pulumi.okta.group.inputs.GetRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
+     *             .id(okta_group_rule.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRuleResult> getRulePlain() {
+        return getRulePlain(GetRulePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a group rule from Okta.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.GroupFunctions;
+     * import com.pulumi.okta.group.inputs.GetRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
+     *             .id(okta_group_rule.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args) {
+        return getRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a group rule from Okta.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.GroupFunctions;
+     * import com.pulumi.okta.group.inputs.GetRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
+     *             .id(okta_group_rule.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args) {
+        return getRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a group rule from Okta.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.GroupFunctions;
+     * import com.pulumi.okta.group.inputs.GetRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
+     *             .id(okta_group_rule.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:group/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a group rule from Okta.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.GroupFunctions;
+     * import com.pulumi.okta.group.inputs.GetRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
+     *             .id(okta_group_rule.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:group/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
     }
 }

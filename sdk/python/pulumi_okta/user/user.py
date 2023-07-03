@@ -619,6 +619,9 @@ class UserArgs:
         """
         Do not populate user roles information (prevents additional API call)
         """
+        warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_roles")
 
     @skip_roles.setter
@@ -1336,6 +1339,9 @@ class _UserState:
         """
         Do not populate user roles information (prevents additional API call)
         """
+        warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_roles")
 
     @skip_roles.setter
@@ -2252,6 +2258,9 @@ class User(pulumi.CustomResource):
         """
         Do not populate user roles information (prevents additional API call)
         """
+        warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_roles")
 
     @property

@@ -104,7 +104,7 @@ def get_brand(brand_id: Optional[str] = None,
     Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
 
 
-    :param str brand_id: Brand ID
+    :param str brand_id: Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
     """
     __args__ = dict()
     __args__['brandId'] = brand_id
@@ -112,12 +112,12 @@ def get_brand(brand_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getBrand:getBrand', __args__, opts=opts, typ=GetBrandResult).value
 
     return AwaitableGetBrandResult(
-        brand_id=__ret__.brand_id,
-        custom_privacy_policy_url=__ret__.custom_privacy_policy_url,
-        id=__ret__.id,
-        links=__ret__.links,
-        name=__ret__.name,
-        remove_powered_by_okta=__ret__.remove_powered_by_okta)
+        brand_id=pulumi.get(__ret__, 'brand_id'),
+        custom_privacy_policy_url=pulumi.get(__ret__, 'custom_privacy_policy_url'),
+        id=pulumi.get(__ret__, 'id'),
+        links=pulumi.get(__ret__, 'links'),
+        name=pulumi.get(__ret__, 'name'),
+        remove_powered_by_okta=pulumi.get(__ret__, 'remove_powered_by_okta'))
 
 
 @_utilities.lift_output_func(get_brand)
@@ -127,6 +127,6 @@ def get_brand_output(brand_id: Optional[pulumi.Input[str]] = None,
     Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
 
 
-    :param str brand_id: Brand ID
+    :param str brand_id: Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
     """
     ...

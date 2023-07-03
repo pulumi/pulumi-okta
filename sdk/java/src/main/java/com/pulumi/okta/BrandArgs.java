@@ -32,14 +32,14 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Brand ID, used for read (faux-create)
+     * Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
      * 
      */
     @Import(name="brandId")
     private @Nullable Output<String> brandId;
 
     /**
-     * @return Brand ID, used for read (faux-create)
+     * @return Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
      * 
      */
     public Optional<Output<String>> brandId() {
@@ -125,7 +125,7 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brandId Brand ID, used for read (faux-create)
+         * @param brandId Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brandId Brand ID, used for read (faux-create)
+         * @param brandId Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
          * 
          * @return builder
          * 

@@ -47,31 +47,30 @@ public final class EmailCustomizationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Force `is_default` on the create and delete operation by
-     * deleting all email customizations. See Note above explaing email customization API
-     * behavior and [API
-     * documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-     * Valid values `create`, `delete`, `create,delete`.
+     * `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template&#34;,
+     * 
+     * @deprecated
+     * force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
      * 
      */
+    @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template */
     @Import(name="forceIsDefault")
     private @Nullable Output<String> forceIsDefault;
 
     /**
-     * @return Force `is_default` on the create and delete operation by
-     * deleting all email customizations. See Note above explaing email customization API
-     * behavior and [API
-     * documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-     * Valid values `create`, `delete`, `create,delete`.
+     * @return `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template&#34;,
+     * 
+     * @deprecated
+     * force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
      * 
      */
+    @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template */
     public Optional<Output<String>> forceIsDefault() {
         return Optional.ofNullable(this.forceIsDefault);
     }
 
     /**
      * Whether the customization is the default
-     * - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
      * 
      */
     @Import(name="isDefault")
@@ -79,7 +78,6 @@ public final class EmailCustomizationState extends com.pulumi.resources.Resource
 
     /**
      * @return Whether the customization is the default
-     * - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
      * 
      */
     public Optional<Output<Boolean>> isDefault() {
@@ -340,37 +338,36 @@ public final class EmailCustomizationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param forceIsDefault Force `is_default` on the create and delete operation by
-         * deleting all email customizations. See Note above explaing email customization API
-         * behavior and [API
-         * documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-         * Valid values `create`, `delete`, `create,delete`.
+         * @param forceIsDefault `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template&#34;,
          * 
          * @return builder
          * 
+         * @deprecated
+         * force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
+         * 
          */
+        @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template */
         public Builder forceIsDefault(@Nullable Output<String> forceIsDefault) {
             $.forceIsDefault = forceIsDefault;
             return this;
         }
 
         /**
-         * @param forceIsDefault Force `is_default` on the create and delete operation by
-         * deleting all email customizations. See Note above explaing email customization API
-         * behavior and [API
-         * documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-         * Valid values `create`, `delete`, `create,delete`.
+         * @param forceIsDefault `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template&#34;,
          * 
          * @return builder
          * 
+         * @deprecated
+         * force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
+         * 
          */
+        @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template */
         public Builder forceIsDefault(String forceIsDefault) {
             return forceIsDefault(Output.of(forceIsDefault));
         }
 
         /**
          * @param isDefault Whether the customization is the default
-         * - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
          * 
          * @return builder
          * 
@@ -382,7 +379,6 @@ public final class EmailCustomizationState extends com.pulumi.resources.Resource
 
         /**
          * @param isDefault Whether the customization is the default
-         * - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
          * 
          * @return builder
          * 

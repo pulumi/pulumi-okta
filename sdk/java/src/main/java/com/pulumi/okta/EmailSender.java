@@ -16,6 +16,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **DEPRECATED** use `okta.Index.EmailDomain` instead.
+ * 
  * This resource allows you to create and configure a custom email sender.
  * 
  * ## Example Usage
