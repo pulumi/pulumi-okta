@@ -861,40 +861,131 @@
         },
         "datasources": {
             "okta_app": {
-                "current": "okta:app/getApp:getApp"
+                "current": "okta:app/getApp:getApp",
+                "fields": {
+                    "groups": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_app_group_assignments": {
-                "current": "okta:index/getAppGroupAssignments:getAppGroupAssignments"
+                "current": "okta:index/getAppGroupAssignments:getAppGroupAssignments",
+                "fields": {
+                    "groups": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_app_metadata_saml": {
                 "current": "okta:app/getMetadataSaml:getMetadataSaml"
             },
             "okta_app_oauth": {
-                "current": "okta:app/getOauth:getOauth"
+                "current": "okta:app/getOauth:getOauth",
+                "fields": {
+                    "grant_types": {
+                        "maxItemsOne": false
+                    },
+                    "login_scopes": {
+                        "maxItemsOne": false
+                    },
+                    "post_logout_redirect_uris": {
+                        "maxItemsOne": false
+                    },
+                    "redirect_uris": {
+                        "maxItemsOne": false
+                    },
+                    "response_types": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_app_saml": {
-                "current": "okta:app/getSaml:getSaml"
+                "current": "okta:app/getSaml:getSaml",
+                "fields": {
+                    "acs_endpoints": {
+                        "maxItemsOne": false
+                    },
+                    "attribute_statements": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "features": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_app_signon_policy": {
                 "current": "okta:index/getAppSignonPolicy:getAppSignonPolicy"
             },
             "okta_app_user_assignments": {
-                "current": "okta:index/getAppUserAssignments:getAppUserAssignments"
+                "current": "okta:index/getAppUserAssignments:getAppUserAssignments",
+                "fields": {
+                    "users": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_auth_server": {
-                "current": "okta:auth/getServer:getServer"
+                "current": "okta:auth/getServer:getServer",
+                "fields": {
+                    "audiences": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_auth_server_claim": {
-                "current": "okta:index/getAuthServerClaim:getAuthServerClaim"
+                "current": "okta:index/getAuthServerClaim:getAuthServerClaim",
+                "fields": {
+                    "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_auth_server_claims": {
-                "current": "okta:index/getAuthServerClaims:getAuthServerClaims"
+                "current": "okta:index/getAuthServerClaims:getAuthServerClaims",
+                "fields": {
+                    "claims": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "scopes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "okta_auth_server_policy": {
-                "current": "okta:auth/getServerPolicy:getServerPolicy"
+                "current": "okta:auth/getServerPolicy:getServerPolicy",
+                "fields": {
+                    "assigned_clients": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_auth_server_scopes": {
-                "current": "okta:auth/getServerScopes:getServerScopes"
+                "current": "okta:auth/getServerScopes:getServerScopes",
+                "fields": {
+                    "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_authenticator": {
                 "current": "okta:index/getAuthenticator:getAuthenticator"
@@ -903,13 +994,23 @@
                 "current": "okta:index/getBehaviour:getBehaviour"
             },
             "okta_behaviors": {
-                "current": "okta:index/getBehaviours:getBehaviours"
+                "current": "okta:index/getBehaviours:getBehaviours",
+                "fields": {
+                    "behaviors": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_brand": {
                 "current": "okta:index/getBrand:getBrand"
             },
             "okta_brands": {
-                "current": "okta:index/getBrands:getBrands"
+                "current": "okta:index/getBrands:getBrands",
+                "fields": {
+                    "brands": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_default_policies": {
                 "current": "okta:deprecated/getDefaultPolicies:getDefaultPolicies"
@@ -918,43 +1019,124 @@
                 "current": "okta:policy/getDefaultPolicy:getDefaultPolicy"
             },
             "okta_domain": {
-                "current": "okta:Index/getDomain:getDomain"
+                "current": "okta:Index/getDomain:getDomain",
+                "fields": {
+                    "dns_records": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "okta_email_customization": {
                 "current": "okta:index/getEmailCustomization:getEmailCustomization"
             },
             "okta_email_customizations": {
-                "current": "okta:index/getEmailCustomizations:getEmailCustomizations"
+                "current": "okta:index/getEmailCustomizations:getEmailCustomizations",
+                "fields": {
+                    "email_customizations": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_email_template": {
                 "current": "okta:index/getTemplate:getTemplate"
             },
             "okta_email_templates": {
-                "current": "okta:index/getTemplates:getTemplates"
+                "current": "okta:index/getTemplates:getTemplates",
+                "fields": {
+                    "email_templates": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_everyone_group": {
                 "current": "okta:group/getEveryoneGroup:getEveryoneGroup"
             },
             "okta_group": {
-                "current": "okta:group/getGroup:getGroup"
+                "current": "okta:group/getGroup:getGroup",
+                "fields": {
+                    "users": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_group_rule": {
+                "current": "okta:group/getRule:getRule",
+                "fields": {
+                    "group_assignments": {
+                        "maxItemsOne": false
+                    },
+                    "users_excluded": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_groups": {
-                "current": "okta:index/getGroups:getGroups"
+                "current": "okta:index/getGroups:getGroups",
+                "fields": {
+                    "groups": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_idp_metadata_saml": {
                 "current": "okta:idp/getMetadataSaml:getMetadataSaml"
             },
             "okta_idp_oidc": {
-                "current": "okta:idp/getOidc:getOidc"
+                "current": "okta:idp/getOidc:getOidc",
+                "fields": {
+                    "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_idp_saml": {
-                "current": "okta:idp/getSaml:getSaml"
+                "current": "okta:idp/getSaml:getSaml",
+                "fields": {
+                    "subject_format": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_idp_social": {
-                "current": "okta:idp/getSocial:getSocial"
+                "current": "okta:idp/getSocial:getSocial",
+                "fields": {
+                    "account_link_group_include": {
+                        "maxItemsOne": false
+                    },
+                    "groups_assignment": {
+                        "maxItemsOne": false
+                    },
+                    "groups_filter": {
+                        "maxItemsOne": false
+                    },
+                    "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_network_zone": {
-                "current": "okta:index/getNetworkZone:getNetworkZone"
+                "current": "okta:index/getNetworkZone:getNetworkZone",
+                "fields": {
+                    "asns": {
+                        "maxItemsOne": false
+                    },
+                    "dynamic_locations": {
+                        "maxItemsOne": false
+                    },
+                    "gateways": {
+                        "maxItemsOne": false
+                    },
+                    "proxies": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_policy": {
                 "current": "okta:policy/getPolicy:getPolicy"
@@ -966,25 +1148,82 @@
                 "current": "okta:index/getTheme:getTheme"
             },
             "okta_themes": {
-                "current": "okta:index/getThemes:getThemes"
+                "current": "okta:index/getThemes:getThemes",
+                "fields": {
+                    "themes": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_trusted_origins": {
-                "current": "okta:index/getTrustedOrigins:getTrustedOrigins"
+                "current": "okta:index/getTrustedOrigins:getTrustedOrigins",
+                "fields": {
+                    "trusted_origins": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "scopes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "okta_user": {
-                "current": "okta:user/getUser:getUser"
+                "current": "okta:user/getUser:getUser",
+                "fields": {
+                    "admin_roles": {
+                        "maxItemsOne": false
+                    },
+                    "group_memberships": {
+                        "maxItemsOne": false
+                    },
+                    "roles": {
+                        "maxItemsOne": false
+                    },
+                    "search": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_user_profile_mapping_source": {
                 "current": "okta:user/getUserProfileMappingSource:getUserProfileMappingSource"
             },
             "okta_user_security_questions": {
-                "current": "okta:index/getUserSecurityQuestions:getUserSecurityQuestions"
+                "current": "okta:index/getUserSecurityQuestions:getUserSecurityQuestions",
+                "fields": {
+                    "questions": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_user_type": {
                 "current": "okta:user/getUserType:getUserType"
             },
             "okta_users": {
-                "current": "okta:user/getUsers:getUsers"
+                "current": "okta:user/getUsers:getUsers",
+                "fields": {
+                    "search": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "admin_roles": {
+                                    "maxItemsOne": false
+                                },
+                                "group_memberships": {
+                                    "maxItemsOne": false
+                                },
+                                "roles": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     },
@@ -1093,6 +1332,7 @@
             "okta:auth/getServerScopes:getServerScopes": "okta_auth_server_scopes",
             "okta:group/getEveryoneGroup:getEveryoneGroup": "okta_everyone_group",
             "okta:group/getGroup:getGroup": "okta_group",
+            "okta:group/getRule:getRule": "okta_group_rule",
             "okta:idp/getMetadataSaml:getMetadataSaml": "okta_idp_metadata_saml",
             "okta:idp/getOidc:getOidc": "okta_idp_oidc",
             "okta:idp/getSaml:getSaml": "okta_idp_saml",
@@ -1563,6 +1803,12 @@
             "okta:group/getGroup:getGroup": {
                 "delayReadSeconds": "delay_read_seconds",
                 "includeUsers": "include_users"
+            },
+            "okta:group/getRule:getRule": {
+                "expressionType": "expression_type",
+                "expressionValue": "expression_value",
+                "groupAssignments": "group_assignments",
+                "usersExcludeds": "users_excluded"
             },
             "okta:group/group:Group": {
                 "customProfileAttributes": "custom_profile_attributes",
