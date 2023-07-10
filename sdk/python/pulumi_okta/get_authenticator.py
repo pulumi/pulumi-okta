@@ -208,18 +208,18 @@ def get_authenticator(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getAuthenticator:getAuthenticator', __args__, opts=opts, typ=GetAuthenticatorResult).value
 
     return AwaitableGetAuthenticatorResult(
-        id=__ret__.id,
-        key=__ret__.key,
-        name=__ret__.name,
-        provider_auth_port=__ret__.provider_auth_port,
-        provider_hostname=__ret__.provider_hostname,
-        provider_instance_id=__ret__.provider_instance_id,
-        provider_json=__ret__.provider_json,
-        provider_type=__ret__.provider_type,
-        provider_user_name_template=__ret__.provider_user_name_template,
-        settings=__ret__.settings,
-        status=__ret__.status,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        name=pulumi.get(__ret__, 'name'),
+        provider_auth_port=pulumi.get(__ret__, 'provider_auth_port'),
+        provider_hostname=pulumi.get(__ret__, 'provider_hostname'),
+        provider_instance_id=pulumi.get(__ret__, 'provider_instance_id'),
+        provider_json=pulumi.get(__ret__, 'provider_json'),
+        provider_type=pulumi.get(__ret__, 'provider_type'),
+        provider_user_name_template=pulumi.get(__ret__, 'provider_user_name_template'),
+        settings=pulumi.get(__ret__, 'settings'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_authenticator)

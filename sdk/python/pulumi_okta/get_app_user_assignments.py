@@ -79,8 +79,8 @@ def get_app_user_assignments(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getAppUserAssignments:getAppUserAssignments', __args__, opts=opts, typ=GetAppUserAssignmentsResult).value
 
     return AwaitableGetAppUserAssignmentsResult(
-        id=__ret__.id,
-        users=__ret__.users)
+        id=pulumi.get(__ret__, 'id'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_app_user_assignments)

@@ -20,7 +20,7 @@ export function getBrand(args: GetBrandArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetBrandArgs {
     /**
-     * Brand ID
+     * Brand ID. Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
      */
     brandId: string;
 }
@@ -60,7 +60,7 @@ export function getBrandOutput(args: GetBrandOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetBrandOutputArgs {
     /**
-     * Brand ID
+     * Brand ID. Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
      */
     brandId: pulumi.Input<string>;
 }

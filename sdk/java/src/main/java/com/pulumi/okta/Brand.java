@@ -44,6 +44,13 @@ import javax.annotation.Nullable;
  *             .removePoweredByOkta(true)
  *             .build());
  * 
+ *         var default_ = new Brand(&#34;default&#34;, BrandArgs.builder()        
+ *             .agreeToCustomPrivacyPolicy(true)
+ *             .brandId(&#34;default&#34;)
+ *             .customPrivacyPolicyUrl(&#34;https://example.com/privacy-policy&#34;)
+ *             .removePoweredByOkta(true)
+ *             .build());
+ * 
  *     }
  * }
  * ```
@@ -74,14 +81,14 @@ public class Brand extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.agreeToCustomPrivacyPolicy);
     }
     /**
-     * Brand ID, used for read (faux-create)
+     * Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
      * 
      */
     @Export(name="brandId", type=String.class, parameters={})
     private Output</* @Nullable */ String> brandId;
 
     /**
-     * @return Brand ID, used for read (faux-create)
+     * @return Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
      * 
      */
     public Output<Optional<String>> brandId() {

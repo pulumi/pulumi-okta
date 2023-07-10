@@ -223,20 +223,20 @@ def get_saml(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:idp/getSaml:getSaml', __args__, opts=opts, typ=GetSamlResult).value
 
     return AwaitableGetSamlResult(
-        acs_binding=__ret__.acs_binding,
-        acs_type=__ret__.acs_type,
-        audience=__ret__.audience,
-        id=__ret__.id,
-        issuer=__ret__.issuer,
-        issuer_mode=__ret__.issuer_mode,
-        kid=__ret__.kid,
-        name=__ret__.name,
-        sso_binding=__ret__.sso_binding,
-        sso_destination=__ret__.sso_destination,
-        sso_url=__ret__.sso_url,
-        subject_filter=__ret__.subject_filter,
-        subject_formats=__ret__.subject_formats,
-        type=__ret__.type)
+        acs_binding=pulumi.get(__ret__, 'acs_binding'),
+        acs_type=pulumi.get(__ret__, 'acs_type'),
+        audience=pulumi.get(__ret__, 'audience'),
+        id=pulumi.get(__ret__, 'id'),
+        issuer=pulumi.get(__ret__, 'issuer'),
+        issuer_mode=pulumi.get(__ret__, 'issuer_mode'),
+        kid=pulumi.get(__ret__, 'kid'),
+        name=pulumi.get(__ret__, 'name'),
+        sso_binding=pulumi.get(__ret__, 'sso_binding'),
+        sso_destination=pulumi.get(__ret__, 'sso_destination'),
+        sso_url=pulumi.get(__ret__, 'sso_url'),
+        subject_filter=pulumi.get(__ret__, 'subject_filter'),
+        subject_formats=pulumi.get(__ret__, 'subject_formats'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_saml)

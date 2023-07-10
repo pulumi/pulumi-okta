@@ -209,8 +209,6 @@ namespace Pulumi.Okta.App
     /// ```sh
     ///  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;
     /// ```
-    /// 
-    ///  It's also possible to import app without groups or/and users. In this case ID may look like this
     /// </summary>
     [OktaResourceType("okta:app/saml:Saml")]
     public partial class Saml : global::Pulumi.CustomResource

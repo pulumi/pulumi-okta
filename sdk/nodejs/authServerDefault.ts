@@ -15,7 +15,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.AuthServerDefault("example", {});
+ * const example = new okta.AuthServerDefault("example", {
+ *     audiences: ["api://default"],
+ *     description: "Default Authorization Server for your Applications",
+ * });
  * ```
  *
  * ## Import
@@ -23,7 +26,7 @@ import * as utilities from "./utilities";
  * Authorization Server can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;auth server name&#62;
+ *  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
  * ```
  */
 export class AuthServerDefault extends pulumi.CustomResource {
@@ -87,7 +90,7 @@ export class AuthServerDefault extends pulumi.CustomResource {
      */
     public /*out*/ readonly kid!: pulumi.Output<string>;
     /**
-     * The name of the authorization server.
+     * The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -173,7 +176,7 @@ export interface AuthServerDefaultState {
      */
     kid?: pulumi.Input<string>;
     /**
-     * The name of the authorization server.
+     * The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
      */
     name?: pulumi.Input<string>;
     /**
@@ -203,7 +206,7 @@ export interface AuthServerDefaultArgs {
      */
     issuerMode?: pulumi.Input<string>;
     /**
-     * The name of the authorization server.
+     * The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
      */
     name?: pulumi.Input<string>;
     /**

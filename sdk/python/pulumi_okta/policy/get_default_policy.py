@@ -80,8 +80,8 @@ def get_default_policy(type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:policy/getDefaultPolicy:getDefaultPolicy', __args__, opts=opts, typ=GetDefaultPolicyResult).value
 
     return AwaitableGetDefaultPolicyResult(
-        id=__ret__.id,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_default_policy)

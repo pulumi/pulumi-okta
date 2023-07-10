@@ -89,9 +89,9 @@ def get_server_scopes(auth_server_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:auth/getServerScopes:getServerScopes', __args__, opts=opts, typ=GetServerScopesResult).value
 
     return AwaitableGetServerScopesResult(
-        auth_server_id=__ret__.auth_server_id,
-        id=__ret__.id,
-        scopes=__ret__.scopes)
+        auth_server_id=pulumi.get(__ret__, 'auth_server_id'),
+        id=pulumi.get(__ret__, 'id'),
+        scopes=pulumi.get(__ret__, 'scopes'))
 
 
 @_utilities.lift_output_func(get_server_scopes)

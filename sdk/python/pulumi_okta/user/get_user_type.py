@@ -103,10 +103,10 @@ def get_user_type(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:user/getUserType:getUserType', __args__, opts=opts, typ=GetUserTypeResult).value
 
     return AwaitableGetUserTypeResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_user_type)

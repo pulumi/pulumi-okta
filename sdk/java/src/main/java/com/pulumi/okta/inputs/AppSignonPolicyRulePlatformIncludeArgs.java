@@ -16,14 +16,14 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
     public static final AppSignonPolicyRulePlatformIncludeArgs Empty = new AppSignonPolicyRulePlatformIncludeArgs();
 
     /**
-     * Only available when using `os_type = &#34;OTHER&#34;`
+     * Only available and required when using `os_type = &#34;OTHER&#34;`
      * 
      */
     @Import(name="osExpression")
     private @Nullable Output<String> osExpression;
 
     /**
-     * @return Only available when using `os_type = &#34;OTHER&#34;`
+     * @return Only available and required when using `os_type = &#34;OTHER&#34;`
      * 
      */
     public Optional<Output<String>> osExpression() {
@@ -87,7 +87,7 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
         }
 
         /**
-         * @param osExpression Only available when using `os_type = &#34;OTHER&#34;`
+         * @param osExpression Only available and required when using `os_type = &#34;OTHER&#34;`
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
         }
 
         /**
-         * @param osExpression Only available when using `os_type = &#34;OTHER&#34;`
+         * @param osExpression Only available and required when using `os_type = &#34;OTHER&#34;`
          * 
          * @return builder
          * 

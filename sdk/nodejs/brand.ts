@@ -18,6 +18,13 @@ import * as utilities from "./utilities";
  *     customPrivacyPolicyUrl: "https://example.com/privacy-policy",
  *     removePoweredByOkta: true,
  * });
+ * // setting brand_id to default is equivalent to importing the default brand by its ID
+ * const _default = new okta.Brand("default", {
+ *     agreeToCustomPrivacyPolicy: true,
+ *     brandId: "default",
+ *     customPrivacyPolicyUrl: "https://example.com/privacy-policy",
+ *     removePoweredByOkta: true,
+ * });
  * ```
  *
  * ## Import
@@ -61,7 +68,7 @@ export class Brand extends pulumi.CustomResource {
      */
     public readonly agreeToCustomPrivacyPolicy!: pulumi.Output<boolean | undefined>;
     /**
-     * Brand ID, used for read (faux-create)
+     * Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
      */
     public readonly brandId!: pulumi.Output<string | undefined>;
     /**
@@ -123,7 +130,7 @@ export interface BrandState {
      */
     agreeToCustomPrivacyPolicy?: pulumi.Input<boolean>;
     /**
-     * Brand ID, used for read (faux-create)
+     * Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
      */
     brandId?: pulumi.Input<string>;
     /**
@@ -153,7 +160,7 @@ export interface BrandArgs {
      */
     agreeToCustomPrivacyPolicy?: pulumi.Input<boolean>;
     /**
-     * Brand ID, used for read (faux-create)
+     * Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
      */
     brandId?: pulumi.Input<string>;
     /**

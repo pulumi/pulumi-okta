@@ -146,13 +146,13 @@ def get_group(delay_read_seconds: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:group/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        delay_read_seconds=__ret__.delay_read_seconds,
-        description=__ret__.description,
-        id=__ret__.id,
-        include_users=__ret__.include_users,
-        name=__ret__.name,
-        type=__ret__.type,
-        users=__ret__.users)
+        delay_read_seconds=pulumi.get(__ret__, 'delay_read_seconds'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        include_users=pulumi.get(__ret__, 'include_users'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_group)

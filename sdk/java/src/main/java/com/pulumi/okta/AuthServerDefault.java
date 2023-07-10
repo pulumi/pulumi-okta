@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.okta.AuthServerDefault;
+ * import com.pulumi.okta.AuthServerDefaultArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -41,7 +42,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AuthServerDefault(&#34;example&#34;);
+ *         var example = new AuthServerDefault(&#34;example&#34;, AuthServerDefaultArgs.builder()        
+ *             .audiences(&#34;api://default&#34;)
+ *             .description(&#34;Default Authorization Server for your Applications&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -52,7 +56,7 @@ import javax.annotation.Nullable;
  * Authorization Server can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &amp;#60;auth server name&amp;#62;
+ *  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &amp;#60;default&amp;#62;
  * ```
  * 
  */
@@ -171,14 +175,14 @@ public class AuthServerDefault extends com.pulumi.resources.CustomResource {
         return this.kid;
     }
     /**
-     * The name of the authorization server.
+     * The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the authorization server.
+     * @return The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
      * 
      */
     public Output<String> name() {

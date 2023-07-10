@@ -27,10 +27,6 @@ class GetAppResult:
         pulumi.set(__self__, "active_only", active_only)
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
-        if groups is not None:
-            warnings.warn("""The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`""")
-
         pulumi.set(__self__, "groups", groups)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -49,27 +45,15 @@ class GetAppResult:
         pulumi.set(__self__, "name", name)
         if skip_groups and not isinstance(skip_groups, bool):
             raise TypeError("Expected argument 'skip_groups' to be a bool")
-        if skip_groups is not None:
-            warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-            pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
-
         pulumi.set(__self__, "skip_groups", skip_groups)
         if skip_users and not isinstance(skip_users, bool):
             raise TypeError("Expected argument 'skip_users' to be a bool")
-        if skip_users is not None:
-            warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-            pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
-
         pulumi.set(__self__, "skip_users", skip_users)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
-        if users is not None:
-            warnings.warn("""The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`""")
-
         pulumi.set(__self__, "users", users)
 
     @property
@@ -80,6 +64,9 @@ class GetAppResult:
     @property
     @pulumi.getter
     def groups(self) -> Sequence[str]:
+        warnings.warn("""The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`""", DeprecationWarning)
+        pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`""")
+
         return pulumi.get(self, "groups")
 
     @property
@@ -122,11 +109,17 @@ class GetAppResult:
     @property
     @pulumi.getter(name="skipGroups")
     def skip_groups(self) -> Optional[bool]:
+        warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_groups")
 
     @property
     @pulumi.getter(name="skipUsers")
     def skip_users(self) -> Optional[bool]:
+        warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_users")
 
     @property
@@ -140,6 +133,9 @@ class GetAppResult:
     @property
     @pulumi.getter
     def users(self) -> Sequence[str]:
+        warnings.warn("""The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`""", DeprecationWarning)
+        pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`""")
+
         return pulumi.get(self, "users")
 
 
@@ -203,17 +199,17 @@ def get_app(active_only: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('okta:app/getApp:getApp', __args__, opts=opts, typ=GetAppResult).value
 
     return AwaitableGetAppResult(
-        active_only=__ret__.active_only,
-        groups=__ret__.groups,
-        id=__ret__.id,
-        label=__ret__.label,
-        label_prefix=__ret__.label_prefix,
-        links=__ret__.links,
-        name=__ret__.name,
-        skip_groups=__ret__.skip_groups,
-        skip_users=__ret__.skip_users,
-        status=__ret__.status,
-        users=__ret__.users)
+        active_only=pulumi.get(__ret__, 'active_only'),
+        groups=pulumi.get(__ret__, 'groups'),
+        id=pulumi.get(__ret__, 'id'),
+        label=pulumi.get(__ret__, 'label'),
+        label_prefix=pulumi.get(__ret__, 'label_prefix'),
+        links=pulumi.get(__ret__, 'links'),
+        name=pulumi.get(__ret__, 'name'),
+        skip_groups=pulumi.get(__ret__, 'skip_groups'),
+        skip_users=pulumi.get(__ret__, 'skip_users'),
+        status=pulumi.get(__ret__, 'status'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_app)

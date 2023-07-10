@@ -163,14 +163,14 @@ def get_users(compound_search_operator: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:user/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
-        compound_search_operator=__ret__.compound_search_operator,
-        delay_read_seconds=__ret__.delay_read_seconds,
-        group_id=__ret__.group_id,
-        id=__ret__.id,
-        include_groups=__ret__.include_groups,
-        include_roles=__ret__.include_roles,
-        searches=__ret__.searches,
-        users=__ret__.users)
+        compound_search_operator=pulumi.get(__ret__, 'compound_search_operator'),
+        delay_read_seconds=pulumi.get(__ret__, 'delay_read_seconds'),
+        group_id=pulumi.get(__ret__, 'group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        include_groups=pulumi.get(__ret__, 'include_groups'),
+        include_roles=pulumi.get(__ret__, 'include_roles'),
+        searches=pulumi.get(__ret__, 'searches'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_users)

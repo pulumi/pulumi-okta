@@ -94,9 +94,9 @@ def get_user_security_questions(user_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getUserSecurityQuestions:getUserSecurityQuestions', __args__, opts=opts, typ=GetUserSecurityQuestionsResult).value
 
     return AwaitableGetUserSecurityQuestionsResult(
-        id=__ret__.id,
-        questions=__ret__.questions,
-        user_id=__ret__.user_id)
+        id=pulumi.get(__ret__, 'id'),
+        questions=pulumi.get(__ret__, 'questions'),
+        user_id=pulumi.get(__ret__, 'user_id'))
 
 
 @_utilities.lift_output_func(get_user_security_questions)

@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .get_everyone_group import *
 from .get_group import *
+from .get_rule import *
 from .group import *
 from .role import *
 from .rule import *

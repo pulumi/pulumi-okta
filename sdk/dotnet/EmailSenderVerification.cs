@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
+    /// &gt; **DEPRECATED** use `okta.Index.EmailDomainVerification` instead.
+    /// 
     /// Verifies the email sender. The resource won't be created if the email sender could not be verified.
     /// 
     /// ## Example Usage

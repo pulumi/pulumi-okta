@@ -89,9 +89,9 @@ def get_behaviours(q: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getBehaviours:getBehaviours', __args__, opts=opts, typ=GetBehavioursResult).value
 
     return AwaitableGetBehavioursResult(
-        behaviors=__ret__.behaviors,
-        id=__ret__.id,
-        q=__ret__.q)
+        behaviors=pulumi.get(__ret__, 'behaviors'),
+        id=pulumi.get(__ret__, 'id'),
+        q=pulumi.get(__ret__, 'q'))
 
 
 @_utilities.lift_output_func(get_behaviours)

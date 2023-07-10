@@ -162,8 +162,6 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
  * ```
- *
- *  It's also possible to import app without groups or/and users. In this case ID may look like this
  */
 export class Saml extends pulumi.CustomResource {
     /**

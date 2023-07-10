@@ -1927,8 +1927,6 @@ class Saml(pulumi.CustomResource):
          $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
         ```
 
-         It's also possible to import app without groups or/and users. In this case ID may look like this
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
@@ -2134,8 +2132,6 @@ class Saml(pulumi.CustomResource):
         ```sh
          $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
         ```
-
-         It's also possible to import app without groups or/and users. In this case ID may look like this
 
         :param str resource_name: The name of the resource.
         :param SamlArgs args: The arguments to use to populate this resource's properties.

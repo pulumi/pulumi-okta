@@ -172,16 +172,16 @@ def get_metadata_saml(idp_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:idp/getMetadataSaml:getMetadataSaml', __args__, opts=opts, typ=GetMetadataSamlResult).value
 
     return AwaitableGetMetadataSamlResult(
-        assertions_signed=__ret__.assertions_signed,
-        authn_request_signed=__ret__.authn_request_signed,
-        encryption_certificate=__ret__.encryption_certificate,
-        entity_id=__ret__.entity_id,
-        http_post_binding=__ret__.http_post_binding,
-        http_redirect_binding=__ret__.http_redirect_binding,
-        id=__ret__.id,
-        idp_id=__ret__.idp_id,
-        metadata=__ret__.metadata,
-        signing_certificate=__ret__.signing_certificate)
+        assertions_signed=pulumi.get(__ret__, 'assertions_signed'),
+        authn_request_signed=pulumi.get(__ret__, 'authn_request_signed'),
+        encryption_certificate=pulumi.get(__ret__, 'encryption_certificate'),
+        entity_id=pulumi.get(__ret__, 'entity_id'),
+        http_post_binding=pulumi.get(__ret__, 'http_post_binding'),
+        http_redirect_binding=pulumi.get(__ret__, 'http_redirect_binding'),
+        id=pulumi.get(__ret__, 'id'),
+        idp_id=pulumi.get(__ret__, 'idp_id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        signing_certificate=pulumi.get(__ret__, 'signing_certificate'))
 
 
 @_utilities.lift_output_func(get_metadata_saml)

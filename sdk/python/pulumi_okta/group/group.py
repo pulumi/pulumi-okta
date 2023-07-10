@@ -79,6 +79,9 @@ class GroupArgs:
         """
         Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
+        warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_users")
 
     @skip_users.setter
@@ -154,6 +157,9 @@ class _GroupState:
         """
         Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
+        warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_users")
 
     @skip_users.setter
@@ -359,5 +365,8 @@ class Group(pulumi.CustomResource):
         """
         Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
+        warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_users")
 

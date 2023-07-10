@@ -24,7 +24,14 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.AuthServerDefault("example");
+    ///     var example = new Okta.AuthServerDefault("example", new()
+    ///     {
+    ///         Audiences = new[]
+    ///         {
+    ///             "api://default",
+    ///         },
+    ///         Description = "Default Authorization Server for your Applications",
+    ///     });
     /// 
     /// });
     /// ```
@@ -34,7 +41,7 @@ namespace Pulumi.Okta
     /// Authorization Server can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &amp;#60;auth server name&amp;#62;
+    ///  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &amp;#60;default&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/authServerDefault:AuthServerDefault")]
@@ -89,7 +96,7 @@ namespace Pulumi.Okta
         public Output<string> Kid { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the authorization server.
+        /// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -177,7 +184,7 @@ namespace Pulumi.Okta
         public Input<string>? IssuerMode { get; set; }
 
         /// <summary>
-        /// The name of the authorization server.
+        /// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -251,7 +258,7 @@ namespace Pulumi.Okta
         public Input<string>? Kid { get; set; }
 
         /// <summary>
-        /// The name of the authorization server.
+        /// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

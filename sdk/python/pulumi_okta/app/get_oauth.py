@@ -87,17 +87,9 @@ class GetOauthResult:
         pulumi.set(__self__, "response_types", response_types)
         if skip_groups and not isinstance(skip_groups, bool):
             raise TypeError("Expected argument 'skip_groups' to be a bool")
-        if skip_groups is not None:
-            warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-            pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
-
         pulumi.set(__self__, "skip_groups", skip_groups)
         if skip_users and not isinstance(skip_users, bool):
             raise TypeError("Expected argument 'skip_users' to be a bool")
-        if skip_users is not None:
-            warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-            pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
-
         pulumi.set(__self__, "skip_users", skip_users)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
@@ -274,11 +266,17 @@ class GetOauthResult:
     @property
     @pulumi.getter(name="skipGroups")
     def skip_groups(self) -> Optional[bool]:
+        warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_groups")
 
     @property
     @pulumi.getter(name="skipUsers")
     def skip_users(self) -> Optional[bool]:
+        warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_users")
 
     @property
@@ -380,32 +378,32 @@ def get_oauth(active_only: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('okta:app/getOauth:getOauth', __args__, opts=opts, typ=GetOauthResult).value
 
     return AwaitableGetOauthResult(
-        active_only=__ret__.active_only,
-        auto_submit_toolbar=__ret__.auto_submit_toolbar,
-        client_id=__ret__.client_id,
-        client_secret=__ret__.client_secret,
-        client_uri=__ret__.client_uri,
-        grant_types=__ret__.grant_types,
-        hide_ios=__ret__.hide_ios,
-        hide_web=__ret__.hide_web,
-        id=__ret__.id,
-        label=__ret__.label,
-        label_prefix=__ret__.label_prefix,
-        links=__ret__.links,
-        login_mode=__ret__.login_mode,
-        login_scopes=__ret__.login_scopes,
-        login_uri=__ret__.login_uri,
-        logo_uri=__ret__.logo_uri,
-        name=__ret__.name,
-        policy_uri=__ret__.policy_uri,
-        post_logout_redirect_uris=__ret__.post_logout_redirect_uris,
-        redirect_uris=__ret__.redirect_uris,
-        response_types=__ret__.response_types,
-        skip_groups=__ret__.skip_groups,
-        skip_users=__ret__.skip_users,
-        status=__ret__.status,
-        type=__ret__.type,
-        wildcard_redirect=__ret__.wildcard_redirect)
+        active_only=pulumi.get(__ret__, 'active_only'),
+        auto_submit_toolbar=pulumi.get(__ret__, 'auto_submit_toolbar'),
+        client_id=pulumi.get(__ret__, 'client_id'),
+        client_secret=pulumi.get(__ret__, 'client_secret'),
+        client_uri=pulumi.get(__ret__, 'client_uri'),
+        grant_types=pulumi.get(__ret__, 'grant_types'),
+        hide_ios=pulumi.get(__ret__, 'hide_ios'),
+        hide_web=pulumi.get(__ret__, 'hide_web'),
+        id=pulumi.get(__ret__, 'id'),
+        label=pulumi.get(__ret__, 'label'),
+        label_prefix=pulumi.get(__ret__, 'label_prefix'),
+        links=pulumi.get(__ret__, 'links'),
+        login_mode=pulumi.get(__ret__, 'login_mode'),
+        login_scopes=pulumi.get(__ret__, 'login_scopes'),
+        login_uri=pulumi.get(__ret__, 'login_uri'),
+        logo_uri=pulumi.get(__ret__, 'logo_uri'),
+        name=pulumi.get(__ret__, 'name'),
+        policy_uri=pulumi.get(__ret__, 'policy_uri'),
+        post_logout_redirect_uris=pulumi.get(__ret__, 'post_logout_redirect_uris'),
+        redirect_uris=pulumi.get(__ret__, 'redirect_uris'),
+        response_types=pulumi.get(__ret__, 'response_types'),
+        skip_groups=pulumi.get(__ret__, 'skip_groups'),
+        skip_users=pulumi.get(__ret__, 'skip_users'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'),
+        wildcard_redirect=pulumi.get(__ret__, 'wildcard_redirect'))
 
 
 @_utilities.lift_output_func(get_oauth)

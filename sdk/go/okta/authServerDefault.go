@@ -28,7 +28,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewAuthServerDefault(ctx, "example", nil)
+//			_, err := okta.NewAuthServerDefault(ctx, "example", &okta.AuthServerDefaultArgs{
+//				Audiences: pulumi.StringArray{
+//					pulumi.String("api://default"),
+//				},
+//				Description: pulumi.String("Default Authorization Server for your Applications"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -44,7 +49,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;auth server name&#62;
+//	$ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
 //
 // ```
 type AuthServerDefault struct {
@@ -66,7 +71,7 @@ type AuthServerDefault struct {
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid pulumi.StringOutput `pulumi:"kid"`
-	// The name of the authorization server.
+	// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The status of the auth server.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -117,7 +122,7 @@ type authServerDefaultState struct {
 	IssuerMode *string `pulumi:"issuerMode"`
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid *string `pulumi:"kid"`
-	// The name of the authorization server.
+	// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
 	Name *string `pulumi:"name"`
 	// The status of the auth server.
 	Status *string `pulumi:"status"`
@@ -140,7 +145,7 @@ type AuthServerDefaultState struct {
 	IssuerMode pulumi.StringPtrInput
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid pulumi.StringPtrInput
-	// The name of the authorization server.
+	// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
 	Name pulumi.StringPtrInput
 	// The status of the auth server.
 	Status pulumi.StringPtrInput
@@ -159,7 +164,7 @@ type authServerDefaultArgs struct {
 	Description *string `pulumi:"description"`
 	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode *string `pulumi:"issuerMode"`
-	// The name of the authorization server.
+	// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
 	Name *string `pulumi:"name"`
 	// The status of the auth server.
 	Status *string `pulumi:"status"`
@@ -175,7 +180,7 @@ type AuthServerDefaultArgs struct {
 	Description pulumi.StringPtrInput
 	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode pulumi.StringPtrInput
-	// The name of the authorization server.
+	// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
 	Name pulumi.StringPtrInput
 	// The status of the auth server.
 	Status pulumi.StringPtrInput
@@ -308,7 +313,7 @@ func (o AuthServerDefaultOutput) Kid() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringOutput { return v.Kid }).(pulumi.StringOutput)
 }
 
-// The name of the authorization server.
+// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
 func (o AuthServerDefaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

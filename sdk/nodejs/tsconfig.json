@@ -94,6 +94,7 @@
         "getUserSecurityQuestions.ts",
         "group/getEveryoneGroup.ts",
         "group/getGroup.ts",
+        "group/getRule.ts",
         "group/group.ts",
         "group/index.ts",
         "group/role.ts",

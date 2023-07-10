@@ -14,7 +14,7 @@ namespace Pulumi.Okta.Outputs
     public sealed class AppSignonPolicyRulePlatformInclude
     {
         /// <summary>
-        /// Only available when using `os_type = "OTHER"`
+        /// Only available and required when using `os_type = "OTHER"`
         /// </summary>
         public readonly string? OsExpression;
         /// <summary>

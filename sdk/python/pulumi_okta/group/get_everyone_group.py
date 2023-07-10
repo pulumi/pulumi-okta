@@ -89,9 +89,9 @@ def get_everyone_group(include_users: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('okta:group/getEveryoneGroup:getEveryoneGroup', __args__, opts=opts, typ=GetEveryoneGroupResult).value
 
     return AwaitableGetEveryoneGroupResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        include_users=__ret__.include_users)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        include_users=pulumi.get(__ret__, 'include_users'))
 
 
 @_utilities.lift_output_func(get_everyone_group)

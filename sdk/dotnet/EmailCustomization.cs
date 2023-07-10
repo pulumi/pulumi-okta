@@ -17,20 +17,30 @@ namespace Pulumi.Okta
     /// &gt; Okta's public API is strict regarding the behavior of the `is_default`
     /// property in [an email
     /// customization](https://developer.okta.com/docs/reference/api/brands/#email-customization).
-    /// When a customization is
-    /// [created](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)
-    /// it can not be created with an `is_default` value of `true` if there is already a
-    /// default customization. If an email customization is the last of the template
-    /// type it can not be
-    /// [deleted](https://developer.okta.com/docs/reference/api/brands/#delete-email-customization).
-    /// And the `is_default` value can't be set to false when updating the last
-    /// remaining customization. **To allow this resource to be more flexible** set the
-    /// `force_is_default` property to `create`, `destroy`, or `create,destroy`. This
-    /// will cause all the customizations to be
-    /// [reset/deleted](https://developer.okta.com/docs/reference/api/brands/#delete-all-email-customizations)
-    /// for a create when there is a `create` value in `force_is_default` and
-    /// `is_default` is `true`.  Likewise reset will be called for a delete when there
-    /// is a `delete` value in `force_is_default` and `is_default` is `true`.
+    /// Make use of `depends_on` meta argument to ensure the provider navigates email customization
+    /// language versions seamlessly. Have all secondary customizations depend on the primary
+    /// customization that is marked default. See Example Usage.
+    /// 
+    /// &gt; Caveats for [creating an email
+    /// customization](https://developer.okta.com/docs/reference/api/brands/#response-body-19).
+    /// If this is the first customization being created for the email template, and
+    /// `is_default` is not set for the customization in its resource configuration, the
+    /// API will respond with the created customization marked as default. The API will
+    /// 400 if the language parameter is not one of the supported languages or the body
+    /// parameter does not contain a required variable reference. The API will error 409
+    /// if `is_default` is true and a default customization exists. The API will 404 for
+    /// an invalid `brand_id` or `template_name`.
+    /// 
+    /// &gt; Caveats for [updating an email
+    /// customization](https://developer.okta.com/docs/reference/api/brands/#response-body-22).
+    /// If the `is_default` parameter is true, the previous default email customization
+    /// has its `is_default` set to false (see previous note about mitigating this with
+    /// `depends_on` meta argument). The API will 409 if there’s already another email
+    /// customization for the specified language or the `is_default` parameter is false
+    /// and the email customization being updated is the default. The API will 400 if
+    /// the language parameter is not one of the supported locales or the body parameter
+    /// does not contain a required variable reference.  The API will 404 for an invalid
+    /// `brand_id` or `template_name`.
     /// 
     /// ## Import
     /// 
@@ -56,18 +66,13 @@ namespace Pulumi.Okta
         public Output<string> BrandId { get; private set; } = null!;
 
         /// <summary>
-        /// Force `is_default` on the create and delete operation by
-        /// deleting all email customizations. See Note above explaing email customization API
-        /// behavior and [API
-        /// documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-        /// Valid values `create`, `delete`, `create,delete`.
+        /// `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template",
         /// </summary>
         [Output("forceIsDefault")]
         public Output<string?> ForceIsDefault { get; private set; } = null!;
 
         /// <summary>
         /// Whether the customization is the default
-        /// - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
         /// </summary>
         [Output("isDefault")]
         public Output<bool?> IsDefault { get; private set; } = null!;
@@ -215,18 +220,13 @@ namespace Pulumi.Okta
         public Input<string> BrandId { get; set; } = null!;
 
         /// <summary>
-        /// Force `is_default` on the create and delete operation by
-        /// deleting all email customizations. See Note above explaing email customization API
-        /// behavior and [API
-        /// documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-        /// Valid values `create`, `delete`, `create,delete`.
+        /// `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template",
         /// </summary>
         [Input("forceIsDefault")]
         public Input<string>? ForceIsDefault { get; set; }
 
         /// <summary>
         /// Whether the customization is the default
-        /// - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -330,18 +330,13 @@ namespace Pulumi.Okta
         public Input<string>? BrandId { get; set; }
 
         /// <summary>
-        /// Force `is_default` on the create and delete operation by
-        /// deleting all email customizations. See Note above explaing email customization API
-        /// behavior and [API
-        /// documentation](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations).
-        /// Valid values `create`, `delete`, `create,delete`.
+        /// `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template",
         /// </summary>
         [Input("forceIsDefault")]
         public Input<string>? ForceIsDefault { get; set; }
 
         /// <summary>
         /// Whether the customization is the default
-        /// - Setting `is_default` to true when there is already a default customization will cause an error when this resource is created.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }

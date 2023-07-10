@@ -167,15 +167,15 @@ def get_auth_server_claim(auth_server_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getAuthServerClaim:getAuthServerClaim', __args__, opts=opts, typ=GetAuthServerClaimResult).value
 
     return AwaitableGetAuthServerClaimResult(
-        always_include_in_token=__ret__.always_include_in_token,
-        auth_server_id=__ret__.auth_server_id,
-        claim_type=__ret__.claim_type,
-        id=__ret__.id,
-        name=__ret__.name,
-        scopes=__ret__.scopes,
-        status=__ret__.status,
-        value=__ret__.value,
-        value_type=__ret__.value_type)
+        always_include_in_token=pulumi.get(__ret__, 'always_include_in_token'),
+        auth_server_id=pulumi.get(__ret__, 'auth_server_id'),
+        claim_type=pulumi.get(__ret__, 'claim_type'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        scopes=pulumi.get(__ret__, 'scopes'),
+        status=pulumi.get(__ret__, 'status'),
+        value=pulumi.get(__ret__, 'value'),
+        value_type=pulumi.get(__ret__, 'value_type'))
 
 
 @_utilities.lift_output_func(get_auth_server_claim)

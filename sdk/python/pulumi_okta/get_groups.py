@@ -120,11 +120,11 @@ def get_groups(q: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getGroups:getGroups', __args__, opts=opts, typ=GetGroupsResult).value
 
     return AwaitableGetGroupsResult(
-        groups=__ret__.groups,
-        id=__ret__.id,
-        q=__ret__.q,
-        search=__ret__.search,
-        type=__ret__.type)
+        groups=pulumi.get(__ret__, 'groups'),
+        id=pulumi.get(__ret__, 'id'),
+        q=pulumi.get(__ret__, 'q'),
+        search=pulumi.get(__ret__, 'search'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_groups)

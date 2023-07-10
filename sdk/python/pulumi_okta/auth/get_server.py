@@ -187,17 +187,17 @@ def get_server(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:auth/getServer:getServer', __args__, opts=opts, typ=GetServerResult).value
 
     return AwaitableGetServerResult(
-        audiences=__ret__.audiences,
-        credentials_last_rotated=__ret__.credentials_last_rotated,
-        credentials_next_rotation=__ret__.credentials_next_rotation,
-        credentials_rotation_mode=__ret__.credentials_rotation_mode,
-        description=__ret__.description,
-        id=__ret__.id,
-        issuer=__ret__.issuer,
-        issuer_mode=__ret__.issuer_mode,
-        kid=__ret__.kid,
-        name=__ret__.name,
-        status=__ret__.status)
+        audiences=pulumi.get(__ret__, 'audiences'),
+        credentials_last_rotated=pulumi.get(__ret__, 'credentials_last_rotated'),
+        credentials_next_rotation=pulumi.get(__ret__, 'credentials_next_rotation'),
+        credentials_rotation_mode=pulumi.get(__ret__, 'credentials_rotation_mode'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        issuer=pulumi.get(__ret__, 'issuer'),
+        issuer_mode=pulumi.get(__ret__, 'issuer_mode'),
+        kid=pulumi.get(__ret__, 'kid'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_server)

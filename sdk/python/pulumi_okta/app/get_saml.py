@@ -70,10 +70,6 @@ class GetSamlResult:
         pulumi.set(__self__, "features", features)
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
-        if groups is not None:
-            warnings.warn("""The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`""", DeprecationWarning)
-            pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`""")
-
         pulumi.set(__self__, "groups", groups)
         if hide_ios and not isinstance(hide_ios, bool):
             raise TypeError("Expected argument 'hide_ios' to be a bool")
@@ -134,17 +130,9 @@ class GetSamlResult:
         pulumi.set(__self__, "single_logout_url", single_logout_url)
         if skip_groups and not isinstance(skip_groups, bool):
             raise TypeError("Expected argument 'skip_groups' to be a bool")
-        if skip_groups is not None:
-            warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-            pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
-
         pulumi.set(__self__, "skip_groups", skip_groups)
         if skip_users and not isinstance(skip_users, bool):
             raise TypeError("Expected argument 'skip_users' to be a bool")
-        if skip_users is not None:
-            warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-            pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
-
         pulumi.set(__self__, "skip_users", skip_users)
         if sp_issuer and not isinstance(sp_issuer, str):
             raise TypeError("Expected argument 'sp_issuer' to be a str")
@@ -175,10 +163,6 @@ class GetSamlResult:
         pulumi.set(__self__, "user_name_template_type", user_name_template_type)
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
-        if users is not None:
-            warnings.warn("""The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`""", DeprecationWarning)
-            pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`""")
-
         pulumi.set(__self__, "users", users)
 
     @property
@@ -304,6 +288,9 @@ class GetSamlResult:
         """
         List of groups IDs assigned to the application.
         """
+        warnings.warn("""The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`""", DeprecationWarning)
+        pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`""")
+
         return pulumi.get(self, "groups")
 
     @property
@@ -458,11 +445,17 @@ class GetSamlResult:
     @property
     @pulumi.getter(name="skipGroups")
     def skip_groups(self) -> Optional[bool]:
+        warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_groups")
 
     @property
     @pulumi.getter(name="skipUsers")
     def skip_users(self) -> Optional[bool]:
+        warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
+        pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
+
         return pulumi.get(self, "skip_users")
 
     @property
@@ -540,6 +533,9 @@ class GetSamlResult:
     @property
     @pulumi.getter
     def users(self) -> Sequence[str]:
+        warnings.warn("""The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`""", DeprecationWarning)
+        pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`""")
+
         return pulumi.get(self, "users")
 
 
@@ -640,53 +636,53 @@ def get_saml(active_only: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('okta:app/getSaml:getSaml', __args__, opts=opts, typ=GetSamlResult).value
 
     return AwaitableGetSamlResult(
-        accessibility_error_redirect_url=__ret__.accessibility_error_redirect_url,
-        accessibility_login_redirect_url=__ret__.accessibility_login_redirect_url,
-        accessibility_self_service=__ret__.accessibility_self_service,
-        acs_endpoints=__ret__.acs_endpoints,
-        active_only=__ret__.active_only,
-        app_settings_json=__ret__.app_settings_json,
-        assertion_signed=__ret__.assertion_signed,
-        attribute_statements=__ret__.attribute_statements,
-        audience=__ret__.audience,
-        authn_context_class_ref=__ret__.authn_context_class_ref,
-        auto_submit_toolbar=__ret__.auto_submit_toolbar,
-        default_relay_state=__ret__.default_relay_state,
-        destination=__ret__.destination,
-        digest_algorithm=__ret__.digest_algorithm,
-        features=__ret__.features,
-        groups=__ret__.groups,
-        hide_ios=__ret__.hide_ios,
-        hide_web=__ret__.hide_web,
-        honor_force_authn=__ret__.honor_force_authn,
-        id=__ret__.id,
-        idp_issuer=__ret__.idp_issuer,
-        inline_hook_id=__ret__.inline_hook_id,
-        key_id=__ret__.key_id,
-        label=__ret__.label,
-        label_prefix=__ret__.label_prefix,
-        links=__ret__.links,
-        name=__ret__.name,
-        recipient=__ret__.recipient,
-        request_compressed=__ret__.request_compressed,
-        response_signed=__ret__.response_signed,
-        saml_signed_request_enabled=__ret__.saml_signed_request_enabled,
-        signature_algorithm=__ret__.signature_algorithm,
-        single_logout_certificate=__ret__.single_logout_certificate,
-        single_logout_issuer=__ret__.single_logout_issuer,
-        single_logout_url=__ret__.single_logout_url,
-        skip_groups=__ret__.skip_groups,
-        skip_users=__ret__.skip_users,
-        sp_issuer=__ret__.sp_issuer,
-        sso_url=__ret__.sso_url,
-        status=__ret__.status,
-        subject_name_id_format=__ret__.subject_name_id_format,
-        subject_name_id_template=__ret__.subject_name_id_template,
-        user_name_template=__ret__.user_name_template,
-        user_name_template_push_status=__ret__.user_name_template_push_status,
-        user_name_template_suffix=__ret__.user_name_template_suffix,
-        user_name_template_type=__ret__.user_name_template_type,
-        users=__ret__.users)
+        accessibility_error_redirect_url=pulumi.get(__ret__, 'accessibility_error_redirect_url'),
+        accessibility_login_redirect_url=pulumi.get(__ret__, 'accessibility_login_redirect_url'),
+        accessibility_self_service=pulumi.get(__ret__, 'accessibility_self_service'),
+        acs_endpoints=pulumi.get(__ret__, 'acs_endpoints'),
+        active_only=pulumi.get(__ret__, 'active_only'),
+        app_settings_json=pulumi.get(__ret__, 'app_settings_json'),
+        assertion_signed=pulumi.get(__ret__, 'assertion_signed'),
+        attribute_statements=pulumi.get(__ret__, 'attribute_statements'),
+        audience=pulumi.get(__ret__, 'audience'),
+        authn_context_class_ref=pulumi.get(__ret__, 'authn_context_class_ref'),
+        auto_submit_toolbar=pulumi.get(__ret__, 'auto_submit_toolbar'),
+        default_relay_state=pulumi.get(__ret__, 'default_relay_state'),
+        destination=pulumi.get(__ret__, 'destination'),
+        digest_algorithm=pulumi.get(__ret__, 'digest_algorithm'),
+        features=pulumi.get(__ret__, 'features'),
+        groups=pulumi.get(__ret__, 'groups'),
+        hide_ios=pulumi.get(__ret__, 'hide_ios'),
+        hide_web=pulumi.get(__ret__, 'hide_web'),
+        honor_force_authn=pulumi.get(__ret__, 'honor_force_authn'),
+        id=pulumi.get(__ret__, 'id'),
+        idp_issuer=pulumi.get(__ret__, 'idp_issuer'),
+        inline_hook_id=pulumi.get(__ret__, 'inline_hook_id'),
+        key_id=pulumi.get(__ret__, 'key_id'),
+        label=pulumi.get(__ret__, 'label'),
+        label_prefix=pulumi.get(__ret__, 'label_prefix'),
+        links=pulumi.get(__ret__, 'links'),
+        name=pulumi.get(__ret__, 'name'),
+        recipient=pulumi.get(__ret__, 'recipient'),
+        request_compressed=pulumi.get(__ret__, 'request_compressed'),
+        response_signed=pulumi.get(__ret__, 'response_signed'),
+        saml_signed_request_enabled=pulumi.get(__ret__, 'saml_signed_request_enabled'),
+        signature_algorithm=pulumi.get(__ret__, 'signature_algorithm'),
+        single_logout_certificate=pulumi.get(__ret__, 'single_logout_certificate'),
+        single_logout_issuer=pulumi.get(__ret__, 'single_logout_issuer'),
+        single_logout_url=pulumi.get(__ret__, 'single_logout_url'),
+        skip_groups=pulumi.get(__ret__, 'skip_groups'),
+        skip_users=pulumi.get(__ret__, 'skip_users'),
+        sp_issuer=pulumi.get(__ret__, 'sp_issuer'),
+        sso_url=pulumi.get(__ret__, 'sso_url'),
+        status=pulumi.get(__ret__, 'status'),
+        subject_name_id_format=pulumi.get(__ret__, 'subject_name_id_format'),
+        subject_name_id_template=pulumi.get(__ret__, 'subject_name_id_template'),
+        user_name_template=pulumi.get(__ret__, 'user_name_template'),
+        user_name_template_push_status=pulumi.get(__ret__, 'user_name_template_push_status'),
+        user_name_template_suffix=pulumi.get(__ret__, 'user_name_template_suffix'),
+        user_name_template_type=pulumi.get(__ret__, 'user_name_template_type'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_saml)

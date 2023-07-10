@@ -74,5 +74,5 @@ def get_brands(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrand
     __ret__ = pulumi.runtime.invoke('okta:index/getBrands:getBrands', __args__, opts=opts, typ=GetBrandsResult).value
 
     return AwaitableGetBrandsResult(
-        brands=__ret__.brands,
-        id=__ret__.id)
+        brands=pulumi.get(__ret__, 'brands'),
+        id=pulumi.get(__ret__, 'id'))

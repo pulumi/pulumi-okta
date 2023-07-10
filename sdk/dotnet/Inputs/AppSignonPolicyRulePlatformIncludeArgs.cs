@@ -13,7 +13,7 @@ namespace Pulumi.Okta.Inputs
     public sealed class AppSignonPolicyRulePlatformIncludeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Only available when using `os_type = "OTHER"`
+        /// Only available and required when using `os_type = "OTHER"`
         /// </summary>
         [Input("osExpression")]
         public Input<string>? OsExpression { get; set; }

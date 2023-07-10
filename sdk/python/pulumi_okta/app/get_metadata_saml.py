@@ -161,15 +161,15 @@ def get_metadata_saml(app_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:app/getMetadataSaml:getMetadataSaml', __args__, opts=opts, typ=GetMetadataSamlResult).value
 
     return AwaitableGetMetadataSamlResult(
-        app_id=__ret__.app_id,
-        certificate=__ret__.certificate,
-        entity_id=__ret__.entity_id,
-        http_post_binding=__ret__.http_post_binding,
-        http_redirect_binding=__ret__.http_redirect_binding,
-        id=__ret__.id,
-        key_id=__ret__.key_id,
-        metadata=__ret__.metadata,
-        want_authn_requests_signed=__ret__.want_authn_requests_signed)
+        app_id=pulumi.get(__ret__, 'app_id'),
+        certificate=pulumi.get(__ret__, 'certificate'),
+        entity_id=pulumi.get(__ret__, 'entity_id'),
+        http_post_binding=pulumi.get(__ret__, 'http_post_binding'),
+        http_redirect_binding=pulumi.get(__ret__, 'http_redirect_binding'),
+        id=pulumi.get(__ret__, 'id'),
+        key_id=pulumi.get(__ret__, 'key_id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        want_authn_requests_signed=pulumi.get(__ret__, 'want_authn_requests_signed'))
 
 
 @_utilities.lift_output_func(get_metadata_saml)

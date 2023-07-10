@@ -153,15 +153,15 @@ def get_email_customization(brand_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('okta:index/getEmailCustomization:getEmailCustomization', __args__, opts=opts, typ=GetEmailCustomizationResult).value
 
     return AwaitableGetEmailCustomizationResult(
-        body=__ret__.body,
-        brand_id=__ret__.brand_id,
-        customization_id=__ret__.customization_id,
-        id=__ret__.id,
-        is_default=__ret__.is_default,
-        language=__ret__.language,
-        links=__ret__.links,
-        subject=__ret__.subject,
-        template_name=__ret__.template_name)
+        body=pulumi.get(__ret__, 'body'),
+        brand_id=pulumi.get(__ret__, 'brand_id'),
+        customization_id=pulumi.get(__ret__, 'customization_id'),
+        id=pulumi.get(__ret__, 'id'),
+        is_default=pulumi.get(__ret__, 'is_default'),
+        language=pulumi.get(__ret__, 'language'),
+        links=pulumi.get(__ret__, 'links'),
+        subject=pulumi.get(__ret__, 'subject'),
+        template_name=pulumi.get(__ret__, 'template_name'))
 
 
 @_utilities.lift_output_func(get_email_customization)

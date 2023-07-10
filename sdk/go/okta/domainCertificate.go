@@ -30,11 +30,32 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewDomainCertificate(ctx, "test", &okta.DomainCertificateArgs{
-//				DomainId:         pulumi.Any(okta_domain.Test.Id),
-//				Type:             pulumi.String("PEM"),
-//				Certificate:      pulumi.String("-----BEGIN CERTIFICATE-----\nMIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA\n...\nNSgRtSXq11j8O4JONi8EXe7cEtvzUiLR5PL3itsK2svtrZ9jIwQ95wOPaA==\n-----END CERTIFICATE-----\n"),
-//				CertificateChain: pulumi.String("-----BEGIN CERTIFICATE-----\nMIIFFjCCAv6gAwIBAgIRAJErCErPDBinU/bWLiWnX1owDQYJKoZIhvcNAQELBQAw\n...\nDfvp7OOGAN6dEOM4+qR9sdjoSYKEBpsr6GtPAQw4dy753ec5\n-----END CERTIFICATE-----\n"),
-//				PrivateKey:       pulumi.String("-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC5cyk6x63iBJSW\n...\nnUFLNE8pXSnsqb0eOL74f3uQ\n-----END PRIVATE KEY-----\n"),
+//				DomainId: pulumi.Any(okta_domain.Test.Id),
+//				Type:     pulumi.String("PEM"),
+//				Certificate: pulumi.String(`-----BEGIN CERTIFICATE-----
+//
+// MIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA
+// ...
+// NSgRtSXq11j8O4JONi8EXe7cEtvzUiLR5PL3itsK2svtrZ9jIwQ95wOPaA==
+// -----END CERTIFICATE-----
+// `),
+//
+//	CertificateChain: pulumi.String(`-----BEGIN CERTIFICATE-----
+//
+// MIIFFjCCAv6gAwIBAgIRAJErCErPDBinU/bWLiWnX1owDQYJKoZIhvcNAQELBQAw
+// ...
+// Dfvp7OOGAN6dEOM4+qR9sdjoSYKEBpsr6GtPAQw4dy753ec5
+// -----END CERTIFICATE-----
+// `),
+//
+//	PrivateKey: pulumi.String(`-----BEGIN PRIVATE KEY-----
+//
+// MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC5cyk6x63iBJSW
+// ...
+// nUFLNE8pXSnsqb0eOL74f3uQ
+// -----END PRIVATE KEY-----
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

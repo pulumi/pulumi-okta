@@ -126,7 +126,7 @@ func (o AppGroupAssignmentsGroupArrayOutput) Index(i pulumi.IntInput) AppGroupAs
 }
 
 type AppSignonPolicyRulePlatformInclude struct {
-	// Only available when using `osType = "OTHER"`
+	// Only available and required when using `osType = "OTHER"`
 	OsExpression *string `pulumi:"osExpression"`
 	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
 	OsType *string `pulumi:"osType"`
@@ -146,7 +146,7 @@ type AppSignonPolicyRulePlatformIncludeInput interface {
 }
 
 type AppSignonPolicyRulePlatformIncludeArgs struct {
-	// Only available when using `osType = "OTHER"`
+	// Only available and required when using `osType = "OTHER"`
 	OsExpression pulumi.StringPtrInput `pulumi:"osExpression"`
 	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
@@ -205,7 +205,7 @@ func (o AppSignonPolicyRulePlatformIncludeOutput) ToAppSignonPolicyRulePlatformI
 	return o
 }
 
-// Only available when using `osType = "OTHER"`
+// Only available and required when using `osType = "OTHER"`
 func (o AppSignonPolicyRulePlatformIncludeOutput) OsExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.OsExpression }).(pulumi.StringPtrOutput)
 }
