@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-okta/provider/v4
 
-go 1.19
+go 1.20
 
 require (
 	github.com/okta/terraform-provider-okta v0.0.0
