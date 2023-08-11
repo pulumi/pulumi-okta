@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ import (
 //
 // ```
 func GetUserSecurityQuestions(ctx *pulumi.Context, args *GetUserSecurityQuestionsArgs, opts ...pulumi.InvokeOption) (*GetUserSecurityQuestionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserSecurityQuestionsResult
 	err := ctx.Invoke("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args, &rv, opts...)
 	if err != nil {

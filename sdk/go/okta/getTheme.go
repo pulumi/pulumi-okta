@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,6 +15,7 @@ import (
 // [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
 // of a brand for an Okta orgnanization.
 func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.InvokeOption) (*LookupThemeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThemeResult
 	err := ctx.Invoke("okta:index/getTheme:getTheme", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -92,6 +93,7 @@ func NewAuthServerClaimDefault(ctx *pulumi.Context,
 	if args.AuthServerId == nil {
 		return nil, errors.New("invalid value for required argument 'AuthServerId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AuthServerClaimDefault
 	err := ctx.RegisterResource("okta:index/authServerClaimDefault:AuthServerClaimDefault", name, args, &resource, opts...)
 	if err != nil {

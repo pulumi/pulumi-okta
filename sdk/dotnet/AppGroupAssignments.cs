@@ -59,24 +59,6 @@ namespace Pulumi.Okta
     /// and were receiving an API 400 error. This feature may work for older orgs, or
     /// classic orgs, but we can not guarantee for all orgs.
     /// 
-    /// !&gt; **NOTE** When using this resource in conjunction with other application
-    /// resources (e.g. `okta.app.OAuth`) it is advisable to add the following
-    /// `lifecycle` argument to the associated `app_*` resources to prevent the groups
-    /// being unassigned on subsequent runs:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new Okta.App.OAuth("app");
-    /// 
-    /// });
-    /// ```
-    /// 
     /// &gt; **IMPORTANT:** When using `okta.AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
     /// 
     /// ## Import

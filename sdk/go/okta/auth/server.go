@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -90,6 +91,7 @@ func NewServer(ctx *pulumi.Context,
 	if args.Audiences == nil {
 		return nil, errors.New("invalid value for required argument 'Audiences'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Server
 	err := ctx.RegisterResource("okta:auth/server:Server", name, args, &resource, opts...)
 	if err != nil {

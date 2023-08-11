@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,6 +81,7 @@ func NewBrand(ctx *pulumi.Context,
 		args = &BrandArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Brand
 	err := ctx.RegisterResource("okta:index/brand:Brand", name, args, &resource, opts...)
 	if err != nil {

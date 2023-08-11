@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -118,6 +119,7 @@ func NewLinkValue(ctx *pulumi.Context,
 	if args.PrimaryUserId == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryUserId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkValue
 	err := ctx.RegisterResource("okta:index/linkValue:LinkValue", name, args, &resource, opts...)
 	if err != nil {

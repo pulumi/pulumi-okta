@@ -90,6 +90,26 @@ namespace Pulumi.Okta.App
     /// `omit_secret` and run apply again. The resource will set a new `client_secret`
     /// for the app.
     /// 
+    /// ### Private Keys
+    /// 
+    /// The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
+    /// The operator either uploads their own private key or Okta can generate one in
+    /// the Admin UI Panel under the apps Client Credentials. PKCS#8 format can be
+    /// identified by a header that starts with `-----BEGIN PRIVATE KEY-----`. If the
+    /// operator has a PKCS#1 (unencrypted) format private key (the header starts with
+    /// `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
+    /// key with `openssl`:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// An OIDC Application can be imported via the Okta ID.
@@ -242,7 +262,7 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<Outputs.OAuthJwk>> Jwks { get; private set; } = null!;
 
         /// <summary>
-        /// URL reference to JWKS
+        /// URL of the custom authorization server's JSON Web Key Set document.
         /// </summary>
         [Output("jwksUri")]
         public Output<string?> JwksUri { get; private set; } = null!;
@@ -638,7 +658,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// URL reference to JWKS
+        /// URL of the custom authorization server's JSON Web Key Set document.
         /// </summary>
         [Input("jwksUri")]
         public Input<string>? JwksUri { get; set; }
@@ -1013,7 +1033,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// URL reference to JWKS
+        /// URL of the custom authorization server's JSON Web Key Set document.
         /// </summary>
         [Input("jwksUri")]
         public Input<string>? JwksUri { get; set; }

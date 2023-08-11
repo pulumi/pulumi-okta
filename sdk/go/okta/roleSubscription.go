@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -101,6 +102,7 @@ func NewRoleSubscription(ctx *pulumi.Context,
 	if args.RoleType == nil {
 		return nil, errors.New("invalid value for required argument 'RoleType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoleSubscription
 	err := ctx.RegisterResource("okta:index/roleSubscription:RoleSubscription", name, args, &resource, opts...)
 	if err != nil {

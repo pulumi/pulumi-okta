@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetMetadataSaml(ctx *pulumi.Context, args *GetMetadataSamlArgs, opts ...pulumi.InvokeOption) (*GetMetadataSamlResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMetadataSamlResult
 	err := ctx.Invoke("okta:idp/getMetadataSaml:getMetadataSaml", args, &rv, opts...)
 	if err != nil {

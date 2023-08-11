@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve a behavior from Okta.
 func LookupBehaviour(ctx *pulumi.Context, args *LookupBehaviourArgs, opts ...pulumi.InvokeOption) (*LookupBehaviourResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBehaviourResult
 	err := ctx.Invoke("okta:index/getBehaviour:getBehaviour", args, &rv, opts...)
 	if err != nil {

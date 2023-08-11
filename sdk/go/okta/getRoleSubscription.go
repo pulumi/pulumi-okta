@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupRoleSubscription(ctx *pulumi.Context, args *LookupRoleSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupRoleSubscriptionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoleSubscriptionResult
 	err := ctx.Invoke("okta:index/getRoleSubscription:getRoleSubscription", args, &rv, opts...)
 	if err != nil {

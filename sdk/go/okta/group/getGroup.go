@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGroupResult
 	err := ctx.Invoke("okta:group/getGroup:getGroup", args, &rv, opts...)
 	if err != nil {
@@ -67,10 +69,10 @@ type LookupGroupResult struct {
 	// description of group.
 	Description string `pulumi:"description"`
 	// ID of group.
-	Id           *string `pulumi:"id"`
-	IncludeUsers *bool   `pulumi:"includeUsers"`
+	Id           string `pulumi:"id"`
+	IncludeUsers *bool  `pulumi:"includeUsers"`
 	// name of group.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// type of group.
 	Type *string `pulumi:"type"`
 	// user ids that are members of this group, only included if `includeUsers` is set to `true`.
@@ -134,8 +136,8 @@ func (o LookupGroupResultOutput) Description() pulumi.StringOutput {
 }
 
 // ID of group.
-func (o LookupGroupResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupGroupResultOutput) IncludeUsers() pulumi.BoolPtrOutput {
@@ -143,8 +145,8 @@ func (o LookupGroupResultOutput) IncludeUsers() pulumi.BoolPtrOutput {
 }
 
 // name of group.
-func (o LookupGroupResultOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o LookupGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // type of group.

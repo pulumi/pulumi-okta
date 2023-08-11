@@ -106,6 +106,38 @@ import javax.annotation.Nullable;
  * `omit_secret` and run apply again. The resource will set a new `client_secret`
  * for the app.
  * 
+ * ### Private Keys
+ * 
+ * The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
+ * The operator either uploads their own private key or Okta can generate one in
+ * the Admin UI Panel under the apps Client Credentials. PKCS#8 format can be
+ * identified by a header that starts with `-----BEGIN PRIVATE KEY-----`. If the
+ * operator has a PKCS#1 (unencrypted) format private key (the header starts with
+ * `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
+ * key with `openssl`:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * An OIDC Application can be imported via the Okta ID.
@@ -442,14 +474,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.jwks);
     }
     /**
-     * URL reference to JWKS
+     * URL of the custom authorization server&#39;s JSON Web Key Set document.
      * 
      */
     @Export(name="jwksUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> jwksUri;
 
     /**
-     * @return URL reference to JWKS
+     * @return URL of the custom authorization server&#39;s JSON Web Key Set document.
      * 
      */
     public Output<Optional<String>> jwksUri() {

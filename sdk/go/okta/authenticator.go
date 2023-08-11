@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -129,6 +130,7 @@ func NewAuthenticator(ctx *pulumi.Context,
 		"providerSharedSecret",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Authenticator
 	err := ctx.RegisterResource("okta:index/authenticator:Authenticator", name, args, &resource, opts...)
 	if err != nil {

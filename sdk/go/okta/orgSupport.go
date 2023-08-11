@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,6 +61,7 @@ func NewOrgSupport(ctx *pulumi.Context,
 		args = &OrgSupportArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrgSupport
 	err := ctx.RegisterResource("okta:index/orgSupport:OrgSupport", name, args, &resource, opts...)
 	if err != nil {

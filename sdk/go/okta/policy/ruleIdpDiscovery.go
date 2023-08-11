@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -152,6 +153,7 @@ func NewRuleIdpDiscovery(ctx *pulumi.Context,
 		args = &RuleIdpDiscoveryArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RuleIdpDiscovery
 	err := ctx.RegisterResource("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", name, args, &resource, opts...)
 	if err != nil {

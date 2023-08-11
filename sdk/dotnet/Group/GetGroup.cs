@@ -159,12 +159,12 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// ID of group.
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         public readonly bool? IncludeUsers;
         /// <summary>
         /// name of group.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// type of group.
         /// </summary>
@@ -180,11 +180,11 @@ namespace Pulumi.Okta.Group
 
             string description,
 
-            string? id,
+            string id,
 
             bool? includeUsers,
 
-            string? name,
+            string name,
 
             string? type,
 

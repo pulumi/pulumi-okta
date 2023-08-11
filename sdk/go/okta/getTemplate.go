@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,6 +15,7 @@ import (
 // template](https://developer.okta.com/docs/reference/api/brands/#email-template)
 // of a brand in an Okta organization.
 func GetTemplate(ctx *pulumi.Context, args *GetTemplateArgs, opts ...pulumi.InvokeOption) (*GetTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTemplateResult
 	err := ctx.Invoke("okta:index/getTemplate:getTemplate", args, &rv, opts...)
 	if err != nil {

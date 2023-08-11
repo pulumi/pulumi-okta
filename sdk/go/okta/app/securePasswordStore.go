@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -140,6 +141,7 @@ func NewSecurePasswordStore(ctx *pulumi.Context,
 	if args.UsernameField == nil {
 		return nil, errors.New("invalid value for required argument 'UsernameField'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurePasswordStore
 	err := ctx.RegisterResource("okta:app/securePasswordStore:SecurePasswordStore", name, args, &resource, opts...)
 	if err != nil {

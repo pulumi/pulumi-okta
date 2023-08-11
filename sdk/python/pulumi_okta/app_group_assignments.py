@@ -137,18 +137,6 @@ class AppGroupAssignments(pulumi.CustomResource):
         and were receiving an API 400 error. This feature may work for older orgs, or
         classic orgs, but we can not guarantee for all orgs.
 
-        !> **NOTE** When using this resource in conjunction with other application
-        resources (e.g. `app.OAuth`) it is advisable to add the following
-        `lifecycle` argument to the associated `app_*` resources to prevent the groups
-        being unassigned on subsequent runs:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        app = okta.app.OAuth("app")
-        ```
-
         > **IMPORTANT:** When using `AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
 
         ## Import
@@ -207,18 +195,6 @@ class AppGroupAssignments(pulumi.CustomResource):
         verify this works when writing a new integration test against this old feature
         and were receiving an API 400 error. This feature may work for older orgs, or
         classic orgs, but we can not guarantee for all orgs.
-
-        !> **NOTE** When using this resource in conjunction with other application
-        resources (e.g. `app.OAuth`) it is advisable to add the following
-        `lifecycle` argument to the associated `app_*` resources to prevent the groups
-        being unassigned on subsequent runs:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        app = okta.app.OAuth("app")
-        ```
 
         > **IMPORTANT:** When using `AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
 

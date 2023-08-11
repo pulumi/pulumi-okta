@@ -54,6 +54,20 @@ import * as utilities from "../utilities";
  * `omitSecret` and run apply again. The resource will set a new `clientSecret`
  * for the app.
  *
+ * ### Private Keys
+ *
+ * The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
+ * The operator either uploads their own private key or Okta can generate one in
+ * the Admin UI Panel under the apps Client Credentials. PKCS#8 format can be
+ * identified by a header that starts with `-----BEGIN PRIVATE KEY-----`. If the
+ * operator has a PKCS#1 (unencrypted) format private key (the header starts with
+ * `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
+ * key with `openssl`:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ *
  * ## Import
  *
  * An OIDC Application can be imported via the Okta ID.
@@ -187,7 +201,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly jwks!: pulumi.Output<outputs.app.OAuthJwk[] | undefined>;
     /**
-     * URL reference to JWKS
+     * URL of the custom authorization server's JSON Web Key Set document.
      */
     public readonly jwksUri!: pulumi.Output<string | undefined>;
     /**
@@ -550,7 +564,7 @@ export interface OAuthState {
      */
     jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
     /**
-     * URL reference to JWKS
+     * URL of the custom authorization server's JSON Web Key Set document.
      */
     jwksUri?: pulumi.Input<string>;
     /**
@@ -781,7 +795,7 @@ export interface OAuthArgs {
      */
     jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
     /**
-     * URL reference to JWKS
+     * URL of the custom authorization server's JSON Web Key Set document.
      */
     jwksUri?: pulumi.Input<string>;
     /**

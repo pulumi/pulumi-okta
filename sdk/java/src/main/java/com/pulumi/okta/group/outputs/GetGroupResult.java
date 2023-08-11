@@ -23,13 +23,13 @@ public final class GetGroupResult {
      * @return ID of group.
      * 
      */
-    private @Nullable String id;
+    private String id;
     private @Nullable Boolean includeUsers;
     /**
      * @return name of group.
      * 
      */
-    private @Nullable String name;
+    private String name;
     /**
      * @return type of group.
      * 
@@ -56,8 +56,8 @@ public final class GetGroupResult {
      * @return ID of group.
      * 
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    public String id() {
+        return this.id;
     }
     public Optional<Boolean> includeUsers() {
         return Optional.ofNullable(this.includeUsers);
@@ -66,8 +66,8 @@ public final class GetGroupResult {
      * @return name of group.
      * 
      */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public String name() {
+        return this.name;
     }
     /**
      * @return type of group.
@@ -95,9 +95,9 @@ public final class GetGroupResult {
     public static final class Builder {
         private @Nullable String delayReadSeconds;
         private String description;
-        private @Nullable String id;
+        private String id;
         private @Nullable Boolean includeUsers;
-        private @Nullable String name;
+        private String name;
         private @Nullable String type;
         private List<String> users;
         public Builder() {}
@@ -123,8 +123,8 @@ public final class GetGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(@Nullable String id) {
-            this.id = id;
+        public Builder id(String id) {
+            this.id = Objects.requireNonNull(id);
             return this;
         }
         @CustomType.Setter
@@ -133,8 +133,8 @@ public final class GetGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(@Nullable String name) {
-            this.name = name;
+        public Builder name(String name) {
+            this.name = Objects.requireNonNull(name);
             return this;
         }
         @CustomType.Setter

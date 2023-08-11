@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -98,6 +99,7 @@ func NewLinkDefinition(ctx *pulumi.Context,
 	if args.PrimaryTitle == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryTitle'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkDefinition
 	err := ctx.RegisterResource("okta:index/linkDefinition:LinkDefinition", name, args, &resource, opts...)
 	if err != nil {

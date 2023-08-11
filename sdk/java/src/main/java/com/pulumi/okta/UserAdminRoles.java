@@ -21,9 +21,6 @@ import javax.annotation.Nullable;
  * 
  * This resource allows you to manage admin roles for a single user, independent of the user schema itself.
  * 
- * When using this with a `okta.user.User` resource, you should add a lifecycle ignore for admin roles to avoid conflicts
- * in desired state.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

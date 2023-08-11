@@ -44,18 +44,6 @@ import * as utilities from "./utilities";
  * and were receiving an API 400 error. This feature may work for older orgs, or
  * classic orgs, but we can not guarantee for all orgs.
  *
- * !> **NOTE** When using this resource in conjunction with other application
- * resources (e.g. `okta.app.OAuth`) it is advisable to add the following
- * `lifecycle` argument to the associated `app_*` resources to prevent the groups
- * being unassigned on subsequent runs:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const app = new okta.app.OAuth("app", {});
- * ```
- *
  * > **IMPORTANT:** When using `okta.AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
  *
  * ## Import

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -83,6 +84,7 @@ func NewServerScope(ctx *pulumi.Context,
 	if args.AuthServerId == nil {
 		return nil, errors.New("invalid value for required argument 'AuthServerId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerScope
 	err := ctx.RegisterResource("okta:auth/serverScope:ServerScope", name, args, &resource, opts...)
 	if err != nil {

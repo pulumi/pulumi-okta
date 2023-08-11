@@ -65,6 +65,21 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * List of device assurances IDs to be included.
+     * 
+     */
+    @Import(name="deviceAssurancesIncludeds")
+    private @Nullable Output<List<String>> deviceAssurancesIncludeds;
+
+    /**
+     * @return List of device assurances IDs to be included.
+     * 
+     */
+    public Optional<Output<List<String>>> deviceAssurancesIncludeds() {
+        return Optional.ofNullable(this.deviceAssurancesIncludeds);
+    }
+
+    /**
      * If the device is managed. A device is managed if it&#39;s managed by a device management
      * system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
      * 
@@ -374,6 +389,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         this.access = $.access;
         this.constraints = $.constraints;
         this.customExpression = $.customExpression;
+        this.deviceAssurancesIncludeds = $.deviceAssurancesIncludeds;
         this.deviceIsManaged = $.deviceIsManaged;
         this.deviceIsRegistered = $.deviceIsRegistered;
         this.factorMode = $.factorMode;
@@ -485,6 +501,37 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
          */
         public Builder customExpression(String customExpression) {
             return customExpression(Output.of(customExpression));
+        }
+
+        /**
+         * @param deviceAssurancesIncludeds List of device assurances IDs to be included.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceAssurancesIncludeds(@Nullable Output<List<String>> deviceAssurancesIncludeds) {
+            $.deviceAssurancesIncludeds = deviceAssurancesIncludeds;
+            return this;
+        }
+
+        /**
+         * @param deviceAssurancesIncludeds List of device assurances IDs to be included.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceAssurancesIncludeds(List<String> deviceAssurancesIncludeds) {
+            return deviceAssurancesIncludeds(Output.of(deviceAssurancesIncludeds));
+        }
+
+        /**
+         * @param deviceAssurancesIncludeds List of device assurances IDs to be included.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deviceAssurancesIncludeds(String... deviceAssurancesIncludeds) {
+            return deviceAssurancesIncludeds(List.of(deviceAssurancesIncludeds));
         }
 
         /**

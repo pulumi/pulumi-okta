@@ -95,7 +95,7 @@ class OAuthArgs:
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
-        :param pulumi.Input[str] jwks_uri: URL reference to JWKS
+        :param pulumi.Input[str] jwks_uri: URL of the custom authorization server's JSON Web Key Set document.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
@@ -519,7 +519,7 @@ class OAuthArgs:
     @pulumi.getter(name="jwksUri")
     def jwks_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        URL reference to JWKS
+        URL of the custom authorization server's JSON Web Key Set document.
         """
         return pulumi.get(self, "jwks_uri")
 
@@ -898,7 +898,7 @@ class _OAuthState:
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
-        :param pulumi.Input[str] jwks_uri: URL reference to JWKS
+        :param pulumi.Input[str] jwks_uri: URL of the custom authorization server's JSON Web Key Set document.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -1325,7 +1325,7 @@ class _OAuthState:
     @pulumi.getter(name="jwksUri")
     def jwks_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        URL reference to JWKS
+        URL of the custom authorization server's JSON Web Key Set document.
         """
         return pulumi.get(self, "jwks_uri")
 
@@ -1777,6 +1777,20 @@ class OAuth(pulumi.CustomResource):
         `omit_secret` and run apply again. The resource will set a new `client_secret`
         for the app.
 
+        ### Private Keys
+
+        The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
+        The operator either uploads their own private key or Okta can generate one in
+        the Admin UI Panel under the apps Client Credentials. PKCS#8 format can be
+        identified by a header that starts with `-----BEGIN PRIVATE KEY-----`. If the
+        operator has a PKCS#1 (unencrypted) format private key (the header starts with
+        `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
+        key with `openssl`:
+
+        ```python
+        import pulumi
+        ```
+
         ## Import
 
         An OIDC Application can be imported via the Okta ID.
@@ -1816,7 +1830,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
-        :param pulumi.Input[str] jwks_uri: URL reference to JWKS
+        :param pulumi.Input[str] jwks_uri: URL of the custom authorization server's JSON Web Key Set document.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -1914,6 +1928,20 @@ class OAuth(pulumi.CustomResource):
         true in the resource. This causes `client_secret` to be set to blank. Remove
         `omit_secret` and run apply again. The resource will set a new `client_secret`
         for the app.
+
+        ### Private Keys
+
+        The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
+        The operator either uploads their own private key or Okta can generate one in
+        the Admin UI Panel under the apps Client Credentials. PKCS#8 format can be
+        identified by a header that starts with `-----BEGIN PRIVATE KEY-----`. If the
+        operator has a PKCS#1 (unencrypted) format private key (the header starts with
+        `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
+        key with `openssl`:
+
+        ```python
+        import pulumi
+        ```
 
         ## Import
 
@@ -2146,7 +2174,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
-        :param pulumi.Input[str] jwks_uri: URL reference to JWKS
+        :param pulumi.Input[str] jwks_uri: URL of the custom authorization server's JSON Web Key Set document.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -2440,7 +2468,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="jwksUri")
     def jwks_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        URL reference to JWKS
+        URL of the custom authorization server's JSON Web Key Set document.
         """
         return pulumi.get(self, "jwks_uri")
 

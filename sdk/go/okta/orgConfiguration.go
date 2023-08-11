@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -100,6 +101,7 @@ func NewOrgConfiguration(ctx *pulumi.Context,
 	if args.CompanyName == nil {
 		return nil, errors.New("invalid value for required argument 'CompanyName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrgConfiguration
 	err := ctx.RegisterResource("okta:index/orgConfiguration:OrgConfiguration", name, args, &resource, opts...)
 	if err != nil {

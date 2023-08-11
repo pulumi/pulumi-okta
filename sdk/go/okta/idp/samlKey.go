@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ func NewSamlKey(ctx *pulumi.Context,
 	if args.X5cs == nil {
 		return nil, errors.New("invalid value for required argument 'X5cs'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SamlKey
 	err := ctx.RegisterResource("okta:idp/samlKey:SamlKey", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupUserType(ctx *pulumi.Context, args *LookupUserTypeArgs, opts ...pulumi.InvokeOption) (*LookupUserTypeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserTypeResult
 	err := ctx.Invoke("okta:user/getUserType:getUserType", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,33 +71,6 @@ import (
 // and were receiving an API 400 error. This feature may work for older orgs, or
 // classic orgs, but we can not guarantee for all orgs.
 //
-// !> **NOTE** When using this resource in conjunction with other application
-// resources (e.g. `app.OAuth`) it is advisable to add the following
-// `lifecycle` argument to the associated `app_*` resources to prevent the groups
-// being unassigned on subsequent runs:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := app.NewOAuth(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // > **IMPORTANT:** When using `AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
 //
 // ## Import
@@ -130,6 +104,7 @@ func NewAppGroupAssignments(ctx *pulumi.Context,
 	if args.Groups == nil {
 		return nil, errors.New("invalid value for required argument 'Groups'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppGroupAssignments
 	err := ctx.RegisterResource("okta:index/appGroupAssignments:AppGroupAssignments", name, args, &resource, opts...)
 	if err != nil {

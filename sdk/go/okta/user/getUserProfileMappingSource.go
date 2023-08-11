@@ -4,6 +4,7 @@
 package user
 
 import (
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ import (
 //
 // ```
 func GetUserProfileMappingSource(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetUserProfileMappingSourceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserProfileMappingSourceResult
 	err := ctx.Invoke("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", nil, &rv, opts...)
 	if err != nil {

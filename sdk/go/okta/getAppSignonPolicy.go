@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupAppSignonPolicy(ctx *pulumi.Context, args *LookupAppSignonPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAppSignonPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppSignonPolicyResult
 	err := ctx.Invoke("okta:index/getAppSignonPolicy:getAppSignonPolicy", args, &rv, opts...)
 	if err != nil {

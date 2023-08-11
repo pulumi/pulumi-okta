@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -140,6 +141,7 @@ func NewPolicyMfaDefault(ctx *pulumi.Context,
 		args = &PolicyMfaDefaultArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyMfaDefault
 	err := ctx.RegisterResource("okta:index/policyMfaDefault:PolicyMfaDefault", name, args, &resource, opts...)
 	if err != nil {

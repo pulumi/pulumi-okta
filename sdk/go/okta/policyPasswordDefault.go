@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -123,6 +124,7 @@ func NewPolicyPasswordDefault(ctx *pulumi.Context,
 		args = &PolicyPasswordDefaultArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyPasswordDefault
 	err := ctx.RegisterResource("okta:index/policyPasswordDefault:PolicyPasswordDefault", name, args, &resource, opts...)
 	if err != nil {

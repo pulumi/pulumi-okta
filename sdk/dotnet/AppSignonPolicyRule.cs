@@ -117,234 +117,6 @@ namespace Pulumi.Okta
     /// 
     /// More examples can be
     /// found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
-    /// ### Complex example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testSaml = new Okta.App.Saml("testSaml", new()
-    ///     {
-    ///         Label = "testAcc_replace_with_uuid",
-    ///         SsoUrl = "https://google.com",
-    ///         Recipient = "https://here.com",
-    ///         Destination = "https://its-about-the-journey.com",
-    ///         Audience = "https://audience.com",
-    ///         SubjectNameIdTemplate = "${user.userName}",
-    ///         SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-    ///         ResponseSigned = true,
-    ///         SignatureAlgorithm = "RSA_SHA256",
-    ///         DigestAlgorithm = "SHA256",
-    ///         HonorForceAuthn = false,
-    ///         AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-    ///         SingleLogoutIssuer = "https://dunshire.okta.com",
-    ///         SingleLogoutUrl = "https://dunshire.okta.com/logout",
-    ///         SingleLogoutCertificate = @"MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV
-    /// BAgMBU1haW5lMRAwDgYDVQQHDAdDYXJpYm91MRcwFQYDVQQKDA5Tbm93bWFrZXJzIEluYzEUMBIG
-    /// A1UECwwLRW5naW5lZXJpbmcxDTALBgNVBAMMBFNub3cxIDAeBgkqhkiG9w0BCQEWEWVtYWlsQGV4
-    /// YW1wbGUuY29tMB4XDTIwMTIwMzIyNDY0M1oXDTMwMTIwMTIyNDY0M1owgY8xCzAJBgNVBAYTAlVT
-    /// MQ4wDAYDVQQIDAVNYWluZTEQMA4GA1UEBwwHQ2FyaWJvdTEXMBUGA1UECgwOU25vd21ha2VycyBJ
-    /// bmMxFDASBgNVBAsMC0VuZ2luZWVyaW5nMQ0wCwYDVQQDDARTbm93MSAwHgYJKoZIhvcNAQkBFhFl
-    /// bWFpbEBleGFtcGxlLmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBANMmWDjXPdoa
-    /// PyzIENqeY9njLan2FqCbQPSestWUUcb6NhDsJVGSQ7XR+ozQA5TaJzbP7cAJUj8vCcbqMZsgOQAu
-    /// O/pzYyQEKptLmrGvPn7xkJ1A1xLkp2NY18cpDTeUPueJUoidZ9EJwEuyUZIktzxNNU1pA1lGijiu
-    /// 2XNxs9d9JR/hm3tCu9Im8qLVB4JtX80YUa6QtlRjWR/H8a373AYCOASdoB3c57fIPD8ATDNy2w/c
-    /// fCVGiyKDMFB+GA/WTsZpOP3iohRp8ltAncSuzypcztb2iE+jijtTsiC9kUA2abAJqqpoCJubNShi
-    /// Vff4822czpziS44MV2guC9wANi8u3Uyl5MKsU95j01jzadKRP5S+2f0K+n8n4UoV9fnqZFyuGAKd
-    /// CJi9K6NlSAP+TgPe/JP9FOSuxQOHWJfmdLHdJD+evoKi9E55sr5lRFK0xU1Fj5Ld7zjC0pXPhtJf
-    /// sgjEZzD433AsHnRzvRT1KSNCPkLYomznZo5n9rWYgCQ8HcytlQDTesmKE+s05E/VSWNtH84XdDrt
-    /// ieXwfwhHfaABSu+WjZYxi9CXdFCSvXhsgufUcK4FbYAHl/ga/cJxZc52yFC7Pcq0u9O2BSCjYPdQ
-    /// DAHs9dhT1RhwVLM8RmoAzgxyyzau0gxnAlgSBD9FMW6dXqIHIp8yAAg9cRXhYRTNAgMBAAEwDQYJ
-    /// KoZIhvcNAQELBQADggIBADofEC1SvG8qa7pmKCjB/E9Sxhk3mvUO9Gq43xzwVb721Ng3VYf4vGU3
-    /// wLUwJeLt0wggnj26NJweN5T3q9T8UMxZhHSWvttEU3+S1nArRB0beti716HSlOCDx4wTmBu/D1MG
-    /// t/kZYFJw+zuzvAcbYct2pK69AQhD8xAIbQvqADJI7cCK3yRry+aWtppc58P81KYabUlCfFXfhJ9E
-    /// P72ffN4jVHpX3lxxYh7FKAdiKbY2FYzjsc7RdgKI1R3iAAZUCGBTvezNzaetGzTUjjl/g1tcVYij
-    /// ltH9ZOQBPlUMI88lxUxqgRTerpPmAJH00CACx4JFiZrweLM1trZyy06wNDQgLrqHr3EOagBF/O2h
-    /// hfTehNdVr6iq3YhKWBo4/+RL0RCzHMh4u86VbDDnDn4Y6HzLuyIAtBFoikoKM6UHTOa0Pqv2bBr5
-    /// wbkRkVUxl9yJJw/HmTCdfnsM9dTOJUKzEglnGF2184Gg+qJDZB6fSf0EAO1F6sTqiSswl+uHQZiy
-    /// DaZzyU7Gg5seKOZ20zTRaX3Ihj9Zij/ORnrARE7eM/usKMECp+7syUwAUKxDCZkGiUdskmOhhBGL
-    /// JtbyK3F2UvoJoLsm3pIcvMak9KwMjSTGJB47ABUP1+w+zGcNk0D5Co3IJ6QekiLfWJyQ+kKsWLKt
-    /// zOYQQatrnBagM7MI2/T4
-    /// ",
-    ///         AttributeStatements = new[]
-    ///         {
-    ///             new Okta.App.Inputs.SamlAttributeStatementArgs
-    ///             {
-    ///                 Type = "GROUP",
-    ///                 Name = "groups",
-    ///                 FilterType = "REGEX",
-    ///                 FilterValue = ".*",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testAppSignonPolicy = Okta.GetAppSignonPolicy.Invoke(new()
-    ///     {
-    ///         AppId = testSaml.Id,
-    ///     });
-    /// 
-    ///     var testUser = new List&lt;Okta.User.User&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         testUser.Add(new Okta.User.User($"testUser-{range.Value}", new()
-    ///         {
-    ///             FirstName = "TestAcc",
-    ///             LastName = "Smith",
-    ///             Login = $"testAcc_{range.Value}@example.com",
-    ///             Email = $"testAcc_{range.Value}@example.com",
-    ///         }));
-    ///     }
-    ///     var @this = new List&lt;Okta.Group.Group&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         @this.Add(new Okta.Group.Group($"this-{range.Value}", new()
-    ///         {
-    ///             Description = $"testAcc_{range.Value}",
-    ///         }));
-    ///     }
-    ///     var testUserType = new Okta.User.UserType("testUserType", new()
-    ///     {
-    ///         DisplayName = "Terraform Acceptance Test User Type Updated",
-    ///         Description = "Terraform Acceptance Test User Type Updated",
-    ///     });
-    /// 
-    ///     var testZone = new Okta.Network.Zone("testZone", new()
-    ///     {
-    ///         Type = "IP",
-    ///         Gateways = new[]
-    ///         {
-    ///             "1.2.3.4/24",
-    ///             "2.3.4.5-2.3.4.15",
-    ///         },
-    ///         Proxies = new[]
-    ///         {
-    ///             "2.2.3.4/24",
-    ///             "3.3.4.5-3.3.4.15",
-    ///         },
-    ///     });
-    /// 
-    ///     var @default = Okta.User.GetUserType.Invoke(new()
-    ///     {
-    ///         Name = "user",
-    ///     });
-    /// 
-    ///     var testAppSignonPolicyRule = new Okta.AppSignonPolicyRule("testAppSignonPolicyRule", new()
-    ///     {
-    ///         PolicyId = testAppSignonPolicy.Apply(getAppSignonPolicyResult =&gt; getAppSignonPolicyResult.Id),
-    ///         Access = "ALLOW",
-    ///         CustomExpression = "user.status == \"ACTIVE\"",
-    ///         DeviceIsManaged = false,
-    ///         DeviceIsRegistered = true,
-    ///         FactorMode = "2FA",
-    ///         GroupsExcludeds = new[]
-    ///         {
-    ///             @this[2].Id,
-    ///             @this[3].Id,
-    ///             @this[4].Id,
-    ///         },
-    ///         GroupsIncludeds = new[]
-    ///         {
-    ///             @this[0].Id,
-    ///             @this[1].Id,
-    ///         },
-    ///         NetworkConnection = "ZONE",
-    ///         NetworkIncludes = new[]
-    ///         {
-    ///             testZone.Id,
-    ///         },
-    ///         PlatformIncludes = new[]
-    ///         {
-    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///             {
-    ///                 OsType = "ANDROID",
-    ///                 Type = "MOBILE",
-    ///             },
-    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///             {
-    ///                 OsType = "IOS",
-    ///                 Type = "MOBILE",
-    ///             },
-    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///             {
-    ///                 OsType = "MACOS",
-    ///                 Type = "DESKTOP",
-    ///             },
-    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///             {
-    ///                 OsType = "OTHER",
-    ///                 Type = "DESKTOP",
-    ///             },
-    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///             {
-    ///                 OsType = "OTHER",
-    ///                 Type = "MOBILE",
-    ///             },
-    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
-    ///             {
-    ///                 OsType = "WINDOWS",
-    ///                 Type = "DESKTOP",
-    ///             },
-    ///         },
-    ///         Priority = 98,
-    ///         ReAuthenticationFrequency = "PT43800H",
-    ///         Type = "ASSURANCE",
-    ///         UserTypesExcludeds = new[]
-    ///         {
-    ///             testUserType.Id,
-    ///         },
-    ///         UserTypesIncludeds = new[]
-    ///         {
-    ///             @default.Apply(@default =&gt; @default.Apply(getUserTypeResult =&gt; getUserTypeResult.Id)),
-    ///         },
-    ///         UsersExcludeds = new[]
-    ///         {
-    ///             testUser[2].Id,
-    ///             testUser[3].Id,
-    ///             testUser[4].Id,
-    ///         },
-    ///         UsersIncludeds = new[]
-    ///         {
-    ///             testUser[0].Id,
-    ///             testUser[1].Id,
-    ///         },
-    ///         Constraints = new[]
-    ///         {
-    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["knowledge"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["reauthenticateIn"] = "PT2H",
-    ///                     ["types"] = new[]
-    ///                     {
-    ///                         "password",
-    ///                     },
-    ///                 },
-    ///                 ["possession"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["deviceBound"] = "REQUIRED",
-    ///                 },
-    ///             }),
-    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["possession"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["deviceBound"] = "REQUIRED",
-    ///                     ["hardwareProtection"] = "REQUIRED",
-    ///                     ["userPresence"] = "OPTIONAL",
-    ///                 },
-    ///             }),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
@@ -374,6 +146,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Output("customExpression")]
         public Output<string?> CustomExpression { get; private set; } = null!;
+
+        /// <summary>
+        /// List of device assurances IDs to be included.
+        /// </summary>
+        [Output("deviceAssurancesIncludeds")]
+        public Output<ImmutableArray<string>> DeviceAssurancesIncludeds { get; private set; } = null!;
 
         /// <summary>
         /// If the device is managed. A device is managed if it's managed by a device management
@@ -566,6 +344,18 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("customExpression")]
         public Input<string>? CustomExpression { get; set; }
+
+        [Input("deviceAssurancesIncludeds")]
+        private InputList<string>? _deviceAssurancesIncludeds;
+
+        /// <summary>
+        /// List of device assurances IDs to be included.
+        /// </summary>
+        public InputList<string> DeviceAssurancesIncludeds
+        {
+            get => _deviceAssurancesIncludeds ?? (_deviceAssurancesIncludeds = new InputList<string>());
+            set => _deviceAssurancesIncludeds = value;
+        }
 
         /// <summary>
         /// If the device is managed. A device is managed if it's managed by a device management
@@ -774,6 +564,18 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("customExpression")]
         public Input<string>? CustomExpression { get; set; }
+
+        [Input("deviceAssurancesIncludeds")]
+        private InputList<string>? _deviceAssurancesIncludeds;
+
+        /// <summary>
+        /// List of device assurances IDs to be included.
+        /// </summary>
+        public InputList<string> DeviceAssurancesIncludeds
+        {
+            get => _deviceAssurancesIncludeds ?? (_deviceAssurancesIncludeds = new InputList<string>());
+            set => _deviceAssurancesIncludeds = value;
+        }
 
         /// <summary>
         /// If the device is managed. A device is managed if it's managed by a device management

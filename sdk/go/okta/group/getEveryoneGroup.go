@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ import (
 //
 // ```
 func GetEveryoneGroup(ctx *pulumi.Context, args *GetEveryoneGroupArgs, opts ...pulumi.InvokeOption) (*GetEveryoneGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEveryoneGroupResult
 	err := ctx.Invoke("okta:group/getEveryoneGroup:getEveryoneGroup", args, &rv, opts...)
 	if err != nil {

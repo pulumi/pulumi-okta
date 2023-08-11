@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,6 +52,7 @@ func NewAdminRoleCustomAssignments(ctx *pulumi.Context,
 	if args.ResourceSetId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceSetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AdminRoleCustomAssignments
 	err := ctx.RegisterResource("okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments", name, args, &resource, opts...)
 	if err != nil {

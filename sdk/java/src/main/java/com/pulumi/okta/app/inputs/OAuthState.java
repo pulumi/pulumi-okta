@@ -367,14 +367,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * URL reference to JWKS
+     * URL of the custom authorization server&#39;s JSON Web Key Set document.
      * 
      */
     @Import(name="jwksUri")
     private @Nullable Output<String> jwksUri;
 
     /**
-     * @return URL reference to JWKS
+     * @return URL of the custom authorization server&#39;s JSON Web Key Set document.
      * 
      */
     public Optional<Output<String>> jwksUri() {
@@ -1403,7 +1403,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwksUri URL reference to JWKS
+         * @param jwksUri URL of the custom authorization server&#39;s JSON Web Key Set document.
          * 
          * @return builder
          * 
@@ -1414,7 +1414,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwksUri URL reference to JWKS
+         * @param jwksUri URL of the custom authorization server&#39;s JSON Web Key Set document.
          * 
          * @return builder
          * 

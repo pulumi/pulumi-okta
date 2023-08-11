@@ -59,7 +59,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def id(self) -> str:
         """
         ID of group.
         """
@@ -72,7 +72,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
         name of group.
         """
