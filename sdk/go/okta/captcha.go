@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -88,6 +89,7 @@ func NewCaptcha(ctx *pulumi.Context,
 		"secretKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Captcha
 	err := ctx.RegisterResource("okta:index/captcha:Captcha", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,6 +69,7 @@ func NewEmailDomainVerification(ctx *pulumi.Context,
 	if args.EmailDomainId == nil {
 		return nil, errors.New("invalid value for required argument 'EmailDomainId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailDomainVerification
 	err := ctx.RegisterResource("okta:Index/emailDomainVerification:EmailDomainVerification", name, args, &resource, opts...)
 	if err != nil {

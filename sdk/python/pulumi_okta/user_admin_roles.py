@@ -139,9 +139,6 @@ class UserAdminRoles(pulumi.CustomResource):
 
         This resource allows you to manage admin roles for a single user, independent of the user schema itself.
 
-        When using this with a `user.User` resource, you should add a lifecycle ignore for admin roles to avoid conflicts
-        in desired state.
-
         ## Example Usage
 
         ```python
@@ -183,9 +180,6 @@ class UserAdminRoles(pulumi.CustomResource):
         Resource to manage a set of admin roles for a specific user.
 
         This resource allows you to manage admin roles for a single user, independent of the user schema itself.
-
-        When using this with a `user.User` resource, you should add a lifecycle ignore for admin roles to avoid conflicts
-        in desired state.
 
         ## Example Usage
 

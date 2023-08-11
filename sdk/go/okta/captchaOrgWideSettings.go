@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -109,6 +110,7 @@ func NewCaptchaOrgWideSettings(ctx *pulumi.Context,
 		args = &CaptchaOrgWideSettingsArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CaptchaOrgWideSettings
 	err := ctx.RegisterResource("okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings", name, args, &resource, opts...)
 	if err != nil {

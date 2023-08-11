@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // Bearer token granting privileges to Okta API.
 func GetAccessToken(ctx *pulumi.Context) string {

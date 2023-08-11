@@ -69,173 +69,6 @@ import * as utilities from "./utilities";
  *
  * More examples can be
  * found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
- * ### Complex example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const testSaml = new okta.app.Saml("testSaml", {
- *     label: "testAcc_replace_with_uuid",
- *     ssoUrl: "https://google.com",
- *     recipient: "https://here.com",
- *     destination: "https://its-about-the-journey.com",
- *     audience: "https://audience.com",
- *     subjectNameIdTemplate: "${user.userName}",
- *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
- *     responseSigned: true,
- *     signatureAlgorithm: "RSA_SHA256",
- *     digestAlgorithm: "SHA256",
- *     honorForceAuthn: false,
- *     authnContextClassRef: "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
- *     singleLogoutIssuer: "https://dunshire.okta.com",
- *     singleLogoutUrl: "https://dunshire.okta.com/logout",
- *     singleLogoutCertificate: `MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV
- * BAgMBU1haW5lMRAwDgYDVQQHDAdDYXJpYm91MRcwFQYDVQQKDA5Tbm93bWFrZXJzIEluYzEUMBIG
- * A1UECwwLRW5naW5lZXJpbmcxDTALBgNVBAMMBFNub3cxIDAeBgkqhkiG9w0BCQEWEWVtYWlsQGV4
- * YW1wbGUuY29tMB4XDTIwMTIwMzIyNDY0M1oXDTMwMTIwMTIyNDY0M1owgY8xCzAJBgNVBAYTAlVT
- * MQ4wDAYDVQQIDAVNYWluZTEQMA4GA1UEBwwHQ2FyaWJvdTEXMBUGA1UECgwOU25vd21ha2VycyBJ
- * bmMxFDASBgNVBAsMC0VuZ2luZWVyaW5nMQ0wCwYDVQQDDARTbm93MSAwHgYJKoZIhvcNAQkBFhFl
- * bWFpbEBleGFtcGxlLmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBANMmWDjXPdoa
- * PyzIENqeY9njLan2FqCbQPSestWUUcb6NhDsJVGSQ7XR+ozQA5TaJzbP7cAJUj8vCcbqMZsgOQAu
- * O/pzYyQEKptLmrGvPn7xkJ1A1xLkp2NY18cpDTeUPueJUoidZ9EJwEuyUZIktzxNNU1pA1lGijiu
- * 2XNxs9d9JR/hm3tCu9Im8qLVB4JtX80YUa6QtlRjWR/H8a373AYCOASdoB3c57fIPD8ATDNy2w/c
- * fCVGiyKDMFB+GA/WTsZpOP3iohRp8ltAncSuzypcztb2iE+jijtTsiC9kUA2abAJqqpoCJubNShi
- * Vff4822czpziS44MV2guC9wANi8u3Uyl5MKsU95j01jzadKRP5S+2f0K+n8n4UoV9fnqZFyuGAKd
- * CJi9K6NlSAP+TgPe/JP9FOSuxQOHWJfmdLHdJD+evoKi9E55sr5lRFK0xU1Fj5Ld7zjC0pXPhtJf
- * sgjEZzD433AsHnRzvRT1KSNCPkLYomznZo5n9rWYgCQ8HcytlQDTesmKE+s05E/VSWNtH84XdDrt
- * ieXwfwhHfaABSu+WjZYxi9CXdFCSvXhsgufUcK4FbYAHl/ga/cJxZc52yFC7Pcq0u9O2BSCjYPdQ
- * DAHs9dhT1RhwVLM8RmoAzgxyyzau0gxnAlgSBD9FMW6dXqIHIp8yAAg9cRXhYRTNAgMBAAEwDQYJ
- * KoZIhvcNAQELBQADggIBADofEC1SvG8qa7pmKCjB/E9Sxhk3mvUO9Gq43xzwVb721Ng3VYf4vGU3
- * wLUwJeLt0wggnj26NJweN5T3q9T8UMxZhHSWvttEU3+S1nArRB0beti716HSlOCDx4wTmBu/D1MG
- * t/kZYFJw+zuzvAcbYct2pK69AQhD8xAIbQvqADJI7cCK3yRry+aWtppc58P81KYabUlCfFXfhJ9E
- * P72ffN4jVHpX3lxxYh7FKAdiKbY2FYzjsc7RdgKI1R3iAAZUCGBTvezNzaetGzTUjjl/g1tcVYij
- * ltH9ZOQBPlUMI88lxUxqgRTerpPmAJH00CACx4JFiZrweLM1trZyy06wNDQgLrqHr3EOagBF/O2h
- * hfTehNdVr6iq3YhKWBo4/+RL0RCzHMh4u86VbDDnDn4Y6HzLuyIAtBFoikoKM6UHTOa0Pqv2bBr5
- * wbkRkVUxl9yJJw/HmTCdfnsM9dTOJUKzEglnGF2184Gg+qJDZB6fSf0EAO1F6sTqiSswl+uHQZiy
- * DaZzyU7Gg5seKOZ20zTRaX3Ihj9Zij/ORnrARE7eM/usKMECp+7syUwAUKxDCZkGiUdskmOhhBGL
- * JtbyK3F2UvoJoLsm3pIcvMak9KwMjSTGJB47ABUP1+w+zGcNk0D5Co3IJ6QekiLfWJyQ+kKsWLKt
- * zOYQQatrnBagM7MI2/T4
- * `,
- *     attributeStatements: [{
- *         type: "GROUP",
- *         name: "groups",
- *         filterType: "REGEX",
- *         filterValue: ".*",
- *     }],
- * });
- * const testAppSignonPolicy = okta.getAppSignonPolicyOutput({
- *     appId: testSaml.id,
- * });
- * const testUser: okta.user.User[] = [];
- * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     testUser.push(new okta.user.User(`testUser-${range.value}`, {
- *         firstName: "TestAcc",
- *         lastName: "Smith",
- *         login: `testAcc_${range.value}@example.com`,
- *         email: `testAcc_${range.value}@example.com`,
- *     }));
- * }
- * const _this: okta.group.Group[] = [];
- * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     _this.push(new okta.group.Group(`this-${range.value}`, {description: `testAcc_${range.value}`}));
- * }
- * const testUserType = new okta.user.UserType("testUserType", {
- *     displayName: "Terraform Acceptance Test User Type Updated",
- *     description: "Terraform Acceptance Test User Type Updated",
- * });
- * const testZone = new okta.network.Zone("testZone", {
- *     type: "IP",
- *     gateways: [
- *         "1.2.3.4/24",
- *         "2.3.4.5-2.3.4.15",
- *     ],
- *     proxies: [
- *         "2.2.3.4/24",
- *         "3.3.4.5-3.3.4.15",
- *     ],
- * });
- * const default = okta.user.getUserType({
- *     name: "user",
- * });
- * const testAppSignonPolicyRule = new okta.AppSignonPolicyRule("testAppSignonPolicyRule", {
- *     policyId: testAppSignonPolicy.apply(testAppSignonPolicy => testAppSignonPolicy.id),
- *     access: "ALLOW",
- *     customExpression: "user.status == \"ACTIVE\"",
- *     deviceIsManaged: false,
- *     deviceIsRegistered: true,
- *     factorMode: "2FA",
- *     groupsExcludeds: [
- *         _this[2].id,
- *         _this[3].id,
- *         _this[4].id,
- *     ],
- *     groupsIncludeds: [
- *         _this[0].id,
- *         _this[1].id,
- *     ],
- *     networkConnection: "ZONE",
- *     networkIncludes: [testZone.id],
- *     platformIncludes: [
- *         {
- *             osType: "ANDROID",
- *             type: "MOBILE",
- *         },
- *         {
- *             osType: "IOS",
- *             type: "MOBILE",
- *         },
- *         {
- *             osType: "MACOS",
- *             type: "DESKTOP",
- *         },
- *         {
- *             osType: "OTHER",
- *             type: "DESKTOP",
- *         },
- *         {
- *             osType: "OTHER",
- *             type: "MOBILE",
- *         },
- *         {
- *             osType: "WINDOWS",
- *             type: "DESKTOP",
- *         },
- *     ],
- *     priority: 98,
- *     reAuthenticationFrequency: "PT43800H",
- *     type: "ASSURANCE",
- *     userTypesExcludeds: [testUserType.id],
- *     userTypesIncludeds: [_default.then(_default => _default.id)],
- *     usersExcludeds: [
- *         testUser[2].id,
- *         testUser[3].id,
- *         testUser[4].id,
- *     ],
- *     usersIncludeds: [
- *         testUser[0].id,
- *         testUser[1].id,
- *     ],
- *     constraints: [
- *         JSON.stringify({
- *             knowledge: {
- *                 reauthenticateIn: "PT2H",
- *                 types: ["password"],
- *             },
- *             possession: {
- *                 deviceBound: "REQUIRED",
- *             },
- *         }),
- *         JSON.stringify({
- *             possession: {
- *                 deviceBound: "REQUIRED",
- *                 hardwareProtection: "REQUIRED",
- *                 userPresence: "OPTIONAL",
- *             },
- *         }),
- *     ],
- * });
- * ```
  *
  * ## Import
  *
@@ -285,6 +118,10 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      * This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
      */
     public readonly customExpression!: pulumi.Output<string | undefined>;
+    /**
+     * List of device assurances IDs to be included.
+     */
+    public readonly deviceAssurancesIncludeds!: pulumi.Output<string[] | undefined>;
     /**
      * If the device is managed. A device is managed if it's managed by a device management
      * system. When managed is passed, `deviceIsRegistered` must also be included and must be set to `true`.
@@ -384,6 +221,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["access"] = state ? state.access : undefined;
             resourceInputs["constraints"] = state ? state.constraints : undefined;
             resourceInputs["customExpression"] = state ? state.customExpression : undefined;
+            resourceInputs["deviceAssurancesIncludeds"] = state ? state.deviceAssurancesIncludeds : undefined;
             resourceInputs["deviceIsManaged"] = state ? state.deviceIsManaged : undefined;
             resourceInputs["deviceIsRegistered"] = state ? state.deviceIsRegistered : undefined;
             resourceInputs["factorMode"] = state ? state.factorMode : undefined;
@@ -412,6 +250,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["access"] = args ? args.access : undefined;
             resourceInputs["constraints"] = args ? args.constraints : undefined;
             resourceInputs["customExpression"] = args ? args.customExpression : undefined;
+            resourceInputs["deviceAssurancesIncludeds"] = args ? args.deviceAssurancesIncludeds : undefined;
             resourceInputs["deviceIsManaged"] = args ? args.deviceIsManaged : undefined;
             resourceInputs["deviceIsRegistered"] = args ? args.deviceIsRegistered : undefined;
             resourceInputs["factorMode"] = args ? args.factorMode : undefined;
@@ -454,6 +293,10 @@ export interface AppSignonPolicyRuleState {
      * This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
      */
     customExpression?: pulumi.Input<string>;
+    /**
+     * List of device assurances IDs to be included.
+     */
+    deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * If the device is managed. A device is managed if it's managed by a device management
      * system. When managed is passed, `deviceIsRegistered` must also be included and must be set to `true`.
@@ -554,6 +397,10 @@ export interface AppSignonPolicyRuleArgs {
      * This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
      */
     customExpression?: pulumi.Input<string>;
+    /**
+     * List of device assurances IDs to be included.
+     */
+    deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * If the device is managed. A device is managed if it's managed by a device management
      * system. When managed is passed, `deviceIsRegistered` must also be included and must be set to `true`.

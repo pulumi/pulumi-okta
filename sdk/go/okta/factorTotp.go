@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewFactorTotp(ctx *pulumi.Context,
 		args = &FactorTotpArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FactorTotp
 	err := ctx.RegisterResource("okta:index/factorTotp:FactorTotp", name, args, &resource, opts...)
 	if err != nil {

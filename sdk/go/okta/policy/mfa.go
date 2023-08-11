@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -148,6 +149,7 @@ func NewMfa(ctx *pulumi.Context,
 		args = &MfaArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Mfa
 	err := ctx.RegisterResource("okta:policy/mfa:Mfa", name, args, &resource, opts...)
 	if err != nil {

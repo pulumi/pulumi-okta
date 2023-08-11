@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupServerPolicy(ctx *pulumi.Context, args *LookupServerPolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerPolicyResult
 	err := ctx.Invoke("okta:auth/getServerPolicy:getServerPolicy", args, &rv, opts...)
 	if err != nil {

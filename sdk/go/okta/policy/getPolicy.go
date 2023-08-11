@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOption) (*GetPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPolicyResult
 	err := ctx.Invoke("okta:policy/getPolicy:getPolicy", args, &rv, opts...)
 	if err != nil {

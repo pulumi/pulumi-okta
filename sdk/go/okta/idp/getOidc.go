@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupOidc(ctx *pulumi.Context, args *LookupOidcArgs, opts ...pulumi.InvokeOption) (*LookupOidcResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOidcResult
 	err := ctx.Invoke("okta:idp/getOidc:getOidc", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ func NewMapping(ctx *pulumi.Context,
 	if args.TargetId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Mapping
 	err := ctx.RegisterResource("okta:profile/mapping:Mapping", name, args, &resource, opts...)
 	if err != nil {

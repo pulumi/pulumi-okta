@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ import (
 //
 // ```
 func GetDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOption) (*GetDomainResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDomainResult
 	err := ctx.Invoke("okta:Index/getDomain:getDomain", args, &rv, opts...)
 	if err != nil {

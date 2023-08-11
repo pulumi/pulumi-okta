@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -115,6 +116,7 @@ func NewThreeField(ctx *pulumi.Context,
 	if args.UsernameSelector == nil {
 		return nil, errors.New("invalid value for required argument 'UsernameSelector'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThreeField
 	err := ctx.RegisterResource("okta:app/threeField:ThreeField", name, args, &resource, opts...)
 	if err != nil {

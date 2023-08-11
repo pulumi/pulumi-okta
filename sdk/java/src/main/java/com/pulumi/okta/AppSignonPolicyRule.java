@@ -159,214 +159,6 @@ import javax.annotation.Nullable;
  * 
  * More examples can be
  * found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
- * ### Complex example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.app.Saml;
- * import com.pulumi.okta.app.SamlArgs;
- * import com.pulumi.okta.app.inputs.SamlAttributeStatementArgs;
- * import com.pulumi.okta.OktaFunctions;
- * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
- * import com.pulumi.okta.user.User;
- * import com.pulumi.okta.user.UserArgs;
- * import com.pulumi.okta.group.Group;
- * import com.pulumi.okta.group.GroupArgs;
- * import com.pulumi.okta.user.UserType;
- * import com.pulumi.okta.user.UserTypeArgs;
- * import com.pulumi.okta.network.Zone;
- * import com.pulumi.okta.network.ZoneArgs;
- * import com.pulumi.okta.user.UserFunctions;
- * import com.pulumi.okta.user.inputs.GetUserTypeArgs;
- * import com.pulumi.okta.AppSignonPolicyRule;
- * import com.pulumi.okta.AppSignonPolicyRuleArgs;
- * import com.pulumi.okta.inputs.AppSignonPolicyRulePlatformIncludeArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.codegen.internal.KeyedValue;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testSaml = new Saml(&#34;testSaml&#34;, SamlArgs.builder()        
- *             .label(&#34;testAcc_replace_with_uuid&#34;)
- *             .ssoUrl(&#34;https://google.com&#34;)
- *             .recipient(&#34;https://here.com&#34;)
- *             .destination(&#34;https://its-about-the-journey.com&#34;)
- *             .audience(&#34;https://audience.com&#34;)
- *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
- *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
- *             .responseSigned(true)
- *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
- *             .digestAlgorithm(&#34;SHA256&#34;)
- *             .honorForceAuthn(false)
- *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
- *             .singleLogoutIssuer(&#34;https://dunshire.okta.com&#34;)
- *             .singleLogoutUrl(&#34;https://dunshire.okta.com/logout&#34;)
- *             .singleLogoutCertificate(&#34;&#34;&#34;
- * MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV
- * BAgMBU1haW5lMRAwDgYDVQQHDAdDYXJpYm91MRcwFQYDVQQKDA5Tbm93bWFrZXJzIEluYzEUMBIG
- * A1UECwwLRW5naW5lZXJpbmcxDTALBgNVBAMMBFNub3cxIDAeBgkqhkiG9w0BCQEWEWVtYWlsQGV4
- * YW1wbGUuY29tMB4XDTIwMTIwMzIyNDY0M1oXDTMwMTIwMTIyNDY0M1owgY8xCzAJBgNVBAYTAlVT
- * MQ4wDAYDVQQIDAVNYWluZTEQMA4GA1UEBwwHQ2FyaWJvdTEXMBUGA1UECgwOU25vd21ha2VycyBJ
- * bmMxFDASBgNVBAsMC0VuZ2luZWVyaW5nMQ0wCwYDVQQDDARTbm93MSAwHgYJKoZIhvcNAQkBFhFl
- * bWFpbEBleGFtcGxlLmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBANMmWDjXPdoa
- * PyzIENqeY9njLan2FqCbQPSestWUUcb6NhDsJVGSQ7XR+ozQA5TaJzbP7cAJUj8vCcbqMZsgOQAu
- * O/pzYyQEKptLmrGvPn7xkJ1A1xLkp2NY18cpDTeUPueJUoidZ9EJwEuyUZIktzxNNU1pA1lGijiu
- * 2XNxs9d9JR/hm3tCu9Im8qLVB4JtX80YUa6QtlRjWR/H8a373AYCOASdoB3c57fIPD8ATDNy2w/c
- * fCVGiyKDMFB+GA/WTsZpOP3iohRp8ltAncSuzypcztb2iE+jijtTsiC9kUA2abAJqqpoCJubNShi
- * Vff4822czpziS44MV2guC9wANi8u3Uyl5MKsU95j01jzadKRP5S+2f0K+n8n4UoV9fnqZFyuGAKd
- * CJi9K6NlSAP+TgPe/JP9FOSuxQOHWJfmdLHdJD+evoKi9E55sr5lRFK0xU1Fj5Ld7zjC0pXPhtJf
- * sgjEZzD433AsHnRzvRT1KSNCPkLYomznZo5n9rWYgCQ8HcytlQDTesmKE+s05E/VSWNtH84XdDrt
- * ieXwfwhHfaABSu+WjZYxi9CXdFCSvXhsgufUcK4FbYAHl/ga/cJxZc52yFC7Pcq0u9O2BSCjYPdQ
- * DAHs9dhT1RhwVLM8RmoAzgxyyzau0gxnAlgSBD9FMW6dXqIHIp8yAAg9cRXhYRTNAgMBAAEwDQYJ
- * KoZIhvcNAQELBQADggIBADofEC1SvG8qa7pmKCjB/E9Sxhk3mvUO9Gq43xzwVb721Ng3VYf4vGU3
- * wLUwJeLt0wggnj26NJweN5T3q9T8UMxZhHSWvttEU3+S1nArRB0beti716HSlOCDx4wTmBu/D1MG
- * t/kZYFJw+zuzvAcbYct2pK69AQhD8xAIbQvqADJI7cCK3yRry+aWtppc58P81KYabUlCfFXfhJ9E
- * P72ffN4jVHpX3lxxYh7FKAdiKbY2FYzjsc7RdgKI1R3iAAZUCGBTvezNzaetGzTUjjl/g1tcVYij
- * ltH9ZOQBPlUMI88lxUxqgRTerpPmAJH00CACx4JFiZrweLM1trZyy06wNDQgLrqHr3EOagBF/O2h
- * hfTehNdVr6iq3YhKWBo4/+RL0RCzHMh4u86VbDDnDn4Y6HzLuyIAtBFoikoKM6UHTOa0Pqv2bBr5
- * wbkRkVUxl9yJJw/HmTCdfnsM9dTOJUKzEglnGF2184Gg+qJDZB6fSf0EAO1F6sTqiSswl+uHQZiy
- * DaZzyU7Gg5seKOZ20zTRaX3Ihj9Zij/ORnrARE7eM/usKMECp+7syUwAUKxDCZkGiUdskmOhhBGL
- * JtbyK3F2UvoJoLsm3pIcvMak9KwMjSTGJB47ABUP1+w+zGcNk0D5Co3IJ6QekiLfWJyQ+kKsWLKt
- * zOYQQatrnBagM7MI2/T4
- *             &#34;&#34;&#34;)
- *             .attributeStatements(SamlAttributeStatementArgs.builder()
- *                 .type(&#34;GROUP&#34;)
- *                 .name(&#34;groups&#34;)
- *                 .filterType(&#34;REGEX&#34;)
- *                 .filterValue(&#34;.*&#34;)
- *                 .build())
- *             .build());
- * 
- *         final var testAppSignonPolicy = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
- *             .appId(testSaml.id())
- *             .build());
- * 
- *         for (var i = 0; i &lt; 5; i++) {
- *             new User(&#34;testUser-&#34; + i, UserArgs.builder()            
- *                 .firstName(&#34;TestAcc&#34;)
- *                 .lastName(&#34;Smith&#34;)
- *                 .login(String.format(&#34;testAcc_%s@example.com&#34;, range.value()))
- *                 .email(String.format(&#34;testAcc_%s@example.com&#34;, range.value()))
- *                 .build());
- * 
- *         
- * }
- *         for (var i = 0; i &lt; 5; i++) {
- *             new Group(&#34;this-&#34; + i, GroupArgs.builder()            
- *                 .description(String.format(&#34;testAcc_%s&#34;, range.value()))
- *                 .build());
- * 
- *         
- * }
- *         var testUserType = new UserType(&#34;testUserType&#34;, UserTypeArgs.builder()        
- *             .displayName(&#34;Terraform Acceptance Test User Type Updated&#34;)
- *             .description(&#34;Terraform Acceptance Test User Type Updated&#34;)
- *             .build());
- * 
- *         var testZone = new Zone(&#34;testZone&#34;, ZoneArgs.builder()        
- *             .type(&#34;IP&#34;)
- *             .gateways(            
- *                 &#34;1.2.3.4/24&#34;,
- *                 &#34;2.3.4.5-2.3.4.15&#34;)
- *             .proxies(            
- *                 &#34;2.2.3.4/24&#34;,
- *                 &#34;3.3.4.5-3.3.4.15&#34;)
- *             .build());
- * 
- *         final var default = UserFunctions.getUserType(GetUserTypeArgs.builder()
- *             .name(&#34;user&#34;)
- *             .build());
- * 
- *         var testAppSignonPolicyRule = new AppSignonPolicyRule(&#34;testAppSignonPolicyRule&#34;, AppSignonPolicyRuleArgs.builder()        
- *             .policyId(testAppSignonPolicy.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult).applyValue(testAppSignonPolicy -&gt; testAppSignonPolicy.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult.id())))
- *             .access(&#34;ALLOW&#34;)
- *             .customExpression(&#34;user.status == \&#34;ACTIVE\&#34;&#34;)
- *             .deviceIsManaged(false)
- *             .deviceIsRegistered(true)
- *             .factorMode(&#34;2FA&#34;)
- *             .groupsExcludeds(            
- *                 this_[2].id(),
- *                 this_[3].id(),
- *                 this_[4].id())
- *             .groupsIncludeds(            
- *                 this_[0].id(),
- *                 this_[1].id())
- *             .networkConnection(&#34;ZONE&#34;)
- *             .networkIncludes(testZone.id())
- *             .platformIncludes(            
- *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;ANDROID&#34;)
- *                     .type(&#34;MOBILE&#34;)
- *                     .build(),
- *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;IOS&#34;)
- *                     .type(&#34;MOBILE&#34;)
- *                     .build(),
- *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;MACOS&#34;)
- *                     .type(&#34;DESKTOP&#34;)
- *                     .build(),
- *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;OTHER&#34;)
- *                     .type(&#34;DESKTOP&#34;)
- *                     .build(),
- *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;OTHER&#34;)
- *                     .type(&#34;MOBILE&#34;)
- *                     .build(),
- *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;WINDOWS&#34;)
- *                     .type(&#34;DESKTOP&#34;)
- *                     .build())
- *             .priority(98)
- *             .reAuthenticationFrequency(&#34;PT43800H&#34;)
- *             .type(&#34;ASSURANCE&#34;)
- *             .userTypesExcludeds(testUserType.id())
- *             .userTypesIncludeds(default_.id())
- *             .usersExcludeds(            
- *                 testUser[2].id(),
- *                 testUser[3].id(),
- *                 testUser[4].id())
- *             .usersIncludeds(            
- *                 testUser[0].id(),
- *                 testUser[1].id())
- *             .constraints(            
- *                 serializeJson(
- *                     jsonObject(
- *                         jsonProperty(&#34;knowledge&#34;, jsonObject(
- *                             jsonProperty(&#34;reauthenticateIn&#34;, &#34;PT2H&#34;),
- *                             jsonProperty(&#34;types&#34;, jsonArray(&#34;password&#34;))
- *                         )),
- *                         jsonProperty(&#34;possession&#34;, jsonObject(
- *                             jsonProperty(&#34;deviceBound&#34;, &#34;REQUIRED&#34;)
- *                         ))
- *                     )),
- *                 serializeJson(
- *                     jsonObject(
- *                         jsonProperty(&#34;possession&#34;, jsonObject(
- *                             jsonProperty(&#34;deviceBound&#34;, &#34;REQUIRED&#34;),
- *                             jsonProperty(&#34;hardwareProtection&#34;, &#34;REQUIRED&#34;),
- *                             jsonProperty(&#34;userPresence&#34;, &#34;OPTIONAL&#34;)
- *                         ))
- *                     )))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 
@@ -420,6 +212,20 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> customExpression() {
         return Codegen.optional(this.customExpression);
+    }
+    /**
+     * List of device assurances IDs to be included.
+     * 
+     */
+    @Export(name="deviceAssurancesIncludeds", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> deviceAssurancesIncludeds;
+
+    /**
+     * @return List of device assurances IDs to be included.
+     * 
+     */
+    public Output<Optional<List<String>>> deviceAssurancesIncludeds() {
+        return Codegen.optional(this.deviceAssurancesIncludeds);
     }
     /**
      * If the device is managed. A device is managed if it&#39;s managed by a device management

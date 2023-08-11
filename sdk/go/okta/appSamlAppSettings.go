@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -97,6 +98,7 @@ func NewAppSamlAppSettings(ctx *pulumi.Context,
 	if args.Settings == nil {
 		return nil, errors.New("invalid value for required argument 'Settings'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppSamlAppSettings
 	err := ctx.RegisterResource("okta:index/appSamlAppSettings:AppSamlAppSettings", name, args, &resource, opts...)
 	if err != nil {

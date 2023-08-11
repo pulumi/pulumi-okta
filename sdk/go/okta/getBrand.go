@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
 func LookupBrand(ctx *pulumi.Context, args *LookupBrandArgs, opts ...pulumi.InvokeOption) (*LookupBrandResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBrandResult
 	err := ctx.Invoke("okta:index/getBrand:getBrand", args, &rv, opts...)
 	if err != nil {

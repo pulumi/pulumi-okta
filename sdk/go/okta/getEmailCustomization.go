@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,6 +15,7 @@ import (
 // customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
 // of an email template belonging to a brand in an Okta organization.
 func LookupEmailCustomization(ctx *pulumi.Context, args *LookupEmailCustomizationArgs, opts ...pulumi.InvokeOption) (*LookupEmailCustomizationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEmailCustomizationResult
 	err := ctx.Invoke("okta:index/getEmailCustomization:getEmailCustomization", args, &rv, opts...)
 	if err != nil {

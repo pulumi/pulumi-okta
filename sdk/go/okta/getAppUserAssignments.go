@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetAppUserAssignments(ctx *pulumi.Context, args *GetAppUserAssignmentsArgs, opts ...pulumi.InvokeOption) (*GetAppUserAssignmentsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAppUserAssignmentsResult
 	err := ctx.Invoke("okta:index/getAppUserAssignments:getAppUserAssignments", args, &rv, opts...)
 	if err != nil {

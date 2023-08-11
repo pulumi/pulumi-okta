@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ import (
 //
 // ```
 func GetTrustedOrigins(ctx *pulumi.Context, args *GetTrustedOriginsArgs, opts ...pulumi.InvokeOption) (*GetTrustedOriginsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrustedOriginsResult
 	err := ctx.Invoke("okta:index/getTrustedOrigins:getTrustedOrigins", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -94,6 +95,7 @@ func NewPolicyProfileEnrollmentApps(ctx *pulumi.Context,
 	if args.PolicyId == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyProfileEnrollmentApps
 	err := ctx.RegisterResource("okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps", name, args, &resource, opts...)
 	if err != nil {

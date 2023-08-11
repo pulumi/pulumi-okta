@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetNetworkZone(ctx *pulumi.Context, args *GetNetworkZoneArgs, opts ...pulumi.InvokeOption) (*GetNetworkZoneResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkZoneResult
 	err := ctx.Invoke("okta:index/getNetworkZone:getNetworkZone", args, &rv, opts...)
 	if err != nil {

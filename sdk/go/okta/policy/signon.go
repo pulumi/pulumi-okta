@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,6 +76,7 @@ func NewSignon(ctx *pulumi.Context,
 		args = &SignonArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Signon
 	err := ctx.RegisterResource("okta:policy/signon:Signon", name, args, &resource, opts...)
 	if err != nil {

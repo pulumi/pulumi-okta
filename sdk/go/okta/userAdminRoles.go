@@ -8,15 +8,13 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource to manage a set of admin roles for a specific user.
 //
 // This resource allows you to manage admin roles for a single user, independent of the user schema itself.
-//
-// When using this with a `user.User` resource, you should add a lifecycle ignore for admin roles to avoid conflicts
-// in desired state.
 //
 // ## Example Usage
 //
@@ -91,6 +89,7 @@ func NewUserAdminRoles(ctx *pulumi.Context,
 	if args.UserId == nil {
 		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserAdminRoles
 	err := ctx.RegisterResource("okta:index/userAdminRoles:UserAdminRoles", name, args, &resource, opts...)
 	if err != nil {

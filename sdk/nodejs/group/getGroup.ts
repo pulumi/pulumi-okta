@@ -70,12 +70,12 @@ export interface GetGroupResult {
     /**
      * ID of group.
      */
-    readonly id?: string;
+    readonly id: string;
     readonly includeUsers?: boolean;
     /**
      * name of group.
      */
-    readonly name?: string;
+    readonly name: string;
     /**
      * type of group.
      */

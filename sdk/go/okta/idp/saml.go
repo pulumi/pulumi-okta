@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -146,6 +147,7 @@ func NewSaml(ctx *pulumi.Context,
 	if args.SsoUrl == nil {
 		return nil, errors.New("invalid value for required argument 'SsoUrl'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Saml
 	err := ctx.RegisterResource("okta:idp/saml:Saml", name, args, &resource, opts...)
 	if err != nil {

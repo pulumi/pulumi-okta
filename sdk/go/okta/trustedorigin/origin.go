@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,6 +80,7 @@ func NewOrigin(ctx *pulumi.Context,
 	if args.Scopes == nil {
 		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Origin
 	err := ctx.RegisterResource("okta:trustedorigin/origin:Origin", name, args, &resource, opts...)
 	if err != nil {

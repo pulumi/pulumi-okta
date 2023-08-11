@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetAuthServerClaims(ctx *pulumi.Context, args *GetAuthServerClaimsArgs, opts ...pulumi.InvokeOption) (*GetAuthServerClaimsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthServerClaimsResult
 	err := ctx.Invoke("okta:index/getAuthServerClaims:getAuthServerClaims", args, &rv, opts...)
 	if err != nil {

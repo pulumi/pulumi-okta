@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,6 +66,7 @@ func NewPolicyProfileEnrollment(ctx *pulumi.Context,
 		args = &PolicyProfileEnrollmentArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyProfileEnrollment
 	err := ctx.RegisterResource("okta:index/policyProfileEnrollment:PolicyProfileEnrollment", name, args, &resource, opts...)
 	if err != nil {

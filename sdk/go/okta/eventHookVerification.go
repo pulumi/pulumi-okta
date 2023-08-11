@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,6 +81,7 @@ func NewEventHookVerification(ctx *pulumi.Context,
 	if args.EventHookId == nil {
 		return nil, errors.New("invalid value for required argument 'EventHookId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventHookVerification
 	err := ctx.RegisterResource("okta:index/eventHookVerification:EventHookVerification", name, args, &resource, opts...)
 	if err != nil {

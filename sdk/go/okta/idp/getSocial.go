@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupSocial(ctx *pulumi.Context, args *LookupSocialArgs, opts ...pulumi.InvokeOption) (*LookupSocialResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSocialResult
 	err := ctx.Invoke("okta:idp/getSocial:getSocial", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,6 +70,7 @@ func NewEmailSenderVerification(ctx *pulumi.Context,
 	if args.SenderId == nil {
 		return nil, errors.New("invalid value for required argument 'SenderId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailSenderVerification
 	err := ctx.RegisterResource("okta:index/emailSenderVerification:EmailSenderVerification", name, args, &resource, opts...)
 	if err != nil {

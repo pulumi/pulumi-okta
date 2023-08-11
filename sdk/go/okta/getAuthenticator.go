@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,6 +65,7 @@ import (
 //
 // ```
 func LookupAuthenticator(ctx *pulumi.Context, args *LookupAuthenticatorArgs, opts ...pulumi.InvokeOption) (*LookupAuthenticatorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAuthenticatorResult
 	err := ctx.Invoke("okta:index/getAuthenticator:getAuthenticator", args, &rv, opts...)
 	if err != nil {

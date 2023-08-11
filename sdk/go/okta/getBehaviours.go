@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetBehaviours(ctx *pulumi.Context, args *GetBehavioursArgs, opts ...pulumi.InvokeOption) (*GetBehavioursResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBehavioursResult
 	err := ctx.Invoke("okta:index/getBehaviours:getBehaviours", args, &rv, opts...)
 	if err != nil {
