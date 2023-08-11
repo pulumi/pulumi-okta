@@ -137,6 +137,9 @@
                     "constraints": {
                         "maxItemsOne": false
                     },
+                    "device_assurances_included": {
+                        "maxItemsOne": false
+                    },
                     "groups_excluded": {
                         "maxItemsOne": false
                     },
@@ -2038,6 +2041,7 @@
             },
             "okta:index/appSignonPolicyRule:AppSignonPolicyRule": {
                 "customExpression": "custom_expression",
+                "deviceAssurancesIncludeds": "device_assurances_included",
                 "deviceIsManaged": "device_is_managed",
                 "deviceIsRegistered": "device_is_registered",
                 "factorMode": "factor_mode",
