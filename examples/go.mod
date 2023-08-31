@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-okta/examples/v2
 
-go 1.20
+go 1.21
 
 require github.com/pulumi/pulumi/pkg/v3 v3.64.0
 
