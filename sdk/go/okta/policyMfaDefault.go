@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configures default MFA Policy.
@@ -403,6 +404,12 @@ func (i *PolicyMfaDefault) ToPolicyMfaDefaultOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyMfaDefaultOutput)
 }
 
+func (i *PolicyMfaDefault) ToOutput(ctx context.Context) pulumix.Output[*PolicyMfaDefault] {
+	return pulumix.Output[*PolicyMfaDefault]{
+		OutputState: i.ToPolicyMfaDefaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyMfaDefaultArrayInput is an input type that accepts PolicyMfaDefaultArray and PolicyMfaDefaultArrayOutput values.
 // You can construct a concrete instance of `PolicyMfaDefaultArrayInput` via:
 //
@@ -426,6 +433,12 @@ func (i PolicyMfaDefaultArray) ToPolicyMfaDefaultArrayOutput() PolicyMfaDefaultA
 
 func (i PolicyMfaDefaultArray) ToPolicyMfaDefaultArrayOutputWithContext(ctx context.Context) PolicyMfaDefaultArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyMfaDefaultArrayOutput)
+}
+
+func (i PolicyMfaDefaultArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyMfaDefault] {
+	return pulumix.Output[[]*PolicyMfaDefault]{
+		OutputState: i.ToPolicyMfaDefaultArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PolicyMfaDefaultMapInput is an input type that accepts PolicyMfaDefaultMap and PolicyMfaDefaultMapOutput values.
@@ -453,6 +466,12 @@ func (i PolicyMfaDefaultMap) ToPolicyMfaDefaultMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyMfaDefaultMapOutput)
 }
 
+func (i PolicyMfaDefaultMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyMfaDefault] {
+	return pulumix.Output[map[string]*PolicyMfaDefault]{
+		OutputState: i.ToPolicyMfaDefaultMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyMfaDefaultOutput struct{ *pulumi.OutputState }
 
 func (PolicyMfaDefaultOutput) ElementType() reflect.Type {
@@ -465,6 +484,12 @@ func (o PolicyMfaDefaultOutput) ToPolicyMfaDefaultOutput() PolicyMfaDefaultOutpu
 
 func (o PolicyMfaDefaultOutput) ToPolicyMfaDefaultOutputWithContext(ctx context.Context) PolicyMfaDefaultOutput {
 	return o
+}
+
+func (o PolicyMfaDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyMfaDefault] {
+	return pulumix.Output[*PolicyMfaDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the default Okta group.
@@ -617,6 +642,12 @@ func (o PolicyMfaDefaultArrayOutput) ToPolicyMfaDefaultArrayOutputWithContext(ct
 	return o
 }
 
+func (o PolicyMfaDefaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyMfaDefault] {
+	return pulumix.Output[[]*PolicyMfaDefault]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyMfaDefaultArrayOutput) Index(i pulumi.IntInput) PolicyMfaDefaultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyMfaDefault {
 		return vs[0].([]*PolicyMfaDefault)[vs[1].(int)]
@@ -635,6 +666,12 @@ func (o PolicyMfaDefaultMapOutput) ToPolicyMfaDefaultMapOutput() PolicyMfaDefaul
 
 func (o PolicyMfaDefaultMapOutput) ToPolicyMfaDefaultMapOutputWithContext(ctx context.Context) PolicyMfaDefaultMapOutput {
 	return o
+}
+
+func (o PolicyMfaDefaultMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyMfaDefault] {
+	return pulumix.Output[map[string]*PolicyMfaDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyMfaDefaultMapOutput) MapIndex(k pulumi.StringInput) PolicyMfaDefaultOutput {

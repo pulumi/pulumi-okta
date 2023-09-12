@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an Authorization Server Claim.
@@ -229,6 +230,12 @@ func (i *ServerClaim) ToServerClaimOutputWithContext(ctx context.Context) Server
 	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimOutput)
 }
 
+func (i *ServerClaim) ToOutput(ctx context.Context) pulumix.Output[*ServerClaim] {
+	return pulumix.Output[*ServerClaim]{
+		OutputState: i.ToServerClaimOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerClaimArrayInput is an input type that accepts ServerClaimArray and ServerClaimArrayOutput values.
 // You can construct a concrete instance of `ServerClaimArrayInput` via:
 //
@@ -252,6 +259,12 @@ func (i ServerClaimArray) ToServerClaimArrayOutput() ServerClaimArrayOutput {
 
 func (i ServerClaimArray) ToServerClaimArrayOutputWithContext(ctx context.Context) ServerClaimArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimArrayOutput)
+}
+
+func (i ServerClaimArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerClaim] {
+	return pulumix.Output[[]*ServerClaim]{
+		OutputState: i.ToServerClaimArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerClaimMapInput is an input type that accepts ServerClaimMap and ServerClaimMapOutput values.
@@ -279,6 +292,12 @@ func (i ServerClaimMap) ToServerClaimMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ServerClaimMapOutput)
 }
 
+func (i ServerClaimMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerClaim] {
+	return pulumix.Output[map[string]*ServerClaim]{
+		OutputState: i.ToServerClaimMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerClaimOutput struct{ *pulumi.OutputState }
 
 func (ServerClaimOutput) ElementType() reflect.Type {
@@ -291,6 +310,12 @@ func (o ServerClaimOutput) ToServerClaimOutput() ServerClaimOutput {
 
 func (o ServerClaimOutput) ToServerClaimOutputWithContext(ctx context.Context) ServerClaimOutput {
 	return o
+}
+
+func (o ServerClaimOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerClaim] {
+	return pulumix.Output[*ServerClaim]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether to include claims in token, by default it is set to `true`.
@@ -352,6 +377,12 @@ func (o ServerClaimArrayOutput) ToServerClaimArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ServerClaimArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerClaim] {
+	return pulumix.Output[[]*ServerClaim]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerClaimArrayOutput) Index(i pulumi.IntInput) ServerClaimOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerClaim {
 		return vs[0].([]*ServerClaim)[vs[1].(int)]
@@ -370,6 +401,12 @@ func (o ServerClaimMapOutput) ToServerClaimMapOutput() ServerClaimMapOutput {
 
 func (o ServerClaimMapOutput) ToServerClaimMapOutputWithContext(ctx context.Context) ServerClaimMapOutput {
 	return o
+}
+
+func (o ServerClaimMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerClaim] {
+	return pulumix.Output[map[string]*ServerClaim]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerClaimMapOutput) MapIndex(k pulumi.StringInput) ServerClaimOutput {

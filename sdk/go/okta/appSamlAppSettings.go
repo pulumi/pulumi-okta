@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to manage app settings of the SAML Application . It's basically the same as
@@ -176,6 +177,12 @@ func (i *AppSamlAppSettings) ToAppSamlAppSettingsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AppSamlAppSettingsOutput)
 }
 
+func (i *AppSamlAppSettings) ToOutput(ctx context.Context) pulumix.Output[*AppSamlAppSettings] {
+	return pulumix.Output[*AppSamlAppSettings]{
+		OutputState: i.ToAppSamlAppSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AppSamlAppSettingsArrayInput is an input type that accepts AppSamlAppSettingsArray and AppSamlAppSettingsArrayOutput values.
 // You can construct a concrete instance of `AppSamlAppSettingsArrayInput` via:
 //
@@ -199,6 +206,12 @@ func (i AppSamlAppSettingsArray) ToAppSamlAppSettingsArrayOutput() AppSamlAppSet
 
 func (i AppSamlAppSettingsArray) ToAppSamlAppSettingsArrayOutputWithContext(ctx context.Context) AppSamlAppSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppSamlAppSettingsArrayOutput)
+}
+
+func (i AppSamlAppSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*AppSamlAppSettings] {
+	return pulumix.Output[[]*AppSamlAppSettings]{
+		OutputState: i.ToAppSamlAppSettingsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AppSamlAppSettingsMapInput is an input type that accepts AppSamlAppSettingsMap and AppSamlAppSettingsMapOutput values.
@@ -226,6 +239,12 @@ func (i AppSamlAppSettingsMap) ToAppSamlAppSettingsMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AppSamlAppSettingsMapOutput)
 }
 
+func (i AppSamlAppSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppSamlAppSettings] {
+	return pulumix.Output[map[string]*AppSamlAppSettings]{
+		OutputState: i.ToAppSamlAppSettingsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppSamlAppSettingsOutput struct{ *pulumi.OutputState }
 
 func (AppSamlAppSettingsOutput) ElementType() reflect.Type {
@@ -238,6 +257,12 @@ func (o AppSamlAppSettingsOutput) ToAppSamlAppSettingsOutput() AppSamlAppSetting
 
 func (o AppSamlAppSettingsOutput) ToAppSamlAppSettingsOutputWithContext(ctx context.Context) AppSamlAppSettingsOutput {
 	return o
+}
+
+func (o AppSamlAppSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*AppSamlAppSettings] {
+	return pulumix.Output[*AppSamlAppSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the application.
@@ -264,6 +289,12 @@ func (o AppSamlAppSettingsArrayOutput) ToAppSamlAppSettingsArrayOutputWithContex
 	return o
 }
 
+func (o AppSamlAppSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AppSamlAppSettings] {
+	return pulumix.Output[[]*AppSamlAppSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppSamlAppSettingsArrayOutput) Index(i pulumi.IntInput) AppSamlAppSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppSamlAppSettings {
 		return vs[0].([]*AppSamlAppSettings)[vs[1].(int)]
@@ -282,6 +313,12 @@ func (o AppSamlAppSettingsMapOutput) ToAppSamlAppSettingsMapOutput() AppSamlAppS
 
 func (o AppSamlAppSettingsMapOutput) ToAppSamlAppSettingsMapOutputWithContext(ctx context.Context) AppSamlAppSettingsMapOutput {
 	return o
+}
+
+func (o AppSamlAppSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppSamlAppSettings] {
+	return pulumix.Output[map[string]*AppSamlAppSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppSamlAppSettingsMapOutput) MapIndex(k pulumi.StringInput) AppSamlAppSettingsOutput {

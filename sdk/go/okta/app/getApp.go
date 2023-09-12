@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve an application from Okta.
@@ -144,6 +145,12 @@ func (o GetAppResultOutput) ToGetAppResultOutput() GetAppResultOutput {
 
 func (o GetAppResultOutput) ToGetAppResultOutputWithContext(ctx context.Context) GetAppResultOutput {
 	return o
+}
+
+func (o GetAppResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppResult] {
+	return pulumix.Output[GetAppResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAppResultOutput) ActiveOnly() pulumi.BoolPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to temporarily allow Okta Support to access your org as an administrator. By default,
@@ -139,6 +140,12 @@ func (i *OrgSupport) ToOrgSupportOutputWithContext(ctx context.Context) OrgSuppo
 	return pulumi.ToOutputWithContext(ctx, i).(OrgSupportOutput)
 }
 
+func (i *OrgSupport) ToOutput(ctx context.Context) pulumix.Output[*OrgSupport] {
+	return pulumix.Output[*OrgSupport]{
+		OutputState: i.ToOrgSupportOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrgSupportArrayInput is an input type that accepts OrgSupportArray and OrgSupportArrayOutput values.
 // You can construct a concrete instance of `OrgSupportArrayInput` via:
 //
@@ -162,6 +169,12 @@ func (i OrgSupportArray) ToOrgSupportArrayOutput() OrgSupportArrayOutput {
 
 func (i OrgSupportArray) ToOrgSupportArrayOutputWithContext(ctx context.Context) OrgSupportArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrgSupportArrayOutput)
+}
+
+func (i OrgSupportArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrgSupport] {
+	return pulumix.Output[[]*OrgSupport]{
+		OutputState: i.ToOrgSupportArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrgSupportMapInput is an input type that accepts OrgSupportMap and OrgSupportMapOutput values.
@@ -189,6 +202,12 @@ func (i OrgSupportMap) ToOrgSupportMapOutputWithContext(ctx context.Context) Org
 	return pulumi.ToOutputWithContext(ctx, i).(OrgSupportMapOutput)
 }
 
+func (i OrgSupportMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrgSupport] {
+	return pulumix.Output[map[string]*OrgSupport]{
+		OutputState: i.ToOrgSupportMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrgSupportOutput struct{ *pulumi.OutputState }
 
 func (OrgSupportOutput) ElementType() reflect.Type {
@@ -201,6 +220,12 @@ func (o OrgSupportOutput) ToOrgSupportOutput() OrgSupportOutput {
 
 func (o OrgSupportOutput) ToOrgSupportOutputWithContext(ctx context.Context) OrgSupportOutput {
 	return o
+}
+
+func (o OrgSupportOutput) ToOutput(ctx context.Context) pulumix.Output[*OrgSupport] {
+	return pulumix.Output[*OrgSupport]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Expiration of Okta Support
@@ -232,6 +257,12 @@ func (o OrgSupportArrayOutput) ToOrgSupportArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o OrgSupportArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrgSupport] {
+	return pulumix.Output[[]*OrgSupport]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrgSupportArrayOutput) Index(i pulumi.IntInput) OrgSupportOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrgSupport {
 		return vs[0].([]*OrgSupport)[vs[1].(int)]
@@ -250,6 +281,12 @@ func (o OrgSupportMapOutput) ToOrgSupportMapOutput() OrgSupportMapOutput {
 
 func (o OrgSupportMapOutput) ToOrgSupportMapOutputWithContext(ctx context.Context) OrgSupportMapOutput {
 	return o
+}
+
+func (o OrgSupportMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrgSupport] {
+	return pulumix.Output[map[string]*OrgSupport]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrgSupportMapOutput) MapIndex(k pulumi.StringInput) OrgSupportOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an Okta SMS Template.
@@ -172,6 +173,12 @@ func (i *TemplateSms) ToTemplateSmsOutputWithContext(ctx context.Context) Templa
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsOutput)
 }
 
+func (i *TemplateSms) ToOutput(ctx context.Context) pulumix.Output[*TemplateSms] {
+	return pulumix.Output[*TemplateSms]{
+		OutputState: i.ToTemplateSmsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TemplateSmsArrayInput is an input type that accepts TemplateSmsArray and TemplateSmsArrayOutput values.
 // You can construct a concrete instance of `TemplateSmsArrayInput` via:
 //
@@ -195,6 +202,12 @@ func (i TemplateSmsArray) ToTemplateSmsArrayOutput() TemplateSmsArrayOutput {
 
 func (i TemplateSmsArray) ToTemplateSmsArrayOutputWithContext(ctx context.Context) TemplateSmsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsArrayOutput)
+}
+
+func (i TemplateSmsArray) ToOutput(ctx context.Context) pulumix.Output[[]*TemplateSms] {
+	return pulumix.Output[[]*TemplateSms]{
+		OutputState: i.ToTemplateSmsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TemplateSmsMapInput is an input type that accepts TemplateSmsMap and TemplateSmsMapOutput values.
@@ -222,6 +235,12 @@ func (i TemplateSmsMap) ToTemplateSmsMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsMapOutput)
 }
 
+func (i TemplateSmsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TemplateSms] {
+	return pulumix.Output[map[string]*TemplateSms]{
+		OutputState: i.ToTemplateSmsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TemplateSmsOutput struct{ *pulumi.OutputState }
 
 func (TemplateSmsOutput) ElementType() reflect.Type {
@@ -234,6 +253,12 @@ func (o TemplateSmsOutput) ToTemplateSmsOutput() TemplateSmsOutput {
 
 func (o TemplateSmsOutput) ToTemplateSmsOutputWithContext(ctx context.Context) TemplateSmsOutput {
 	return o
+}
+
+func (o TemplateSmsOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSms] {
+	return pulumix.Output[*TemplateSms]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The SMS message.
@@ -265,6 +290,12 @@ func (o TemplateSmsArrayOutput) ToTemplateSmsArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o TemplateSmsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TemplateSms] {
+	return pulumix.Output[[]*TemplateSms]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TemplateSmsArrayOutput) Index(i pulumi.IntInput) TemplateSmsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TemplateSms {
 		return vs[0].([]*TemplateSms)[vs[1].(int)]
@@ -283,6 +314,12 @@ func (o TemplateSmsMapOutput) ToTemplateSmsMapOutput() TemplateSmsMapOutput {
 
 func (o TemplateSmsMapOutput) ToTemplateSmsMapOutputWithContext(ctx context.Context) TemplateSmsMapOutput {
 	return o
+}
+
+func (o TemplateSmsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TemplateSms] {
+	return pulumix.Output[map[string]*TemplateSms]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TemplateSmsMapOutput) MapIndex(k pulumi.StringInput) TemplateSmsOutput {

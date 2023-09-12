@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -205,6 +206,12 @@ func (i *AppSignonPolicy) ToAppSignonPolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyOutput)
 }
 
+func (i *AppSignonPolicy) ToOutput(ctx context.Context) pulumix.Output[*AppSignonPolicy] {
+	return pulumix.Output[*AppSignonPolicy]{
+		OutputState: i.ToAppSignonPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AppSignonPolicyArrayInput is an input type that accepts AppSignonPolicyArray and AppSignonPolicyArrayOutput values.
 // You can construct a concrete instance of `AppSignonPolicyArrayInput` via:
 //
@@ -228,6 +235,12 @@ func (i AppSignonPolicyArray) ToAppSignonPolicyArrayOutput() AppSignonPolicyArra
 
 func (i AppSignonPolicyArray) ToAppSignonPolicyArrayOutputWithContext(ctx context.Context) AppSignonPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyArrayOutput)
+}
+
+func (i AppSignonPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*AppSignonPolicy] {
+	return pulumix.Output[[]*AppSignonPolicy]{
+		OutputState: i.ToAppSignonPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AppSignonPolicyMapInput is an input type that accepts AppSignonPolicyMap and AppSignonPolicyMapOutput values.
@@ -255,6 +268,12 @@ func (i AppSignonPolicyMap) ToAppSignonPolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyMapOutput)
 }
 
+func (i AppSignonPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppSignonPolicy] {
+	return pulumix.Output[map[string]*AppSignonPolicy]{
+		OutputState: i.ToAppSignonPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppSignonPolicyOutput struct{ *pulumi.OutputState }
 
 func (AppSignonPolicyOutput) ElementType() reflect.Type {
@@ -267,6 +286,12 @@ func (o AppSignonPolicyOutput) ToAppSignonPolicyOutput() AppSignonPolicyOutput {
 
 func (o AppSignonPolicyOutput) ToAppSignonPolicyOutputWithContext(ctx context.Context) AppSignonPolicyOutput {
 	return o
+}
+
+func (o AppSignonPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*AppSignonPolicy] {
+	return pulumix.Output[*AppSignonPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the policy.
@@ -293,6 +318,12 @@ func (o AppSignonPolicyArrayOutput) ToAppSignonPolicyArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o AppSignonPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AppSignonPolicy] {
+	return pulumix.Output[[]*AppSignonPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppSignonPolicyArrayOutput) Index(i pulumi.IntInput) AppSignonPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppSignonPolicy {
 		return vs[0].([]*AppSignonPolicy)[vs[1].(int)]
@@ -311,6 +342,12 @@ func (o AppSignonPolicyMapOutput) ToAppSignonPolicyMapOutput() AppSignonPolicyMa
 
 func (o AppSignonPolicyMapOutput) ToAppSignonPolicyMapOutputWithContext(ctx context.Context) AppSignonPolicyMapOutput {
 	return o
+}
+
+func (o AppSignonPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppSignonPolicy] {
+	return pulumix.Output[map[string]*AppSignonPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppSignonPolicyMapOutput) MapIndex(k pulumi.StringInput) AppSignonPolicyOutput {

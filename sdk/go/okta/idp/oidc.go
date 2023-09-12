@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an OIDC Identity Provider.
@@ -503,6 +504,12 @@ func (i *Oidc) ToOidcOutputWithContext(ctx context.Context) OidcOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OidcOutput)
 }
 
+func (i *Oidc) ToOutput(ctx context.Context) pulumix.Output[*Oidc] {
+	return pulumix.Output[*Oidc]{
+		OutputState: i.ToOidcOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OidcArrayInput is an input type that accepts OidcArray and OidcArrayOutput values.
 // You can construct a concrete instance of `OidcArrayInput` via:
 //
@@ -526,6 +533,12 @@ func (i OidcArray) ToOidcArrayOutput() OidcArrayOutput {
 
 func (i OidcArray) ToOidcArrayOutputWithContext(ctx context.Context) OidcArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OidcArrayOutput)
+}
+
+func (i OidcArray) ToOutput(ctx context.Context) pulumix.Output[[]*Oidc] {
+	return pulumix.Output[[]*Oidc]{
+		OutputState: i.ToOidcArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OidcMapInput is an input type that accepts OidcMap and OidcMapOutput values.
@@ -553,6 +566,12 @@ func (i OidcMap) ToOidcMapOutputWithContext(ctx context.Context) OidcMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OidcMapOutput)
 }
 
+func (i OidcMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Oidc] {
+	return pulumix.Output[map[string]*Oidc]{
+		OutputState: i.ToOidcMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OidcOutput struct{ *pulumi.OutputState }
 
 func (OidcOutput) ElementType() reflect.Type {
@@ -565,6 +584,12 @@ func (o OidcOutput) ToOidcOutput() OidcOutput {
 
 func (o OidcOutput) ToOidcOutputWithContext(ctx context.Context) OidcOutput {
 	return o
+}
+
+func (o OidcOutput) ToOutput(ctx context.Context) pulumix.Output[*Oidc] {
+	return pulumix.Output[*Oidc]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the account linking action for an IdP user.
@@ -750,6 +775,12 @@ func (o OidcArrayOutput) ToOidcArrayOutputWithContext(ctx context.Context) OidcA
 	return o
 }
 
+func (o OidcArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Oidc] {
+	return pulumix.Output[[]*Oidc]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OidcArrayOutput) Index(i pulumi.IntInput) OidcOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Oidc {
 		return vs[0].([]*Oidc)[vs[1].(int)]
@@ -768,6 +799,12 @@ func (o OidcMapOutput) ToOidcMapOutput() OidcMapOutput {
 
 func (o OidcMapOutput) ToOidcMapOutputWithContext(ctx context.Context) OidcMapOutput {
 	return o
+}
+
+func (o OidcMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Oidc] {
+	return pulumix.Output[map[string]*Oidc]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OidcMapOutput) MapIndex(k pulumi.StringInput) OidcOutput {

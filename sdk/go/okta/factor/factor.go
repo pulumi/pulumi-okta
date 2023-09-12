@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows you to manage the activation of Okta MFA methods.
@@ -143,6 +144,12 @@ func (i *Factor) ToFactorOutputWithContext(ctx context.Context) FactorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FactorOutput)
 }
 
+func (i *Factor) ToOutput(ctx context.Context) pulumix.Output[*Factor] {
+	return pulumix.Output[*Factor]{
+		OutputState: i.ToFactorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FactorArrayInput is an input type that accepts FactorArray and FactorArrayOutput values.
 // You can construct a concrete instance of `FactorArrayInput` via:
 //
@@ -166,6 +173,12 @@ func (i FactorArray) ToFactorArrayOutput() FactorArrayOutput {
 
 func (i FactorArray) ToFactorArrayOutputWithContext(ctx context.Context) FactorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FactorArrayOutput)
+}
+
+func (i FactorArray) ToOutput(ctx context.Context) pulumix.Output[[]*Factor] {
+	return pulumix.Output[[]*Factor]{
+		OutputState: i.ToFactorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FactorMapInput is an input type that accepts FactorMap and FactorMapOutput values.
@@ -193,6 +206,12 @@ func (i FactorMap) ToFactorMapOutputWithContext(ctx context.Context) FactorMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(FactorMapOutput)
 }
 
+func (i FactorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Factor] {
+	return pulumix.Output[map[string]*Factor]{
+		OutputState: i.ToFactorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FactorOutput struct{ *pulumi.OutputState }
 
 func (FactorOutput) ElementType() reflect.Type {
@@ -205,6 +224,12 @@ func (o FactorOutput) ToFactorOutput() FactorOutput {
 
 func (o FactorOutput) ToFactorOutputWithContext(ctx context.Context) FactorOutput {
 	return o
+}
+
+func (o FactorOutput) ToOutput(ctx context.Context) pulumix.Output[*Factor] {
+	return pulumix.Output[*Factor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether to activate the provider, by default, it is set to `true`.
@@ -232,6 +257,12 @@ func (o FactorArrayOutput) ToFactorArrayOutputWithContext(ctx context.Context) F
 	return o
 }
 
+func (o FactorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Factor] {
+	return pulumix.Output[[]*Factor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FactorArrayOutput) Index(i pulumi.IntInput) FactorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Factor {
 		return vs[0].([]*Factor)[vs[1].(int)]
@@ -250,6 +281,12 @@ func (o FactorMapOutput) ToFactorMapOutput() FactorMapOutput {
 
 func (o FactorMapOutput) ToFactorMapOutputWithContext(ctx context.Context) FactorMapOutput {
 	return o
+}
+
+func (o FactorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Factor] {
+	return pulumix.Output[map[string]*Factor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FactorMapOutput) MapIndex(k pulumi.StringInput) FactorOutput {

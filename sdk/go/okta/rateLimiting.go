@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to configure the client-based rate limit and rate limiting communications settings.
@@ -175,6 +176,12 @@ func (i *RateLimiting) ToRateLimitingOutputWithContext(ctx context.Context) Rate
 	return pulumi.ToOutputWithContext(ctx, i).(RateLimitingOutput)
 }
 
+func (i *RateLimiting) ToOutput(ctx context.Context) pulumix.Output[*RateLimiting] {
+	return pulumix.Output[*RateLimiting]{
+		OutputState: i.ToRateLimitingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RateLimitingArrayInput is an input type that accepts RateLimitingArray and RateLimitingArrayOutput values.
 // You can construct a concrete instance of `RateLimitingArrayInput` via:
 //
@@ -198,6 +205,12 @@ func (i RateLimitingArray) ToRateLimitingArrayOutput() RateLimitingArrayOutput {
 
 func (i RateLimitingArray) ToRateLimitingArrayOutputWithContext(ctx context.Context) RateLimitingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RateLimitingArrayOutput)
+}
+
+func (i RateLimitingArray) ToOutput(ctx context.Context) pulumix.Output[[]*RateLimiting] {
+	return pulumix.Output[[]*RateLimiting]{
+		OutputState: i.ToRateLimitingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RateLimitingMapInput is an input type that accepts RateLimitingMap and RateLimitingMapOutput values.
@@ -225,6 +238,12 @@ func (i RateLimitingMap) ToRateLimitingMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RateLimitingMapOutput)
 }
 
+func (i RateLimitingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RateLimiting] {
+	return pulumix.Output[map[string]*RateLimiting]{
+		OutputState: i.ToRateLimitingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RateLimitingOutput struct{ *pulumi.OutputState }
 
 func (RateLimitingOutput) ElementType() reflect.Type {
@@ -237,6 +256,12 @@ func (o RateLimitingOutput) ToRateLimitingOutput() RateLimitingOutput {
 
 func (o RateLimitingOutput) ToRateLimitingOutputWithContext(ctx context.Context) RateLimitingOutput {
 	return o
+}
+
+func (o RateLimitingOutput) ToOutput(ctx context.Context) pulumix.Output[*RateLimiting] {
+	return pulumix.Output[*RateLimiting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
@@ -270,6 +295,12 @@ func (o RateLimitingArrayOutput) ToRateLimitingArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o RateLimitingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RateLimiting] {
+	return pulumix.Output[[]*RateLimiting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RateLimitingArrayOutput) Index(i pulumi.IntInput) RateLimitingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RateLimiting {
 		return vs[0].([]*RateLimiting)[vs[1].(int)]
@@ -288,6 +319,12 @@ func (o RateLimitingMapOutput) ToRateLimitingMapOutput() RateLimitingMapOutput {
 
 func (o RateLimitingMapOutput) ToRateLimitingMapOutputWithContext(ctx context.Context) RateLimitingMapOutput {
 	return o
+}
+
+func (o RateLimitingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RateLimiting] {
+	return pulumix.Output[map[string]*RateLimiting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RateLimitingMapOutput) MapIndex(k pulumi.StringInput) RateLimitingOutput {

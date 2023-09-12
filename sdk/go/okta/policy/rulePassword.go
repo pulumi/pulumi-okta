@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Password Policy Rule.
@@ -208,6 +209,12 @@ func (i *RulePassword) ToRulePasswordOutputWithContext(ctx context.Context) Rule
 	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordOutput)
 }
 
+func (i *RulePassword) ToOutput(ctx context.Context) pulumix.Output[*RulePassword] {
+	return pulumix.Output[*RulePassword]{
+		OutputState: i.ToRulePasswordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulePasswordArrayInput is an input type that accepts RulePasswordArray and RulePasswordArrayOutput values.
 // You can construct a concrete instance of `RulePasswordArrayInput` via:
 //
@@ -231,6 +238,12 @@ func (i RulePasswordArray) ToRulePasswordArrayOutput() RulePasswordArrayOutput {
 
 func (i RulePasswordArray) ToRulePasswordArrayOutputWithContext(ctx context.Context) RulePasswordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordArrayOutput)
+}
+
+func (i RulePasswordArray) ToOutput(ctx context.Context) pulumix.Output[[]*RulePassword] {
+	return pulumix.Output[[]*RulePassword]{
+		OutputState: i.ToRulePasswordArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RulePasswordMapInput is an input type that accepts RulePasswordMap and RulePasswordMapOutput values.
@@ -258,6 +271,12 @@ func (i RulePasswordMap) ToRulePasswordMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordMapOutput)
 }
 
+func (i RulePasswordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RulePassword] {
+	return pulumix.Output[map[string]*RulePassword]{
+		OutputState: i.ToRulePasswordMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulePasswordOutput struct{ *pulumi.OutputState }
 
 func (RulePasswordOutput) ElementType() reflect.Type {
@@ -270,6 +289,12 @@ func (o RulePasswordOutput) ToRulePasswordOutput() RulePasswordOutput {
 
 func (o RulePasswordOutput) ToRulePasswordOutputWithContext(ctx context.Context) RulePasswordOutput {
 	return o
+}
+
+func (o RulePasswordOutput) ToOutput(ctx context.Context) pulumix.Output[*RulePassword] {
+	return pulumix.Output[*RulePassword]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Policy Rule Name. Type `"string"`
@@ -341,6 +366,12 @@ func (o RulePasswordArrayOutput) ToRulePasswordArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o RulePasswordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RulePassword] {
+	return pulumix.Output[[]*RulePassword]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RulePasswordArrayOutput) Index(i pulumi.IntInput) RulePasswordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RulePassword {
 		return vs[0].([]*RulePassword)[vs[1].(int)]
@@ -359,6 +390,12 @@ func (o RulePasswordMapOutput) ToRulePasswordMapOutput() RulePasswordMapOutput {
 
 func (o RulePasswordMapOutput) ToRulePasswordMapOutputWithContext(ctx context.Context) RulePasswordMapOutput {
 	return o
+}
+
+func (o RulePasswordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RulePassword] {
+	return pulumix.Output[map[string]*RulePassword]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulePasswordMapOutput) MapIndex(k pulumi.StringInput) RulePasswordOutput {

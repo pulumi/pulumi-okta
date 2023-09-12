@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
@@ -78,6 +79,12 @@ func (o LookupBrandResultOutput) ToLookupBrandResultOutput() LookupBrandResultOu
 
 func (o LookupBrandResultOutput) ToLookupBrandResultOutputWithContext(ctx context.Context) LookupBrandResultOutput {
 	return o
+}
+
+func (o LookupBrandResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBrandResult] {
+	return pulumix.Output[LookupBrandResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupBrandResultOutput) BrandId() pulumi.StringOutput {

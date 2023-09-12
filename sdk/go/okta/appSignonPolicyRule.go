@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -489,6 +490,12 @@ func (i *AppSignonPolicyRule) ToAppSignonPolicyRuleOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyRuleOutput)
 }
 
+func (i *AppSignonPolicyRule) ToOutput(ctx context.Context) pulumix.Output[*AppSignonPolicyRule] {
+	return pulumix.Output[*AppSignonPolicyRule]{
+		OutputState: i.ToAppSignonPolicyRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AppSignonPolicyRuleArrayInput is an input type that accepts AppSignonPolicyRuleArray and AppSignonPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `AppSignonPolicyRuleArrayInput` via:
 //
@@ -512,6 +519,12 @@ func (i AppSignonPolicyRuleArray) ToAppSignonPolicyRuleArrayOutput() AppSignonPo
 
 func (i AppSignonPolicyRuleArray) ToAppSignonPolicyRuleArrayOutputWithContext(ctx context.Context) AppSignonPolicyRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyRuleArrayOutput)
+}
+
+func (i AppSignonPolicyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*AppSignonPolicyRule] {
+	return pulumix.Output[[]*AppSignonPolicyRule]{
+		OutputState: i.ToAppSignonPolicyRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AppSignonPolicyRuleMapInput is an input type that accepts AppSignonPolicyRuleMap and AppSignonPolicyRuleMapOutput values.
@@ -539,6 +552,12 @@ func (i AppSignonPolicyRuleMap) ToAppSignonPolicyRuleMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyRuleMapOutput)
 }
 
+func (i AppSignonPolicyRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppSignonPolicyRule] {
+	return pulumix.Output[map[string]*AppSignonPolicyRule]{
+		OutputState: i.ToAppSignonPolicyRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppSignonPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (AppSignonPolicyRuleOutput) ElementType() reflect.Type {
@@ -551,6 +570,12 @@ func (o AppSignonPolicyRuleOutput) ToAppSignonPolicyRuleOutput() AppSignonPolicy
 
 func (o AppSignonPolicyRuleOutput) ToAppSignonPolicyRuleOutputWithContext(ctx context.Context) AppSignonPolicyRuleOutput {
 	return o
+}
+
+func (o AppSignonPolicyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*AppSignonPolicyRule] {
+	return pulumix.Output[*AppSignonPolicyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
@@ -689,6 +714,12 @@ func (o AppSignonPolicyRuleArrayOutput) ToAppSignonPolicyRuleArrayOutputWithCont
 	return o
 }
 
+func (o AppSignonPolicyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AppSignonPolicyRule] {
+	return pulumix.Output[[]*AppSignonPolicyRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppSignonPolicyRuleArrayOutput) Index(i pulumi.IntInput) AppSignonPolicyRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppSignonPolicyRule {
 		return vs[0].([]*AppSignonPolicyRule)[vs[1].(int)]
@@ -707,6 +738,12 @@ func (o AppSignonPolicyRuleMapOutput) ToAppSignonPolicyRuleMapOutput() AppSignon
 
 func (o AppSignonPolicyRuleMapOutput) ToAppSignonPolicyRuleMapOutputWithContext(ctx context.Context) AppSignonPolicyRuleMapOutput {
 	return o
+}
+
+func (o AppSignonPolicyRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppSignonPolicyRule] {
+	return pulumix.Output[map[string]*AppSignonPolicyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppSignonPolicyRuleMapOutput) MapIndex(k pulumi.StringInput) AppSignonPolicyRuleOutput {

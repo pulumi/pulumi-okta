@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i EmailDomainDnsValidationRecordArgs) ToEmailDomainDnsValidationRecordOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EmailDomainDnsValidationRecordOutput)
 }
 
+func (i EmailDomainDnsValidationRecordArgs) ToOutput(ctx context.Context) pulumix.Output[EmailDomainDnsValidationRecord] {
+	return pulumix.Output[EmailDomainDnsValidationRecord]{
+		OutputState: i.ToEmailDomainDnsValidationRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EmailDomainDnsValidationRecordArrayInput is an input type that accepts EmailDomainDnsValidationRecordArray and EmailDomainDnsValidationRecordArrayOutput values.
 // You can construct a concrete instance of `EmailDomainDnsValidationRecordArrayInput` via:
 //
@@ -83,6 +90,12 @@ func (i EmailDomainDnsValidationRecordArray) ToEmailDomainDnsValidationRecordArr
 	return pulumi.ToOutputWithContext(ctx, i).(EmailDomainDnsValidationRecordArrayOutput)
 }
 
+func (i EmailDomainDnsValidationRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]EmailDomainDnsValidationRecord] {
+	return pulumix.Output[[]EmailDomainDnsValidationRecord]{
+		OutputState: i.ToEmailDomainDnsValidationRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EmailDomainDnsValidationRecordOutput struct{ *pulumi.OutputState }
 
 func (EmailDomainDnsValidationRecordOutput) ElementType() reflect.Type {
@@ -95,6 +108,12 @@ func (o EmailDomainDnsValidationRecordOutput) ToEmailDomainDnsValidationRecordOu
 
 func (o EmailDomainDnsValidationRecordOutput) ToEmailDomainDnsValidationRecordOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordOutput {
 	return o
+}
+
+func (o EmailDomainDnsValidationRecordOutput) ToOutput(ctx context.Context) pulumix.Output[EmailDomainDnsValidationRecord] {
+	return pulumix.Output[EmailDomainDnsValidationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EmailDomainDnsValidationRecordOutput) Expiration() pulumi.StringPtrOutput {
@@ -129,6 +148,12 @@ func (o EmailDomainDnsValidationRecordArrayOutput) ToEmailDomainDnsValidationRec
 
 func (o EmailDomainDnsValidationRecordArrayOutput) ToEmailDomainDnsValidationRecordArrayOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordArrayOutput {
 	return o
+}
+
+func (o EmailDomainDnsValidationRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EmailDomainDnsValidationRecord] {
+	return pulumix.Output[[]EmailDomainDnsValidationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EmailDomainDnsValidationRecordArrayOutput) Index(i pulumi.IntInput) EmailDomainDnsValidationRecordOutput {
@@ -182,6 +207,12 @@ func (i GetDomainDnsRecordArgs) ToGetDomainDnsRecordOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainDnsRecordOutput)
 }
 
+func (i GetDomainDnsRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainDnsRecord] {
+	return pulumix.Output[GetDomainDnsRecord]{
+		OutputState: i.ToGetDomainDnsRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDomainDnsRecordArrayInput is an input type that accepts GetDomainDnsRecordArray and GetDomainDnsRecordArrayOutput values.
 // You can construct a concrete instance of `GetDomainDnsRecordArrayInput` via:
 //
@@ -207,6 +238,12 @@ func (i GetDomainDnsRecordArray) ToGetDomainDnsRecordArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainDnsRecordArrayOutput)
 }
 
+func (i GetDomainDnsRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainDnsRecord] {
+	return pulumix.Output[[]GetDomainDnsRecord]{
+		OutputState: i.ToGetDomainDnsRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDomainDnsRecordOutput struct{ *pulumi.OutputState }
 
 func (GetDomainDnsRecordOutput) ElementType() reflect.Type {
@@ -219,6 +256,12 @@ func (o GetDomainDnsRecordOutput) ToGetDomainDnsRecordOutput() GetDomainDnsRecor
 
 func (o GetDomainDnsRecordOutput) ToGetDomainDnsRecordOutputWithContext(ctx context.Context) GetDomainDnsRecordOutput {
 	return o
+}
+
+func (o GetDomainDnsRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainDnsRecord] {
+	return pulumix.Output[GetDomainDnsRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // TXT record expiration.
@@ -253,6 +296,12 @@ func (o GetDomainDnsRecordArrayOutput) ToGetDomainDnsRecordArrayOutput() GetDoma
 
 func (o GetDomainDnsRecordArrayOutput) ToGetDomainDnsRecordArrayOutputWithContext(ctx context.Context) GetDomainDnsRecordArrayOutput {
 	return o
+}
+
+func (o GetDomainDnsRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainDnsRecord] {
+	return pulumix.Output[[]GetDomainDnsRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDomainDnsRecordArrayOutput) Index(i pulumi.IntInput) GetDomainDnsRecordOutput {

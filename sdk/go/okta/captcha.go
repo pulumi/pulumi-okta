@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -183,6 +184,12 @@ func (i *Captcha) ToCaptchaOutputWithContext(ctx context.Context) CaptchaOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(CaptchaOutput)
 }
 
+func (i *Captcha) ToOutput(ctx context.Context) pulumix.Output[*Captcha] {
+	return pulumix.Output[*Captcha]{
+		OutputState: i.ToCaptchaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CaptchaArrayInput is an input type that accepts CaptchaArray and CaptchaArrayOutput values.
 // You can construct a concrete instance of `CaptchaArrayInput` via:
 //
@@ -206,6 +213,12 @@ func (i CaptchaArray) ToCaptchaArrayOutput() CaptchaArrayOutput {
 
 func (i CaptchaArray) ToCaptchaArrayOutputWithContext(ctx context.Context) CaptchaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CaptchaArrayOutput)
+}
+
+func (i CaptchaArray) ToOutput(ctx context.Context) pulumix.Output[[]*Captcha] {
+	return pulumix.Output[[]*Captcha]{
+		OutputState: i.ToCaptchaArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CaptchaMapInput is an input type that accepts CaptchaMap and CaptchaMapOutput values.
@@ -233,6 +246,12 @@ func (i CaptchaMap) ToCaptchaMapOutputWithContext(ctx context.Context) CaptchaMa
 	return pulumi.ToOutputWithContext(ctx, i).(CaptchaMapOutput)
 }
 
+func (i CaptchaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Captcha] {
+	return pulumix.Output[map[string]*Captcha]{
+		OutputState: i.ToCaptchaMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CaptchaOutput struct{ *pulumi.OutputState }
 
 func (CaptchaOutput) ElementType() reflect.Type {
@@ -245,6 +264,12 @@ func (o CaptchaOutput) ToCaptchaOutput() CaptchaOutput {
 
 func (o CaptchaOutput) ToCaptchaOutputWithContext(ctx context.Context) CaptchaOutput {
 	return o
+}
+
+func (o CaptchaOutput) ToOutput(ctx context.Context) pulumix.Output[*Captcha] {
+	return pulumix.Output[*Captcha]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the captcha.
@@ -281,6 +306,12 @@ func (o CaptchaArrayOutput) ToCaptchaArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o CaptchaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Captcha] {
+	return pulumix.Output[[]*Captcha]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CaptchaArrayOutput) Index(i pulumi.IntInput) CaptchaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Captcha {
 		return vs[0].([]*Captcha)[vs[1].(int)]
@@ -299,6 +330,12 @@ func (o CaptchaMapOutput) ToCaptchaMapOutput() CaptchaMapOutput {
 
 func (o CaptchaMapOutput) ToCaptchaMapOutputWithContext(ctx context.Context) CaptchaMapOutput {
 	return o
+}
+
+func (o CaptchaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Captcha] {
+	return pulumix.Output[map[string]*Captcha]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CaptchaMapOutput) MapIndex(k pulumi.StringInput) CaptchaOutput {

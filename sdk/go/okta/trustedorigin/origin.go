@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Trusted Origin.
@@ -174,6 +175,12 @@ func (i *Origin) ToOriginOutputWithContext(ctx context.Context) OriginOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginOutput)
 }
 
+func (i *Origin) ToOutput(ctx context.Context) pulumix.Output[*Origin] {
+	return pulumix.Output[*Origin]{
+		OutputState: i.ToOriginOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OriginArrayInput is an input type that accepts OriginArray and OriginArrayOutput values.
 // You can construct a concrete instance of `OriginArrayInput` via:
 //
@@ -197,6 +204,12 @@ func (i OriginArray) ToOriginArrayOutput() OriginArrayOutput {
 
 func (i OriginArray) ToOriginArrayOutputWithContext(ctx context.Context) OriginArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginArrayOutput)
+}
+
+func (i OriginArray) ToOutput(ctx context.Context) pulumix.Output[[]*Origin] {
+	return pulumix.Output[[]*Origin]{
+		OutputState: i.ToOriginArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OriginMapInput is an input type that accepts OriginMap and OriginMapOutput values.
@@ -224,6 +237,12 @@ func (i OriginMap) ToOriginMapOutputWithContext(ctx context.Context) OriginMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(OriginMapOutput)
 }
 
+func (i OriginMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Origin] {
+	return pulumix.Output[map[string]*Origin]{
+		OutputState: i.ToOriginMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginOutput struct{ *pulumi.OutputState }
 
 func (OriginOutput) ElementType() reflect.Type {
@@ -236,6 +255,12 @@ func (o OriginOutput) ToOriginOutput() OriginOutput {
 
 func (o OriginOutput) ToOriginOutputWithContext(ctx context.Context) OriginOutput {
 	return o
+}
+
+func (o OriginOutput) ToOutput(ctx context.Context) pulumix.Output[*Origin] {
+	return pulumix.Output[*Origin]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
@@ -272,6 +297,12 @@ func (o OriginArrayOutput) ToOriginArrayOutputWithContext(ctx context.Context) O
 	return o
 }
 
+func (o OriginArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Origin] {
+	return pulumix.Output[[]*Origin]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginArrayOutput) Index(i pulumi.IntInput) OriginOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Origin {
 		return vs[0].([]*Origin)[vs[1].(int)]
@@ -290,6 +321,12 @@ func (o OriginMapOutput) ToOriginMapOutput() OriginMapOutput {
 
 func (o OriginMapOutput) ToOriginMapOutputWithContext(ctx context.Context) OriginMapOutput {
 	return o
+}
+
+func (o OriginMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Origin] {
+	return pulumix.Output[map[string]*Origin]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginMapOutput) MapIndex(k pulumi.StringInput) OriginOutput {

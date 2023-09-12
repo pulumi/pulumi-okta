@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use
@@ -149,6 +150,12 @@ func (i *ResourceSet) ToResourceSetOutputWithContext(ctx context.Context) Resour
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetOutput)
 }
 
+func (i *ResourceSet) ToOutput(ctx context.Context) pulumix.Output[*ResourceSet] {
+	return pulumix.Output[*ResourceSet]{
+		OutputState: i.ToResourceSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceSetArrayInput is an input type that accepts ResourceSetArray and ResourceSetArrayOutput values.
 // You can construct a concrete instance of `ResourceSetArrayInput` via:
 //
@@ -172,6 +179,12 @@ func (i ResourceSetArray) ToResourceSetArrayOutput() ResourceSetArrayOutput {
 
 func (i ResourceSetArray) ToResourceSetArrayOutputWithContext(ctx context.Context) ResourceSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetArrayOutput)
+}
+
+func (i ResourceSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceSet] {
+	return pulumix.Output[[]*ResourceSet]{
+		OutputState: i.ToResourceSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceSetMapInput is an input type that accepts ResourceSetMap and ResourceSetMapOutput values.
@@ -199,6 +212,12 @@ func (i ResourceSetMap) ToResourceSetMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetMapOutput)
 }
 
+func (i ResourceSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceSet] {
+	return pulumix.Output[map[string]*ResourceSet]{
+		OutputState: i.ToResourceSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceSetOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetOutput) ElementType() reflect.Type {
@@ -211,6 +230,12 @@ func (o ResourceSetOutput) ToResourceSetOutput() ResourceSetOutput {
 
 func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) ResourceSetOutput {
 	return o
+}
+
+func (o ResourceSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceSet] {
+	return pulumix.Output[*ResourceSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description of the Resource Set.
@@ -243,6 +268,12 @@ func (o ResourceSetArrayOutput) ToResourceSetArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ResourceSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceSet] {
+	return pulumix.Output[[]*ResourceSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceSetArrayOutput) Index(i pulumi.IntInput) ResourceSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceSet {
 		return vs[0].([]*ResourceSet)[vs[1].(int)]
@@ -261,6 +292,12 @@ func (o ResourceSetMapOutput) ToResourceSetMapOutput() ResourceSetMapOutput {
 
 func (o ResourceSetMapOutput) ToResourceSetMapOutputWithContext(ctx context.Context) ResourceSetMapOutput {
 	return o
+}
+
+func (o ResourceSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceSet] {
+	return pulumix.Output[map[string]*ResourceSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceSetMapOutput) MapIndex(k pulumi.StringInput) ResourceSetOutput {

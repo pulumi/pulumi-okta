@@ -42,3 +42,20 @@ export interface GetUserProfileMappingSourceResult {
      */
     readonly type: string;
 }
+/**
+ * Use this data source to retrieve the base user Profile Mapping source or target from Okta.
+ *
+ * > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.user.getUserProfileMappingSource({});
+ * ```
+ */
+export function getUserProfileMappingSourceOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetUserProfileMappingSourceResult> {
+    return pulumi.output(getUserProfileMappingSource(opts))
+}

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a list of users from Okta.
@@ -157,6 +158,12 @@ func (o GetUsersResultOutput) ToGetUsersResultOutput() GetUsersResultOutput {
 
 func (o GetUsersResultOutput) ToGetUsersResultOutputWithContext(ctx context.Context) GetUsersResultOutput {
 	return o
+}
+
+func (o GetUsersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUsersResult] {
+	return pulumix.Output[GetUsersResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUsersResultOutput) CompoundSearchOperator() pulumi.StringPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -68,6 +69,12 @@ func (i UserPasswordHashArgs) ToUserPasswordHashOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(UserPasswordHashOutput)
 }
 
+func (i UserPasswordHashArgs) ToOutput(ctx context.Context) pulumix.Output[UserPasswordHash] {
+	return pulumix.Output[UserPasswordHash]{
+		OutputState: i.ToUserPasswordHashOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i UserPasswordHashArgs) ToUserPasswordHashPtrOutput() UserPasswordHashPtrOutput {
 	return i.ToUserPasswordHashPtrOutputWithContext(context.Background())
 }
@@ -109,6 +116,12 @@ func (i *userPasswordHashPtrType) ToUserPasswordHashPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(UserPasswordHashPtrOutput)
 }
 
+func (i *userPasswordHashPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPasswordHash] {
+	return pulumix.Output[*UserPasswordHash]{
+		OutputState: i.ToUserPasswordHashPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserPasswordHashOutput struct{ *pulumi.OutputState }
 
 func (UserPasswordHashOutput) ElementType() reflect.Type {
@@ -131,6 +144,12 @@ func (o UserPasswordHashOutput) ToUserPasswordHashPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPasswordHash) *UserPasswordHash {
 		return &v
 	}).(UserPasswordHashPtrOutput)
+}
+
+func (o UserPasswordHashOutput) ToOutput(ctx context.Context) pulumix.Output[UserPasswordHash] {
+	return pulumix.Output[UserPasswordHash]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPasswordHashOutput) Algorithm() pulumi.StringOutput {
@@ -173,6 +192,12 @@ func (o UserPasswordHashPtrOutput) ToUserPasswordHashPtrOutput() UserPasswordHas
 
 func (o UserPasswordHashPtrOutput) ToUserPasswordHashPtrOutputWithContext(ctx context.Context) UserPasswordHashPtrOutput {
 	return o
+}
+
+func (o UserPasswordHashPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPasswordHash] {
+	return pulumix.Output[*UserPasswordHash]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPasswordHashPtrOutput) Elem() UserPasswordHashOutput {
@@ -283,6 +308,12 @@ func (i GetUserSearchArgs) ToGetUserSearchOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserSearchOutput)
 }
 
+func (i GetUserSearchArgs) ToOutput(ctx context.Context) pulumix.Output[GetUserSearch] {
+	return pulumix.Output[GetUserSearch]{
+		OutputState: i.ToGetUserSearchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetUserSearchArrayInput is an input type that accepts GetUserSearchArray and GetUserSearchArrayOutput values.
 // You can construct a concrete instance of `GetUserSearchArrayInput` via:
 //
@@ -308,6 +339,12 @@ func (i GetUserSearchArray) ToGetUserSearchArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserSearchArrayOutput)
 }
 
+func (i GetUserSearchArray) ToOutput(ctx context.Context) pulumix.Output[[]GetUserSearch] {
+	return pulumix.Output[[]GetUserSearch]{
+		OutputState: i.ToGetUserSearchArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUserSearchOutput struct{ *pulumi.OutputState }
 
 func (GetUserSearchOutput) ElementType() reflect.Type {
@@ -320,6 +357,12 @@ func (o GetUserSearchOutput) ToGetUserSearchOutput() GetUserSearchOutput {
 
 func (o GetUserSearchOutput) ToGetUserSearchOutputWithContext(ctx context.Context) GetUserSearchOutput {
 	return o
+}
+
+func (o GetUserSearchOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserSearch] {
+	return pulumix.Output[GetUserSearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
@@ -354,6 +397,12 @@ func (o GetUserSearchArrayOutput) ToGetUserSearchArrayOutput() GetUserSearchArra
 
 func (o GetUserSearchArrayOutput) ToGetUserSearchArrayOutputWithContext(ctx context.Context) GetUserSearchArrayOutput {
 	return o
+}
+
+func (o GetUserSearchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetUserSearch] {
+	return pulumix.Output[[]GetUserSearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUserSearchArrayOutput) Index(i pulumi.IntInput) GetUserSearchOutput {
@@ -407,6 +456,12 @@ func (i GetUsersSearchArgs) ToGetUsersSearchOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetUsersSearchOutput)
 }
 
+func (i GetUsersSearchArgs) ToOutput(ctx context.Context) pulumix.Output[GetUsersSearch] {
+	return pulumix.Output[GetUsersSearch]{
+		OutputState: i.ToGetUsersSearchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetUsersSearchArrayInput is an input type that accepts GetUsersSearchArray and GetUsersSearchArrayOutput values.
 // You can construct a concrete instance of `GetUsersSearchArrayInput` via:
 //
@@ -432,6 +487,12 @@ func (i GetUsersSearchArray) ToGetUsersSearchArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetUsersSearchArrayOutput)
 }
 
+func (i GetUsersSearchArray) ToOutput(ctx context.Context) pulumix.Output[[]GetUsersSearch] {
+	return pulumix.Output[[]GetUsersSearch]{
+		OutputState: i.ToGetUsersSearchArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUsersSearchOutput struct{ *pulumi.OutputState }
 
 func (GetUsersSearchOutput) ElementType() reflect.Type {
@@ -444,6 +505,12 @@ func (o GetUsersSearchOutput) ToGetUsersSearchOutput() GetUsersSearchOutput {
 
 func (o GetUsersSearchOutput) ToGetUsersSearchOutputWithContext(ctx context.Context) GetUsersSearchOutput {
 	return o
+}
+
+func (o GetUsersSearchOutput) ToOutput(ctx context.Context) pulumix.Output[GetUsersSearch] {
+	return pulumix.Output[GetUsersSearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
@@ -478,6 +545,12 @@ func (o GetUsersSearchArrayOutput) ToGetUsersSearchArrayOutput() GetUsersSearchA
 
 func (o GetUsersSearchArrayOutput) ToGetUsersSearchArrayOutputWithContext(ctx context.Context) GetUsersSearchArrayOutput {
 	return o
+}
+
+func (o GetUsersSearchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetUsersSearch] {
+	return pulumix.Output[[]GetUsersSearch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUsersSearchArrayOutput) Index(i pulumi.IntInput) GetUsersSearchOutput {
@@ -659,6 +732,12 @@ func (i GetUsersUserArgs) ToGetUsersUserOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetUsersUserOutput)
 }
 
+func (i GetUsersUserArgs) ToOutput(ctx context.Context) pulumix.Output[GetUsersUser] {
+	return pulumix.Output[GetUsersUser]{
+		OutputState: i.ToGetUsersUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetUsersUserArrayInput is an input type that accepts GetUsersUserArray and GetUsersUserArrayOutput values.
 // You can construct a concrete instance of `GetUsersUserArrayInput` via:
 //
@@ -684,6 +763,12 @@ func (i GetUsersUserArray) ToGetUsersUserArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetUsersUserArrayOutput)
 }
 
+func (i GetUsersUserArray) ToOutput(ctx context.Context) pulumix.Output[[]GetUsersUser] {
+	return pulumix.Output[[]GetUsersUser]{
+		OutputState: i.ToGetUsersUserArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUsersUserOutput struct{ *pulumi.OutputState }
 
 func (GetUsersUserOutput) ElementType() reflect.Type {
@@ -696,6 +781,12 @@ func (o GetUsersUserOutput) ToGetUsersUserOutput() GetUsersUserOutput {
 
 func (o GetUsersUserOutput) ToGetUsersUserOutputWithContext(ctx context.Context) GetUsersUserOutput {
 	return o
+}
+
+func (o GetUsersUserOutput) ToOutput(ctx context.Context) pulumix.Output[GetUsersUser] {
+	return pulumix.Output[GetUsersUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Administrator roles assigned to user.
@@ -893,6 +984,12 @@ func (o GetUsersUserArrayOutput) ToGetUsersUserArrayOutput() GetUsersUserArrayOu
 
 func (o GetUsersUserArrayOutput) ToGetUsersUserArrayOutputWithContext(ctx context.Context) GetUsersUserArrayOutput {
 	return o
+}
+
+func (o GetUsersUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetUsersUser] {
+	return pulumix.Output[[]GetUsersUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {

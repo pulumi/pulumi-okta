@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i RuleIdpDiscoveryAppExcludeArgs) ToRuleIdpDiscoveryAppExcludeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryAppExcludeOutput)
 }
 
+func (i RuleIdpDiscoveryAppExcludeArgs) ToOutput(ctx context.Context) pulumix.Output[RuleIdpDiscoveryAppExclude] {
+	return pulumix.Output[RuleIdpDiscoveryAppExclude]{
+		OutputState: i.ToRuleIdpDiscoveryAppExcludeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleIdpDiscoveryAppExcludeArrayInput is an input type that accepts RuleIdpDiscoveryAppExcludeArray and RuleIdpDiscoveryAppExcludeArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryAppExcludeArrayInput` via:
 //
@@ -79,6 +86,12 @@ func (i RuleIdpDiscoveryAppExcludeArray) ToRuleIdpDiscoveryAppExcludeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryAppExcludeArrayOutput)
 }
 
+func (i RuleIdpDiscoveryAppExcludeArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleIdpDiscoveryAppExclude] {
+	return pulumix.Output[[]RuleIdpDiscoveryAppExclude]{
+		OutputState: i.ToRuleIdpDiscoveryAppExcludeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleIdpDiscoveryAppExcludeOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryAppExcludeOutput) ElementType() reflect.Type {
@@ -91,6 +104,12 @@ func (o RuleIdpDiscoveryAppExcludeOutput) ToRuleIdpDiscoveryAppExcludeOutput() R
 
 func (o RuleIdpDiscoveryAppExcludeOutput) ToRuleIdpDiscoveryAppExcludeOutputWithContext(ctx context.Context) RuleIdpDiscoveryAppExcludeOutput {
 	return o
+}
+
+func (o RuleIdpDiscoveryAppExcludeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleIdpDiscoveryAppExclude] {
+	return pulumix.Output[RuleIdpDiscoveryAppExclude]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Use if `type` is `"APP"` to indicate the application id to include.
@@ -120,6 +139,12 @@ func (o RuleIdpDiscoveryAppExcludeArrayOutput) ToRuleIdpDiscoveryAppExcludeArray
 
 func (o RuleIdpDiscoveryAppExcludeArrayOutput) ToRuleIdpDiscoveryAppExcludeArrayOutputWithContext(ctx context.Context) RuleIdpDiscoveryAppExcludeArrayOutput {
 	return o
+}
+
+func (o RuleIdpDiscoveryAppExcludeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleIdpDiscoveryAppExclude] {
+	return pulumix.Output[[]RuleIdpDiscoveryAppExclude]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleIdpDiscoveryAppExcludeArrayOutput) Index(i pulumi.IntInput) RuleIdpDiscoveryAppExcludeOutput {
@@ -169,6 +194,12 @@ func (i RuleIdpDiscoveryAppIncludeArgs) ToRuleIdpDiscoveryAppIncludeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryAppIncludeOutput)
 }
 
+func (i RuleIdpDiscoveryAppIncludeArgs) ToOutput(ctx context.Context) pulumix.Output[RuleIdpDiscoveryAppInclude] {
+	return pulumix.Output[RuleIdpDiscoveryAppInclude]{
+		OutputState: i.ToRuleIdpDiscoveryAppIncludeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleIdpDiscoveryAppIncludeArrayInput is an input type that accepts RuleIdpDiscoveryAppIncludeArray and RuleIdpDiscoveryAppIncludeArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryAppIncludeArrayInput` via:
 //
@@ -194,6 +225,12 @@ func (i RuleIdpDiscoveryAppIncludeArray) ToRuleIdpDiscoveryAppIncludeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryAppIncludeArrayOutput)
 }
 
+func (i RuleIdpDiscoveryAppIncludeArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleIdpDiscoveryAppInclude] {
+	return pulumix.Output[[]RuleIdpDiscoveryAppInclude]{
+		OutputState: i.ToRuleIdpDiscoveryAppIncludeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleIdpDiscoveryAppIncludeOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryAppIncludeOutput) ElementType() reflect.Type {
@@ -206,6 +243,12 @@ func (o RuleIdpDiscoveryAppIncludeOutput) ToRuleIdpDiscoveryAppIncludeOutput() R
 
 func (o RuleIdpDiscoveryAppIncludeOutput) ToRuleIdpDiscoveryAppIncludeOutputWithContext(ctx context.Context) RuleIdpDiscoveryAppIncludeOutput {
 	return o
+}
+
+func (o RuleIdpDiscoveryAppIncludeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleIdpDiscoveryAppInclude] {
+	return pulumix.Output[RuleIdpDiscoveryAppInclude]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Use if `type` is `"APP"` to indicate the application id to include.
@@ -235,6 +278,12 @@ func (o RuleIdpDiscoveryAppIncludeArrayOutput) ToRuleIdpDiscoveryAppIncludeArray
 
 func (o RuleIdpDiscoveryAppIncludeArrayOutput) ToRuleIdpDiscoveryAppIncludeArrayOutputWithContext(ctx context.Context) RuleIdpDiscoveryAppIncludeArrayOutput {
 	return o
+}
+
+func (o RuleIdpDiscoveryAppIncludeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleIdpDiscoveryAppInclude] {
+	return pulumix.Output[[]RuleIdpDiscoveryAppInclude]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleIdpDiscoveryAppIncludeArrayOutput) Index(i pulumi.IntInput) RuleIdpDiscoveryAppIncludeOutput {
@@ -312,6 +361,12 @@ func (i RuleIdpDiscoveryPlatformIncludeArgs) ToRuleIdpDiscoveryPlatformIncludeOu
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryPlatformIncludeOutput)
 }
 
+func (i RuleIdpDiscoveryPlatformIncludeArgs) ToOutput(ctx context.Context) pulumix.Output[RuleIdpDiscoveryPlatformInclude] {
+	return pulumix.Output[RuleIdpDiscoveryPlatformInclude]{
+		OutputState: i.ToRuleIdpDiscoveryPlatformIncludeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleIdpDiscoveryPlatformIncludeArrayInput is an input type that accepts RuleIdpDiscoveryPlatformIncludeArray and RuleIdpDiscoveryPlatformIncludeArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryPlatformIncludeArrayInput` via:
 //
@@ -337,6 +392,12 @@ func (i RuleIdpDiscoveryPlatformIncludeArray) ToRuleIdpDiscoveryPlatformIncludeA
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryPlatformIncludeArrayOutput)
 }
 
+func (i RuleIdpDiscoveryPlatformIncludeArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleIdpDiscoveryPlatformInclude] {
+	return pulumix.Output[[]RuleIdpDiscoveryPlatformInclude]{
+		OutputState: i.ToRuleIdpDiscoveryPlatformIncludeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleIdpDiscoveryPlatformIncludeOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryPlatformIncludeOutput) ElementType() reflect.Type {
@@ -349,6 +410,12 @@ func (o RuleIdpDiscoveryPlatformIncludeOutput) ToRuleIdpDiscoveryPlatformInclude
 
 func (o RuleIdpDiscoveryPlatformIncludeOutput) ToRuleIdpDiscoveryPlatformIncludeOutputWithContext(ctx context.Context) RuleIdpDiscoveryPlatformIncludeOutput {
 	return o
+}
+
+func (o RuleIdpDiscoveryPlatformIncludeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleIdpDiscoveryPlatformInclude] {
+	return pulumix.Output[RuleIdpDiscoveryPlatformInclude]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Only available when using `osType = "OTHER"`
@@ -395,6 +462,12 @@ func (o RuleIdpDiscoveryPlatformIncludeArrayOutput) ToRuleIdpDiscoveryPlatformIn
 
 func (o RuleIdpDiscoveryPlatformIncludeArrayOutput) ToRuleIdpDiscoveryPlatformIncludeArrayOutputWithContext(ctx context.Context) RuleIdpDiscoveryPlatformIncludeArrayOutput {
 	return o
+}
+
+func (o RuleIdpDiscoveryPlatformIncludeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleIdpDiscoveryPlatformInclude] {
+	return pulumix.Output[[]RuleIdpDiscoveryPlatformInclude]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleIdpDiscoveryPlatformIncludeArrayOutput) Index(i pulumi.IntInput) RuleIdpDiscoveryPlatformIncludeOutput {
@@ -468,6 +541,12 @@ func (i RuleIdpDiscoveryUserIdentifierPatternArgs) ToRuleIdpDiscoveryUserIdentif
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryUserIdentifierPatternOutput)
 }
 
+func (i RuleIdpDiscoveryUserIdentifierPatternArgs) ToOutput(ctx context.Context) pulumix.Output[RuleIdpDiscoveryUserIdentifierPattern] {
+	return pulumix.Output[RuleIdpDiscoveryUserIdentifierPattern]{
+		OutputState: i.ToRuleIdpDiscoveryUserIdentifierPatternOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleIdpDiscoveryUserIdentifierPatternArrayInput is an input type that accepts RuleIdpDiscoveryUserIdentifierPatternArray and RuleIdpDiscoveryUserIdentifierPatternArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryUserIdentifierPatternArrayInput` via:
 //
@@ -493,6 +572,12 @@ func (i RuleIdpDiscoveryUserIdentifierPatternArray) ToRuleIdpDiscoveryUserIdenti
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryUserIdentifierPatternArrayOutput)
 }
 
+func (i RuleIdpDiscoveryUserIdentifierPatternArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleIdpDiscoveryUserIdentifierPattern] {
+	return pulumix.Output[[]RuleIdpDiscoveryUserIdentifierPattern]{
+		OutputState: i.ToRuleIdpDiscoveryUserIdentifierPatternArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleIdpDiscoveryUserIdentifierPatternOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryUserIdentifierPatternOutput) ElementType() reflect.Type {
@@ -505,6 +590,12 @@ func (o RuleIdpDiscoveryUserIdentifierPatternOutput) ToRuleIdpDiscoveryUserIdent
 
 func (o RuleIdpDiscoveryUserIdentifierPatternOutput) ToRuleIdpDiscoveryUserIdentifierPatternOutputWithContext(ctx context.Context) RuleIdpDiscoveryUserIdentifierPatternOutput {
 	return o
+}
+
+func (o RuleIdpDiscoveryUserIdentifierPatternOutput) ToOutput(ctx context.Context) pulumix.Output[RuleIdpDiscoveryUserIdentifierPattern] {
+	return pulumix.Output[RuleIdpDiscoveryUserIdentifierPattern]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
@@ -546,6 +637,12 @@ func (o RuleIdpDiscoveryUserIdentifierPatternArrayOutput) ToRuleIdpDiscoveryUser
 
 func (o RuleIdpDiscoveryUserIdentifierPatternArrayOutput) ToRuleIdpDiscoveryUserIdentifierPatternArrayOutputWithContext(ctx context.Context) RuleIdpDiscoveryUserIdentifierPatternArrayOutput {
 	return o
+}
+
+func (o RuleIdpDiscoveryUserIdentifierPatternArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleIdpDiscoveryUserIdentifierPattern] {
+	return pulumix.Output[[]RuleIdpDiscoveryUserIdentifierPattern]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleIdpDiscoveryUserIdentifierPatternArrayOutput) Index(i pulumi.IntInput) RuleIdpDiscoveryUserIdentifierPatternOutput {
@@ -595,6 +692,12 @@ func (i RuleMfaAppExcludeArgs) ToRuleMfaAppExcludeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaAppExcludeOutput)
 }
 
+func (i RuleMfaAppExcludeArgs) ToOutput(ctx context.Context) pulumix.Output[RuleMfaAppExclude] {
+	return pulumix.Output[RuleMfaAppExclude]{
+		OutputState: i.ToRuleMfaAppExcludeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleMfaAppExcludeArrayInput is an input type that accepts RuleMfaAppExcludeArray and RuleMfaAppExcludeArrayOutput values.
 // You can construct a concrete instance of `RuleMfaAppExcludeArrayInput` via:
 //
@@ -620,6 +723,12 @@ func (i RuleMfaAppExcludeArray) ToRuleMfaAppExcludeArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaAppExcludeArrayOutput)
 }
 
+func (i RuleMfaAppExcludeArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleMfaAppExclude] {
+	return pulumix.Output[[]RuleMfaAppExclude]{
+		OutputState: i.ToRuleMfaAppExcludeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleMfaAppExcludeOutput struct{ *pulumi.OutputState }
 
 func (RuleMfaAppExcludeOutput) ElementType() reflect.Type {
@@ -632,6 +741,12 @@ func (o RuleMfaAppExcludeOutput) ToRuleMfaAppExcludeOutput() RuleMfaAppExcludeOu
 
 func (o RuleMfaAppExcludeOutput) ToRuleMfaAppExcludeOutputWithContext(ctx context.Context) RuleMfaAppExcludeOutput {
 	return o
+}
+
+func (o RuleMfaAppExcludeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleMfaAppExclude] {
+	return pulumix.Output[RuleMfaAppExclude]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Use if `type` is `"APP"` to indicate the application id to include.
@@ -661,6 +776,12 @@ func (o RuleMfaAppExcludeArrayOutput) ToRuleMfaAppExcludeArrayOutput() RuleMfaAp
 
 func (o RuleMfaAppExcludeArrayOutput) ToRuleMfaAppExcludeArrayOutputWithContext(ctx context.Context) RuleMfaAppExcludeArrayOutput {
 	return o
+}
+
+func (o RuleMfaAppExcludeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleMfaAppExclude] {
+	return pulumix.Output[[]RuleMfaAppExclude]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleMfaAppExcludeArrayOutput) Index(i pulumi.IntInput) RuleMfaAppExcludeOutput {
@@ -710,6 +831,12 @@ func (i RuleMfaAppIncludeArgs) ToRuleMfaAppIncludeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaAppIncludeOutput)
 }
 
+func (i RuleMfaAppIncludeArgs) ToOutput(ctx context.Context) pulumix.Output[RuleMfaAppInclude] {
+	return pulumix.Output[RuleMfaAppInclude]{
+		OutputState: i.ToRuleMfaAppIncludeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleMfaAppIncludeArrayInput is an input type that accepts RuleMfaAppIncludeArray and RuleMfaAppIncludeArrayOutput values.
 // You can construct a concrete instance of `RuleMfaAppIncludeArrayInput` via:
 //
@@ -735,6 +862,12 @@ func (i RuleMfaAppIncludeArray) ToRuleMfaAppIncludeArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaAppIncludeArrayOutput)
 }
 
+func (i RuleMfaAppIncludeArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleMfaAppInclude] {
+	return pulumix.Output[[]RuleMfaAppInclude]{
+		OutputState: i.ToRuleMfaAppIncludeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleMfaAppIncludeOutput struct{ *pulumi.OutputState }
 
 func (RuleMfaAppIncludeOutput) ElementType() reflect.Type {
@@ -747,6 +880,12 @@ func (o RuleMfaAppIncludeOutput) ToRuleMfaAppIncludeOutput() RuleMfaAppIncludeOu
 
 func (o RuleMfaAppIncludeOutput) ToRuleMfaAppIncludeOutputWithContext(ctx context.Context) RuleMfaAppIncludeOutput {
 	return o
+}
+
+func (o RuleMfaAppIncludeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleMfaAppInclude] {
+	return pulumix.Output[RuleMfaAppInclude]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Use if `type` is `"APP"` to indicate the application id to include.
@@ -776,6 +915,12 @@ func (o RuleMfaAppIncludeArrayOutput) ToRuleMfaAppIncludeArrayOutput() RuleMfaAp
 
 func (o RuleMfaAppIncludeArrayOutput) ToRuleMfaAppIncludeArrayOutputWithContext(ctx context.Context) RuleMfaAppIncludeArrayOutput {
 	return o
+}
+
+func (o RuleMfaAppIncludeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleMfaAppInclude] {
+	return pulumix.Output[[]RuleMfaAppInclude]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleMfaAppIncludeArrayOutput) Index(i pulumi.IntInput) RuleMfaAppIncludeOutput {
@@ -825,6 +970,12 @@ func (i RuleSignonFactorSequenceArgs) ToRuleSignonFactorSequenceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonFactorSequenceOutput)
 }
 
+func (i RuleSignonFactorSequenceArgs) ToOutput(ctx context.Context) pulumix.Output[RuleSignonFactorSequence] {
+	return pulumix.Output[RuleSignonFactorSequence]{
+		OutputState: i.ToRuleSignonFactorSequenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleSignonFactorSequenceArrayInput is an input type that accepts RuleSignonFactorSequenceArray and RuleSignonFactorSequenceArrayOutput values.
 // You can construct a concrete instance of `RuleSignonFactorSequenceArrayInput` via:
 //
@@ -850,6 +1001,12 @@ func (i RuleSignonFactorSequenceArray) ToRuleSignonFactorSequenceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonFactorSequenceArrayOutput)
 }
 
+func (i RuleSignonFactorSequenceArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleSignonFactorSequence] {
+	return pulumix.Output[[]RuleSignonFactorSequence]{
+		OutputState: i.ToRuleSignonFactorSequenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleSignonFactorSequenceOutput struct{ *pulumi.OutputState }
 
 func (RuleSignonFactorSequenceOutput) ElementType() reflect.Type {
@@ -862,6 +1019,12 @@ func (o RuleSignonFactorSequenceOutput) ToRuleSignonFactorSequenceOutput() RuleS
 
 func (o RuleSignonFactorSequenceOutput) ToRuleSignonFactorSequenceOutputWithContext(ctx context.Context) RuleSignonFactorSequenceOutput {
 	return o
+}
+
+func (o RuleSignonFactorSequenceOutput) ToOutput(ctx context.Context) pulumix.Output[RuleSignonFactorSequence] {
+	return pulumix.Output[RuleSignonFactorSequence]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Primary factor type of the auth section.
@@ -893,6 +1056,12 @@ func (o RuleSignonFactorSequenceArrayOutput) ToRuleSignonFactorSequenceArrayOutp
 
 func (o RuleSignonFactorSequenceArrayOutput) ToRuleSignonFactorSequenceArrayOutputWithContext(ctx context.Context) RuleSignonFactorSequenceArrayOutput {
 	return o
+}
+
+func (o RuleSignonFactorSequenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleSignonFactorSequence] {
+	return pulumix.Output[[]RuleSignonFactorSequence]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleSignonFactorSequenceArrayOutput) Index(i pulumi.IntInput) RuleSignonFactorSequenceOutput {
@@ -938,6 +1107,12 @@ func (i RuleSignonFactorSequenceSecondaryCriteriaArgs) ToRuleSignonFactorSequenc
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonFactorSequenceSecondaryCriteriaOutput)
 }
 
+func (i RuleSignonFactorSequenceSecondaryCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[RuleSignonFactorSequenceSecondaryCriteria] {
+	return pulumix.Output[RuleSignonFactorSequenceSecondaryCriteria]{
+		OutputState: i.ToRuleSignonFactorSequenceSecondaryCriteriaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleSignonFactorSequenceSecondaryCriteriaArrayInput is an input type that accepts RuleSignonFactorSequenceSecondaryCriteriaArray and RuleSignonFactorSequenceSecondaryCriteriaArrayOutput values.
 // You can construct a concrete instance of `RuleSignonFactorSequenceSecondaryCriteriaArrayInput` via:
 //
@@ -963,6 +1138,12 @@ func (i RuleSignonFactorSequenceSecondaryCriteriaArray) ToRuleSignonFactorSequen
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonFactorSequenceSecondaryCriteriaArrayOutput)
 }
 
+func (i RuleSignonFactorSequenceSecondaryCriteriaArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleSignonFactorSequenceSecondaryCriteria] {
+	return pulumix.Output[[]RuleSignonFactorSequenceSecondaryCriteria]{
+		OutputState: i.ToRuleSignonFactorSequenceSecondaryCriteriaArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleSignonFactorSequenceSecondaryCriteriaOutput struct{ *pulumi.OutputState }
 
 func (RuleSignonFactorSequenceSecondaryCriteriaOutput) ElementType() reflect.Type {
@@ -975,6 +1156,12 @@ func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) ToRuleSignonFactorSeque
 
 func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) ToRuleSignonFactorSequenceSecondaryCriteriaOutputWithContext(ctx context.Context) RuleSignonFactorSequenceSecondaryCriteriaOutput {
 	return o
+}
+
+func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[RuleSignonFactorSequenceSecondaryCriteria] {
+	return pulumix.Output[RuleSignonFactorSequenceSecondaryCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Factor type of the additional authentication step.
@@ -999,6 +1186,12 @@ func (o RuleSignonFactorSequenceSecondaryCriteriaArrayOutput) ToRuleSignonFactor
 
 func (o RuleSignonFactorSequenceSecondaryCriteriaArrayOutput) ToRuleSignonFactorSequenceSecondaryCriteriaArrayOutputWithContext(ctx context.Context) RuleSignonFactorSequenceSecondaryCriteriaArrayOutput {
 	return o
+}
+
+func (o RuleSignonFactorSequenceSecondaryCriteriaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleSignonFactorSequenceSecondaryCriteria] {
+	return pulumix.Output[[]RuleSignonFactorSequenceSecondaryCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleSignonFactorSequenceSecondaryCriteriaArrayOutput) Index(i pulumi.IntInput) RuleSignonFactorSequenceSecondaryCriteriaOutput {

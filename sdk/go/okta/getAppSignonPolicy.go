@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -100,6 +101,12 @@ func (o LookupAppSignonPolicyResultOutput) ToLookupAppSignonPolicyResultOutput()
 
 func (o LookupAppSignonPolicyResultOutput) ToLookupAppSignonPolicyResultOutputWithContext(ctx context.Context) LookupAppSignonPolicyResultOutput {
 	return o
+}
+
+func (o LookupAppSignonPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAppSignonPolicyResult] {
+	return pulumix.Output[LookupAppSignonPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAppSignonPolicyResultOutput) AppId() pulumi.StringOutput {

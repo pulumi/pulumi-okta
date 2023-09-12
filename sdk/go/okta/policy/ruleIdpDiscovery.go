@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and configure an IdP Discovery Policy Rule.
@@ -387,6 +388,12 @@ func (i *RuleIdpDiscovery) ToRuleIdpDiscoveryOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryOutput)
 }
 
+func (i *RuleIdpDiscovery) ToOutput(ctx context.Context) pulumix.Output[*RuleIdpDiscovery] {
+	return pulumix.Output[*RuleIdpDiscovery]{
+		OutputState: i.ToRuleIdpDiscoveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleIdpDiscoveryArrayInput is an input type that accepts RuleIdpDiscoveryArray and RuleIdpDiscoveryArrayOutput values.
 // You can construct a concrete instance of `RuleIdpDiscoveryArrayInput` via:
 //
@@ -410,6 +417,12 @@ func (i RuleIdpDiscoveryArray) ToRuleIdpDiscoveryArrayOutput() RuleIdpDiscoveryA
 
 func (i RuleIdpDiscoveryArray) ToRuleIdpDiscoveryArrayOutputWithContext(ctx context.Context) RuleIdpDiscoveryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryArrayOutput)
+}
+
+func (i RuleIdpDiscoveryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RuleIdpDiscovery] {
+	return pulumix.Output[[]*RuleIdpDiscovery]{
+		OutputState: i.ToRuleIdpDiscoveryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RuleIdpDiscoveryMapInput is an input type that accepts RuleIdpDiscoveryMap and RuleIdpDiscoveryMapOutput values.
@@ -437,6 +450,12 @@ func (i RuleIdpDiscoveryMap) ToRuleIdpDiscoveryMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryMapOutput)
 }
 
+func (i RuleIdpDiscoveryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleIdpDiscovery] {
+	return pulumix.Output[map[string]*RuleIdpDiscovery]{
+		OutputState: i.ToRuleIdpDiscoveryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleIdpDiscoveryOutput struct{ *pulumi.OutputState }
 
 func (RuleIdpDiscoveryOutput) ElementType() reflect.Type {
@@ -449,6 +468,12 @@ func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutput() RuleIdpDiscoveryOutpu
 
 func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutputWithContext(ctx context.Context) RuleIdpDiscoveryOutput {
 	return o
+}
+
+func (o RuleIdpDiscoveryOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleIdpDiscovery] {
+	return pulumix.Output[*RuleIdpDiscovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Applications to exclude in discovery. See `appInclude` for details.
@@ -558,6 +583,12 @@ func (o RuleIdpDiscoveryArrayOutput) ToRuleIdpDiscoveryArrayOutputWithContext(ct
 	return o
 }
 
+func (o RuleIdpDiscoveryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RuleIdpDiscovery] {
+	return pulumix.Output[[]*RuleIdpDiscovery]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleIdpDiscoveryArrayOutput) Index(i pulumi.IntInput) RuleIdpDiscoveryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RuleIdpDiscovery {
 		return vs[0].([]*RuleIdpDiscovery)[vs[1].(int)]
@@ -576,6 +607,12 @@ func (o RuleIdpDiscoveryMapOutput) ToRuleIdpDiscoveryMapOutput() RuleIdpDiscover
 
 func (o RuleIdpDiscoveryMapOutput) ToRuleIdpDiscoveryMapOutputWithContext(ctx context.Context) RuleIdpDiscoveryMapOutput {
 	return o
+}
+
+func (o RuleIdpDiscoveryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleIdpDiscovery] {
+	return pulumix.Output[map[string]*RuleIdpDiscovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleIdpDiscoveryMapOutput) MapIndex(k pulumi.StringInput) RuleIdpDiscoveryOutput {

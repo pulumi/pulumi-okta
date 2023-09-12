@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Verifies the Domain. This is replacement for the `verify` field from the `Domain` resource. The resource won't be
@@ -136,6 +137,12 @@ func (i *DomainVerification) ToDomainVerificationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DomainVerificationOutput)
 }
 
+func (i *DomainVerification) ToOutput(ctx context.Context) pulumix.Output[*DomainVerification] {
+	return pulumix.Output[*DomainVerification]{
+		OutputState: i.ToDomainVerificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainVerificationArrayInput is an input type that accepts DomainVerificationArray and DomainVerificationArrayOutput values.
 // You can construct a concrete instance of `DomainVerificationArrayInput` via:
 //
@@ -159,6 +166,12 @@ func (i DomainVerificationArray) ToDomainVerificationArrayOutput() DomainVerific
 
 func (i DomainVerificationArray) ToDomainVerificationArrayOutputWithContext(ctx context.Context) DomainVerificationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainVerificationArrayOutput)
+}
+
+func (i DomainVerificationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainVerification] {
+	return pulumix.Output[[]*DomainVerification]{
+		OutputState: i.ToDomainVerificationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainVerificationMapInput is an input type that accepts DomainVerificationMap and DomainVerificationMapOutput values.
@@ -186,6 +199,12 @@ func (i DomainVerificationMap) ToDomainVerificationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainVerificationMapOutput)
 }
 
+func (i DomainVerificationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainVerification] {
+	return pulumix.Output[map[string]*DomainVerification]{
+		OutputState: i.ToDomainVerificationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainVerificationOutput struct{ *pulumi.OutputState }
 
 func (DomainVerificationOutput) ElementType() reflect.Type {
@@ -198,6 +217,12 @@ func (o DomainVerificationOutput) ToDomainVerificationOutput() DomainVerificatio
 
 func (o DomainVerificationOutput) ToDomainVerificationOutputWithContext(ctx context.Context) DomainVerificationOutput {
 	return o
+}
+
+func (o DomainVerificationOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainVerification] {
+	return pulumix.Output[*DomainVerification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Domain ID.
@@ -219,6 +244,12 @@ func (o DomainVerificationArrayOutput) ToDomainVerificationArrayOutputWithContex
 	return o
 }
 
+func (o DomainVerificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainVerification] {
+	return pulumix.Output[[]*DomainVerification]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainVerificationArrayOutput) Index(i pulumi.IntInput) DomainVerificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainVerification {
 		return vs[0].([]*DomainVerification)[vs[1].(int)]
@@ -237,6 +268,12 @@ func (o DomainVerificationMapOutput) ToDomainVerificationMapOutput() DomainVerif
 
 func (o DomainVerificationMapOutput) ToDomainVerificationMapOutputWithContext(ctx context.Context) DomainVerificationMapOutput {
 	return o
+}
+
+func (o DomainVerificationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainVerification] {
+	return pulumix.Output[map[string]*DomainVerification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainVerificationMapOutput) MapIndex(k pulumi.StringInput) DomainVerificationOutput {

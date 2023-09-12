@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and configure a Bookmark Application.
@@ -298,6 +299,12 @@ func (i *Bookmark) ToBookmarkOutputWithContext(ctx context.Context) BookmarkOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BookmarkOutput)
 }
 
+func (i *Bookmark) ToOutput(ctx context.Context) pulumix.Output[*Bookmark] {
+	return pulumix.Output[*Bookmark]{
+		OutputState: i.ToBookmarkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BookmarkArrayInput is an input type that accepts BookmarkArray and BookmarkArrayOutput values.
 // You can construct a concrete instance of `BookmarkArrayInput` via:
 //
@@ -321,6 +328,12 @@ func (i BookmarkArray) ToBookmarkArrayOutput() BookmarkArrayOutput {
 
 func (i BookmarkArray) ToBookmarkArrayOutputWithContext(ctx context.Context) BookmarkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BookmarkArrayOutput)
+}
+
+func (i BookmarkArray) ToOutput(ctx context.Context) pulumix.Output[[]*Bookmark] {
+	return pulumix.Output[[]*Bookmark]{
+		OutputState: i.ToBookmarkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BookmarkMapInput is an input type that accepts BookmarkMap and BookmarkMapOutput values.
@@ -348,6 +361,12 @@ func (i BookmarkMap) ToBookmarkMapOutputWithContext(ctx context.Context) Bookmar
 	return pulumi.ToOutputWithContext(ctx, i).(BookmarkMapOutput)
 }
 
+func (i BookmarkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Bookmark] {
+	return pulumix.Output[map[string]*Bookmark]{
+		OutputState: i.ToBookmarkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BookmarkOutput struct{ *pulumi.OutputState }
 
 func (BookmarkOutput) ElementType() reflect.Type {
@@ -360,6 +379,12 @@ func (o BookmarkOutput) ToBookmarkOutput() BookmarkOutput {
 
 func (o BookmarkOutput) ToBookmarkOutputWithContext(ctx context.Context) BookmarkOutput {
 	return o
+}
+
+func (o BookmarkOutput) ToOutput(ctx context.Context) pulumix.Output[*Bookmark] {
+	return pulumix.Output[*Bookmark]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Custom error page URL.
@@ -466,6 +491,12 @@ func (o BookmarkArrayOutput) ToBookmarkArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o BookmarkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Bookmark] {
+	return pulumix.Output[[]*Bookmark]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BookmarkArrayOutput) Index(i pulumi.IntInput) BookmarkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Bookmark {
 		return vs[0].([]*Bookmark)[vs[1].(int)]
@@ -484,6 +515,12 @@ func (o BookmarkMapOutput) ToBookmarkMapOutput() BookmarkMapOutput {
 
 func (o BookmarkMapOutput) ToBookmarkMapOutputWithContext(ctx context.Context) BookmarkMapOutput {
 	return o
+}
+
+func (o BookmarkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Bookmark] {
+	return pulumix.Output[map[string]*Bookmark]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BookmarkMapOutput) MapIndex(k pulumi.StringInput) BookmarkOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -319,6 +320,12 @@ func (i *ServerPolicyClaim) ToServerPolicyClaimOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyClaimOutput)
 }
 
+func (i *ServerPolicyClaim) ToOutput(ctx context.Context) pulumix.Output[*ServerPolicyClaim] {
+	return pulumix.Output[*ServerPolicyClaim]{
+		OutputState: i.ToServerPolicyClaimOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerPolicyClaimArrayInput is an input type that accepts ServerPolicyClaimArray and ServerPolicyClaimArrayOutput values.
 // You can construct a concrete instance of `ServerPolicyClaimArrayInput` via:
 //
@@ -342,6 +349,12 @@ func (i ServerPolicyClaimArray) ToServerPolicyClaimArrayOutput() ServerPolicyCla
 
 func (i ServerPolicyClaimArray) ToServerPolicyClaimArrayOutputWithContext(ctx context.Context) ServerPolicyClaimArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyClaimArrayOutput)
+}
+
+func (i ServerPolicyClaimArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerPolicyClaim] {
+	return pulumix.Output[[]*ServerPolicyClaim]{
+		OutputState: i.ToServerPolicyClaimArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerPolicyClaimMapInput is an input type that accepts ServerPolicyClaimMap and ServerPolicyClaimMapOutput values.
@@ -369,6 +382,12 @@ func (i ServerPolicyClaimMap) ToServerPolicyClaimMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyClaimMapOutput)
 }
 
+func (i ServerPolicyClaimMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerPolicyClaim] {
+	return pulumix.Output[map[string]*ServerPolicyClaim]{
+		OutputState: i.ToServerPolicyClaimMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerPolicyClaimOutput struct{ *pulumi.OutputState }
 
 func (ServerPolicyClaimOutput) ElementType() reflect.Type {
@@ -381,6 +400,12 @@ func (o ServerPolicyClaimOutput) ToServerPolicyClaimOutput() ServerPolicyClaimOu
 
 func (o ServerPolicyClaimOutput) ToServerPolicyClaimOutputWithContext(ctx context.Context) ServerPolicyClaimOutput {
 	return o
+}
+
+func (o ServerPolicyClaimOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerPolicyClaim] {
+	return pulumix.Output[*ServerPolicyClaim]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
@@ -480,6 +505,12 @@ func (o ServerPolicyClaimArrayOutput) ToServerPolicyClaimArrayOutputWithContext(
 	return o
 }
 
+func (o ServerPolicyClaimArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerPolicyClaim] {
+	return pulumix.Output[[]*ServerPolicyClaim]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerPolicyClaimArrayOutput) Index(i pulumi.IntInput) ServerPolicyClaimOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerPolicyClaim {
 		return vs[0].([]*ServerPolicyClaim)[vs[1].(int)]
@@ -498,6 +529,12 @@ func (o ServerPolicyClaimMapOutput) ToServerPolicyClaimMapOutput() ServerPolicyC
 
 func (o ServerPolicyClaimMapOutput) ToServerPolicyClaimMapOutputWithContext(ctx context.Context) ServerPolicyClaimMapOutput {
 	return o
+}
+
+func (o ServerPolicyClaimMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerPolicyClaim] {
+	return pulumix.Output[map[string]*ServerPolicyClaim]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerPolicyClaimMapOutput) MapIndex(k pulumi.StringInput) ServerPolicyClaimOutput {

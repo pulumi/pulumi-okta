@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i HookHeaderArgs) ToHookHeaderOutputWithContext(ctx context.Context) HookH
 	return pulumi.ToOutputWithContext(ctx, i).(HookHeaderOutput)
 }
 
+func (i HookHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[HookHeader] {
+	return pulumix.Output[HookHeader]{
+		OutputState: i.ToHookHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HookHeaderArrayInput is an input type that accepts HookHeaderArray and HookHeaderArrayOutput values.
 // You can construct a concrete instance of `HookHeaderArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i HookHeaderArray) ToHookHeaderArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(HookHeaderArrayOutput)
 }
 
+func (i HookHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]HookHeader] {
+	return pulumix.Output[[]HookHeader]{
+		OutputState: i.ToHookHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HookHeaderOutput struct{ *pulumi.OutputState }
 
 func (HookHeaderOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o HookHeaderOutput) ToHookHeaderOutput() HookHeaderOutput {
 
 func (o HookHeaderOutput) ToHookHeaderOutputWithContext(ctx context.Context) HookHeaderOutput {
 	return o
+}
+
+func (o HookHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[HookHeader] {
+	return pulumix.Output[HookHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key to use for authentication, usually the header name, for example `"Authorization"`.
@@ -111,6 +130,12 @@ func (o HookHeaderArrayOutput) ToHookHeaderArrayOutput() HookHeaderArrayOutput {
 
 func (o HookHeaderArrayOutput) ToHookHeaderArrayOutputWithContext(ctx context.Context) HookHeaderArrayOutput {
 	return o
+}
+
+func (o HookHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HookHeader] {
+	return pulumix.Output[[]HookHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HookHeaderArrayOutput) Index(i pulumi.IntInput) HookHeaderOutput {

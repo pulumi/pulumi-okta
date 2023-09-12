@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an Authorization Server Policy.
@@ -203,6 +204,12 @@ func (i *ServerPolicy) ToServerPolicyOutputWithContext(ctx context.Context) Serv
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyOutput)
 }
 
+func (i *ServerPolicy) ToOutput(ctx context.Context) pulumix.Output[*ServerPolicy] {
+	return pulumix.Output[*ServerPolicy]{
+		OutputState: i.ToServerPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerPolicyArrayInput is an input type that accepts ServerPolicyArray and ServerPolicyArrayOutput values.
 // You can construct a concrete instance of `ServerPolicyArrayInput` via:
 //
@@ -226,6 +233,12 @@ func (i ServerPolicyArray) ToServerPolicyArrayOutput() ServerPolicyArrayOutput {
 
 func (i ServerPolicyArray) ToServerPolicyArrayOutputWithContext(ctx context.Context) ServerPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyArrayOutput)
+}
+
+func (i ServerPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerPolicy] {
+	return pulumix.Output[[]*ServerPolicy]{
+		OutputState: i.ToServerPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerPolicyMapInput is an input type that accepts ServerPolicyMap and ServerPolicyMapOutput values.
@@ -253,6 +266,12 @@ func (i ServerPolicyMap) ToServerPolicyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPolicyMapOutput)
 }
 
+func (i ServerPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerPolicy] {
+	return pulumix.Output[map[string]*ServerPolicy]{
+		OutputState: i.ToServerPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerPolicyOutput) ElementType() reflect.Type {
@@ -265,6 +284,12 @@ func (o ServerPolicyOutput) ToServerPolicyOutput() ServerPolicyOutput {
 
 func (o ServerPolicyOutput) ToServerPolicyOutputWithContext(ctx context.Context) ServerPolicyOutput {
 	return o
+}
+
+func (o ServerPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerPolicy] {
+	return pulumix.Output[*ServerPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Auth Server.
@@ -311,6 +336,12 @@ func (o ServerPolicyArrayOutput) ToServerPolicyArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ServerPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerPolicy] {
+	return pulumix.Output[[]*ServerPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerPolicyArrayOutput) Index(i pulumi.IntInput) ServerPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerPolicy {
 		return vs[0].([]*ServerPolicy)[vs[1].(int)]
@@ -329,6 +360,12 @@ func (o ServerPolicyMapOutput) ToServerPolicyMapOutput() ServerPolicyMapOutput {
 
 func (o ServerPolicyMapOutput) ToServerPolicyMapOutputWithContext(ctx context.Context) ServerPolicyMapOutput {
 	return o
+}
+
+func (o ServerPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerPolicy] {
+	return pulumix.Output[map[string]*ServerPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerPolicyMapOutput) MapIndex(k pulumi.StringInput) ServerPolicyOutput {

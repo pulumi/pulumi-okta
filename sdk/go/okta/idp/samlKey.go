@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -144,6 +145,12 @@ func (i *SamlKey) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyOutput)
 }
 
+func (i *SamlKey) ToOutput(ctx context.Context) pulumix.Output[*SamlKey] {
+	return pulumix.Output[*SamlKey]{
+		OutputState: i.ToSamlKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SamlKeyArrayInput is an input type that accepts SamlKeyArray and SamlKeyArrayOutput values.
 // You can construct a concrete instance of `SamlKeyArrayInput` via:
 //
@@ -167,6 +174,12 @@ func (i SamlKeyArray) ToSamlKeyArrayOutput() SamlKeyArrayOutput {
 
 func (i SamlKeyArray) ToSamlKeyArrayOutputWithContext(ctx context.Context) SamlKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyArrayOutput)
+}
+
+func (i SamlKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SamlKey] {
+	return pulumix.Output[[]*SamlKey]{
+		OutputState: i.ToSamlKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SamlKeyMapInput is an input type that accepts SamlKeyMap and SamlKeyMapOutput values.
@@ -194,6 +207,12 @@ func (i SamlKeyMap) ToSamlKeyMapOutputWithContext(ctx context.Context) SamlKeyMa
 	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyMapOutput)
 }
 
+func (i SamlKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SamlKey] {
+	return pulumix.Output[map[string]*SamlKey]{
+		OutputState: i.ToSamlKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SamlKeyOutput struct{ *pulumi.OutputState }
 
 func (SamlKeyOutput) ElementType() reflect.Type {
@@ -206,6 +225,12 @@ func (o SamlKeyOutput) ToSamlKeyOutput() SamlKeyOutput {
 
 func (o SamlKeyOutput) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput {
 	return o
+}
+
+func (o SamlKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*SamlKey] {
+	return pulumix.Output[*SamlKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Date created.
@@ -257,6 +282,12 @@ func (o SamlKeyArrayOutput) ToSamlKeyArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o SamlKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SamlKey] {
+	return pulumix.Output[[]*SamlKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SamlKeyArrayOutput) Index(i pulumi.IntInput) SamlKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SamlKey {
 		return vs[0].([]*SamlKey)[vs[1].(int)]
@@ -275,6 +306,12 @@ func (o SamlKeyMapOutput) ToSamlKeyMapOutput() SamlKeyMapOutput {
 
 func (o SamlKeyMapOutput) ToSamlKeyMapOutputWithContext(ctx context.Context) SamlKeyMapOutput {
 	return o
+}
+
+func (o SamlKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SamlKey] {
+	return pulumix.Output[map[string]*SamlKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SamlKeyMapOutput) MapIndex(k pulumi.StringInput) SamlKeyOutput {

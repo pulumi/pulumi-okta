@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and configure a Basic Auth Application.
@@ -292,6 +293,12 @@ func (i *BasicAuth) ToBasicAuthOutputWithContext(ctx context.Context) BasicAuthO
 	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthOutput)
 }
 
+func (i *BasicAuth) ToOutput(ctx context.Context) pulumix.Output[*BasicAuth] {
+	return pulumix.Output[*BasicAuth]{
+		OutputState: i.ToBasicAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BasicAuthArrayInput is an input type that accepts BasicAuthArray and BasicAuthArrayOutput values.
 // You can construct a concrete instance of `BasicAuthArrayInput` via:
 //
@@ -315,6 +322,12 @@ func (i BasicAuthArray) ToBasicAuthArrayOutput() BasicAuthArrayOutput {
 
 func (i BasicAuthArray) ToBasicAuthArrayOutputWithContext(ctx context.Context) BasicAuthArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthArrayOutput)
+}
+
+func (i BasicAuthArray) ToOutput(ctx context.Context) pulumix.Output[[]*BasicAuth] {
+	return pulumix.Output[[]*BasicAuth]{
+		OutputState: i.ToBasicAuthArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BasicAuthMapInput is an input type that accepts BasicAuthMap and BasicAuthMapOutput values.
@@ -342,6 +355,12 @@ func (i BasicAuthMap) ToBasicAuthMapOutputWithContext(ctx context.Context) Basic
 	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthMapOutput)
 }
 
+func (i BasicAuthMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BasicAuth] {
+	return pulumix.Output[map[string]*BasicAuth]{
+		OutputState: i.ToBasicAuthMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BasicAuthOutput struct{ *pulumi.OutputState }
 
 func (BasicAuthOutput) ElementType() reflect.Type {
@@ -354,6 +373,12 @@ func (o BasicAuthOutput) ToBasicAuthOutput() BasicAuthOutput {
 
 func (o BasicAuthOutput) ToBasicAuthOutputWithContext(ctx context.Context) BasicAuthOutput {
 	return o
+}
+
+func (o BasicAuthOutput) ToOutput(ctx context.Context) pulumix.Output[*BasicAuth] {
+	return pulumix.Output[*BasicAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Custom error page URL.
@@ -455,6 +480,12 @@ func (o BasicAuthArrayOutput) ToBasicAuthArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o BasicAuthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BasicAuth] {
+	return pulumix.Output[[]*BasicAuth]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BasicAuthArrayOutput) Index(i pulumi.IntInput) BasicAuthOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BasicAuth {
 		return vs[0].([]*BasicAuth)[vs[1].(int)]
@@ -473,6 +504,12 @@ func (o BasicAuthMapOutput) ToBasicAuthMapOutput() BasicAuthMapOutput {
 
 func (o BasicAuthMapOutput) ToBasicAuthMapOutputWithContext(ctx context.Context) BasicAuthMapOutput {
 	return o
+}
+
+func (o BasicAuthMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BasicAuth] {
+	return pulumix.Output[map[string]*BasicAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BasicAuthMapOutput) MapIndex(k pulumi.StringInput) BasicAuthOutput {

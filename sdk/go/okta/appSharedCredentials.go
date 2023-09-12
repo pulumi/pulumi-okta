@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and configure SWA shared credentials app.
@@ -421,6 +422,12 @@ func (i *AppSharedCredentials) ToAppSharedCredentialsOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AppSharedCredentialsOutput)
 }
 
+func (i *AppSharedCredentials) ToOutput(ctx context.Context) pulumix.Output[*AppSharedCredentials] {
+	return pulumix.Output[*AppSharedCredentials]{
+		OutputState: i.ToAppSharedCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AppSharedCredentialsArrayInput is an input type that accepts AppSharedCredentialsArray and AppSharedCredentialsArrayOutput values.
 // You can construct a concrete instance of `AppSharedCredentialsArrayInput` via:
 //
@@ -444,6 +451,12 @@ func (i AppSharedCredentialsArray) ToAppSharedCredentialsArrayOutput() AppShared
 
 func (i AppSharedCredentialsArray) ToAppSharedCredentialsArrayOutputWithContext(ctx context.Context) AppSharedCredentialsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppSharedCredentialsArrayOutput)
+}
+
+func (i AppSharedCredentialsArray) ToOutput(ctx context.Context) pulumix.Output[[]*AppSharedCredentials] {
+	return pulumix.Output[[]*AppSharedCredentials]{
+		OutputState: i.ToAppSharedCredentialsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AppSharedCredentialsMapInput is an input type that accepts AppSharedCredentialsMap and AppSharedCredentialsMapOutput values.
@@ -471,6 +484,12 @@ func (i AppSharedCredentialsMap) ToAppSharedCredentialsMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AppSharedCredentialsMapOutput)
 }
 
+func (i AppSharedCredentialsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppSharedCredentials] {
+	return pulumix.Output[map[string]*AppSharedCredentials]{
+		OutputState: i.ToAppSharedCredentialsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppSharedCredentialsOutput struct{ *pulumi.OutputState }
 
 func (AppSharedCredentialsOutput) ElementType() reflect.Type {
@@ -483,6 +502,12 @@ func (o AppSharedCredentialsOutput) ToAppSharedCredentialsOutput() AppSharedCred
 
 func (o AppSharedCredentialsOutput) ToAppSharedCredentialsOutputWithContext(ctx context.Context) AppSharedCredentialsOutput {
 	return o
+}
+
+func (o AppSharedCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[*AppSharedCredentials] {
+	return pulumix.Output[*AppSharedCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Custom error page URL.
@@ -644,6 +669,12 @@ func (o AppSharedCredentialsArrayOutput) ToAppSharedCredentialsArrayOutputWithCo
 	return o
 }
 
+func (o AppSharedCredentialsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AppSharedCredentials] {
+	return pulumix.Output[[]*AppSharedCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppSharedCredentialsArrayOutput) Index(i pulumi.IntInput) AppSharedCredentialsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppSharedCredentials {
 		return vs[0].([]*AppSharedCredentials)[vs[1].(int)]
@@ -662,6 +693,12 @@ func (o AppSharedCredentialsMapOutput) ToAppSharedCredentialsMapOutput() AppShar
 
 func (o AppSharedCredentialsMapOutput) ToAppSharedCredentialsMapOutputWithContext(ctx context.Context) AppSharedCredentialsMapOutput {
 	return o
+}
+
+func (o AppSharedCredentialsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppSharedCredentials] {
+	return pulumix.Output[map[string]*AppSharedCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppSharedCredentialsMapOutput) MapIndex(k pulumi.StringInput) AppSharedCredentialsOutput {
