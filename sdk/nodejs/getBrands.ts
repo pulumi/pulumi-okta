@@ -38,3 +38,18 @@ export interface GetBrandsResult {
      */
     readonly id: string;
 }
+/**
+ * Use this data source to retrieve the brands belonging to an Okta organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * ```
+ */
+export function getBrandsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetBrandsResult> {
+    return pulumi.output(getBrands(opts))
+}

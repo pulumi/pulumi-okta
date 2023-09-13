@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -151,6 +152,12 @@ func (i *UserGroupMemberships) ToUserGroupMembershipsOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupMembershipsOutput)
 }
 
+func (i *UserGroupMemberships) ToOutput(ctx context.Context) pulumix.Output[*UserGroupMemberships] {
+	return pulumix.Output[*UserGroupMemberships]{
+		OutputState: i.ToUserGroupMembershipsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserGroupMembershipsArrayInput is an input type that accepts UserGroupMembershipsArray and UserGroupMembershipsArrayOutput values.
 // You can construct a concrete instance of `UserGroupMembershipsArrayInput` via:
 //
@@ -174,6 +181,12 @@ func (i UserGroupMembershipsArray) ToUserGroupMembershipsArrayOutput() UserGroup
 
 func (i UserGroupMembershipsArray) ToUserGroupMembershipsArrayOutputWithContext(ctx context.Context) UserGroupMembershipsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupMembershipsArrayOutput)
+}
+
+func (i UserGroupMembershipsArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserGroupMemberships] {
+	return pulumix.Output[[]*UserGroupMemberships]{
+		OutputState: i.ToUserGroupMembershipsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserGroupMembershipsMapInput is an input type that accepts UserGroupMembershipsMap and UserGroupMembershipsMapOutput values.
@@ -201,6 +214,12 @@ func (i UserGroupMembershipsMap) ToUserGroupMembershipsMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupMembershipsMapOutput)
 }
 
+func (i UserGroupMembershipsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserGroupMemberships] {
+	return pulumix.Output[map[string]*UserGroupMemberships]{
+		OutputState: i.ToUserGroupMembershipsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserGroupMembershipsOutput struct{ *pulumi.OutputState }
 
 func (UserGroupMembershipsOutput) ElementType() reflect.Type {
@@ -213,6 +232,12 @@ func (o UserGroupMembershipsOutput) ToUserGroupMembershipsOutput() UserGroupMemb
 
 func (o UserGroupMembershipsOutput) ToUserGroupMembershipsOutputWithContext(ctx context.Context) UserGroupMembershipsOutput {
 	return o
+}
+
+func (o UserGroupMembershipsOutput) ToOutput(ctx context.Context) pulumix.Output[*UserGroupMemberships] {
+	return pulumix.Output[*UserGroupMemberships]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of Okta group IDs which the user should have membership managed for.
@@ -239,6 +264,12 @@ func (o UserGroupMembershipsArrayOutput) ToUserGroupMembershipsArrayOutputWithCo
 	return o
 }
 
+func (o UserGroupMembershipsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserGroupMemberships] {
+	return pulumix.Output[[]*UserGroupMemberships]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserGroupMembershipsArrayOutput) Index(i pulumi.IntInput) UserGroupMembershipsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserGroupMemberships {
 		return vs[0].([]*UserGroupMemberships)[vs[1].(int)]
@@ -257,6 +288,12 @@ func (o UserGroupMembershipsMapOutput) ToUserGroupMembershipsMapOutput() UserGro
 
 func (o UserGroupMembershipsMapOutput) ToUserGroupMembershipsMapOutputWithContext(ctx context.Context) UserGroupMembershipsMapOutput {
 	return o
+}
+
+func (o UserGroupMembershipsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserGroupMemberships] {
+	return pulumix.Output[map[string]*UserGroupMemberships]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserGroupMembershipsMapOutput) MapIndex(k pulumi.StringInput) UserGroupMembershipsOutput {

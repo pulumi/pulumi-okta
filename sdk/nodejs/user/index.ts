@@ -12,7 +12,8 @@ utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUse
 
 export { GetUserProfileMappingSourceResult } from "./getUserProfileMappingSource";
 export const getUserProfileMappingSource: typeof import("./getUserProfileMappingSource").getUserProfileMappingSource = null as any;
-utilities.lazyLoad(exports, ["getUserProfileMappingSource"], () => require("./getUserProfileMappingSource"));
+export const getUserProfileMappingSourceOutput: typeof import("./getUserProfileMappingSource").getUserProfileMappingSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getUserProfileMappingSource","getUserProfileMappingSourceOutput"], () => require("./getUserProfileMappingSource"));
 
 export { GetUserTypeArgs, GetUserTypeResult, GetUserTypeOutputArgs } from "./getUserType";
 export const getUserType: typeof import("./getUserType").getUserType = null as any;

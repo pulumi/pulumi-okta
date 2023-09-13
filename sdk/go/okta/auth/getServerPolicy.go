@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve an authorization server policy from Okta.
@@ -109,6 +110,12 @@ func (o LookupServerPolicyResultOutput) ToLookupServerPolicyResultOutput() Looku
 
 func (o LookupServerPolicyResultOutput) ToLookupServerPolicyResultOutputWithContext(ctx context.Context) LookupServerPolicyResultOutput {
 	return o
+}
+
+func (o LookupServerPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerPolicyResult] {
+	return pulumix.Output[LookupServerPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // list of clients this policy is assigned to. `["ALL_CLIENTS"]` is a special value when policy is assigned to all clients.

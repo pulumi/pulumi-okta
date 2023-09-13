@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a list of groups from Okta.
@@ -118,6 +119,12 @@ func (o GetGroupsResultOutput) ToGetGroupsResultOutput() GetGroupsResultOutput {
 
 func (o GetGroupsResultOutput) ToGetGroupsResultOutputWithContext(ctx context.Context) GetGroupsResultOutput {
 	return o
+}
+
+func (o GetGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupsResult] {
+	return pulumix.Output[GetGroupsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // collection of groups retrieved from Okta with the following properties.

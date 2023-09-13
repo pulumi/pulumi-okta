@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows you to manage the time-based one-time password (TOTP) factors. A time-based one-time password (TOTP) is a
@@ -196,6 +197,12 @@ func (i *FactorTotp) ToFactorTotpOutputWithContext(ctx context.Context) FactorTo
 	return pulumi.ToOutputWithContext(ctx, i).(FactorTotpOutput)
 }
 
+func (i *FactorTotp) ToOutput(ctx context.Context) pulumix.Output[*FactorTotp] {
+	return pulumix.Output[*FactorTotp]{
+		OutputState: i.ToFactorTotpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FactorTotpArrayInput is an input type that accepts FactorTotpArray and FactorTotpArrayOutput values.
 // You can construct a concrete instance of `FactorTotpArrayInput` via:
 //
@@ -219,6 +226,12 @@ func (i FactorTotpArray) ToFactorTotpArrayOutput() FactorTotpArrayOutput {
 
 func (i FactorTotpArray) ToFactorTotpArrayOutputWithContext(ctx context.Context) FactorTotpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FactorTotpArrayOutput)
+}
+
+func (i FactorTotpArray) ToOutput(ctx context.Context) pulumix.Output[[]*FactorTotp] {
+	return pulumix.Output[[]*FactorTotp]{
+		OutputState: i.ToFactorTotpArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FactorTotpMapInput is an input type that accepts FactorTotpMap and FactorTotpMapOutput values.
@@ -246,6 +259,12 @@ func (i FactorTotpMap) ToFactorTotpMapOutputWithContext(ctx context.Context) Fac
 	return pulumi.ToOutputWithContext(ctx, i).(FactorTotpMapOutput)
 }
 
+func (i FactorTotpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FactorTotp] {
+	return pulumix.Output[map[string]*FactorTotp]{
+		OutputState: i.ToFactorTotpMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FactorTotpOutput struct{ *pulumi.OutputState }
 
 func (FactorTotpOutput) ElementType() reflect.Type {
@@ -258,6 +277,12 @@ func (o FactorTotpOutput) ToFactorTotpOutput() FactorTotpOutput {
 
 func (o FactorTotpOutput) ToFactorTotpOutputWithContext(ctx context.Context) FactorTotpOutput {
 	return o
+}
+
+func (o FactorTotpOutput) ToOutput(ctx context.Context) pulumix.Output[*FactorTotp] {
+	return pulumix.Output[*FactorTotp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Clock drift interval. This setting allows you to build in tolerance for any
@@ -307,6 +332,12 @@ func (o FactorTotpArrayOutput) ToFactorTotpArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o FactorTotpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FactorTotp] {
+	return pulumix.Output[[]*FactorTotp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FactorTotpArrayOutput) Index(i pulumi.IntInput) FactorTotpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FactorTotp {
 		return vs[0].([]*FactorTotp)[vs[1].(int)]
@@ -325,6 +356,12 @@ func (o FactorTotpMapOutput) ToFactorTotpMapOutput() FactorTotpMapOutput {
 
 func (o FactorTotpMapOutput) ToFactorTotpMapOutputWithContext(ctx context.Context) FactorTotpMapOutput {
 	return o
+}
+
+func (o FactorTotpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FactorTotp] {
+	return pulumix.Output[map[string]*FactorTotp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FactorTotpMapOutput) MapIndex(k pulumi.StringInput) FactorTotpOutput {

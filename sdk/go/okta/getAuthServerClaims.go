@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a list of authorization server claims from Okta.
@@ -99,6 +100,12 @@ func (o GetAuthServerClaimsResultOutput) ToGetAuthServerClaimsResultOutput() Get
 
 func (o GetAuthServerClaimsResultOutput) ToGetAuthServerClaimsResultOutputWithContext(ctx context.Context) GetAuthServerClaimsResultOutput {
 	return o
+}
+
+func (o GetAuthServerClaimsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAuthServerClaimsResult] {
+	return pulumix.Output[GetAuthServerClaimsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAuthServerClaimsResultOutput) AuthServerId() pulumi.StringOutput {

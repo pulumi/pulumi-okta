@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `policy.getPolicy` with default names, this is simply a shortcut.
@@ -100,6 +101,12 @@ func (o GetDefaultPolicyResultOutput) ToGetDefaultPolicyResultOutput() GetDefaul
 
 func (o GetDefaultPolicyResultOutput) ToGetDefaultPolicyResultOutputWithContext(ctx context.Context) GetDefaultPolicyResultOutput {
 	return o
+}
+
+func (o GetDefaultPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDefaultPolicyResult] {
+	return pulumix.Output[GetDefaultPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

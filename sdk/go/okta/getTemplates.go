@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the [email
@@ -75,6 +76,12 @@ func (o GetTemplatesResultOutput) ToGetTemplatesResultOutput() GetTemplatesResul
 
 func (o GetTemplatesResultOutput) ToGetTemplatesResultOutputWithContext(ctx context.Context) GetTemplatesResultOutput {
 	return o
+}
+
+func (o GetTemplatesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTemplatesResult] {
+	return pulumix.Output[GetTemplatesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTemplatesResultOutput) BrandId() pulumi.StringOutput {

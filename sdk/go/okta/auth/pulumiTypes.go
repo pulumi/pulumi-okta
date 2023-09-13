@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -74,6 +75,12 @@ func (i GetServerScopesScopeArgs) ToGetServerScopesScopeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetServerScopesScopeOutput)
 }
 
+func (i GetServerScopesScopeArgs) ToOutput(ctx context.Context) pulumix.Output[GetServerScopesScope] {
+	return pulumix.Output[GetServerScopesScope]{
+		OutputState: i.ToGetServerScopesScopeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServerScopesScopeArrayInput is an input type that accepts GetServerScopesScopeArray and GetServerScopesScopeArrayOutput values.
 // You can construct a concrete instance of `GetServerScopesScopeArrayInput` via:
 //
@@ -99,6 +106,12 @@ func (i GetServerScopesScopeArray) ToGetServerScopesScopeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetServerScopesScopeArrayOutput)
 }
 
+func (i GetServerScopesScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServerScopesScope] {
+	return pulumix.Output[[]GetServerScopesScope]{
+		OutputState: i.ToGetServerScopesScopeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServerScopesScopeOutput struct{ *pulumi.OutputState }
 
 func (GetServerScopesScopeOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o GetServerScopesScopeOutput) ToGetServerScopesScopeOutput() GetServerScop
 
 func (o GetServerScopesScopeOutput) ToGetServerScopesScopeOutputWithContext(ctx context.Context) GetServerScopesScopeOutput {
 	return o
+}
+
+func (o GetServerScopesScopeOutput) ToOutput(ctx context.Context) pulumix.Output[GetServerScopesScope] {
+	return pulumix.Output[GetServerScopesScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether a consent dialog is needed for the Scope
@@ -165,6 +184,12 @@ func (o GetServerScopesScopeArrayOutput) ToGetServerScopesScopeArrayOutput() Get
 
 func (o GetServerScopesScopeArrayOutput) ToGetServerScopesScopeArrayOutputWithContext(ctx context.Context) GetServerScopesScopeArrayOutput {
 	return o
+}
+
+func (o GetServerScopesScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServerScopesScope] {
+	return pulumix.Output[[]GetServerScopesScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServerScopesScopeArrayOutput) Index(i pulumi.IntInput) GetServerScopesScopeOutput {

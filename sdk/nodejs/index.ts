@@ -187,7 +187,8 @@ utilities.lazyLoad(exports, ["getBrand","getBrandOutput"], () => require("./getB
 
 export { GetBrandsResult } from "./getBrands";
 export const getBrands: typeof import("./getBrands").getBrands = null as any;
-utilities.lazyLoad(exports, ["getBrands"], () => require("./getBrands"));
+export const getBrandsOutput: typeof import("./getBrands").getBrandsOutput = null as any;
+utilities.lazyLoad(exports, ["getBrands","getBrandsOutput"], () => require("./getBrands"));
 
 export { GetEmailCustomizationArgs, GetEmailCustomizationResult, GetEmailCustomizationOutputArgs } from "./getEmailCustomization";
 export const getEmailCustomization: typeof import("./getEmailCustomization").getEmailCustomization = null as any;

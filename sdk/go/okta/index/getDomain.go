@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a domain from Okta.
@@ -118,6 +119,12 @@ func (o GetDomainResultOutput) ToGetDomainResultOutput() GetDomainResultOutput {
 
 func (o GetDomainResultOutput) ToGetDomainResultOutputWithContext(ctx context.Context) GetDomainResultOutput {
 	return o
+}
+
+func (o GetDomainResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainResult] {
+	return pulumix.Output[GetDomainResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED"

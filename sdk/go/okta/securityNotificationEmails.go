@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to configure Security Notification Emails.
@@ -178,6 +179,12 @@ func (i *SecurityNotificationEmails) ToSecurityNotificationEmailsOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityNotificationEmailsOutput)
 }
 
+func (i *SecurityNotificationEmails) ToOutput(ctx context.Context) pulumix.Output[*SecurityNotificationEmails] {
+	return pulumix.Output[*SecurityNotificationEmails]{
+		OutputState: i.ToSecurityNotificationEmailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecurityNotificationEmailsArrayInput is an input type that accepts SecurityNotificationEmailsArray and SecurityNotificationEmailsArrayOutput values.
 // You can construct a concrete instance of `SecurityNotificationEmailsArrayInput` via:
 //
@@ -201,6 +208,12 @@ func (i SecurityNotificationEmailsArray) ToSecurityNotificationEmailsArrayOutput
 
 func (i SecurityNotificationEmailsArray) ToSecurityNotificationEmailsArrayOutputWithContext(ctx context.Context) SecurityNotificationEmailsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityNotificationEmailsArrayOutput)
+}
+
+func (i SecurityNotificationEmailsArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityNotificationEmails] {
+	return pulumix.Output[[]*SecurityNotificationEmails]{
+		OutputState: i.ToSecurityNotificationEmailsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecurityNotificationEmailsMapInput is an input type that accepts SecurityNotificationEmailsMap and SecurityNotificationEmailsMapOutput values.
@@ -228,6 +241,12 @@ func (i SecurityNotificationEmailsMap) ToSecurityNotificationEmailsMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityNotificationEmailsMapOutput)
 }
 
+func (i SecurityNotificationEmailsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityNotificationEmails] {
+	return pulumix.Output[map[string]*SecurityNotificationEmails]{
+		OutputState: i.ToSecurityNotificationEmailsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityNotificationEmailsOutput struct{ *pulumi.OutputState }
 
 func (SecurityNotificationEmailsOutput) ElementType() reflect.Type {
@@ -240,6 +259,12 @@ func (o SecurityNotificationEmailsOutput) ToSecurityNotificationEmailsOutput() S
 
 func (o SecurityNotificationEmailsOutput) ToSecurityNotificationEmailsOutputWithContext(ctx context.Context) SecurityNotificationEmailsOutput {
 	return o
+}
+
+func (o SecurityNotificationEmailsOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityNotificationEmails] {
+	return pulumix.Output[*SecurityNotificationEmails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
@@ -281,6 +306,12 @@ func (o SecurityNotificationEmailsArrayOutput) ToSecurityNotificationEmailsArray
 	return o
 }
 
+func (o SecurityNotificationEmailsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityNotificationEmails] {
+	return pulumix.Output[[]*SecurityNotificationEmails]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SecurityNotificationEmailsArrayOutput) Index(i pulumi.IntInput) SecurityNotificationEmailsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityNotificationEmails {
 		return vs[0].([]*SecurityNotificationEmails)[vs[1].(int)]
@@ -299,6 +330,12 @@ func (o SecurityNotificationEmailsMapOutput) ToSecurityNotificationEmailsMapOutp
 
 func (o SecurityNotificationEmailsMapOutput) ToSecurityNotificationEmailsMapOutputWithContext(ctx context.Context) SecurityNotificationEmailsMapOutput {
 	return o
+}
+
+func (o SecurityNotificationEmailsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityNotificationEmails] {
+	return pulumix.Output[map[string]*SecurityNotificationEmails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityNotificationEmailsMapOutput) MapIndex(k pulumi.StringInput) SecurityNotificationEmailsOutput {

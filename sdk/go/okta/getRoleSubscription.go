@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve role subscription with a specific type.
@@ -133,6 +134,12 @@ func (o LookupRoleSubscriptionResultOutput) ToLookupRoleSubscriptionResultOutput
 
 func (o LookupRoleSubscriptionResultOutput) ToLookupRoleSubscriptionResultOutputWithContext(ctx context.Context) LookupRoleSubscriptionResultOutput {
 	return o
+}
+
+func (o LookupRoleSubscriptionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRoleSubscriptionResult] {
+	return pulumix.Output[LookupRoleSubscriptionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

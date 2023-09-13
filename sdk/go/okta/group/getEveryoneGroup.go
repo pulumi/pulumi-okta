@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `group.Group` data
@@ -98,6 +99,12 @@ func (o GetEveryoneGroupResultOutput) ToGetEveryoneGroupResultOutput() GetEveryo
 
 func (o GetEveryoneGroupResultOutput) ToGetEveryoneGroupResultOutputWithContext(ctx context.Context) GetEveryoneGroupResultOutput {
 	return o
+}
+
+func (o GetEveryoneGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEveryoneGroupResult] {
+	return pulumix.Output[GetEveryoneGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // description of group.

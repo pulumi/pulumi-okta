@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve an SAML application from Okta.
@@ -218,6 +219,12 @@ func (o LookupSamlResultOutput) ToLookupSamlResultOutput() LookupSamlResultOutpu
 
 func (o LookupSamlResultOutput) ToLookupSamlResultOutputWithContext(ctx context.Context) LookupSamlResultOutput {
 	return o
+}
+
+func (o LookupSamlResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSamlResult] {
+	return pulumix.Output[LookupSamlResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Custom error page URL.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configures Default Authorization Server Claim.
@@ -211,6 +212,12 @@ func (i *AuthServerClaimDefault) ToAuthServerClaimDefaultOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AuthServerClaimDefaultOutput)
 }
 
+func (i *AuthServerClaimDefault) ToOutput(ctx context.Context) pulumix.Output[*AuthServerClaimDefault] {
+	return pulumix.Output[*AuthServerClaimDefault]{
+		OutputState: i.ToAuthServerClaimDefaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AuthServerClaimDefaultArrayInput is an input type that accepts AuthServerClaimDefaultArray and AuthServerClaimDefaultArrayOutput values.
 // You can construct a concrete instance of `AuthServerClaimDefaultArrayInput` via:
 //
@@ -234,6 +241,12 @@ func (i AuthServerClaimDefaultArray) ToAuthServerClaimDefaultArrayOutput() AuthS
 
 func (i AuthServerClaimDefaultArray) ToAuthServerClaimDefaultArrayOutputWithContext(ctx context.Context) AuthServerClaimDefaultArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthServerClaimDefaultArrayOutput)
+}
+
+func (i AuthServerClaimDefaultArray) ToOutput(ctx context.Context) pulumix.Output[[]*AuthServerClaimDefault] {
+	return pulumix.Output[[]*AuthServerClaimDefault]{
+		OutputState: i.ToAuthServerClaimDefaultArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AuthServerClaimDefaultMapInput is an input type that accepts AuthServerClaimDefaultMap and AuthServerClaimDefaultMapOutput values.
@@ -261,6 +274,12 @@ func (i AuthServerClaimDefaultMap) ToAuthServerClaimDefaultMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AuthServerClaimDefaultMapOutput)
 }
 
+func (i AuthServerClaimDefaultMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthServerClaimDefault] {
+	return pulumix.Output[map[string]*AuthServerClaimDefault]{
+		OutputState: i.ToAuthServerClaimDefaultMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthServerClaimDefaultOutput struct{ *pulumi.OutputState }
 
 func (AuthServerClaimDefaultOutput) ElementType() reflect.Type {
@@ -273,6 +292,12 @@ func (o AuthServerClaimDefaultOutput) ToAuthServerClaimDefaultOutput() AuthServe
 
 func (o AuthServerClaimDefaultOutput) ToAuthServerClaimDefaultOutputWithContext(ctx context.Context) AuthServerClaimDefaultOutput {
 	return o
+}
+
+func (o AuthServerClaimDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthServerClaimDefault] {
+	return pulumix.Output[*AuthServerClaimDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether to include claims in token.
@@ -331,6 +356,12 @@ func (o AuthServerClaimDefaultArrayOutput) ToAuthServerClaimDefaultArrayOutputWi
 	return o
 }
 
+func (o AuthServerClaimDefaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AuthServerClaimDefault] {
+	return pulumix.Output[[]*AuthServerClaimDefault]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AuthServerClaimDefaultArrayOutput) Index(i pulumi.IntInput) AuthServerClaimDefaultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthServerClaimDefault {
 		return vs[0].([]*AuthServerClaimDefault)[vs[1].(int)]
@@ -349,6 +380,12 @@ func (o AuthServerClaimDefaultMapOutput) ToAuthServerClaimDefaultMapOutput() Aut
 
 func (o AuthServerClaimDefaultMapOutput) ToAuthServerClaimDefaultMapOutputWithContext(ctx context.Context) AuthServerClaimDefaultMapOutput {
 	return o
+}
+
+func (o AuthServerClaimDefaultMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthServerClaimDefault] {
+	return pulumix.Output[map[string]*AuthServerClaimDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthServerClaimDefaultMapOutput) MapIndex(k pulumi.StringInput) AuthServerClaimDefaultOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Link definition operations allow you to manage the creation and removal of the link definitions. If you remove a link
@@ -209,6 +210,12 @@ func (i *LinkDefinition) ToLinkDefinitionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(LinkDefinitionOutput)
 }
 
+func (i *LinkDefinition) ToOutput(ctx context.Context) pulumix.Output[*LinkDefinition] {
+	return pulumix.Output[*LinkDefinition]{
+		OutputState: i.ToLinkDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkDefinitionArrayInput is an input type that accepts LinkDefinitionArray and LinkDefinitionArrayOutput values.
 // You can construct a concrete instance of `LinkDefinitionArrayInput` via:
 //
@@ -232,6 +239,12 @@ func (i LinkDefinitionArray) ToLinkDefinitionArrayOutput() LinkDefinitionArrayOu
 
 func (i LinkDefinitionArray) ToLinkDefinitionArrayOutputWithContext(ctx context.Context) LinkDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkDefinitionArrayOutput)
+}
+
+func (i LinkDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkDefinition] {
+	return pulumix.Output[[]*LinkDefinition]{
+		OutputState: i.ToLinkDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkDefinitionMapInput is an input type that accepts LinkDefinitionMap and LinkDefinitionMapOutput values.
@@ -259,6 +272,12 @@ func (i LinkDefinitionMap) ToLinkDefinitionMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkDefinitionMapOutput)
 }
 
+func (i LinkDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkDefinition] {
+	return pulumix.Output[map[string]*LinkDefinition]{
+		OutputState: i.ToLinkDefinitionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkDefinitionOutput struct{ *pulumi.OutputState }
 
 func (LinkDefinitionOutput) ElementType() reflect.Type {
@@ -271,6 +290,12 @@ func (o LinkDefinitionOutput) ToLinkDefinitionOutput() LinkDefinitionOutput {
 
 func (o LinkDefinitionOutput) ToLinkDefinitionOutputWithContext(ctx context.Context) LinkDefinitionOutput {
 	return o
+}
+
+func (o LinkDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkDefinition] {
+	return pulumix.Output[*LinkDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the associated relationship.
@@ -317,6 +342,12 @@ func (o LinkDefinitionArrayOutput) ToLinkDefinitionArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o LinkDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkDefinition] {
+	return pulumix.Output[[]*LinkDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkDefinitionArrayOutput) Index(i pulumi.IntInput) LinkDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkDefinition {
 		return vs[0].([]*LinkDefinition)[vs[1].(int)]
@@ -335,6 +366,12 @@ func (o LinkDefinitionMapOutput) ToLinkDefinitionMapOutput() LinkDefinitionMapOu
 
 func (o LinkDefinitionMapOutput) ToLinkDefinitionMapOutputWithContext(ctx context.Context) LinkDefinitionMapOutput {
 	return o
+}
+
+func (o LinkDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkDefinition] {
+	return pulumix.Output[map[string]*LinkDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkDefinitionMapOutput) MapIndex(k pulumi.StringInput) LinkDefinitionOutput {

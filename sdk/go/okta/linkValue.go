@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Link value operations allow you to create relationships between primary and associated users.
@@ -205,6 +206,12 @@ func (i *LinkValue) ToLinkValueOutputWithContext(ctx context.Context) LinkValueO
 	return pulumi.ToOutputWithContext(ctx, i).(LinkValueOutput)
 }
 
+func (i *LinkValue) ToOutput(ctx context.Context) pulumix.Output[*LinkValue] {
+	return pulumix.Output[*LinkValue]{
+		OutputState: i.ToLinkValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkValueArrayInput is an input type that accepts LinkValueArray and LinkValueArrayOutput values.
 // You can construct a concrete instance of `LinkValueArrayInput` via:
 //
@@ -228,6 +235,12 @@ func (i LinkValueArray) ToLinkValueArrayOutput() LinkValueArrayOutput {
 
 func (i LinkValueArray) ToLinkValueArrayOutputWithContext(ctx context.Context) LinkValueArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkValueArrayOutput)
+}
+
+func (i LinkValueArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkValue] {
+	return pulumix.Output[[]*LinkValue]{
+		OutputState: i.ToLinkValueArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkValueMapInput is an input type that accepts LinkValueMap and LinkValueMapOutput values.
@@ -255,6 +268,12 @@ func (i LinkValueMap) ToLinkValueMapOutputWithContext(ctx context.Context) LinkV
 	return pulumi.ToOutputWithContext(ctx, i).(LinkValueMapOutput)
 }
 
+func (i LinkValueMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkValue] {
+	return pulumix.Output[map[string]*LinkValue]{
+		OutputState: i.ToLinkValueMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkValueOutput struct{ *pulumi.OutputState }
 
 func (LinkValueOutput) ElementType() reflect.Type {
@@ -267,6 +286,12 @@ func (o LinkValueOutput) ToLinkValueOutput() LinkValueOutput {
 
 func (o LinkValueOutput) ToLinkValueOutputWithContext(ctx context.Context) LinkValueOutput {
 	return o
+}
+
+func (o LinkValueOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkValue] {
+	return pulumix.Output[*LinkValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of User IDs or login values of the users to be assigned the 'associated' relationship.
@@ -298,6 +323,12 @@ func (o LinkValueArrayOutput) ToLinkValueArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o LinkValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkValue] {
+	return pulumix.Output[[]*LinkValue]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkValueArrayOutput) Index(i pulumi.IntInput) LinkValueOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkValue {
 		return vs[0].([]*LinkValue)[vs[1].(int)]
@@ -316,6 +347,12 @@ func (o LinkValueMapOutput) ToLinkValueMapOutput() LinkValueMapOutput {
 
 func (o LinkValueMapOutput) ToLinkValueMapOutputWithContext(ctx context.Context) LinkValueMapOutput {
 	return o
+}
+
+func (o LinkValueMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkValue] {
+	return pulumix.Output[map[string]*LinkValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkValueMapOutput) MapIndex(k pulumi.StringInput) LinkValueOutput {

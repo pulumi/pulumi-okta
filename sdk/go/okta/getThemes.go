@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve
@@ -75,6 +76,12 @@ func (o GetThemesResultOutput) ToGetThemesResultOutput() GetThemesResultOutput {
 
 func (o GetThemesResultOutput) ToGetThemesResultOutputWithContext(ctx context.Context) GetThemesResultOutput {
 	return o
+}
+
+func (o GetThemesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetThemesResult] {
+	return pulumix.Output[GetThemesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetThemesResultOutput) BrandId() pulumi.StringOutput {

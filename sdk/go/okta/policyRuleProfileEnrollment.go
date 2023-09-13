@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -274,6 +275,12 @@ func (i *PolicyRuleProfileEnrollment) ToPolicyRuleProfileEnrollmentOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyRuleProfileEnrollmentOutput)
 }
 
+func (i *PolicyRuleProfileEnrollment) ToOutput(ctx context.Context) pulumix.Output[*PolicyRuleProfileEnrollment] {
+	return pulumix.Output[*PolicyRuleProfileEnrollment]{
+		OutputState: i.ToPolicyRuleProfileEnrollmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyRuleProfileEnrollmentArrayInput is an input type that accepts PolicyRuleProfileEnrollmentArray and PolicyRuleProfileEnrollmentArrayOutput values.
 // You can construct a concrete instance of `PolicyRuleProfileEnrollmentArrayInput` via:
 //
@@ -297,6 +304,12 @@ func (i PolicyRuleProfileEnrollmentArray) ToPolicyRuleProfileEnrollmentArrayOutp
 
 func (i PolicyRuleProfileEnrollmentArray) ToPolicyRuleProfileEnrollmentArrayOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyRuleProfileEnrollmentArrayOutput)
+}
+
+func (i PolicyRuleProfileEnrollmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyRuleProfileEnrollment] {
+	return pulumix.Output[[]*PolicyRuleProfileEnrollment]{
+		OutputState: i.ToPolicyRuleProfileEnrollmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PolicyRuleProfileEnrollmentMapInput is an input type that accepts PolicyRuleProfileEnrollmentMap and PolicyRuleProfileEnrollmentMapOutput values.
@@ -324,6 +337,12 @@ func (i PolicyRuleProfileEnrollmentMap) ToPolicyRuleProfileEnrollmentMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyRuleProfileEnrollmentMapOutput)
 }
 
+func (i PolicyRuleProfileEnrollmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyRuleProfileEnrollment] {
+	return pulumix.Output[map[string]*PolicyRuleProfileEnrollment]{
+		OutputState: i.ToPolicyRuleProfileEnrollmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyRuleProfileEnrollmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyRuleProfileEnrollmentOutput) ElementType() reflect.Type {
@@ -336,6 +355,12 @@ func (o PolicyRuleProfileEnrollmentOutput) ToPolicyRuleProfileEnrollmentOutput()
 
 func (o PolicyRuleProfileEnrollmentOutput) ToPolicyRuleProfileEnrollmentOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentOutput {
 	return o
+}
+
+func (o PolicyRuleProfileEnrollmentOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyRuleProfileEnrollment] {
+	return pulumix.Output[*PolicyRuleProfileEnrollment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
@@ -404,6 +429,12 @@ func (o PolicyRuleProfileEnrollmentArrayOutput) ToPolicyRuleProfileEnrollmentArr
 	return o
 }
 
+func (o PolicyRuleProfileEnrollmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyRuleProfileEnrollment] {
+	return pulumix.Output[[]*PolicyRuleProfileEnrollment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyRuleProfileEnrollmentArrayOutput) Index(i pulumi.IntInput) PolicyRuleProfileEnrollmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyRuleProfileEnrollment {
 		return vs[0].([]*PolicyRuleProfileEnrollment)[vs[1].(int)]
@@ -422,6 +453,12 @@ func (o PolicyRuleProfileEnrollmentMapOutput) ToPolicyRuleProfileEnrollmentMapOu
 
 func (o PolicyRuleProfileEnrollmentMapOutput) ToPolicyRuleProfileEnrollmentMapOutputWithContext(ctx context.Context) PolicyRuleProfileEnrollmentMapOutput {
 	return o
+}
+
+func (o PolicyRuleProfileEnrollmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyRuleProfileEnrollment] {
+	return pulumix.Output[map[string]*PolicyRuleProfileEnrollment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyRuleProfileEnrollmentMapOutput) MapIndex(k pulumi.StringInput) PolicyRuleProfileEnrollmentOutput {

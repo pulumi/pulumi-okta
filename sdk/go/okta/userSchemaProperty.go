@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -354,6 +355,12 @@ func (i *UserSchemaProperty) ToUserSchemaPropertyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaPropertyOutput)
 }
 
+func (i *UserSchemaProperty) ToOutput(ctx context.Context) pulumix.Output[*UserSchemaProperty] {
+	return pulumix.Output[*UserSchemaProperty]{
+		OutputState: i.ToUserSchemaPropertyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserSchemaPropertyArrayInput is an input type that accepts UserSchemaPropertyArray and UserSchemaPropertyArrayOutput values.
 // You can construct a concrete instance of `UserSchemaPropertyArrayInput` via:
 //
@@ -377,6 +384,12 @@ func (i UserSchemaPropertyArray) ToUserSchemaPropertyArrayOutput() UserSchemaPro
 
 func (i UserSchemaPropertyArray) ToUserSchemaPropertyArrayOutputWithContext(ctx context.Context) UserSchemaPropertyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaPropertyArrayOutput)
+}
+
+func (i UserSchemaPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserSchemaProperty] {
+	return pulumix.Output[[]*UserSchemaProperty]{
+		OutputState: i.ToUserSchemaPropertyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserSchemaPropertyMapInput is an input type that accepts UserSchemaPropertyMap and UserSchemaPropertyMapOutput values.
@@ -404,6 +417,12 @@ func (i UserSchemaPropertyMap) ToUserSchemaPropertyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserSchemaPropertyMapOutput)
 }
 
+func (i UserSchemaPropertyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserSchemaProperty] {
+	return pulumix.Output[map[string]*UserSchemaProperty]{
+		OutputState: i.ToUserSchemaPropertyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserSchemaPropertyOutput struct{ *pulumi.OutputState }
 
 func (UserSchemaPropertyOutput) ElementType() reflect.Type {
@@ -416,6 +435,12 @@ func (o UserSchemaPropertyOutput) ToUserSchemaPropertyOutput() UserSchemaPropert
 
 func (o UserSchemaPropertyOutput) ToUserSchemaPropertyOutputWithContext(ctx context.Context) UserSchemaPropertyOutput {
 	return o
+}
+
+func (o UserSchemaPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[*UserSchemaProperty] {
+	return pulumix.Output[*UserSchemaProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Array of values that an array property's items can be set to.
@@ -539,6 +564,12 @@ func (o UserSchemaPropertyArrayOutput) ToUserSchemaPropertyArrayOutputWithContex
 	return o
 }
 
+func (o UserSchemaPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserSchemaProperty] {
+	return pulumix.Output[[]*UserSchemaProperty]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserSchemaPropertyArrayOutput) Index(i pulumi.IntInput) UserSchemaPropertyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserSchemaProperty {
 		return vs[0].([]*UserSchemaProperty)[vs[1].(int)]
@@ -557,6 +588,12 @@ func (o UserSchemaPropertyMapOutput) ToUserSchemaPropertyMapOutput() UserSchemaP
 
 func (o UserSchemaPropertyMapOutput) ToUserSchemaPropertyMapOutputWithContext(ctx context.Context) UserSchemaPropertyMapOutput {
 	return o
+}
+
+func (o UserSchemaPropertyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserSchemaProperty] {
+	return pulumix.Output[map[string]*UserSchemaProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserSchemaPropertyMapOutput) MapIndex(k pulumi.StringInput) UserSchemaPropertyOutput {

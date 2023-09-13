@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i MappingMappingArgs) ToMappingMappingOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MappingMappingOutput)
 }
 
+func (i MappingMappingArgs) ToOutput(ctx context.Context) pulumix.Output[MappingMapping] {
+	return pulumix.Output[MappingMapping]{
+		OutputState: i.ToMappingMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MappingMappingArrayInput is an input type that accepts MappingMappingArray and MappingMappingArrayOutput values.
 // You can construct a concrete instance of `MappingMappingArrayInput` via:
 //
@@ -79,6 +86,12 @@ func (i MappingMappingArray) ToMappingMappingArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MappingMappingArrayOutput)
 }
 
+func (i MappingMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]MappingMapping] {
+	return pulumix.Output[[]MappingMapping]{
+		OutputState: i.ToMappingMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MappingMappingOutput struct{ *pulumi.OutputState }
 
 func (MappingMappingOutput) ElementType() reflect.Type {
@@ -91,6 +104,12 @@ func (o MappingMappingOutput) ToMappingMappingOutput() MappingMappingOutput {
 
 func (o MappingMappingOutput) ToMappingMappingOutputWithContext(ctx context.Context) MappingMappingOutput {
 	return o
+}
+
+func (o MappingMappingOutput) ToOutput(ctx context.Context) pulumix.Output[MappingMapping] {
+	return pulumix.Output[MappingMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Combination or single source properties that will be mapped to the target property.
@@ -120,6 +139,12 @@ func (o MappingMappingArrayOutput) ToMappingMappingArrayOutput() MappingMappingA
 
 func (o MappingMappingArrayOutput) ToMappingMappingArrayOutputWithContext(ctx context.Context) MappingMappingArrayOutput {
 	return o
+}
+
+func (o MappingMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MappingMapping] {
+	return pulumix.Output[[]MappingMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MappingMappingArrayOutput) Index(i pulumi.IntInput) MappingMappingOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and configure an Auto Login Okta Application.
@@ -415,6 +416,12 @@ func (i *AutoLogin) ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginO
 	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginOutput)
 }
 
+func (i *AutoLogin) ToOutput(ctx context.Context) pulumix.Output[*AutoLogin] {
+	return pulumix.Output[*AutoLogin]{
+		OutputState: i.ToAutoLoginOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AutoLoginArrayInput is an input type that accepts AutoLoginArray and AutoLoginArrayOutput values.
 // You can construct a concrete instance of `AutoLoginArrayInput` via:
 //
@@ -438,6 +445,12 @@ func (i AutoLoginArray) ToAutoLoginArrayOutput() AutoLoginArrayOutput {
 
 func (i AutoLoginArray) ToAutoLoginArrayOutputWithContext(ctx context.Context) AutoLoginArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginArrayOutput)
+}
+
+func (i AutoLoginArray) ToOutput(ctx context.Context) pulumix.Output[[]*AutoLogin] {
+	return pulumix.Output[[]*AutoLogin]{
+		OutputState: i.ToAutoLoginArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AutoLoginMapInput is an input type that accepts AutoLoginMap and AutoLoginMapOutput values.
@@ -465,6 +478,12 @@ func (i AutoLoginMap) ToAutoLoginMapOutputWithContext(ctx context.Context) AutoL
 	return pulumi.ToOutputWithContext(ctx, i).(AutoLoginMapOutput)
 }
 
+func (i AutoLoginMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutoLogin] {
+	return pulumix.Output[map[string]*AutoLogin]{
+		OutputState: i.ToAutoLoginMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutoLoginOutput struct{ *pulumi.OutputState }
 
 func (AutoLoginOutput) ElementType() reflect.Type {
@@ -477,6 +496,12 @@ func (o AutoLoginOutput) ToAutoLoginOutput() AutoLoginOutput {
 
 func (o AutoLoginOutput) ToAutoLoginOutputWithContext(ctx context.Context) AutoLoginOutput {
 	return o
+}
+
+func (o AutoLoginOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoLogin] {
+	return pulumix.Output[*AutoLogin]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Custom error page URL.
@@ -628,6 +653,12 @@ func (o AutoLoginArrayOutput) ToAutoLoginArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o AutoLoginArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AutoLogin] {
+	return pulumix.Output[[]*AutoLogin]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AutoLoginArrayOutput) Index(i pulumi.IntInput) AutoLoginOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutoLogin {
 		return vs[0].([]*AutoLogin)[vs[1].(int)]
@@ -646,6 +677,12 @@ func (o AutoLoginMapOutput) ToAutoLoginMapOutput() AutoLoginMapOutput {
 
 func (o AutoLoginMapOutput) ToAutoLoginMapOutputWithContext(ctx context.Context) AutoLoginMapOutput {
 	return o
+}
+
+func (o AutoLoginMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutoLogin] {
+	return pulumix.Output[map[string]*AutoLogin]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AutoLoginMapOutput) MapIndex(k pulumi.StringInput) AutoLoginOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource to manage a set of admin roles for a specific user.
@@ -179,6 +180,12 @@ func (i *UserAdminRoles) ToUserAdminRolesOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(UserAdminRolesOutput)
 }
 
+func (i *UserAdminRoles) ToOutput(ctx context.Context) pulumix.Output[*UserAdminRoles] {
+	return pulumix.Output[*UserAdminRoles]{
+		OutputState: i.ToUserAdminRolesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserAdminRolesArrayInput is an input type that accepts UserAdminRolesArray and UserAdminRolesArrayOutput values.
 // You can construct a concrete instance of `UserAdminRolesArrayInput` via:
 //
@@ -202,6 +209,12 @@ func (i UserAdminRolesArray) ToUserAdminRolesArrayOutput() UserAdminRolesArrayOu
 
 func (i UserAdminRolesArray) ToUserAdminRolesArrayOutputWithContext(ctx context.Context) UserAdminRolesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserAdminRolesArrayOutput)
+}
+
+func (i UserAdminRolesArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserAdminRoles] {
+	return pulumix.Output[[]*UserAdminRoles]{
+		OutputState: i.ToUserAdminRolesArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserAdminRolesMapInput is an input type that accepts UserAdminRolesMap and UserAdminRolesMapOutput values.
@@ -229,6 +242,12 @@ func (i UserAdminRolesMap) ToUserAdminRolesMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserAdminRolesMapOutput)
 }
 
+func (i UserAdminRolesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserAdminRoles] {
+	return pulumix.Output[map[string]*UserAdminRoles]{
+		OutputState: i.ToUserAdminRolesMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserAdminRolesOutput struct{ *pulumi.OutputState }
 
 func (UserAdminRolesOutput) ElementType() reflect.Type {
@@ -241,6 +260,12 @@ func (o UserAdminRolesOutput) ToUserAdminRolesOutput() UserAdminRolesOutput {
 
 func (o UserAdminRolesOutput) ToUserAdminRolesOutputWithContext(ctx context.Context) UserAdminRolesOutput {
 	return o
+}
+
+func (o UserAdminRolesOutput) ToOutput(ctx context.Context) pulumix.Output[*UserAdminRoles] {
+	return pulumix.Output[*UserAdminRoles]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
@@ -273,6 +298,12 @@ func (o UserAdminRolesArrayOutput) ToUserAdminRolesArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o UserAdminRolesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserAdminRoles] {
+	return pulumix.Output[[]*UserAdminRoles]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserAdminRolesArrayOutput) Index(i pulumi.IntInput) UserAdminRolesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserAdminRoles {
 		return vs[0].([]*UserAdminRoles)[vs[1].(int)]
@@ -291,6 +322,12 @@ func (o UserAdminRolesMapOutput) ToUserAdminRolesMapOutput() UserAdminRolesMapOu
 
 func (o UserAdminRolesMapOutput) ToUserAdminRolesMapOutputWithContext(ctx context.Context) UserAdminRolesMapOutput {
 	return o
+}
+
+func (o UserAdminRolesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserAdminRoles] {
+	return pulumix.Output[map[string]*UserAdminRoles]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserAdminRolesMapOutput) MapIndex(k pulumi.StringInput) UserAdminRolesOutput {
