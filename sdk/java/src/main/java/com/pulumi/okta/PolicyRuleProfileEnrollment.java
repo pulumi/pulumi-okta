@@ -115,7 +115,7 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
      * Allow or deny access based on the rule conditions. Valid values are: `&#34;ALLOW&#34;`, `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
      * 
      */
-    @Export(name="access", type=String.class, parameters={})
+    @Export(name="access", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> access;
 
     /**
@@ -129,7 +129,7 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
      * Indicates whether email verification should occur before access is granted. Default is `true`.
      * 
      */
-    @Export(name="emailVerification", type=Boolean.class, parameters={})
+    @Export(name="emailVerification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> emailVerification;
 
     /**
@@ -143,7 +143,7 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
      * ID of a Registration Inline Hook.
      * 
      */
-    @Export(name="inlineHookId", type=String.class, parameters={})
+    @Export(name="inlineHookId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inlineHookId;
 
     /**
@@ -157,7 +157,7 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
      * The name of a User Profile property
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -171,7 +171,7 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
      * Policy ID.
      * 
      */
-    @Export(name="policyId", type=String.class, parameters={})
+    @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
@@ -185,7 +185,7 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
      * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
      * 
      */
-    @Export(name="profileAttributes", type=List.class, parameters={PolicyRuleProfileEnrollmentProfileAttribute.class})
+    @Export(name="profileAttributes", refs={List.class,PolicyRuleProfileEnrollmentProfileAttribute.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PolicyRuleProfileEnrollmentProfileAttribute>> profileAttributes;
 
     /**
@@ -199,7 +199,7 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
      * Status of the Rule.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -213,7 +213,7 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
      * The ID of a Group that this User should be added to.
      * 
      */
-    @Export(name="targetGroupId", type=String.class, parameters={})
+    @Export(name="targetGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetGroupId;
 
     /**
@@ -227,7 +227,7 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
      * Value created by the backend. If present all policy updates must include this attribute/value.
      * 
      */
-    @Export(name="uiSchemaId", type=String.class, parameters={})
+    @Export(name="uiSchemaId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> uiSchemaId;
 
     /**
@@ -241,7 +241,7 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
      * Which action should be taken if this User is new. Valid values are: `&#34;DENY&#34;`, `&#34;REGISTER&#34;`.
      * 
      */
-    @Export(name="unknownUserAction", type=String.class, parameters={})
+    @Export(name="unknownUserAction", refs={String.class}, tree="[0]")
     private Output<String> unknownUserAction;
 
     /**

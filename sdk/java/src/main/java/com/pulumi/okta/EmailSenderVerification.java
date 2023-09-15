@@ -67,7 +67,7 @@ public class EmailSenderVerification extends com.pulumi.resources.CustomResource
      * Email sender ID.
      * 
      */
-    @Export(name="senderId", type=String.class, parameters={})
+    @Export(name="senderId", refs={String.class}, tree="[0]")
     private Output<String> senderId;
 
     /**

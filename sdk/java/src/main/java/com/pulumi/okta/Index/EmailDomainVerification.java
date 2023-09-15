@@ -66,7 +66,7 @@ public class EmailDomainVerification extends com.pulumi.resources.CustomResource
      * Email domain ID.
      * 
      */
-    @Export(name="emailDomainId", type=String.class, parameters={})
+    @Export(name="emailDomainId", refs={String.class}, tree="[0]")
     private Output<String> emailDomainId;
 
     /**

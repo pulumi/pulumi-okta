@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "okta:app/accessPolicyAssignment:AccessPolicyAssignment":
+		r = &AccessPolicyAssignment{}
 	case "okta:app/autoLogin:AutoLogin":
 		r = &AutoLogin{}
 	case "okta:app/basicAuth:BasicAuth":
@@ -58,6 +60,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"okta",
+		"app/accessPolicyAssignment",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"okta",
 		"app/autoLogin",

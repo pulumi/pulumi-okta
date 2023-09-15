@@ -44,7 +44,7 @@ public class ResourceSet extends com.pulumi.resources.CustomResource {
      * A description of the Resource Set.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -58,7 +58,7 @@ public class ResourceSet extends com.pulumi.resources.CustomResource {
      * Unique name given to the Resource Set.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -73,7 +73,7 @@ public class ResourceSet extends com.pulumi.resources.CustomResource {
      * endpoint must be specified when creating resource set.
      * 
      */
-    @Export(name="resources", type=List.class, parameters={String.class})
+    @Export(name="resources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resources;
 
     /**

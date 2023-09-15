@@ -73,6 +73,9 @@ class GetBrandResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Brand name
+        """
         return pulumi.get(self, "name")
 
     @property

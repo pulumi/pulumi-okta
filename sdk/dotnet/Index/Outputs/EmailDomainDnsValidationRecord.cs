@@ -24,7 +24,7 @@ namespace Pulumi.Okta.Index.Outputs
         public readonly string? RecordType;
         /// <summary>
         /// DNS record value
-        /// - `expiration ` - DNS TXT record expiration
+        /// - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
         /// </summary>
         public readonly string? Value;
 

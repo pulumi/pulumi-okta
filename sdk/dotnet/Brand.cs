@@ -10,36 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // resource has been imported into current state
-    ///     // $ terraform import okta_brand.example &lt;brand id&gt;
-    ///     var example = new Okta.Brand("example", new()
-    ///     {
-    ///         AgreeToCustomPrivacyPolicy = true,
-    ///         CustomPrivacyPolicyUrl = "https://example.com/privacy-policy",
-    ///         RemovePoweredByOkta = true,
-    ///     });
-    /// 
-    ///     // setting brand_id to default is equivalent to importing the default brand by its ID
-    ///     var @default = new Okta.Brand("default", new()
-    ///     {
-    ///         AgreeToCustomPrivacyPolicy = true,
-    ///         BrandId = "default",
-    ///         CustomPrivacyPolicyUrl = "https://example.com/privacy-policy",
-    ///         RemovePoweredByOkta = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// This resource allows you to create and configure an Okta
+    /// [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
     /// 
     /// ## Import
     /// 
@@ -56,19 +28,49 @@ namespace Pulumi.Okta
         /// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
         /// </summary>
         [Output("agreeToCustomPrivacyPolicy")]
-        public Output<bool?> AgreeToCustomPrivacyPolicy { get; private set; } = null!;
+        public Output<bool> AgreeToCustomPrivacyPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        /// (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         /// </summary>
         [Output("brandId")]
-        public Output<string?> BrandId { get; private set; } = null!;
+        public Output<string> BrandId { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Custom privacy policy URL
+        /// Custom privacy policy URL
         /// </summary>
         [Output("customPrivacyPolicyUrl")]
         public Output<string?> CustomPrivacyPolicyUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Default app app instance id
+        /// </summary>
+        [Output("defaultAppAppInstanceId")]
+        public Output<string?> DefaultAppAppInstanceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Default app app link name
+        /// </summary>
+        [Output("defaultAppAppLinkName")]
+        public Output<string?> DefaultAppAppLinkName { get; private set; } = null!;
+
+        /// <summary>
+        /// Default app classic application uri
+        /// </summary>
+        [Output("defaultAppClassicApplicationUri")]
+        public Output<string?> DefaultAppClassicApplicationUri { get; private set; } = null!;
+
+        /// <summary>
+        /// Email Domain ID tied to this brand
+        /// </summary>
+        [Output("emailDomainId")]
+        public Output<string?> EmailDomainId { get; private set; } = null!;
+
+        /// <summary>
+        /// (Read-only) Is this the default brand
+        /// </summary>
+        [Output("isDefault")]
+        public Output<bool> IsDefault { get; private set; } = null!;
 
         /// <summary>
         /// (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
@@ -77,16 +79,22 @@ namespace Pulumi.Okta
         public Output<string> Links { get; private set; } = null!;
 
         /// <summary>
-        /// Brand name
+        /// The language specified as an IETF BCP 47 language tag
+        /// </summary>
+        [Output("locale")]
+        public Output<string?> Locale { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the brand
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        /// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         /// </summary>
         [Output("removePoweredByOkta")]
-        public Output<bool?> RemovePoweredByOkta { get; private set; } = null!;
+        public Output<bool> RemovePoweredByOkta { get; private set; } = null!;
 
 
         /// <summary>
@@ -141,19 +149,55 @@ namespace Pulumi.Okta
         public Input<bool>? AgreeToCustomPrivacyPolicy { get; set; }
 
         /// <summary>
-        /// Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        /// (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         /// </summary>
         [Input("brandId")]
         public Input<string>? BrandId { get; set; }
 
         /// <summary>
-        /// (Optional) Custom privacy policy URL
+        /// Custom privacy policy URL
         /// </summary>
         [Input("customPrivacyPolicyUrl")]
         public Input<string>? CustomPrivacyPolicyUrl { get; set; }
 
         /// <summary>
-        /// (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        /// Default app app instance id
+        /// </summary>
+        [Input("defaultAppAppInstanceId")]
+        public Input<string>? DefaultAppAppInstanceId { get; set; }
+
+        /// <summary>
+        /// Default app app link name
+        /// </summary>
+        [Input("defaultAppAppLinkName")]
+        public Input<string>? DefaultAppAppLinkName { get; set; }
+
+        /// <summary>
+        /// Default app classic application uri
+        /// </summary>
+        [Input("defaultAppClassicApplicationUri")]
+        public Input<string>? DefaultAppClassicApplicationUri { get; set; }
+
+        /// <summary>
+        /// Email Domain ID tied to this brand
+        /// </summary>
+        [Input("emailDomainId")]
+        public Input<string>? EmailDomainId { get; set; }
+
+        /// <summary>
+        /// The language specified as an IETF BCP 47 language tag
+        /// </summary>
+        [Input("locale")]
+        public Input<string>? Locale { get; set; }
+
+        /// <summary>
+        /// Name of the brand
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         /// </summary>
         [Input("removePoweredByOkta")]
         public Input<bool>? RemovePoweredByOkta { get; set; }
@@ -173,16 +217,46 @@ namespace Pulumi.Okta
         public Input<bool>? AgreeToCustomPrivacyPolicy { get; set; }
 
         /// <summary>
-        /// Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        /// (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         /// </summary>
         [Input("brandId")]
         public Input<string>? BrandId { get; set; }
 
         /// <summary>
-        /// (Optional) Custom privacy policy URL
+        /// Custom privacy policy URL
         /// </summary>
         [Input("customPrivacyPolicyUrl")]
         public Input<string>? CustomPrivacyPolicyUrl { get; set; }
+
+        /// <summary>
+        /// Default app app instance id
+        /// </summary>
+        [Input("defaultAppAppInstanceId")]
+        public Input<string>? DefaultAppAppInstanceId { get; set; }
+
+        /// <summary>
+        /// Default app app link name
+        /// </summary>
+        [Input("defaultAppAppLinkName")]
+        public Input<string>? DefaultAppAppLinkName { get; set; }
+
+        /// <summary>
+        /// Default app classic application uri
+        /// </summary>
+        [Input("defaultAppClassicApplicationUri")]
+        public Input<string>? DefaultAppClassicApplicationUri { get; set; }
+
+        /// <summary>
+        /// Email Domain ID tied to this brand
+        /// </summary>
+        [Input("emailDomainId")]
+        public Input<string>? EmailDomainId { get; set; }
+
+        /// <summary>
+        /// (Read-only) Is this the default brand
+        /// </summary>
+        [Input("isDefault")]
+        public Input<bool>? IsDefault { get; set; }
 
         /// <summary>
         /// (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
@@ -191,13 +265,19 @@ namespace Pulumi.Okta
         public Input<string>? Links { get; set; }
 
         /// <summary>
-        /// Brand name
+        /// The language specified as an IETF BCP 47 language tag
+        /// </summary>
+        [Input("locale")]
+        public Input<string>? Locale { get; set; }
+
+        /// <summary>
+        /// Name of the brand
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        /// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         /// </summary>
         [Input("removePoweredByOkta")]
         public Input<bool>? RemovePoweredByOkta { get; set; }

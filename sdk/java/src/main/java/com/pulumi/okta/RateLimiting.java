@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * This resource allows you to configure the client-based rate limit and rate limiting communications settings.
  * 
- * &gt; **WARNING:** This resource is available only when using api token in the provider config.
+ * &gt; **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
  * 
  * &gt; **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
  * 
@@ -70,7 +70,7 @@ public class RateLimiting extends com.pulumi.resources.CustomResource {
      * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
      * 
      */
-    @Export(name="authorize", type=String.class, parameters={})
+    @Export(name="authorize", refs={String.class}, tree="[0]")
     private Output<String> authorize;
 
     /**
@@ -85,7 +85,7 @@ public class RateLimiting extends com.pulumi.resources.CustomResource {
      * Enable or disable rate limiting communications. By default, it is `true`.
      * 
      */
-    @Export(name="communicationsEnabled", type=Boolean.class, parameters={})
+    @Export(name="communicationsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> communicationsEnabled;
 
     /**
@@ -100,7 +100,7 @@ public class RateLimiting extends com.pulumi.resources.CustomResource {
      * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
      * 
      */
-    @Export(name="login", type=String.class, parameters={})
+    @Export(name="login", refs={String.class}, tree="[0]")
     private Output<String> login;
 
     /**

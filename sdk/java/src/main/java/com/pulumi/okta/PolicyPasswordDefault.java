@@ -64,7 +64,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Enable or disable voice call password recovery: ACTIVE or INACTIVE.
      * 
      */
-    @Export(name="callRecovery", type=String.class, parameters={})
+    @Export(name="callRecovery", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> callRecovery;
 
     /**
@@ -78,7 +78,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Default authentication provider.
      * 
      */
-    @Export(name="defaultAuthProvider", type=String.class, parameters={})
+    @Export(name="defaultAuthProvider", refs={String.class}, tree="[0]")
     private Output<String> defaultAuthProvider;
 
     /**
@@ -92,7 +92,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * ID of the default Okta group.
      * 
      */
-    @Export(name="defaultIncludedGroupId", type=String.class, parameters={})
+    @Export(name="defaultIncludedGroupId", refs={String.class}, tree="[0]")
     private Output<String> defaultIncludedGroupId;
 
     /**
@@ -106,7 +106,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Default policy description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -120,7 +120,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Enable or disable email password recovery: ACTIVE or INACTIVE.
      * 
      */
-    @Export(name="emailRecovery", type=String.class, parameters={})
+    @Export(name="emailRecovery", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> emailRecovery;
 
     /**
@@ -134,7 +134,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Default policy name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -148,7 +148,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Number of minutes before a locked account is unlocked: 0 = no limit.
      * 
      */
-    @Export(name="passwordAutoUnlockMinutes", type=Integer.class, parameters={})
+    @Export(name="passwordAutoUnlockMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordAutoUnlockMinutes;
 
     /**
@@ -162,7 +162,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Check Passwords Against Common Password Dictionary.
      * 
      */
-    @Export(name="passwordDictionaryLookup", type=Boolean.class, parameters={})
+    @Export(name="passwordDictionaryLookup", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> passwordDictionaryLookup;
 
     /**
@@ -176,7 +176,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * User firstName attribute must be excluded from the password.
      * 
      */
-    @Export(name="passwordExcludeFirstName", type=Boolean.class, parameters={})
+    @Export(name="passwordExcludeFirstName", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> passwordExcludeFirstName;
 
     /**
@@ -190,7 +190,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * User lastName attribute must be excluded from the password.
      * 
      */
-    @Export(name="passwordExcludeLastName", type=Boolean.class, parameters={})
+    @Export(name="passwordExcludeLastName", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> passwordExcludeLastName;
 
     /**
@@ -204,7 +204,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * If the username must be excluded from the password.
      * 
      */
-    @Export(name="passwordExcludeUsername", type=Boolean.class, parameters={})
+    @Export(name="passwordExcludeUsername", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> passwordExcludeUsername;
 
     /**
@@ -218,7 +218,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Length in days a user will be warned before password expiry: 0 = no warning.
      * 
      */
-    @Export(name="passwordExpireWarnDays", type=Integer.class, parameters={})
+    @Export(name="passwordExpireWarnDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordExpireWarnDays;
 
     /**
@@ -233,7 +233,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * none.
      * 
      */
-    @Export(name="passwordHistoryCount", type=Integer.class, parameters={})
+    @Export(name="passwordHistoryCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordHistoryCount;
 
     /**
@@ -249,7 +249,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * has been locked.
      * 
      */
-    @Export(name="passwordLockoutNotificationChannels", type=List.class, parameters={String.class})
+    @Export(name="passwordLockoutNotificationChannels", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> passwordLockoutNotificationChannels;
 
     /**
@@ -264,7 +264,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Length in days a password is valid before expiry: 0 = no limit.,
      * 
      */
-    @Export(name="passwordMaxAgeDays", type=Integer.class, parameters={})
+    @Export(name="passwordMaxAgeDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMaxAgeDays;
 
     /**
@@ -279,7 +279,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * limit.
      * 
      */
-    @Export(name="passwordMaxLockoutAttempts", type=Integer.class, parameters={})
+    @Export(name="passwordMaxLockoutAttempts", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMaxLockoutAttempts;
 
     /**
@@ -294,7 +294,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Minimum time interval in minutes between password changes: 0 = no limit.
      * 
      */
-    @Export(name="passwordMinAgeMinutes", type=Integer.class, parameters={})
+    @Export(name="passwordMinAgeMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMinAgeMinutes;
 
     /**
@@ -308,7 +308,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Minimum password length. Default is 8.
      * 
      */
-    @Export(name="passwordMinLength", type=Integer.class, parameters={})
+    @Export(name="passwordMinLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMinLength;
 
     /**
@@ -322,7 +322,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Minimum number of lower case characters in a password.
      * 
      */
-    @Export(name="passwordMinLowercase", type=Integer.class, parameters={})
+    @Export(name="passwordMinLowercase", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMinLowercase;
 
     /**
@@ -336,7 +336,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Minimum number of numbers in a password.
      * 
      */
-    @Export(name="passwordMinNumber", type=Integer.class, parameters={})
+    @Export(name="passwordMinNumber", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMinNumber;
 
     /**
@@ -350,7 +350,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Minimum number of symbols in a password.
      * 
      */
-    @Export(name="passwordMinSymbol", type=Integer.class, parameters={})
+    @Export(name="passwordMinSymbol", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMinSymbol;
 
     /**
@@ -364,7 +364,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Minimum number of upper case characters in a password.
      * 
      */
-    @Export(name="passwordMinUppercase", type=Integer.class, parameters={})
+    @Export(name="passwordMinUppercase", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMinUppercase;
 
     /**
@@ -378,7 +378,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * If a user should be informed when their account is locked.
      * 
      */
-    @Export(name="passwordShowLockoutFailures", type=Boolean.class, parameters={})
+    @Export(name="passwordShowLockoutFailures", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> passwordShowLockoutFailures;
 
     /**
@@ -392,7 +392,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Default policy priority.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
@@ -406,7 +406,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Min length of the password recovery question answer.
      * 
      */
-    @Export(name="questionMinLength", type=Integer.class, parameters={})
+    @Export(name="questionMinLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> questionMinLength;
 
     /**
@@ -420,7 +420,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Enable or disable security question password recovery: ACTIVE or INACTIVE.
      * 
      */
-    @Export(name="questionRecovery", type=String.class, parameters={})
+    @Export(name="questionRecovery", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> questionRecovery;
 
     /**
@@ -434,7 +434,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Lifetime in minutes of the recovery email token.
      * 
      */
-    @Export(name="recoveryEmailToken", type=Integer.class, parameters={})
+    @Export(name="recoveryEmailToken", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> recoveryEmailToken;
 
     /**
@@ -449,7 +449,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * attempt to unlock the user&#39;s Windows account.
      * 
      */
-    @Export(name="skipUnlock", type=Boolean.class, parameters={})
+    @Export(name="skipUnlock", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipUnlock;
 
     /**
@@ -464,7 +464,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Enable or disable SMS password recovery: ACTIVE or INACTIVE.
      * 
      */
-    @Export(name="smsRecovery", type=String.class, parameters={})
+    @Export(name="smsRecovery", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> smsRecovery;
 
     /**
@@ -478,7 +478,7 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
      * Default policy status.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

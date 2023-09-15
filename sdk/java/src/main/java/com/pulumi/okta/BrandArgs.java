@@ -32,29 +32,37 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+     * (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+     * 
+     * @deprecated
+     * Okta has fully support brand creation, this attribute is a no op and will be removed
      * 
      */
+    @Deprecated /* Okta has fully support brand creation, this attribute is a no op and will be removed */
     @Import(name="brandId")
     private @Nullable Output<String> brandId;
 
     /**
-     * @return Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+     * @return (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+     * 
+     * @deprecated
+     * Okta has fully support brand creation, this attribute is a no op and will be removed
      * 
      */
+    @Deprecated /* Okta has fully support brand creation, this attribute is a no op and will be removed */
     public Optional<Output<String>> brandId() {
         return Optional.ofNullable(this.brandId);
     }
 
     /**
-     * (Optional) Custom privacy policy URL
+     * Custom privacy policy URL
      * 
      */
     @Import(name="customPrivacyPolicyUrl")
     private @Nullable Output<String> customPrivacyPolicyUrl;
 
     /**
-     * @return (Optional) Custom privacy policy URL
+     * @return Custom privacy policy URL
      * 
      */
     public Optional<Output<String>> customPrivacyPolicyUrl() {
@@ -62,14 +70,104 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * Default app app instance id
+     * 
+     */
+    @Import(name="defaultAppAppInstanceId")
+    private @Nullable Output<String> defaultAppAppInstanceId;
+
+    /**
+     * @return Default app app instance id
+     * 
+     */
+    public Optional<Output<String>> defaultAppAppInstanceId() {
+        return Optional.ofNullable(this.defaultAppAppInstanceId);
+    }
+
+    /**
+     * Default app app link name
+     * 
+     */
+    @Import(name="defaultAppAppLinkName")
+    private @Nullable Output<String> defaultAppAppLinkName;
+
+    /**
+     * @return Default app app link name
+     * 
+     */
+    public Optional<Output<String>> defaultAppAppLinkName() {
+        return Optional.ofNullable(this.defaultAppAppLinkName);
+    }
+
+    /**
+     * Default app classic application uri
+     * 
+     */
+    @Import(name="defaultAppClassicApplicationUri")
+    private @Nullable Output<String> defaultAppClassicApplicationUri;
+
+    /**
+     * @return Default app classic application uri
+     * 
+     */
+    public Optional<Output<String>> defaultAppClassicApplicationUri() {
+        return Optional.ofNullable(this.defaultAppClassicApplicationUri);
+    }
+
+    /**
+     * Email Domain ID tied to this brand
+     * 
+     */
+    @Import(name="emailDomainId")
+    private @Nullable Output<String> emailDomainId;
+
+    /**
+     * @return Email Domain ID tied to this brand
+     * 
+     */
+    public Optional<Output<String>> emailDomainId() {
+        return Optional.ofNullable(this.emailDomainId);
+    }
+
+    /**
+     * The language specified as an IETF BCP 47 language tag
+     * 
+     */
+    @Import(name="locale")
+    private @Nullable Output<String> locale;
+
+    /**
+     * @return The language specified as an IETF BCP 47 language tag
+     * 
+     */
+    public Optional<Output<String>> locale() {
+        return Optional.ofNullable(this.locale);
+    }
+
+    /**
+     * Name of the brand
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return Name of the brand
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
     @Import(name="removePoweredByOkta")
     private @Nullable Output<Boolean> removePoweredByOkta;
 
     /**
-     * @return (Optional) Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
     public Optional<Output<Boolean>> removePoweredByOkta() {
@@ -82,6 +180,12 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
         this.agreeToCustomPrivacyPolicy = $.agreeToCustomPrivacyPolicy;
         this.brandId = $.brandId;
         this.customPrivacyPolicyUrl = $.customPrivacyPolicyUrl;
+        this.defaultAppAppInstanceId = $.defaultAppAppInstanceId;
+        this.defaultAppAppLinkName = $.defaultAppAppLinkName;
+        this.defaultAppClassicApplicationUri = $.defaultAppClassicApplicationUri;
+        this.emailDomainId = $.emailDomainId;
+        this.locale = $.locale;
+        this.name = $.name;
         this.removePoweredByOkta = $.removePoweredByOkta;
     }
 
@@ -125,28 +229,36 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brandId Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+         * @param brandId (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Okta has fully support brand creation, this attribute is a no op and will be removed
+         * 
          */
+        @Deprecated /* Okta has fully support brand creation, this attribute is a no op and will be removed */
         public Builder brandId(@Nullable Output<String> brandId) {
             $.brandId = brandId;
             return this;
         }
 
         /**
-         * @param brandId Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+         * @param brandId (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Okta has fully support brand creation, this attribute is a no op and will be removed
+         * 
          */
+        @Deprecated /* Okta has fully support brand creation, this attribute is a no op and will be removed */
         public Builder brandId(String brandId) {
             return brandId(Output.of(brandId));
         }
 
         /**
-         * @param customPrivacyPolicyUrl (Optional) Custom privacy policy URL
+         * @param customPrivacyPolicyUrl Custom privacy policy URL
          * 
          * @return builder
          * 
@@ -157,7 +269,7 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customPrivacyPolicyUrl (Optional) Custom privacy policy URL
+         * @param customPrivacyPolicyUrl Custom privacy policy URL
          * 
          * @return builder
          * 
@@ -167,7 +279,133 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param removePoweredByOkta (Optional) Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+         * @param defaultAppAppInstanceId Default app app instance id
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultAppAppInstanceId(@Nullable Output<String> defaultAppAppInstanceId) {
+            $.defaultAppAppInstanceId = defaultAppAppInstanceId;
+            return this;
+        }
+
+        /**
+         * @param defaultAppAppInstanceId Default app app instance id
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultAppAppInstanceId(String defaultAppAppInstanceId) {
+            return defaultAppAppInstanceId(Output.of(defaultAppAppInstanceId));
+        }
+
+        /**
+         * @param defaultAppAppLinkName Default app app link name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultAppAppLinkName(@Nullable Output<String> defaultAppAppLinkName) {
+            $.defaultAppAppLinkName = defaultAppAppLinkName;
+            return this;
+        }
+
+        /**
+         * @param defaultAppAppLinkName Default app app link name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultAppAppLinkName(String defaultAppAppLinkName) {
+            return defaultAppAppLinkName(Output.of(defaultAppAppLinkName));
+        }
+
+        /**
+         * @param defaultAppClassicApplicationUri Default app classic application uri
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultAppClassicApplicationUri(@Nullable Output<String> defaultAppClassicApplicationUri) {
+            $.defaultAppClassicApplicationUri = defaultAppClassicApplicationUri;
+            return this;
+        }
+
+        /**
+         * @param defaultAppClassicApplicationUri Default app classic application uri
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultAppClassicApplicationUri(String defaultAppClassicApplicationUri) {
+            return defaultAppClassicApplicationUri(Output.of(defaultAppClassicApplicationUri));
+        }
+
+        /**
+         * @param emailDomainId Email Domain ID tied to this brand
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailDomainId(@Nullable Output<String> emailDomainId) {
+            $.emailDomainId = emailDomainId;
+            return this;
+        }
+
+        /**
+         * @param emailDomainId Email Domain ID tied to this brand
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailDomainId(String emailDomainId) {
+            return emailDomainId(Output.of(emailDomainId));
+        }
+
+        /**
+         * @param locale The language specified as an IETF BCP 47 language tag
+         * 
+         * @return builder
+         * 
+         */
+        public Builder locale(@Nullable Output<String> locale) {
+            $.locale = locale;
+            return this;
+        }
+
+        /**
+         * @param locale The language specified as an IETF BCP 47 language tag
+         * 
+         * @return builder
+         * 
+         */
+        public Builder locale(String locale) {
+            return locale(Output.of(locale));
+        }
+
+        /**
+         * @param name Name of the brand
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name Name of the brand
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
+        }
+
+        /**
+         * @param removePoweredByOkta Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
          * 
          * @return builder
          * 
@@ -178,7 +416,7 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param removePoweredByOkta (Optional) Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+         * @param removePoweredByOkta Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
          * 
          * @return builder
          * 

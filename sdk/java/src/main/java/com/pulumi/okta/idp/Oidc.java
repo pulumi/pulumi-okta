@@ -79,7 +79,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Specifies the account linking action for an IdP user.
      * 
      */
-    @Export(name="accountLinkAction", type=String.class, parameters={})
+    @Export(name="accountLinkAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountLinkAction;
 
     /**
@@ -93,7 +93,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Group memberships to determine link candidates.
      * 
      */
-    @Export(name="accountLinkGroupIncludes", type=List.class, parameters={String.class})
+    @Export(name="accountLinkGroupIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> accountLinkGroupIncludes;
 
     /**
@@ -107,7 +107,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
      * 
      */
-    @Export(name="authorizationBinding", type=String.class, parameters={})
+    @Export(name="authorizationBinding", refs={String.class}, tree="[0]")
     private Output<String> authorizationBinding;
 
     /**
@@ -121,7 +121,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
      * 
      */
-    @Export(name="authorizationUrl", type=String.class, parameters={})
+    @Export(name="authorizationUrl", refs={String.class}, tree="[0]")
     private Output<String> authorizationUrl;
 
     /**
@@ -135,7 +135,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Unique identifier issued by AS for the Okta IdP instance.
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
     /**
@@ -149,7 +149,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Client secret issued by AS for the Okta IdP instance.
      * 
      */
-    @Export(name="clientSecret", type=String.class, parameters={})
+    @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
     /**
@@ -163,7 +163,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
      * 
      */
-    @Export(name="deprovisionedAction", type=String.class, parameters={})
+    @Export(name="deprovisionedAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deprovisionedAction;
 
     /**
@@ -177,7 +177,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
      * 
      */
-    @Export(name="groupsAction", type=String.class, parameters={})
+    @Export(name="groupsAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupsAction;
 
     /**
@@ -191,7 +191,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
      * 
      */
-    @Export(name="groupsAssignments", type=List.class, parameters={String.class})
+    @Export(name="groupsAssignments", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsAssignments;
 
     /**
@@ -205,7 +205,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
      * 
      */
-    @Export(name="groupsAttribute", type=String.class, parameters={})
+    @Export(name="groupsAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupsAttribute;
 
     /**
@@ -219,7 +219,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
      * 
      */
-    @Export(name="groupsFilters", type=List.class, parameters={String.class})
+    @Export(name="groupsFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsFilters;
 
     /**
@@ -233,7 +233,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
      * 
      */
-    @Export(name="issuerMode", type=String.class, parameters={})
+    @Export(name="issuerMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerMode;
 
     /**
@@ -247,7 +247,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * URI that identifies the issuer.
      * 
      */
-    @Export(name="issuerUrl", type=String.class, parameters={})
+    @Export(name="issuerUrl", refs={String.class}, tree="[0]")
     private Output<String> issuerUrl;
 
     /**
@@ -261,7 +261,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * The method of making a request for the OIDC JWKS. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
      * 
      */
-    @Export(name="jwksBinding", type=String.class, parameters={})
+    @Export(name="jwksBinding", refs={String.class}, tree="[0]")
     private Output<String> jwksBinding;
 
     /**
@@ -275,7 +275,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Endpoint where the keys signer publishes its keys in a JWK Set.
      * 
      */
-    @Export(name="jwksUrl", type=String.class, parameters={})
+    @Export(name="jwksUrl", refs={String.class}, tree="[0]")
     private Output<String> jwksUrl;
 
     /**
@@ -289,7 +289,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Maximum allowable clock-skew when processing messages from the IdP.
      * 
      */
-    @Export(name="maxClockSkew", type=Integer.class, parameters={})
+    @Export(name="maxClockSkew", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxClockSkew;
 
     /**
@@ -303,7 +303,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * The Application&#39;s display name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -317,7 +317,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Determines if the IdP should act as a source of truth for user profile attributes.
      * 
      */
-    @Export(name="profileMaster", type=Boolean.class, parameters={})
+    @Export(name="profileMaster", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> profileMaster;
 
     /**
@@ -331,7 +331,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
      * 
      */
-    @Export(name="protocolType", type=String.class, parameters={})
+    @Export(name="protocolType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocolType;
 
     /**
@@ -345,7 +345,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Provisioning action for an IdP user during authentication.
      * 
      */
-    @Export(name="provisioningAction", type=String.class, parameters={})
+    @Export(name="provisioningAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> provisioningAction;
 
     /**
@@ -359,7 +359,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
      * 
      */
-    @Export(name="requestSignatureAlgorithm", type=String.class, parameters={})
+    @Export(name="requestSignatureAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestSignatureAlgorithm;
 
     /**
@@ -373,7 +373,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
      * 
      */
-    @Export(name="requestSignatureScope", type=String.class, parameters={})
+    @Export(name="requestSignatureScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestSignatureScope;
 
     /**
@@ -387,7 +387,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * The scopes of the IdP.
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={String.class})
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
@@ -401,7 +401,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Status of the IdP.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -415,7 +415,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
      * 
      */
-    @Export(name="subjectMatchAttribute", type=String.class, parameters={})
+    @Export(name="subjectMatchAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectMatchAttribute;
 
     /**
@@ -429,7 +429,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
      * 
      */
-    @Export(name="subjectMatchType", type=String.class, parameters={})
+    @Export(name="subjectMatchType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectMatchType;
 
     /**
@@ -443,7 +443,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
      * 
      */
-    @Export(name="suspendedAction", type=String.class, parameters={})
+    @Export(name="suspendedAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> suspendedAction;
 
     /**
@@ -457,7 +457,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
      * 
      */
-    @Export(name="tokenBinding", type=String.class, parameters={})
+    @Export(name="tokenBinding", refs={String.class}, tree="[0]")
     private Output<String> tokenBinding;
 
     /**
@@ -471,7 +471,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
      * 
      */
-    @Export(name="tokenUrl", type=String.class, parameters={})
+    @Export(name="tokenUrl", refs={String.class}, tree="[0]")
     private Output<String> tokenUrl;
 
     /**
@@ -485,7 +485,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Type of OIDC IdP.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -495,7 +495,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
     public Output<String> type() {
         return this.type;
     }
-    @Export(name="userInfoBinding", type=String.class, parameters={})
+    @Export(name="userInfoBinding", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userInfoBinding;
 
     public Output<Optional<String>> userInfoBinding() {
@@ -505,7 +505,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Protected resource endpoint that returns claims about the authenticated user.
      * 
      */
-    @Export(name="userInfoUrl", type=String.class, parameters={})
+    @Export(name="userInfoUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userInfoUrl;
 
     /**
@@ -519,7 +519,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
      * 
      */
-    @Export(name="userTypeId", type=String.class, parameters={})
+    @Export(name="userTypeId", refs={String.class}, tree="[0]")
     private Output<String> userTypeId;
 
     /**
@@ -533,7 +533,7 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      * Okta EL Expression to generate or transform a unique username for the IdP user.
      * 
      */
-    @Export(name="usernameTemplate", type=String.class, parameters={})
+    @Export(name="usernameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usernameTemplate;
 
     /**

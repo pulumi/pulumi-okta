@@ -77,7 +77,7 @@ public class TemplateSms extends com.pulumi.resources.CustomResource {
      * The SMS message.
      * 
      */
-    @Export(name="template", type=String.class, parameters={})
+    @Export(name="template", refs={String.class}, tree="[0]")
     private Output<String> template;
 
     /**
@@ -91,7 +91,7 @@ public class TemplateSms extends com.pulumi.resources.CustomResource {
      * Set of translations for a particular template.
      * 
      */
-    @Export(name="translations", type=List.class, parameters={TemplateSmsTranslation.class})
+    @Export(name="translations", refs={List.class,TemplateSmsTranslation.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TemplateSmsTranslation>> translations;
 
     /**
@@ -105,7 +105,7 @@ public class TemplateSms extends com.pulumi.resources.CustomResource {
      * SMS template type
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

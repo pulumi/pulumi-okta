@@ -66,7 +66,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Primary address of org
      * 
      */
-    @Export(name="address1", type=String.class, parameters={})
+    @Export(name="address1", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> address1;
 
     /**
@@ -80,7 +80,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Secondary address of org
      * 
      */
-    @Export(name="address2", type=String.class, parameters={})
+    @Export(name="address2", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> address2;
 
     /**
@@ -94,7 +94,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * User ID representing the billing contact
      * 
      */
-    @Export(name="billingContactUser", type=String.class, parameters={})
+    @Export(name="billingContactUser", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> billingContactUser;
 
     /**
@@ -108,7 +108,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * City of org
      * 
      */
-    @Export(name="city", type=String.class, parameters={})
+    @Export(name="city", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> city;
 
     /**
@@ -122,7 +122,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Name of org
      * 
      */
-    @Export(name="companyName", type=String.class, parameters={})
+    @Export(name="companyName", refs={String.class}, tree="[0]")
     private Output<String> companyName;
 
     /**
@@ -136,7 +136,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Country of org
      * 
      */
-    @Export(name="country", type=String.class, parameters={})
+    @Export(name="country", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> country;
 
     /**
@@ -150,7 +150,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Support link of org
      * 
      */
-    @Export(name="endUserSupportHelpUrl", type=String.class, parameters={})
+    @Export(name="endUserSupportHelpUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endUserSupportHelpUrl;
 
     /**
@@ -164,7 +164,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Expiration of org
      * 
      */
-    @Export(name="expiresAt", type=String.class, parameters={})
+    @Export(name="expiresAt", refs={String.class}, tree="[0]")
     private Output<String> expiresAt;
 
     /**
@@ -178,7 +178,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Local path to logo of the org.
      * 
      */
-    @Export(name="logo", type=String.class, parameters={})
+    @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
@@ -192,7 +192,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Indicates whether the org&#39;s users receive Okta Communication emails
      * 
      */
-    @Export(name="optOutCommunicationEmails", type=Boolean.class, parameters={})
+    @Export(name="optOutCommunicationEmails", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> optOutCommunicationEmails;
 
     /**
@@ -206,7 +206,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Support help phone of org
      * 
      */
-    @Export(name="phoneNumber", type=String.class, parameters={})
+    @Export(name="phoneNumber", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> phoneNumber;
 
     /**
@@ -220,7 +220,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Postal code of org
      * 
      */
-    @Export(name="postalCode", type=String.class, parameters={})
+    @Export(name="postalCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> postalCode;
 
     /**
@@ -234,7 +234,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * State of org
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
@@ -248,7 +248,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Subdomain of org
      * 
      */
-    @Export(name="subdomain", type=String.class, parameters={})
+    @Export(name="subdomain", refs={String.class}, tree="[0]")
     private Output<String> subdomain;
 
     /**
@@ -262,7 +262,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * Support help phone of org
      * 
      */
-    @Export(name="supportPhoneNumber", type=String.class, parameters={})
+    @Export(name="supportPhoneNumber", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> supportPhoneNumber;
 
     /**
@@ -276,7 +276,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * User ID representing the technical contact
      * 
      */
-    @Export(name="technicalContactUser", type=String.class, parameters={})
+    @Export(name="technicalContactUser", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> technicalContactUser;
 
     /**
@@ -290,7 +290,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * The org&#39;s website
      * 
      */
-    @Export(name="website", type=String.class, parameters={})
+    @Export(name="website", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> website;
 
     /**

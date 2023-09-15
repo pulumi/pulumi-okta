@@ -91,7 +91,7 @@ public class AppGroupAssignments extends com.pulumi.resources.CustomResource {
      * The ID of the application to assign a group to.
      * 
      */
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
@@ -105,7 +105,7 @@ public class AppGroupAssignments extends com.pulumi.resources.CustomResource {
      * A group to assign the app to.
      * 
      */
-    @Export(name="groups", type=List.class, parameters={AppGroupAssignmentsGroup.class})
+    @Export(name="groups", refs={List.class,AppGroupAssignmentsGroup.class}, tree="[0,1]")
     private Output<List<AppGroupAssignmentsGroup>> groups;
 
     /**

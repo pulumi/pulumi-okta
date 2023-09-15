@@ -67,7 +67,7 @@ public class AdminRoleCustom extends com.pulumi.resources.CustomResource {
      * A human-readable description of the new Role.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -81,7 +81,7 @@ public class AdminRoleCustom extends com.pulumi.resources.CustomResource {
      * The name given to the new Role.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -127,7 +127,7 @@ public class AdminRoleCustom extends com.pulumi.resources.CustomResource {
      * `&#34;okta.workflows.invoke&#34;`.,
      * 
      */
-    @Export(name="permissions", type=List.class, parameters={String.class})
+    @Export(name="permissions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> permissions;
 
     /**

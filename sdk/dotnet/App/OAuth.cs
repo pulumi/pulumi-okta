@@ -65,9 +65,16 @@ namespace Pulumi.Okta.App
     ///             new Okta.App.Inputs.OAuthJwkArgs
     ///             {
     ///                 E = "AQAB",
-    ///                 Kid = "SIGNING_KEY",
+    ///                 Kid = "SIGNING_KEY_RSA",
     ///                 Kty = "RSA",
     ///                 N = "xyz",
+    ///             },
+    ///             new Okta.App.Inputs.OAuthJwkArgs
+    ///             {
+    ///                 Kid = "SIGNING_KEY_EC",
+    ///                 Kty = "EC",
+    ///                 X = "K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I",
+    ///                 Y = "8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo",
     ///             },
     ///         },
     ///         Label = "example",
@@ -225,7 +232,7 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
         /// </summary>
         [Output("groupsClaim")]
         public Output<Outputs.OAuthGroupsClaim?> GroupsClaim { get; private set; } = null!;
@@ -256,7 +263,7 @@ namespace Pulumi.Okta.App
         public Output<string?> IssuerMode { get; private set; } = null!;
 
         /// <summary>
-        /// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        /// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
         /// </summary>
         [Output("jwks")]
         public Output<ImmutableArray<Outputs.OAuthJwk>> Jwks { get; private set; } = null!;
@@ -615,7 +622,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
         /// </summary>
         [Input("groupsClaim")]
         public Input<Inputs.OAuthGroupsClaimArgs>? GroupsClaim { get; set; }
@@ -649,7 +656,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.OAuthJwkArgs>? _jwks;
 
         /// <summary>
-        /// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        /// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
         /// </summary>
         public InputList<Inputs.OAuthJwkArgs> Jwks
         {
@@ -990,7 +997,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
         /// </summary>
         [Input("groupsClaim")]
         public Input<Inputs.OAuthGroupsClaimGetArgs>? GroupsClaim { get; set; }
@@ -1024,7 +1031,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.OAuthJwkGetArgs>? _jwks;
 
         /// <summary>
-        /// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        /// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
         /// </summary>
         public InputList<Inputs.OAuthJwkGetArgs> Jwks
         {

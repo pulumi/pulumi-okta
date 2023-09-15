@@ -58,12 +58,26 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/domain:Domain")
 public class Domain extends com.pulumi.resources.CustomResource {
     /**
+     * The Brand ID of the domain
+     * 
+     */
+    @Export(name="brandId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> brandId;
+
+    /**
+     * @return The Brand ID of the domain
+     * 
+     */
+    public Output<Optional<String>> brandId() {
+        return Codegen.optional(this.brandId);
+    }
+    /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
      * 
      * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
      * 
      */
-    @Export(name="certificateSourceType", type=String.class, parameters={})
+    @Export(name="certificateSourceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateSourceType;
 
     /**
@@ -79,7 +93,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * TXT and CNAME records to be registered for the Domain.
      * 
      */
-    @Export(name="dnsRecords", type=List.class, parameters={DomainDnsRecord.class})
+    @Export(name="dnsRecords", refs={List.class,DomainDnsRecord.class}, tree="[0,1]")
     private Output<List<DomainDnsRecord>> dnsRecords;
 
     /**
@@ -93,7 +107,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Custom Domain name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -107,7 +121,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Status of the domain.
      * 
      */
-    @Export(name="validationStatus", type=String.class, parameters={})
+    @Export(name="validationStatus", refs={String.class}, tree="[0]")
     private Output<String> validationStatus;
 
     /**

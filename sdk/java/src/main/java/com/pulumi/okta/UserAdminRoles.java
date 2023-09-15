@@ -76,7 +76,7 @@ public class UserAdminRoles extends com.pulumi.resources.CustomResource {
      * The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
-    @Export(name="adminRoles", type=List.class, parameters={String.class})
+    @Export(name="adminRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> adminRoles;
 
     /**
@@ -91,7 +91,7 @@ public class UserAdminRoles extends com.pulumi.resources.CustomResource {
      * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
      * 
      */
-    @Export(name="disableNotifications", type=Boolean.class, parameters={})
+    @Export(name="disableNotifications", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableNotifications;
 
     /**
@@ -106,7 +106,7 @@ public class UserAdminRoles extends com.pulumi.resources.CustomResource {
      * Okta user ID.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**

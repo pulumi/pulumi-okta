@@ -69,6 +69,10 @@ def get_app_signon_policy(app_id: Optional[str] = None,
 
     Use this data source to retrieve a sign-on policy for the application.
 
+    > Inside the product a sign-on policy is referenced as an _authentication
+    policy_, in the public API the policy is of type
+    [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
+
     ## Example Usage
 
     ```python
@@ -99,6 +103,10 @@ def get_app_signon_policy_output(app_id: Optional[pulumi.Input[str]] = None,
     > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
 
     Use this data source to retrieve a sign-on policy for the application.
+
+    > Inside the product a sign-on policy is referenced as an _authentication
+    policy_, in the public API the policy is of type
+    [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
 
     ## Example Usage
 

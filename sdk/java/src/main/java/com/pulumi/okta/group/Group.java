@@ -102,7 +102,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * raw JSON containing all custom profile attributes.
      * 
      */
-    @Export(name="customProfileAttributes", type=String.class, parameters={})
+    @Export(name="customProfileAttributes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customProfileAttributes;
 
     /**
@@ -116,7 +116,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The description of the Okta Group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -130,7 +130,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The name of the Okta Group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -148,7 +148,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
-    @Export(name="skipUsers", type=Boolean.class, parameters={})
+    @Export(name="skipUsers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipUsers;
 
     /**

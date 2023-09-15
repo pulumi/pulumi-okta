@@ -64,7 +64,7 @@ public class UserType extends com.pulumi.resources.CustomResource {
      * Description of the User Type.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -78,7 +78,7 @@ public class UserType extends com.pulumi.resources.CustomResource {
      * Display Name of the User Type.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -92,7 +92,7 @@ public class UserType extends com.pulumi.resources.CustomResource {
      * Name of the User Type.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

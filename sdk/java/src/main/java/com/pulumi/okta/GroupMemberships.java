@@ -84,7 +84,7 @@ public class GroupMemberships extends com.pulumi.resources.CustomResource {
      * Okta group ID.
      * 
      */
-    @Export(name="groupId", type=String.class, parameters={})
+    @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
@@ -98,7 +98,7 @@ public class GroupMemberships extends com.pulumi.resources.CustomResource {
      * The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
      * 
      */
-    @Export(name="trackAllUsers", type=Boolean.class, parameters={})
+    @Export(name="trackAllUsers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> trackAllUsers;
 
     /**
@@ -112,7 +112,7 @@ public class GroupMemberships extends com.pulumi.resources.CustomResource {
      * The list of Okta user IDs which the group should have membership managed for.
      * 
      */
-    @Export(name="users", type=List.class, parameters={String.class})
+    @Export(name="users", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> users;
 
     /**

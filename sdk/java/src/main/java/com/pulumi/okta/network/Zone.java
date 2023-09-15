@@ -102,7 +102,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
      * 
      */
-    @Export(name="asns", type=List.class, parameters={String.class})
+    @Export(name="asns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> asns;
 
     /**
@@ -117,7 +117,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
      * 
      */
-    @Export(name="dynamicLocations", type=List.class, parameters={String.class})
+    @Export(name="dynamicLocations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dynamicLocations;
 
     /**
@@ -132,7 +132,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
      * 
      */
-    @Export(name="dynamicProxyType", type=String.class, parameters={})
+    @Export(name="dynamicProxyType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dynamicProxyType;
 
     /**
@@ -146,7 +146,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * Array of values in CIDR/range form.
      * 
      */
-    @Export(name="gateways", type=List.class, parameters={String.class})
+    @Export(name="gateways", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> gateways;
 
     /**
@@ -160,7 +160,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * Name of the Network Zone Resource.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -174,7 +174,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * Array of values in CIDR/range form. Can not be set if `usage` is set to `&#34;BLOCKLIST&#34;`.
      * 
      */
-    @Export(name="proxies", type=List.class, parameters={String.class})
+    @Export(name="proxies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> proxies;
 
     /**
@@ -188,7 +188,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * Network Status - can either be ACTIVE or INACTIVE only.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -202,7 +202,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * Type of the Network Zone - can either be `&#34;IP&#34;` or `&#34;DYNAMIC&#34;` only.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -216,7 +216,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * Usage of the Network Zone - can be either `&#34;POLICY&#34;` or `&#34;BLOCKLIST&#34;`. By default, it is `&#34;POLICY&#34;`.
      * 
      */
-    @Export(name="usage", type=String.class, parameters={})
+    @Export(name="usage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usage;
 
     /**

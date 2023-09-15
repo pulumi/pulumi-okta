@@ -141,7 +141,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Allow or deny access based on the rule conditions: `&#34;ALLOW&#34;`, `&#34;DENY&#34;` or `&#34;CHALLENGE&#34;`. The default is `&#34;ALLOW&#34;`.
      * 
      */
-    @Export(name="access", type=String.class, parameters={})
+    @Export(name="access", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> access;
 
     /**
@@ -155,7 +155,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Authentication entrypoint: `&#34;ANY&#34;`, `&#34;LDAP_INTERFACE&#34;` or `&#34;RADIUS&#34;`.
      * 
      */
-    @Export(name="authtype", type=String.class, parameters={})
+    @Export(name="authtype", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authtype;
 
     /**
@@ -169,7 +169,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * List of behavior IDs.
      * 
      */
-    @Export(name="behaviors", type=List.class, parameters={String.class})
+    @Export(name="behaviors", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> behaviors;
 
     /**
@@ -183,7 +183,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Auth factor sequences. Should be set if `access = &#34;CHALLENGE&#34;`.
      * 
      */
-    @Export(name="factorSequences", type=List.class, parameters={RuleSignonFactorSequence.class})
+    @Export(name="factorSequences", refs={List.class,RuleSignonFactorSequence.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleSignonFactorSequence>> factorSequences;
 
     /**
@@ -199,7 +199,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
      * 
      */
-    @Export(name="identityProvider", type=String.class, parameters={})
+    @Export(name="identityProvider", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> identityProvider;
 
     /**
@@ -215,7 +215,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * When identity_provider is `&#34;SPECIFIC_IDP&#34;` then this is the list of IdP IDs to apply the rule on.
      * 
      */
-    @Export(name="identityProviderIds", type=List.class, parameters={String.class})
+    @Export(name="identityProviderIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> identityProviderIds;
 
     /**
@@ -229,7 +229,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Elapsed time before the next MFA challenge.
      * 
      */
-    @Export(name="mfaLifetime", type=Integer.class, parameters={})
+    @Export(name="mfaLifetime", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> mfaLifetime;
 
     /**
@@ -243,7 +243,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `&#34;DEVICE&#34;`, `&#34;SESSION&#34;` or `&#34;ALWAYS&#34;`.
      * 
      */
-    @Export(name="mfaPrompt", type=String.class, parameters={})
+    @Export(name="mfaPrompt", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mfaPrompt;
 
     /**
@@ -257,7 +257,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Remember MFA device. The default `false`.
      * 
      */
-    @Export(name="mfaRememberDevice", type=Boolean.class, parameters={})
+    @Export(name="mfaRememberDevice", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mfaRememberDevice;
 
     /**
@@ -271,7 +271,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Require MFA. By default is `false`.
      * 
      */
-    @Export(name="mfaRequired", type=Boolean.class, parameters={})
+    @Export(name="mfaRequired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mfaRequired;
 
     /**
@@ -285,7 +285,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Policy Rule Name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -299,7 +299,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
      * 
      */
-    @Export(name="networkConnection", type=String.class, parameters={})
+    @Export(name="networkConnection", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkConnection;
 
     /**
@@ -313,7 +313,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * The network zones to exclude. Conflicts with `network_includes`.
      * 
      */
-    @Export(name="networkExcludes", type=List.class, parameters={String.class})
+    @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**
@@ -327,7 +327,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * The network zones to include. Conflicts with `network_excludes`.
      * 
      */
-    @Export(name="networkIncludes", type=List.class, parameters={String.class})
+    @Export(name="networkIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkIncludes;
 
     /**
@@ -341,7 +341,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Policy ID.
      * 
      */
-    @Export(name="policyId", type=String.class, parameters={})
+    @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyId;
 
     /**
@@ -356,7 +356,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * `&#34;PASSWORD_IDP_ANY_FACTOR&#34;`, `&#34;PASSWORD_IDP&#34;`.
      * 
      */
-    @Export(name="primaryFactor", type=String.class, parameters={})
+    @Export(name="primaryFactor", refs={String.class}, tree="[0]")
     private Output<String> primaryFactor;
 
     /**
@@ -371,7 +371,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
@@ -386,7 +386,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
      * 
      */
-    @Export(name="riscLevel", type=String.class, parameters={})
+    @Export(name="riscLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> riscLevel;
 
     /**
@@ -401,7 +401,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Max minutes a session can be idle.,
      * 
      */
-    @Export(name="sessionIdle", type=Integer.class, parameters={})
+    @Export(name="sessionIdle", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sessionIdle;
 
     /**
@@ -415,7 +415,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Max minutes a session is active: Disable = 0.
      * 
      */
-    @Export(name="sessionLifetime", type=Integer.class, parameters={})
+    @Export(name="sessionLifetime", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sessionLifetime;
 
     /**
@@ -429,7 +429,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
      * 
      */
-    @Export(name="sessionPersistent", type=Boolean.class, parameters={})
+    @Export(name="sessionPersistent", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sessionPersistent;
 
     /**
@@ -443,7 +443,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -457,7 +457,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * The list of user IDs that would be excluded when rules are processed.
      * 
      */
-    @Export(name="usersExcludeds", type=List.class, parameters={String.class})
+    @Export(name="usersExcludeds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> usersExcludeds;
 
     /**

@@ -144,6 +144,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "app/accessPolicyAssignment",
+  "fqn": "pulumi_okta.app",
+  "classes": {
+   "okta:app/accessPolicyAssignment:AccessPolicyAssignment": "AccessPolicyAssignment"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "app/autoLogin",
   "fqn": "pulumi_okta.app",
   "classes": {
@@ -764,6 +772,46 @@ _utilities.register(
   "fqn": "pulumi_okta.network",
   "classes": {
    "okta:network/zone:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "policy/deviceAssuranceAndroid",
+  "fqn": "pulumi_okta.policy",
+  "classes": {
+   "okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid": "DeviceAssuranceAndroid"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "policy/deviceAssuranceChromeos",
+  "fqn": "pulumi_okta.policy",
+  "classes": {
+   "okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos": "DeviceAssuranceChromeos"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "policy/deviceAssuranceIos",
+  "fqn": "pulumi_okta.policy",
+  "classes": {
+   "okta:policy/deviceAssuranceIos:DeviceAssuranceIos": "DeviceAssuranceIos"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "policy/deviceAssuranceMacos",
+  "fqn": "pulumi_okta.policy",
+  "classes": {
+   "okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos": "DeviceAssuranceMacos"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "policy/deviceAssuranceWindows",
+  "fqn": "pulumi_okta.policy",
+  "classes": {
+   "okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows": "DeviceAssuranceWindows"
   }
  },
  {

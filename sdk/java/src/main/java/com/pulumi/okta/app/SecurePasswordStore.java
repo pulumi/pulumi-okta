@@ -67,7 +67,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Custom error page URL.
      * 
      */
-    @Export(name="accessibilityErrorRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
@@ -81,7 +81,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Custom login page for this application.
      * 
      */
-    @Export(name="accessibilityLoginRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
@@ -95,7 +95,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Enable self-service. By default, it is `false`.
      * 
      */
-    @Export(name="accessibilitySelfService", type=Boolean.class, parameters={})
+    @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
@@ -109,7 +109,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Application notes for admins.
      * 
      */
-    @Export(name="adminNote", type=String.class, parameters={})
+    @Export(name="adminNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminNote;
 
     /**
@@ -123,7 +123,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
-    @Export(name="appLinksJson", type=String.class, parameters={})
+    @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
@@ -137,7 +137,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Display auto submit toolbar.
      * 
      */
-    @Export(name="autoSubmitToolbar", type=Boolean.class, parameters={})
+    @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
@@ -151,7 +151,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
      * 
      */
-    @Export(name="credentialsScheme", type=String.class, parameters={})
+    @Export(name="credentialsScheme", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialsScheme;
 
     /**
@@ -165,7 +165,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Application notes for end users.
      * 
      */
-    @Export(name="enduserNote", type=String.class, parameters={})
+    @Export(name="enduserNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enduserNote;
 
     /**
@@ -179,7 +179,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Do not display application icon on mobile app.
      * 
      */
-    @Export(name="hideIos", type=Boolean.class, parameters={})
+    @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
@@ -193,7 +193,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Do not display application icon to users.
      * 
      */
-    @Export(name="hideWeb", type=Boolean.class, parameters={})
+    @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
@@ -207,7 +207,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * The display name of the Application.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -221,7 +221,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
-    @Export(name="logo", type=String.class, parameters={})
+    @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
@@ -235,7 +235,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * URL of the application&#39;s logo
      * 
      */
-    @Export(name="logoUrl", type=String.class, parameters={})
+    @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
@@ -249,7 +249,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Name assigned to the application by Okta.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -263,7 +263,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Name of optional param in the login form.
      * 
      */
-    @Export(name="optionalField1", type=String.class, parameters={})
+    @Export(name="optionalField1", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> optionalField1;
 
     /**
@@ -277,7 +277,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Name of optional value in the login form.
      * 
      */
-    @Export(name="optionalField1Value", type=String.class, parameters={})
+    @Export(name="optionalField1Value", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> optionalField1Value;
 
     /**
@@ -291,7 +291,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Name of optional param in the login form.
      * 
      */
-    @Export(name="optionalField2", type=String.class, parameters={})
+    @Export(name="optionalField2", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> optionalField2;
 
     /**
@@ -305,7 +305,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Name of optional value in the login form.
      * 
      */
-    @Export(name="optionalField2Value", type=String.class, parameters={})
+    @Export(name="optionalField2Value", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> optionalField2Value;
 
     /**
@@ -319,7 +319,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Name of optional param in the login form.
      * 
      */
-    @Export(name="optionalField3", type=String.class, parameters={})
+    @Export(name="optionalField3", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> optionalField3;
 
     /**
@@ -333,7 +333,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Name of optional value in the login form.
      * 
      */
-    @Export(name="optionalField3Value", type=String.class, parameters={})
+    @Export(name="optionalField3Value", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> optionalField3Value;
 
     /**
@@ -347,7 +347,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Login password field.
      * 
      */
-    @Export(name="passwordField", type=String.class, parameters={})
+    @Export(name="passwordField", refs={String.class}, tree="[0]")
     private Output<String> passwordField;
 
     /**
@@ -361,7 +361,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
      * 
      */
-    @Export(name="revealPassword", type=Boolean.class, parameters={})
+    @Export(name="revealPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revealPassword;
 
     /**
@@ -375,7 +375,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Shared password, required for certain schemes.
      * 
      */
-    @Export(name="sharedPassword", type=String.class, parameters={})
+    @Export(name="sharedPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedPassword;
 
     /**
@@ -389,7 +389,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Shared username, required for certain schemes.
      * 
      */
-    @Export(name="sharedUsername", type=String.class, parameters={})
+    @Export(name="sharedUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedUsername;
 
     /**
@@ -403,7 +403,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Sign-on mode of application.
      * 
      */
-    @Export(name="signOnMode", type=String.class, parameters={})
+    @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
@@ -417,7 +417,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Status of application. By default, it is `&#34;ACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -431,7 +431,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Login URL.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
@@ -445,7 +445,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
-    @Export(name="userNameTemplate", type=String.class, parameters={})
+    @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
@@ -459,7 +459,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
-    @Export(name="userNameTemplatePushStatus", type=String.class, parameters={})
+    @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
@@ -473,7 +473,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Username template suffix.
      * 
      */
-    @Export(name="userNameTemplateSuffix", type=String.class, parameters={})
+    @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
@@ -487,7 +487,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
-    @Export(name="userNameTemplateType", type=String.class, parameters={})
+    @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**
@@ -501,7 +501,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * Login username field.
      * 
      */
-    @Export(name="usernameField", type=String.class, parameters={})
+    @Export(name="usernameField", refs={String.class}, tree="[0]")
     private Output<String> usernameField;
 
     /**

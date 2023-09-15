@@ -79,7 +79,7 @@ public class EventHook extends com.pulumi.resources.CustomResource {
      * Authentication required for event hook request.
      * 
      */
-    @Export(name="auth", type=Map.class, parameters={String.class, String.class})
+    @Export(name="auth", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> auth;
 
     /**
@@ -93,7 +93,7 @@ public class EventHook extends com.pulumi.resources.CustomResource {
      * Details of the endpoint the event hook will hit.
      * 
      */
-    @Export(name="channel", type=Map.class, parameters={String.class, String.class})
+    @Export(name="channel", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> channel;
 
     /**
@@ -107,7 +107,7 @@ public class EventHook extends com.pulumi.resources.CustomResource {
      * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      * 
      */
-    @Export(name="events", type=List.class, parameters={String.class})
+    @Export(name="events", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> events;
 
     /**
@@ -121,7 +121,7 @@ public class EventHook extends com.pulumi.resources.CustomResource {
      * Map of headers to send along in event hook request.
      * 
      */
-    @Export(name="headers", type=List.class, parameters={EventHookHeader.class})
+    @Export(name="headers", refs={List.class,EventHookHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventHookHeader>> headers;
 
     /**
@@ -135,7 +135,7 @@ public class EventHook extends com.pulumi.resources.CustomResource {
      * The event hook display name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -145,7 +145,7 @@ public class EventHook extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     public Output<Optional<String>> status() {

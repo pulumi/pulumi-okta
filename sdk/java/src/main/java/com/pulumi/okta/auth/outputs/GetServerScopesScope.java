@@ -45,6 +45,7 @@ public final class GetServerScopesScope {
      * 
      */
     private String name;
+    private Boolean optional;
     /**
      * @return Whether Okta created the Scope
      * 
@@ -101,6 +102,9 @@ public final class GetServerScopesScope {
     public String name() {
         return this.name;
     }
+    public Boolean optional() {
+        return this.optional;
+    }
     /**
      * @return Whether Okta created the Scope
      * 
@@ -125,6 +129,7 @@ public final class GetServerScopesScope {
         private String id;
         private String metadataPublish;
         private String name;
+        private Boolean optional;
         private Boolean system;
         public Builder() {}
         public Builder(GetServerScopesScope defaults) {
@@ -136,6 +141,7 @@ public final class GetServerScopesScope {
     	      this.id = defaults.id;
     	      this.metadataPublish = defaults.metadataPublish;
     	      this.name = defaults.name;
+    	      this.optional = defaults.optional;
     	      this.system = defaults.system;
         }
 
@@ -175,6 +181,11 @@ public final class GetServerScopesScope {
             return this;
         }
         @CustomType.Setter
+        public Builder optional(Boolean optional) {
+            this.optional = Objects.requireNonNull(optional);
+            return this;
+        }
+        @CustomType.Setter
         public Builder system(Boolean system) {
             this.system = Objects.requireNonNull(system);
             return this;
@@ -188,6 +199,7 @@ public final class GetServerScopesScope {
             o.id = id;
             o.metadataPublish = metadataPublish;
             o.name = name;
+            o.optional = optional;
             o.system = system;
             return o;
         }

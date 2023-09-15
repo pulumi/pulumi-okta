@@ -30,7 +30,7 @@ public class SamlKey extends com.pulumi.resources.CustomResource {
      * Date created.
      * 
      */
-    @Export(name="created", type=String.class, parameters={})
+    @Export(name="created", refs={String.class}, tree="[0]")
     private Output<String> created;
 
     /**
@@ -44,7 +44,7 @@ public class SamlKey extends com.pulumi.resources.CustomResource {
      * Date the cert expires.
      * 
      */
-    @Export(name="expiresAt", type=String.class, parameters={})
+    @Export(name="expiresAt", refs={String.class}, tree="[0]")
     private Output<String> expiresAt;
 
     /**
@@ -58,7 +58,7 @@ public class SamlKey extends com.pulumi.resources.CustomResource {
      * Key ID.
      * 
      */
-    @Export(name="kid", type=String.class, parameters={})
+    @Export(name="kid", refs={String.class}, tree="[0]")
     private Output<String> kid;
 
     /**
@@ -72,7 +72,7 @@ public class SamlKey extends com.pulumi.resources.CustomResource {
      * Identifies the cryptographic algorithm family used with the key.
      * 
      */
-    @Export(name="kty", type=String.class, parameters={})
+    @Export(name="kty", refs={String.class}, tree="[0]")
     private Output<String> kty;
 
     /**
@@ -86,7 +86,7 @@ public class SamlKey extends com.pulumi.resources.CustomResource {
      * Intended use of the public key.
      * 
      */
-    @Export(name="use", type=String.class, parameters={})
+    @Export(name="use", refs={String.class}, tree="[0]")
     private Output<String> use;
 
     /**
@@ -100,7 +100,7 @@ public class SamlKey extends com.pulumi.resources.CustomResource {
      * base64-encoded X.509 certificate chain with DER encoding.
      * 
      */
-    @Export(name="x5cs", type=List.class, parameters={String.class})
+    @Export(name="x5cs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> x5cs;
 
     /**
@@ -114,7 +114,7 @@ public class SamlKey extends com.pulumi.resources.CustomResource {
      * base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
      * 
      */
-    @Export(name="x5tS256", type=String.class, parameters={})
+    @Export(name="x5tS256", refs={String.class}, tree="[0]")
     private Output<String> x5tS256;
 
     /**

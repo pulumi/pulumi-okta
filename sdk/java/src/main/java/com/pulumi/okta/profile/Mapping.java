@@ -85,16 +85,20 @@ public class Mapping extends com.pulumi.resources.CustomResource {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * 
-     * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
+     * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     * 
+     * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      * 
      */
-    @Export(name="alwaysApply", type=Boolean.class, parameters={})
+    @Export(name="alwaysApply", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> alwaysApply;
 
     /**
      * @return Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * 
-     * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
+     * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     * 
+     * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      * 
      */
     public Output<Optional<Boolean>> alwaysApply() {
@@ -104,7 +108,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      * Tells the provider whether to attempt to delete missing mappings under profile mapping.
      * 
      */
-    @Export(name="deleteWhenAbsent", type=Boolean.class, parameters={})
+    @Export(name="deleteWhenAbsent", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteWhenAbsent;
 
     /**
@@ -118,7 +122,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      * Priority of the policy.
      * 
      */
-    @Export(name="mappings", type=List.class, parameters={MappingMapping.class})
+    @Export(name="mappings", refs={List.class,MappingMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MappingMapping>> mappings;
 
     /**
@@ -132,7 +136,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      * Source id of the profile mapping.
      * 
      */
-    @Export(name="sourceId", type=String.class, parameters={})
+    @Export(name="sourceId", refs={String.class}, tree="[0]")
     private Output<String> sourceId;
 
     /**
@@ -146,7 +150,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      * Name of the mapping source.
      * 
      */
-    @Export(name="sourceName", type=String.class, parameters={})
+    @Export(name="sourceName", refs={String.class}, tree="[0]")
     private Output<String> sourceName;
 
     /**
@@ -160,7 +164,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      * ID of the mapping source.
      * 
      */
-    @Export(name="sourceType", type=String.class, parameters={})
+    @Export(name="sourceType", refs={String.class}, tree="[0]")
     private Output<String> sourceType;
 
     /**
@@ -174,7 +178,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      * ID of the mapping target.
      * 
      */
-    @Export(name="targetId", type=String.class, parameters={})
+    @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
     /**
@@ -188,7 +192,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      * Name of the mapping target.
      * 
      */
-    @Export(name="targetName", type=String.class, parameters={})
+    @Export(name="targetName", refs={String.class}, tree="[0]")
     private Output<String> targetName;
 
     /**
@@ -202,7 +206,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      * ID of the mapping target.
      * 
      */
-    @Export(name="targetType", type=String.class, parameters={})
+    @Export(name="targetType", refs={String.class}, tree="[0]")
     private Output<String> targetType;
 
     /**

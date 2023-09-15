@@ -17,7 +17,9 @@ import javax.annotation.Nullable;
 /**
  * This resource allows you to configure Security Notification Emails.
  * 
- * &gt; **WARNING:** This resource is available only when using api token in the provider config.
+ * &gt; **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
+ * 
+ * &gt; **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
  * 
  * ## Example Usage
  * ```java
@@ -68,7 +70,7 @@ public class SecurityNotificationEmails extends com.pulumi.resources.CustomResou
      * Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
      * 
      */
-    @Export(name="reportSuspiciousActivityEnabled", type=Boolean.class, parameters={})
+    @Export(name="reportSuspiciousActivityEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> reportSuspiciousActivityEnabled;
 
     /**
@@ -82,7 +84,7 @@ public class SecurityNotificationEmails extends com.pulumi.resources.CustomResou
      * Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
      * 
      */
-    @Export(name="sendEmailForFactorEnrollmentEnabled", type=Boolean.class, parameters={})
+    @Export(name="sendEmailForFactorEnrollmentEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailForFactorEnrollmentEnabled;
 
     /**
@@ -96,7 +98,7 @@ public class SecurityNotificationEmails extends com.pulumi.resources.CustomResou
      * Notifies end users that one or more factors have been reset for their account. Default is `true`.
      * 
      */
-    @Export(name="sendEmailForFactorResetEnabled", type=Boolean.class, parameters={})
+    @Export(name="sendEmailForFactorResetEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailForFactorResetEnabled;
 
     /**
@@ -110,7 +112,7 @@ public class SecurityNotificationEmails extends com.pulumi.resources.CustomResou
      * Notifies end users about new sign-on activity. Default is `true`.
      * 
      */
-    @Export(name="sendEmailForNewDeviceEnabled", type=Boolean.class, parameters={})
+    @Export(name="sendEmailForNewDeviceEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailForNewDeviceEnabled;
 
     /**
@@ -124,7 +126,7 @@ public class SecurityNotificationEmails extends com.pulumi.resources.CustomResou
      * Notifies end users that the password for their account has changed. Default is `true`.
      * 
      */
-    @Export(name="sendEmailForPasswordChangedEnabled", type=Boolean.class, parameters={})
+    @Export(name="sendEmailForPasswordChangedEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailForPasswordChangedEnabled;
 
     /**

@@ -24,8 +24,11 @@ class EmailDomainDnsValidationRecordArgs:
         :param pulumi.Input[str] fqdn: DNS record name.
         :param pulumi.Input[str] record_type: Record type can be TXT or cname.
         :param pulumi.Input[str] value: DNS record value
-               - `expiration ` - DNS TXT record expiration
+               - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
         """
+        if expiration is not None:
+            warnings.warn("""This field has been removed in the newest go sdk version and has become noop""", DeprecationWarning)
+            pulumi.log.warn("""expiration is deprecated: This field has been removed in the newest go sdk version and has become noop""")
         if expiration is not None:
             pulumi.set(__self__, "expiration", expiration)
         if fqdn is not None:
@@ -38,6 +41,9 @@ class EmailDomainDnsValidationRecordArgs:
     @property
     @pulumi.getter
     def expiration(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""This field has been removed in the newest go sdk version and has become noop""", DeprecationWarning)
+        pulumi.log.warn("""expiration is deprecated: This field has been removed in the newest go sdk version and has become noop""")
+
         return pulumi.get(self, "expiration")
 
     @expiration.setter
@@ -73,7 +79,7 @@ class EmailDomainDnsValidationRecordArgs:
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         DNS record value
-        - `expiration ` - DNS TXT record expiration
+        - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
         """
         return pulumi.get(self, "value")
 

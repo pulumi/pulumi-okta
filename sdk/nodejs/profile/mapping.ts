@@ -78,7 +78,9 @@ export class Mapping extends pulumi.CustomResource {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      *
-     * > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
+     * > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     *
+     * > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
     public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
     /**
@@ -166,7 +168,9 @@ export interface MappingState {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      *
-     * > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
+     * > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     *
+     * > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
     alwaysApply?: pulumi.Input<boolean>;
     /**
@@ -210,7 +214,9 @@ export interface MappingArgs {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      *
-     * > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
+     * > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     *
+     * > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
     alwaysApply?: pulumi.Input<boolean>;
     /**

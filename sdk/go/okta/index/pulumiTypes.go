@@ -15,13 +15,14 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EmailDomainDnsValidationRecord struct {
+	// Deprecated: This field has been removed in the newest go sdk version and has become noop
 	Expiration *string `pulumi:"expiration"`
 	// DNS record name.
 	Fqdn *string `pulumi:"fqdn"`
 	// Record type can be TXT or cname.
 	RecordType *string `pulumi:"recordType"`
 	// DNS record value
-	// - ` expiration  ` - DNS TXT record expiration
+	// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
 	Value *string `pulumi:"value"`
 }
 
@@ -37,13 +38,14 @@ type EmailDomainDnsValidationRecordInput interface {
 }
 
 type EmailDomainDnsValidationRecordArgs struct {
+	// Deprecated: This field has been removed in the newest go sdk version and has become noop
 	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
 	// DNS record name.
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
 	// Record type can be TXT or cname.
 	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
 	// DNS record value
-	// - ` expiration  ` - DNS TXT record expiration
+	// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -116,6 +118,7 @@ func (o EmailDomainDnsValidationRecordOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
+// Deprecated: This field has been removed in the newest go sdk version and has become noop
 func (o EmailDomainDnsValidationRecordOutput) Expiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Expiration }).(pulumi.StringPtrOutput)
 }
@@ -131,7 +134,7 @@ func (o EmailDomainDnsValidationRecordOutput) RecordType() pulumi.StringPtrOutpu
 }
 
 // DNS record value
-// - ` expiration  ` - DNS TXT record expiration
+// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
 func (o EmailDomainDnsValidationRecordOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

@@ -71,7 +71,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
      * 
      */
-    @Export(name="accessTokenLifetimeMinutes", type=Integer.class, parameters={})
+    @Export(name="accessTokenLifetimeMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> accessTokenLifetimeMinutes;
 
     /**
@@ -85,7 +85,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * Auth Server ID.
      * 
      */
-    @Export(name="authServerId", type=String.class, parameters={})
+    @Export(name="authServerId", refs={String.class}, tree="[0]")
     private Output<String> authServerId;
 
     /**
@@ -101,7 +101,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * `&#34;urn:ietf:params:oauth:grant-type:device_code&#34;` (*Early Access Property*), `&#34;interaction_code&#34;` (*OIE only*). For `&#34;implicit&#34;` value either `user_whitelist` or `group_whitelist` should be set.
      * 
      */
-    @Export(name="grantTypeWhitelists", type=List.class, parameters={String.class})
+    @Export(name="grantTypeWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> grantTypeWhitelists;
 
     /**
@@ -117,7 +117,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * Specifies a set of Groups whose Users are to be excluded.
      * 
      */
-    @Export(name="groupBlacklists", type=List.class, parameters={String.class})
+    @Export(name="groupBlacklists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupBlacklists;
 
     /**
@@ -131,7 +131,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
      * 
      */
-    @Export(name="groupWhitelists", type=List.class, parameters={String.class})
+    @Export(name="groupWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupWhitelists;
 
     /**
@@ -145,7 +145,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * The ID of the inline token to trigger.
      * 
      */
-    @Export(name="inlineHookId", type=String.class, parameters={})
+    @Export(name="inlineHookId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inlineHookId;
 
     /**
@@ -159,7 +159,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * Auth Server Policy Rule name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -173,7 +173,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * Auth Server Policy ID.
      * 
      */
-    @Export(name="policyId", type=String.class, parameters={})
+    @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
@@ -187,7 +187,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * Priority of the auth server policy rule.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
@@ -201,7 +201,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * Lifetime of refresh token.
      * 
      */
-    @Export(name="refreshTokenLifetimeMinutes", type=Integer.class, parameters={})
+    @Export(name="refreshTokenLifetimeMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> refreshTokenLifetimeMinutes;
 
     /**
@@ -216,7 +216,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
      * 
      */
-    @Export(name="refreshTokenWindowMinutes", type=Integer.class, parameters={})
+    @Export(name="refreshTokenWindowMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> refreshTokenWindowMinutes;
 
     /**
@@ -231,7 +231,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `&#34;*&#34;`.
      * 
      */
-    @Export(name="scopeWhitelists", type=List.class, parameters={String.class})
+    @Export(name="scopeWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> scopeWhitelists;
 
     /**
@@ -245,7 +245,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * The status of the Auth Server Policy Rule.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -259,7 +259,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * The type of the Auth Server Policy Rule.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -273,7 +273,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * Specifies a set of Users to be excluded.
      * 
      */
-    @Export(name="userBlacklists", type=List.class, parameters={String.class})
+    @Export(name="userBlacklists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userBlacklists;
 
     /**
@@ -287,7 +287,7 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
      * Specifies a set of Users to be included.
      * 
      */
-    @Export(name="userWhitelists", type=List.class, parameters={String.class})
+    @Export(name="userWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userWhitelists;
 
     /**

@@ -24,6 +24,12 @@ namespace Pulumi.Okta.App.Inputs
         [Input("n")]
         public Input<string>? N { get; set; }
 
+        [Input("x")]
+        public Input<string>? X { get; set; }
+
+        [Input("y")]
+        public Input<string>? Y { get; set; }
+
         public OAuthJwkGetArgs()
         {
         }

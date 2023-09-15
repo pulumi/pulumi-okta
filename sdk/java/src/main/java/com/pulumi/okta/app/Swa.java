@@ -67,7 +67,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Custom error page URL.
      * 
      */
-    @Export(name="accessibilityErrorRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
@@ -81,7 +81,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Custom login page for this application.
      * 
      */
-    @Export(name="accessibilityLoginRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
@@ -95,7 +95,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Enable self-service. By default, it is `false`.
      * 
      */
-    @Export(name="accessibilitySelfService", type=Boolean.class, parameters={})
+    @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
@@ -109,7 +109,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Application notes for admins.
      * 
      */
-    @Export(name="adminNote", type=String.class, parameters={})
+    @Export(name="adminNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminNote;
 
     /**
@@ -123,7 +123,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
-    @Export(name="appLinksJson", type=String.class, parameters={})
+    @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
@@ -137,7 +137,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Display auto submit toolbar.
      * 
      */
-    @Export(name="autoSubmitToolbar", type=Boolean.class, parameters={})
+    @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
@@ -151,7 +151,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Login button field.
      * 
      */
-    @Export(name="buttonField", type=String.class, parameters={})
+    @Export(name="buttonField", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> buttonField;
 
     /**
@@ -165,7 +165,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * CSS selector for the checkbox.
      * 
      */
-    @Export(name="checkbox", type=String.class, parameters={})
+    @Export(name="checkbox", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> checkbox;
 
     /**
@@ -179,7 +179,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Application notes for end users.
      * 
      */
-    @Export(name="enduserNote", type=String.class, parameters={})
+    @Export(name="enduserNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enduserNote;
 
     /**
@@ -193,7 +193,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Do not display application icon on mobile app.
      * 
      */
-    @Export(name="hideIos", type=Boolean.class, parameters={})
+    @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
@@ -207,7 +207,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Do not display application icon to users.
      * 
      */
-    @Export(name="hideWeb", type=Boolean.class, parameters={})
+    @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
@@ -221,7 +221,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * The display name of the Application.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -235,7 +235,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
-    @Export(name="logo", type=String.class, parameters={})
+    @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
@@ -249,7 +249,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Direct link of application logo.
      * 
      */
-    @Export(name="logoUrl", type=String.class, parameters={})
+    @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
@@ -263,7 +263,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Name assigned to the application by Okta.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -277,7 +277,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Login password field.
      * 
      */
-    @Export(name="passwordField", type=String.class, parameters={})
+    @Export(name="passwordField", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passwordField;
 
     /**
@@ -291,7 +291,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * name of application from the Okta Integration Network, if not included a custom app will be created.
      * 
      */
-    @Export(name="preconfiguredApp", type=String.class, parameters={})
+    @Export(name="preconfiguredApp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preconfiguredApp;
 
     /**
@@ -305,7 +305,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
      * 
      */
-    @Export(name="redirectUrl", type=String.class, parameters={})
+    @Export(name="redirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> redirectUrl;
 
     /**
@@ -319,7 +319,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Sign-on mode of application.
      * 
      */
-    @Export(name="signOnMode", type=String.class, parameters={})
+    @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
@@ -333,7 +333,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Status of application. By default, it is `&#34;ACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -347,7 +347,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * The URL of the sign-in page for this app.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> url;
 
     /**
@@ -361,7 +361,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * A regular expression that further restricts url to the specified regular expression.
      * 
      */
-    @Export(name="urlRegex", type=String.class, parameters={})
+    @Export(name="urlRegex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> urlRegex;
 
     /**
@@ -375,7 +375,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
-    @Export(name="userNameTemplate", type=String.class, parameters={})
+    @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
@@ -389,7 +389,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
-    @Export(name="userNameTemplatePushStatus", type=String.class, parameters={})
+    @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
@@ -403,7 +403,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Username template suffix.
      * 
      */
-    @Export(name="userNameTemplateSuffix", type=String.class, parameters={})
+    @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
@@ -417,7 +417,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
-    @Export(name="userNameTemplateType", type=String.class, parameters={})
+    @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**
@@ -431,7 +431,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * Login username field.
      * 
      */
-    @Export(name="usernameField", type=String.class, parameters={})
+    @Export(name="usernameField", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usernameField;
 
     /**

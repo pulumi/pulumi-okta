@@ -138,7 +138,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * ```
      * 
      */
-    @Export(name="appExcludes", type=List.class, parameters={RuleIdpDiscoveryAppExclude.class})
+    @Export(name="appExcludes", refs={List.class,RuleIdpDiscoveryAppExclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryAppExclude>> appExcludes;
 
     /**
@@ -174,7 +174,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * Applications to include in discovery rule.
      * 
      */
-    @Export(name="appIncludes", type=List.class, parameters={RuleIdpDiscoveryAppInclude.class})
+    @Export(name="appIncludes", refs={List.class,RuleIdpDiscoveryAppInclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryAppInclude>> appIncludes;
 
     /**
@@ -188,7 +188,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * The identifier for the Idp the rule should route to if all conditions are met.
      * 
      */
-    @Export(name="idpId", type=String.class, parameters={})
+    @Export(name="idpId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> idpId;
 
     /**
@@ -202,7 +202,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * Type of Idp. One of: `&#34;SAML2&#34;`, `&#34;IWA&#34;`, `&#34;AgentlessDSSO&#34;`, `&#34;X509&#34;`, `&#34;FACEBOOK&#34;`, `&#34;GOOGLE&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;OIDC&#34;`
      * 
      */
-    @Export(name="idpType", type=String.class, parameters={})
+    @Export(name="idpType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> idpType;
 
     /**
@@ -216,7 +216,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -230,7 +230,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * The network selection mode. One of `&#34;ANYWEHRE&#34;` or `&#34;ZONE&#34;`.
      * 
      */
-    @Export(name="networkConnection", type=String.class, parameters={})
+    @Export(name="networkConnection", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkConnection;
 
     /**
@@ -244,7 +244,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
      * 
      */
-    @Export(name="networkExcludes", type=List.class, parameters={String.class})
+    @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**
@@ -258,7 +258,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
      * 
      */
-    @Export(name="networkIncludes", type=List.class, parameters={String.class})
+    @Export(name="networkIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkIncludes;
 
     /**
@@ -268,7 +268,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> networkIncludes() {
         return Codegen.optional(this.networkIncludes);
     }
-    @Export(name="platformIncludes", type=List.class, parameters={RuleIdpDiscoveryPlatformInclude.class})
+    @Export(name="platformIncludes", refs={List.class,RuleIdpDiscoveryPlatformInclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryPlatformInclude>> platformIncludes;
 
     public Output<Optional<List<RuleIdpDiscoveryPlatformInclude>>> platformIncludes() {
@@ -278,7 +278,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * Policy ID.
      * 
      */
-    @Export(name="policyId", type=String.class, parameters={})
+    @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyId;
 
     /**
@@ -292,7 +292,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
@@ -306,7 +306,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * Idp rule status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. By default, it is `&#34;ACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -320,7 +320,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
      * 
      */
-    @Export(name="userIdentifierAttribute", type=String.class, parameters={})
+    @Export(name="userIdentifierAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userIdentifierAttribute;
 
     /**
@@ -334,7 +334,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
      * 
      */
-    @Export(name="userIdentifierPatterns", type=List.class, parameters={RuleIdpDiscoveryUserIdentifierPattern.class})
+    @Export(name="userIdentifierPatterns", refs={List.class,RuleIdpDiscoveryUserIdentifierPattern.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryUserIdentifierPattern>> userIdentifierPatterns;
 
     /**
@@ -348,7 +348,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * One of: `&#34;IDENTIFIER&#34;`, `&#34;ATTRIBUTE&#34;`
      * 
      */
-    @Export(name="userIdentifierType", type=String.class, parameters={})
+    @Export(name="userIdentifierType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userIdentifierType;
 
     /**

@@ -66,7 +66,7 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
      * Brand id of the email domain.
      * 
      */
-    @Export(name="brandId", type=String.class, parameters={})
+    @Export(name="brandId", refs={String.class}, tree="[0]")
     private Output<String> brandId;
 
     /**
@@ -80,7 +80,7 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
      * Display name of the email domain.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -94,7 +94,7 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
      * TXT and CNAME records to be registered for the domain.
      * 
      */
-    @Export(name="dnsValidationRecords", type=List.class, parameters={EmailDomainDnsValidationRecord.class})
+    @Export(name="dnsValidationRecords", refs={List.class,EmailDomainDnsValidationRecord.class}, tree="[0,1]")
     private Output<List<EmailDomainDnsValidationRecord>> dnsValidationRecords;
 
     /**
@@ -108,7 +108,7 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
      * Mail domain to send from.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
@@ -122,7 +122,7 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
      * User name of the email domain.
      * 
      */
-    @Export(name="userName", type=String.class, parameters={})
+    @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
@@ -136,7 +136,7 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
      * Status of the email domain (shows whether the domain is verified).
      * 
      */
-    @Export(name="validationStatus", type=String.class, parameters={})
+    @Export(name="validationStatus", refs={String.class}, tree="[0]")
     private Output<String> validationStatus;
 
     /**

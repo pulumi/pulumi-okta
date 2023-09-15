@@ -80,7 +80,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Custom error page URL.
      * 
      */
-    @Export(name="accessibilityErrorRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
@@ -94,7 +94,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Custom login page for this application.
      * 
      */
-    @Export(name="accessibilityLoginRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
@@ -108,7 +108,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Enable self-service. By default, it is `false`.
      * 
      */
-    @Export(name="accessibilitySelfService", type=Boolean.class, parameters={})
+    @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
@@ -122,7 +122,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Application notes for admins.
      * 
      */
-    @Export(name="adminNote", type=String.class, parameters={})
+    @Export(name="adminNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminNote;
 
     /**
@@ -136,7 +136,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
-    @Export(name="appLinksJson", type=String.class, parameters={})
+    @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
@@ -150,7 +150,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Display auto submit toolbar.
      * 
      */
-    @Export(name="autoSubmitToolbar", type=Boolean.class, parameters={})
+    @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
@@ -164,7 +164,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * CSS selector for the Sign-In button in the sign-in form.
      * 
      */
-    @Export(name="buttonField", type=String.class, parameters={})
+    @Export(name="buttonField", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> buttonField;
 
     /**
@@ -178,7 +178,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * CSS selector for the checkbox.
      * 
      */
-    @Export(name="checkbox", type=String.class, parameters={})
+    @Export(name="checkbox", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> checkbox;
 
     /**
@@ -192,7 +192,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Application notes for end users.
      * 
      */
-    @Export(name="enduserNote", type=String.class, parameters={})
+    @Export(name="enduserNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enduserNote;
 
     /**
@@ -206,7 +206,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Do not display application icon on mobile app.
      * 
      */
-    @Export(name="hideIos", type=Boolean.class, parameters={})
+    @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
@@ -220,7 +220,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Do not display application icon to users.
      * 
      */
-    @Export(name="hideWeb", type=Boolean.class, parameters={})
+    @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
@@ -234,7 +234,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * The Application&#39;s display name.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -248,7 +248,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
-    @Export(name="logo", type=String.class, parameters={})
+    @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
@@ -262,7 +262,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Direct link of application logo.
      * 
      */
-    @Export(name="logoUrl", type=String.class, parameters={})
+    @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
@@ -276,7 +276,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Name assigned to the application by Okta.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -290,7 +290,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * CSS selector for the Password field in the sign-in form.
      * 
      */
-    @Export(name="passwordField", type=String.class, parameters={})
+    @Export(name="passwordField", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passwordField;
 
     /**
@@ -304,7 +304,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * name of application from the Okta Integration Network, if not included a custom app will be created.
      * 
      */
-    @Export(name="preconfiguredApp", type=String.class, parameters={})
+    @Export(name="preconfiguredApp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preconfiguredApp;
 
     /**
@@ -318,7 +318,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
      * 
      */
-    @Export(name="redirectUrl", type=String.class, parameters={})
+    @Export(name="redirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> redirectUrl;
 
     /**
@@ -332,7 +332,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Shared password, required for certain schemes.
      * 
      */
-    @Export(name="sharedPassword", type=String.class, parameters={})
+    @Export(name="sharedPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedPassword;
 
     /**
@@ -346,7 +346,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Shared username, required for certain schemes.
      * 
      */
-    @Export(name="sharedUsername", type=String.class, parameters={})
+    @Export(name="sharedUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedUsername;
 
     /**
@@ -360,7 +360,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Authentication mode of app.
      * 
      */
-    @Export(name="signOnMode", type=String.class, parameters={})
+    @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
@@ -374,7 +374,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -388,7 +388,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * The URL of the sign-in page for this app.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> url;
 
     /**
@@ -402,7 +402,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * A regular expression that further restricts url to the specified regular expression.
      * 
      */
-    @Export(name="urlRegex", type=String.class, parameters={})
+    @Export(name="urlRegex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> urlRegex;
 
     /**
@@ -416,7 +416,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
-    @Export(name="userNameTemplate", type=String.class, parameters={})
+    @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
@@ -430,7 +430,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
-    @Export(name="userNameTemplatePushStatus", type=String.class, parameters={})
+    @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
@@ -444,7 +444,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Username template suffix.
      * 
      */
-    @Export(name="userNameTemplateSuffix", type=String.class, parameters={})
+    @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
@@ -458,7 +458,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
-    @Export(name="userNameTemplateType", type=String.class, parameters={})
+    @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**
@@ -472,7 +472,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * CSS selector for the username field.
      * 
      */
-    @Export(name="usernameField", type=String.class, parameters={})
+    @Export(name="usernameField", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usernameField;
 
     /**

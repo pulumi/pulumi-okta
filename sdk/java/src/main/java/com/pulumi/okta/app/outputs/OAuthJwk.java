@@ -15,6 +15,8 @@ public final class OAuthJwk {
     private String kid;
     private String kty;
     private @Nullable String n;
+    private @Nullable String x;
+    private @Nullable String y;
 
     private OAuthJwk() {}
     public Optional<String> e() {
@@ -28,6 +30,12 @@ public final class OAuthJwk {
     }
     public Optional<String> n() {
         return Optional.ofNullable(this.n);
+    }
+    public Optional<String> x() {
+        return Optional.ofNullable(this.x);
+    }
+    public Optional<String> y() {
+        return Optional.ofNullable(this.y);
     }
 
     public static Builder builder() {
@@ -43,6 +51,8 @@ public final class OAuthJwk {
         private String kid;
         private String kty;
         private @Nullable String n;
+        private @Nullable String x;
+        private @Nullable String y;
         public Builder() {}
         public Builder(OAuthJwk defaults) {
     	      Objects.requireNonNull(defaults);
@@ -50,6 +60,8 @@ public final class OAuthJwk {
     	      this.kid = defaults.kid;
     	      this.kty = defaults.kty;
     	      this.n = defaults.n;
+    	      this.x = defaults.x;
+    	      this.y = defaults.y;
         }
 
         @CustomType.Setter
@@ -72,12 +84,24 @@ public final class OAuthJwk {
             this.n = n;
             return this;
         }
+        @CustomType.Setter
+        public Builder x(@Nullable String x) {
+            this.x = x;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder y(@Nullable String y) {
+            this.y = y;
+            return this;
+        }
         public OAuthJwk build() {
             final var o = new OAuthJwk();
             o.e = e;
             o.kid = kid;
             o.kty = kty;
             o.n = n;
+            o.x = x;
+            o.y = y;
             return o;
         }
     }

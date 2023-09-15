@@ -306,7 +306,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * Applications to exclude
      * 
      */
-    @Export(name="appExcludes", type=List.class, parameters={RuleMfaAppExclude.class})
+    @Export(name="appExcludes", refs={List.class,RuleMfaAppExclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleMfaAppExclude>> appExcludes;
 
     /**
@@ -320,7 +320,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
      * 
      */
-    @Export(name="appIncludes", type=List.class, parameters={RuleMfaAppInclude.class})
+    @Export(name="appIncludes", refs={List.class,RuleMfaAppInclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleMfaAppInclude>> appIncludes;
 
     /**
@@ -334,7 +334,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * When a user should be prompted for MFA. It can be `&#34;CHALLENGE&#34;`, `&#34;LOGIN&#34;`, or `&#34;NEVER&#34;`.
      * 
      */
-    @Export(name="enroll", type=String.class, parameters={})
+    @Export(name="enroll", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enroll;
 
     /**
@@ -348,7 +348,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -362,7 +362,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
      * 
      */
-    @Export(name="networkConnection", type=String.class, parameters={})
+    @Export(name="networkConnection", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkConnection;
 
     /**
@@ -376,7 +376,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * The network zones to exclude. Conflicts with `network_includes`.
      * 
      */
-    @Export(name="networkExcludes", type=List.class, parameters={String.class})
+    @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**
@@ -390,7 +390,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * The network zones to include. Conflicts with `network_excludes`.
      * 
      */
-    @Export(name="networkIncludes", type=List.class, parameters={String.class})
+    @Export(name="networkIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkIncludes;
 
     /**
@@ -404,7 +404,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * Policy ID.
      * 
      */
-    @Export(name="policyId", type=String.class, parameters={})
+    @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyId;
 
     /**
@@ -418,7 +418,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
@@ -432,7 +432,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -446,7 +446,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * Set of User IDs to Exclude
      * 
      */
-    @Export(name="usersExcludeds", type=List.class, parameters={String.class})
+    @Export(name="usersExcludeds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> usersExcludeds;
 
     /**

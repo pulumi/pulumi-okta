@@ -71,6 +71,8 @@ type ServerScope struct {
 	MetadataPublish pulumi.StringPtrOutput `pulumi:"metadataPublish"`
 	// Auth Server scope name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether the scope optional
+	Optional pulumi.BoolPtrOutput `pulumi:"optional"`
 	// Whether Okta created the Scope
 	System pulumi.BoolOutput `pulumi:"system"`
 }
@@ -122,6 +124,8 @@ type serverScopeState struct {
 	MetadataPublish *string `pulumi:"metadataPublish"`
 	// Auth Server scope name.
 	Name *string `pulumi:"name"`
+	// Whether the scope optional
+	Optional *bool `pulumi:"optional"`
 	// Whether Okta created the Scope
 	System *bool `pulumi:"system"`
 }
@@ -141,6 +145,8 @@ type ServerScopeState struct {
 	MetadataPublish pulumi.StringPtrInput
 	// Auth Server scope name.
 	Name pulumi.StringPtrInput
+	// Whether the scope optional
+	Optional pulumi.BoolPtrInput
 	// Whether Okta created the Scope
 	System pulumi.BoolPtrInput
 }
@@ -164,6 +170,8 @@ type serverScopeArgs struct {
 	MetadataPublish *string `pulumi:"metadataPublish"`
 	// Auth Server scope name.
 	Name *string `pulumi:"name"`
+	// Whether the scope optional
+	Optional *bool `pulumi:"optional"`
 }
 
 // The set of arguments for constructing a ServerScope resource.
@@ -182,6 +190,8 @@ type ServerScopeArgs struct {
 	MetadataPublish pulumi.StringPtrInput
 	// Auth Server scope name.
 	Name pulumi.StringPtrInput
+	// Whether the scope optional
+	Optional pulumi.BoolPtrInput
 }
 
 func (ServerScopeArgs) ElementType() reflect.Type {
@@ -328,6 +338,11 @@ func (o ServerScopeOutput) MetadataPublish() pulumi.StringPtrOutput {
 // Auth Server scope name.
 func (o ServerScopeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether the scope optional
+func (o ServerScopeOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerScope) pulumi.BoolPtrOutput { return v.Optional }).(pulumi.BoolPtrOutput)
 }
 
 // Whether Okta created the Scope

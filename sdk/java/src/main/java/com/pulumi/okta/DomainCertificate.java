@@ -80,7 +80,7 @@ public class DomainCertificate extends com.pulumi.resources.CustomResource {
      * Certificate content.
      * 
      */
-    @Export(name="certificate", type=String.class, parameters={})
+    @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
@@ -94,7 +94,7 @@ public class DomainCertificate extends com.pulumi.resources.CustomResource {
      * Certificate certificate chain.
      * 
      */
-    @Export(name="certificateChain", type=String.class, parameters={})
+    @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output<String> certificateChain;
 
     /**
@@ -108,7 +108,7 @@ public class DomainCertificate extends com.pulumi.resources.CustomResource {
      * Domain ID.
      * 
      */
-    @Export(name="domainId", type=String.class, parameters={})
+    @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
     /**
@@ -122,7 +122,7 @@ public class DomainCertificate extends com.pulumi.resources.CustomResource {
      * Certificate private key.
      * 
      */
-    @Export(name="privateKey", type=String.class, parameters={})
+    @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output<String> privateKey;
 
     /**
@@ -136,7 +136,7 @@ public class DomainCertificate extends com.pulumi.resources.CustomResource {
      * Certificate type. Valid value is `&#34;PEM&#34;`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

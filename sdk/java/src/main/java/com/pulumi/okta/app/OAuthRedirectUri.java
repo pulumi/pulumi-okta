@@ -72,7 +72,7 @@ public class OAuthRedirectUri extends com.pulumi.resources.CustomResource {
      * OAuth application ID.
      * 
      */
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
@@ -86,7 +86,7 @@ public class OAuthRedirectUri extends com.pulumi.resources.CustomResource {
      * Redirect URI to append to Okta OIDC application.
      * 
      */
-    @Export(name="uri", type=String.class, parameters={})
+    @Export(name="uri", refs={String.class}, tree="[0]")
     private Output<String> uri;
 
     /**

@@ -89,7 +89,7 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
      * or `&#34;SUBDIVISION&#34;`.
      * 
      */
-    @Export(name="locationGranularityType", type=String.class, parameters={})
+    @Export(name="locationGranularityType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> locationGranularityType;
 
     /**
@@ -105,7 +105,7 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
      * Name of the behavior.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -120,7 +120,7 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
      * for `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;` and `&#34;ANOMALOUS_IP&#34;` behavior types.
      * 
      */
-    @Export(name="numberOfAuthentications", type=Integer.class, parameters={})
+    @Export(name="numberOfAuthentications", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numberOfAuthentications;
 
     /**
@@ -136,7 +136,7 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
      * when `location_granularity_type` is set to `&#34;LAT_LONG&#34;`.
      * 
      */
-    @Export(name="radiusFromLocation", type=Integer.class, parameters={})
+    @Export(name="radiusFromLocation", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> radiusFromLocation;
 
     /**
@@ -151,7 +151,7 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
      * The status of the behavior. By default, it is`&#34;ACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -166,7 +166,7 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
      * or `&#34;VELOCITY&#34;`. Resource will be recreated when the type changes.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -182,7 +182,7 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
      * type.
      * 
      */
-    @Export(name="velocity", type=Integer.class, parameters={})
+    @Export(name="velocity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> velocity;
 
     /**

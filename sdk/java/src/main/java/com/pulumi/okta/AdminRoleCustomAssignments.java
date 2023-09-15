@@ -37,7 +37,7 @@ public class AdminRoleCustomAssignments extends com.pulumi.resources.CustomResou
      * ID of the Custom Role.
      * 
      */
-    @Export(name="customRoleId", type=String.class, parameters={})
+    @Export(name="customRoleId", refs={String.class}, tree="[0]")
     private Output<String> customRoleId;
 
     /**
@@ -52,7 +52,7 @@ public class AdminRoleCustomAssignments extends com.pulumi.resources.CustomResou
      * permission must be specified when creating custom role.
      * 
      */
-    @Export(name="members", type=List.class, parameters={String.class})
+    @Export(name="members", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> members;
 
     /**
@@ -67,7 +67,7 @@ public class AdminRoleCustomAssignments extends com.pulumi.resources.CustomResou
      * ID of the target Resource Set.
      * 
      */
-    @Export(name="resourceSetId", type=String.class, parameters={})
+    @Export(name="resourceSetId", refs={String.class}, tree="[0]")
     private Output<String> resourceSetId;
 
     /**

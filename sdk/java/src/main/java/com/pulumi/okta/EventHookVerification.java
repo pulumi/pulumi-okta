@@ -77,7 +77,7 @@ public class EventHookVerification extends com.pulumi.resources.CustomResource {
      * Event Hook ID.
      * 
      */
-    @Export(name="eventHookId", type=String.class, parameters={})
+    @Export(name="eventHookId", refs={String.class}, tree="[0]")
     private Output<String> eventHookId;
 
     /**

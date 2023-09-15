@@ -195,6 +195,9 @@ export interface UserSchemaPropertyOneOf {
 }
 export namespace Index {
     export interface EmailDomainDnsValidationRecord {
+        /**
+         * @deprecated This field has been removed in the newest go sdk version and has become noop
+         */
         expiration?: pulumi.Input<string>;
         /**
          * DNS record name.
@@ -206,7 +209,7 @@ export namespace Index {
         recordType?: pulumi.Input<string>;
         /**
          * DNS record value
-         * - `expiration ` - DNS TXT record expiration
+         * - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
          */
         value?: pulumi.Input<string>;
     }
@@ -243,6 +246,8 @@ export namespace app {
         kid: pulumi.Input<string>;
         kty: pulumi.Input<string>;
         n?: pulumi.Input<string>;
+        x?: pulumi.Input<string>;
+        y?: pulumi.Input<string>;
     }
 
     export interface SamlAttributeStatement {

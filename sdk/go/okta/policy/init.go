@@ -21,6 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid":
+		r = &DeviceAssuranceAndroid{}
+	case "okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos":
+		r = &DeviceAssuranceChromeos{}
+	case "okta:policy/deviceAssuranceIos:DeviceAssuranceIos":
+		r = &DeviceAssuranceIos{}
+	case "okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos":
+		r = &DeviceAssuranceMacos{}
+	case "okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows":
+		r = &DeviceAssuranceWindows{}
 	case "okta:policy/mfa:Mfa":
 		r = &Mfa{}
 	case "okta:policy/password:Password":
@@ -48,6 +58,31 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"okta",
+		"policy/deviceAssuranceAndroid",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"policy/deviceAssuranceChromeos",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"policy/deviceAssuranceIos",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"policy/deviceAssuranceMacos",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"policy/deviceAssuranceWindows",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"okta",
 		"policy/mfa",

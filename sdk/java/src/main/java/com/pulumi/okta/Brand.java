@@ -16,44 +16,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.Brand;
- * import com.pulumi.okta.BrandArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Brand(&#34;example&#34;, BrandArgs.builder()        
- *             .agreeToCustomPrivacyPolicy(true)
- *             .customPrivacyPolicyUrl(&#34;https://example.com/privacy-policy&#34;)
- *             .removePoweredByOkta(true)
- *             .build());
- * 
- *         var default_ = new Brand(&#34;default&#34;, BrandArgs.builder()        
- *             .agreeToCustomPrivacyPolicy(true)
- *             .brandId(&#34;default&#34;)
- *             .customPrivacyPolicyUrl(&#34;https://example.com/privacy-policy&#34;)
- *             .removePoweredByOkta(true)
- *             .build());
- * 
- *     }
- * }
- * ```
+ * This resource allows you to create and configure an Okta
+ * [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
  * 
  * ## Import
  * 
@@ -70,49 +34,123 @@ public class Brand extends com.pulumi.resources.CustomResource {
      * Is a required input flag with when changing custom_privacy_url, shouldn&#39;t be considered as a readable property
      * 
      */
-    @Export(name="agreeToCustomPrivacyPolicy", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> agreeToCustomPrivacyPolicy;
+    @Export(name="agreeToCustomPrivacyPolicy", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> agreeToCustomPrivacyPolicy;
 
     /**
      * @return Is a required input flag with when changing custom_privacy_url, shouldn&#39;t be considered as a readable property
      * 
      */
-    public Output<Optional<Boolean>> agreeToCustomPrivacyPolicy() {
-        return Codegen.optional(this.agreeToCustomPrivacyPolicy);
+    public Output<Boolean> agreeToCustomPrivacyPolicy() {
+        return this.agreeToCustomPrivacyPolicy;
     }
     /**
-     * Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+     * (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+     * 
+     * @deprecated
+     * Okta has fully support brand creation, this attribute is a no op and will be removed
      * 
      */
-    @Export(name="brandId", type=String.class, parameters={})
-    private Output</* @Nullable */ String> brandId;
+    @Deprecated /* Okta has fully support brand creation, this attribute is a no op and will be removed */
+    @Export(name="brandId", refs={String.class}, tree="[0]")
+    private Output<String> brandId;
 
     /**
-     * @return Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+     * @return (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
      * 
      */
-    public Output<Optional<String>> brandId() {
-        return Codegen.optional(this.brandId);
+    public Output<String> brandId() {
+        return this.brandId;
     }
     /**
-     * (Optional) Custom privacy policy URL
+     * Custom privacy policy URL
      * 
      */
-    @Export(name="customPrivacyPolicyUrl", type=String.class, parameters={})
+    @Export(name="customPrivacyPolicyUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customPrivacyPolicyUrl;
 
     /**
-     * @return (Optional) Custom privacy policy URL
+     * @return Custom privacy policy URL
      * 
      */
     public Output<Optional<String>> customPrivacyPolicyUrl() {
         return Codegen.optional(this.customPrivacyPolicyUrl);
     }
     /**
+     * Default app app instance id
+     * 
+     */
+    @Export(name="defaultAppAppInstanceId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> defaultAppAppInstanceId;
+
+    /**
+     * @return Default app app instance id
+     * 
+     */
+    public Output<Optional<String>> defaultAppAppInstanceId() {
+        return Codegen.optional(this.defaultAppAppInstanceId);
+    }
+    /**
+     * Default app app link name
+     * 
+     */
+    @Export(name="defaultAppAppLinkName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> defaultAppAppLinkName;
+
+    /**
+     * @return Default app app link name
+     * 
+     */
+    public Output<Optional<String>> defaultAppAppLinkName() {
+        return Codegen.optional(this.defaultAppAppLinkName);
+    }
+    /**
+     * Default app classic application uri
+     * 
+     */
+    @Export(name="defaultAppClassicApplicationUri", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> defaultAppClassicApplicationUri;
+
+    /**
+     * @return Default app classic application uri
+     * 
+     */
+    public Output<Optional<String>> defaultAppClassicApplicationUri() {
+        return Codegen.optional(this.defaultAppClassicApplicationUri);
+    }
+    /**
+     * Email Domain ID tied to this brand
+     * 
+     */
+    @Export(name="emailDomainId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> emailDomainId;
+
+    /**
+     * @return Email Domain ID tied to this brand
+     * 
+     */
+    public Output<Optional<String>> emailDomainId() {
+        return Codegen.optional(this.emailDomainId);
+    }
+    /**
+     * (Read-only) Is this the default brand
+     * 
+     */
+    @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> isDefault;
+
+    /**
+     * @return (Read-only) Is this the default brand
+     * 
+     */
+    public Output<Boolean> isDefault() {
+        return this.isDefault;
+    }
+    /**
      * (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
      * 
      */
-    @Export(name="links", type=String.class, parameters={})
+    @Export(name="links", refs={String.class}, tree="[0]")
     private Output<String> links;
 
     /**
@@ -123,32 +161,46 @@ public class Brand extends com.pulumi.resources.CustomResource {
         return this.links;
     }
     /**
-     * Brand name
+     * The language specified as an IETF BCP 47 language tag
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="locale", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> locale;
+
+    /**
+     * @return The language specified as an IETF BCP 47 language tag
+     * 
+     */
+    public Output<Optional<String>> locale() {
+        return Codegen.optional(this.locale);
+    }
+    /**
+     * Name of the brand
+     * 
+     */
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Brand name
+     * @return Name of the brand
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * (Optional) Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
-    @Export(name="removePoweredByOkta", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> removePoweredByOkta;
+    @Export(name="removePoweredByOkta", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> removePoweredByOkta;
 
     /**
-     * @return (Optional) Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
-    public Output<Optional<Boolean>> removePoweredByOkta() {
-        return Codegen.optional(this.removePoweredByOkta);
+    public Output<Boolean> removePoweredByOkta() {
+        return this.removePoweredByOkta;
     }
 
     /**

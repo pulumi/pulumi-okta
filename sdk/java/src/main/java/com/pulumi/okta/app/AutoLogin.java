@@ -105,7 +105,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Custom error page URL.
      * 
      */
-    @Export(name="accessibilityErrorRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
@@ -119,7 +119,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Custom login page for this application.
      * 
      */
-    @Export(name="accessibilityLoginRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
@@ -133,7 +133,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Enable self-service. By default, it is `false`.
      * 
      */
-    @Export(name="accessibilitySelfService", type=Boolean.class, parameters={})
+    @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
@@ -147,7 +147,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Application notes for admins.
      * 
      */
-    @Export(name="adminNote", type=String.class, parameters={})
+    @Export(name="adminNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminNote;
 
     /**
@@ -161,7 +161,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
-    @Export(name="appLinksJson", type=String.class, parameters={})
+    @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
@@ -175,7 +175,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Application settings in JSON format.
      * 
      */
-    @Export(name="appSettingsJson", type=String.class, parameters={})
+    @Export(name="appSettingsJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appSettingsJson;
 
     /**
@@ -189,7 +189,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Display auto submit toolbar.
      * 
      */
-    @Export(name="autoSubmitToolbar", type=Boolean.class, parameters={})
+    @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
@@ -203,7 +203,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * One of: `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
      * 
      */
-    @Export(name="credentialsScheme", type=String.class, parameters={})
+    @Export(name="credentialsScheme", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialsScheme;
 
     /**
@@ -217,7 +217,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Application notes for end users.
      * 
      */
-    @Export(name="enduserNote", type=String.class, parameters={})
+    @Export(name="enduserNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enduserNote;
 
     /**
@@ -231,7 +231,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Do not display application icon on mobile app.
      * 
      */
-    @Export(name="hideIos", type=Boolean.class, parameters={})
+    @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
@@ -245,7 +245,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Do not display application icon to users.
      * 
      */
-    @Export(name="hideWeb", type=Boolean.class, parameters={})
+    @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
@@ -259,7 +259,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * The Application&#39;s display name.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -273,7 +273,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
-    @Export(name="logo", type=String.class, parameters={})
+    @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
@@ -287,7 +287,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Direct link of application logo.
      * 
      */
-    @Export(name="logoUrl", type=String.class, parameters={})
+    @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
@@ -301,7 +301,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Name assigned to the application by Okta.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -315,7 +315,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
      * 
      */
-    @Export(name="preconfiguredApp", type=String.class, parameters={})
+    @Export(name="preconfiguredApp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preconfiguredApp;
 
     /**
@@ -329,7 +329,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
      * 
      */
-    @Export(name="revealPassword", type=Boolean.class, parameters={})
+    @Export(name="revealPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revealPassword;
 
     /**
@@ -343,7 +343,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Shared password, required for certain schemes
      * 
      */
-    @Export(name="sharedPassword", type=String.class, parameters={})
+    @Export(name="sharedPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedPassword;
 
     /**
@@ -357,7 +357,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Shared username, required for certain schemes
      * 
      */
-    @Export(name="sharedUsername", type=String.class, parameters={})
+    @Export(name="sharedUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedUsername;
 
     /**
@@ -371,7 +371,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Sign-on mode of the application.
      * 
      */
-    @Export(name="signOnMode", type=String.class, parameters={})
+    @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
@@ -385,7 +385,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
      * 
      */
-    @Export(name="signOnRedirectUrl", type=String.class, parameters={})
+    @Export(name="signOnRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signOnRedirectUrl;
 
     /**
@@ -399,7 +399,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * App login page URL
      * 
      */
-    @Export(name="signOnUrl", type=String.class, parameters={})
+    @Export(name="signOnUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signOnUrl;
 
     /**
@@ -413,7 +413,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -427,7 +427,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
-    @Export(name="userNameTemplate", type=String.class, parameters={})
+    @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
@@ -441,7 +441,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
-    @Export(name="userNameTemplatePushStatus", type=String.class, parameters={})
+    @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
@@ -455,7 +455,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Username template suffix.
      * 
      */
-    @Export(name="userNameTemplateSuffix", type=String.class, parameters={})
+    @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
@@ -469,7 +469,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
-    @Export(name="userNameTemplateType", type=String.class, parameters={})
+    @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**

@@ -260,6 +260,8 @@ type OAuthJwk struct {
 	Kid string  `pulumi:"kid"`
 	Kty string  `pulumi:"kty"`
 	N   *string `pulumi:"n"`
+	X   *string `pulumi:"x"`
+	Y   *string `pulumi:"y"`
 }
 
 // OAuthJwkInput is an input type that accepts OAuthJwkArgs and OAuthJwkOutput values.
@@ -278,6 +280,8 @@ type OAuthJwkArgs struct {
 	Kid pulumi.StringInput    `pulumi:"kid"`
 	Kty pulumi.StringInput    `pulumi:"kty"`
 	N   pulumi.StringPtrInput `pulumi:"n"`
+	X   pulumi.StringPtrInput `pulumi:"x"`
+	Y   pulumi.StringPtrInput `pulumi:"y"`
 }
 
 func (OAuthJwkArgs) ElementType() reflect.Type {
@@ -363,6 +367,14 @@ func (o OAuthJwkOutput) Kty() pulumi.StringOutput {
 
 func (o OAuthJwkOutput) N() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthJwk) *string { return v.N }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuthJwkOutput) X() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthJwk) *string { return v.X }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuthJwkOutput) Y() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthJwk) *string { return v.Y }).(pulumi.StringPtrOutput)
 }
 
 type OAuthJwkArrayOutput struct{ *pulumi.OutputState }

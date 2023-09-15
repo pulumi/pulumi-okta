@@ -122,6 +122,21 @@ public final class ServerScopeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether the scope optional
+     * 
+     */
+    @Import(name="optional")
+    private @Nullable Output<Boolean> optional;
+
+    /**
+     * @return Whether the scope optional
+     * 
+     */
+    public Optional<Output<Boolean>> optional() {
+        return Optional.ofNullable(this.optional);
+    }
+
+    /**
      * Whether Okta created the Scope
      * 
      */
@@ -146,6 +161,7 @@ public final class ServerScopeState extends com.pulumi.resources.ResourceArgs {
         this.displayName = $.displayName;
         this.metadataPublish = $.metadataPublish;
         this.name = $.name;
+        this.optional = $.optional;
         this.system = $.system;
     }
 
@@ -312,6 +328,27 @@ public final class ServerScopeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param optional Whether the scope optional
+         * 
+         * @return builder
+         * 
+         */
+        public Builder optional(@Nullable Output<Boolean> optional) {
+            $.optional = optional;
+            return this;
+        }
+
+        /**
+         * @param optional Whether the scope optional
+         * 
+         * @return builder
+         * 
+         */
+        public Builder optional(Boolean optional) {
+            return optional(Output.of(optional));
         }
 
         /**

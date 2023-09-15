@@ -268,7 +268,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Custom error page URL.
      * 
      */
-    @Export(name="accessibilityErrorRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
@@ -282,7 +282,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Custom login page for this application.
      * 
      */
-    @Export(name="accessibilityLoginRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
@@ -296,7 +296,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Enable self-service. Default is: `false`.
      * 
      */
-    @Export(name="accessibilitySelfService", type=Boolean.class, parameters={})
+    @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
@@ -310,7 +310,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      * 
      */
-    @Export(name="acsEndpoints", type=List.class, parameters={String.class})
+    @Export(name="acsEndpoints", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> acsEndpoints;
 
     /**
@@ -324,7 +324,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Application notes for admins.
      * 
      */
-    @Export(name="adminNote", type=String.class, parameters={})
+    @Export(name="adminNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminNote;
 
     /**
@@ -338,7 +338,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
-    @Export(name="appLinksJson", type=String.class, parameters={})
+    @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
@@ -352,7 +352,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Application settings in JSON format.
      * 
      */
-    @Export(name="appSettingsJson", type=String.class, parameters={})
+    @Export(name="appSettingsJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appSettingsJson;
 
     /**
@@ -366,7 +366,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Determines whether the SAML assertion is digitally signed.
      * 
      */
-    @Export(name="assertionSigned", type=Boolean.class, parameters={})
+    @Export(name="assertionSigned", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> assertionSigned;
 
     /**
@@ -380,7 +380,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * List of SAML Attribute statements.
      * 
      */
-    @Export(name="attributeStatements", type=List.class, parameters={SamlAttributeStatement.class})
+    @Export(name="attributeStatements", refs={List.class,SamlAttributeStatement.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SamlAttributeStatement>> attributeStatements;
 
     /**
@@ -394,7 +394,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Audience Restriction
      * 
      */
-    @Export(name="audience", type=String.class, parameters={})
+    @Export(name="audience", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> audience;
 
     /**
@@ -408,7 +408,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
      * 
      */
-    @Export(name="authenticationPolicy", type=String.class, parameters={})
+    @Export(name="authenticationPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authenticationPolicy;
 
     /**
@@ -422,7 +422,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Identifies the SAML authentication context class for the assertion’s authentication statement
      * 
      */
-    @Export(name="authnContextClassRef", type=String.class, parameters={})
+    @Export(name="authnContextClassRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authnContextClassRef;
 
     /**
@@ -436,7 +436,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Display auto submit toolbar. Default is: `false`
      * 
      */
-    @Export(name="autoSubmitToolbar", type=Boolean.class, parameters={})
+    @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
@@ -450,7 +450,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The raw signing certificate.
      * 
      */
-    @Export(name="certificate", type=String.class, parameters={})
+    @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
@@ -464,7 +464,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Identifies a specific application resource in an IDP initiated SSO scenario.
      * 
      */
-    @Export(name="defaultRelayState", type=String.class, parameters={})
+    @Export(name="defaultRelayState", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultRelayState;
 
     /**
@@ -478,7 +478,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      * 
      */
-    @Export(name="destination", type=String.class, parameters={})
+    @Export(name="destination", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destination;
 
     /**
@@ -492,7 +492,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Determines the digest algorithm used to digitally sign the SAML assertion and response
      * 
      */
-    @Export(name="digestAlgorithm", type=String.class, parameters={})
+    @Export(name="digestAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> digestAlgorithm;
 
     /**
@@ -506,7 +506,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Url that can be used to embed this application into another portal.
      * 
      */
-    @Export(name="embedUrl", type=String.class, parameters={})
+    @Export(name="embedUrl", refs={String.class}, tree="[0]")
     private Output<String> embedUrl;
 
     /**
@@ -520,7 +520,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Application notes for end users.
      * 
      */
-    @Export(name="enduserNote", type=String.class, parameters={})
+    @Export(name="enduserNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enduserNote;
 
     /**
@@ -534,7 +534,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Entity ID, the ID portion of the `entity_url`.
      * 
      */
-    @Export(name="entityKey", type=String.class, parameters={})
+    @Export(name="entityKey", refs={String.class}, tree="[0]")
     private Output<String> entityKey;
 
     /**
@@ -548,7 +548,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
      * 
      */
-    @Export(name="entityUrl", type=String.class, parameters={})
+    @Export(name="entityUrl", refs={String.class}, tree="[0]")
     private Output<String> entityUrl;
 
     /**
@@ -562,7 +562,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * features enabled. Notice: you can&#39;t currently configure provisioning features via the API.
      * 
      */
-    @Export(name="features", type=List.class, parameters={String.class})
+    @Export(name="features", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> features;
 
     /**
@@ -576,7 +576,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Do not display application icon on mobile app. Default is: `false`
      * 
      */
-    @Export(name="hideIos", type=Boolean.class, parameters={})
+    @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
@@ -590,7 +590,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Do not display application icon to users. Default is: `false`
      * 
      */
-    @Export(name="hideWeb", type=Boolean.class, parameters={})
+    @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
@@ -604,7 +604,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Prompt user to re-authenticate if SP asks for it. Default is: `false`
      * 
      */
-    @Export(name="honorForceAuthn", type=Boolean.class, parameters={})
+    @Export(name="honorForceAuthn", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> honorForceAuthn;
 
     /**
@@ -618,7 +618,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
      * 
      */
-    @Export(name="httpPostBinding", type=String.class, parameters={})
+    @Export(name="httpPostBinding", refs={String.class}, tree="[0]")
     private Output<String> httpPostBinding;
 
     /**
@@ -632,7 +632,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
      * 
      */
-    @Export(name="httpRedirectBinding", type=String.class, parameters={})
+    @Export(name="httpRedirectBinding", refs={String.class}, tree="[0]")
     private Output<String> httpRedirectBinding;
 
     /**
@@ -646,7 +646,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * SAML issuer ID.
      * 
      */
-    @Export(name="idpIssuer", type=String.class, parameters={})
+    @Export(name="idpIssuer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> idpIssuer;
 
     /**
@@ -660,7 +660,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
      * 
      */
-    @Export(name="implicitAssignment", type=Boolean.class, parameters={})
+    @Export(name="implicitAssignment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> implicitAssignment;
 
     /**
@@ -674,7 +674,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Saml Inline Hook associated with the application.
      * 
      */
-    @Export(name="inlineHookId", type=String.class, parameters={})
+    @Export(name="inlineHookId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inlineHookId;
 
     /**
@@ -688,7 +688,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Certificate key ID.
      * 
      */
-    @Export(name="keyId", type=String.class, parameters={})
+    @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**
@@ -702,7 +702,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
      * 
      */
-    @Export(name="keyName", type=String.class, parameters={})
+    @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyName;
 
     /**
@@ -716,7 +716,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Number of years the certificate is valid (2 - 10 years).
      * 
      */
-    @Export(name="keyYearsValid", type=Integer.class, parameters={})
+    @Export(name="keyYearsValid", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> keyYearsValid;
 
     /**
@@ -730,7 +730,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * An array of all key credentials for the application. Format of each entry is as follows:
      * 
      */
-    @Export(name="keys", type=List.class, parameters={SamlKey.class})
+    @Export(name="keys", refs={List.class,SamlKey.class}, tree="[0,1]")
     private Output<List<SamlKey>> keys;
 
     /**
@@ -744,7 +744,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * label of application.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -758,7 +758,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
-    @Export(name="logo", type=String.class, parameters={})
+    @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
@@ -772,7 +772,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Direct link of application logo.
      * 
      */
-    @Export(name="logoUrl", type=String.class, parameters={})
+    @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
@@ -786,7 +786,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The raw SAML metadata in XML.
      * 
      */
-    @Export(name="metadata", type=String.class, parameters={})
+    @Export(name="metadata", refs={String.class}, tree="[0]")
     private Output<String> metadata;
 
     /**
@@ -800,7 +800,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * SAML xml metadata URL.
      * 
      */
-    @Export(name="metadataUrl", type=String.class, parameters={})
+    @Export(name="metadataUrl", refs={String.class}, tree="[0]")
     private Output<String> metadataUrl;
 
     /**
@@ -814,7 +814,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The name of the attribute statement.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -828,7 +828,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      * 
      */
-    @Export(name="preconfiguredApp", type=String.class, parameters={})
+    @Export(name="preconfiguredApp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preconfiguredApp;
 
     /**
@@ -842,7 +842,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The location where the app may present the SAML assertion.
      * 
      */
-    @Export(name="recipient", type=String.class, parameters={})
+    @Export(name="recipient", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recipient;
 
     /**
@@ -856,7 +856,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Denotes whether the request is compressed or not.
      * 
      */
-    @Export(name="requestCompressed", type=Boolean.class, parameters={})
+    @Export(name="requestCompressed", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requestCompressed;
 
     /**
@@ -870,7 +870,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Determines whether the SAML auth response message is digitally signed.
      * 
      */
-    @Export(name="responseSigned", type=Boolean.class, parameters={})
+    @Export(name="responseSigned", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> responseSigned;
 
     /**
@@ -884,7 +884,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * SAML Signed Request enabled
      * 
      */
-    @Export(name="samlSignedRequestEnabled", type=Boolean.class, parameters={})
+    @Export(name="samlSignedRequestEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> samlSignedRequestEnabled;
 
     /**
@@ -898,7 +898,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * SAML version for the app&#39;s sign-on mode. Valid values are: `&#34;2.0&#34;` or `&#34;1.1&#34;`. Default is `&#34;2.0&#34;`.
      * 
      */
-    @Export(name="samlVersion", type=String.class, parameters={})
+    @Export(name="samlVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> samlVersion;
 
     /**
@@ -912,7 +912,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Sign-on mode of application.
      * 
      */
-    @Export(name="signOnMode", type=String.class, parameters={})
+    @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
@@ -926,7 +926,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Signature algorithm used ot digitally sign the assertion and response.
      * 
      */
-    @Export(name="signatureAlgorithm", type=String.class, parameters={})
+    @Export(name="signatureAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signatureAlgorithm;
 
     /**
@@ -940,7 +940,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      * 
      */
-    @Export(name="singleLogoutCertificate", type=String.class, parameters={})
+    @Export(name="singleLogoutCertificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> singleLogoutCertificate;
 
     /**
@@ -954,7 +954,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The issuer of the Service Provider that generates the Single Logout request.
      * 
      */
-    @Export(name="singleLogoutIssuer", type=String.class, parameters={})
+    @Export(name="singleLogoutIssuer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> singleLogoutIssuer;
 
     /**
@@ -968,7 +968,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The location where the logout response is sent.
      * 
      */
-    @Export(name="singleLogoutUrl", type=String.class, parameters={})
+    @Export(name="singleLogoutUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> singleLogoutUrl;
 
     /**
@@ -982,7 +982,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * SAML service provider issuer.
      * 
      */
-    @Export(name="spIssuer", type=String.class, parameters={})
+    @Export(name="spIssuer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spIssuer;
 
     /**
@@ -996,7 +996,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Single Sign-on Url.
      * 
      */
-    @Export(name="ssoUrl", type=String.class, parameters={})
+    @Export(name="ssoUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ssoUrl;
 
     /**
@@ -1010,7 +1010,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * status of application.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -1024,7 +1024,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Identifies the SAML processing rules.
      * 
      */
-    @Export(name="subjectNameIdFormat", type=String.class, parameters={})
+    @Export(name="subjectNameIdFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectNameIdFormat;
 
     /**
@@ -1038,7 +1038,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Template for app user&#39;s username when a user is assigned to the app.
      * 
      */
-    @Export(name="subjectNameIdTemplate", type=String.class, parameters={})
+    @Export(name="subjectNameIdTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectNameIdTemplate;
 
     /**
@@ -1052,7 +1052,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Username template. Default is: `&#34;${source.login}&#34;`
      * 
      */
-    @Export(name="userNameTemplate", type=String.class, parameters={})
+    @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
@@ -1066,7 +1066,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
-    @Export(name="userNameTemplatePushStatus", type=String.class, parameters={})
+    @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
@@ -1080,7 +1080,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Username template suffix.
      * 
      */
-    @Export(name="userNameTemplateSuffix", type=String.class, parameters={})
+    @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
@@ -1094,7 +1094,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Username template type. Default is: `&#34;BUILT_IN&#34;`.
      * 
      */
-    @Export(name="userNameTemplateType", type=String.class, parameters={})
+    @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**

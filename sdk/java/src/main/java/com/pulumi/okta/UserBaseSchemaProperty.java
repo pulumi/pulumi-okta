@@ -84,7 +84,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      * The property name.
      * 
      */
-    @Export(name="index", type=String.class, parameters={})
+    @Export(name="index", refs={String.class}, tree="[0]")
     private Output<String> index;
 
     /**
@@ -98,7 +98,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      * Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
      * 
      */
-    @Export(name="master", type=String.class, parameters={})
+    @Export(name="master", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> master;
 
     /**
@@ -112,7 +112,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      * The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
      * 
      */
-    @Export(name="pattern", type=String.class, parameters={})
+    @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pattern;
 
     /**
@@ -126,7 +126,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      * Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
      * 
      */
-    @Export(name="permissions", type=String.class, parameters={})
+    @Export(name="permissions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permissions;
 
     /**
@@ -140,7 +140,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      * Whether the property is required for this application&#39;s users.
      * 
      */
-    @Export(name="required", type=Boolean.class, parameters={})
+    @Export(name="required", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> required;
 
     /**
@@ -154,7 +154,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      * The property display name.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
@@ -168,7 +168,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      * The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -182,7 +182,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      * User type ID.
      * 
      */
-    @Export(name="userType", type=String.class, parameters={})
+    @Export(name="userType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userType;
 
     /**

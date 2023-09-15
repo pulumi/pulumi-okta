@@ -70,7 +70,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * is `&#34;urn:okta:expression:1.0&#34;`.
      * 
      */
-    @Export(name="expressionType", type=String.class, parameters={})
+    @Export(name="expressionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expressionType;
 
     /**
@@ -85,7 +85,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The expression value.
      * 
      */
-    @Export(name="expressionValue", type=String.class, parameters={})
+    @Export(name="expressionValue", refs={String.class}, tree="[0]")
     private Output<String> expressionValue;
 
     /**
@@ -99,7 +99,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The list of group ids to assign the users to.
      * 
      */
-    @Export(name="groupAssignments", type=List.class, parameters={String.class})
+    @Export(name="groupAssignments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> groupAssignments;
 
     /**
@@ -113,7 +113,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The name of the Group Rule (min character 1; max characters 50).
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * group after destroying this resource. Default is `false`.
      * 
      */
-    @Export(name="removeAssignedUsers", type=Boolean.class, parameters={})
+    @Export(name="removeAssignedUsers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> removeAssignedUsers;
 
     /**
@@ -143,7 +143,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The status of the group rule.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -157,7 +157,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The list of user IDs that would be excluded when rules are processed.
      * 
      */
-    @Export(name="usersExcludeds", type=List.class, parameters={String.class})
+    @Export(name="usersExcludeds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> usersExcludeds;
 
     /**

@@ -108,13 +108,19 @@ class OAuthJwk(dict):
                  kid: str,
                  kty: str,
                  e: Optional[str] = None,
-                 n: Optional[str] = None):
+                 n: Optional[str] = None,
+                 x: Optional[str] = None,
+                 y: Optional[str] = None):
         pulumi.set(__self__, "kid", kid)
         pulumi.set(__self__, "kty", kty)
         if e is not None:
             pulumi.set(__self__, "e", e)
         if n is not None:
             pulumi.set(__self__, "n", n)
+        if x is not None:
+            pulumi.set(__self__, "x", x)
+        if y is not None:
+            pulumi.set(__self__, "y", y)
 
     @property
     @pulumi.getter
@@ -135,6 +141,16 @@ class OAuthJwk(dict):
     @pulumi.getter
     def n(self) -> Optional[str]:
         return pulumi.get(self, "n")
+
+    @property
+    @pulumi.getter
+    def x(self) -> Optional[str]:
+        return pulumi.get(self, "x")
+
+    @property
+    @pulumi.getter
+    def y(self) -> Optional[str]:
+        return pulumi.get(self, "y")
 
 
 @pulumi.output_type

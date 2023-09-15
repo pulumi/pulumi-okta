@@ -76,7 +76,9 @@ type Mapping struct {
 
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
 	//
-	// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
+	// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+	//
+	// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 	AlwaysApply pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent pulumi.BoolPtrOutput `pulumi:"deleteWhenAbsent"`
@@ -134,7 +136,9 @@ func GetMapping(ctx *pulumi.Context,
 type mappingState struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
 	//
-	// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
+	// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+	//
+	// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 	AlwaysApply *bool `pulumi:"alwaysApply"`
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
@@ -157,7 +161,9 @@ type mappingState struct {
 type MappingState struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
 	//
-	// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
+	// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+	//
+	// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 	AlwaysApply pulumi.BoolPtrInput
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent pulumi.BoolPtrInput
@@ -184,7 +190,9 @@ func (MappingState) ElementType() reflect.Type {
 type mappingArgs struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
 	//
-	// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
+	// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+	//
+	// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 	AlwaysApply *bool `pulumi:"alwaysApply"`
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
@@ -200,7 +208,9 @@ type mappingArgs struct {
 type MappingArgs struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
 	//
-	// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
+	// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+	//
+	// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 	AlwaysApply pulumi.BoolPtrInput
 	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
 	DeleteWhenAbsent pulumi.BoolPtrInput
@@ -325,7 +335,9 @@ func (o MappingOutput) ToOutput(ctx context.Context) pulumix.Output[*Mapping] {
 
 // Whether apply the changes to all users with this profile after updating or creating the these mappings.
 //
-// > **WARNING**: `alwaysApply` is available only when using api token in the provider config.
+// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+//
+// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 func (o MappingOutput) AlwaysApply() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Mapping) pulumi.BoolPtrOutput { return v.AlwaysApply }).(pulumi.BoolPtrOutput)
 }

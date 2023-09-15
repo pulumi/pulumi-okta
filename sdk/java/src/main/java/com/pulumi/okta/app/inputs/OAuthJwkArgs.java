@@ -43,6 +43,20 @@ public final class OAuthJwkArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.n);
     }
 
+    @Import(name="x")
+    private @Nullable Output<String> x;
+
+    public Optional<Output<String>> x() {
+        return Optional.ofNullable(this.x);
+    }
+
+    @Import(name="y")
+    private @Nullable Output<String> y;
+
+    public Optional<Output<String>> y() {
+        return Optional.ofNullable(this.y);
+    }
+
     private OAuthJwkArgs() {}
 
     private OAuthJwkArgs(OAuthJwkArgs $) {
@@ -50,6 +64,8 @@ public final class OAuthJwkArgs extends com.pulumi.resources.ResourceArgs {
         this.kid = $.kid;
         this.kty = $.kty;
         this.n = $.n;
+        this.x = $.x;
+        this.y = $.y;
     }
 
     public static Builder builder() {
@@ -104,6 +120,24 @@ public final class OAuthJwkArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder n(String n) {
             return n(Output.of(n));
+        }
+
+        public Builder x(@Nullable Output<String> x) {
+            $.x = x;
+            return this;
+        }
+
+        public Builder x(String x) {
+            return x(Output.of(x));
+        }
+
+        public Builder y(@Nullable Output<String> y) {
+            $.y = y;
+            return this;
+        }
+
+        public Builder y(String y) {
+            return y(Output.of(y));
         }
 
         public OAuthJwkArgs build() {

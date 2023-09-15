@@ -82,7 +82,7 @@ public class AppSamlAppSettings extends com.pulumi.resources.CustomResource {
      * ID of the application.
      * 
      */
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
@@ -96,7 +96,7 @@ public class AppSamlAppSettings extends com.pulumi.resources.CustomResource {
      * Application settings in JSON format.
      * 
      */
-    @Export(name="settings", type=String.class, parameters={})
+    @Export(name="settings", refs={String.class}, tree="[0]")
     private Output<String> settings;
 
     /**

@@ -5,6 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DeviceAssuranceAndroidArgs, DeviceAssuranceAndroidState } from "./deviceAssuranceAndroid";
+export type DeviceAssuranceAndroid = import("./deviceAssuranceAndroid").DeviceAssuranceAndroid;
+export const DeviceAssuranceAndroid: typeof import("./deviceAssuranceAndroid").DeviceAssuranceAndroid = null as any;
+utilities.lazyLoad(exports, ["DeviceAssuranceAndroid"], () => require("./deviceAssuranceAndroid"));
+
+export { DeviceAssuranceChromeosArgs, DeviceAssuranceChromeosState } from "./deviceAssuranceChromeos";
+export type DeviceAssuranceChromeos = import("./deviceAssuranceChromeos").DeviceAssuranceChromeos;
+export const DeviceAssuranceChromeos: typeof import("./deviceAssuranceChromeos").DeviceAssuranceChromeos = null as any;
+utilities.lazyLoad(exports, ["DeviceAssuranceChromeos"], () => require("./deviceAssuranceChromeos"));
+
+export { DeviceAssuranceIosArgs, DeviceAssuranceIosState } from "./deviceAssuranceIos";
+export type DeviceAssuranceIos = import("./deviceAssuranceIos").DeviceAssuranceIos;
+export const DeviceAssuranceIos: typeof import("./deviceAssuranceIos").DeviceAssuranceIos = null as any;
+utilities.lazyLoad(exports, ["DeviceAssuranceIos"], () => require("./deviceAssuranceIos"));
+
+export { DeviceAssuranceMacosArgs, DeviceAssuranceMacosState } from "./deviceAssuranceMacos";
+export type DeviceAssuranceMacos = import("./deviceAssuranceMacos").DeviceAssuranceMacos;
+export const DeviceAssuranceMacos: typeof import("./deviceAssuranceMacos").DeviceAssuranceMacos = null as any;
+utilities.lazyLoad(exports, ["DeviceAssuranceMacos"], () => require("./deviceAssuranceMacos"));
+
+export { DeviceAssuranceWindowsArgs, DeviceAssuranceWindowsState } from "./deviceAssuranceWindows";
+export type DeviceAssuranceWindows = import("./deviceAssuranceWindows").DeviceAssuranceWindows;
+export const DeviceAssuranceWindows: typeof import("./deviceAssuranceWindows").DeviceAssuranceWindows = null as any;
+utilities.lazyLoad(exports, ["DeviceAssuranceWindows"], () => require("./deviceAssuranceWindows"));
+
 export { GetDefaultPolicyArgs, GetDefaultPolicyResult, GetDefaultPolicyOutputArgs } from "./getDefaultPolicy";
 export const getDefaultPolicy: typeof import("./getDefaultPolicy").getDefaultPolicy = null as any;
 export const getDefaultPolicyOutput: typeof import("./getDefaultPolicy").getDefaultPolicyOutput = null as any;
@@ -55,6 +80,16 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid":
+                return new DeviceAssuranceAndroid(name, <any>undefined, { urn })
+            case "okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos":
+                return new DeviceAssuranceChromeos(name, <any>undefined, { urn })
+            case "okta:policy/deviceAssuranceIos:DeviceAssuranceIos":
+                return new DeviceAssuranceIos(name, <any>undefined, { urn })
+            case "okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos":
+                return new DeviceAssuranceMacos(name, <any>undefined, { urn })
+            case "okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows":
+                return new DeviceAssuranceWindows(name, <any>undefined, { urn })
             case "okta:policy/mfa:Mfa":
                 return new Mfa(name, <any>undefined, { urn })
             case "okta:policy/password:Password":
@@ -74,6 +109,11 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("okta", "policy/deviceAssuranceAndroid", _module)
+pulumi.runtime.registerResourceModule("okta", "policy/deviceAssuranceChromeos", _module)
+pulumi.runtime.registerResourceModule("okta", "policy/deviceAssuranceIos", _module)
+pulumi.runtime.registerResourceModule("okta", "policy/deviceAssuranceMacos", _module)
+pulumi.runtime.registerResourceModule("okta", "policy/deviceAssuranceWindows", _module)
 pulumi.runtime.registerResourceModule("okta", "policy/mfa", _module)
 pulumi.runtime.registerResourceModule("okta", "policy/password", _module)
 pulumi.runtime.registerResourceModule("okta", "policy/ruleIdpDiscovery", _module)

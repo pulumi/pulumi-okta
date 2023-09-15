@@ -108,7 +108,7 @@ public class AppSignonPolicy extends com.pulumi.resources.CustomResource {
      * Description of the policy.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -122,7 +122,7 @@ public class AppSignonPolicy extends com.pulumi.resources.CustomResource {
      * Name of the policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

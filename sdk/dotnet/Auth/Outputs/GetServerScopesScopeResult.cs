@@ -41,6 +41,7 @@ namespace Pulumi.Okta.Auth.Outputs
         /// Name of the Scope
         /// </summary>
         public readonly string Name;
+        public readonly bool Optional;
         /// <summary>
         /// Whether Okta created the Scope
         /// </summary>
@@ -62,6 +63,8 @@ namespace Pulumi.Okta.Auth.Outputs
 
             string name,
 
+            bool optional,
+
             bool system)
         {
             Consent = consent;
@@ -71,6 +74,7 @@ namespace Pulumi.Okta.Auth.Outputs
             Id = id;
             MetadataPublish = metadataPublish;
             Name = name;
+            Optional = optional;
             System = system;
         }
     }

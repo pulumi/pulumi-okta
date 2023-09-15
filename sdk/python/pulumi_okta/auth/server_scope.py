@@ -20,7 +20,8 @@ class ServerScopeArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  metadata_publish: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 optional: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ServerScope resource.
         :param pulumi.Input[str] auth_server_id: Auth Server ID.
@@ -30,6 +31,7 @@ class ServerScopeArgs:
         :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
+        :param pulumi.Input[bool] optional: Whether the scope optional
         """
         pulumi.set(__self__, "auth_server_id", auth_server_id)
         if consent is not None:
@@ -44,6 +46,8 @@ class ServerScopeArgs:
             pulumi.set(__self__, "metadata_publish", metadata_publish)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -129,6 +133,18 @@ class ServerScopeArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the scope optional
+        """
+        return pulumi.get(self, "optional")
+
+    @optional.setter
+    def optional(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "optional", value)
+
 
 @pulumi.input_type
 class _ServerScopeState:
@@ -140,6 +156,7 @@ class _ServerScopeState:
                  display_name: Optional[pulumi.Input[str]] = None,
                  metadata_publish: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 optional: Optional[pulumi.Input[bool]] = None,
                  system: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering ServerScope resources.
@@ -150,6 +167,7 @@ class _ServerScopeState:
         :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
+        :param pulumi.Input[bool] optional: Whether the scope optional
         :param pulumi.Input[bool] system: Whether Okta created the Scope
         """
         if auth_server_id is not None:
@@ -166,6 +184,8 @@ class _ServerScopeState:
             pulumi.set(__self__, "metadata_publish", metadata_publish)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
         if system is not None:
             pulumi.set(__self__, "system", system)
 
@@ -255,6 +275,18 @@ class _ServerScopeState:
 
     @property
     @pulumi.getter
+    def optional(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the scope optional
+        """
+        return pulumi.get(self, "optional")
+
+    @optional.setter
+    def optional(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "optional", value)
+
+    @property
+    @pulumi.getter
     def system(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether Okta created the Scope
@@ -278,6 +310,7 @@ class ServerScope(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  metadata_publish: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 optional: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Creates an Authorization Server Scope.
@@ -313,6 +346,7 @@ class ServerScope(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
+        :param pulumi.Input[bool] optional: Whether the scope optional
         """
         ...
     @overload
@@ -367,6 +401,7 @@ class ServerScope(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  metadata_publish: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 optional: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -385,6 +420,7 @@ class ServerScope(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["metadata_publish"] = metadata_publish
             __props__.__dict__["name"] = name
+            __props__.__dict__["optional"] = optional
             __props__.__dict__["system"] = None
         super(ServerScope, __self__).__init__(
             'okta:auth/serverScope:ServerScope',
@@ -403,6 +439,7 @@ class ServerScope(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[str]] = None,
             metadata_publish: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            optional: Optional[pulumi.Input[bool]] = None,
             system: Optional[pulumi.Input[bool]] = None) -> 'ServerScope':
         """
         Get an existing ServerScope resource's state with the given name, id, and optional extra
@@ -418,6 +455,7 @@ class ServerScope(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
         :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         :param pulumi.Input[str] name: Auth Server scope name.
+        :param pulumi.Input[bool] optional: Whether the scope optional
         :param pulumi.Input[bool] system: Whether Okta created the Scope
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -431,6 +469,7 @@ class ServerScope(pulumi.CustomResource):
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["metadata_publish"] = metadata_publish
         __props__.__dict__["name"] = name
+        __props__.__dict__["optional"] = optional
         __props__.__dict__["system"] = system
         return ServerScope(resource_name, opts=opts, __props__=__props__)
 
@@ -489,6 +528,14 @@ class ServerScope(pulumi.CustomResource):
         Auth Server scope name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def optional(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the scope optional
+        """
+        return pulumi.get(self, "optional")
 
     @property
     @pulumi.getter

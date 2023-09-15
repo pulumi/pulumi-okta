@@ -88,13 +88,13 @@ class OAuthArgs:
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
-        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
-        :param pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        :param pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]] jwks: JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
         :param pulumi.Input[str] jwks_uri: URL of the custom authorization server's JSON Web Key Set document.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
@@ -446,7 +446,7 @@ class OAuthArgs:
     @pulumi.getter(name="groupsClaim")
     def groups_claim(self) -> Optional[pulumi.Input['OAuthGroupsClaimArgs']]:
         """
-        Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+        Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
         """
         return pulumi.get(self, "groups_claim")
 
@@ -507,7 +507,7 @@ class OAuthArgs:
     @pulumi.getter
     def jwks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]]:
         """
-        JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
         """
         return pulumi.get(self, "jwks")
 
@@ -891,13 +891,13 @@ class _OAuthState:
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
-        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
-        :param pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        :param pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]] jwks: JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
         :param pulumi.Input[str] jwks_uri: URL of the custom authorization server's JSON Web Key Set document.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -1252,7 +1252,7 @@ class _OAuthState:
     @pulumi.getter(name="groupsClaim")
     def groups_claim(self) -> Optional[pulumi.Input['OAuthGroupsClaimArgs']]:
         """
-        Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+        Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
         """
         return pulumi.get(self, "groups_claim")
 
@@ -1313,7 +1313,7 @@ class _OAuthState:
     @pulumi.getter
     def jwks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]]:
         """
-        JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
         """
         return pulumi.get(self, "jwks")
 
@@ -1757,12 +1757,20 @@ class OAuth(pulumi.CustomResource):
 
         example = okta.app.OAuth("example",
             grant_types=["client_credentials"],
-            jwks=[okta.app.OAuthJwkArgs(
-                e="AQAB",
-                kid="SIGNING_KEY",
-                kty="RSA",
-                n="xyz",
-            )],
+            jwks=[
+                okta.app.OAuthJwkArgs(
+                    e="AQAB",
+                    kid="SIGNING_KEY_RSA",
+                    kty="RSA",
+                    n="xyz",
+                ),
+                okta.app.OAuthJwkArgs(
+                    kid="SIGNING_KEY_EC",
+                    kty="EC",
+                    x="K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I",
+                    y="8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo",
+                ),
+            ],
             label="example",
             response_types=["token"],
             token_endpoint_auth_method="private_key_jwt",
@@ -1823,13 +1831,13 @@ class OAuth(pulumi.CustomResource):
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
-        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]] jwks: JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
         :param pulumi.Input[str] jwks_uri: URL of the custom authorization server's JSON Web Key Set document.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -1909,12 +1917,20 @@ class OAuth(pulumi.CustomResource):
 
         example = okta.app.OAuth("example",
             grant_types=["client_credentials"],
-            jwks=[okta.app.OAuthJwkArgs(
-                e="AQAB",
-                kid="SIGNING_KEY",
-                kty="RSA",
-                n="xyz",
-            )],
+            jwks=[
+                okta.app.OAuthJwkArgs(
+                    e="AQAB",
+                    kid="SIGNING_KEY_RSA",
+                    kty="RSA",
+                    n="xyz",
+                ),
+                okta.app.OAuthJwkArgs(
+                    kid="SIGNING_KEY_EC",
+                    kty="EC",
+                    x="K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I",
+                    y="8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo",
+                ),
+            ],
             label="example",
             response_types=["token"],
             token_endpoint_auth_method="private_key_jwt",
@@ -2167,13 +2183,13 @@ class OAuth(pulumi.CustomResource):
                Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
                `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
                `"interaction_code"` (*OIE only*).
-        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
         :param pulumi.Input[bool] hide_web: Do not display application icon to users.
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
         :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]] jwks: JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]] jwks: JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
         :param pulumi.Input[str] jwks_uri: URL of the custom authorization server's JSON Web Key Set document.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] login_mode: The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
@@ -2419,7 +2435,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="groupsClaim")
     def groups_claim(self) -> pulumi.Output[Optional['outputs.OAuthGroupsClaim']]:
         """
-        Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+        Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
         """
         return pulumi.get(self, "groups_claim")
 
@@ -2460,7 +2476,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter
     def jwks(self) -> pulumi.Output[Optional[Sequence['outputs.OAuthJwk']]]:
         """
-        JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+        JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
         """
         return pulumi.get(self, "jwks")
 

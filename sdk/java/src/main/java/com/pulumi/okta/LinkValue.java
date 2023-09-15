@@ -101,7 +101,7 @@ public class LinkValue extends com.pulumi.resources.CustomResource {
      * Set of User IDs or login values of the users to be assigned the &#39;associated&#39; relationship.
      * 
      */
-    @Export(name="associatedUserIds", type=List.class, parameters={String.class})
+    @Export(name="associatedUserIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> associatedUserIds;
 
     /**
@@ -115,7 +115,7 @@ public class LinkValue extends com.pulumi.resources.CustomResource {
      * Name of the `primary` relationship being assigned.
      * 
      */
-    @Export(name="primaryName", type=String.class, parameters={})
+    @Export(name="primaryName", refs={String.class}, tree="[0]")
     private Output<String> primaryName;
 
     /**
@@ -129,7 +129,7 @@ public class LinkValue extends com.pulumi.resources.CustomResource {
      * User ID to be assigned to `primary` for the `associated` user in the specified relationship.
      * 
      */
-    @Export(name="primaryUserId", type=String.class, parameters={})
+    @Export(name="primaryUserId", refs={String.class}, tree="[0]")
     private Output<String> primaryUserId;
 
     /**
