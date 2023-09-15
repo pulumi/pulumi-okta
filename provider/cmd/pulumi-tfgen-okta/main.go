@@ -16,11 +16,10 @@ package main
 
 import (
 	okta "github.com/pulumi/pulumi-okta/provider/v4"
-	"github.com/pulumi/pulumi-okta/provider/v4/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
+	"github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
 )
 
 func main() {
 	// Modify the path to point to the new provider
-	tfgen.Main("okta", version.Version, okta.Provider())
+	tfgen.MainWithMuxer("okta", okta.Provider())
 }

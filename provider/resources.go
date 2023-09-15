@@ -15,17 +15,19 @@
 package okta
 
 import (
+	"context"
 	"fmt"
-	// embed is used to store bridge-metadata.json in the compiled binary
-	_ "embed"
 	"path/filepath"
 	"strings"
 	"unicode"
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
 
 	"github.com/okta/terraform-provider-okta/okta"
 	"github.com/pulumi/pulumi-okta/provider/v4/pkg/version"
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 )
@@ -74,20 +76,29 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod, res)
 }
 
+//go:embed cmd/pulumi-resource-okta/bridge-metadata.json
+var metadata []byte
+
 // Provider returns additional overlaid schema and metadata associated with the provider.
 func Provider() tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(okta.Provider())
+	ctx := context.Background()
+	p := pfbridge.MuxShimWithPF(ctx,
+		shimv2.NewProvider(okta.Provider()),
+		okta.NewFrameworkProvider(okta.OktaTerraformProviderVersion),
+	)
 	prov := tfbridge.ProviderInfo{
-		P:                p,
-		Name:             "okta",
-		Description:      "A Pulumi package for creating and managing okta resources.",
-		Keywords:         []string{"pulumi", "okta"},
-		License:          "Apache-2.0",
-		Homepage:         "https://pulumi.io",
-		GitHubOrg:        "okta",
-		Repository:       "https://github.com/pulumi/pulumi-okta",
-		Config:           map[string]*tfbridge.SchemaInfo{},
-		UpstreamRepoPath: "./upstream",
+		P:                 p,
+		Name:              "okta",
+		Description:       "A Pulumi package for creating and managing okta resources.",
+		Keywords:          []string{"pulumi", "okta"},
+		License:           "Apache-2.0",
+		Homepage:          "https://pulumi.io",
+		GitHubOrg:         "okta",
+		Repository:        "https://github.com/pulumi/pulumi-okta",
+		Config:            map[string]*tfbridge.SchemaInfo{},
+		UpstreamRepoPath:  "./upstream",
+		Version:           version.Version,
+		TFProviderVersion: okta.OktaTerraformProviderVersion,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// App Resources
 			"okta_app_auto_login": {
@@ -430,7 +441,7 @@ func Provider() tfbridge.ProviderInfo {
 				Source: "auth_server_policy_rule.html.markdown"},
 		})
 
-	prov.MustComputeTokens(tfbridgetokens.KnownModules("okta_", mainMod, []string{
+	prov.MustComputeTokens(tks.KnownModules("okta_", mainMod, []string{
 		"app_",
 		"auth_",
 		"factor_",
@@ -443,13 +454,22 @@ func Provider() tfbridge.ProviderInfo {
 		"template_",
 		"trusted_origin_",
 		"user_",
-	}, tfbridgetokens.MakeStandard(mainPkg)))
+	}, tks.MakeStandard(mainPkg)))
 
 	prov.MustApplyAutoAliases()
 	prov.SetAutonaming(255, "-")
 
+	for _, r := range []string{
+		"okta_policy_device_assurance_android",
+		"okta_policy_device_assurance_chromeos",
+		"okta_policy_device_assurance_ios",
+		"okta_policy_device_assurance_macos",
+		"okta_policy_device_assurance_windows",
+	} {
+		prov.Resources[r].Docs = noDocs
+	}
+
 	return prov
 }
 
-//go:embed cmd/pulumi-resource-okta/bridge-metadata.json
-var metadata []byte
+var noDocs = &tfbridge.DocInfo{Markdown: []byte{' '}}
