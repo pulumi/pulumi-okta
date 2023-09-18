@@ -32,7 +32,7 @@ public class GroupAssignment extends com.pulumi.resources.CustomResource {
      * The ID of the application to assign a group to.
      * 
      */
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
@@ -46,7 +46,7 @@ public class GroupAssignment extends com.pulumi.resources.CustomResource {
      * The ID of the group to assign the app to.
      * 
      */
-    @Export(name="groupId", type=String.class, parameters={})
+    @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
@@ -60,7 +60,7 @@ public class GroupAssignment extends com.pulumi.resources.CustomResource {
      * Priority of group assignment.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
@@ -74,7 +74,7 @@ public class GroupAssignment extends com.pulumi.resources.CustomResource {
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
      * 
      */
-    @Export(name="profile", type=String.class, parameters={})
+    @Export(name="profile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> profile;
 
     /**
@@ -88,7 +88,7 @@ public class GroupAssignment extends com.pulumi.resources.CustomResource {
      * Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      * 
      */
-    @Export(name="retainAssignment", type=Boolean.class, parameters={})
+    @Export(name="retainAssignment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> retainAssignment;
 
     /**

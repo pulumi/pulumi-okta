@@ -79,7 +79,7 @@ public class ThreatInsightSettings extends com.pulumi.resources.CustomResource {
      * requests in the System Log and blocks the requests.
      * 
      */
-    @Export(name="action", type=String.class, parameters={})
+    @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
@@ -99,7 +99,7 @@ public class ThreatInsightSettings extends com.pulumi.resources.CustomResource {
      * is not guarantee from the API sides
      * 
      */
-    @Export(name="networkExcludes", type=List.class, parameters={String.class})
+    @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**

@@ -17,6 +17,8 @@ namespace Pulumi.Okta.App.Outputs
         public readonly string Kid;
         public readonly string Kty;
         public readonly string? N;
+        public readonly string? X;
+        public readonly string? Y;
 
         [OutputConstructor]
         private OAuthJwk(
@@ -26,12 +28,18 @@ namespace Pulumi.Okta.App.Outputs
 
             string kty,
 
-            string? n)
+            string? n,
+
+            string? x,
+
+            string? y)
         {
             E = e;
             Kid = kid;
             Kty = kty;
             N = n;
+            X = x;
+            Y = y;
         }
     }
 }

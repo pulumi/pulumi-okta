@@ -68,7 +68,7 @@ public class Signon extends com.pulumi.resources.CustomResource {
      * Policy Description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -82,7 +82,7 @@ public class Signon extends com.pulumi.resources.CustomResource {
      * List of Group IDs to Include.
      * 
      */
-    @Export(name="groupsIncludeds", type=List.class, parameters={String.class})
+    @Export(name="groupsIncludeds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsIncludeds;
 
     /**
@@ -96,7 +96,7 @@ public class Signon extends com.pulumi.resources.CustomResource {
      * Policy Name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -110,7 +110,7 @@ public class Signon extends com.pulumi.resources.CustomResource {
      * Priority of the policy.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
@@ -124,7 +124,7 @@ public class Signon extends com.pulumi.resources.CustomResource {
      * Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**

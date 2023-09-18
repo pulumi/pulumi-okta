@@ -63,7 +63,7 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
      * The body of the customization
      * 
      */
-    @Export(name="body", type=String.class, parameters={})
+    @Export(name="body", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> body;
 
     /**
@@ -77,7 +77,7 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
      * Brand ID
      * 
      */
-    @Export(name="brandId", type=String.class, parameters={})
+    @Export(name="brandId", refs={String.class}, tree="[0]")
     private Output<String> brandId;
 
     /**
@@ -95,7 +95,7 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template */
-    @Export(name="forceIsDefault", type=String.class, parameters={})
+    @Export(name="forceIsDefault", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> forceIsDefault;
 
     /**
@@ -109,7 +109,7 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
      * Whether the customization is the default
      * 
      */
-    @Export(name="isDefault", type=Boolean.class, parameters={})
+    @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isDefault;
 
     /**
@@ -151,7 +151,7 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
      *   `&#34;zh-TW&#34;`
      * 
      */
-    @Export(name="language", type=String.class, parameters={})
+    @Export(name="language", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> language;
 
     /**
@@ -193,7 +193,7 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
      * Link relations for this object - JSON HAL - Discoverable resources related to the email template
      * 
      */
-    @Export(name="links", type=String.class, parameters={})
+    @Export(name="links", refs={String.class}, tree="[0]")
     private Output<String> links;
 
     /**
@@ -207,7 +207,7 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
      * The subject of the customization
      * 
      */
-    @Export(name="subject", type=String.class, parameters={})
+    @Export(name="subject", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subject;
 
     /**
@@ -253,7 +253,7 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
      *   `&#34;UserActivation&#34;`
      * 
      */
-    @Export(name="templateName", type=String.class, parameters={})
+    @Export(name="templateName", refs={String.class}, tree="[0]")
     private Output<String> templateName;
 
     /**

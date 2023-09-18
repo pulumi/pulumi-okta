@@ -68,7 +68,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Custom error page URL.
      * 
      */
-    @Export(name="accessibilityErrorRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
@@ -82,7 +82,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Custom login page for this application.
      * 
      */
-    @Export(name="accessibilityLoginRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
@@ -96,7 +96,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Enable self-service. By default, it is `false`.
      * 
      */
-    @Export(name="accessibilitySelfService", type=Boolean.class, parameters={})
+    @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
@@ -110,7 +110,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Application notes for admins.
      * 
      */
-    @Export(name="adminNote", type=String.class, parameters={})
+    @Export(name="adminNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminNote;
 
     /**
@@ -124,7 +124,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Displays specific appLinks for the app
      * 
      */
-    @Export(name="appLinksJson", type=String.class, parameters={})
+    @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
@@ -138,7 +138,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Display auto submit toolbar.
      * 
      */
-    @Export(name="autoSubmitToolbar", type=Boolean.class, parameters={})
+    @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
@@ -152,7 +152,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Login button field CSS selector.
      * 
      */
-    @Export(name="buttonSelector", type=String.class, parameters={})
+    @Export(name="buttonSelector", refs={String.class}, tree="[0]")
     private Output<String> buttonSelector;
 
     /**
@@ -166,7 +166,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
      * 
      */
-    @Export(name="credentialsScheme", type=String.class, parameters={})
+    @Export(name="credentialsScheme", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialsScheme;
 
     /**
@@ -180,7 +180,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Application notes for end users.
      * 
      */
-    @Export(name="enduserNote", type=String.class, parameters={})
+    @Export(name="enduserNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enduserNote;
 
     /**
@@ -194,7 +194,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Extra field CSS selector.
      * 
      */
-    @Export(name="extraFieldSelector", type=String.class, parameters={})
+    @Export(name="extraFieldSelector", refs={String.class}, tree="[0]")
     private Output<String> extraFieldSelector;
 
     /**
@@ -208,7 +208,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Value for extra form field.
      * 
      */
-    @Export(name="extraFieldValue", type=String.class, parameters={})
+    @Export(name="extraFieldValue", refs={String.class}, tree="[0]")
     private Output<String> extraFieldValue;
 
     /**
@@ -222,7 +222,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Do not display application icon on mobile app.
      * 
      */
-    @Export(name="hideIos", type=Boolean.class, parameters={})
+    @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
@@ -236,7 +236,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Do not display application icon to users.
      * 
      */
-    @Export(name="hideWeb", type=Boolean.class, parameters={})
+    @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
@@ -250,7 +250,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * The display name of the Application.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -264,7 +264,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
-    @Export(name="logo", type=String.class, parameters={})
+    @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
@@ -278,7 +278,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Direct link of application logo.
      * 
      */
-    @Export(name="logoUrl", type=String.class, parameters={})
+    @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
@@ -292,7 +292,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Name assigned to the application by Okta.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -306,7 +306,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Login password field CSS selector.
      * 
      */
-    @Export(name="passwordSelector", type=String.class, parameters={})
+    @Export(name="passwordSelector", refs={String.class}, tree="[0]")
     private Output<String> passwordSelector;
 
     /**
@@ -320,7 +320,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
      * 
      */
-    @Export(name="revealPassword", type=Boolean.class, parameters={})
+    @Export(name="revealPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revealPassword;
 
     /**
@@ -334,7 +334,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Shared password, required for certain schemes.
      * 
      */
-    @Export(name="sharedPassword", type=String.class, parameters={})
+    @Export(name="sharedPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedPassword;
 
     /**
@@ -348,7 +348,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Shared username, required for certain schemes.
      * 
      */
-    @Export(name="sharedUsername", type=String.class, parameters={})
+    @Export(name="sharedUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedUsername;
 
     /**
@@ -362,7 +362,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Sign-on mode of application.
      * 
      */
-    @Export(name="signOnMode", type=String.class, parameters={})
+    @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
@@ -376,7 +376,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Status of application. By default, it is `&#34;ACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -390,7 +390,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Login URL.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
@@ -404,7 +404,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * A regex that further restricts URL to the specified regex.
      * 
      */
-    @Export(name="urlRegex", type=String.class, parameters={})
+    @Export(name="urlRegex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> urlRegex;
 
     /**
@@ -418,7 +418,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
-    @Export(name="userNameTemplate", type=String.class, parameters={})
+    @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
@@ -432,7 +432,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
-    @Export(name="userNameTemplatePushStatus", type=String.class, parameters={})
+    @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
@@ -446,7 +446,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Username template suffix.
      * 
      */
-    @Export(name="userNameTemplateSuffix", type=String.class, parameters={})
+    @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
@@ -460,7 +460,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
-    @Export(name="userNameTemplateType", type=String.class, parameters={})
+    @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**
@@ -474,7 +474,7 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * Login username field CSS selector.
      * 
      */
-    @Export(name="usernameSelector", type=String.class, parameters={})
+    @Export(name="usernameSelector", refs={String.class}, tree="[0]")
     private Output<String> usernameSelector;
 
     /**

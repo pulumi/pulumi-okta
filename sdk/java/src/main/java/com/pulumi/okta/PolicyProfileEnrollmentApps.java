@@ -84,7 +84,7 @@ public class PolicyProfileEnrollmentApps extends com.pulumi.resources.CustomReso
      * List of app IDs to be added to this policy.
      * 
      */
-    @Export(name="apps", type=List.class, parameters={String.class})
+    @Export(name="apps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> apps;
 
     /**
@@ -98,7 +98,7 @@ public class PolicyProfileEnrollmentApps extends com.pulumi.resources.CustomReso
      * ID of the default enrollment policy.
      * 
      */
-    @Export(name="defaultPolicyId", type=String.class, parameters={})
+    @Export(name="defaultPolicyId", refs={String.class}, tree="[0]")
     private Output<String> defaultPolicyId;
 
     /**
@@ -112,7 +112,7 @@ public class PolicyProfileEnrollmentApps extends com.pulumi.resources.CustomReso
      * ID of the enrollment policy.
      * 
      */
-    @Export(name="policyId", type=String.class, parameters={})
+    @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**

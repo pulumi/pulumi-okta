@@ -66,7 +66,7 @@ public class Captcha extends com.pulumi.resources.CustomResource {
      * Name of the captcha.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -80,7 +80,7 @@ public class Captcha extends com.pulumi.resources.CustomResource {
      * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
      * 
      */
-    @Export(name="secretKey", type=String.class, parameters={})
+    @Export(name="secretKey", refs={String.class}, tree="[0]")
     private Output<String> secretKey;
 
     /**
@@ -94,7 +94,7 @@ public class Captcha extends com.pulumi.resources.CustomResource {
      * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
      * 
      */
-    @Export(name="siteKey", type=String.class, parameters={})
+    @Export(name="siteKey", refs={String.class}, tree="[0]")
     private Output<String> siteKey;
 
     /**
@@ -108,7 +108,7 @@ public class Captcha extends com.pulumi.resources.CustomResource {
      * Type of the captcha. Valid values: `&#34;HCAPTCHA&#34;`, `&#34;RECAPTCHA_V2&#34;`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

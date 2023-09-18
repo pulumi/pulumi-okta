@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessPolicyAssignmentArgs, AccessPolicyAssignmentState } from "./accessPolicyAssignment";
+export type AccessPolicyAssignment = import("./accessPolicyAssignment").AccessPolicyAssignment;
+export const AccessPolicyAssignment: typeof import("./accessPolicyAssignment").AccessPolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["AccessPolicyAssignment"], () => require("./accessPolicyAssignment"));
+
 export { AutoLoginArgs, AutoLoginState } from "./autoLogin";
 export type AutoLogin = import("./autoLogin").AutoLogin;
 export const AutoLogin: typeof import("./autoLogin").AutoLogin = null as any;
@@ -90,6 +95,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "okta:app/accessPolicyAssignment:AccessPolicyAssignment":
+                return new AccessPolicyAssignment(name, <any>undefined, { urn })
             case "okta:app/autoLogin:AutoLogin":
                 return new AutoLogin(name, <any>undefined, { urn })
             case "okta:app/basicAuth:BasicAuth":
@@ -119,6 +126,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("okta", "app/accessPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("okta", "app/autoLogin", _module)
 pulumi.runtime.registerResourceModule("okta", "app/basicAuth", _module)
 pulumi.runtime.registerResourceModule("okta", "app/bookmark", _module)

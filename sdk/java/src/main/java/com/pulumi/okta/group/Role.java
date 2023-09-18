@@ -69,7 +69,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
      * 
      */
-    @Export(name="disableNotifications", type=Boolean.class, parameters={})
+    @Export(name="disableNotifications", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableNotifications;
 
     /**
@@ -84,7 +84,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * The ID of group to attach admin roles to.
      * 
      */
-    @Export(name="groupId", type=String.class, parameters={})
+    @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
@@ -112,7 +112,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * - `&#34;USER_ADMIN&#34;` is the Group Administrator.
      * 
      */
-    @Export(name="roleType", type=String.class, parameters={})
+    @Export(name="roleType", refs={String.class}, tree="[0]")
     private Output<String> roleType;
 
     /**
@@ -143,7 +143,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * - Only supported when used with the role type `&#34;APP_ADMIN&#34;`.
      * 
      */
-    @Export(name="targetAppLists", type=List.class, parameters={String.class})
+    @Export(name="targetAppLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> targetAppLists;
 
     /**
@@ -161,7 +161,7 @@ public class Role extends com.pulumi.resources.CustomResource {
      * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
      * 
      */
-    @Export(name="targetGroupLists", type=List.class, parameters={String.class})
+    @Export(name="targetGroupLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> targetGroupLists;
 
     /**

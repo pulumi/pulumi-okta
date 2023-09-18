@@ -11,6 +11,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EmailDomainDnsValidationRecord {
+    /**
+     * @deprecated
+     * This field has been removed in the newest go sdk version and has become noop
+     * 
+     */
+    @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
     private @Nullable String expiration;
     /**
      * @return DNS record name.
@@ -24,12 +30,18 @@ public final class EmailDomainDnsValidationRecord {
     private @Nullable String recordType;
     /**
      * @return DNS record value
-     * - ` expiration  ` - DNS TXT record expiration
+     * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
      * 
      */
     private @Nullable String value;
 
     private EmailDomainDnsValidationRecord() {}
+    /**
+     * @deprecated
+     * This field has been removed in the newest go sdk version and has become noop
+     * 
+     */
+    @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
     public Optional<String> expiration() {
         return Optional.ofNullable(this.expiration);
     }
@@ -49,7 +61,7 @@ public final class EmailDomainDnsValidationRecord {
     }
     /**
      * @return DNS record value
-     * - ` expiration  ` - DNS TXT record expiration
+     * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
      * 
      */
     public Optional<String> value() {

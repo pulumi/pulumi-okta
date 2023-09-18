@@ -64,7 +64,7 @@ public class PolicyProfileEnrollment extends com.pulumi.resources.CustomResource
      * Policy Name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -78,7 +78,7 @@ public class PolicyProfileEnrollment extends com.pulumi.resources.CustomResource
      * Status of the policy.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**

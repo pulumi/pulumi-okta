@@ -67,7 +67,7 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      * Auth Server ID.
      * 
      */
-    @Export(name="authServerId", type=String.class, parameters={})
+    @Export(name="authServerId", refs={String.class}, tree="[0]")
     private Output<String> authServerId;
 
     /**
@@ -81,7 +81,7 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      * Indicates whether a consent dialog is needed for the scope. It can be set to `&#34;REQUIRED&#34;` or `&#34;IMPLICIT&#34;`.
      * 
      */
-    @Export(name="consent", type=String.class, parameters={})
+    @Export(name="consent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> consent;
 
     /**
@@ -95,7 +95,7 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      * A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
      * 
      */
-    @Export(name="default", type=Boolean.class, parameters={})
+    @Export(name="default", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> default_;
 
     /**
@@ -109,7 +109,7 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      * Description of the Auth Server Scope.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -123,7 +123,7 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      * Name of the end user displayed in a consent dialog box.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -137,7 +137,7 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      * Whether to publish metadata or not. It can be set to `&#34;ALL_CLIENTS&#34;` or `&#34;NO_CLIENTS&#34;`.
      * 
      */
-    @Export(name="metadataPublish", type=String.class, parameters={})
+    @Export(name="metadataPublish", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metadataPublish;
 
     /**
@@ -151,7 +151,7 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      * Auth Server scope name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -162,10 +162,24 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Whether the scope optional
+     * 
+     */
+    @Export(name="optional", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> optional;
+
+    /**
+     * @return Whether the scope optional
+     * 
+     */
+    public Output<Optional<Boolean>> optional() {
+        return Codegen.optional(this.optional);
+    }
+    /**
      * Whether Okta created the Scope
      * 
      */
-    @Export(name="system", type=Boolean.class, parameters={})
+    @Export(name="system", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> system;
 
     /**

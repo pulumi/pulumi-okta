@@ -69,7 +69,7 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
      * Description of the associated relationship.
      * 
      */
-    @Export(name="associatedDescription", type=String.class, parameters={})
+    @Export(name="associatedDescription", refs={String.class}, tree="[0]")
     private Output<String> associatedDescription;
 
     /**
@@ -83,7 +83,7 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
      * API name of the associated link.
      * 
      */
-    @Export(name="associatedName", type=String.class, parameters={})
+    @Export(name="associatedName", refs={String.class}, tree="[0]")
     private Output<String> associatedName;
 
     /**
@@ -97,7 +97,7 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
      * Display name of the associated link.
      * 
      */
-    @Export(name="associatedTitle", type=String.class, parameters={})
+    @Export(name="associatedTitle", refs={String.class}, tree="[0]")
     private Output<String> associatedTitle;
 
     /**
@@ -111,7 +111,7 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
      * Description of the primary relationship.
      * 
      */
-    @Export(name="primaryDescription", type=String.class, parameters={})
+    @Export(name="primaryDescription", refs={String.class}, tree="[0]")
     private Output<String> primaryDescription;
 
     /**
@@ -125,7 +125,7 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
      * API name of the primary link.
      * 
      */
-    @Export(name="primaryName", type=String.class, parameters={})
+    @Export(name="primaryName", refs={String.class}, tree="[0]")
     private Output<String> primaryName;
 
     /**
@@ -139,7 +139,7 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
      * Display name of the primary link.
      * 
      */
-    @Export(name="primaryTitle", type=String.class, parameters={})
+    @Export(name="primaryTitle", refs={String.class}, tree="[0]")
     private Output<String> primaryTitle;
 
     /**

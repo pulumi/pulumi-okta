@@ -70,7 +70,7 @@ public class ServerPolicy extends com.pulumi.resources.CustomResource {
      * The ID of the Auth Server.
      * 
      */
-    @Export(name="authServerId", type=String.class, parameters={})
+    @Export(name="authServerId", refs={String.class}, tree="[0]")
     private Output<String> authServerId;
 
     /**
@@ -84,7 +84,7 @@ public class ServerPolicy extends com.pulumi.resources.CustomResource {
      * The clients to whitelist the policy for. `[&#34;ALL_CLIENTS&#34;]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      * 
      */
-    @Export(name="clientWhitelists", type=List.class, parameters={String.class})
+    @Export(name="clientWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> clientWhitelists;
 
     /**
@@ -98,7 +98,7 @@ public class ServerPolicy extends com.pulumi.resources.CustomResource {
      * The description of the Auth Server Policy.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -112,7 +112,7 @@ public class ServerPolicy extends com.pulumi.resources.CustomResource {
      * The name of the Auth Server Policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class ServerPolicy extends com.pulumi.resources.CustomResource {
      * The priority of the Auth Server Policy.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
@@ -140,7 +140,7 @@ public class ServerPolicy extends com.pulumi.resources.CustomResource {
      * The status of the Auth Server Policy.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**

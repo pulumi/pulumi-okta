@@ -79,7 +79,7 @@ public class RoleSubscription extends com.pulumi.resources.CustomResource {
      * - `&#34;AGENT_AUTO_UPDATE_NOTIFICATION&#34;` - Agent auto-update notifications: AD Agent.
      * 
      */
-    @Export(name="notificationType", type=String.class, parameters={})
+    @Export(name="notificationType", refs={String.class}, tree="[0]")
     private Output<String> notificationType;
 
     /**
@@ -118,7 +118,7 @@ public class RoleSubscription extends com.pulumi.resources.CustomResource {
      * . See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)
      * 
      */
-    @Export(name="roleType", type=String.class, parameters={})
+    @Export(name="roleType", refs={String.class}, tree="[0]")
     private Output<String> roleType;
 
     /**
@@ -144,7 +144,7 @@ public class RoleSubscription extends com.pulumi.resources.CustomResource {
      * Subscription status. Valid values: `&#34;subscribed&#34;`, `&#34;unsubscribed&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**

@@ -65,7 +65,7 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
      * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
      * 
      */
-    @Export(name="clockDriftInterval", type=Integer.class, parameters={})
+    @Export(name="clockDriftInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> clockDriftInterval;
 
     /**
@@ -81,7 +81,7 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
      * is `&#34;HMacSHA512&#34;`.
      * 
      */
-    @Export(name="hmacAlgorithm", type=String.class, parameters={})
+    @Export(name="hmacAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hmacAlgorithm;
 
     /**
@@ -96,7 +96,7 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
      * The TOTP name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -110,7 +110,7 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
      * Length of the password. Default is `6`.
      * 
      */
-    @Export(name="otpLength", type=Integer.class, parameters={})
+    @Export(name="otpLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> otpLength;
 
     /**
@@ -125,7 +125,7 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
      * Default is `&#34;base32&#34;`.
      * 
      */
-    @Export(name="sharedSecretEncoding", type=String.class, parameters={})
+    @Export(name="sharedSecretEncoding", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedSecretEncoding;
 
     /**
@@ -140,7 +140,7 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
      * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      * 
      */
-    @Export(name="timeStep", type=Integer.class, parameters={})
+    @Export(name="timeStep", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeStep;
 
     /**

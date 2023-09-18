@@ -67,7 +67,7 @@ public class EmailSender extends com.pulumi.resources.CustomResource {
      * TXT and CNAME records to be registered for the domain.
      * 
      */
-    @Export(name="dnsRecords", type=List.class, parameters={EmailSenderDnsRecord.class})
+    @Export(name="dnsRecords", refs={List.class,EmailSenderDnsRecord.class}, tree="[0,1]")
     private Output<List<EmailSenderDnsRecord>> dnsRecords;
 
     /**
@@ -81,7 +81,7 @@ public class EmailSender extends com.pulumi.resources.CustomResource {
      * Email address to send from.
      * 
      */
-    @Export(name="fromAddress", type=String.class, parameters={})
+    @Export(name="fromAddress", refs={String.class}, tree="[0]")
     private Output<String> fromAddress;
 
     /**
@@ -95,7 +95,7 @@ public class EmailSender extends com.pulumi.resources.CustomResource {
      * Name of sender.
      * 
      */
-    @Export(name="fromName", type=String.class, parameters={})
+    @Export(name="fromName", refs={String.class}, tree="[0]")
     private Output<String> fromName;
 
     /**
@@ -109,7 +109,7 @@ public class EmailSender extends com.pulumi.resources.CustomResource {
      * Status of the sender (shows whether the sender is verified).
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -123,7 +123,7 @@ public class EmailSender extends com.pulumi.resources.CustomResource {
      * Mail domain to send from.
      * 
      */
-    @Export(name="subdomain", type=String.class, parameters={})
+    @Export(name="subdomain", refs={String.class}, tree="[0]")
     private Output<String> subdomain;
 
     /**

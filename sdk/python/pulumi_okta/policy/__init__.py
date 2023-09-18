@@ -5,6 +5,11 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .device_assurance_android import *
+from .device_assurance_chromeos import *
+from .device_assurance_ios import *
+from .device_assurance_macos import *
+from .device_assurance_windows import *
 from .get_default_policy import *
 from .get_policy import *
 from .mfa import *

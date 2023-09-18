@@ -82,12 +82,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new OAuth(&#34;example&#34;, OAuthArgs.builder()        
  *             .grantTypes(&#34;client_credentials&#34;)
- *             .jwks(OAuthJwkArgs.builder()
- *                 .e(&#34;AQAB&#34;)
- *                 .kid(&#34;SIGNING_KEY&#34;)
- *                 .kty(&#34;RSA&#34;)
- *                 .n(&#34;xyz&#34;)
- *                 .build())
+ *             .jwks(            
+ *                 OAuthJwkArgs.builder()
+ *                     .e(&#34;AQAB&#34;)
+ *                     .kid(&#34;SIGNING_KEY_RSA&#34;)
+ *                     .kty(&#34;RSA&#34;)
+ *                     .n(&#34;xyz&#34;)
+ *                     .build(),
+ *                 OAuthJwkArgs.builder()
+ *                     .kid(&#34;SIGNING_KEY_EC&#34;)
+ *                     .kty(&#34;EC&#34;)
+ *                     .x(&#34;K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I&#34;)
+ *                     .y(&#34;8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo&#34;)
+ *                     .build())
  *             .label(&#34;example&#34;)
  *             .responseTypes(&#34;token&#34;)
  *             .tokenEndpointAuthMethod(&#34;private_key_jwt&#34;)
@@ -153,7 +160,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Custom error page URL.
      * 
      */
-    @Export(name="accessibilityErrorRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
@@ -167,7 +174,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Custom login page for this application.
      * 
      */
-    @Export(name="accessibilityLoginRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
@@ -181,7 +188,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Enable self-service. By default, it is `false`.
      * 
      */
-    @Export(name="accessibilitySelfService", type=Boolean.class, parameters={})
+    @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
@@ -195,7 +202,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Application notes for admins.
      * 
      */
-    @Export(name="adminNote", type=String.class, parameters={})
+    @Export(name="adminNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminNote;
 
     /**
@@ -209,7 +216,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
-    @Export(name="appLinksJson", type=String.class, parameters={})
+    @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
@@ -223,7 +230,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Application settings in JSON format.
      * 
      */
-    @Export(name="appSettingsJson", type=String.class, parameters={})
+    @Export(name="appSettingsJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appSettingsJson;
 
     /**
@@ -237,7 +244,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
      * 
      */
-    @Export(name="authenticationPolicy", type=String.class, parameters={})
+    @Export(name="authenticationPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authenticationPolicy;
 
     /**
@@ -255,7 +262,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
-    @Export(name="autoKeyRotation", type=Boolean.class, parameters={})
+    @Export(name="autoKeyRotation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoKeyRotation;
 
     /**
@@ -273,7 +280,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Display auto submit toolbar.
      * 
      */
-    @Export(name="autoSubmitToolbar", type=Boolean.class, parameters={})
+    @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
@@ -287,7 +294,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
      * 
      */
-    @Export(name="clientBasicSecret", type=String.class, parameters={})
+    @Export(name="clientBasicSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientBasicSecret;
 
     /**
@@ -301,7 +308,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
     /**
@@ -315,7 +322,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
-    @Export(name="clientSecret", type=String.class, parameters={})
+    @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
     /**
@@ -329,7 +336,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * URI to a web page providing information about the client.
      * 
      */
-    @Export(name="clientUri", type=String.class, parameters={})
+    @Export(name="clientUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientUri;
 
     /**
@@ -343,7 +350,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Indicates whether user consent is required or implicit. Valid values: `&#34;REQUIRED&#34;`, `&#34;TRUSTED&#34;`. Default value is `&#34;TRUSTED&#34;`.
      * 
      */
-    @Export(name="consentMethod", type=String.class, parameters={})
+    @Export(name="consentMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> consentMethod;
 
     /**
@@ -357,7 +364,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Application notes for end users.
      * 
      */
-    @Export(name="enduserNote", type=String.class, parameters={})
+    @Export(name="enduserNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enduserNote;
 
     /**
@@ -374,7 +381,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * `&#34;interaction_code&#34;` (*OIE only*).
      * 
      */
-    @Export(name="grantTypes", type=List.class, parameters={String.class})
+    @Export(name="grantTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> grantTypes;
 
     /**
@@ -388,14 +395,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.grantTypes);
     }
     /**
-     * Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+     * Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
      * 
      */
-    @Export(name="groupsClaim", type=OAuthGroupsClaim.class, parameters={})
+    @Export(name="groupsClaim", refs={OAuthGroupsClaim.class}, tree="[0]")
     private Output</* @Nullable */ OAuthGroupsClaim> groupsClaim;
 
     /**
-     * @return Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+     * @return Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
      * 
      */
     public Output<Optional<OAuthGroupsClaim>> groupsClaim() {
@@ -405,7 +412,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Do not display application icon on mobile app.
      * 
      */
-    @Export(name="hideIos", type=Boolean.class, parameters={})
+    @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
@@ -419,7 +426,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Do not display application icon to users.
      * 
      */
-    @Export(name="hideWeb", type=Boolean.class, parameters={})
+    @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
@@ -433,7 +440,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
      * 
      */
-    @Export(name="implicitAssignment", type=Boolean.class, parameters={})
+    @Export(name="implicitAssignment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> implicitAssignment;
 
     /**
@@ -448,7 +455,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
      * 
      */
-    @Export(name="issuerMode", type=String.class, parameters={})
+    @Export(name="issuerMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerMode;
 
     /**
@@ -460,14 +467,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.issuerMode);
     }
     /**
-     * JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+     * JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
      * 
      */
-    @Export(name="jwks", type=List.class, parameters={OAuthJwk.class})
+    @Export(name="jwks", refs={List.class,OAuthJwk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OAuthJwk>> jwks;
 
     /**
-     * @return JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+     * @return JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
      * 
      */
     public Output<Optional<List<OAuthJwk>>> jwks() {
@@ -477,7 +484,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * URL of the custom authorization server&#39;s JSON Web Key Set document.
      * 
      */
-    @Export(name="jwksUri", type=String.class, parameters={})
+    @Export(name="jwksUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> jwksUri;
 
     /**
@@ -491,7 +498,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * The Application&#39;s display name.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -505,7 +512,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * The type of Idp-Initiated login that the client supports, if any. Valid values: `&#34;DISABLED&#34;`, `&#34;SPEC&#34;`, `&#34;OKTA&#34;`. Default is `&#34;DISABLED&#34;`.
      * 
      */
-    @Export(name="loginMode", type=String.class, parameters={})
+    @Export(name="loginMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loginMode;
 
     /**
@@ -519,7 +526,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * List of scopes to use for the request. Valid values: `&#34;openid&#34;`, `&#34;profile&#34;`, `&#34;email&#34;`, `&#34;address&#34;`, `&#34;phone&#34;`. Required when `login_mode` is NOT `DISABLED`.
      * 
      */
-    @Export(name="loginScopes", type=List.class, parameters={String.class})
+    @Export(name="loginScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> loginScopes;
 
     /**
@@ -533,7 +540,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
      * 
      */
-    @Export(name="loginUri", type=String.class, parameters={})
+    @Export(name="loginUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loginUri;
 
     /**
@@ -547,7 +554,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
-    @Export(name="logo", type=String.class, parameters={})
+    @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
@@ -561,7 +568,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * URI that references a logo for the client.
      * 
      */
-    @Export(name="logoUri", type=String.class, parameters={})
+    @Export(name="logoUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logoUri;
 
     /**
@@ -575,7 +582,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Direct link of application logo.
      * 
      */
-    @Export(name="logoUrl", type=String.class, parameters={})
+    @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
@@ -589,7 +596,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Name of the claim that will be used in the token.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -603,7 +610,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
      * 
      */
-    @Export(name="omitSecret", type=Boolean.class, parameters={})
+    @Export(name="omitSecret", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> omitSecret;
 
     /**
@@ -621,7 +628,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
-    @Export(name="pkceRequired", type=Boolean.class, parameters={})
+    @Export(name="pkceRequired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> pkceRequired;
 
     /**
@@ -639,7 +646,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * URI to web page providing client policy document.
      * 
      */
-    @Export(name="policyUri", type=String.class, parameters={})
+    @Export(name="policyUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyUri;
 
     /**
@@ -653,7 +660,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * List of URIs for redirection after logout.
      * 
      */
-    @Export(name="postLogoutRedirectUris", type=List.class, parameters={String.class})
+    @Export(name="postLogoutRedirectUris", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> postLogoutRedirectUris;
 
     /**
@@ -667,7 +674,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Custom JSON that represents an OAuth application&#39;s profile.
      * 
      */
-    @Export(name="profile", type=String.class, parameters={})
+    @Export(name="profile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> profile;
 
     /**
@@ -681,7 +688,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * List of URIs for use in the redirect-based flow. This is required for all application types except service.
      * 
      */
-    @Export(name="redirectUris", type=List.class, parameters={String.class})
+    @Export(name="redirectUris", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> redirectUris;
 
     /**
@@ -695,7 +702,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Grace period for token rotation. Valid values: 0 to 60 seconds.
      * 
      */
-    @Export(name="refreshTokenLeeway", type=Integer.class, parameters={})
+    @Export(name="refreshTokenLeeway", refs={Integer.class}, tree="[0]")
     private Output<Integer> refreshTokenLeeway;
 
     /**
@@ -709,7 +716,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Refresh token rotation behavior. Valid values: `&#34;STATIC&#34;` or `&#34;ROTATE&#34;`.
      * 
      */
-    @Export(name="refreshTokenRotation", type=String.class, parameters={})
+    @Export(name="refreshTokenRotation", refs={String.class}, tree="[0]")
     private Output<String> refreshTokenRotation;
 
     /**
@@ -732,7 +739,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
      * 
      */
-    @Export(name="responseTypes", type=List.class, parameters={String.class})
+    @Export(name="responseTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> responseTypes;
 
     /**
@@ -755,7 +762,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Sign-on mode of application.
      * 
      */
-    @Export(name="signOnMode", type=String.class, parameters={})
+    @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
@@ -769,7 +776,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -791,7 +798,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
-    @Export(name="tokenEndpointAuthMethod", type=String.class, parameters={})
+    @Export(name="tokenEndpointAuthMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenEndpointAuthMethod;
 
     /**
@@ -813,7 +820,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * URI to web page providing client tos (terms of service).
      * 
      */
-    @Export(name="tosUri", type=String.class, parameters={})
+    @Export(name="tosUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tosUri;
 
     /**
@@ -827,7 +834,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -841,7 +848,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
-    @Export(name="userNameTemplate", type=String.class, parameters={})
+    @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
@@ -855,7 +862,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
-    @Export(name="userNameTemplatePushStatus", type=String.class, parameters={})
+    @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
@@ -869,7 +876,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Username template suffix.
      * 
      */
-    @Export(name="userNameTemplateSuffix", type=String.class, parameters={})
+    @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
@@ -883,7 +890,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
-    @Export(name="userNameTemplateType", type=String.class, parameters={})
+    @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**
@@ -897,7 +904,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `&#34;DISABLED&#34;`, `&#34;SUBDOMAIN&#34;`. Default value is `&#34;DISABLED&#34;`.
      * 
      */
-    @Export(name="wildcardRedirect", type=String.class, parameters={})
+    @Export(name="wildcardRedirect", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> wildcardRedirect;
 
     /**

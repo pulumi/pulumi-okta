@@ -70,7 +70,7 @@ public class AdminRoleTargets extends com.pulumi.resources.CustomResource {
      * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;).
      * 
      */
-    @Export(name="apps", type=List.class, parameters={String.class})
+    @Export(name="apps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> apps;
 
     /**
@@ -84,7 +84,7 @@ public class AdminRoleTargets extends com.pulumi.resources.CustomResource {
      * List of group IDs. Conflicts with `apps`.
      * 
      */
-    @Export(name="groups", type=List.class, parameters={String.class})
+    @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groups;
 
     /**
@@ -98,7 +98,7 @@ public class AdminRoleTargets extends com.pulumi.resources.CustomResource {
      * Role ID.
      * 
      */
-    @Export(name="roleId", type=String.class, parameters={})
+    @Export(name="roleId", refs={String.class}, tree="[0]")
     private Output<String> roleId;
 
     /**
@@ -112,7 +112,7 @@ public class AdminRoleTargets extends com.pulumi.resources.CustomResource {
      * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
-    @Export(name="roleType", type=String.class, parameters={})
+    @Export(name="roleType", refs={String.class}, tree="[0]")
     private Output<String> roleType;
 
     /**
@@ -126,7 +126,7 @@ public class AdminRoleTargets extends com.pulumi.resources.CustomResource {
      * ID of the user.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**

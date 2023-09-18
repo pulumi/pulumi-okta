@@ -29,7 +29,7 @@ namespace Pulumi.Okta.Index.Inputs
 
         /// <summary>
         /// DNS record value
-        /// - `expiration ` - DNS TXT record expiration
+        /// - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

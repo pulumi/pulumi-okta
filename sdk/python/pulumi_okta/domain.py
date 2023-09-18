@@ -16,19 +16,35 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
+                 brand_id: Optional[pulumi.Input[str]] = None,
                  certificate_source_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Domain resource.
+        :param pulumi.Input[str] brand_id: The Brand ID of the domain
         :param pulumi.Input[str] certificate_source_type: Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
                
                > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
         :param pulumi.Input[str] name: Custom Domain name.
         """
+        if brand_id is not None:
+            pulumi.set(__self__, "brand_id", brand_id)
         if certificate_source_type is not None:
             pulumi.set(__self__, "certificate_source_type", certificate_source_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="brandId")
+    def brand_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Brand ID of the domain
+        """
+        return pulumi.get(self, "brand_id")
+
+    @brand_id.setter
+    def brand_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "brand_id", value)
 
     @property
     @pulumi.getter(name="certificateSourceType")
@@ -60,12 +76,14 @@ class DomainArgs:
 @pulumi.input_type
 class _DomainState:
     def __init__(__self__, *,
+                 brand_id: Optional[pulumi.Input[str]] = None,
                  certificate_source_type: Optional[pulumi.Input[str]] = None,
                  dns_records: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDnsRecordArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  validation_status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
+        :param pulumi.Input[str] brand_id: The Brand ID of the domain
         :param pulumi.Input[str] certificate_source_type: Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
                
                > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -73,6 +91,8 @@ class _DomainState:
         :param pulumi.Input[str] name: Custom Domain name.
         :param pulumi.Input[str] validation_status: Status of the domain.
         """
+        if brand_id is not None:
+            pulumi.set(__self__, "brand_id", brand_id)
         if certificate_source_type is not None:
             pulumi.set(__self__, "certificate_source_type", certificate_source_type)
         if dns_records is not None:
@@ -81,6 +101,18 @@ class _DomainState:
             pulumi.set(__self__, "name", name)
         if validation_status is not None:
             pulumi.set(__self__, "validation_status", validation_status)
+
+    @property
+    @pulumi.getter(name="brandId")
+    def brand_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Brand ID of the domain
+        """
+        return pulumi.get(self, "brand_id")
+
+    @brand_id.setter
+    def brand_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "brand_id", value)
 
     @property
     @pulumi.getter(name="certificateSourceType")
@@ -138,6 +170,7 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 brand_id: Optional[pulumi.Input[str]] = None,
                  certificate_source_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -163,6 +196,7 @@ class Domain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] brand_id: The Brand ID of the domain
         :param pulumi.Input[str] certificate_source_type: Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
                
                > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -209,6 +243,7 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 brand_id: Optional[pulumi.Input[str]] = None,
                  certificate_source_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -220,6 +255,7 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainArgs.__new__(DomainArgs)
 
+            __props__.__dict__["brand_id"] = brand_id
             __props__.__dict__["certificate_source_type"] = certificate_source_type
             __props__.__dict__["name"] = name
             __props__.__dict__["dns_records"] = None
@@ -234,6 +270,7 @@ class Domain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            brand_id: Optional[pulumi.Input[str]] = None,
             certificate_source_type: Optional[pulumi.Input[str]] = None,
             dns_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainDnsRecordArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -245,6 +282,7 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] brand_id: The Brand ID of the domain
         :param pulumi.Input[str] certificate_source_type: Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
                
                > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -256,11 +294,20 @@ class Domain(pulumi.CustomResource):
 
         __props__ = _DomainState.__new__(_DomainState)
 
+        __props__.__dict__["brand_id"] = brand_id
         __props__.__dict__["certificate_source_type"] = certificate_source_type
         __props__.__dict__["dns_records"] = dns_records
         __props__.__dict__["name"] = name
         __props__.__dict__["validation_status"] = validation_status
         return Domain(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="brandId")
+    def brand_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Brand ID of the domain
+        """
+        return pulumi.get(self, "brand_id")
 
     @property
     @pulumi.getter(name="certificateSourceType")

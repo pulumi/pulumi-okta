@@ -15,9 +15,21 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
 
     public static final EmailDomainDnsValidationRecordArgs Empty = new EmailDomainDnsValidationRecordArgs();
 
+    /**
+     * @deprecated
+     * This field has been removed in the newest go sdk version and has become noop
+     * 
+     */
+    @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
     @Import(name="expiration")
     private @Nullable Output<String> expiration;
 
+    /**
+     * @deprecated
+     * This field has been removed in the newest go sdk version and has become noop
+     * 
+     */
+    @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
     public Optional<Output<String>> expiration() {
         return Optional.ofNullable(this.expiration);
     }
@@ -54,7 +66,7 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
 
     /**
      * DNS record value
-     * - ` expiration  ` - DNS TXT record expiration
+     * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
      * 
      */
     @Import(name="value")
@@ -62,7 +74,7 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
 
     /**
      * @return DNS record value
-     * - ` expiration  ` - DNS TXT record expiration
+     * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
      * 
      */
     public Optional<Output<String>> value() {
@@ -96,11 +108,27 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
             $ = new EmailDomainDnsValidationRecordArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This field has been removed in the newest go sdk version and has become noop
+         * 
+         */
+        @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
         public Builder expiration(@Nullable Output<String> expiration) {
             $.expiration = expiration;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This field has been removed in the newest go sdk version and has become noop
+         * 
+         */
+        @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
         public Builder expiration(String expiration) {
             return expiration(Output.of(expiration));
         }
@@ -149,7 +177,7 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
 
         /**
          * @param value DNS record value
-         * - ` expiration  ` - DNS TXT record expiration
+         * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
          * 
          * @return builder
          * 
@@ -161,7 +189,7 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
 
         /**
          * @param value DNS record value
-         * - ` expiration  ` - DNS TXT record expiration
+         * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
          * 
          * @return builder
          * 

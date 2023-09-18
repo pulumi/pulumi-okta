@@ -81,7 +81,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * ID of the default Okta group.
      * 
      */
-    @Export(name="defaultIncludedGroupId", type=String.class, parameters={})
+    @Export(name="defaultIncludedGroupId", refs={String.class}, tree="[0]")
     private Output<String> defaultIncludedGroupId;
 
     /**
@@ -95,7 +95,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Default policy description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -109,7 +109,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * DUO MFA policy settings (✓ Classic, ✓ OIE).
      * 
      */
-    @Export(name="duo", type=Map.class, parameters={String.class, String.class})
+    @Export(name="duo", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> duo;
 
     /**
@@ -123,7 +123,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * External IDP MFA policy settings (✓ OIE).
      * 
      */
-    @Export(name="externalIdp", type=Map.class, parameters={String.class, String.class})
+    @Export(name="externalIdp", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> externalIdp;
 
     /**
@@ -137,7 +137,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Fido U2F MFA policy settings (✓ Classic).
      * 
      */
-    @Export(name="fidoU2f", type=Map.class, parameters={String.class, String.class})
+    @Export(name="fidoU2f", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> fidoU2f;
 
     /**
@@ -151,7 +151,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Fido Web Authn MFA policy settings (✓ Classic).
      * 
      */
-    @Export(name="fidoWebauthn", type=Map.class, parameters={String.class, String.class})
+    @Export(name="fidoWebauthn", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> fidoWebauthn;
 
     /**
@@ -165,7 +165,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Google OTP MFA policy settings (✓ Classic, ✓ OIE).
      * 
      */
-    @Export(name="googleOtp", type=Map.class, parameters={String.class, String.class})
+    @Export(name="googleOtp", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> googleOtp;
 
     /**
@@ -179,7 +179,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * HMAC-based One-Time Password MFA policy settings (✓ Classic).
      * 
      */
-    @Export(name="hotp", type=Map.class, parameters={String.class, String.class})
+    @Export(name="hotp", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> hotp;
 
     /**
@@ -194,7 +194,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * &gt; **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
      * 
      */
-    @Export(name="isOie", type=Boolean.class, parameters={})
+    @Export(name="isOie", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isOie;
 
     /**
@@ -209,7 +209,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Default policy name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -223,7 +223,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Okta Call MFA policy settings (✓ Classic).
      * 
      */
-    @Export(name="oktaCall", type=Map.class, parameters={String.class, String.class})
+    @Export(name="oktaCall", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaCall;
 
     /**
@@ -237,7 +237,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Okta Email MFA policy settings (✓ Classic, ✓ OIE).
      * 
      */
-    @Export(name="oktaEmail", type=Map.class, parameters={String.class, String.class})
+    @Export(name="oktaEmail", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaEmail;
 
     /**
@@ -251,7 +251,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
      * 
      */
-    @Export(name="oktaOtp", type=Map.class, parameters={String.class, String.class})
+    @Export(name="oktaOtp", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaOtp;
 
     /**
@@ -265,7 +265,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Okta Password MFA policy settings (✓ Classic, ✓ OIE).
      * 
      */
-    @Export(name="oktaPassword", type=Map.class, parameters={String.class, String.class})
+    @Export(name="oktaPassword", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaPassword;
 
     /**
@@ -279,7 +279,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Okta Push MFA policy settings (✓ Classic).
      * 
      */
-    @Export(name="oktaPush", type=Map.class, parameters={String.class, String.class})
+    @Export(name="oktaPush", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaPush;
 
     /**
@@ -293,7 +293,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Okta Question MFA policy settings (✓ Classic).
      * 
      */
-    @Export(name="oktaQuestion", type=Map.class, parameters={String.class, String.class})
+    @Export(name="oktaQuestion", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaQuestion;
 
     /**
@@ -307,7 +307,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Okta SMS MFA policy settings (✓ Classic).
      * 
      */
-    @Export(name="oktaSms", type=Map.class, parameters={String.class, String.class})
+    @Export(name="oktaSms", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaSms;
 
     /**
@@ -321,7 +321,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Okta Verify MFA policy settings (✓ OIE).
      * 
      */
-    @Export(name="oktaVerify", type=Map.class, parameters={String.class, String.class})
+    @Export(name="oktaVerify", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaVerify;
 
     /**
@@ -335,7 +335,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * On-Prem MFA MFA policy settings (✓ OIE).
      * 
      */
-    @Export(name="onpremMfa", type=Map.class, parameters={String.class, String.class})
+    @Export(name="onpremMfa", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> onpremMfa;
 
     /**
@@ -349,7 +349,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Phone Number MFA policy settings (✓ OIE).
      * 
      */
-    @Export(name="phoneNumber", type=Map.class, parameters={String.class, String.class})
+    @Export(name="phoneNumber", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> phoneNumber;
 
     /**
@@ -363,7 +363,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Default policy priority.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
@@ -377,7 +377,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * RSA Token MFA policy settings (✓ Classic, ✓ OIE).
      * 
      */
-    @Export(name="rsaToken", type=Map.class, parameters={String.class, String.class})
+    @Export(name="rsaToken", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> rsaToken;
 
     /**
@@ -391,7 +391,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Security Question MFA policy settings (✓ OIE).
      * 
      */
-    @Export(name="securityQuestion", type=Map.class, parameters={String.class, String.class})
+    @Export(name="securityQuestion", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> securityQuestion;
 
     /**
@@ -405,7 +405,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Default policy status.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -419,7 +419,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Symantec VIP MFA policy settings (✓ Classic).
      * 
      */
-    @Export(name="symantecVip", type=Map.class, parameters={String.class, String.class})
+    @Export(name="symantecVip", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> symantecVip;
 
     /**
@@ -433,7 +433,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
      * 
      */
-    @Export(name="webauthn", type=Map.class, parameters={String.class, String.class})
+    @Export(name="webauthn", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> webauthn;
 
     /**
@@ -447,7 +447,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
      * 
      */
-    @Export(name="yubikeyToken", type=Map.class, parameters={String.class, String.class})
+    @Export(name="yubikeyToken", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> yubikeyToken;
 
     /**

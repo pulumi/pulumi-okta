@@ -50,6 +50,8 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
+	// The Brand ID of the domain
+	BrandId pulumi.StringPtrOutput `pulumi:"brandId"`
 	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
 	//
 	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -92,6 +94,8 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
+	// The Brand ID of the domain
+	BrandId *string `pulumi:"brandId"`
 	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
 	//
 	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -105,6 +109,8 @@ type domainState struct {
 }
 
 type DomainState struct {
+	// The Brand ID of the domain
+	BrandId pulumi.StringPtrInput
 	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
 	//
 	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -122,6 +128,8 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
+	// The Brand ID of the domain
+	BrandId *string `pulumi:"brandId"`
 	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
 	//
 	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -132,6 +140,8 @@ type domainArgs struct {
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	// The Brand ID of the domain
+	BrandId pulumi.StringPtrInput
 	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
 	//
 	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -249,6 +259,11 @@ func (o DomainOutput) ToOutput(ctx context.Context) pulumix.Output[*Domain] {
 	return pulumix.Output[*Domain]{
 		OutputState: o.OutputState,
 	}
+}
+
+// The Brand ID of the domain
+func (o DomainOutput) BrandId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.BrandId }).(pulumi.StringPtrOutput)
 }
 
 // Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`

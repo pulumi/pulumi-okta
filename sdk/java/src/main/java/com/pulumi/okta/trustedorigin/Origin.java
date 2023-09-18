@@ -67,7 +67,7 @@ public class Origin extends com.pulumi.resources.CustomResource {
      * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is &#39;true&#39;.
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
@@ -81,7 +81,7 @@ public class Origin extends com.pulumi.resources.CustomResource {
      * Unique name for this trusted origin.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -95,7 +95,7 @@ public class Origin extends com.pulumi.resources.CustomResource {
      * Unique origin URL for this trusted origin.
      * 
      */
-    @Export(name="origin", type=String.class, parameters={})
+    @Export(name="origin", refs={String.class}, tree="[0]")
     private Output<String> origin;
 
     /**
@@ -109,7 +109,7 @@ public class Origin extends com.pulumi.resources.CustomResource {
      * Scopes of the Trusted Origin - can be `&#34;CORS&#34;` and/or `&#34;REDIRECT&#34;`.
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={String.class})
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**

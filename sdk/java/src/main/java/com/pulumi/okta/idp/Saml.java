@@ -75,7 +75,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Specifies the account linking action for an IdP user.
      * 
      */
-    @Export(name="accountLinkAction", type=String.class, parameters={})
+    @Export(name="accountLinkAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountLinkAction;
 
     /**
@@ -89,7 +89,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Group memberships to determine link candidates.
      * 
      */
-    @Export(name="accountLinkGroupIncludes", type=List.class, parameters={String.class})
+    @Export(name="accountLinkGroupIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> accountLinkGroupIncludes;
 
     /**
@@ -99,7 +99,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> accountLinkGroupIncludes() {
         return Codegen.optional(this.accountLinkGroupIncludes);
     }
-    @Export(name="acsBinding", type=String.class, parameters={})
+    @Export(name="acsBinding", refs={String.class}, tree="[0]")
     private Output<String> acsBinding;
 
     public Output<String> acsBinding() {
@@ -109,7 +109,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The type of ACS. It can be `&#34;INSTANCE&#34;` or `&#34;ORG&#34;`.
      * 
      */
-    @Export(name="acsType", type=String.class, parameters={})
+    @Export(name="acsType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acsType;
 
     /**
@@ -123,7 +123,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The audience restriction for the IdP.
      * 
      */
-    @Export(name="audience", type=String.class, parameters={})
+    @Export(name="audience", refs={String.class}, tree="[0]")
     private Output<String> audience;
 
     /**
@@ -137,7 +137,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
      * 
      */
-    @Export(name="deprovisionedAction", type=String.class, parameters={})
+    @Export(name="deprovisionedAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deprovisionedAction;
 
     /**
@@ -151,7 +151,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
      * 
      */
-    @Export(name="groupsAction", type=String.class, parameters={})
+    @Export(name="groupsAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupsAction;
 
     /**
@@ -165,7 +165,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
      * 
      */
-    @Export(name="groupsAssignments", type=List.class, parameters={String.class})
+    @Export(name="groupsAssignments", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsAssignments;
 
     /**
@@ -179,7 +179,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
      * 
      */
-    @Export(name="groupsAttribute", type=String.class, parameters={})
+    @Export(name="groupsAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupsAttribute;
 
     /**
@@ -193,7 +193,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
      * 
      */
-    @Export(name="groupsFilters", type=List.class, parameters={String.class})
+    @Export(name="groupsFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsFilters;
 
     /**
@@ -207,7 +207,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * URI that identifies the issuer.
      * 
      */
-    @Export(name="issuer", type=String.class, parameters={})
+    @Export(name="issuer", refs={String.class}, tree="[0]")
     private Output<String> issuer;
 
     /**
@@ -221,7 +221,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
      * 
      */
-    @Export(name="issuerMode", type=String.class, parameters={})
+    @Export(name="issuerMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerMode;
 
     /**
@@ -235,7 +235,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The ID of the signing key.
      * 
      */
-    @Export(name="kid", type=String.class, parameters={})
+    @Export(name="kid", refs={String.class}, tree="[0]")
     private Output<String> kid;
 
     /**
@@ -249,7 +249,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Maximum allowable clock-skew when processing messages from the IdP.
      * 
      */
-    @Export(name="maxClockSkew", type=Integer.class, parameters={})
+    @Export(name="maxClockSkew", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxClockSkew;
 
     /**
@@ -263,7 +263,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The Application&#39;s display name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -277,7 +277,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The name identifier format to use. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
      * 
      */
-    @Export(name="nameFormat", type=String.class, parameters={})
+    @Export(name="nameFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nameFormat;
 
     /**
@@ -291,7 +291,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Determines if the IdP should act as a source of truth for user profile attributes.
      * 
      */
-    @Export(name="profileMaster", type=Boolean.class, parameters={})
+    @Export(name="profileMaster", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> profileMaster;
 
     /**
@@ -305,7 +305,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Provisioning action for an IdP user during authentication.
      * 
      */
-    @Export(name="provisioningAction", type=String.class, parameters={})
+    @Export(name="provisioningAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> provisioningAction;
 
     /**
@@ -319,7 +319,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The XML digital signature algorithm used when signing an AuthnRequest message. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
      * 
      */
-    @Export(name="requestSignatureAlgorithm", type=String.class, parameters={})
+    @Export(name="requestSignatureAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestSignatureAlgorithm;
 
     /**
@@ -333,7 +333,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
      * 
      */
-    @Export(name="requestSignatureScope", type=String.class, parameters={})
+    @Export(name="requestSignatureScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestSignatureScope;
 
     /**
@@ -347,7 +347,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
      * 
      */
-    @Export(name="responseSignatureAlgorithm", type=String.class, parameters={})
+    @Export(name="responseSignatureAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> responseSignatureAlgorithm;
 
     /**
@@ -361,7 +361,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `&#34;RESPONSE&#34;`, `&#34;ASSERTION&#34;`, or `&#34;ANY&#34;`.
      * 
      */
-    @Export(name="responseSignatureScope", type=String.class, parameters={})
+    @Export(name="responseSignatureScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> responseSignatureScope;
 
     /**
@@ -375,7 +375,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The method of making an SSO request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
      * 
      */
-    @Export(name="ssoBinding", type=String.class, parameters={})
+    @Export(name="ssoBinding", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ssoBinding;
 
     /**
@@ -389,7 +389,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * URI reference indicating the address to which the AuthnRequest message is sent.
      * 
      */
-    @Export(name="ssoDestination", type=String.class, parameters={})
+    @Export(name="ssoDestination", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ssoDestination;
 
     /**
@@ -403,7 +403,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * URL of binding-specific endpoint to send an AuthnRequest message to IdP.
      * 
      */
-    @Export(name="ssoUrl", type=String.class, parameters={})
+    @Export(name="ssoUrl", refs={String.class}, tree="[0]")
     private Output<String> ssoUrl;
 
     /**
@@ -417,7 +417,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Status of the IdP.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -431,7 +431,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Optional regular expression pattern used to filter untrusted IdP usernames.
      * 
      */
-    @Export(name="subjectFilter", type=String.class, parameters={})
+    @Export(name="subjectFilter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectFilter;
 
     /**
@@ -445,7 +445,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * The name format. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
      * 
      */
-    @Export(name="subjectFormats", type=List.class, parameters={String.class})
+    @Export(name="subjectFormats", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> subjectFormats;
 
     /**
@@ -459,7 +459,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
      * 
      */
-    @Export(name="subjectMatchAttribute", type=String.class, parameters={})
+    @Export(name="subjectMatchAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectMatchAttribute;
 
     /**
@@ -473,7 +473,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
      * 
      */
-    @Export(name="subjectMatchType", type=String.class, parameters={})
+    @Export(name="subjectMatchType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectMatchType;
 
     /**
@@ -487,7 +487,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
      * 
      */
-    @Export(name="suspendedAction", type=String.class, parameters={})
+    @Export(name="suspendedAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> suspendedAction;
 
     /**
@@ -501,7 +501,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Type of the IdP.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -515,7 +515,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
      * 
      */
-    @Export(name="userTypeId", type=String.class, parameters={})
+    @Export(name="userTypeId", refs={String.class}, tree="[0]")
     private Output<String> userTypeId;
 
     /**
@@ -529,7 +529,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * Okta EL Expression to generate or transform a unique username for the IdP user.
      * 
      */
-    @Export(name="usernameTemplate", type=String.class, parameters={})
+    @Export(name="usernameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usernameTemplate;
 
     /**

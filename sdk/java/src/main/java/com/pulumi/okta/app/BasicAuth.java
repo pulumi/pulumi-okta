@@ -65,7 +65,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Custom error page URL.
      * 
      */
-    @Export(name="accessibilityErrorRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
@@ -79,7 +79,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Custom login page for this application.
      * 
      */
-    @Export(name="accessibilityLoginRedirectUrl", type=String.class, parameters={})
+    @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
@@ -93,7 +93,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Enable self-service. By default, it is `false`.
      * 
      */
-    @Export(name="accessibilitySelfService", type=Boolean.class, parameters={})
+    @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
@@ -107,7 +107,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Application notes for admins.
      * 
      */
-    @Export(name="adminNote", type=String.class, parameters={})
+    @Export(name="adminNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminNote;
 
     /**
@@ -121,7 +121,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
-    @Export(name="appLinksJson", type=String.class, parameters={})
+    @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
@@ -135,7 +135,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * The URL of the authenticating site for this app.
      * 
      */
-    @Export(name="authUrl", type=String.class, parameters={})
+    @Export(name="authUrl", refs={String.class}, tree="[0]")
     private Output<String> authUrl;
 
     /**
@@ -149,7 +149,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Display auto submit toolbar.
      * 
      */
-    @Export(name="autoSubmitToolbar", type=Boolean.class, parameters={})
+    @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
@@ -163,7 +163,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Application notes for end users.
      * 
      */
-    @Export(name="enduserNote", type=String.class, parameters={})
+    @Export(name="enduserNote", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enduserNote;
 
     /**
@@ -177,7 +177,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Do not display application icon on mobile app.
      * 
      */
-    @Export(name="hideIos", type=Boolean.class, parameters={})
+    @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
@@ -191,7 +191,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Do not display application icon to users.
      * 
      */
-    @Export(name="hideWeb", type=Boolean.class, parameters={})
+    @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
@@ -205,7 +205,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * The Application&#39;s display name.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -219,7 +219,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
-    @Export(name="logo", type=String.class, parameters={})
+    @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
@@ -233,7 +233,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Direct link of application logo.
      * 
      */
-    @Export(name="logoUrl", type=String.class, parameters={})
+    @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
@@ -247,7 +247,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Name of the app.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -261,7 +261,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Sign on mode of application.
      * 
      */
-    @Export(name="signOnMode", type=String.class, parameters={})
+    @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
@@ -275,7 +275,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * Status of application. (`&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`).
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -289,7 +289,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * The URL of the sign-in page for this app.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

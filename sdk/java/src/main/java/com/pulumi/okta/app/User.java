@@ -64,7 +64,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * App to associate user with.
      * 
      */
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
@@ -74,7 +74,7 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<String> appId() {
         return this.appId;
     }
-    @Export(name="hasSharedUsername", type=Boolean.class, parameters={})
+    @Export(name="hasSharedUsername", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hasSharedUsername;
 
     public Output<Boolean> hasSharedUsername() {
@@ -84,7 +84,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The password to use.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -98,7 +98,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The JSON profile of the App User.
      * 
      */
-    @Export(name="profile", type=String.class, parameters={})
+    @Export(name="profile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> profile;
 
     /**
@@ -112,7 +112,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      * 
      */
-    @Export(name="retainAssignment", type=Boolean.class, parameters={})
+    @Export(name="retainAssignment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> retainAssignment;
 
     /**
@@ -126,7 +126,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User to associate the application with.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
@@ -141,7 +141,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * &#39;SHARED_USERNAME_AND_PASSWORD&#39; credentials scheme, this field will be computed and should not be set.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**

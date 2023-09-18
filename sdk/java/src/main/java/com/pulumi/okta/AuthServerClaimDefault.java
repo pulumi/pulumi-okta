@@ -73,7 +73,7 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
      * Specifies whether to include claims in token.
      * 
      */
-    @Export(name="alwaysIncludeInToken", type=Boolean.class, parameters={})
+    @Export(name="alwaysIncludeInToken", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> alwaysIncludeInToken;
 
     /**
@@ -87,7 +87,7 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
      * ID of the authorization server.
      * 
      */
-    @Export(name="authServerId", type=String.class, parameters={})
+    @Export(name="authServerId", refs={String.class}, tree="[0]")
     private Output<String> authServerId;
 
     /**
@@ -101,7 +101,7 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
      * Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
      * 
      */
-    @Export(name="claimType", type=String.class, parameters={})
+    @Export(name="claimType", refs={String.class}, tree="[0]")
     private Output<String> claimType;
 
     /**
@@ -117,7 +117,7 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
      * `&#34;phone_number&#34;`, `&#34;picture&#34;`, `&#34;preferred_username&#34;`, `&#34;profile&#34;`, `&#34;updated_at&#34;`, `&#34;website&#34;`, `&#34;zoneinfo&#34;`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
      * The list of scopes the auth server claim is tied to.
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={String.class})
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
@@ -147,7 +147,7 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
      * The status of the application.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -161,7 +161,7 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
      * The value of the claim. Only required for `&#34;sub&#34;` claim.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> value;
 
     /**
@@ -175,7 +175,7 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
      * The type of value of the claim.
      * 
      */
-    @Export(name="valueType", type=String.class, parameters={})
+    @Export(name="valueType", refs={String.class}, tree="[0]")
     private Output<String> valueType;
 
     /**

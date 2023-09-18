@@ -133,7 +133,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="city", type=String.class, parameters={})
+    @Export(name="city", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> city;
 
     /**
@@ -147,7 +147,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="costCenter", type=String.class, parameters={})
+    @Export(name="costCenter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> costCenter;
 
     /**
@@ -161,7 +161,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="countryCode", type=String.class, parameters={})
+    @Export(name="countryCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> countryCode;
 
     /**
@@ -175,7 +175,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * raw JSON containing all custom profile attributes.
      * 
      */
-    @Export(name="customProfileAttributes", type=String.class, parameters={})
+    @Export(name="customProfileAttributes", refs={String.class}, tree="[0]")
     private Output<String> customProfileAttributes;
 
     /**
@@ -189,7 +189,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
      * 
      */
-    @Export(name="customProfileAttributesToIgnores", type=List.class, parameters={String.class})
+    @Export(name="customProfileAttributesToIgnores", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customProfileAttributesToIgnores;
 
     /**
@@ -203,7 +203,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="department", type=String.class, parameters={})
+    @Export(name="department", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> department;
 
     /**
@@ -217,7 +217,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -231,7 +231,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="division", type=String.class, parameters={})
+    @Export(name="division", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> division;
 
     /**
@@ -245,7 +245,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -259,7 +259,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="employeeNumber", type=String.class, parameters={})
+    @Export(name="employeeNumber", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> employeeNumber;
 
     /**
@@ -274,7 +274,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * when user is being created and works only when `password` field is set. Default is `false`.
      * 
      */
-    @Export(name="expirePasswordOnCreate", type=Boolean.class, parameters={})
+    @Export(name="expirePasswordOnCreate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> expirePasswordOnCreate;
 
     /**
@@ -289,7 +289,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User&#39;s First Name, required by default.
      * 
      */
-    @Export(name="firstName", type=String.class, parameters={})
+    @Export(name="firstName", refs={String.class}, tree="[0]")
     private Output<String> firstName;
 
     /**
@@ -303,7 +303,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="honorificPrefix", type=String.class, parameters={})
+    @Export(name="honorificPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> honorificPrefix;
 
     /**
@@ -317,7 +317,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="honorificSuffix", type=String.class, parameters={})
+    @Export(name="honorificSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> honorificSuffix;
 
     /**
@@ -331,7 +331,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User&#39;s Last Name, required by default.
      * 
      */
-    @Export(name="lastName", type=String.class, parameters={})
+    @Export(name="lastName", refs={String.class}, tree="[0]")
     private Output<String> lastName;
 
     /**
@@ -345,7 +345,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="locale", type=String.class, parameters={})
+    @Export(name="locale", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> locale;
 
     /**
@@ -359,7 +359,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="login", type=String.class, parameters={})
+    @Export(name="login", refs={String.class}, tree="[0]")
     private Output<String> login;
 
     /**
@@ -373,7 +373,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="manager", type=String.class, parameters={})
+    @Export(name="manager", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> manager;
 
     /**
@@ -387,7 +387,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="managerId", type=String.class, parameters={})
+    @Export(name="managerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managerId;
 
     /**
@@ -401,7 +401,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="middleName", type=String.class, parameters={})
+    @Export(name="middleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> middleName;
 
     /**
@@ -415,7 +415,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="mobilePhone", type=String.class, parameters={})
+    @Export(name="mobilePhone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mobilePhone;
 
     /**
@@ -429,7 +429,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="nickName", type=String.class, parameters={})
+    @Export(name="nickName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nickName;
 
     /**
@@ -445,7 +445,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * for further changes.
      * 
      */
-    @Export(name="oldPassword", type=String.class, parameters={})
+    @Export(name="oldPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oldPassword;
 
     /**
@@ -461,7 +461,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="organization", type=String.class, parameters={})
+    @Export(name="organization", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organization;
 
     /**
@@ -475,7 +475,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User password.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -489,7 +489,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Specifies a hashed password to import into Okta.
      * 
      */
-    @Export(name="passwordHash", type=UserPasswordHash.class, parameters={})
+    @Export(name="passwordHash", refs={UserPasswordHash.class}, tree="[0]")
     private Output</* @Nullable */ UserPasswordHash> passwordHash;
 
     /**
@@ -506,7 +506,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * field should not be specified when using Password Import Inline Hook.
      * 
      */
-    @Export(name="passwordInlineHook", type=String.class, parameters={})
+    @Export(name="passwordInlineHook", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passwordInlineHook;
 
     /**
@@ -523,7 +523,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="postalAddress", type=String.class, parameters={})
+    @Export(name="postalAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> postalAddress;
 
     /**
@@ -537,7 +537,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="preferredLanguage", type=String.class, parameters={})
+    @Export(name="preferredLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preferredLanguage;
 
     /**
@@ -551,7 +551,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="primaryPhone", type=String.class, parameters={})
+    @Export(name="primaryPhone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryPhone;
 
     /**
@@ -565,7 +565,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="profileUrl", type=String.class, parameters={})
+    @Export(name="profileUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> profileUrl;
 
     /**
@@ -579,7 +579,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The raw status of the User in Okta - (status is mapped)
      * 
      */
-    @Export(name="rawStatus", type=String.class, parameters={})
+    @Export(name="rawStatus", refs={String.class}, tree="[0]")
     private Output<String> rawStatus;
 
     /**
@@ -596,7 +596,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
      * 
      */
-    @Export(name="recoveryAnswer", type=String.class, parameters={})
+    @Export(name="recoveryAnswer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recoveryAnswer;
 
     /**
@@ -613,7 +613,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User password recovery question.
      * 
      */
-    @Export(name="recoveryQuestion", type=String.class, parameters={})
+    @Export(name="recoveryQuestion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recoveryQuestion;
 
     /**
@@ -627,7 +627,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="secondEmail", type=String.class, parameters={})
+    @Export(name="secondEmail", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secondEmail;
 
     /**
@@ -645,7 +645,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Because admin_roles has been removed, this attribute is a no op and will be removed */
-    @Export(name="skipRoles", type=Boolean.class, parameters={})
+    @Export(name="skipRoles", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipRoles;
 
     /**
@@ -659,7 +659,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
@@ -673,7 +673,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property. Valid values are &#34;ACTIVE&#34;, &#34;DEPROVISIONED&#34;, &#34;STAGED&#34;, &#34;SUSPENDED&#34;
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -687,7 +687,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="streetAddress", type=String.class, parameters={})
+    @Export(name="streetAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> streetAddress;
 
     /**
@@ -701,7 +701,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="timezone", type=String.class, parameters={})
+    @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**
@@ -715,7 +715,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> title;
 
     /**
@@ -729,7 +729,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="userType", type=String.class, parameters={})
+    @Export(name="userType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userType;
 
     /**
@@ -743,7 +743,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * User profile property.
      * 
      */
-    @Export(name="zipCode", type=String.class, parameters={})
+    @Export(name="zipCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zipCode;
 
     /**

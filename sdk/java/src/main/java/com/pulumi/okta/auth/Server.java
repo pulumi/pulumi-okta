@@ -68,7 +68,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
      * 
      */
-    @Export(name="audiences", type=List.class, parameters={String.class})
+    @Export(name="audiences", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> audiences;
 
     /**
@@ -82,7 +82,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The timestamp when the authorization server started to use the `kid` for signing tokens.
      * 
      */
-    @Export(name="credentialsLastRotated", type=String.class, parameters={})
+    @Export(name="credentialsLastRotated", refs={String.class}, tree="[0]")
     private Output<String> credentialsLastRotated;
 
     /**
@@ -96,7 +96,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `&#34;AUTO&#34;`.
      * 
      */
-    @Export(name="credentialsNextRotation", type=String.class, parameters={})
+    @Export(name="credentialsNextRotation", refs={String.class}, tree="[0]")
     private Output<String> credentialsNextRotation;
 
     /**
@@ -110,7 +110,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
      * 
      */
-    @Export(name="credentialsRotationMode", type=String.class, parameters={})
+    @Export(name="credentialsRotationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialsRotationMode;
 
     /**
@@ -124,7 +124,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The description of the authorization server.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -138,7 +138,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
      * 
      */
-    @Export(name="issuer", type=String.class, parameters={})
+    @Export(name="issuer", refs={String.class}, tree="[0]")
     private Output<String> issuer;
 
     /**
@@ -152,7 +152,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`.
      * 
      */
-    @Export(name="issuerMode", type=String.class, parameters={})
+    @Export(name="issuerMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerMode;
 
     /**
@@ -166,7 +166,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The ID of the JSON Web Key used for signing tokens issued by the authorization server.
      * 
      */
-    @Export(name="kid", type=String.class, parameters={})
+    @Export(name="kid", refs={String.class}, tree="[0]")
     private Output<String> kid;
 
     /**
@@ -180,7 +180,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The name of the authorization server.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -194,7 +194,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The status of the auth server. It defaults to `&#34;ACTIVE&#34;`
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**

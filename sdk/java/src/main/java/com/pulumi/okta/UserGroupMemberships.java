@@ -64,7 +64,7 @@ public class UserGroupMemberships extends com.pulumi.resources.CustomResource {
      * The list of Okta group IDs which the user should have membership managed for.
      * 
      */
-    @Export(name="groups", type=List.class, parameters={String.class})
+    @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> groups;
 
     /**
@@ -78,7 +78,7 @@ public class UserGroupMemberships extends com.pulumi.resources.CustomResource {
      * Okta user ID.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**

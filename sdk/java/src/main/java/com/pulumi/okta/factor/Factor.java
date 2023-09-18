@@ -57,7 +57,7 @@ public class Factor extends com.pulumi.resources.CustomResource {
      * Whether to activate the provider, by default, it is set to `true`.
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
@@ -72,7 +72,7 @@ public class Factor extends com.pulumi.resources.CustomResource {
      * Allowed values are `&#34;duo&#34;`, `&#34;fido_u2f&#34;`, `&#34;fido_webauthn&#34;`, `&#34;google_otp&#34;`, `&#34;okta_call&#34;`, `&#34;okta_otp&#34;`, `&#34;okta_password&#34;`, `&#34;okta_push&#34;`, `&#34;okta_question&#34;`, `&#34;okta_sms&#34;`, `&#34;okta_email&#34;`, `&#34;rsa_token&#34;`, `&#34;symantec_vip&#34;`, `&#34;yubikey_token&#34;`, or `&#34;hotp&#34;`.
      * 
      */
-    @Export(name="providerId", type=String.class, parameters={})
+    @Export(name="providerId", refs={String.class}, tree="[0]")
     private Output<String> providerId;
 
     /**

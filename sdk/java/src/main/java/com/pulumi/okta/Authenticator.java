@@ -82,7 +82,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -96,7 +96,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * Name of the authenticator.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -110,7 +110,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
-    @Export(name="providerAuthPort", type=Integer.class, parameters={})
+    @Export(name="providerAuthPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> providerAuthPort;
 
     /**
@@ -124,7 +124,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * (DUO specific) - The Duo Security API hostname&#34;. Conflicts with `provider_json` argument.
      * 
      */
-    @Export(name="providerHost", type=String.class, parameters={})
+    @Export(name="providerHost", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerHost;
 
     /**
@@ -138,7 +138,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * Server host name or IP address. Default is `&#34;localhost&#34;`. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
-    @Export(name="providerHostname", type=String.class, parameters={})
+    @Export(name="providerHostname", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerHostname;
 
     /**
@@ -152,7 +152,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * App Instance ID.
      * 
      */
-    @Export(name="providerInstanceId", type=String.class, parameters={})
+    @Export(name="providerInstanceId", refs={String.class}, tree="[0]")
     private Output<String> providerInstanceId;
 
     /**
@@ -166,7 +166,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
      * 
      */
-    @Export(name="providerIntegrationKey", type=String.class, parameters={})
+    @Export(name="providerIntegrationKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerIntegrationKey;
 
     /**
@@ -186,7 +186,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * are listed in Okta API.
      * 
      */
-    @Export(name="providerJson", type=String.class, parameters={})
+    @Export(name="providerJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerJson;
 
     /**
@@ -206,7 +206,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
      * 
      */
-    @Export(name="providerSecretKey", type=String.class, parameters={})
+    @Export(name="providerSecretKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerSecretKey;
 
     /**
@@ -220,7 +220,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
-    @Export(name="providerSharedSecret", type=String.class, parameters={})
+    @Export(name="providerSharedSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerSharedSecret;
 
     /**
@@ -234,7 +234,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * Provider type. Supported value for Duo: `DUO`. Supported value for Custom App: `PUSH`
      * 
      */
-    @Export(name="providerType", type=String.class, parameters={})
+    @Export(name="providerType", refs={String.class}, tree="[0]")
     private Output<String> providerType;
 
     /**
@@ -248,7 +248,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * Username template expected by the provider. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
-    @Export(name="providerUserNameTemplate", type=String.class, parameters={})
+    @Export(name="providerUserNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerUserNameTemplate;
 
     /**
@@ -262,7 +262,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `&#34;security_key&#34;`.
      * 
      */
-    @Export(name="settings", type=String.class, parameters={})
+    @Export(name="settings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> settings;
 
     /**
@@ -276,7 +276,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * Status of the authenticator. Default is `ACTIVE`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -290,7 +290,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * The type of Authenticator. Values include: `&#34;password&#34;`, `&#34;security_question&#34;`, `&#34;phone&#34;`, `&#34;email&#34;`, `&#34;app&#34;`, `&#34;federated&#34;`, and `&#34;security_key&#34;`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

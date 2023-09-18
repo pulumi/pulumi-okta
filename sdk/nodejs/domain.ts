@@ -55,6 +55,10 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
+     * The Brand ID of the domain
+     */
+    public readonly brandId!: pulumi.Output<string | undefined>;
+    /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
      *
      * > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -86,12 +90,14 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
+            resourceInputs["brandId"] = state ? state.brandId : undefined;
             resourceInputs["certificateSourceType"] = state ? state.certificateSourceType : undefined;
             resourceInputs["dnsRecords"] = state ? state.dnsRecords : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["validationStatus"] = state ? state.validationStatus : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
+            resourceInputs["brandId"] = args ? args.brandId : undefined;
             resourceInputs["certificateSourceType"] = args ? args.certificateSourceType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["dnsRecords"] = undefined /*out*/;
@@ -106,6 +112,10 @@ export class Domain extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Domain resources.
  */
 export interface DomainState {
+    /**
+     * The Brand ID of the domain
+     */
+    brandId?: pulumi.Input<string>;
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
      *
@@ -130,6 +140,10 @@ export interface DomainState {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
+    /**
+     * The Brand ID of the domain
+     */
+    brandId?: pulumi.Input<string>;
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
      *

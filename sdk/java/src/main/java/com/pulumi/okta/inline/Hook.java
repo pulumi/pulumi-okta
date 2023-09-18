@@ -78,7 +78,7 @@ public class Hook extends com.pulumi.resources.CustomResource {
      * Authentication required for inline hook request.
      * 
      */
-    @Export(name="auth", type=Map.class, parameters={String.class, String.class})
+    @Export(name="auth", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> auth;
 
     /**
@@ -92,7 +92,7 @@ public class Hook extends com.pulumi.resources.CustomResource {
      * Details of the endpoint the inline hook will hit.
      * 
      */
-    @Export(name="channel", type=Map.class, parameters={String.class, String.class})
+    @Export(name="channel", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> channel;
 
     /**
@@ -106,7 +106,7 @@ public class Hook extends com.pulumi.resources.CustomResource {
      * Map of headers to send along in inline hook request.
      * 
      */
-    @Export(name="headers", type=List.class, parameters={HookHeader.class})
+    @Export(name="headers", refs={List.class,HookHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<HookHeader>> headers;
 
     /**
@@ -120,7 +120,7 @@ public class Hook extends com.pulumi.resources.CustomResource {
      * The inline hook display name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class Hook extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     public Output<Optional<String>> status() {
@@ -140,7 +140,7 @@ public class Hook extends com.pulumi.resources.CustomResource {
      * The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -154,7 +154,7 @@ public class Hook extends com.pulumi.resources.CustomResource {
      * Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

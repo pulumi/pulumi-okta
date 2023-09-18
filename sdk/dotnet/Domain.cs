@@ -39,6 +39,12 @@ namespace Pulumi.Okta
     public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Brand ID of the domain
+        /// </summary>
+        [Output("brandId")]
+        public Output<string?> BrandId { get; private set; } = null!;
+
+        /// <summary>
         /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
         /// 
         /// &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -111,6 +117,12 @@ namespace Pulumi.Okta
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Brand ID of the domain
+        /// </summary>
+        [Input("brandId")]
+        public Input<string>? BrandId { get; set; }
+
+        /// <summary>
         /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
         /// 
         /// &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -132,6 +144,12 @@ namespace Pulumi.Okta
 
     public sealed class DomainState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Brand ID of the domain
+        /// </summary>
+        [Input("brandId")]
+        public Input<string>? BrandId { get; set; }
+
         /// <summary>
         /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
         /// 

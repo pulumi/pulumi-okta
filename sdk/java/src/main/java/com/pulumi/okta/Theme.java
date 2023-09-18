@@ -30,7 +30,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Optional) Local path to background image file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
      * 
      */
-    @Export(name="backgroundImage", type=String.class, parameters={})
+    @Export(name="backgroundImage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backgroundImage;
 
     /**
@@ -44,7 +44,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Read-Only) Background image URL
      * 
      */
-    @Export(name="backgroundImageUrl", type=String.class, parameters={})
+    @Export(name="backgroundImageUrl", refs={String.class}, tree="[0]")
     private Output<String> backgroundImageUrl;
 
     /**
@@ -58,7 +58,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * Brand ID
      * 
      */
-    @Export(name="brandId", type=String.class, parameters={})
+    @Export(name="brandId", refs={String.class}, tree="[0]")
     private Output<String> brandId;
 
     /**
@@ -72,7 +72,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
      * 
      */
-    @Export(name="emailTemplateTouchPointVariant", type=String.class, parameters={})
+    @Export(name="emailTemplateTouchPointVariant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> emailTemplateTouchPointVariant;
 
     /**
@@ -86,7 +86,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      * 
      */
-    @Export(name="endUserDashboardTouchPointVariant", type=String.class, parameters={})
+    @Export(name="endUserDashboardTouchPointVariant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endUserDashboardTouchPointVariant;
 
     /**
@@ -100,7 +100,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
-    @Export(name="errorPageTouchPointVariant", type=String.class, parameters={})
+    @Export(name="errorPageTouchPointVariant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> errorPageTouchPointVariant;
 
     /**
@@ -114,7 +114,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Optional) Local path to favicon file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
      * 
      */
-    @Export(name="favicon", type=String.class, parameters={})
+    @Export(name="favicon", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> favicon;
 
     /**
@@ -128,7 +128,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Read-Only) Favicon URL
      * 
      */
-    @Export(name="faviconUrl", type=String.class, parameters={})
+    @Export(name="faviconUrl", refs={String.class}, tree="[0]")
     private Output<String> faviconUrl;
 
     /**
@@ -142,7 +142,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
      * 
      */
-    @Export(name="links", type=String.class, parameters={})
+    @Export(name="links", refs={String.class}, tree="[0]")
     private Output<String> links;
 
     /**
@@ -156,7 +156,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Optional) Local path to logo file. Setting the value to the blank string `&#34;&#34;` will delete the logo on the theme at Okta but will not delete the local file.
      * 
      */
-    @Export(name="logo", type=String.class, parameters={})
+    @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
@@ -170,7 +170,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Read-Only) Logo URL
      * 
      */
-    @Export(name="logoUrl", type=String.class, parameters={})
+    @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
@@ -184,7 +184,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Optional) Primary color contrast hex code
      * 
      */
-    @Export(name="primaryColorContrastHex", type=String.class, parameters={})
+    @Export(name="primaryColorContrastHex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryColorContrastHex;
 
     /**
@@ -198,7 +198,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Required) Primary color hex code
      * 
      */
-    @Export(name="primaryColorHex", type=String.class, parameters={})
+    @Export(name="primaryColorHex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryColorHex;
 
     /**
@@ -212,7 +212,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Optional) Secondary color contrast hex code
      * 
      */
-    @Export(name="secondaryColorContrastHex", type=String.class, parameters={})
+    @Export(name="secondaryColorContrastHex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secondaryColorContrastHex;
 
     /**
@@ -226,7 +226,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Required) Secondary color hex code
      * 
      */
-    @Export(name="secondaryColorHex", type=String.class, parameters={})
+    @Export(name="secondaryColorHex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secondaryColorHex;
 
     /**
@@ -240,7 +240,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
-    @Export(name="signInPageTouchPointVariant", type=String.class, parameters={})
+    @Export(name="signInPageTouchPointVariant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signInPageTouchPointVariant;
 
     /**
@@ -254,7 +254,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * Theme ID, used for read (faux-create)
      * 
      */
-    @Export(name="themeId", type=String.class, parameters={})
+    @Export(name="themeId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> themeId;
 
     /**

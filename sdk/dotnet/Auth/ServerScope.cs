@@ -88,6 +88,12 @@ namespace Pulumi.Okta.Auth
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the scope optional
+        /// </summary>
+        [Output("optional")]
+        public Output<bool?> Optional { get; private set; } = null!;
+
+        /// <summary>
         /// Whether Okta created the Scope
         /// </summary>
         [Output("system")]
@@ -181,6 +187,12 @@ namespace Pulumi.Okta.Auth
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether the scope optional
+        /// </summary>
+        [Input("optional")]
+        public Input<bool>? Optional { get; set; }
+
         public ServerScopeArgs()
         {
         }
@@ -230,6 +242,12 @@ namespace Pulumi.Okta.Auth
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether the scope optional
+        /// </summary>
+        [Input("optional")]
+        public Input<bool>? Optional { get; set; }
 
         /// <summary>
         /// Whether Okta created the Scope

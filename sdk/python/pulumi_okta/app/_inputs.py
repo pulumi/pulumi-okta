@@ -108,13 +108,19 @@ class OAuthJwkArgs:
                  kid: pulumi.Input[str],
                  kty: pulumi.Input[str],
                  e: Optional[pulumi.Input[str]] = None,
-                 n: Optional[pulumi.Input[str]] = None):
+                 n: Optional[pulumi.Input[str]] = None,
+                 x: Optional[pulumi.Input[str]] = None,
+                 y: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "kid", kid)
         pulumi.set(__self__, "kty", kty)
         if e is not None:
             pulumi.set(__self__, "e", e)
         if n is not None:
             pulumi.set(__self__, "n", n)
+        if x is not None:
+            pulumi.set(__self__, "x", x)
+        if y is not None:
+            pulumi.set(__self__, "y", y)
 
     @property
     @pulumi.getter
@@ -151,6 +157,24 @@ class OAuthJwkArgs:
     @n.setter
     def n(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "n", value)
+
+    @property
+    @pulumi.getter
+    def x(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "x")
+
+    @x.setter
+    def x(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x", value)
+
+    @property
+    @pulumi.getter
+    def y(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "y")
+
+    @y.setter
+    def y(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "y", value)
 
 
 @pulumi.input_type

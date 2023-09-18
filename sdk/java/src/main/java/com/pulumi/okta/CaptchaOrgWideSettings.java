@@ -110,7 +110,7 @@ public class CaptchaOrgWideSettings extends com.pulumi.resources.CustomResource 
      * The ID of the CAPTCHA.
      * 
      */
-    @Export(name="captchaId", type=String.class, parameters={})
+    @Export(name="captchaId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> captchaId;
 
     /**
@@ -124,7 +124,7 @@ public class CaptchaOrgWideSettings extends com.pulumi.resources.CustomResource 
      * Array of pages that have CAPTCHA enabled. Valid values: `&#34;SSR&#34;`, `&#34;SSPR&#34;` and `&#34;SIGN_IN&#34;`.
      * 
      */
-    @Export(name="enabledFors", type=List.class, parameters={String.class})
+    @Export(name="enabledFors", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enabledFors;
 
     /**

@@ -78,7 +78,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * Array of values that an array property&#39;s items can be set to.
      * 
      */
-    @Export(name="arrayEnums", type=List.class, parameters={String.class})
+    @Export(name="arrayEnums", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> arrayEnums;
 
     /**
@@ -92,7 +92,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * Display name and value an enum array can be set to.
      * 
      */
-    @Export(name="arrayOneOfs", type=List.class, parameters={UserSchemaPropertyArrayOneOf.class})
+    @Export(name="arrayOneOfs", refs={List.class,UserSchemaPropertyArrayOneOf.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserSchemaPropertyArrayOneOf>> arrayOneOfs;
 
     /**
@@ -106,7 +106,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * The type of the array elements if `type` is set to `&#34;array&#34;`.
      * 
      */
-    @Export(name="arrayType", type=String.class, parameters={})
+    @Export(name="arrayType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> arrayType;
 
     /**
@@ -120,7 +120,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * The description of the user schema property.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -134,7 +134,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * Array of values a primitive property can be set to. See `array_enum` for arrays.
      * 
      */
-    @Export(name="enums", type=List.class, parameters={String.class})
+    @Export(name="enums", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enums;
 
     /**
@@ -148,7 +148,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * External name of the user schema property.
      * 
      */
-    @Export(name="externalName", type=String.class, parameters={})
+    @Export(name="externalName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalName;
 
     /**
@@ -162,7 +162,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * External name of the user schema property.
      * 
      */
-    @Export(name="externalNamespace", type=String.class, parameters={})
+    @Export(name="externalNamespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalNamespace;
 
     /**
@@ -176,7 +176,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * The property name.
      * 
      */
-    @Export(name="index", type=String.class, parameters={})
+    @Export(name="index", refs={String.class}, tree="[0]")
     private Output<String> index;
 
     /**
@@ -190,7 +190,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;`, `&#34;OVERRIDE&#34;` or `&#34;OKTA&#34;`.
      * 
      */
-    @Export(name="master", type=String.class, parameters={})
+    @Export(name="master", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> master;
 
     /**
@@ -204,7 +204,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * Prioritized list of profile sources (required when `master` is `&#34;OVERRIDE&#34;`).
      * 
      */
-    @Export(name="masterOverridePriorities", type=List.class, parameters={UserSchemaPropertyMasterOverridePriority.class})
+    @Export(name="masterOverridePriorities", refs={List.class,UserSchemaPropertyMasterOverridePriority.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserSchemaPropertyMasterOverridePriority>> masterOverridePriorities;
 
     /**
@@ -218,7 +218,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * The maximum length of the user property value. Only applies to type `&#34;string&#34;`.
      * 
      */
-    @Export(name="maxLength", type=Integer.class, parameters={})
+    @Export(name="maxLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxLength;
 
     /**
@@ -232,7 +232,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * The minimum length of the user property value. Only applies to type `&#34;string&#34;`.
      * 
      */
-    @Export(name="minLength", type=Integer.class, parameters={})
+    @Export(name="minLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minLength;
 
     /**
@@ -246,7 +246,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * Array of maps containing a mapping for display name to enum value.
      * 
      */
-    @Export(name="oneOfs", type=List.class, parameters={UserSchemaPropertyOneOf.class})
+    @Export(name="oneOfs", refs={List.class,UserSchemaPropertyOneOf.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserSchemaPropertyOneOf>> oneOfs;
 
     /**
@@ -260,7 +260,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[&lt;pattern&gt;]+&#39; if present.&#39;
      * 
      */
-    @Export(name="pattern", type=String.class, parameters={})
+    @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pattern;
 
     /**
@@ -274,7 +274,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
      * 
      */
-    @Export(name="permissions", type=String.class, parameters={})
+    @Export(name="permissions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permissions;
 
     /**
@@ -288,7 +288,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * Whether the property is required for these users.
      * 
      */
-    @Export(name="required", type=Boolean.class, parameters={})
+    @Export(name="required", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> required;
 
     /**
@@ -302,7 +302,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * determines whether an app user attribute can be set at the Individual or Group Level.
      * 
      */
-    @Export(name="scope", type=String.class, parameters={})
+    @Export(name="scope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scope;
 
     /**
@@ -316,7 +316,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * display name for the enum value.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
@@ -330,7 +330,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * Type of profile source.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -344,7 +344,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * Whether the property should be unique. It can be set to `&#34;UNIQUE_VALIDATED&#34;` or `&#34;NOT_UNIQUE&#34;`.
      * 
      */
-    @Export(name="unique", type=String.class, parameters={})
+    @Export(name="unique", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> unique;
 
     /**
@@ -358,7 +358,7 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
      * User type ID
      * 
      */
-    @Export(name="userType", type=String.class, parameters={})
+    @Export(name="userType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userType;
 
     /**

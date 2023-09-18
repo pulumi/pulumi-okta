@@ -275,14 +275,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+     * Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
      * 
      */
     @Import(name="groupsClaim")
     private @Nullable Output<OAuthGroupsClaimArgs> groupsClaim;
 
     /**
-     * @return Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+     * @return Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
      * 
      */
     public Optional<Output<OAuthGroupsClaimArgs>> groupsClaim() {
@@ -352,14 +352,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+     * JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
      * 
      */
     @Import(name="jwks")
     private @Nullable Output<List<OAuthJwkArgs>> jwks;
 
     /**
-     * @return JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+     * @return JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
      * 
      */
     public Optional<Output<List<OAuthJwkArgs>>> jwks() {
@@ -1265,7 +1265,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsClaim Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+         * @param groupsClaim Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
          * 
          * @return builder
          * 
@@ -1276,7 +1276,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsClaim Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+         * @param groupsClaim Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
          * 
          * @return builder
          * 
@@ -1372,7 +1372,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwks JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+         * @param jwks JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
          * 
          * @return builder
          * 
@@ -1383,7 +1383,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwks JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+         * @param jwks JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
          * 
          * @return builder
          * 
@@ -1393,7 +1393,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwks JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+         * @param jwks JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
          * 
          * @return builder
          * 

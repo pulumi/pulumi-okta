@@ -26,7 +26,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Bearer token granting privileges to Okta API.
      * 
      */
-    @Export(name="accessToken", type=String.class, parameters={})
+    @Export(name="accessToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessToken;
 
     /**
@@ -40,7 +40,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * API Token granting privileges to Okta API.
      * 
      */
-    @Export(name="apiToken", type=String.class, parameters={})
+    @Export(name="apiToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiToken;
 
     /**
@@ -54,7 +54,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Okta url. (Use &#39;oktapreview.com&#39; for Okta testing)
      * 
      */
-    @Export(name="baseUrl", type=String.class, parameters={})
+    @Export(name="baseUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> baseUrl;
 
     /**
@@ -68,7 +68,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * API Token granting privileges to Okta API.
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientId;
 
     /**
@@ -82,7 +82,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
      * 
      */
-    @Export(name="httpProxy", type=String.class, parameters={})
+    @Export(name="httpProxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpProxy;
 
     /**
@@ -96,7 +96,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The organization to manage in Okta.
      * 
      */
-    @Export(name="orgName", type=String.class, parameters={})
+    @Export(name="orgName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> orgName;
 
     /**
@@ -110,7 +110,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * API Token granting privileges to Okta API.
      * 
      */
-    @Export(name="privateKey", type=String.class, parameters={})
+    @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
     /**
@@ -124,7 +124,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * API Token Id granting privileges to Okta API.
      * 
      */
-    @Export(name="privateKeyId", type=String.class, parameters={})
+    @Export(name="privateKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKeyId;
 
     /**

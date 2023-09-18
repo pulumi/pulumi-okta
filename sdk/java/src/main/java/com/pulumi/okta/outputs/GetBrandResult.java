@@ -26,6 +26,10 @@ public final class GetBrandResult {
      * 
      */
     private String links;
+    /**
+     * @return Brand name
+     * 
+     */
     private String name;
     /**
      * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
@@ -58,6 +62,10 @@ public final class GetBrandResult {
     public String links() {
         return this.links;
     }
+    /**
+     * @return Brand name
+     * 
+     */
     public String name() {
         return this.name;
     }

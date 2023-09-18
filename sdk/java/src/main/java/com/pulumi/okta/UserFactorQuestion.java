@@ -91,7 +91,7 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
      * Security question answer. Note here that answer won&#39;t be set during the resource import.
      * 
      */
-    @Export(name="answer", type=String.class, parameters={})
+    @Export(name="answer", refs={String.class}, tree="[0]")
     private Output<String> answer;
 
     /**
@@ -105,7 +105,7 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
      * Security question unique key.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -119,7 +119,7 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
      * The status of the security question factor.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -133,7 +133,7 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
      * Display text for security question.
      * 
      */
-    @Export(name="text", type=String.class, parameters={})
+    @Export(name="text", refs={String.class}, tree="[0]")
     private Output<String> text;
 
     /**
@@ -147,7 +147,7 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
      * ID of the user. Resource will be recreated when `user_id` changes.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**

@@ -73,9 +73,15 @@ import (
 //				Jwks: app.OAuthJwkArray{
 //					&app.OAuthJwkArgs{
 //						E:   pulumi.String("AQAB"),
-//						Kid: pulumi.String("SIGNING_KEY"),
+//						Kid: pulumi.String("SIGNING_KEY_RSA"),
 //						Kty: pulumi.String("RSA"),
 //						N:   pulumi.String("xyz"),
+//					},
+//					&app.OAuthJwkArgs{
+//						Kid: pulumi.String("SIGNING_KEY_EC"),
+//						Kty: pulumi.String("EC"),
+//						X:   pulumi.String("K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I"),
+//						Y:   pulumi.String("8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo"),
 //					},
 //				},
 //				Label: pulumi.String("example"),
@@ -180,7 +186,7 @@ type OAuth struct {
 	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 	GroupsClaim OAuthGroupsClaimPtrOutput `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -191,7 +197,7 @@ type OAuth struct {
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
-	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+	// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
 	Jwks OAuthJwkArrayOutput `pulumi:"jwks"`
 	// URL of the custom authorization server's JSON Web Key Set document.
 	JwksUri pulumi.StringPtrOutput `pulumi:"jwksUri"`
@@ -355,7 +361,7 @@ type oauthState struct {
 	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes []string `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -366,7 +372,7 @@ type oauthState struct {
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode *string `pulumi:"issuerMode"`
-	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+	// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
 	Jwks []OAuthJwk `pulumi:"jwks"`
 	// URL of the custom authorization server's JSON Web Key Set document.
 	JwksUri *string `pulumi:"jwksUri"`
@@ -487,7 +493,7 @@ type OAuthState struct {
 	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayInput
-	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -498,7 +504,7 @@ type OAuthState struct {
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrInput
-	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+	// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
 	Jwks OAuthJwkArrayInput
 	// URL of the custom authorization server's JSON Web Key Set document.
 	JwksUri pulumi.StringPtrInput
@@ -621,7 +627,7 @@ type oauthArgs struct {
 	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes []string `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
@@ -632,7 +638,7 @@ type oauthArgs struct {
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode *string `pulumi:"issuerMode"`
-	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+	// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
 	Jwks []OAuthJwk `pulumi:"jwks"`
 	// URL of the custom authorization server's JSON Web Key Set document.
 	JwksUri *string `pulumi:"jwksUri"`
@@ -746,7 +752,7 @@ type OAuthArgs struct {
 	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
 	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayInput
-	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
@@ -757,7 +763,7 @@ type OAuthArgs struct {
 	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrInput
-	// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+	// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
 	Jwks OAuthJwkArrayInput
 	// URL of the custom authorization server's JSON Web Key Set document.
 	JwksUri pulumi.StringPtrInput
@@ -1030,7 +1036,7 @@ func (o OAuthOutput) GrantTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.GrantTypes }).(pulumi.StringArrayOutput)
 }
 
-// Groups claim for an OpenID Connect client application. **IMPORTANT**: this field is available only when using api token in the provider config.
+// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 func (o OAuthOutput) GroupsClaim() OAuthGroupsClaimPtrOutput {
 	return o.ApplyT(func(v *OAuth) OAuthGroupsClaimPtrOutput { return v.GroupsClaim }).(OAuthGroupsClaimPtrOutput)
 }
@@ -1056,7 +1062,7 @@ func (o OAuthOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }
 
-// JSON Web Key set. [Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console)
+// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
 func (o OAuthOutput) Jwks() OAuthJwkArrayOutput {
 	return o.ApplyT(func(v *OAuth) OAuthJwkArrayOutput { return v.Jwks }).(OAuthJwkArrayOutput)
 }

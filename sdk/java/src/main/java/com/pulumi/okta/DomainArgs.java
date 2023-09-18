@@ -16,6 +16,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     public static final DomainArgs Empty = new DomainArgs();
 
     /**
+     * The Brand ID of the domain
+     * 
+     */
+    @Import(name="brandId")
+    private @Nullable Output<String> brandId;
+
+    /**
+     * @return The Brand ID of the domain
+     * 
+     */
+    public Optional<Output<String>> brandId() {
+        return Optional.ofNullable(this.brandId);
+    }
+
+    /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
      * 
      * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
@@ -52,6 +67,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     private DomainArgs() {}
 
     private DomainArgs(DomainArgs $) {
+        this.brandId = $.brandId;
         this.certificateSourceType = $.certificateSourceType;
         this.name = $.name;
     }
@@ -72,6 +88,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(DomainArgs defaults) {
             $ = new DomainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param brandId The Brand ID of the domain
+         * 
+         * @return builder
+         * 
+         */
+        public Builder brandId(@Nullable Output<String> brandId) {
+            $.brandId = brandId;
+            return this;
+        }
+
+        /**
+         * @param brandId The Brand ID of the domain
+         * 
+         * @return builder
+         * 
+         */
+        public Builder brandId(String brandId) {
+            return brandId(Output.of(brandId));
         }
 
         /**

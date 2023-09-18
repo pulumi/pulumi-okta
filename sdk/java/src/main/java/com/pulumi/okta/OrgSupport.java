@@ -60,7 +60,7 @@ public class OrgSupport extends com.pulumi.resources.CustomResource {
      * Expiration of Okta Support
      * 
      */
-    @Export(name="expiration", type=String.class, parameters={})
+    @Export(name="expiration", refs={String.class}, tree="[0]")
     private Output<String> expiration;
 
     /**
@@ -74,7 +74,7 @@ public class OrgSupport extends com.pulumi.resources.CustomResource {
      * Number of days the support should be extended by in addition to the standard eight hours.
      * 
      */
-    @Export(name="extendBy", type=Integer.class, parameters={})
+    @Export(name="extendBy", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> extendBy;
 
     /**
@@ -88,7 +88,7 @@ public class OrgSupport extends com.pulumi.resources.CustomResource {
      * Status of Okta Support
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

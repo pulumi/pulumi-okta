@@ -62,7 +62,7 @@ public class DomainVerification extends com.pulumi.resources.CustomResource {
      * Domain ID.
      * 
      */
-    @Export(name="domainId", type=String.class, parameters={})
+    @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
     /**

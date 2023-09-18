@@ -21,7 +21,9 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * 
-     * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
+     * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     * 
+     * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      * 
      */
     @Import(name="alwaysApply")
@@ -30,7 +32,9 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * 
-     * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
+     * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     * 
+     * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      * 
      */
     public Optional<Output<Boolean>> alwaysApply() {
@@ -192,7 +196,9 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param alwaysApply Whether apply the changes to all users with this profile after updating or creating the these mappings.
          * 
-         * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
+         * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+         * 
+         * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
          * 
          * @return builder
          * 
@@ -205,7 +211,9 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param alwaysApply Whether apply the changes to all users with this profile after updating or creating the these mappings.
          * 
-         * &gt; **WARNING**: `always_apply` is available only when using api token in the provider config.
+         * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+         * 
+         * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
          * 
          * @return builder
          * 

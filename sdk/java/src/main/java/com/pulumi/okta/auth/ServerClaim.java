@@ -69,7 +69,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * Specifies whether to include claims in token, by default it is set to `true`.
      * 
      */
-    @Export(name="alwaysIncludeInToken", type=Boolean.class, parameters={})
+    @Export(name="alwaysIncludeInToken", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> alwaysIncludeInToken;
 
     /**
@@ -83,7 +83,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * ID of the authorization server.
      * 
      */
-    @Export(name="authServerId", type=String.class, parameters={})
+    @Export(name="authServerId", refs={String.class}, tree="[0]")
     private Output<String> authServerId;
 
     /**
@@ -97,7 +97,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
      * 
      */
-    @Export(name="claimType", type=String.class, parameters={})
+    @Export(name="claimType", refs={String.class}, tree="[0]")
     private Output<String> claimType;
 
     /**
@@ -111,7 +111,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * Specifies the type of group filter if `value_type` is `&#34;GROUPS&#34;`. Can be set to one of the following `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
      * 
      */
-    @Export(name="groupFilterType", type=String.class, parameters={})
+    @Export(name="groupFilterType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupFilterType;
 
     /**
@@ -125,7 +125,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * The name of the claim.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -139,7 +139,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * The list of scopes the auth server claim is tied to.
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={String.class})
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> scopes;
 
     /**
@@ -153,7 +153,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * The status of the application. It defaults to `&#34;ACTIVE&#34;`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -167,7 +167,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * The value of the claim.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
@@ -181,7 +181,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * The type of value of the claim. It can be set to `&#34;EXPRESSION&#34;` or `&#34;GROUPS&#34;`. It defaults to `&#34;EXPRESSION&#34;`.
      * 
      */
-    @Export(name="valueType", type=String.class, parameters={})
+    @Export(name="valueType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> valueType;
 
     /**

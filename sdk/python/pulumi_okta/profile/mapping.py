@@ -27,7 +27,9 @@ class MappingArgs:
         :param pulumi.Input[str] target_id: ID of the mapping target.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
                
-               > **WARNING**: `always_apply` is available only when using api token in the provider config.
+               > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+               
+               > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]] mappings: Priority of the policy.
         """
@@ -70,7 +72,9 @@ class MappingArgs:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
 
-        > **WARNING**: `always_apply` is available only when using api token in the provider config.
+        > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+
+        > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         """
         return pulumi.get(self, "always_apply")
 
@@ -119,7 +123,9 @@ class _MappingState:
         Input properties used for looking up and filtering Mapping resources.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
                
-               > **WARNING**: `always_apply` is available only when using api token in the provider config.
+               > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+               
+               > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]] mappings: Priority of the policy.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
@@ -154,7 +160,9 @@ class _MappingState:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
 
-        > **WARNING**: `always_apply` is available only when using api token in the provider config.
+        > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+
+        > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         """
         return pulumi.get(self, "always_apply")
 
@@ -314,7 +322,9 @@ class Mapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
                
-               > **WARNING**: `always_apply` is available only when using api token in the provider config.
+               > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+               
+               > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
@@ -436,7 +446,9 @@ class Mapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
                
-               > **WARNING**: `always_apply` is available only when using api token in the provider config.
+               > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+               
+               > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
         :param pulumi.Input[str] source_id: Source id of the profile mapping.
@@ -467,7 +479,9 @@ class Mapping(pulumi.CustomResource):
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
 
-        > **WARNING**: `always_apply` is available only when using api token in the provider config.
+        > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+
+        > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         """
         return pulumi.get(self, "always_apply")
 

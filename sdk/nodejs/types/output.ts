@@ -350,6 +350,9 @@ export interface UserSchemaPropertyOneOf {
 
 export namespace Index {
     export interface EmailDomainDnsValidationRecord {
+        /**
+         * @deprecated This field has been removed in the newest go sdk version and has become noop
+         */
         expiration: string;
         /**
          * DNS record name.
@@ -361,7 +364,7 @@ export namespace Index {
         recordType: string;
         /**
          * DNS record value
-         * - `expiration ` - DNS TXT record expiration
+         * - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
          */
         value: string;
     }
@@ -444,6 +447,8 @@ export namespace app {
         kid: string;
         kty: string;
         n?: string;
+        x?: string;
+        y?: string;
     }
 
     export interface SamlAttributeStatement {
@@ -548,6 +553,7 @@ export namespace auth {
          * Name of the Scope
          */
         name: string;
+        optional: boolean;
         /**
          * Whether Okta created the Scope
          */

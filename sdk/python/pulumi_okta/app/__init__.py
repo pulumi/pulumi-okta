@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .access_policy_assignment import *
 from .auto_login import *
 from .basic_auth import *
 from .bookmark import *

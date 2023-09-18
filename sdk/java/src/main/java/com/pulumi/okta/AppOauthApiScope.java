@@ -90,7 +90,7 @@ public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
      * ID of the application.
      * 
      */
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
@@ -104,7 +104,7 @@ public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
      * The issuer of your Org Authorization Server, your Org URL.
      * 
      */
-    @Export(name="issuer", type=String.class, parameters={})
+    @Export(name="issuer", refs={String.class}, tree="[0]")
     private Output<String> issuer;
 
     /**
@@ -118,7 +118,7 @@ public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
      * List of scopes for which consent is granted.
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={String.class})
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
