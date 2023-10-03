@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserGroupMembershipsArgs', 'UserGroupMemberships']
@@ -21,8 +21,19 @@ class UserGroupMembershipsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of Okta group IDs which the user should have membership managed for.
         :param pulumi.Input[str] user_id: Okta user ID.
         """
-        pulumi.set(__self__, "groups", groups)
-        pulumi.set(__self__, "user_id", user_id)
+        UserGroupMembershipsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: pulumi.Input[Sequence[pulumi.Input[str]]],
+             user_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("groups", groups)
+        _setter("user_id", user_id)
 
     @property
     @pulumi.getter
@@ -59,10 +70,21 @@ class _UserGroupMembershipsState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of Okta group IDs which the user should have membership managed for.
         :param pulumi.Input[str] user_id: Okta user ID.
         """
+        _UserGroupMembershipsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter
@@ -158,6 +180,10 @@ class UserGroupMemberships(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserGroupMembershipsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

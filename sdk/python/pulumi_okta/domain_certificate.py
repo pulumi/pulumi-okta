@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['DomainCertificateArgs', 'DomainCertificate']
@@ -27,11 +27,28 @@ class DomainCertificateArgs:
         :param pulumi.Input[str] private_key: Certificate private key.
         :param pulumi.Input[str] type: Certificate type. Valid value is `"PEM"`.
         """
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "domain_id", domain_id)
-        pulumi.set(__self__, "private_key", private_key)
-        pulumi.set(__self__, "type", type)
+        DomainCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            certificate_chain=certificate_chain,
+            domain_id=domain_id,
+            private_key=private_key,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: pulumi.Input[str],
+             certificate_chain: pulumi.Input[str],
+             domain_id: pulumi.Input[str],
+             private_key: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate", certificate)
+        _setter("certificate_chain", certificate_chain)
+        _setter("domain_id", domain_id)
+        _setter("private_key", private_key)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -110,16 +127,33 @@ class _DomainCertificateState:
         :param pulumi.Input[str] private_key: Certificate private key.
         :param pulumi.Input[str] type: Certificate type. Valid value is `"PEM"`.
         """
+        _DomainCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            certificate_chain=certificate_chain,
+            domain_id=domain_id,
+            private_key=private_key,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             certificate_chain: Optional[pulumi.Input[str]] = None,
+             domain_id: Optional[pulumi.Input[str]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_chain is not None:
-            pulumi.set(__self__, "certificate_chain", certificate_chain)
+            _setter("certificate_chain", certificate_chain)
         if domain_id is not None:
-            pulumi.set(__self__, "domain_id", domain_id)
+            _setter("domain_id", domain_id)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -287,6 +321,10 @@ class DomainCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

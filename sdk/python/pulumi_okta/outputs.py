@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -47,10 +47,23 @@ class AppGroupAssignmentsGroup(dict):
         :param str profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param int priority: Priority of group assignment
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "profile", profile)
+        AppGroupAssignmentsGroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            profile=profile,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             profile: str,
+             priority: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("profile", profile)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
 
     @property
     @pulumi.getter
@@ -107,12 +120,25 @@ class AppSignonPolicyRulePlatformInclude(dict):
         :param str os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
         :param str type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
         """
+        AppSignonPolicyRulePlatformInclude._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_expression=os_expression,
+            os_type=os_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_expression: Optional[str] = None,
+             os_type: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if os_expression is not None:
-            pulumi.set(__self__, "os_expression", os_expression)
+            _setter("os_expression", os_expression)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="osExpression")
@@ -148,8 +174,19 @@ class AppUserSchemaPropertyArrayOneOf(dict):
         :param str const: value mapping to member of `array_enum`.
         :param str title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        AppUserSchemaPropertyArrayOneOf._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: str,
+             title: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter
@@ -177,8 +214,19 @@ class AppUserSchemaPropertyOneOf(dict):
         :param str const: value mapping to member of `array_enum`.
         :param str title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        AppUserSchemaPropertyOneOf._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: str,
+             title: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter
@@ -227,14 +275,29 @@ class DomainDnsRecord(dict):
         :param str record_type: Record type can be TXT or CNAME.
         :param Sequence[str] values: DNS verification value
         """
+        DomainDnsRecord._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration=expiration,
+            fqdn=fqdn,
+            record_type=record_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             record_type: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if record_type is not None:
-            pulumi.set(__self__, "record_type", record_type)
+            _setter("record_type", record_type)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -297,12 +360,25 @@ class EmailSenderDnsRecord(dict):
         :param str record_type: Record type can be TXT or CNAME.
         :param str value: DNS verification value
         """
+        EmailSenderDnsRecord._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            record_type=record_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: Optional[str] = None,
+             record_type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if record_type is not None:
-            pulumi.set(__self__, "record_type", record_type)
+            _setter("record_type", record_type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -338,10 +414,21 @@ class EventHookHeader(dict):
         :param str key: Key to use for authentication, usually the header name, for example `"Authorization"`.
         :param str value: Authentication secret.
         """
+        EventHookHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -369,8 +456,19 @@ class GroupSchemaPropertyArrayOneOf(dict):
         :param str const: value mapping to member of `enum`.
         :param str title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        GroupSchemaPropertyArrayOneOf._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: str,
+             title: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter
@@ -398,9 +496,20 @@ class GroupSchemaPropertyMasterOverridePriority(dict):
         :param str value: ID of profile source.
         :param str type: Type of profile source.
         """
-        pulumi.set(__self__, "value", value)
+        GroupSchemaPropertyMasterOverridePriority._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -428,8 +537,19 @@ class GroupSchemaPropertyOneOf(dict):
         :param str const: value mapping to member of `enum`.
         :param str title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        GroupSchemaPropertyOneOf._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: str,
+             title: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter
@@ -459,10 +579,23 @@ class PolicyRuleProfileEnrollmentProfileAttribute(dict):
         :param str name: The name of a User Profile property
         :param bool required: Indicates if this property is required for enrollment. Default is `false`.
         """
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "name", name)
+        PolicyRuleProfileEnrollmentProfileAttribute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            name=name,
+            required=required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: str,
+             name: str,
+             required: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("label", label)
+        _setter("name", name)
         if required is not None:
-            pulumi.set(__self__, "required", required)
+            _setter("required", required)
 
     @property
     @pulumi.getter
@@ -498,8 +631,19 @@ class TemplateSmsTranslation(dict):
         :param str language: The language to map the template to.
         :param str template: The SMS message.
         """
-        pulumi.set(__self__, "language", language)
-        pulumi.set(__self__, "template", template)
+        TemplateSmsTranslation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            language=language,
+            template=template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             language: str,
+             template: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("language", language)
+        _setter("template", template)
 
     @property
     @pulumi.getter
@@ -527,8 +671,19 @@ class UserSchemaPropertyArrayOneOf(dict):
         :param str const: value mapping to member of `enum`.
         :param str title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        UserSchemaPropertyArrayOneOf._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: str,
+             title: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter
@@ -556,9 +711,20 @@ class UserSchemaPropertyMasterOverridePriority(dict):
         :param str value: ID of profile source.
         :param str type: Type of profile source.
         """
-        pulumi.set(__self__, "value", value)
+        UserSchemaPropertyMasterOverridePriority._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: str,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -586,8 +752,19 @@ class UserSchemaPropertyOneOf(dict):
         :param str const: value mapping to member of `enum`.
         :param str title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        UserSchemaPropertyOneOf._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: str,
+             title: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter
@@ -627,14 +804,37 @@ class GetAuthServerClaimsClaimResult(dict):
         :param str value: Value of the claim
         :param str value_type: Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
         """
-        pulumi.set(__self__, "always_include_in_token", always_include_in_token)
-        pulumi.set(__self__, "claim_type", claim_type)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "scopes", scopes)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "value", value)
-        pulumi.set(__self__, "value_type", value_type)
+        GetAuthServerClaimsClaimResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            always_include_in_token=always_include_in_token,
+            claim_type=claim_type,
+            id=id,
+            name=name,
+            scopes=scopes,
+            status=status,
+            value=value,
+            value_type=value_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             always_include_in_token: bool,
+             claim_type: str,
+             id: str,
+             name: str,
+             scopes: Sequence[str],
+             status: str,
+             value: str,
+             value_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("always_include_in_token", always_include_in_token)
+        _setter("claim_type", claim_type)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("scopes", scopes)
+        _setter("status", status)
+        _setter("value", value)
+        _setter("value_type", value_type)
 
     @property
     @pulumi.getter(name="alwaysIncludeInToken")
@@ -716,11 +916,28 @@ class GetBehavioursBehaviorResult(dict):
         :param str status: Behavior status.
         :param str type: Behavior type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "settings", settings)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        GetBehavioursBehaviorResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            settings=settings,
+            status=status,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             settings: Mapping[str, str],
+             status: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
+        _setter("settings", settings)
+        _setter("status", status)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -771,11 +988,28 @@ class GetBrandsBrandResult(dict):
                  links: str,
                  name: str,
                  remove_powered_by_okta: bool):
-        pulumi.set(__self__, "custom_privacy_policy_url", custom_privacy_policy_url)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "links", links)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "remove_powered_by_okta", remove_powered_by_okta)
+        GetBrandsBrandResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_privacy_policy_url=custom_privacy_policy_url,
+            id=id,
+            links=links,
+            name=name,
+            remove_powered_by_okta=remove_powered_by_okta,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_privacy_policy_url: str,
+             id: str,
+             links: str,
+             name: str,
+             remove_powered_by_okta: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_privacy_policy_url", custom_privacy_policy_url)
+        _setter("id", id)
+        _setter("links", links)
+        _setter("name", name)
+        _setter("remove_powered_by_okta", remove_powered_by_okta)
 
     @property
     @pulumi.getter(name="customPrivacyPolicyUrl")
@@ -812,12 +1046,31 @@ class GetEmailCustomizationsEmailCustomizationResult(dict):
                  language: str,
                  links: str,
                  subject: str):
-        pulumi.set(__self__, "body", body)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "language", language)
-        pulumi.set(__self__, "links", links)
-        pulumi.set(__self__, "subject", subject)
+        GetEmailCustomizationsEmailCustomizationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            id=id,
+            is_default=is_default,
+            language=language,
+            links=links,
+            subject=subject,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: str,
+             id: str,
+             is_default: bool,
+             language: str,
+             links: str,
+             subject: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("body", body)
+        _setter("id", id)
+        _setter("is_default", is_default)
+        _setter("language", language)
+        _setter("links", links)
+        _setter("subject", subject)
 
     @property
     @pulumi.getter
@@ -866,11 +1119,28 @@ class GetGroupsGroupResult(dict):
         :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
                (Imported App Groups), or `BUILT_IN` (Okta System Groups).
         """
-        pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        GetGroupsGroupResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_profile_attributes=custom_profile_attributes,
+            description=description,
+            id=id,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_profile_attributes: str,
+             description: str,
+             id: str,
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_profile_attributes", custom_profile_attributes)
+        _setter("description", description)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="customProfileAttributes")
@@ -919,8 +1189,19 @@ class GetTemplatesEmailTemplateResult(dict):
     def __init__(__self__, *,
                  links: str,
                  name: str):
-        pulumi.set(__self__, "links", links)
-        pulumi.set(__self__, "name", name)
+        GetTemplatesEmailTemplateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            links=links,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             links: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("links", links)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -949,19 +1230,52 @@ class GetThemesThemeResult(dict):
                  secondary_color_contrast_hex: str,
                  secondary_color_hex: str,
                  sign_in_page_touch_point_variant: str):
-        pulumi.set(__self__, "background_image_url", background_image_url)
-        pulumi.set(__self__, "email_template_touch_point_variant", email_template_touch_point_variant)
-        pulumi.set(__self__, "end_user_dashboard_touch_point_variant", end_user_dashboard_touch_point_variant)
-        pulumi.set(__self__, "error_page_touch_point_variant", error_page_touch_point_variant)
-        pulumi.set(__self__, "favicon_url", favicon_url)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "links", links)
-        pulumi.set(__self__, "logo_url", logo_url)
-        pulumi.set(__self__, "primary_color_contrast_hex", primary_color_contrast_hex)
-        pulumi.set(__self__, "primary_color_hex", primary_color_hex)
-        pulumi.set(__self__, "secondary_color_contrast_hex", secondary_color_contrast_hex)
-        pulumi.set(__self__, "secondary_color_hex", secondary_color_hex)
-        pulumi.set(__self__, "sign_in_page_touch_point_variant", sign_in_page_touch_point_variant)
+        GetThemesThemeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            background_image_url=background_image_url,
+            email_template_touch_point_variant=email_template_touch_point_variant,
+            end_user_dashboard_touch_point_variant=end_user_dashboard_touch_point_variant,
+            error_page_touch_point_variant=error_page_touch_point_variant,
+            favicon_url=favicon_url,
+            id=id,
+            links=links,
+            logo_url=logo_url,
+            primary_color_contrast_hex=primary_color_contrast_hex,
+            primary_color_hex=primary_color_hex,
+            secondary_color_contrast_hex=secondary_color_contrast_hex,
+            secondary_color_hex=secondary_color_hex,
+            sign_in_page_touch_point_variant=sign_in_page_touch_point_variant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             background_image_url: str,
+             email_template_touch_point_variant: str,
+             end_user_dashboard_touch_point_variant: str,
+             error_page_touch_point_variant: str,
+             favicon_url: str,
+             id: str,
+             links: str,
+             logo_url: str,
+             primary_color_contrast_hex: str,
+             primary_color_hex: str,
+             secondary_color_contrast_hex: str,
+             secondary_color_hex: str,
+             sign_in_page_touch_point_variant: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("background_image_url", background_image_url)
+        _setter("email_template_touch_point_variant", email_template_touch_point_variant)
+        _setter("end_user_dashboard_touch_point_variant", end_user_dashboard_touch_point_variant)
+        _setter("error_page_touch_point_variant", error_page_touch_point_variant)
+        _setter("favicon_url", favicon_url)
+        _setter("id", id)
+        _setter("links", links)
+        _setter("logo_url", logo_url)
+        _setter("primary_color_contrast_hex", primary_color_contrast_hex)
+        _setter("primary_color_hex", primary_color_hex)
+        _setter("secondary_color_contrast_hex", secondary_color_contrast_hex)
+        _setter("secondary_color_hex", secondary_color_hex)
+        _setter("sign_in_page_touch_point_variant", sign_in_page_touch_point_variant)
 
     @property
     @pulumi.getter(name="backgroundImageUrl")
@@ -1044,11 +1358,28 @@ class GetTrustedOriginsTrustedOriginResult(dict):
         :param str origin: Unique origin URL for this trusted origin.
         :param Sequence[str] scopes: Scopes of the Trusted Origin
         """
-        pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "origin", origin)
-        pulumi.set(__self__, "scopes", scopes)
+        GetTrustedOriginsTrustedOriginResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active=active,
+            id=id,
+            name=name,
+            origin=origin,
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active: bool,
+             id: str,
+             name: str,
+             origin: str,
+             scopes: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("active", active)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("origin", origin)
+        _setter("scopes", scopes)
 
     @property
     @pulumi.getter
@@ -1100,8 +1431,19 @@ class GetUserSecurityQuestionsQuestionResult(dict):
         :param str key: Security question unique key.
         :param str text: Display text for security question.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "text", text)
+        GetUserSecurityQuestionsQuestionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            text=text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             text: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("text", text)
 
     @property
     @pulumi.getter

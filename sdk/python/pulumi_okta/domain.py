@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,25 @@ class DomainArgs:
                > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
         :param pulumi.Input[str] name: Custom Domain name.
         """
+        DomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            brand_id=brand_id,
+            certificate_source_type=certificate_source_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             brand_id: Optional[pulumi.Input[str]] = None,
+             certificate_source_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if brand_id is not None:
-            pulumi.set(__self__, "brand_id", brand_id)
+            _setter("brand_id", brand_id)
         if certificate_source_type is not None:
-            pulumi.set(__self__, "certificate_source_type", certificate_source_type)
+            _setter("certificate_source_type", certificate_source_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="brandId")
@@ -91,16 +104,33 @@ class _DomainState:
         :param pulumi.Input[str] name: Custom Domain name.
         :param pulumi.Input[str] validation_status: Status of the domain.
         """
+        _DomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            brand_id=brand_id,
+            certificate_source_type=certificate_source_type,
+            dns_records=dns_records,
+            name=name,
+            validation_status=validation_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             brand_id: Optional[pulumi.Input[str]] = None,
+             certificate_source_type: Optional[pulumi.Input[str]] = None,
+             dns_records: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDnsRecordArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             validation_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if brand_id is not None:
-            pulumi.set(__self__, "brand_id", brand_id)
+            _setter("brand_id", brand_id)
         if certificate_source_type is not None:
-            pulumi.set(__self__, "certificate_source_type", certificate_source_type)
+            _setter("certificate_source_type", certificate_source_type)
         if dns_records is not None:
-            pulumi.set(__self__, "dns_records", dns_records)
+            _setter("dns_records", dns_records)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if validation_status is not None:
-            pulumi.set(__self__, "validation_status", validation_status)
+            _setter("validation_status", validation_status)
 
     @property
     @pulumi.getter(name="brandId")
@@ -238,6 +268,10 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

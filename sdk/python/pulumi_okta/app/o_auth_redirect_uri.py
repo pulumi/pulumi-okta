@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OAuthRedirectUriArgs', 'OAuthRedirectUri']
@@ -21,8 +21,19 @@ class OAuthRedirectUriArgs:
         :param pulumi.Input[str] app_id: OAuth application ID.
         :param pulumi.Input[str] uri: Redirect URI to append to Okta OIDC application.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "uri", uri)
+        OAuthRedirectUriArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: pulumi.Input[str],
+             uri: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_id", app_id)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter(name="appId")
@@ -59,10 +70,21 @@ class _OAuthRedirectUriState:
         :param pulumi.Input[str] app_id: OAuth application ID.
         :param pulumi.Input[str] uri: Redirect URI to append to Okta OIDC application.
         """
+        _OAuthRedirectUriState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="appId")
@@ -174,6 +196,10 @@ class OAuthRedirectUri(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OAuthRedirectUriArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

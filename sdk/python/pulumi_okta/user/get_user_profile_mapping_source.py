@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetUserProfileMappingSourceResult',
     'AwaitableGetUserProfileMappingSourceResult',
     'get_user_profile_mapping_source',
+    'get_user_profile_mapping_source_output',
 ]
 
 @pulumi.output_type
@@ -90,3 +91,22 @@ def get_user_profile_mapping_source(opts: Optional[pulumi.InvokeOptions] = None)
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_user_profile_mapping_source)
+def get_user_profile_mapping_source_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserProfileMappingSourceResult]:
+    """
+    Use this data source to retrieve the base user Profile Mapping source or target from Okta.
+
+    > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.user.get_user_profile_mapping_source()
+    ```
+    """
+    ...

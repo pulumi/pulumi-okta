@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -112,89 +112,180 @@ class UserArgs:
         :param pulumi.Input[str] user_type: User profile property.
         :param pulumi.Input[str] zip_code: User profile property.
         """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "login", login)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            login=login,
+            city=city,
+            cost_center=cost_center,
+            country_code=country_code,
+            custom_profile_attributes=custom_profile_attributes,
+            custom_profile_attributes_to_ignores=custom_profile_attributes_to_ignores,
+            department=department,
+            display_name=display_name,
+            division=division,
+            employee_number=employee_number,
+            expire_password_on_create=expire_password_on_create,
+            honorific_prefix=honorific_prefix,
+            honorific_suffix=honorific_suffix,
+            locale=locale,
+            manager=manager,
+            manager_id=manager_id,
+            middle_name=middle_name,
+            mobile_phone=mobile_phone,
+            nick_name=nick_name,
+            old_password=old_password,
+            organization=organization,
+            password=password,
+            password_hash=password_hash,
+            password_inline_hook=password_inline_hook,
+            postal_address=postal_address,
+            preferred_language=preferred_language,
+            primary_phone=primary_phone,
+            profile_url=profile_url,
+            recovery_answer=recovery_answer,
+            recovery_question=recovery_question,
+            second_email=second_email,
+            skip_roles=skip_roles,
+            state=state,
+            status=status,
+            street_address=street_address,
+            timezone=timezone,
+            title=title,
+            user_type=user_type,
+            zip_code=zip_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: pulumi.Input[str],
+             first_name: pulumi.Input[str],
+             last_name: pulumi.Input[str],
+             login: pulumi.Input[str],
+             city: Optional[pulumi.Input[str]] = None,
+             cost_center: Optional[pulumi.Input[str]] = None,
+             country_code: Optional[pulumi.Input[str]] = None,
+             custom_profile_attributes: Optional[pulumi.Input[str]] = None,
+             custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             department: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             division: Optional[pulumi.Input[str]] = None,
+             employee_number: Optional[pulumi.Input[str]] = None,
+             expire_password_on_create: Optional[pulumi.Input[bool]] = None,
+             honorific_prefix: Optional[pulumi.Input[str]] = None,
+             honorific_suffix: Optional[pulumi.Input[str]] = None,
+             locale: Optional[pulumi.Input[str]] = None,
+             manager: Optional[pulumi.Input[str]] = None,
+             manager_id: Optional[pulumi.Input[str]] = None,
+             middle_name: Optional[pulumi.Input[str]] = None,
+             mobile_phone: Optional[pulumi.Input[str]] = None,
+             nick_name: Optional[pulumi.Input[str]] = None,
+             old_password: Optional[pulumi.Input[str]] = None,
+             organization: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             password_hash: Optional[pulumi.Input['UserPasswordHashArgs']] = None,
+             password_inline_hook: Optional[pulumi.Input[str]] = None,
+             postal_address: Optional[pulumi.Input[str]] = None,
+             preferred_language: Optional[pulumi.Input[str]] = None,
+             primary_phone: Optional[pulumi.Input[str]] = None,
+             profile_url: Optional[pulumi.Input[str]] = None,
+             recovery_answer: Optional[pulumi.Input[str]] = None,
+             recovery_question: Optional[pulumi.Input[str]] = None,
+             second_email: Optional[pulumi.Input[str]] = None,
+             skip_roles: Optional[pulumi.Input[bool]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             street_address: Optional[pulumi.Input[str]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             user_type: Optional[pulumi.Input[str]] = None,
+             zip_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email", email)
+        _setter("first_name", first_name)
+        _setter("last_name", last_name)
+        _setter("login", login)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if cost_center is not None:
-            pulumi.set(__self__, "cost_center", cost_center)
+            _setter("cost_center", cost_center)
         if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
+            _setter("country_code", country_code)
         if custom_profile_attributes is not None:
-            pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
+            _setter("custom_profile_attributes", custom_profile_attributes)
         if custom_profile_attributes_to_ignores is not None:
-            pulumi.set(__self__, "custom_profile_attributes_to_ignores", custom_profile_attributes_to_ignores)
+            _setter("custom_profile_attributes_to_ignores", custom_profile_attributes_to_ignores)
         if department is not None:
-            pulumi.set(__self__, "department", department)
+            _setter("department", department)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if division is not None:
-            pulumi.set(__self__, "division", division)
+            _setter("division", division)
         if employee_number is not None:
-            pulumi.set(__self__, "employee_number", employee_number)
+            _setter("employee_number", employee_number)
         if expire_password_on_create is not None:
-            pulumi.set(__self__, "expire_password_on_create", expire_password_on_create)
+            _setter("expire_password_on_create", expire_password_on_create)
         if honorific_prefix is not None:
-            pulumi.set(__self__, "honorific_prefix", honorific_prefix)
+            _setter("honorific_prefix", honorific_prefix)
         if honorific_suffix is not None:
-            pulumi.set(__self__, "honorific_suffix", honorific_suffix)
+            _setter("honorific_suffix", honorific_suffix)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if manager is not None:
-            pulumi.set(__self__, "manager", manager)
+            _setter("manager", manager)
         if manager_id is not None:
-            pulumi.set(__self__, "manager_id", manager_id)
+            _setter("manager_id", manager_id)
         if middle_name is not None:
-            pulumi.set(__self__, "middle_name", middle_name)
+            _setter("middle_name", middle_name)
         if mobile_phone is not None:
-            pulumi.set(__self__, "mobile_phone", mobile_phone)
+            _setter("mobile_phone", mobile_phone)
         if nick_name is not None:
-            pulumi.set(__self__, "nick_name", nick_name)
+            _setter("nick_name", nick_name)
         if old_password is not None:
-            pulumi.set(__self__, "old_password", old_password)
+            _setter("old_password", old_password)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if password_hash is not None:
-            pulumi.set(__self__, "password_hash", password_hash)
+            _setter("password_hash", password_hash)
         if password_inline_hook is not None:
-            pulumi.set(__self__, "password_inline_hook", password_inline_hook)
+            _setter("password_inline_hook", password_inline_hook)
         if postal_address is not None:
-            pulumi.set(__self__, "postal_address", postal_address)
+            _setter("postal_address", postal_address)
         if preferred_language is not None:
-            pulumi.set(__self__, "preferred_language", preferred_language)
+            _setter("preferred_language", preferred_language)
         if primary_phone is not None:
-            pulumi.set(__self__, "primary_phone", primary_phone)
+            _setter("primary_phone", primary_phone)
         if profile_url is not None:
-            pulumi.set(__self__, "profile_url", profile_url)
+            _setter("profile_url", profile_url)
         if recovery_answer is not None:
-            pulumi.set(__self__, "recovery_answer", recovery_answer)
+            _setter("recovery_answer", recovery_answer)
         if recovery_question is not None:
-            pulumi.set(__self__, "recovery_question", recovery_question)
+            _setter("recovery_question", recovery_question)
         if second_email is not None:
-            pulumi.set(__self__, "second_email", second_email)
+            _setter("second_email", second_email)
         if skip_roles is not None:
             warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
             pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
         if skip_roles is not None:
-            pulumi.set(__self__, "skip_roles", skip_roles)
+            _setter("skip_roles", skip_roles)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if street_address is not None:
-            pulumi.set(__self__, "street_address", street_address)
+            _setter("street_address", street_address)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if user_type is not None:
-            pulumi.set(__self__, "user_type", user_type)
+            _setter("user_type", user_type)
         if zip_code is not None:
-            pulumi.set(__self__, "zip_code", zip_code)
+            _setter("zip_code", zip_code)
 
     @property
     @pulumi.getter
@@ -814,95 +905,188 @@ class _UserState:
         :param pulumi.Input[str] user_type: User profile property.
         :param pulumi.Input[str] zip_code: User profile property.
         """
+        _UserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            city=city,
+            cost_center=cost_center,
+            country_code=country_code,
+            custom_profile_attributes=custom_profile_attributes,
+            custom_profile_attributes_to_ignores=custom_profile_attributes_to_ignores,
+            department=department,
+            display_name=display_name,
+            division=division,
+            email=email,
+            employee_number=employee_number,
+            expire_password_on_create=expire_password_on_create,
+            first_name=first_name,
+            honorific_prefix=honorific_prefix,
+            honorific_suffix=honorific_suffix,
+            last_name=last_name,
+            locale=locale,
+            login=login,
+            manager=manager,
+            manager_id=manager_id,
+            middle_name=middle_name,
+            mobile_phone=mobile_phone,
+            nick_name=nick_name,
+            old_password=old_password,
+            organization=organization,
+            password=password,
+            password_hash=password_hash,
+            password_inline_hook=password_inline_hook,
+            postal_address=postal_address,
+            preferred_language=preferred_language,
+            primary_phone=primary_phone,
+            profile_url=profile_url,
+            raw_status=raw_status,
+            recovery_answer=recovery_answer,
+            recovery_question=recovery_question,
+            second_email=second_email,
+            skip_roles=skip_roles,
+            state=state,
+            status=status,
+            street_address=street_address,
+            timezone=timezone,
+            title=title,
+            user_type=user_type,
+            zip_code=zip_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             city: Optional[pulumi.Input[str]] = None,
+             cost_center: Optional[pulumi.Input[str]] = None,
+             country_code: Optional[pulumi.Input[str]] = None,
+             custom_profile_attributes: Optional[pulumi.Input[str]] = None,
+             custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             department: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             division: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             employee_number: Optional[pulumi.Input[str]] = None,
+             expire_password_on_create: Optional[pulumi.Input[bool]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             honorific_prefix: Optional[pulumi.Input[str]] = None,
+             honorific_suffix: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             locale: Optional[pulumi.Input[str]] = None,
+             login: Optional[pulumi.Input[str]] = None,
+             manager: Optional[pulumi.Input[str]] = None,
+             manager_id: Optional[pulumi.Input[str]] = None,
+             middle_name: Optional[pulumi.Input[str]] = None,
+             mobile_phone: Optional[pulumi.Input[str]] = None,
+             nick_name: Optional[pulumi.Input[str]] = None,
+             old_password: Optional[pulumi.Input[str]] = None,
+             organization: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             password_hash: Optional[pulumi.Input['UserPasswordHashArgs']] = None,
+             password_inline_hook: Optional[pulumi.Input[str]] = None,
+             postal_address: Optional[pulumi.Input[str]] = None,
+             preferred_language: Optional[pulumi.Input[str]] = None,
+             primary_phone: Optional[pulumi.Input[str]] = None,
+             profile_url: Optional[pulumi.Input[str]] = None,
+             raw_status: Optional[pulumi.Input[str]] = None,
+             recovery_answer: Optional[pulumi.Input[str]] = None,
+             recovery_question: Optional[pulumi.Input[str]] = None,
+             second_email: Optional[pulumi.Input[str]] = None,
+             skip_roles: Optional[pulumi.Input[bool]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             street_address: Optional[pulumi.Input[str]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             user_type: Optional[pulumi.Input[str]] = None,
+             zip_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if cost_center is not None:
-            pulumi.set(__self__, "cost_center", cost_center)
+            _setter("cost_center", cost_center)
         if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
+            _setter("country_code", country_code)
         if custom_profile_attributes is not None:
-            pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
+            _setter("custom_profile_attributes", custom_profile_attributes)
         if custom_profile_attributes_to_ignores is not None:
-            pulumi.set(__self__, "custom_profile_attributes_to_ignores", custom_profile_attributes_to_ignores)
+            _setter("custom_profile_attributes_to_ignores", custom_profile_attributes_to_ignores)
         if department is not None:
-            pulumi.set(__self__, "department", department)
+            _setter("department", department)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if division is not None:
-            pulumi.set(__self__, "division", division)
+            _setter("division", division)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if employee_number is not None:
-            pulumi.set(__self__, "employee_number", employee_number)
+            _setter("employee_number", employee_number)
         if expire_password_on_create is not None:
-            pulumi.set(__self__, "expire_password_on_create", expire_password_on_create)
+            _setter("expire_password_on_create", expire_password_on_create)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if honorific_prefix is not None:
-            pulumi.set(__self__, "honorific_prefix", honorific_prefix)
+            _setter("honorific_prefix", honorific_prefix)
         if honorific_suffix is not None:
-            pulumi.set(__self__, "honorific_suffix", honorific_suffix)
+            _setter("honorific_suffix", honorific_suffix)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if manager is not None:
-            pulumi.set(__self__, "manager", manager)
+            _setter("manager", manager)
         if manager_id is not None:
-            pulumi.set(__self__, "manager_id", manager_id)
+            _setter("manager_id", manager_id)
         if middle_name is not None:
-            pulumi.set(__self__, "middle_name", middle_name)
+            _setter("middle_name", middle_name)
         if mobile_phone is not None:
-            pulumi.set(__self__, "mobile_phone", mobile_phone)
+            _setter("mobile_phone", mobile_phone)
         if nick_name is not None:
-            pulumi.set(__self__, "nick_name", nick_name)
+            _setter("nick_name", nick_name)
         if old_password is not None:
-            pulumi.set(__self__, "old_password", old_password)
+            _setter("old_password", old_password)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if password_hash is not None:
-            pulumi.set(__self__, "password_hash", password_hash)
+            _setter("password_hash", password_hash)
         if password_inline_hook is not None:
-            pulumi.set(__self__, "password_inline_hook", password_inline_hook)
+            _setter("password_inline_hook", password_inline_hook)
         if postal_address is not None:
-            pulumi.set(__self__, "postal_address", postal_address)
+            _setter("postal_address", postal_address)
         if preferred_language is not None:
-            pulumi.set(__self__, "preferred_language", preferred_language)
+            _setter("preferred_language", preferred_language)
         if primary_phone is not None:
-            pulumi.set(__self__, "primary_phone", primary_phone)
+            _setter("primary_phone", primary_phone)
         if profile_url is not None:
-            pulumi.set(__self__, "profile_url", profile_url)
+            _setter("profile_url", profile_url)
         if raw_status is not None:
-            pulumi.set(__self__, "raw_status", raw_status)
+            _setter("raw_status", raw_status)
         if recovery_answer is not None:
-            pulumi.set(__self__, "recovery_answer", recovery_answer)
+            _setter("recovery_answer", recovery_answer)
         if recovery_question is not None:
-            pulumi.set(__self__, "recovery_question", recovery_question)
+            _setter("recovery_question", recovery_question)
         if second_email is not None:
-            pulumi.set(__self__, "second_email", second_email)
+            _setter("second_email", second_email)
         if skip_roles is not None:
             warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
             pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
         if skip_roles is not None:
-            pulumi.set(__self__, "skip_roles", skip_roles)
+            _setter("skip_roles", skip_roles)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if street_address is not None:
-            pulumi.set(__self__, "street_address", street_address)
+            _setter("street_address", street_address)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if user_type is not None:
-            pulumi.set(__self__, "user_type", user_type)
+            _setter("user_type", user_type)
         if zip_code is not None:
-            pulumi.set(__self__, "zip_code", zip_code)
+            _setter("zip_code", zip_code)
 
     @property
     @pulumi.getter
@@ -1689,6 +1873,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1778,6 +1966,11 @@ class User(pulumi.CustomResource):
             __props__.__dict__["old_password"] = None if old_password is None else pulumi.Output.secret(old_password)
             __props__.__dict__["organization"] = organization
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            if password_hash is not None and not isinstance(password_hash, UserPasswordHashArgs):
+                password_hash = password_hash or {}
+                def _setter(key, value):
+                    password_hash[key] = value
+                UserPasswordHashArgs._configure(_setter, **password_hash)
             __props__.__dict__["password_hash"] = password_hash
             __props__.__dict__["password_inline_hook"] = password_inline_hook
             __props__.__dict__["postal_address"] = postal_address
@@ -1787,9 +1980,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["recovery_answer"] = None if recovery_answer is None else pulumi.Output.secret(recovery_answer)
             __props__.__dict__["recovery_question"] = recovery_question
             __props__.__dict__["second_email"] = second_email
-            if skip_roles is not None and not opts.urn:
-                warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-                pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
             __props__.__dict__["skip_roles"] = skip_roles
             __props__.__dict__["state"] = state
             __props__.__dict__["status"] = status

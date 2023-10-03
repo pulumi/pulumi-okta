@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -52,13 +52,30 @@ class OAuthGroupsClaim(dict):
         :param str issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
                Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        OAuthGroupsClaim._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            value=value,
+            filter_type=filter_type,
+            issuer_mode=issuer_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             value: str,
+             filter_type: Optional[str] = None,
+             issuer_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
+        _setter("value", value)
         if filter_type is not None:
-            pulumi.set(__self__, "filter_type", filter_type)
+            _setter("filter_type", filter_type)
         if issuer_mode is not None:
-            pulumi.set(__self__, "issuer_mode", issuer_mode)
+            _setter("issuer_mode", issuer_mode)
 
     @property
     @pulumi.getter
@@ -111,16 +128,35 @@ class OAuthJwk(dict):
                  n: Optional[str] = None,
                  x: Optional[str] = None,
                  y: Optional[str] = None):
-        pulumi.set(__self__, "kid", kid)
-        pulumi.set(__self__, "kty", kty)
+        OAuthJwk._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kid=kid,
+            kty=kty,
+            e=e,
+            n=n,
+            x=x,
+            y=y,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kid: str,
+             kty: str,
+             e: Optional[str] = None,
+             n: Optional[str] = None,
+             x: Optional[str] = None,
+             y: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kid", kid)
+        _setter("kty", kty)
         if e is not None:
-            pulumi.set(__self__, "e", e)
+            _setter("e", e)
         if n is not None:
-            pulumi.set(__self__, "n", n)
+            _setter("n", n)
         if x is not None:
-            pulumi.set(__self__, "x", x)
+            _setter("x", x)
         if y is not None:
-            pulumi.set(__self__, "y", y)
+            _setter("y", y)
 
     @property
     @pulumi.getter
@@ -189,17 +225,36 @@ class SamlAttributeStatement(dict):
         :param str type: The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
         :param Sequence[str] values: Array of values to use.
         """
-        pulumi.set(__self__, "name", name)
+        SamlAttributeStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            filter_type=filter_type,
+            filter_value=filter_value,
+            namespace=namespace,
+            type=type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             filter_type: Optional[str] = None,
+             filter_value: Optional[str] = None,
+             namespace: Optional[str] = None,
+             type: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if filter_type is not None:
-            pulumi.set(__self__, "filter_type", filter_type)
+            _setter("filter_type", filter_type)
         if filter_value is not None:
-            pulumi.set(__self__, "filter_value", filter_value)
+            _setter("filter_value", filter_value)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -296,26 +351,53 @@ class SamlKey(dict):
         :param Sequence[str] x5cs: X.509 certificate chain.
         :param str x5t_s256: X.509 certificate SHA-256 thumbprint.
         """
+        SamlKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created=created,
+            e=e,
+            expires_at=expires_at,
+            kid=kid,
+            kty=kty,
+            last_updated=last_updated,
+            n=n,
+            use=use,
+            x5cs=x5cs,
+            x5t_s256=x5t_s256,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created: Optional[str] = None,
+             e: Optional[str] = None,
+             expires_at: Optional[str] = None,
+             kid: Optional[str] = None,
+             kty: Optional[str] = None,
+             last_updated: Optional[str] = None,
+             n: Optional[str] = None,
+             use: Optional[str] = None,
+             x5cs: Optional[Sequence[str]] = None,
+             x5t_s256: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if e is not None:
-            pulumi.set(__self__, "e", e)
+            _setter("e", e)
         if expires_at is not None:
-            pulumi.set(__self__, "expires_at", expires_at)
+            _setter("expires_at", expires_at)
         if kid is not None:
-            pulumi.set(__self__, "kid", kid)
+            _setter("kid", kid)
         if kty is not None:
-            pulumi.set(__self__, "kty", kty)
+            _setter("kty", kty)
         if last_updated is not None:
-            pulumi.set(__self__, "last_updated", last_updated)
+            _setter("last_updated", last_updated)
         if n is not None:
-            pulumi.set(__self__, "n", n)
+            _setter("n", n)
         if use is not None:
-            pulumi.set(__self__, "use", use)
+            _setter("use", use)
         if x5cs is not None:
-            pulumi.set(__self__, "x5cs", x5cs)
+            _setter("x5cs", x5cs)
         if x5t_s256 is not None:
-            pulumi.set(__self__, "x5t_s256", x5t_s256)
+            _setter("x5t_s256", x5t_s256)
 
     @property
     @pulumi.getter
@@ -415,12 +497,31 @@ class GetSamlAttributeStatementResult(dict):
         :param str type: The type of attribute statement value.
         :param Sequence[str] values: Array of values to use.
         """
-        pulumi.set(__self__, "filter_type", filter_type)
-        pulumi.set(__self__, "filter_value", filter_value)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "values", values)
+        GetSamlAttributeStatementResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_type=filter_type,
+            filter_value=filter_value,
+            name=name,
+            namespace=namespace,
+            type=type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_type: str,
+             filter_value: str,
+             name: str,
+             namespace: str,
+             type: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filter_type", filter_type)
+        _setter("filter_value", filter_value)
+        _setter("name", name)
+        _setter("namespace", namespace)
+        _setter("type", type)
+        _setter("values", values)
 
     @property
     @pulumi.getter(name="filterType")

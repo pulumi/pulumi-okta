@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -32,11 +32,24 @@ class RuleIdpDiscoveryAppExclude(dict):
         :param str id: Use if `type` is `"APP"` to indicate the application id to include.
         :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
-        pulumi.set(__self__, "type", type)
+        RuleIdpDiscoveryAppExclude._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -74,11 +87,24 @@ class RuleIdpDiscoveryAppInclude(dict):
         :param str id: Use if `type` is `"APP"` to indicate the application id to include.
         :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
-        pulumi.set(__self__, "type", type)
+        RuleIdpDiscoveryAppInclude._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -139,12 +165,25 @@ class RuleIdpDiscoveryPlatformInclude(dict):
                ```
         :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
+        RuleIdpDiscoveryPlatformInclude._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_expression=os_expression,
+            os_type=os_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_expression: Optional[str] = None,
+             os_type: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if os_expression is not None:
-            pulumi.set(__self__, "os_expression", os_expression)
+            _setter("os_expression", os_expression)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="osExpression")
@@ -205,10 +244,21 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
                import pulumi
                ```
         """
+        RuleIdpDiscoveryUserIdentifierPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_type=match_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
+            _setter("match_type", match_type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="matchType")
@@ -242,11 +292,24 @@ class RuleMfaAppExclude(dict):
         :param str id: Use if `type` is `"APP"` to indicate the application id to include.
         :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
-        pulumi.set(__self__, "type", type)
+        RuleMfaAppExclude._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -284,11 +347,24 @@ class RuleMfaAppInclude(dict):
         :param str id: Use if `type` is `"APP"` to indicate the application id to include.
         :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
-        pulumi.set(__self__, "type", type)
+        RuleMfaAppInclude._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -347,10 +423,23 @@ class RuleSignonFactorSequence(dict):
         :param str primary_criteria_provider: Primary provider of the auth section.
         :param Sequence['RuleSignonFactorSequenceSecondaryCriteriaArgs'] secondary_criterias: Additional authentication steps.
         """
-        pulumi.set(__self__, "primary_criteria_factor_type", primary_criteria_factor_type)
-        pulumi.set(__self__, "primary_criteria_provider", primary_criteria_provider)
+        RuleSignonFactorSequence._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_criteria_factor_type=primary_criteria_factor_type,
+            primary_criteria_provider=primary_criteria_provider,
+            secondary_criterias=secondary_criterias,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_criteria_factor_type: str,
+             primary_criteria_provider: str,
+             secondary_criterias: Optional[Sequence['outputs.RuleSignonFactorSequenceSecondaryCriteria']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("primary_criteria_factor_type", primary_criteria_factor_type)
+        _setter("primary_criteria_provider", primary_criteria_provider)
         if secondary_criterias is not None:
-            pulumi.set(__self__, "secondary_criterias", secondary_criterias)
+            _setter("secondary_criterias", secondary_criterias)
 
     @property
     @pulumi.getter(name="primaryCriteriaFactorType")
@@ -403,8 +492,19 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
         :param str factor_type: Factor type of the additional authentication step.
         :param str provider: Provider of the additional authentication step.
         """
-        pulumi.set(__self__, "factor_type", factor_type)
-        pulumi.set(__self__, "provider", provider)
+        RuleSignonFactorSequenceSecondaryCriteria._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            factor_type=factor_type,
+            provider=provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             factor_type: str,
+             provider: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("factor_type", factor_type)
+        _setter("provider", provider)
 
     @property
     @pulumi.getter(name="factorType")

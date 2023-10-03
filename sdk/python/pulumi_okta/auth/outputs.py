@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -35,15 +35,40 @@ class GetServerScopesScopeResult(dict):
         :param str name: Name of the Scope
         :param bool system: Whether Okta created the Scope
         """
-        pulumi.set(__self__, "consent", consent)
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "metadata_publish", metadata_publish)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "optional", optional)
-        pulumi.set(__self__, "system", system)
+        GetServerScopesScopeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consent=consent,
+            default=default,
+            description=description,
+            display_name=display_name,
+            id=id,
+            metadata_publish=metadata_publish,
+            name=name,
+            optional=optional,
+            system=system,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consent: str,
+             default: bool,
+             description: str,
+             display_name: str,
+             id: str,
+             metadata_publish: str,
+             name: str,
+             optional: bool,
+             system: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("consent", consent)
+        _setter("default", default)
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("id", id)
+        _setter("metadata_publish", metadata_publish)
+        _setter("name", name)
+        _setter("optional", optional)
+        _setter("system", system)
 
     @property
     @pulumi.getter

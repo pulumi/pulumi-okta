@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AppSharedCredentialsArgs', 'AppSharedCredentials']
@@ -69,57 +69,116 @@ class AppSharedCredentialsArgs:
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
         """
-        pulumi.set(__self__, "label", label)
+        AppSharedCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            accessibility_error_redirect_url=accessibility_error_redirect_url,
+            accessibility_login_redirect_url=accessibility_login_redirect_url,
+            accessibility_self_service=accessibility_self_service,
+            admin_note=admin_note,
+            app_links_json=app_links_json,
+            auto_submit_toolbar=auto_submit_toolbar,
+            button_field=button_field,
+            checkbox=checkbox,
+            enduser_note=enduser_note,
+            hide_ios=hide_ios,
+            hide_web=hide_web,
+            logo=logo,
+            password_field=password_field,
+            preconfigured_app=preconfigured_app,
+            redirect_url=redirect_url,
+            shared_password=shared_password,
+            shared_username=shared_username,
+            status=status,
+            url=url,
+            url_regex=url_regex,
+            user_name_template=user_name_template,
+            user_name_template_push_status=user_name_template_push_status,
+            user_name_template_suffix=user_name_template_suffix,
+            user_name_template_type=user_name_template_type,
+            username_field=username_field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: pulumi.Input[str],
+             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+             admin_note: Optional[pulumi.Input[str]] = None,
+             app_links_json: Optional[pulumi.Input[str]] = None,
+             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+             button_field: Optional[pulumi.Input[str]] = None,
+             checkbox: Optional[pulumi.Input[str]] = None,
+             enduser_note: Optional[pulumi.Input[str]] = None,
+             hide_ios: Optional[pulumi.Input[bool]] = None,
+             hide_web: Optional[pulumi.Input[bool]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             password_field: Optional[pulumi.Input[str]] = None,
+             preconfigured_app: Optional[pulumi.Input[str]] = None,
+             redirect_url: Optional[pulumi.Input[str]] = None,
+             shared_password: Optional[pulumi.Input[str]] = None,
+             shared_username: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             url_regex: Optional[pulumi.Input[str]] = None,
+             user_name_template: Optional[pulumi.Input[str]] = None,
+             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+             user_name_template_type: Optional[pulumi.Input[str]] = None,
+             username_field: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("label", label)
         if accessibility_error_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+            _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+            _setter("accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
-            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+            _setter("accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
-            pulumi.set(__self__, "admin_note", admin_note)
+            _setter("admin_note", admin_note)
         if app_links_json is not None:
-            pulumi.set(__self__, "app_links_json", app_links_json)
+            _setter("app_links_json", app_links_json)
         if auto_submit_toolbar is not None:
-            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+            _setter("auto_submit_toolbar", auto_submit_toolbar)
         if button_field is not None:
-            pulumi.set(__self__, "button_field", button_field)
+            _setter("button_field", button_field)
         if checkbox is not None:
-            pulumi.set(__self__, "checkbox", checkbox)
+            _setter("checkbox", checkbox)
         if enduser_note is not None:
-            pulumi.set(__self__, "enduser_note", enduser_note)
+            _setter("enduser_note", enduser_note)
         if hide_ios is not None:
-            pulumi.set(__self__, "hide_ios", hide_ios)
+            _setter("hide_ios", hide_ios)
         if hide_web is not None:
-            pulumi.set(__self__, "hide_web", hide_web)
+            _setter("hide_web", hide_web)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if password_field is not None:
-            pulumi.set(__self__, "password_field", password_field)
+            _setter("password_field", password_field)
         if preconfigured_app is not None:
-            pulumi.set(__self__, "preconfigured_app", preconfigured_app)
+            _setter("preconfigured_app", preconfigured_app)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if shared_password is not None:
-            pulumi.set(__self__, "shared_password", shared_password)
+            _setter("shared_password", shared_password)
         if shared_username is not None:
-            pulumi.set(__self__, "shared_username", shared_username)
+            _setter("shared_username", shared_username)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if url_regex is not None:
-            pulumi.set(__self__, "url_regex", url_regex)
+            _setter("url_regex", url_regex)
         if user_name_template is not None:
-            pulumi.set(__self__, "user_name_template", user_name_template)
+            _setter("user_name_template", user_name_template)
         if user_name_template_push_status is not None:
-            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+            _setter("user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
-            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+            _setter("user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
-            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+            _setter("user_name_template_type", user_name_template_type)
         if username_field is not None:
-            pulumi.set(__self__, "username_field", username_field)
+            _setter("username_field", username_field)
 
     @property
     @pulumi.getter
@@ -498,64 +557,129 @@ class _AppSharedCredentialsState:
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] username_field: CSS selector for the username field.
         """
+        _AppSharedCredentialsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accessibility_error_redirect_url=accessibility_error_redirect_url,
+            accessibility_login_redirect_url=accessibility_login_redirect_url,
+            accessibility_self_service=accessibility_self_service,
+            admin_note=admin_note,
+            app_links_json=app_links_json,
+            auto_submit_toolbar=auto_submit_toolbar,
+            button_field=button_field,
+            checkbox=checkbox,
+            enduser_note=enduser_note,
+            hide_ios=hide_ios,
+            hide_web=hide_web,
+            label=label,
+            logo=logo,
+            logo_url=logo_url,
+            name=name,
+            password_field=password_field,
+            preconfigured_app=preconfigured_app,
+            redirect_url=redirect_url,
+            shared_password=shared_password,
+            shared_username=shared_username,
+            sign_on_mode=sign_on_mode,
+            status=status,
+            url=url,
+            url_regex=url_regex,
+            user_name_template=user_name_template,
+            user_name_template_push_status=user_name_template_push_status,
+            user_name_template_suffix=user_name_template_suffix,
+            user_name_template_type=user_name_template_type,
+            username_field=username_field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+             admin_note: Optional[pulumi.Input[str]] = None,
+             app_links_json: Optional[pulumi.Input[str]] = None,
+             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+             button_field: Optional[pulumi.Input[str]] = None,
+             checkbox: Optional[pulumi.Input[str]] = None,
+             enduser_note: Optional[pulumi.Input[str]] = None,
+             hide_ios: Optional[pulumi.Input[bool]] = None,
+             hide_web: Optional[pulumi.Input[bool]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             logo_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password_field: Optional[pulumi.Input[str]] = None,
+             preconfigured_app: Optional[pulumi.Input[str]] = None,
+             redirect_url: Optional[pulumi.Input[str]] = None,
+             shared_password: Optional[pulumi.Input[str]] = None,
+             shared_username: Optional[pulumi.Input[str]] = None,
+             sign_on_mode: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             url_regex: Optional[pulumi.Input[str]] = None,
+             user_name_template: Optional[pulumi.Input[str]] = None,
+             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+             user_name_template_type: Optional[pulumi.Input[str]] = None,
+             username_field: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accessibility_error_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+            _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+            _setter("accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
-            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+            _setter("accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
-            pulumi.set(__self__, "admin_note", admin_note)
+            _setter("admin_note", admin_note)
         if app_links_json is not None:
-            pulumi.set(__self__, "app_links_json", app_links_json)
+            _setter("app_links_json", app_links_json)
         if auto_submit_toolbar is not None:
-            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+            _setter("auto_submit_toolbar", auto_submit_toolbar)
         if button_field is not None:
-            pulumi.set(__self__, "button_field", button_field)
+            _setter("button_field", button_field)
         if checkbox is not None:
-            pulumi.set(__self__, "checkbox", checkbox)
+            _setter("checkbox", checkbox)
         if enduser_note is not None:
-            pulumi.set(__self__, "enduser_note", enduser_note)
+            _setter("enduser_note", enduser_note)
         if hide_ios is not None:
-            pulumi.set(__self__, "hide_ios", hide_ios)
+            _setter("hide_ios", hide_ios)
         if hide_web is not None:
-            pulumi.set(__self__, "hide_web", hide_web)
+            _setter("hide_web", hide_web)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if logo_url is not None:
-            pulumi.set(__self__, "logo_url", logo_url)
+            _setter("logo_url", logo_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password_field is not None:
-            pulumi.set(__self__, "password_field", password_field)
+            _setter("password_field", password_field)
         if preconfigured_app is not None:
-            pulumi.set(__self__, "preconfigured_app", preconfigured_app)
+            _setter("preconfigured_app", preconfigured_app)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if shared_password is not None:
-            pulumi.set(__self__, "shared_password", shared_password)
+            _setter("shared_password", shared_password)
         if shared_username is not None:
-            pulumi.set(__self__, "shared_username", shared_username)
+            _setter("shared_username", shared_username)
         if sign_on_mode is not None:
-            pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+            _setter("sign_on_mode", sign_on_mode)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if url_regex is not None:
-            pulumi.set(__self__, "url_regex", url_regex)
+            _setter("url_regex", url_regex)
         if user_name_template is not None:
-            pulumi.set(__self__, "user_name_template", user_name_template)
+            _setter("user_name_template", user_name_template)
         if user_name_template_push_status is not None:
-            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+            _setter("user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
-            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+            _setter("user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
-            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+            _setter("user_name_template_type", user_name_template_type)
         if username_field is not None:
-            pulumi.set(__self__, "username_field", username_field)
+            _setter("username_field", username_field)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -1059,6 +1183,10 @@ class AppSharedCredentials(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppSharedCredentialsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

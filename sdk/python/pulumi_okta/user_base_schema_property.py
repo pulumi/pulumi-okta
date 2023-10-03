@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserBaseSchemaPropertyArgs', 'UserBaseSchemaProperty']
@@ -33,19 +33,42 @@ class UserBaseSchemaPropertyArgs:
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] user_type: User type ID.
         """
-        pulumi.set(__self__, "index", index)
-        pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "type", type)
+        UserBaseSchemaPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index=index,
+            title=title,
+            type=type,
+            master=master,
+            pattern=pattern,
+            permissions=permissions,
+            required=required,
+            user_type=user_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index: pulumi.Input[str],
+             title: pulumi.Input[str],
+             type: pulumi.Input[str],
+             master: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[str]] = None,
+             required: Optional[pulumi.Input[bool]] = None,
+             user_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("index", index)
+        _setter("title", title)
+        _setter("type", type)
         if master is not None:
-            pulumi.set(__self__, "master", master)
+            _setter("master", master)
         if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
+            _setter("pattern", pattern)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if required is not None:
-            pulumi.set(__self__, "required", required)
+            _setter("required", required)
         if user_type is not None:
-            pulumi.set(__self__, "user_type", user_type)
+            _setter("user_type", user_type)
 
     @property
     @pulumi.getter
@@ -166,22 +189,45 @@ class _UserBaseSchemaPropertyState:
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[str] user_type: User type ID.
         """
+        _UserBaseSchemaPropertyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index=index,
+            master=master,
+            pattern=pattern,
+            permissions=permissions,
+            required=required,
+            title=title,
+            type=type,
+            user_type=user_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index: Optional[pulumi.Input[str]] = None,
+             master: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[str]] = None,
+             required: Optional[pulumi.Input[bool]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if index is not None:
-            pulumi.set(__self__, "index", index)
+            _setter("index", index)
         if master is not None:
-            pulumi.set(__self__, "master", master)
+            _setter("master", master)
         if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
+            _setter("pattern", pattern)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if required is not None:
-            pulumi.set(__self__, "required", required)
+            _setter("required", required)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_type is not None:
-            pulumi.set(__self__, "user_type", user_type)
+            _setter("user_type", user_type)
 
     @property
     @pulumi.getter
@@ -405,6 +451,10 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserBaseSchemaPropertyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

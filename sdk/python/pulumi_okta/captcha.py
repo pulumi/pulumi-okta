@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CaptchaArgs', 'Captcha']
@@ -25,11 +25,26 @@ class CaptchaArgs:
         :param pulumi.Input[str] type: Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
         :param pulumi.Input[str] name: Name of the captcha.
         """
-        pulumi.set(__self__, "secret_key", secret_key)
-        pulumi.set(__self__, "site_key", site_key)
-        pulumi.set(__self__, "type", type)
+        CaptchaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_key=secret_key,
+            site_key=site_key,
+            type=type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_key: pulumi.Input[str],
+             site_key: pulumi.Input[str],
+             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_key", secret_key)
+        _setter("site_key", site_key)
+        _setter("type", type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="secretKey")
@@ -94,14 +109,29 @@ class _CaptchaState:
         :param pulumi.Input[str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
         :param pulumi.Input[str] type: Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
         """
+        _CaptchaState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_key=secret_key,
+            site_key=site_key,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             secret_key: Optional[pulumi.Input[str]] = None,
+             site_key: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret_key is not None:
-            pulumi.set(__self__, "secret_key", secret_key)
+            _setter("secret_key", secret_key)
         if site_key is not None:
-            pulumi.set(__self__, "site_key", site_key)
+            _setter("site_key", site_key)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -235,6 +265,10 @@ class Captcha(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CaptchaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

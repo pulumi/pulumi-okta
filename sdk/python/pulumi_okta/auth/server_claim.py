@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerClaimArgs', 'ServerClaim']
@@ -35,21 +35,46 @@ class ServerClaimArgs:
         :param pulumi.Input[str] status: The status of the application. It defaults to `"ACTIVE"`.
         :param pulumi.Input[str] value_type: The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
         """
-        pulumi.set(__self__, "auth_server_id", auth_server_id)
-        pulumi.set(__self__, "claim_type", claim_type)
-        pulumi.set(__self__, "value", value)
+        ServerClaimArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_server_id=auth_server_id,
+            claim_type=claim_type,
+            value=value,
+            always_include_in_token=always_include_in_token,
+            group_filter_type=group_filter_type,
+            name=name,
+            scopes=scopes,
+            status=status,
+            value_type=value_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_server_id: pulumi.Input[str],
+             claim_type: pulumi.Input[str],
+             value: pulumi.Input[str],
+             always_include_in_token: Optional[pulumi.Input[bool]] = None,
+             group_filter_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             value_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_server_id", auth_server_id)
+        _setter("claim_type", claim_type)
+        _setter("value", value)
         if always_include_in_token is not None:
-            pulumi.set(__self__, "always_include_in_token", always_include_in_token)
+            _setter("always_include_in_token", always_include_in_token)
         if group_filter_type is not None:
-            pulumi.set(__self__, "group_filter_type", group_filter_type)
+            _setter("group_filter_type", group_filter_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if value_type is not None:
-            pulumi.set(__self__, "value_type", value_type)
+            _setter("value_type", value_type)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -184,24 +209,49 @@ class _ServerClaimState:
         :param pulumi.Input[str] value: The value of the claim.
         :param pulumi.Input[str] value_type: The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
         """
+        _ServerClaimState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            always_include_in_token=always_include_in_token,
+            auth_server_id=auth_server_id,
+            claim_type=claim_type,
+            group_filter_type=group_filter_type,
+            name=name,
+            scopes=scopes,
+            status=status,
+            value=value,
+            value_type=value_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             always_include_in_token: Optional[pulumi.Input[bool]] = None,
+             auth_server_id: Optional[pulumi.Input[str]] = None,
+             claim_type: Optional[pulumi.Input[str]] = None,
+             group_filter_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             value_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if always_include_in_token is not None:
-            pulumi.set(__self__, "always_include_in_token", always_include_in_token)
+            _setter("always_include_in_token", always_include_in_token)
         if auth_server_id is not None:
-            pulumi.set(__self__, "auth_server_id", auth_server_id)
+            _setter("auth_server_id", auth_server_id)
         if claim_type is not None:
-            pulumi.set(__self__, "claim_type", claim_type)
+            _setter("claim_type", claim_type)
         if group_filter_type is not None:
-            pulumi.set(__self__, "group_filter_type", group_filter_type)
+            _setter("group_filter_type", group_filter_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if value_type is not None:
-            pulumi.set(__self__, "value_type", value_type)
+            _setter("value_type", value_type)
 
     @property
     @pulumi.getter(name="alwaysIncludeInToken")
@@ -407,6 +457,10 @@ class ServerClaim(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerClaimArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

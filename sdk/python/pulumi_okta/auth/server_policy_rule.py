@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerPolicyRuleArgs', 'ServerPolicyRule']
@@ -52,34 +52,73 @@ class ServerPolicyRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included.
         """
-        pulumi.set(__self__, "auth_server_id", auth_server_id)
-        pulumi.set(__self__, "grant_type_whitelists", grant_type_whitelists)
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "priority", priority)
+        ServerPolicyRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_server_id=auth_server_id,
+            grant_type_whitelists=grant_type_whitelists,
+            policy_id=policy_id,
+            priority=priority,
+            access_token_lifetime_minutes=access_token_lifetime_minutes,
+            group_blacklists=group_blacklists,
+            group_whitelists=group_whitelists,
+            inline_hook_id=inline_hook_id,
+            name=name,
+            refresh_token_lifetime_minutes=refresh_token_lifetime_minutes,
+            refresh_token_window_minutes=refresh_token_window_minutes,
+            scope_whitelists=scope_whitelists,
+            status=status,
+            type=type,
+            user_blacklists=user_blacklists,
+            user_whitelists=user_whitelists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_server_id: pulumi.Input[str],
+             grant_type_whitelists: pulumi.Input[Sequence[pulumi.Input[str]]],
+             policy_id: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             access_token_lifetime_minutes: Optional[pulumi.Input[int]] = None,
+             group_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             group_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             inline_hook_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             refresh_token_lifetime_minutes: Optional[pulumi.Input[int]] = None,
+             refresh_token_window_minutes: Optional[pulumi.Input[int]] = None,
+             scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_server_id", auth_server_id)
+        _setter("grant_type_whitelists", grant_type_whitelists)
+        _setter("policy_id", policy_id)
+        _setter("priority", priority)
         if access_token_lifetime_minutes is not None:
-            pulumi.set(__self__, "access_token_lifetime_minutes", access_token_lifetime_minutes)
+            _setter("access_token_lifetime_minutes", access_token_lifetime_minutes)
         if group_blacklists is not None:
-            pulumi.set(__self__, "group_blacklists", group_blacklists)
+            _setter("group_blacklists", group_blacklists)
         if group_whitelists is not None:
-            pulumi.set(__self__, "group_whitelists", group_whitelists)
+            _setter("group_whitelists", group_whitelists)
         if inline_hook_id is not None:
-            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
+            _setter("inline_hook_id", inline_hook_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if refresh_token_lifetime_minutes is not None:
-            pulumi.set(__self__, "refresh_token_lifetime_minutes", refresh_token_lifetime_minutes)
+            _setter("refresh_token_lifetime_minutes", refresh_token_lifetime_minutes)
         if refresh_token_window_minutes is not None:
-            pulumi.set(__self__, "refresh_token_window_minutes", refresh_token_window_minutes)
+            _setter("refresh_token_window_minutes", refresh_token_window_minutes)
         if scope_whitelists is not None:
-            pulumi.set(__self__, "scope_whitelists", scope_whitelists)
+            _setter("scope_whitelists", scope_whitelists)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_blacklists is not None:
-            pulumi.set(__self__, "user_blacklists", user_blacklists)
+            _setter("user_blacklists", user_blacklists)
         if user_whitelists is not None:
-            pulumi.set(__self__, "user_whitelists", user_whitelists)
+            _setter("user_whitelists", user_whitelists)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -318,38 +357,77 @@ class _ServerPolicyRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included.
         """
+        _ServerPolicyRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token_lifetime_minutes=access_token_lifetime_minutes,
+            auth_server_id=auth_server_id,
+            grant_type_whitelists=grant_type_whitelists,
+            group_blacklists=group_blacklists,
+            group_whitelists=group_whitelists,
+            inline_hook_id=inline_hook_id,
+            name=name,
+            policy_id=policy_id,
+            priority=priority,
+            refresh_token_lifetime_minutes=refresh_token_lifetime_minutes,
+            refresh_token_window_minutes=refresh_token_window_minutes,
+            scope_whitelists=scope_whitelists,
+            status=status,
+            type=type,
+            user_blacklists=user_blacklists,
+            user_whitelists=user_whitelists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token_lifetime_minutes: Optional[pulumi.Input[int]] = None,
+             auth_server_id: Optional[pulumi.Input[str]] = None,
+             grant_type_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             group_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             group_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             inline_hook_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             refresh_token_lifetime_minutes: Optional[pulumi.Input[int]] = None,
+             refresh_token_window_minutes: Optional[pulumi.Input[int]] = None,
+             scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_token_lifetime_minutes is not None:
-            pulumi.set(__self__, "access_token_lifetime_minutes", access_token_lifetime_minutes)
+            _setter("access_token_lifetime_minutes", access_token_lifetime_minutes)
         if auth_server_id is not None:
-            pulumi.set(__self__, "auth_server_id", auth_server_id)
+            _setter("auth_server_id", auth_server_id)
         if grant_type_whitelists is not None:
-            pulumi.set(__self__, "grant_type_whitelists", grant_type_whitelists)
+            _setter("grant_type_whitelists", grant_type_whitelists)
         if group_blacklists is not None:
-            pulumi.set(__self__, "group_blacklists", group_blacklists)
+            _setter("group_blacklists", group_blacklists)
         if group_whitelists is not None:
-            pulumi.set(__self__, "group_whitelists", group_whitelists)
+            _setter("group_whitelists", group_whitelists)
         if inline_hook_id is not None:
-            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
+            _setter("inline_hook_id", inline_hook_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if refresh_token_lifetime_minutes is not None:
-            pulumi.set(__self__, "refresh_token_lifetime_minutes", refresh_token_lifetime_minutes)
+            _setter("refresh_token_lifetime_minutes", refresh_token_lifetime_minutes)
         if refresh_token_window_minutes is not None:
-            pulumi.set(__self__, "refresh_token_window_minutes", refresh_token_window_minutes)
+            _setter("refresh_token_window_minutes", refresh_token_window_minutes)
         if scope_whitelists is not None:
-            pulumi.set(__self__, "scope_whitelists", scope_whitelists)
+            _setter("scope_whitelists", scope_whitelists)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_blacklists is not None:
-            pulumi.set(__self__, "user_blacklists", user_blacklists)
+            _setter("user_blacklists", user_blacklists)
         if user_whitelists is not None:
-            pulumi.set(__self__, "user_whitelists", user_whitelists)
+            _setter("user_whitelists", user_whitelists)
 
     @property
     @pulumi.getter(name="accessTokenLifetimeMinutes")
@@ -655,6 +733,10 @@ class ServerPolicyRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerPolicyRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

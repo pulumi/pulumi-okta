@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserFactorQuestionArgs', 'UserFactorQuestion']
@@ -23,9 +23,22 @@ class UserFactorQuestionArgs:
         :param pulumi.Input[str] key: Security question unique key.
         :param pulumi.Input[str] user_id: ID of the user. Resource will be recreated when `user_id` changes.
         """
-        pulumi.set(__self__, "answer", answer)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "user_id", user_id)
+        UserFactorQuestionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            answer=answer,
+            key=key,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             answer: pulumi.Input[str],
+             key: pulumi.Input[str],
+             user_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("answer", answer)
+        _setter("key", key)
+        _setter("user_id", user_id)
 
     @property
     @pulumi.getter
@@ -80,16 +93,33 @@ class _UserFactorQuestionState:
         :param pulumi.Input[str] text: Display text for security question.
         :param pulumi.Input[str] user_id: ID of the user. Resource will be recreated when `user_id` changes.
         """
+        _UserFactorQuestionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            answer=answer,
+            key=key,
+            status=status,
+            text=text,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             answer: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             text: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if answer is not None:
-            pulumi.set(__self__, "answer", answer)
+            _setter("answer", answer)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter
@@ -253,6 +283,10 @@ class UserFactorQuestion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserFactorQuestionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

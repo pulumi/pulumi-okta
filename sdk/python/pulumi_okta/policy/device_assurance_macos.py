@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DeviceAssuranceMacosArgs', 'DeviceAssuranceMacos']
@@ -55,44 +55,89 @@ class DeviceAssuranceMacosArgs:
         :param pulumi.Input[bool] tpsp_screen_lock_secured: Third party signal provider screen lock secure
         :param pulumi.Input[bool] tpsp_site_isolation_enabled: Third party signal provider site isolation enabled
         """
+        DeviceAssuranceMacosArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_types=disk_encryption_types,
+            name=name,
+            os_version=os_version,
+            screenlock_types=screenlock_types,
+            secure_hardware_present=secure_hardware_present,
+            third_party_signal_providers=third_party_signal_providers,
+            tpsp_browser_version=tpsp_browser_version,
+            tpsp_builtin_dns_client_enabled=tpsp_builtin_dns_client_enabled,
+            tpsp_chrome_remote_desktop_app_blocked=tpsp_chrome_remote_desktop_app_blocked,
+            tpsp_device_enrollment_domain=tpsp_device_enrollment_domain,
+            tpsp_disk_encrypted=tpsp_disk_encrypted,
+            tpsp_key_trust_level=tpsp_key_trust_level,
+            tpsp_os_firewall=tpsp_os_firewall,
+            tpsp_os_version=tpsp_os_version,
+            tpsp_password_proctection_warning_trigger=tpsp_password_proctection_warning_trigger,
+            tpsp_realtime_url_check_mode=tpsp_realtime_url_check_mode,
+            tpsp_safe_browsing_protection_level=tpsp_safe_browsing_protection_level,
+            tpsp_screen_lock_secured=tpsp_screen_lock_secured,
+            tpsp_site_isolation_enabled=tpsp_site_isolation_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_version: Optional[pulumi.Input[str]] = None,
+             screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             secure_hardware_present: Optional[pulumi.Input[bool]] = None,
+             third_party_signal_providers: Optional[pulumi.Input[bool]] = None,
+             tpsp_browser_version: Optional[pulumi.Input[str]] = None,
+             tpsp_builtin_dns_client_enabled: Optional[pulumi.Input[bool]] = None,
+             tpsp_chrome_remote_desktop_app_blocked: Optional[pulumi.Input[bool]] = None,
+             tpsp_device_enrollment_domain: Optional[pulumi.Input[str]] = None,
+             tpsp_disk_encrypted: Optional[pulumi.Input[bool]] = None,
+             tpsp_key_trust_level: Optional[pulumi.Input[str]] = None,
+             tpsp_os_firewall: Optional[pulumi.Input[bool]] = None,
+             tpsp_os_version: Optional[pulumi.Input[str]] = None,
+             tpsp_password_proctection_warning_trigger: Optional[pulumi.Input[str]] = None,
+             tpsp_realtime_url_check_mode: Optional[pulumi.Input[bool]] = None,
+             tpsp_safe_browsing_protection_level: Optional[pulumi.Input[str]] = None,
+             tpsp_screen_lock_secured: Optional[pulumi.Input[bool]] = None,
+             tpsp_site_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_encryption_types is not None:
-            pulumi.set(__self__, "disk_encryption_types", disk_encryption_types)
+            _setter("disk_encryption_types", disk_encryption_types)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
         if screenlock_types is not None:
-            pulumi.set(__self__, "screenlock_types", screenlock_types)
+            _setter("screenlock_types", screenlock_types)
         if secure_hardware_present is not None:
-            pulumi.set(__self__, "secure_hardware_present", secure_hardware_present)
+            _setter("secure_hardware_present", secure_hardware_present)
         if third_party_signal_providers is not None:
-            pulumi.set(__self__, "third_party_signal_providers", third_party_signal_providers)
+            _setter("third_party_signal_providers", third_party_signal_providers)
         if tpsp_browser_version is not None:
-            pulumi.set(__self__, "tpsp_browser_version", tpsp_browser_version)
+            _setter("tpsp_browser_version", tpsp_browser_version)
         if tpsp_builtin_dns_client_enabled is not None:
-            pulumi.set(__self__, "tpsp_builtin_dns_client_enabled", tpsp_builtin_dns_client_enabled)
+            _setter("tpsp_builtin_dns_client_enabled", tpsp_builtin_dns_client_enabled)
         if tpsp_chrome_remote_desktop_app_blocked is not None:
-            pulumi.set(__self__, "tpsp_chrome_remote_desktop_app_blocked", tpsp_chrome_remote_desktop_app_blocked)
+            _setter("tpsp_chrome_remote_desktop_app_blocked", tpsp_chrome_remote_desktop_app_blocked)
         if tpsp_device_enrollment_domain is not None:
-            pulumi.set(__self__, "tpsp_device_enrollment_domain", tpsp_device_enrollment_domain)
+            _setter("tpsp_device_enrollment_domain", tpsp_device_enrollment_domain)
         if tpsp_disk_encrypted is not None:
-            pulumi.set(__self__, "tpsp_disk_encrypted", tpsp_disk_encrypted)
+            _setter("tpsp_disk_encrypted", tpsp_disk_encrypted)
         if tpsp_key_trust_level is not None:
-            pulumi.set(__self__, "tpsp_key_trust_level", tpsp_key_trust_level)
+            _setter("tpsp_key_trust_level", tpsp_key_trust_level)
         if tpsp_os_firewall is not None:
-            pulumi.set(__self__, "tpsp_os_firewall", tpsp_os_firewall)
+            _setter("tpsp_os_firewall", tpsp_os_firewall)
         if tpsp_os_version is not None:
-            pulumi.set(__self__, "tpsp_os_version", tpsp_os_version)
+            _setter("tpsp_os_version", tpsp_os_version)
         if tpsp_password_proctection_warning_trigger is not None:
-            pulumi.set(__self__, "tpsp_password_proctection_warning_trigger", tpsp_password_proctection_warning_trigger)
+            _setter("tpsp_password_proctection_warning_trigger", tpsp_password_proctection_warning_trigger)
         if tpsp_realtime_url_check_mode is not None:
-            pulumi.set(__self__, "tpsp_realtime_url_check_mode", tpsp_realtime_url_check_mode)
+            _setter("tpsp_realtime_url_check_mode", tpsp_realtime_url_check_mode)
         if tpsp_safe_browsing_protection_level is not None:
-            pulumi.set(__self__, "tpsp_safe_browsing_protection_level", tpsp_safe_browsing_protection_level)
+            _setter("tpsp_safe_browsing_protection_level", tpsp_safe_browsing_protection_level)
         if tpsp_screen_lock_secured is not None:
-            pulumi.set(__self__, "tpsp_screen_lock_secured", tpsp_screen_lock_secured)
+            _setter("tpsp_screen_lock_secured", tpsp_screen_lock_secured)
         if tpsp_site_isolation_enabled is not None:
-            pulumi.set(__self__, "tpsp_site_isolation_enabled", tpsp_site_isolation_enabled)
+            _setter("tpsp_site_isolation_enabled", tpsp_site_isolation_enabled)
 
     @property
     @pulumi.getter(name="diskEncryptionTypes")
@@ -377,54 +422,109 @@ class _DeviceAssuranceMacosState:
         :param pulumi.Input[bool] tpsp_screen_lock_secured: Third party signal provider screen lock secure
         :param pulumi.Input[bool] tpsp_site_isolation_enabled: Third party signal provider site isolation enabled
         """
+        _DeviceAssuranceMacosState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_by=created_by,
+            created_date=created_date,
+            disk_encryption_types=disk_encryption_types,
+            last_update=last_update,
+            last_updated_by=last_updated_by,
+            name=name,
+            os_version=os_version,
+            platform=platform,
+            screenlock_types=screenlock_types,
+            secure_hardware_present=secure_hardware_present,
+            third_party_signal_providers=third_party_signal_providers,
+            tpsp_browser_version=tpsp_browser_version,
+            tpsp_builtin_dns_client_enabled=tpsp_builtin_dns_client_enabled,
+            tpsp_chrome_remote_desktop_app_blocked=tpsp_chrome_remote_desktop_app_blocked,
+            tpsp_device_enrollment_domain=tpsp_device_enrollment_domain,
+            tpsp_disk_encrypted=tpsp_disk_encrypted,
+            tpsp_key_trust_level=tpsp_key_trust_level,
+            tpsp_os_firewall=tpsp_os_firewall,
+            tpsp_os_version=tpsp_os_version,
+            tpsp_password_proctection_warning_trigger=tpsp_password_proctection_warning_trigger,
+            tpsp_realtime_url_check_mode=tpsp_realtime_url_check_mode,
+            tpsp_safe_browsing_protection_level=tpsp_safe_browsing_protection_level,
+            tpsp_screen_lock_secured=tpsp_screen_lock_secured,
+            tpsp_site_isolation_enabled=tpsp_site_isolation_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_by: Optional[pulumi.Input[str]] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             disk_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             last_update: Optional[pulumi.Input[str]] = None,
+             last_updated_by: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_version: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input[str]] = None,
+             screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             secure_hardware_present: Optional[pulumi.Input[bool]] = None,
+             third_party_signal_providers: Optional[pulumi.Input[bool]] = None,
+             tpsp_browser_version: Optional[pulumi.Input[str]] = None,
+             tpsp_builtin_dns_client_enabled: Optional[pulumi.Input[bool]] = None,
+             tpsp_chrome_remote_desktop_app_blocked: Optional[pulumi.Input[bool]] = None,
+             tpsp_device_enrollment_domain: Optional[pulumi.Input[str]] = None,
+             tpsp_disk_encrypted: Optional[pulumi.Input[bool]] = None,
+             tpsp_key_trust_level: Optional[pulumi.Input[str]] = None,
+             tpsp_os_firewall: Optional[pulumi.Input[bool]] = None,
+             tpsp_os_version: Optional[pulumi.Input[str]] = None,
+             tpsp_password_proctection_warning_trigger: Optional[pulumi.Input[str]] = None,
+             tpsp_realtime_url_check_mode: Optional[pulumi.Input[bool]] = None,
+             tpsp_safe_browsing_protection_level: Optional[pulumi.Input[str]] = None,
+             tpsp_screen_lock_secured: Optional[pulumi.Input[bool]] = None,
+             tpsp_site_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if disk_encryption_types is not None:
-            pulumi.set(__self__, "disk_encryption_types", disk_encryption_types)
+            _setter("disk_encryption_types", disk_encryption_types)
         if last_update is not None:
-            pulumi.set(__self__, "last_update", last_update)
+            _setter("last_update", last_update)
         if last_updated_by is not None:
-            pulumi.set(__self__, "last_updated_by", last_updated_by)
+            _setter("last_updated_by", last_updated_by)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if screenlock_types is not None:
-            pulumi.set(__self__, "screenlock_types", screenlock_types)
+            _setter("screenlock_types", screenlock_types)
         if secure_hardware_present is not None:
-            pulumi.set(__self__, "secure_hardware_present", secure_hardware_present)
+            _setter("secure_hardware_present", secure_hardware_present)
         if third_party_signal_providers is not None:
-            pulumi.set(__self__, "third_party_signal_providers", third_party_signal_providers)
+            _setter("third_party_signal_providers", third_party_signal_providers)
         if tpsp_browser_version is not None:
-            pulumi.set(__self__, "tpsp_browser_version", tpsp_browser_version)
+            _setter("tpsp_browser_version", tpsp_browser_version)
         if tpsp_builtin_dns_client_enabled is not None:
-            pulumi.set(__self__, "tpsp_builtin_dns_client_enabled", tpsp_builtin_dns_client_enabled)
+            _setter("tpsp_builtin_dns_client_enabled", tpsp_builtin_dns_client_enabled)
         if tpsp_chrome_remote_desktop_app_blocked is not None:
-            pulumi.set(__self__, "tpsp_chrome_remote_desktop_app_blocked", tpsp_chrome_remote_desktop_app_blocked)
+            _setter("tpsp_chrome_remote_desktop_app_blocked", tpsp_chrome_remote_desktop_app_blocked)
         if tpsp_device_enrollment_domain is not None:
-            pulumi.set(__self__, "tpsp_device_enrollment_domain", tpsp_device_enrollment_domain)
+            _setter("tpsp_device_enrollment_domain", tpsp_device_enrollment_domain)
         if tpsp_disk_encrypted is not None:
-            pulumi.set(__self__, "tpsp_disk_encrypted", tpsp_disk_encrypted)
+            _setter("tpsp_disk_encrypted", tpsp_disk_encrypted)
         if tpsp_key_trust_level is not None:
-            pulumi.set(__self__, "tpsp_key_trust_level", tpsp_key_trust_level)
+            _setter("tpsp_key_trust_level", tpsp_key_trust_level)
         if tpsp_os_firewall is not None:
-            pulumi.set(__self__, "tpsp_os_firewall", tpsp_os_firewall)
+            _setter("tpsp_os_firewall", tpsp_os_firewall)
         if tpsp_os_version is not None:
-            pulumi.set(__self__, "tpsp_os_version", tpsp_os_version)
+            _setter("tpsp_os_version", tpsp_os_version)
         if tpsp_password_proctection_warning_trigger is not None:
-            pulumi.set(__self__, "tpsp_password_proctection_warning_trigger", tpsp_password_proctection_warning_trigger)
+            _setter("tpsp_password_proctection_warning_trigger", tpsp_password_proctection_warning_trigger)
         if tpsp_realtime_url_check_mode is not None:
-            pulumi.set(__self__, "tpsp_realtime_url_check_mode", tpsp_realtime_url_check_mode)
+            _setter("tpsp_realtime_url_check_mode", tpsp_realtime_url_check_mode)
         if tpsp_safe_browsing_protection_level is not None:
-            pulumi.set(__self__, "tpsp_safe_browsing_protection_level", tpsp_safe_browsing_protection_level)
+            _setter("tpsp_safe_browsing_protection_level", tpsp_safe_browsing_protection_level)
         if tpsp_screen_lock_secured is not None:
-            pulumi.set(__self__, "tpsp_screen_lock_secured", tpsp_screen_lock_secured)
+            _setter("tpsp_screen_lock_secured", tpsp_screen_lock_secured)
         if tpsp_site_isolation_enabled is not None:
-            pulumi.set(__self__, "tpsp_site_isolation_enabled", tpsp_site_isolation_enabled)
+            _setter("tpsp_site_isolation_enabled", tpsp_site_isolation_enabled)
 
     @property
     @pulumi.getter(name="createdBy")
@@ -782,6 +882,10 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeviceAssuranceMacosArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

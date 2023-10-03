@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerScopeArgs', 'ServerScope']
@@ -33,21 +33,44 @@ class ServerScopeArgs:
         :param pulumi.Input[str] name: Auth Server scope name.
         :param pulumi.Input[bool] optional: Whether the scope optional
         """
-        pulumi.set(__self__, "auth_server_id", auth_server_id)
+        ServerScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_server_id=auth_server_id,
+            consent=consent,
+            default=default,
+            description=description,
+            display_name=display_name,
+            metadata_publish=metadata_publish,
+            name=name,
+            optional=optional,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_server_id: pulumi.Input[str],
+             consent: Optional[pulumi.Input[str]] = None,
+             default: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             metadata_publish: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             optional: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_server_id", auth_server_id)
         if consent is not None:
-            pulumi.set(__self__, "consent", consent)
+            _setter("consent", consent)
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if metadata_publish is not None:
-            pulumi.set(__self__, "metadata_publish", metadata_publish)
+            _setter("metadata_publish", metadata_publish)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if optional is not None:
-            pulumi.set(__self__, "optional", optional)
+            _setter("optional", optional)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -170,24 +193,49 @@ class _ServerScopeState:
         :param pulumi.Input[bool] optional: Whether the scope optional
         :param pulumi.Input[bool] system: Whether Okta created the Scope
         """
+        _ServerScopeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_server_id=auth_server_id,
+            consent=consent,
+            default=default,
+            description=description,
+            display_name=display_name,
+            metadata_publish=metadata_publish,
+            name=name,
+            optional=optional,
+            system=system,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_server_id: Optional[pulumi.Input[str]] = None,
+             consent: Optional[pulumi.Input[str]] = None,
+             default: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             metadata_publish: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             optional: Optional[pulumi.Input[bool]] = None,
+             system: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_server_id is not None:
-            pulumi.set(__self__, "auth_server_id", auth_server_id)
+            _setter("auth_server_id", auth_server_id)
         if consent is not None:
-            pulumi.set(__self__, "consent", consent)
+            _setter("consent", consent)
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if metadata_publish is not None:
-            pulumi.set(__self__, "metadata_publish", metadata_publish)
+            _setter("metadata_publish", metadata_publish)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if optional is not None:
-            pulumi.set(__self__, "optional", optional)
+            _setter("optional", optional)
         if system is not None:
-            pulumi.set(__self__, "system", system)
+            _setter("system", system)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -389,6 +437,10 @@ class ServerScope(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerScopeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

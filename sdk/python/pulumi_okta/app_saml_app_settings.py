@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AppSamlAppSettingsArgs', 'AppSamlAppSettings']
@@ -21,8 +21,19 @@ class AppSamlAppSettingsArgs:
         :param pulumi.Input[str] app_id: ID of the application.
         :param pulumi.Input[str] settings: Application settings in JSON format.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "settings", settings)
+        AppSamlAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: pulumi.Input[str],
+             settings: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_id", app_id)
+        _setter("settings", settings)
 
     @property
     @pulumi.getter(name="appId")
@@ -59,10 +70,21 @@ class _AppSamlAppSettingsState:
         :param pulumi.Input[str] app_id: ID of the application.
         :param pulumi.Input[str] settings: Application settings in JSON format.
         """
+        _AppSamlAppSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter(name="appId")
@@ -192,6 +214,10 @@ class AppSamlAppSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppSamlAppSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

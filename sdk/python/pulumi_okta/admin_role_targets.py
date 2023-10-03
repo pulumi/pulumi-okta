@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AdminRoleTargetsArgs', 'AdminRoleTargets']
@@ -25,12 +25,27 @@ class AdminRoleTargetsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of group IDs. Conflicts with `apps`.
         """
-        pulumi.set(__self__, "role_type", role_type)
-        pulumi.set(__self__, "user_id", user_id)
+        AdminRoleTargetsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_type=role_type,
+            user_id=user_id,
+            apps=apps,
+            groups=groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_type: pulumi.Input[str],
+             user_id: pulumi.Input[str],
+             apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role_type", role_type)
+        _setter("user_id", user_id)
         if apps is not None:
-            pulumi.set(__self__, "apps", apps)
+            _setter("apps", apps)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
 
     @property
     @pulumi.getter(name="roleType")
@@ -97,16 +112,33 @@ class _AdminRoleTargetsState:
         :param pulumi.Input[str] role_type: Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
         :param pulumi.Input[str] user_id: ID of the user.
         """
+        _AdminRoleTargetsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apps=apps,
+            groups=groups,
+            role_id=role_id,
+            role_type=role_type,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             role_id: Optional[pulumi.Input[str]] = None,
+             role_type: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if apps is not None:
-            pulumi.set(__self__, "apps", apps)
+            _setter("apps", apps)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if role_id is not None:
-            pulumi.set(__self__, "role_id", role_id)
+            _setter("role_id", role_id)
         if role_type is not None:
-            pulumi.set(__self__, "role_type", role_type)
+            _setter("role_type", role_type)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter
@@ -260,6 +292,10 @@ class AdminRoleTargets(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AdminRoleTargetsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RulePasswordArgs', 'RulePassword']
@@ -39,28 +39,57 @@ class RulePasswordArgs:
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The users to exclude. Type `"set(string)"`
         """
+        RulePasswordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            network_connection=network_connection,
+            network_excludes=network_excludes,
+            network_includes=network_includes,
+            password_change=password_change,
+            password_reset=password_reset,
+            password_unlock=password_unlock,
+            policy_id=policy_id,
+            priority=priority,
+            status=status,
+            users_excludeds=users_excludeds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             network_connection: Optional[pulumi.Input[str]] = None,
+             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             password_change: Optional[pulumi.Input[str]] = None,
+             password_reset: Optional[pulumi.Input[str]] = None,
+             password_unlock: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_connection is not None:
-            pulumi.set(__self__, "network_connection", network_connection)
+            _setter("network_connection", network_connection)
         if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+            _setter("network_excludes", network_excludes)
         if network_includes is not None:
-            pulumi.set(__self__, "network_includes", network_includes)
+            _setter("network_includes", network_includes)
         if password_change is not None:
-            pulumi.set(__self__, "password_change", password_change)
+            _setter("password_change", password_change)
         if password_reset is not None:
-            pulumi.set(__self__, "password_reset", password_reset)
+            _setter("password_reset", password_reset)
         if password_unlock is not None:
-            pulumi.set(__self__, "password_unlock", password_unlock)
+            _setter("password_unlock", password_unlock)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+            _setter("users_excludeds", users_excludeds)
 
     @property
     @pulumi.getter
@@ -223,28 +252,57 @@ class _RulePasswordState:
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The users to exclude. Type `"set(string)"`
         """
+        _RulePasswordState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            network_connection=network_connection,
+            network_excludes=network_excludes,
+            network_includes=network_includes,
+            password_change=password_change,
+            password_reset=password_reset,
+            password_unlock=password_unlock,
+            policy_id=policy_id,
+            priority=priority,
+            status=status,
+            users_excludeds=users_excludeds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             network_connection: Optional[pulumi.Input[str]] = None,
+             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             password_change: Optional[pulumi.Input[str]] = None,
+             password_reset: Optional[pulumi.Input[str]] = None,
+             password_unlock: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_connection is not None:
-            pulumi.set(__self__, "network_connection", network_connection)
+            _setter("network_connection", network_connection)
         if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+            _setter("network_excludes", network_excludes)
         if network_includes is not None:
-            pulumi.set(__self__, "network_includes", network_includes)
+            _setter("network_includes", network_includes)
         if password_change is not None:
-            pulumi.set(__self__, "password_change", password_change)
+            _setter("password_change", password_change)
         if password_reset is not None:
-            pulumi.set(__self__, "password_reset", password_reset)
+            _setter("password_reset", password_reset)
         if password_unlock is not None:
-            pulumi.set(__self__, "password_unlock", password_unlock)
+            _setter("password_unlock", password_unlock)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+            _setter("users_excludeds", users_excludeds)
 
     @property
     @pulumi.getter
@@ -452,6 +510,10 @@ class RulePassword(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RulePasswordArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
