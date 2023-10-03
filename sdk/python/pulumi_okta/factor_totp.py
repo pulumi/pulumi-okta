@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FactorTotpArgs', 'FactorTotp']
@@ -32,18 +32,37 @@ class FactorTotpArgs:
                Default is `"base32"`.
         :param pulumi.Input[int] time_step: Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
         """
+        FactorTotpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            clock_drift_interval=clock_drift_interval,
+            hmac_algorithm=hmac_algorithm,
+            name=name,
+            otp_length=otp_length,
+            shared_secret_encoding=shared_secret_encoding,
+            time_step=time_step,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             clock_drift_interval: Optional[pulumi.Input[int]] = None,
+             hmac_algorithm: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             otp_length: Optional[pulumi.Input[int]] = None,
+             shared_secret_encoding: Optional[pulumi.Input[str]] = None,
+             time_step: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if clock_drift_interval is not None:
-            pulumi.set(__self__, "clock_drift_interval", clock_drift_interval)
+            _setter("clock_drift_interval", clock_drift_interval)
         if hmac_algorithm is not None:
-            pulumi.set(__self__, "hmac_algorithm", hmac_algorithm)
+            _setter("hmac_algorithm", hmac_algorithm)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if otp_length is not None:
-            pulumi.set(__self__, "otp_length", otp_length)
+            _setter("otp_length", otp_length)
         if shared_secret_encoding is not None:
-            pulumi.set(__self__, "shared_secret_encoding", shared_secret_encoding)
+            _setter("shared_secret_encoding", shared_secret_encoding)
         if time_step is not None:
-            pulumi.set(__self__, "time_step", time_step)
+            _setter("time_step", time_step)
 
     @property
     @pulumi.getter(name="clockDriftInterval")
@@ -142,18 +161,37 @@ class _FactorTotpState:
                Default is `"base32"`.
         :param pulumi.Input[int] time_step: Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
         """
+        _FactorTotpState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            clock_drift_interval=clock_drift_interval,
+            hmac_algorithm=hmac_algorithm,
+            name=name,
+            otp_length=otp_length,
+            shared_secret_encoding=shared_secret_encoding,
+            time_step=time_step,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             clock_drift_interval: Optional[pulumi.Input[int]] = None,
+             hmac_algorithm: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             otp_length: Optional[pulumi.Input[int]] = None,
+             shared_secret_encoding: Optional[pulumi.Input[str]] = None,
+             time_step: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if clock_drift_interval is not None:
-            pulumi.set(__self__, "clock_drift_interval", clock_drift_interval)
+            _setter("clock_drift_interval", clock_drift_interval)
         if hmac_algorithm is not None:
-            pulumi.set(__self__, "hmac_algorithm", hmac_algorithm)
+            _setter("hmac_algorithm", hmac_algorithm)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if otp_length is not None:
-            pulumi.set(__self__, "otp_length", otp_length)
+            _setter("otp_length", otp_length)
         if shared_secret_encoding is not None:
-            pulumi.set(__self__, "shared_secret_encoding", shared_secret_encoding)
+            _setter("shared_secret_encoding", shared_secret_encoding)
         if time_step is not None:
-            pulumi.set(__self__, "time_step", time_step)
+            _setter("time_step", time_step)
 
     @property
     @pulumi.getter(name="clockDriftInterval")
@@ -315,6 +353,10 @@ class FactorTotp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FactorTotpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

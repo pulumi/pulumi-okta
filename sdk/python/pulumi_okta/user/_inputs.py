@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -33,14 +33,31 @@ class UserPasswordHashArgs:
         :param pulumi.Input[str] salt_order: Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
         :param pulumi.Input[int] work_factor: Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
         """
-        pulumi.set(__self__, "algorithm", algorithm)
-        pulumi.set(__self__, "value", value)
+        UserPasswordHashArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            value=value,
+            salt=salt,
+            salt_order=salt_order,
+            work_factor=work_factor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: pulumi.Input[str],
+             value: pulumi.Input[str],
+             salt: Optional[pulumi.Input[str]] = None,
+             salt_order: Optional[pulumi.Input[str]] = None,
+             work_factor: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("algorithm", algorithm)
+        _setter("value", value)
         if salt is not None:
-            pulumi.set(__self__, "salt", salt)
+            _setter("salt", salt)
         if salt_order is not None:
-            pulumi.set(__self__, "salt_order", salt_order)
+            _setter("salt_order", salt_order)
         if work_factor is not None:
-            pulumi.set(__self__, "work_factor", work_factor)
+            _setter("work_factor", work_factor)
 
     @property
     @pulumi.getter
@@ -117,14 +134,29 @@ class GetUserSearchArgs:
         :param str name: Name of property to search against.
         :param str value: Value to compare with.
         """
+        GetUserSearchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison=comparison,
+            expression=expression,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison: Optional[str] = None,
+             expression: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if comparison is not None:
-            pulumi.set(__self__, "comparison", comparison)
+            _setter("comparison", comparison)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -188,14 +220,29 @@ class GetUsersSearchArgs:
         :param str name: Name of property to search against.
         :param str value: Value to compare with.
         """
+        GetUsersSearchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison=comparison,
+            expression=expression,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison: Optional[str] = None,
+             expression: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if comparison is not None:
-            pulumi.set(__self__, "comparison", comparison)
+            _setter("comparison", comparison)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter

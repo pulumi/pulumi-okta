@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OriginArgs', 'Origin']
@@ -25,12 +25,27 @@ class OriginArgs:
         :param pulumi.Input[bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
         :param pulumi.Input[str] name: Unique name for this trusted origin.
         """
-        pulumi.set(__self__, "origin", origin)
-        pulumi.set(__self__, "scopes", scopes)
+        OriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            origin=origin,
+            scopes=scopes,
+            active=active,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             origin: pulumi.Input[str],
+             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             active: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("origin", origin)
+        _setter("scopes", scopes)
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -95,14 +110,29 @@ class _OriginState:
         :param pulumi.Input[str] origin: Unique origin URL for this trusted origin.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         """
+        _OriginState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active=active,
+            name=name,
+            origin=origin,
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             origin: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if origin is not None:
-            pulumi.set(__self__, "origin", origin)
+            _setter("origin", origin)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
 
     @property
     @pulumi.getter
@@ -234,6 +264,10 @@ class Origin(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OriginArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

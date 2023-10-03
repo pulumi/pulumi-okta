@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -41,10 +41,23 @@ class MappingMapping(dict):
         :param str id: Key of mapping.
         :param str push_status: Whether to update target properties on user create & update or just on create.
         """
-        pulumi.set(__self__, "expression", expression)
-        pulumi.set(__self__, "id", id)
+        MappingMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            id=id,
+            push_status=push_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: str,
+             id: str,
+             push_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expression", expression)
+        _setter("id", id)
         if push_status is not None:
-            pulumi.set(__self__, "push_status", push_status)
+            _setter("push_status", push_status)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,10 +27,25 @@ class EmailDomainArgs:
         :param pulumi.Input[str] domain: Mail domain to send from.
         :param pulumi.Input[str] user_name: User name of the email domain.
         """
-        pulumi.set(__self__, "brand_id", brand_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "user_name", user_name)
+        EmailDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            brand_id=brand_id,
+            display_name=display_name,
+            domain=domain,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             brand_id: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             domain: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("brand_id", brand_id)
+        _setter("display_name", display_name)
+        _setter("domain", domain)
+        _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="brandId")
@@ -99,18 +114,37 @@ class _EmailDomainState:
         :param pulumi.Input[str] user_name: User name of the email domain.
         :param pulumi.Input[str] validation_status: Status of the email domain (shows whether the domain is verified).
         """
+        _EmailDomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            brand_id=brand_id,
+            display_name=display_name,
+            dns_validation_records=dns_validation_records,
+            domain=domain,
+            user_name=user_name,
+            validation_status=validation_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             brand_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             dns_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input['EmailDomainDnsValidationRecordArgs']]]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             validation_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if brand_id is not None:
-            pulumi.set(__self__, "brand_id", brand_id)
+            _setter("brand_id", brand_id)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if dns_validation_records is not None:
-            pulumi.set(__self__, "dns_validation_records", dns_validation_records)
+            _setter("dns_validation_records", dns_validation_records)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
         if validation_status is not None:
-            pulumi.set(__self__, "validation_status", validation_status)
+            _setter("validation_status", validation_status)
 
     @property
     @pulumi.getter(name="brandId")
@@ -266,6 +300,10 @@ class EmailDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmailDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ThemeArgs', 'Theme']
@@ -43,31 +43,64 @@ class ThemeArgs:
         :param pulumi.Input[str] sign_in_page_touch_point_variant: (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         :param pulumi.Input[str] theme_id: Theme ID, used for read (faux-create)
         """
-        pulumi.set(__self__, "brand_id", brand_id)
+        ThemeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            brand_id=brand_id,
+            background_image=background_image,
+            email_template_touch_point_variant=email_template_touch_point_variant,
+            end_user_dashboard_touch_point_variant=end_user_dashboard_touch_point_variant,
+            error_page_touch_point_variant=error_page_touch_point_variant,
+            favicon=favicon,
+            logo=logo,
+            primary_color_contrast_hex=primary_color_contrast_hex,
+            primary_color_hex=primary_color_hex,
+            secondary_color_contrast_hex=secondary_color_contrast_hex,
+            secondary_color_hex=secondary_color_hex,
+            sign_in_page_touch_point_variant=sign_in_page_touch_point_variant,
+            theme_id=theme_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             brand_id: pulumi.Input[str],
+             background_image: Optional[pulumi.Input[str]] = None,
+             email_template_touch_point_variant: Optional[pulumi.Input[str]] = None,
+             end_user_dashboard_touch_point_variant: Optional[pulumi.Input[str]] = None,
+             error_page_touch_point_variant: Optional[pulumi.Input[str]] = None,
+             favicon: Optional[pulumi.Input[str]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             primary_color_contrast_hex: Optional[pulumi.Input[str]] = None,
+             primary_color_hex: Optional[pulumi.Input[str]] = None,
+             secondary_color_contrast_hex: Optional[pulumi.Input[str]] = None,
+             secondary_color_hex: Optional[pulumi.Input[str]] = None,
+             sign_in_page_touch_point_variant: Optional[pulumi.Input[str]] = None,
+             theme_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("brand_id", brand_id)
         if background_image is not None:
-            pulumi.set(__self__, "background_image", background_image)
+            _setter("background_image", background_image)
         if email_template_touch_point_variant is not None:
-            pulumi.set(__self__, "email_template_touch_point_variant", email_template_touch_point_variant)
+            _setter("email_template_touch_point_variant", email_template_touch_point_variant)
         if end_user_dashboard_touch_point_variant is not None:
-            pulumi.set(__self__, "end_user_dashboard_touch_point_variant", end_user_dashboard_touch_point_variant)
+            _setter("end_user_dashboard_touch_point_variant", end_user_dashboard_touch_point_variant)
         if error_page_touch_point_variant is not None:
-            pulumi.set(__self__, "error_page_touch_point_variant", error_page_touch_point_variant)
+            _setter("error_page_touch_point_variant", error_page_touch_point_variant)
         if favicon is not None:
-            pulumi.set(__self__, "favicon", favicon)
+            _setter("favicon", favicon)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if primary_color_contrast_hex is not None:
-            pulumi.set(__self__, "primary_color_contrast_hex", primary_color_contrast_hex)
+            _setter("primary_color_contrast_hex", primary_color_contrast_hex)
         if primary_color_hex is not None:
-            pulumi.set(__self__, "primary_color_hex", primary_color_hex)
+            _setter("primary_color_hex", primary_color_hex)
         if secondary_color_contrast_hex is not None:
-            pulumi.set(__self__, "secondary_color_contrast_hex", secondary_color_contrast_hex)
+            _setter("secondary_color_contrast_hex", secondary_color_contrast_hex)
         if secondary_color_hex is not None:
-            pulumi.set(__self__, "secondary_color_hex", secondary_color_hex)
+            _setter("secondary_color_hex", secondary_color_hex)
         if sign_in_page_touch_point_variant is not None:
-            pulumi.set(__self__, "sign_in_page_touch_point_variant", sign_in_page_touch_point_variant)
+            _setter("sign_in_page_touch_point_variant", sign_in_page_touch_point_variant)
         if theme_id is not None:
-            pulumi.set(__self__, "theme_id", theme_id)
+            _setter("theme_id", theme_id)
 
     @property
     @pulumi.getter(name="brandId")
@@ -266,40 +299,81 @@ class _ThemeState:
         :param pulumi.Input[str] sign_in_page_touch_point_variant: (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         :param pulumi.Input[str] theme_id: Theme ID, used for read (faux-create)
         """
+        _ThemeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            background_image=background_image,
+            background_image_url=background_image_url,
+            brand_id=brand_id,
+            email_template_touch_point_variant=email_template_touch_point_variant,
+            end_user_dashboard_touch_point_variant=end_user_dashboard_touch_point_variant,
+            error_page_touch_point_variant=error_page_touch_point_variant,
+            favicon=favicon,
+            favicon_url=favicon_url,
+            links=links,
+            logo=logo,
+            logo_url=logo_url,
+            primary_color_contrast_hex=primary_color_contrast_hex,
+            primary_color_hex=primary_color_hex,
+            secondary_color_contrast_hex=secondary_color_contrast_hex,
+            secondary_color_hex=secondary_color_hex,
+            sign_in_page_touch_point_variant=sign_in_page_touch_point_variant,
+            theme_id=theme_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             background_image: Optional[pulumi.Input[str]] = None,
+             background_image_url: Optional[pulumi.Input[str]] = None,
+             brand_id: Optional[pulumi.Input[str]] = None,
+             email_template_touch_point_variant: Optional[pulumi.Input[str]] = None,
+             end_user_dashboard_touch_point_variant: Optional[pulumi.Input[str]] = None,
+             error_page_touch_point_variant: Optional[pulumi.Input[str]] = None,
+             favicon: Optional[pulumi.Input[str]] = None,
+             favicon_url: Optional[pulumi.Input[str]] = None,
+             links: Optional[pulumi.Input[str]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             logo_url: Optional[pulumi.Input[str]] = None,
+             primary_color_contrast_hex: Optional[pulumi.Input[str]] = None,
+             primary_color_hex: Optional[pulumi.Input[str]] = None,
+             secondary_color_contrast_hex: Optional[pulumi.Input[str]] = None,
+             secondary_color_hex: Optional[pulumi.Input[str]] = None,
+             sign_in_page_touch_point_variant: Optional[pulumi.Input[str]] = None,
+             theme_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if background_image is not None:
-            pulumi.set(__self__, "background_image", background_image)
+            _setter("background_image", background_image)
         if background_image_url is not None:
-            pulumi.set(__self__, "background_image_url", background_image_url)
+            _setter("background_image_url", background_image_url)
         if brand_id is not None:
-            pulumi.set(__self__, "brand_id", brand_id)
+            _setter("brand_id", brand_id)
         if email_template_touch_point_variant is not None:
-            pulumi.set(__self__, "email_template_touch_point_variant", email_template_touch_point_variant)
+            _setter("email_template_touch_point_variant", email_template_touch_point_variant)
         if end_user_dashboard_touch_point_variant is not None:
-            pulumi.set(__self__, "end_user_dashboard_touch_point_variant", end_user_dashboard_touch_point_variant)
+            _setter("end_user_dashboard_touch_point_variant", end_user_dashboard_touch_point_variant)
         if error_page_touch_point_variant is not None:
-            pulumi.set(__self__, "error_page_touch_point_variant", error_page_touch_point_variant)
+            _setter("error_page_touch_point_variant", error_page_touch_point_variant)
         if favicon is not None:
-            pulumi.set(__self__, "favicon", favicon)
+            _setter("favicon", favicon)
         if favicon_url is not None:
-            pulumi.set(__self__, "favicon_url", favicon_url)
+            _setter("favicon_url", favicon_url)
         if links is not None:
-            pulumi.set(__self__, "links", links)
+            _setter("links", links)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if logo_url is not None:
-            pulumi.set(__self__, "logo_url", logo_url)
+            _setter("logo_url", logo_url)
         if primary_color_contrast_hex is not None:
-            pulumi.set(__self__, "primary_color_contrast_hex", primary_color_contrast_hex)
+            _setter("primary_color_contrast_hex", primary_color_contrast_hex)
         if primary_color_hex is not None:
-            pulumi.set(__self__, "primary_color_hex", primary_color_hex)
+            _setter("primary_color_hex", primary_color_hex)
         if secondary_color_contrast_hex is not None:
-            pulumi.set(__self__, "secondary_color_contrast_hex", secondary_color_contrast_hex)
+            _setter("secondary_color_contrast_hex", secondary_color_contrast_hex)
         if secondary_color_hex is not None:
-            pulumi.set(__self__, "secondary_color_hex", secondary_color_hex)
+            _setter("secondary_color_hex", secondary_color_hex)
         if sign_in_page_touch_point_variant is not None:
-            pulumi.set(__self__, "sign_in_page_touch_point_variant", sign_in_page_touch_point_variant)
+            _setter("sign_in_page_touch_point_variant", sign_in_page_touch_point_variant)
         if theme_id is not None:
-            pulumi.set(__self__, "theme_id", theme_id)
+            _setter("theme_id", theme_id)
 
     @property
     @pulumi.getter(name="backgroundImage")
@@ -575,6 +649,10 @@ class Theme(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ThemeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

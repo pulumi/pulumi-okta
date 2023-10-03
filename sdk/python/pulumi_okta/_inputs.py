@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -38,10 +38,23 @@ class AppGroupAssignmentsGroupArgs:
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param pulumi.Input[int] priority: Priority of group assignment
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "profile", profile)
+        AppGroupAssignmentsGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            profile=profile,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             profile: pulumi.Input[str],
+             priority: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("profile", profile)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
 
     @property
     @pulumi.getter
@@ -91,12 +104,25 @@ class AppSignonPolicyRulePlatformIncludeArgs:
         :param pulumi.Input[str] os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
         :param pulumi.Input[str] type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
         """
+        AppSignonPolicyRulePlatformIncludeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_expression=os_expression,
+            os_type=os_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_expression: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if os_expression is not None:
-            pulumi.set(__self__, "os_expression", os_expression)
+            _setter("os_expression", os_expression)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="osExpression")
@@ -144,8 +170,19 @@ class AppUserSchemaPropertyArrayOneOfArgs:
         :param pulumi.Input[str] const: value mapping to member of `array_enum`.
         :param pulumi.Input[str] title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        AppUserSchemaPropertyArrayOneOfArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: pulumi.Input[str],
+             title: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter
@@ -181,8 +218,19 @@ class AppUserSchemaPropertyOneOfArgs:
         :param pulumi.Input[str] const: value mapping to member of `array_enum`.
         :param pulumi.Input[str] title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        AppUserSchemaPropertyOneOfArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: pulumi.Input[str],
+             title: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter
@@ -222,14 +270,29 @@ class DomainDnsRecordArgs:
         :param pulumi.Input[str] record_type: Record type can be TXT or CNAME.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: DNS verification value
         """
+        DomainDnsRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration=expiration,
+            fqdn=fqdn,
+            record_type=record_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration: Optional[pulumi.Input[str]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             record_type: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if record_type is not None:
-            pulumi.set(__self__, "record_type", record_type)
+            _setter("record_type", record_type)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -291,12 +354,25 @@ class EmailSenderDnsRecordArgs:
         :param pulumi.Input[str] record_type: Record type can be TXT or CNAME.
         :param pulumi.Input[str] value: DNS verification value
         """
+        EmailSenderDnsRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            record_type=record_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: Optional[pulumi.Input[str]] = None,
+             record_type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if record_type is not None:
-            pulumi.set(__self__, "record_type", record_type)
+            _setter("record_type", record_type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -344,10 +420,21 @@ class EventHookHeaderArgs:
         :param pulumi.Input[str] key: Key to use for authentication, usually the header name, for example `"Authorization"`.
         :param pulumi.Input[str] value: Authentication secret.
         """
+        EventHookHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -383,8 +470,19 @@ class GroupSchemaPropertyArrayOneOfArgs:
         :param pulumi.Input[str] const: value mapping to member of `enum`.
         :param pulumi.Input[str] title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        GroupSchemaPropertyArrayOneOfArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: pulumi.Input[str],
+             title: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter
@@ -420,9 +518,20 @@ class GroupSchemaPropertyMasterOverridePriorityArgs:
         :param pulumi.Input[str] value: ID of profile source.
         :param pulumi.Input[str] type: Type of profile source.
         """
-        pulumi.set(__self__, "value", value)
+        GroupSchemaPropertyMasterOverridePriorityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -458,8 +567,19 @@ class GroupSchemaPropertyOneOfArgs:
         :param pulumi.Input[str] const: value mapping to member of `enum`.
         :param pulumi.Input[str] title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        GroupSchemaPropertyOneOfArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: pulumi.Input[str],
+             title: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter
@@ -497,10 +617,23 @@ class PolicyRuleProfileEnrollmentProfileAttributeArgs:
         :param pulumi.Input[str] name: The name of a User Profile property
         :param pulumi.Input[bool] required: Indicates if this property is required for enrollment. Default is `false`.
         """
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "name", name)
+        PolicyRuleProfileEnrollmentProfileAttributeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            name=name,
+            required=required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: pulumi.Input[str],
+             name: pulumi.Input[str],
+             required: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("label", label)
+        _setter("name", name)
         if required is not None:
-            pulumi.set(__self__, "required", required)
+            _setter("required", required)
 
     @property
     @pulumi.getter
@@ -548,8 +681,19 @@ class TemplateSmsTranslationArgs:
         :param pulumi.Input[str] language: The language to map the template to.
         :param pulumi.Input[str] template: The SMS message.
         """
-        pulumi.set(__self__, "language", language)
-        pulumi.set(__self__, "template", template)
+        TemplateSmsTranslationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            language=language,
+            template=template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             language: pulumi.Input[str],
+             template: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("language", language)
+        _setter("template", template)
 
     @property
     @pulumi.getter
@@ -585,8 +729,19 @@ class UserSchemaPropertyArrayOneOfArgs:
         :param pulumi.Input[str] const: value mapping to member of `enum`.
         :param pulumi.Input[str] title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        UserSchemaPropertyArrayOneOfArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: pulumi.Input[str],
+             title: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter
@@ -622,9 +777,20 @@ class UserSchemaPropertyMasterOverridePriorityArgs:
         :param pulumi.Input[str] value: ID of profile source.
         :param pulumi.Input[str] type: Type of profile source.
         """
-        pulumi.set(__self__, "value", value)
+        UserSchemaPropertyMasterOverridePriorityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -660,8 +826,19 @@ class UserSchemaPropertyOneOfArgs:
         :param pulumi.Input[str] const: value mapping to member of `enum`.
         :param pulumi.Input[str] title: display name for the enum value.
         """
-        pulumi.set(__self__, "const", const)
-        pulumi.set(__self__, "title", title)
+        UserSchemaPropertyOneOfArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            const=const,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             const: pulumi.Input[str],
+             title: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("const", const)
+        _setter("title", title)
 
     @property
     @pulumi.getter

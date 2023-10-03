@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['PolicyPasswordDefaultArgs', 'PolicyPasswordDefault']
@@ -69,54 +69,109 @@ class PolicyPasswordDefaultArgs:
                attempt to unlock the user's Windows account.
         :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE.
         """
+        PolicyPasswordDefaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            call_recovery=call_recovery,
+            email_recovery=email_recovery,
+            password_auto_unlock_minutes=password_auto_unlock_minutes,
+            password_dictionary_lookup=password_dictionary_lookup,
+            password_exclude_first_name=password_exclude_first_name,
+            password_exclude_last_name=password_exclude_last_name,
+            password_exclude_username=password_exclude_username,
+            password_expire_warn_days=password_expire_warn_days,
+            password_history_count=password_history_count,
+            password_lockout_notification_channels=password_lockout_notification_channels,
+            password_max_age_days=password_max_age_days,
+            password_max_lockout_attempts=password_max_lockout_attempts,
+            password_min_age_minutes=password_min_age_minutes,
+            password_min_length=password_min_length,
+            password_min_lowercase=password_min_lowercase,
+            password_min_number=password_min_number,
+            password_min_symbol=password_min_symbol,
+            password_min_uppercase=password_min_uppercase,
+            password_show_lockout_failures=password_show_lockout_failures,
+            question_min_length=question_min_length,
+            question_recovery=question_recovery,
+            recovery_email_token=recovery_email_token,
+            skip_unlock=skip_unlock,
+            sms_recovery=sms_recovery,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             call_recovery: Optional[pulumi.Input[str]] = None,
+             email_recovery: Optional[pulumi.Input[str]] = None,
+             password_auto_unlock_minutes: Optional[pulumi.Input[int]] = None,
+             password_dictionary_lookup: Optional[pulumi.Input[bool]] = None,
+             password_exclude_first_name: Optional[pulumi.Input[bool]] = None,
+             password_exclude_last_name: Optional[pulumi.Input[bool]] = None,
+             password_exclude_username: Optional[pulumi.Input[bool]] = None,
+             password_expire_warn_days: Optional[pulumi.Input[int]] = None,
+             password_history_count: Optional[pulumi.Input[int]] = None,
+             password_lockout_notification_channels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             password_max_age_days: Optional[pulumi.Input[int]] = None,
+             password_max_lockout_attempts: Optional[pulumi.Input[int]] = None,
+             password_min_age_minutes: Optional[pulumi.Input[int]] = None,
+             password_min_length: Optional[pulumi.Input[int]] = None,
+             password_min_lowercase: Optional[pulumi.Input[int]] = None,
+             password_min_number: Optional[pulumi.Input[int]] = None,
+             password_min_symbol: Optional[pulumi.Input[int]] = None,
+             password_min_uppercase: Optional[pulumi.Input[int]] = None,
+             password_show_lockout_failures: Optional[pulumi.Input[bool]] = None,
+             question_min_length: Optional[pulumi.Input[int]] = None,
+             question_recovery: Optional[pulumi.Input[str]] = None,
+             recovery_email_token: Optional[pulumi.Input[int]] = None,
+             skip_unlock: Optional[pulumi.Input[bool]] = None,
+             sms_recovery: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if call_recovery is not None:
-            pulumi.set(__self__, "call_recovery", call_recovery)
+            _setter("call_recovery", call_recovery)
         if email_recovery is not None:
-            pulumi.set(__self__, "email_recovery", email_recovery)
+            _setter("email_recovery", email_recovery)
         if password_auto_unlock_minutes is not None:
-            pulumi.set(__self__, "password_auto_unlock_minutes", password_auto_unlock_minutes)
+            _setter("password_auto_unlock_minutes", password_auto_unlock_minutes)
         if password_dictionary_lookup is not None:
-            pulumi.set(__self__, "password_dictionary_lookup", password_dictionary_lookup)
+            _setter("password_dictionary_lookup", password_dictionary_lookup)
         if password_exclude_first_name is not None:
-            pulumi.set(__self__, "password_exclude_first_name", password_exclude_first_name)
+            _setter("password_exclude_first_name", password_exclude_first_name)
         if password_exclude_last_name is not None:
-            pulumi.set(__self__, "password_exclude_last_name", password_exclude_last_name)
+            _setter("password_exclude_last_name", password_exclude_last_name)
         if password_exclude_username is not None:
-            pulumi.set(__self__, "password_exclude_username", password_exclude_username)
+            _setter("password_exclude_username", password_exclude_username)
         if password_expire_warn_days is not None:
-            pulumi.set(__self__, "password_expire_warn_days", password_expire_warn_days)
+            _setter("password_expire_warn_days", password_expire_warn_days)
         if password_history_count is not None:
-            pulumi.set(__self__, "password_history_count", password_history_count)
+            _setter("password_history_count", password_history_count)
         if password_lockout_notification_channels is not None:
-            pulumi.set(__self__, "password_lockout_notification_channels", password_lockout_notification_channels)
+            _setter("password_lockout_notification_channels", password_lockout_notification_channels)
         if password_max_age_days is not None:
-            pulumi.set(__self__, "password_max_age_days", password_max_age_days)
+            _setter("password_max_age_days", password_max_age_days)
         if password_max_lockout_attempts is not None:
-            pulumi.set(__self__, "password_max_lockout_attempts", password_max_lockout_attempts)
+            _setter("password_max_lockout_attempts", password_max_lockout_attempts)
         if password_min_age_minutes is not None:
-            pulumi.set(__self__, "password_min_age_minutes", password_min_age_minutes)
+            _setter("password_min_age_minutes", password_min_age_minutes)
         if password_min_length is not None:
-            pulumi.set(__self__, "password_min_length", password_min_length)
+            _setter("password_min_length", password_min_length)
         if password_min_lowercase is not None:
-            pulumi.set(__self__, "password_min_lowercase", password_min_lowercase)
+            _setter("password_min_lowercase", password_min_lowercase)
         if password_min_number is not None:
-            pulumi.set(__self__, "password_min_number", password_min_number)
+            _setter("password_min_number", password_min_number)
         if password_min_symbol is not None:
-            pulumi.set(__self__, "password_min_symbol", password_min_symbol)
+            _setter("password_min_symbol", password_min_symbol)
         if password_min_uppercase is not None:
-            pulumi.set(__self__, "password_min_uppercase", password_min_uppercase)
+            _setter("password_min_uppercase", password_min_uppercase)
         if password_show_lockout_failures is not None:
-            pulumi.set(__self__, "password_show_lockout_failures", password_show_lockout_failures)
+            _setter("password_show_lockout_failures", password_show_lockout_failures)
         if question_min_length is not None:
-            pulumi.set(__self__, "question_min_length", question_min_length)
+            _setter("question_min_length", question_min_length)
         if question_recovery is not None:
-            pulumi.set(__self__, "question_recovery", question_recovery)
+            _setter("question_recovery", question_recovery)
         if recovery_email_token is not None:
-            pulumi.set(__self__, "recovery_email_token", recovery_email_token)
+            _setter("recovery_email_token", recovery_email_token)
         if skip_unlock is not None:
-            pulumi.set(__self__, "skip_unlock", skip_unlock)
+            _setter("skip_unlock", skip_unlock)
         if sms_recovery is not None:
-            pulumi.set(__self__, "sms_recovery", sms_recovery)
+            _setter("sms_recovery", sms_recovery)
 
     @property
     @pulumi.getter(name="callRecovery")
@@ -481,66 +536,133 @@ class _PolicyPasswordDefaultState:
         :param pulumi.Input[str] sms_recovery: Enable or disable SMS password recovery: ACTIVE or INACTIVE.
         :param pulumi.Input[str] status: Default policy status.
         """
+        _PolicyPasswordDefaultState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            call_recovery=call_recovery,
+            default_auth_provider=default_auth_provider,
+            default_included_group_id=default_included_group_id,
+            description=description,
+            email_recovery=email_recovery,
+            name=name,
+            password_auto_unlock_minutes=password_auto_unlock_minutes,
+            password_dictionary_lookup=password_dictionary_lookup,
+            password_exclude_first_name=password_exclude_first_name,
+            password_exclude_last_name=password_exclude_last_name,
+            password_exclude_username=password_exclude_username,
+            password_expire_warn_days=password_expire_warn_days,
+            password_history_count=password_history_count,
+            password_lockout_notification_channels=password_lockout_notification_channels,
+            password_max_age_days=password_max_age_days,
+            password_max_lockout_attempts=password_max_lockout_attempts,
+            password_min_age_minutes=password_min_age_minutes,
+            password_min_length=password_min_length,
+            password_min_lowercase=password_min_lowercase,
+            password_min_number=password_min_number,
+            password_min_symbol=password_min_symbol,
+            password_min_uppercase=password_min_uppercase,
+            password_show_lockout_failures=password_show_lockout_failures,
+            priority=priority,
+            question_min_length=question_min_length,
+            question_recovery=question_recovery,
+            recovery_email_token=recovery_email_token,
+            skip_unlock=skip_unlock,
+            sms_recovery=sms_recovery,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             call_recovery: Optional[pulumi.Input[str]] = None,
+             default_auth_provider: Optional[pulumi.Input[str]] = None,
+             default_included_group_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             email_recovery: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password_auto_unlock_minutes: Optional[pulumi.Input[int]] = None,
+             password_dictionary_lookup: Optional[pulumi.Input[bool]] = None,
+             password_exclude_first_name: Optional[pulumi.Input[bool]] = None,
+             password_exclude_last_name: Optional[pulumi.Input[bool]] = None,
+             password_exclude_username: Optional[pulumi.Input[bool]] = None,
+             password_expire_warn_days: Optional[pulumi.Input[int]] = None,
+             password_history_count: Optional[pulumi.Input[int]] = None,
+             password_lockout_notification_channels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             password_max_age_days: Optional[pulumi.Input[int]] = None,
+             password_max_lockout_attempts: Optional[pulumi.Input[int]] = None,
+             password_min_age_minutes: Optional[pulumi.Input[int]] = None,
+             password_min_length: Optional[pulumi.Input[int]] = None,
+             password_min_lowercase: Optional[pulumi.Input[int]] = None,
+             password_min_number: Optional[pulumi.Input[int]] = None,
+             password_min_symbol: Optional[pulumi.Input[int]] = None,
+             password_min_uppercase: Optional[pulumi.Input[int]] = None,
+             password_show_lockout_failures: Optional[pulumi.Input[bool]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             question_min_length: Optional[pulumi.Input[int]] = None,
+             question_recovery: Optional[pulumi.Input[str]] = None,
+             recovery_email_token: Optional[pulumi.Input[int]] = None,
+             skip_unlock: Optional[pulumi.Input[bool]] = None,
+             sms_recovery: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if call_recovery is not None:
-            pulumi.set(__self__, "call_recovery", call_recovery)
+            _setter("call_recovery", call_recovery)
         if default_auth_provider is not None:
-            pulumi.set(__self__, "default_auth_provider", default_auth_provider)
+            _setter("default_auth_provider", default_auth_provider)
         if default_included_group_id is not None:
-            pulumi.set(__self__, "default_included_group_id", default_included_group_id)
+            _setter("default_included_group_id", default_included_group_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if email_recovery is not None:
-            pulumi.set(__self__, "email_recovery", email_recovery)
+            _setter("email_recovery", email_recovery)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password_auto_unlock_minutes is not None:
-            pulumi.set(__self__, "password_auto_unlock_minutes", password_auto_unlock_minutes)
+            _setter("password_auto_unlock_minutes", password_auto_unlock_minutes)
         if password_dictionary_lookup is not None:
-            pulumi.set(__self__, "password_dictionary_lookup", password_dictionary_lookup)
+            _setter("password_dictionary_lookup", password_dictionary_lookup)
         if password_exclude_first_name is not None:
-            pulumi.set(__self__, "password_exclude_first_name", password_exclude_first_name)
+            _setter("password_exclude_first_name", password_exclude_first_name)
         if password_exclude_last_name is not None:
-            pulumi.set(__self__, "password_exclude_last_name", password_exclude_last_name)
+            _setter("password_exclude_last_name", password_exclude_last_name)
         if password_exclude_username is not None:
-            pulumi.set(__self__, "password_exclude_username", password_exclude_username)
+            _setter("password_exclude_username", password_exclude_username)
         if password_expire_warn_days is not None:
-            pulumi.set(__self__, "password_expire_warn_days", password_expire_warn_days)
+            _setter("password_expire_warn_days", password_expire_warn_days)
         if password_history_count is not None:
-            pulumi.set(__self__, "password_history_count", password_history_count)
+            _setter("password_history_count", password_history_count)
         if password_lockout_notification_channels is not None:
-            pulumi.set(__self__, "password_lockout_notification_channels", password_lockout_notification_channels)
+            _setter("password_lockout_notification_channels", password_lockout_notification_channels)
         if password_max_age_days is not None:
-            pulumi.set(__self__, "password_max_age_days", password_max_age_days)
+            _setter("password_max_age_days", password_max_age_days)
         if password_max_lockout_attempts is not None:
-            pulumi.set(__self__, "password_max_lockout_attempts", password_max_lockout_attempts)
+            _setter("password_max_lockout_attempts", password_max_lockout_attempts)
         if password_min_age_minutes is not None:
-            pulumi.set(__self__, "password_min_age_minutes", password_min_age_minutes)
+            _setter("password_min_age_minutes", password_min_age_minutes)
         if password_min_length is not None:
-            pulumi.set(__self__, "password_min_length", password_min_length)
+            _setter("password_min_length", password_min_length)
         if password_min_lowercase is not None:
-            pulumi.set(__self__, "password_min_lowercase", password_min_lowercase)
+            _setter("password_min_lowercase", password_min_lowercase)
         if password_min_number is not None:
-            pulumi.set(__self__, "password_min_number", password_min_number)
+            _setter("password_min_number", password_min_number)
         if password_min_symbol is not None:
-            pulumi.set(__self__, "password_min_symbol", password_min_symbol)
+            _setter("password_min_symbol", password_min_symbol)
         if password_min_uppercase is not None:
-            pulumi.set(__self__, "password_min_uppercase", password_min_uppercase)
+            _setter("password_min_uppercase", password_min_uppercase)
         if password_show_lockout_failures is not None:
-            pulumi.set(__self__, "password_show_lockout_failures", password_show_lockout_failures)
+            _setter("password_show_lockout_failures", password_show_lockout_failures)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if question_min_length is not None:
-            pulumi.set(__self__, "question_min_length", question_min_length)
+            _setter("question_min_length", question_min_length)
         if question_recovery is not None:
-            pulumi.set(__self__, "question_recovery", question_recovery)
+            _setter("question_recovery", question_recovery)
         if recovery_email_token is not None:
-            pulumi.set(__self__, "recovery_email_token", recovery_email_token)
+            _setter("recovery_email_token", recovery_email_token)
         if skip_unlock is not None:
-            pulumi.set(__self__, "skip_unlock", skip_unlock)
+            _setter("skip_unlock", skip_unlock)
         if sms_recovery is not None:
-            pulumi.set(__self__, "sms_recovery", sms_recovery)
+            _setter("sms_recovery", sms_recovery)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="callRecovery")
@@ -1028,6 +1150,10 @@ class PolicyPasswordDefault(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyPasswordDefaultArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

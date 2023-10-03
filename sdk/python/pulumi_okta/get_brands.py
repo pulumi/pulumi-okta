@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetBrandsResult',
     'AwaitableGetBrandsResult',
     'get_brands',
+    'get_brands_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,20 @@ def get_brands(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrand
     return AwaitableGetBrandsResult(
         brands=pulumi.get(__ret__, 'brands'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_brands)
+def get_brands_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrandsResult]:
+    """
+    Use this data source to retrieve the brands belonging to an Okta organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_brands()
+    ```
+    """
+    ...

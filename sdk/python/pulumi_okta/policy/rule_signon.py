@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -69,52 +69,105 @@ class RuleSignonArgs:
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed.
         """
+        RuleSignonArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            authtype=authtype,
+            behaviors=behaviors,
+            factor_sequences=factor_sequences,
+            identity_provider=identity_provider,
+            identity_provider_ids=identity_provider_ids,
+            mfa_lifetime=mfa_lifetime,
+            mfa_prompt=mfa_prompt,
+            mfa_remember_device=mfa_remember_device,
+            mfa_required=mfa_required,
+            name=name,
+            network_connection=network_connection,
+            network_excludes=network_excludes,
+            network_includes=network_includes,
+            policy_id=policy_id,
+            primary_factor=primary_factor,
+            priority=priority,
+            risc_level=risc_level,
+            session_idle=session_idle,
+            session_lifetime=session_lifetime,
+            session_persistent=session_persistent,
+            status=status,
+            users_excludeds=users_excludeds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: Optional[pulumi.Input[str]] = None,
+             authtype: Optional[pulumi.Input[str]] = None,
+             behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]] = None,
+             identity_provider: Optional[pulumi.Input[str]] = None,
+             identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mfa_lifetime: Optional[pulumi.Input[int]] = None,
+             mfa_prompt: Optional[pulumi.Input[str]] = None,
+             mfa_remember_device: Optional[pulumi.Input[bool]] = None,
+             mfa_required: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_connection: Optional[pulumi.Input[str]] = None,
+             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             primary_factor: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             risc_level: Optional[pulumi.Input[str]] = None,
+             session_idle: Optional[pulumi.Input[int]] = None,
+             session_lifetime: Optional[pulumi.Input[int]] = None,
+             session_persistent: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access is not None:
-            pulumi.set(__self__, "access", access)
+            _setter("access", access)
         if authtype is not None:
-            pulumi.set(__self__, "authtype", authtype)
+            _setter("authtype", authtype)
         if behaviors is not None:
-            pulumi.set(__self__, "behaviors", behaviors)
+            _setter("behaviors", behaviors)
         if factor_sequences is not None:
-            pulumi.set(__self__, "factor_sequences", factor_sequences)
+            _setter("factor_sequences", factor_sequences)
         if identity_provider is not None:
-            pulumi.set(__self__, "identity_provider", identity_provider)
+            _setter("identity_provider", identity_provider)
         if identity_provider_ids is not None:
-            pulumi.set(__self__, "identity_provider_ids", identity_provider_ids)
+            _setter("identity_provider_ids", identity_provider_ids)
         if mfa_lifetime is not None:
-            pulumi.set(__self__, "mfa_lifetime", mfa_lifetime)
+            _setter("mfa_lifetime", mfa_lifetime)
         if mfa_prompt is not None:
-            pulumi.set(__self__, "mfa_prompt", mfa_prompt)
+            _setter("mfa_prompt", mfa_prompt)
         if mfa_remember_device is not None:
-            pulumi.set(__self__, "mfa_remember_device", mfa_remember_device)
+            _setter("mfa_remember_device", mfa_remember_device)
         if mfa_required is not None:
-            pulumi.set(__self__, "mfa_required", mfa_required)
+            _setter("mfa_required", mfa_required)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_connection is not None:
-            pulumi.set(__self__, "network_connection", network_connection)
+            _setter("network_connection", network_connection)
         if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+            _setter("network_excludes", network_excludes)
         if network_includes is not None:
-            pulumi.set(__self__, "network_includes", network_includes)
+            _setter("network_includes", network_includes)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if primary_factor is not None:
-            pulumi.set(__self__, "primary_factor", primary_factor)
+            _setter("primary_factor", primary_factor)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if risc_level is not None:
-            pulumi.set(__self__, "risc_level", risc_level)
+            _setter("risc_level", risc_level)
         if session_idle is not None:
-            pulumi.set(__self__, "session_idle", session_idle)
+            _setter("session_idle", session_idle)
         if session_lifetime is not None:
-            pulumi.set(__self__, "session_lifetime", session_lifetime)
+            _setter("session_lifetime", session_lifetime)
         if session_persistent is not None:
-            pulumi.set(__self__, "session_persistent", session_persistent)
+            _setter("session_persistent", session_persistent)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+            _setter("users_excludeds", users_excludeds)
 
     @property
     @pulumi.getter
@@ -453,52 +506,105 @@ class _RuleSignonState:
         :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed.
         """
+        _RuleSignonState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            authtype=authtype,
+            behaviors=behaviors,
+            factor_sequences=factor_sequences,
+            identity_provider=identity_provider,
+            identity_provider_ids=identity_provider_ids,
+            mfa_lifetime=mfa_lifetime,
+            mfa_prompt=mfa_prompt,
+            mfa_remember_device=mfa_remember_device,
+            mfa_required=mfa_required,
+            name=name,
+            network_connection=network_connection,
+            network_excludes=network_excludes,
+            network_includes=network_includes,
+            policy_id=policy_id,
+            primary_factor=primary_factor,
+            priority=priority,
+            risc_level=risc_level,
+            session_idle=session_idle,
+            session_lifetime=session_lifetime,
+            session_persistent=session_persistent,
+            status=status,
+            users_excludeds=users_excludeds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: Optional[pulumi.Input[str]] = None,
+             authtype: Optional[pulumi.Input[str]] = None,
+             behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]] = None,
+             identity_provider: Optional[pulumi.Input[str]] = None,
+             identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mfa_lifetime: Optional[pulumi.Input[int]] = None,
+             mfa_prompt: Optional[pulumi.Input[str]] = None,
+             mfa_remember_device: Optional[pulumi.Input[bool]] = None,
+             mfa_required: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_connection: Optional[pulumi.Input[str]] = None,
+             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             primary_factor: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             risc_level: Optional[pulumi.Input[str]] = None,
+             session_idle: Optional[pulumi.Input[int]] = None,
+             session_lifetime: Optional[pulumi.Input[int]] = None,
+             session_persistent: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access is not None:
-            pulumi.set(__self__, "access", access)
+            _setter("access", access)
         if authtype is not None:
-            pulumi.set(__self__, "authtype", authtype)
+            _setter("authtype", authtype)
         if behaviors is not None:
-            pulumi.set(__self__, "behaviors", behaviors)
+            _setter("behaviors", behaviors)
         if factor_sequences is not None:
-            pulumi.set(__self__, "factor_sequences", factor_sequences)
+            _setter("factor_sequences", factor_sequences)
         if identity_provider is not None:
-            pulumi.set(__self__, "identity_provider", identity_provider)
+            _setter("identity_provider", identity_provider)
         if identity_provider_ids is not None:
-            pulumi.set(__self__, "identity_provider_ids", identity_provider_ids)
+            _setter("identity_provider_ids", identity_provider_ids)
         if mfa_lifetime is not None:
-            pulumi.set(__self__, "mfa_lifetime", mfa_lifetime)
+            _setter("mfa_lifetime", mfa_lifetime)
         if mfa_prompt is not None:
-            pulumi.set(__self__, "mfa_prompt", mfa_prompt)
+            _setter("mfa_prompt", mfa_prompt)
         if mfa_remember_device is not None:
-            pulumi.set(__self__, "mfa_remember_device", mfa_remember_device)
+            _setter("mfa_remember_device", mfa_remember_device)
         if mfa_required is not None:
-            pulumi.set(__self__, "mfa_required", mfa_required)
+            _setter("mfa_required", mfa_required)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_connection is not None:
-            pulumi.set(__self__, "network_connection", network_connection)
+            _setter("network_connection", network_connection)
         if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+            _setter("network_excludes", network_excludes)
         if network_includes is not None:
-            pulumi.set(__self__, "network_includes", network_includes)
+            _setter("network_includes", network_includes)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if primary_factor is not None:
-            pulumi.set(__self__, "primary_factor", primary_factor)
+            _setter("primary_factor", primary_factor)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if risc_level is not None:
-            pulumi.set(__self__, "risc_level", risc_level)
+            _setter("risc_level", risc_level)
         if session_idle is not None:
-            pulumi.set(__self__, "session_idle", session_idle)
+            _setter("session_idle", session_idle)
         if session_lifetime is not None:
-            pulumi.set(__self__, "session_lifetime", session_lifetime)
+            _setter("session_lifetime", session_lifetime)
         if session_persistent is not None:
-            pulumi.set(__self__, "session_persistent", session_persistent)
+            _setter("session_persistent", session_persistent)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+            _setter("users_excludeds", users_excludeds)
 
     @property
     @pulumi.getter
@@ -1032,6 +1138,10 @@ class RuleSignon(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RuleSignonArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

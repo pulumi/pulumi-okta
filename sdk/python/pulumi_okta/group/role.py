@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RoleArgs', 'Role']
@@ -47,14 +47,31 @@ class RoleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_lists: A list of group IDs you would like as the targets of the admin role.
                - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
         """
-        pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "role_type", role_type)
+        RoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            role_type=role_type,
+            disable_notifications=disable_notifications,
+            target_app_lists=target_app_lists,
+            target_group_lists=target_group_lists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: pulumi.Input[str],
+             role_type: pulumi.Input[str],
+             disable_notifications: Optional[pulumi.Input[bool]] = None,
+             target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_id", group_id)
+        _setter("role_type", role_type)
         if disable_notifications is not None:
-            pulumi.set(__self__, "disable_notifications", disable_notifications)
+            _setter("disable_notifications", disable_notifications)
         if target_app_lists is not None:
-            pulumi.set(__self__, "target_app_lists", target_app_lists)
+            _setter("target_app_lists", target_app_lists)
         if target_group_lists is not None:
-            pulumi.set(__self__, "target_group_lists", target_group_lists)
+            _setter("target_group_lists", target_group_lists)
 
     @property
     @pulumi.getter(name="groupId")
@@ -173,16 +190,33 @@ class _RoleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_lists: A list of group IDs you would like as the targets of the admin role.
                - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
         """
+        _RoleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_notifications=disable_notifications,
+            group_id=group_id,
+            role_type=role_type,
+            target_app_lists=target_app_lists,
+            target_group_lists=target_group_lists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_notifications: Optional[pulumi.Input[bool]] = None,
+             group_id: Optional[pulumi.Input[str]] = None,
+             role_type: Optional[pulumi.Input[str]] = None,
+             target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disable_notifications is not None:
-            pulumi.set(__self__, "disable_notifications", disable_notifications)
+            _setter("disable_notifications", disable_notifications)
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if role_type is not None:
-            pulumi.set(__self__, "role_type", role_type)
+            _setter("role_type", role_type)
         if target_app_lists is not None:
-            pulumi.set(__self__, "target_app_lists", target_app_lists)
+            _setter("target_app_lists", target_app_lists)
         if target_group_lists is not None:
-            pulumi.set(__self__, "target_group_lists", target_group_lists)
+            _setter("target_group_lists", target_group_lists)
 
     @property
     @pulumi.getter(name="disableNotifications")
@@ -370,6 +404,10 @@ class Role(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

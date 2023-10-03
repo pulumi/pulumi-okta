@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CaptchaOrgWideSettingsArgs', 'CaptchaOrgWideSettings']
@@ -21,10 +21,21 @@ class CaptchaOrgWideSettingsArgs:
         :param pulumi.Input[str] captcha_id: The ID of the CAPTCHA.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_fors: Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
         """
+        CaptchaOrgWideSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            captcha_id=captcha_id,
+            enabled_fors=enabled_fors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             captcha_id: Optional[pulumi.Input[str]] = None,
+             enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if captcha_id is not None:
-            pulumi.set(__self__, "captcha_id", captcha_id)
+            _setter("captcha_id", captcha_id)
         if enabled_fors is not None:
-            pulumi.set(__self__, "enabled_fors", enabled_fors)
+            _setter("enabled_fors", enabled_fors)
 
     @property
     @pulumi.getter(name="captchaId")
@@ -61,10 +72,21 @@ class _CaptchaOrgWideSettingsState:
         :param pulumi.Input[str] captcha_id: The ID of the CAPTCHA.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_fors: Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
         """
+        _CaptchaOrgWideSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            captcha_id=captcha_id,
+            enabled_fors=enabled_fors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             captcha_id: Optional[pulumi.Input[str]] = None,
+             enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if captcha_id is not None:
-            pulumi.set(__self__, "captcha_id", captcha_id)
+            _setter("captcha_id", captcha_id)
         if enabled_fors is not None:
-            pulumi.set(__self__, "enabled_fors", enabled_fors)
+            _setter("enabled_fors", enabled_fors)
 
     @property
     @pulumi.getter(name="captchaId")
@@ -204,6 +226,10 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CaptchaOrgWideSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

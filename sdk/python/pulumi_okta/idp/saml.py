@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SamlArgs', 'Saml']
@@ -77,63 +77,130 @@ class SamlArgs:
         :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
         """
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "kid", kid)
-        pulumi.set(__self__, "sso_url", sso_url)
+        SamlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            issuer=issuer,
+            kid=kid,
+            sso_url=sso_url,
+            account_link_action=account_link_action,
+            account_link_group_includes=account_link_group_includes,
+            acs_type=acs_type,
+            deprovisioned_action=deprovisioned_action,
+            groups_action=groups_action,
+            groups_assignments=groups_assignments,
+            groups_attribute=groups_attribute,
+            groups_filters=groups_filters,
+            issuer_mode=issuer_mode,
+            max_clock_skew=max_clock_skew,
+            name=name,
+            name_format=name_format,
+            profile_master=profile_master,
+            provisioning_action=provisioning_action,
+            request_signature_algorithm=request_signature_algorithm,
+            request_signature_scope=request_signature_scope,
+            response_signature_algorithm=response_signature_algorithm,
+            response_signature_scope=response_signature_scope,
+            sso_binding=sso_binding,
+            sso_destination=sso_destination,
+            status=status,
+            subject_filter=subject_filter,
+            subject_formats=subject_formats,
+            subject_match_attribute=subject_match_attribute,
+            subject_match_type=subject_match_type,
+            suspended_action=suspended_action,
+            username_template=username_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             issuer: pulumi.Input[str],
+             kid: pulumi.Input[str],
+             sso_url: pulumi.Input[str],
+             account_link_action: Optional[pulumi.Input[str]] = None,
+             account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             acs_type: Optional[pulumi.Input[str]] = None,
+             deprovisioned_action: Optional[pulumi.Input[str]] = None,
+             groups_action: Optional[pulumi.Input[str]] = None,
+             groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             groups_attribute: Optional[pulumi.Input[str]] = None,
+             groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             issuer_mode: Optional[pulumi.Input[str]] = None,
+             max_clock_skew: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_format: Optional[pulumi.Input[str]] = None,
+             profile_master: Optional[pulumi.Input[bool]] = None,
+             provisioning_action: Optional[pulumi.Input[str]] = None,
+             request_signature_algorithm: Optional[pulumi.Input[str]] = None,
+             request_signature_scope: Optional[pulumi.Input[str]] = None,
+             response_signature_algorithm: Optional[pulumi.Input[str]] = None,
+             response_signature_scope: Optional[pulumi.Input[str]] = None,
+             sso_binding: Optional[pulumi.Input[str]] = None,
+             sso_destination: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subject_filter: Optional[pulumi.Input[str]] = None,
+             subject_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subject_match_attribute: Optional[pulumi.Input[str]] = None,
+             subject_match_type: Optional[pulumi.Input[str]] = None,
+             suspended_action: Optional[pulumi.Input[str]] = None,
+             username_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("issuer", issuer)
+        _setter("kid", kid)
+        _setter("sso_url", sso_url)
         if account_link_action is not None:
-            pulumi.set(__self__, "account_link_action", account_link_action)
+            _setter("account_link_action", account_link_action)
         if account_link_group_includes is not None:
-            pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
+            _setter("account_link_group_includes", account_link_group_includes)
         if acs_type is not None:
-            pulumi.set(__self__, "acs_type", acs_type)
+            _setter("acs_type", acs_type)
         if deprovisioned_action is not None:
-            pulumi.set(__self__, "deprovisioned_action", deprovisioned_action)
+            _setter("deprovisioned_action", deprovisioned_action)
         if groups_action is not None:
-            pulumi.set(__self__, "groups_action", groups_action)
+            _setter("groups_action", groups_action)
         if groups_assignments is not None:
-            pulumi.set(__self__, "groups_assignments", groups_assignments)
+            _setter("groups_assignments", groups_assignments)
         if groups_attribute is not None:
-            pulumi.set(__self__, "groups_attribute", groups_attribute)
+            _setter("groups_attribute", groups_attribute)
         if groups_filters is not None:
-            pulumi.set(__self__, "groups_filters", groups_filters)
+            _setter("groups_filters", groups_filters)
         if issuer_mode is not None:
-            pulumi.set(__self__, "issuer_mode", issuer_mode)
+            _setter("issuer_mode", issuer_mode)
         if max_clock_skew is not None:
-            pulumi.set(__self__, "max_clock_skew", max_clock_skew)
+            _setter("max_clock_skew", max_clock_skew)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_format is not None:
-            pulumi.set(__self__, "name_format", name_format)
+            _setter("name_format", name_format)
         if profile_master is not None:
-            pulumi.set(__self__, "profile_master", profile_master)
+            _setter("profile_master", profile_master)
         if provisioning_action is not None:
-            pulumi.set(__self__, "provisioning_action", provisioning_action)
+            _setter("provisioning_action", provisioning_action)
         if request_signature_algorithm is not None:
-            pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
+            _setter("request_signature_algorithm", request_signature_algorithm)
         if request_signature_scope is not None:
-            pulumi.set(__self__, "request_signature_scope", request_signature_scope)
+            _setter("request_signature_scope", request_signature_scope)
         if response_signature_algorithm is not None:
-            pulumi.set(__self__, "response_signature_algorithm", response_signature_algorithm)
+            _setter("response_signature_algorithm", response_signature_algorithm)
         if response_signature_scope is not None:
-            pulumi.set(__self__, "response_signature_scope", response_signature_scope)
+            _setter("response_signature_scope", response_signature_scope)
         if sso_binding is not None:
-            pulumi.set(__self__, "sso_binding", sso_binding)
+            _setter("sso_binding", sso_binding)
         if sso_destination is not None:
-            pulumi.set(__self__, "sso_destination", sso_destination)
+            _setter("sso_destination", sso_destination)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subject_filter is not None:
-            pulumi.set(__self__, "subject_filter", subject_filter)
+            _setter("subject_filter", subject_filter)
         if subject_formats is not None:
-            pulumi.set(__self__, "subject_formats", subject_formats)
+            _setter("subject_formats", subject_formats)
         if subject_match_attribute is not None:
-            pulumi.set(__self__, "subject_match_attribute", subject_match_attribute)
+            _setter("subject_match_attribute", subject_match_attribute)
         if subject_match_type is not None:
-            pulumi.set(__self__, "subject_match_type", subject_match_type)
+            _setter("subject_match_type", subject_match_type)
         if suspended_action is not None:
-            pulumi.set(__self__, "suspended_action", suspended_action)
+            _setter("suspended_action", suspended_action)
         if username_template is not None:
-            pulumi.set(__self__, "username_template", username_template)
+            _setter("username_template", username_template)
 
     @property
     @pulumi.getter
@@ -569,74 +636,149 @@ class _SamlState:
         :param pulumi.Input[str] user_type_id: User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
         :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
         """
+        _SamlState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_link_action=account_link_action,
+            account_link_group_includes=account_link_group_includes,
+            acs_binding=acs_binding,
+            acs_type=acs_type,
+            audience=audience,
+            deprovisioned_action=deprovisioned_action,
+            groups_action=groups_action,
+            groups_assignments=groups_assignments,
+            groups_attribute=groups_attribute,
+            groups_filters=groups_filters,
+            issuer=issuer,
+            issuer_mode=issuer_mode,
+            kid=kid,
+            max_clock_skew=max_clock_skew,
+            name=name,
+            name_format=name_format,
+            profile_master=profile_master,
+            provisioning_action=provisioning_action,
+            request_signature_algorithm=request_signature_algorithm,
+            request_signature_scope=request_signature_scope,
+            response_signature_algorithm=response_signature_algorithm,
+            response_signature_scope=response_signature_scope,
+            sso_binding=sso_binding,
+            sso_destination=sso_destination,
+            sso_url=sso_url,
+            status=status,
+            subject_filter=subject_filter,
+            subject_formats=subject_formats,
+            subject_match_attribute=subject_match_attribute,
+            subject_match_type=subject_match_type,
+            suspended_action=suspended_action,
+            type=type,
+            user_type_id=user_type_id,
+            username_template=username_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_link_action: Optional[pulumi.Input[str]] = None,
+             account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             acs_binding: Optional[pulumi.Input[str]] = None,
+             acs_type: Optional[pulumi.Input[str]] = None,
+             audience: Optional[pulumi.Input[str]] = None,
+             deprovisioned_action: Optional[pulumi.Input[str]] = None,
+             groups_action: Optional[pulumi.Input[str]] = None,
+             groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             groups_attribute: Optional[pulumi.Input[str]] = None,
+             groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             issuer_mode: Optional[pulumi.Input[str]] = None,
+             kid: Optional[pulumi.Input[str]] = None,
+             max_clock_skew: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_format: Optional[pulumi.Input[str]] = None,
+             profile_master: Optional[pulumi.Input[bool]] = None,
+             provisioning_action: Optional[pulumi.Input[str]] = None,
+             request_signature_algorithm: Optional[pulumi.Input[str]] = None,
+             request_signature_scope: Optional[pulumi.Input[str]] = None,
+             response_signature_algorithm: Optional[pulumi.Input[str]] = None,
+             response_signature_scope: Optional[pulumi.Input[str]] = None,
+             sso_binding: Optional[pulumi.Input[str]] = None,
+             sso_destination: Optional[pulumi.Input[str]] = None,
+             sso_url: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subject_filter: Optional[pulumi.Input[str]] = None,
+             subject_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subject_match_attribute: Optional[pulumi.Input[str]] = None,
+             subject_match_type: Optional[pulumi.Input[str]] = None,
+             suspended_action: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_type_id: Optional[pulumi.Input[str]] = None,
+             username_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_link_action is not None:
-            pulumi.set(__self__, "account_link_action", account_link_action)
+            _setter("account_link_action", account_link_action)
         if account_link_group_includes is not None:
-            pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
+            _setter("account_link_group_includes", account_link_group_includes)
         if acs_binding is not None:
-            pulumi.set(__self__, "acs_binding", acs_binding)
+            _setter("acs_binding", acs_binding)
         if acs_type is not None:
-            pulumi.set(__self__, "acs_type", acs_type)
+            _setter("acs_type", acs_type)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if deprovisioned_action is not None:
-            pulumi.set(__self__, "deprovisioned_action", deprovisioned_action)
+            _setter("deprovisioned_action", deprovisioned_action)
         if groups_action is not None:
-            pulumi.set(__self__, "groups_action", groups_action)
+            _setter("groups_action", groups_action)
         if groups_assignments is not None:
-            pulumi.set(__self__, "groups_assignments", groups_assignments)
+            _setter("groups_assignments", groups_assignments)
         if groups_attribute is not None:
-            pulumi.set(__self__, "groups_attribute", groups_attribute)
+            _setter("groups_attribute", groups_attribute)
         if groups_filters is not None:
-            pulumi.set(__self__, "groups_filters", groups_filters)
+            _setter("groups_filters", groups_filters)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
         if issuer_mode is not None:
-            pulumi.set(__self__, "issuer_mode", issuer_mode)
+            _setter("issuer_mode", issuer_mode)
         if kid is not None:
-            pulumi.set(__self__, "kid", kid)
+            _setter("kid", kid)
         if max_clock_skew is not None:
-            pulumi.set(__self__, "max_clock_skew", max_clock_skew)
+            _setter("max_clock_skew", max_clock_skew)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_format is not None:
-            pulumi.set(__self__, "name_format", name_format)
+            _setter("name_format", name_format)
         if profile_master is not None:
-            pulumi.set(__self__, "profile_master", profile_master)
+            _setter("profile_master", profile_master)
         if provisioning_action is not None:
-            pulumi.set(__self__, "provisioning_action", provisioning_action)
+            _setter("provisioning_action", provisioning_action)
         if request_signature_algorithm is not None:
-            pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
+            _setter("request_signature_algorithm", request_signature_algorithm)
         if request_signature_scope is not None:
-            pulumi.set(__self__, "request_signature_scope", request_signature_scope)
+            _setter("request_signature_scope", request_signature_scope)
         if response_signature_algorithm is not None:
-            pulumi.set(__self__, "response_signature_algorithm", response_signature_algorithm)
+            _setter("response_signature_algorithm", response_signature_algorithm)
         if response_signature_scope is not None:
-            pulumi.set(__self__, "response_signature_scope", response_signature_scope)
+            _setter("response_signature_scope", response_signature_scope)
         if sso_binding is not None:
-            pulumi.set(__self__, "sso_binding", sso_binding)
+            _setter("sso_binding", sso_binding)
         if sso_destination is not None:
-            pulumi.set(__self__, "sso_destination", sso_destination)
+            _setter("sso_destination", sso_destination)
         if sso_url is not None:
-            pulumi.set(__self__, "sso_url", sso_url)
+            _setter("sso_url", sso_url)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subject_filter is not None:
-            pulumi.set(__self__, "subject_filter", subject_filter)
+            _setter("subject_filter", subject_filter)
         if subject_formats is not None:
-            pulumi.set(__self__, "subject_formats", subject_formats)
+            _setter("subject_formats", subject_formats)
         if subject_match_attribute is not None:
-            pulumi.set(__self__, "subject_match_attribute", subject_match_attribute)
+            _setter("subject_match_attribute", subject_match_attribute)
         if subject_match_type is not None:
-            pulumi.set(__self__, "subject_match_type", subject_match_type)
+            _setter("subject_match_type", subject_match_type)
         if suspended_action is not None:
-            pulumi.set(__self__, "suspended_action", suspended_action)
+            _setter("suspended_action", suspended_action)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_type_id is not None:
-            pulumi.set(__self__, "user_type_id", user_type_id)
+            _setter("user_type_id", user_type_id)
         if username_template is not None:
-            pulumi.set(__self__, "username_template", username_template)
+            _setter("username_template", username_template)
 
     @property
     @pulumi.getter(name="accountLinkAction")
@@ -1191,6 +1333,10 @@ class Saml(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SamlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

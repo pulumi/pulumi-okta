@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -55,40 +55,81 @@ class ProviderArgs:
                value can be `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: API Token granting privileges to Okta API.
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            api_token=api_token,
+            backoff=backoff,
+            base_url=base_url,
+            client_id=client_id,
+            http_proxy=http_proxy,
+            log_level=log_level,
+            max_api_capacity=max_api_capacity,
+            max_retries=max_retries,
+            max_wait_seconds=max_wait_seconds,
+            min_wait_seconds=min_wait_seconds,
+            org_name=org_name,
+            parallelism=parallelism,
+            private_key=private_key,
+            private_key_id=private_key_id,
+            request_timeout=request_timeout,
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[pulumi.Input[str]] = None,
+             api_token: Optional[pulumi.Input[str]] = None,
+             backoff: Optional[pulumi.Input[bool]] = None,
+             base_url: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             http_proxy: Optional[pulumi.Input[str]] = None,
+             log_level: Optional[pulumi.Input[int]] = None,
+             max_api_capacity: Optional[pulumi.Input[int]] = None,
+             max_retries: Optional[pulumi.Input[int]] = None,
+             max_wait_seconds: Optional[pulumi.Input[int]] = None,
+             min_wait_seconds: Optional[pulumi.Input[int]] = None,
+             org_name: Optional[pulumi.Input[str]] = None,
+             parallelism: Optional[pulumi.Input[int]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             private_key_id: Optional[pulumi.Input[str]] = None,
+             request_timeout: Optional[pulumi.Input[int]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if api_token is not None:
-            pulumi.set(__self__, "api_token", api_token)
+            _setter("api_token", api_token)
         if backoff is not None:
-            pulumi.set(__self__, "backoff", backoff)
+            _setter("backoff", backoff)
         if base_url is not None:
-            pulumi.set(__self__, "base_url", base_url)
+            _setter("base_url", base_url)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if http_proxy is not None:
-            pulumi.set(__self__, "http_proxy", http_proxy)
+            _setter("http_proxy", http_proxy)
         if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
+            _setter("log_level", log_level)
         if max_api_capacity is not None:
-            pulumi.set(__self__, "max_api_capacity", max_api_capacity)
+            _setter("max_api_capacity", max_api_capacity)
         if max_retries is not None:
-            pulumi.set(__self__, "max_retries", max_retries)
+            _setter("max_retries", max_retries)
         if max_wait_seconds is not None:
-            pulumi.set(__self__, "max_wait_seconds", max_wait_seconds)
+            _setter("max_wait_seconds", max_wait_seconds)
         if min_wait_seconds is not None:
-            pulumi.set(__self__, "min_wait_seconds", min_wait_seconds)
+            _setter("min_wait_seconds", min_wait_seconds)
         if org_name is not None:
-            pulumi.set(__self__, "org_name", org_name)
+            _setter("org_name", org_name)
         if parallelism is not None:
-            pulumi.set(__self__, "parallelism", parallelism)
+            _setter("parallelism", parallelism)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if private_key_id is not None:
-            pulumi.set(__self__, "private_key_id", private_key_id)
+            _setter("private_key_id", private_key_id)
         if request_timeout is not None:
-            pulumi.set(__self__, "request_timeout", request_timeout)
+            _setter("request_timeout", request_timeout)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -374,6 +415,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

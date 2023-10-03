@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AdminRoleCustomAssignmentsArgs', 'AdminRoleCustomAssignments']
@@ -24,10 +24,23 @@ class AdminRoleCustomAssignmentsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
                permission must be specified when creating custom role.
         """
-        pulumi.set(__self__, "custom_role_id", custom_role_id)
-        pulumi.set(__self__, "resource_set_id", resource_set_id)
+        AdminRoleCustomAssignmentsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_role_id=custom_role_id,
+            resource_set_id=resource_set_id,
+            members=members,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_role_id: pulumi.Input[str],
+             resource_set_id: pulumi.Input[str],
+             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_role_id", custom_role_id)
+        _setter("resource_set_id", resource_set_id)
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
 
     @property
     @pulumi.getter(name="customRoleId")
@@ -80,12 +93,25 @@ class _AdminRoleCustomAssignmentsState:
                permission must be specified when creating custom role.
         :param pulumi.Input[str] resource_set_id: ID of the target Resource Set.
         """
+        _AdminRoleCustomAssignmentsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_role_id=custom_role_id,
+            members=members,
+            resource_set_id=resource_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_role_id: Optional[pulumi.Input[str]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_set_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_role_id is not None:
-            pulumi.set(__self__, "custom_role_id", custom_role_id)
+            _setter("custom_role_id", custom_role_id)
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
         if resource_set_id is not None:
-            pulumi.set(__self__, "resource_set_id", resource_set_id)
+            _setter("resource_set_id", resource_set_id)
 
     @property
     @pulumi.getter(name="customRoleId")
@@ -187,6 +213,10 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AdminRoleCustomAssignmentsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

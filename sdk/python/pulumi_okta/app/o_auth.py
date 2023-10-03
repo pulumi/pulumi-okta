@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -140,96 +140,195 @@ class OAuthArgs:
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "type", type)
+        OAuthArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            type=type,
+            accessibility_error_redirect_url=accessibility_error_redirect_url,
+            accessibility_login_redirect_url=accessibility_login_redirect_url,
+            accessibility_self_service=accessibility_self_service,
+            admin_note=admin_note,
+            app_links_json=app_links_json,
+            app_settings_json=app_settings_json,
+            authentication_policy=authentication_policy,
+            auto_key_rotation=auto_key_rotation,
+            auto_submit_toolbar=auto_submit_toolbar,
+            client_basic_secret=client_basic_secret,
+            client_id=client_id,
+            client_uri=client_uri,
+            consent_method=consent_method,
+            enduser_note=enduser_note,
+            grant_types=grant_types,
+            groups_claim=groups_claim,
+            hide_ios=hide_ios,
+            hide_web=hide_web,
+            implicit_assignment=implicit_assignment,
+            issuer_mode=issuer_mode,
+            jwks=jwks,
+            jwks_uri=jwks_uri,
+            login_mode=login_mode,
+            login_scopes=login_scopes,
+            login_uri=login_uri,
+            logo=logo,
+            logo_uri=logo_uri,
+            omit_secret=omit_secret,
+            pkce_required=pkce_required,
+            policy_uri=policy_uri,
+            post_logout_redirect_uris=post_logout_redirect_uris,
+            profile=profile,
+            redirect_uris=redirect_uris,
+            refresh_token_leeway=refresh_token_leeway,
+            refresh_token_rotation=refresh_token_rotation,
+            response_types=response_types,
+            status=status,
+            token_endpoint_auth_method=token_endpoint_auth_method,
+            tos_uri=tos_uri,
+            user_name_template=user_name_template,
+            user_name_template_push_status=user_name_template_push_status,
+            user_name_template_suffix=user_name_template_suffix,
+            user_name_template_type=user_name_template_type,
+            wildcard_redirect=wildcard_redirect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: pulumi.Input[str],
+             type: pulumi.Input[str],
+             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+             admin_note: Optional[pulumi.Input[str]] = None,
+             app_links_json: Optional[pulumi.Input[str]] = None,
+             app_settings_json: Optional[pulumi.Input[str]] = None,
+             authentication_policy: Optional[pulumi.Input[str]] = None,
+             auto_key_rotation: Optional[pulumi.Input[bool]] = None,
+             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+             client_basic_secret: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_uri: Optional[pulumi.Input[str]] = None,
+             consent_method: Optional[pulumi.Input[str]] = None,
+             enduser_note: Optional[pulumi.Input[str]] = None,
+             grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             groups_claim: Optional[pulumi.Input['OAuthGroupsClaimArgs']] = None,
+             hide_ios: Optional[pulumi.Input[bool]] = None,
+             hide_web: Optional[pulumi.Input[bool]] = None,
+             implicit_assignment: Optional[pulumi.Input[bool]] = None,
+             issuer_mode: Optional[pulumi.Input[str]] = None,
+             jwks: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]] = None,
+             jwks_uri: Optional[pulumi.Input[str]] = None,
+             login_mode: Optional[pulumi.Input[str]] = None,
+             login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             login_uri: Optional[pulumi.Input[str]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             logo_uri: Optional[pulumi.Input[str]] = None,
+             omit_secret: Optional[pulumi.Input[bool]] = None,
+             pkce_required: Optional[pulumi.Input[bool]] = None,
+             policy_uri: Optional[pulumi.Input[str]] = None,
+             post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             profile: Optional[pulumi.Input[str]] = None,
+             redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             refresh_token_leeway: Optional[pulumi.Input[int]] = None,
+             refresh_token_rotation: Optional[pulumi.Input[str]] = None,
+             response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
+             tos_uri: Optional[pulumi.Input[str]] = None,
+             user_name_template: Optional[pulumi.Input[str]] = None,
+             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+             user_name_template_type: Optional[pulumi.Input[str]] = None,
+             wildcard_redirect: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("label", label)
+        _setter("type", type)
         if accessibility_error_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+            _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+            _setter("accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
-            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+            _setter("accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
-            pulumi.set(__self__, "admin_note", admin_note)
+            _setter("admin_note", admin_note)
         if app_links_json is not None:
-            pulumi.set(__self__, "app_links_json", app_links_json)
+            _setter("app_links_json", app_links_json)
         if app_settings_json is not None:
-            pulumi.set(__self__, "app_settings_json", app_settings_json)
+            _setter("app_settings_json", app_settings_json)
         if authentication_policy is not None:
-            pulumi.set(__self__, "authentication_policy", authentication_policy)
+            _setter("authentication_policy", authentication_policy)
         if auto_key_rotation is not None:
-            pulumi.set(__self__, "auto_key_rotation", auto_key_rotation)
+            _setter("auto_key_rotation", auto_key_rotation)
         if auto_submit_toolbar is not None:
-            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+            _setter("auto_submit_toolbar", auto_submit_toolbar)
         if client_basic_secret is not None:
-            pulumi.set(__self__, "client_basic_secret", client_basic_secret)
+            _setter("client_basic_secret", client_basic_secret)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_uri is not None:
-            pulumi.set(__self__, "client_uri", client_uri)
+            _setter("client_uri", client_uri)
         if consent_method is not None:
-            pulumi.set(__self__, "consent_method", consent_method)
+            _setter("consent_method", consent_method)
         if enduser_note is not None:
-            pulumi.set(__self__, "enduser_note", enduser_note)
+            _setter("enduser_note", enduser_note)
         if grant_types is not None:
-            pulumi.set(__self__, "grant_types", grant_types)
+            _setter("grant_types", grant_types)
         if groups_claim is not None:
-            pulumi.set(__self__, "groups_claim", groups_claim)
+            _setter("groups_claim", groups_claim)
         if hide_ios is not None:
-            pulumi.set(__self__, "hide_ios", hide_ios)
+            _setter("hide_ios", hide_ios)
         if hide_web is not None:
-            pulumi.set(__self__, "hide_web", hide_web)
+            _setter("hide_web", hide_web)
         if implicit_assignment is not None:
-            pulumi.set(__self__, "implicit_assignment", implicit_assignment)
+            _setter("implicit_assignment", implicit_assignment)
         if issuer_mode is not None:
-            pulumi.set(__self__, "issuer_mode", issuer_mode)
+            _setter("issuer_mode", issuer_mode)
         if jwks is not None:
-            pulumi.set(__self__, "jwks", jwks)
+            _setter("jwks", jwks)
         if jwks_uri is not None:
-            pulumi.set(__self__, "jwks_uri", jwks_uri)
+            _setter("jwks_uri", jwks_uri)
         if login_mode is not None:
-            pulumi.set(__self__, "login_mode", login_mode)
+            _setter("login_mode", login_mode)
         if login_scopes is not None:
-            pulumi.set(__self__, "login_scopes", login_scopes)
+            _setter("login_scopes", login_scopes)
         if login_uri is not None:
-            pulumi.set(__self__, "login_uri", login_uri)
+            _setter("login_uri", login_uri)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if logo_uri is not None:
-            pulumi.set(__self__, "logo_uri", logo_uri)
+            _setter("logo_uri", logo_uri)
         if omit_secret is not None:
-            pulumi.set(__self__, "omit_secret", omit_secret)
+            _setter("omit_secret", omit_secret)
         if pkce_required is not None:
-            pulumi.set(__self__, "pkce_required", pkce_required)
+            _setter("pkce_required", pkce_required)
         if policy_uri is not None:
-            pulumi.set(__self__, "policy_uri", policy_uri)
+            _setter("policy_uri", policy_uri)
         if post_logout_redirect_uris is not None:
-            pulumi.set(__self__, "post_logout_redirect_uris", post_logout_redirect_uris)
+            _setter("post_logout_redirect_uris", post_logout_redirect_uris)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if redirect_uris is not None:
-            pulumi.set(__self__, "redirect_uris", redirect_uris)
+            _setter("redirect_uris", redirect_uris)
         if refresh_token_leeway is not None:
-            pulumi.set(__self__, "refresh_token_leeway", refresh_token_leeway)
+            _setter("refresh_token_leeway", refresh_token_leeway)
         if refresh_token_rotation is not None:
-            pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
+            _setter("refresh_token_rotation", refresh_token_rotation)
         if response_types is not None:
-            pulumi.set(__self__, "response_types", response_types)
+            _setter("response_types", response_types)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if token_endpoint_auth_method is not None:
-            pulumi.set(__self__, "token_endpoint_auth_method", token_endpoint_auth_method)
+            _setter("token_endpoint_auth_method", token_endpoint_auth_method)
         if tos_uri is not None:
-            pulumi.set(__self__, "tos_uri", tos_uri)
+            _setter("tos_uri", tos_uri)
         if user_name_template is not None:
-            pulumi.set(__self__, "user_name_template", user_name_template)
+            _setter("user_name_template", user_name_template)
         if user_name_template_push_status is not None:
-            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+            _setter("user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
-            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+            _setter("user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
-            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+            _setter("user_name_template_type", user_name_template_type)
         if wildcard_redirect is not None:
-            pulumi.set(__self__, "wildcard_redirect", wildcard_redirect)
+            _setter("wildcard_redirect", wildcard_redirect)
 
     @property
     @pulumi.getter
@@ -948,106 +1047,213 @@ class _OAuthState:
         :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
         :param pulumi.Input[str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
         """
+        _OAuthState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accessibility_error_redirect_url=accessibility_error_redirect_url,
+            accessibility_login_redirect_url=accessibility_login_redirect_url,
+            accessibility_self_service=accessibility_self_service,
+            admin_note=admin_note,
+            app_links_json=app_links_json,
+            app_settings_json=app_settings_json,
+            authentication_policy=authentication_policy,
+            auto_key_rotation=auto_key_rotation,
+            auto_submit_toolbar=auto_submit_toolbar,
+            client_basic_secret=client_basic_secret,
+            client_id=client_id,
+            client_secret=client_secret,
+            client_uri=client_uri,
+            consent_method=consent_method,
+            enduser_note=enduser_note,
+            grant_types=grant_types,
+            groups_claim=groups_claim,
+            hide_ios=hide_ios,
+            hide_web=hide_web,
+            implicit_assignment=implicit_assignment,
+            issuer_mode=issuer_mode,
+            jwks=jwks,
+            jwks_uri=jwks_uri,
+            label=label,
+            login_mode=login_mode,
+            login_scopes=login_scopes,
+            login_uri=login_uri,
+            logo=logo,
+            logo_uri=logo_uri,
+            logo_url=logo_url,
+            name=name,
+            omit_secret=omit_secret,
+            pkce_required=pkce_required,
+            policy_uri=policy_uri,
+            post_logout_redirect_uris=post_logout_redirect_uris,
+            profile=profile,
+            redirect_uris=redirect_uris,
+            refresh_token_leeway=refresh_token_leeway,
+            refresh_token_rotation=refresh_token_rotation,
+            response_types=response_types,
+            sign_on_mode=sign_on_mode,
+            status=status,
+            token_endpoint_auth_method=token_endpoint_auth_method,
+            tos_uri=tos_uri,
+            type=type,
+            user_name_template=user_name_template,
+            user_name_template_push_status=user_name_template_push_status,
+            user_name_template_suffix=user_name_template_suffix,
+            user_name_template_type=user_name_template_type,
+            wildcard_redirect=wildcard_redirect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+             admin_note: Optional[pulumi.Input[str]] = None,
+             app_links_json: Optional[pulumi.Input[str]] = None,
+             app_settings_json: Optional[pulumi.Input[str]] = None,
+             authentication_policy: Optional[pulumi.Input[str]] = None,
+             auto_key_rotation: Optional[pulumi.Input[bool]] = None,
+             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+             client_basic_secret: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             client_uri: Optional[pulumi.Input[str]] = None,
+             consent_method: Optional[pulumi.Input[str]] = None,
+             enduser_note: Optional[pulumi.Input[str]] = None,
+             grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             groups_claim: Optional[pulumi.Input['OAuthGroupsClaimArgs']] = None,
+             hide_ios: Optional[pulumi.Input[bool]] = None,
+             hide_web: Optional[pulumi.Input[bool]] = None,
+             implicit_assignment: Optional[pulumi.Input[bool]] = None,
+             issuer_mode: Optional[pulumi.Input[str]] = None,
+             jwks: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]] = None,
+             jwks_uri: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             login_mode: Optional[pulumi.Input[str]] = None,
+             login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             login_uri: Optional[pulumi.Input[str]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             logo_uri: Optional[pulumi.Input[str]] = None,
+             logo_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             omit_secret: Optional[pulumi.Input[bool]] = None,
+             pkce_required: Optional[pulumi.Input[bool]] = None,
+             policy_uri: Optional[pulumi.Input[str]] = None,
+             post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             profile: Optional[pulumi.Input[str]] = None,
+             redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             refresh_token_leeway: Optional[pulumi.Input[int]] = None,
+             refresh_token_rotation: Optional[pulumi.Input[str]] = None,
+             response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sign_on_mode: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             token_endpoint_auth_method: Optional[pulumi.Input[str]] = None,
+             tos_uri: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_name_template: Optional[pulumi.Input[str]] = None,
+             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+             user_name_template_type: Optional[pulumi.Input[str]] = None,
+             wildcard_redirect: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accessibility_error_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+            _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+            _setter("accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
-            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+            _setter("accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
-            pulumi.set(__self__, "admin_note", admin_note)
+            _setter("admin_note", admin_note)
         if app_links_json is not None:
-            pulumi.set(__self__, "app_links_json", app_links_json)
+            _setter("app_links_json", app_links_json)
         if app_settings_json is not None:
-            pulumi.set(__self__, "app_settings_json", app_settings_json)
+            _setter("app_settings_json", app_settings_json)
         if authentication_policy is not None:
-            pulumi.set(__self__, "authentication_policy", authentication_policy)
+            _setter("authentication_policy", authentication_policy)
         if auto_key_rotation is not None:
-            pulumi.set(__self__, "auto_key_rotation", auto_key_rotation)
+            _setter("auto_key_rotation", auto_key_rotation)
         if auto_submit_toolbar is not None:
-            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+            _setter("auto_submit_toolbar", auto_submit_toolbar)
         if client_basic_secret is not None:
-            pulumi.set(__self__, "client_basic_secret", client_basic_secret)
+            _setter("client_basic_secret", client_basic_secret)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if client_uri is not None:
-            pulumi.set(__self__, "client_uri", client_uri)
+            _setter("client_uri", client_uri)
         if consent_method is not None:
-            pulumi.set(__self__, "consent_method", consent_method)
+            _setter("consent_method", consent_method)
         if enduser_note is not None:
-            pulumi.set(__self__, "enduser_note", enduser_note)
+            _setter("enduser_note", enduser_note)
         if grant_types is not None:
-            pulumi.set(__self__, "grant_types", grant_types)
+            _setter("grant_types", grant_types)
         if groups_claim is not None:
-            pulumi.set(__self__, "groups_claim", groups_claim)
+            _setter("groups_claim", groups_claim)
         if hide_ios is not None:
-            pulumi.set(__self__, "hide_ios", hide_ios)
+            _setter("hide_ios", hide_ios)
         if hide_web is not None:
-            pulumi.set(__self__, "hide_web", hide_web)
+            _setter("hide_web", hide_web)
         if implicit_assignment is not None:
-            pulumi.set(__self__, "implicit_assignment", implicit_assignment)
+            _setter("implicit_assignment", implicit_assignment)
         if issuer_mode is not None:
-            pulumi.set(__self__, "issuer_mode", issuer_mode)
+            _setter("issuer_mode", issuer_mode)
         if jwks is not None:
-            pulumi.set(__self__, "jwks", jwks)
+            _setter("jwks", jwks)
         if jwks_uri is not None:
-            pulumi.set(__self__, "jwks_uri", jwks_uri)
+            _setter("jwks_uri", jwks_uri)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if login_mode is not None:
-            pulumi.set(__self__, "login_mode", login_mode)
+            _setter("login_mode", login_mode)
         if login_scopes is not None:
-            pulumi.set(__self__, "login_scopes", login_scopes)
+            _setter("login_scopes", login_scopes)
         if login_uri is not None:
-            pulumi.set(__self__, "login_uri", login_uri)
+            _setter("login_uri", login_uri)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if logo_uri is not None:
-            pulumi.set(__self__, "logo_uri", logo_uri)
+            _setter("logo_uri", logo_uri)
         if logo_url is not None:
-            pulumi.set(__self__, "logo_url", logo_url)
+            _setter("logo_url", logo_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if omit_secret is not None:
-            pulumi.set(__self__, "omit_secret", omit_secret)
+            _setter("omit_secret", omit_secret)
         if pkce_required is not None:
-            pulumi.set(__self__, "pkce_required", pkce_required)
+            _setter("pkce_required", pkce_required)
         if policy_uri is not None:
-            pulumi.set(__self__, "policy_uri", policy_uri)
+            _setter("policy_uri", policy_uri)
         if post_logout_redirect_uris is not None:
-            pulumi.set(__self__, "post_logout_redirect_uris", post_logout_redirect_uris)
+            _setter("post_logout_redirect_uris", post_logout_redirect_uris)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if redirect_uris is not None:
-            pulumi.set(__self__, "redirect_uris", redirect_uris)
+            _setter("redirect_uris", redirect_uris)
         if refresh_token_leeway is not None:
-            pulumi.set(__self__, "refresh_token_leeway", refresh_token_leeway)
+            _setter("refresh_token_leeway", refresh_token_leeway)
         if refresh_token_rotation is not None:
-            pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
+            _setter("refresh_token_rotation", refresh_token_rotation)
         if response_types is not None:
-            pulumi.set(__self__, "response_types", response_types)
+            _setter("response_types", response_types)
         if sign_on_mode is not None:
-            pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+            _setter("sign_on_mode", sign_on_mode)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if token_endpoint_auth_method is not None:
-            pulumi.set(__self__, "token_endpoint_auth_method", token_endpoint_auth_method)
+            _setter("token_endpoint_auth_method", token_endpoint_auth_method)
         if tos_uri is not None:
-            pulumi.set(__self__, "tos_uri", tos_uri)
+            _setter("tos_uri", tos_uri)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_name_template is not None:
-            pulumi.set(__self__, "user_name_template", user_name_template)
+            _setter("user_name_template", user_name_template)
         if user_name_template_push_status is not None:
-            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+            _setter("user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
-            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+            _setter("user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
-            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+            _setter("user_name_template_type", user_name_template_type)
         if wildcard_redirect is not None:
-            pulumi.set(__self__, "wildcard_redirect", wildcard_redirect)
+            _setter("wildcard_redirect", wildcard_redirect)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -1977,6 +2183,10 @@ class OAuth(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OAuthArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2052,6 +2262,11 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["consent_method"] = consent_method
             __props__.__dict__["enduser_note"] = enduser_note
             __props__.__dict__["grant_types"] = grant_types
+            if groups_claim is not None and not isinstance(groups_claim, OAuthGroupsClaimArgs):
+                groups_claim = groups_claim or {}
+                def _setter(key, value):
+                    groups_claim[key] = value
+                OAuthGroupsClaimArgs._configure(_setter, **groups_claim)
             __props__.__dict__["groups_claim"] = groups_claim
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web

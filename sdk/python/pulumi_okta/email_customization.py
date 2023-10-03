@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['EmailCustomizationArgs', 'EmailCustomization']
@@ -91,21 +91,42 @@ class EmailCustomizationArgs:
                `"zh-TW"`
         :param pulumi.Input[str] subject: The subject of the customization
         """
-        pulumi.set(__self__, "brand_id", brand_id)
-        pulumi.set(__self__, "template_name", template_name)
+        EmailCustomizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            brand_id=brand_id,
+            template_name=template_name,
+            body=body,
+            force_is_default=force_is_default,
+            is_default=is_default,
+            language=language,
+            subject=subject,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             brand_id: pulumi.Input[str],
+             template_name: pulumi.Input[str],
+             body: Optional[pulumi.Input[str]] = None,
+             force_is_default: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             subject: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("brand_id", brand_id)
+        _setter("template_name", template_name)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if force_is_default is not None:
             warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
             pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
         if force_is_default is not None:
-            pulumi.set(__self__, "force_is_default", force_is_default)
+            _setter("force_is_default", force_is_default)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
 
     @property
     @pulumi.getter(name="brandId")
@@ -337,25 +358,48 @@ class _EmailCustomizationState:
                `"SelfServiceUnlockOnUnlockedAccount"`,
                `"UserActivation"`
         """
+        _EmailCustomizationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            brand_id=brand_id,
+            force_is_default=force_is_default,
+            is_default=is_default,
+            language=language,
+            links=links,
+            subject=subject,
+            template_name=template_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional[pulumi.Input[str]] = None,
+             brand_id: Optional[pulumi.Input[str]] = None,
+             force_is_default: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             links: Optional[pulumi.Input[str]] = None,
+             subject: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if brand_id is not None:
-            pulumi.set(__self__, "brand_id", brand_id)
+            _setter("brand_id", brand_id)
         if force_is_default is not None:
             warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
             pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
         if force_is_default is not None:
-            pulumi.set(__self__, "force_is_default", force_is_default)
+            _setter("force_is_default", force_is_default)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if links is not None:
-            pulumi.set(__self__, "links", links)
+            _setter("links", links)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
+            _setter("template_name", template_name)
 
     @property
     @pulumi.getter
@@ -698,6 +742,10 @@ class EmailCustomization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmailCustomizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -723,9 +771,6 @@ class EmailCustomization(pulumi.CustomResource):
             if brand_id is None and not opts.urn:
                 raise TypeError("Missing required property 'brand_id'")
             __props__.__dict__["brand_id"] = brand_id
-            if force_is_default is not None and not opts.urn:
-                warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
-                pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
             __props__.__dict__["force_is_default"] = force_is_default
             __props__.__dict__["is_default"] = is_default
             __props__.__dict__["language"] = language

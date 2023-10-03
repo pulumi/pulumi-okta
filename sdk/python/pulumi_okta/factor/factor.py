@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FactorArgs', 'Factor']
@@ -22,9 +22,20 @@ class FactorArgs:
                Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
         :param pulumi.Input[bool] active: Whether to activate the provider, by default, it is set to `true`.
         """
-        pulumi.set(__self__, "provider_id", provider_id)
+        FactorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_id=provider_id,
+            active=active,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_id: pulumi.Input[str],
+             active: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_id", provider_id)
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
 
     @property
     @pulumi.getter(name="providerId")
@@ -63,10 +74,21 @@ class _FactorState:
         :param pulumi.Input[str] provider_id: The MFA provider name.
                Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
         """
+        _FactorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active=active,
+            provider_id=provider_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active: Optional[pulumi.Input[bool]] = None,
+             provider_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if provider_id is not None:
-            pulumi.set(__self__, "provider_id", provider_id)
+            _setter("provider_id", provider_id)
 
     @property
     @pulumi.getter
@@ -152,6 +174,10 @@ class Factor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FactorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

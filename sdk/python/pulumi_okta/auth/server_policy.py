@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerPolicyArgs', 'ServerPolicy']
@@ -29,14 +29,33 @@ class ServerPolicyArgs:
         :param pulumi.Input[str] name: The name of the Auth Server Policy.
         :param pulumi.Input[str] status: The status of the Auth Server Policy.
         """
-        pulumi.set(__self__, "auth_server_id", auth_server_id)
-        pulumi.set(__self__, "client_whitelists", client_whitelists)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "priority", priority)
+        ServerPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_server_id=auth_server_id,
+            client_whitelists=client_whitelists,
+            description=description,
+            priority=priority,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_server_id: pulumi.Input[str],
+             client_whitelists: pulumi.Input[Sequence[pulumi.Input[str]]],
+             description: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_server_id", auth_server_id)
+        _setter("client_whitelists", client_whitelists)
+        _setter("description", description)
+        _setter("priority", priority)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -129,18 +148,37 @@ class _ServerPolicyState:
         :param pulumi.Input[int] priority: The priority of the Auth Server Policy.
         :param pulumi.Input[str] status: The status of the Auth Server Policy.
         """
+        _ServerPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_server_id=auth_server_id,
+            client_whitelists=client_whitelists,
+            description=description,
+            name=name,
+            priority=priority,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_server_id: Optional[pulumi.Input[str]] = None,
+             client_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_server_id is not None:
-            pulumi.set(__self__, "auth_server_id", auth_server_id)
+            _setter("auth_server_id", auth_server_id)
         if client_whitelists is not None:
-            pulumi.set(__self__, "client_whitelists", client_whitelists)
+            _setter("client_whitelists", client_whitelists)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -306,6 +344,10 @@ class ServerPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

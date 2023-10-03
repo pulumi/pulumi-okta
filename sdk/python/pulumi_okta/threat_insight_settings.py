@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ThreatInsightSettingsArgs', 'ThreatInsightSettings']
@@ -27,9 +27,20 @@ class ThreatInsightSettingsArgs:
                This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
                is not guarantee from the API sides
         """
-        pulumi.set(__self__, "action", action)
+        ThreatInsightSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            network_excludes=network_excludes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[str],
+             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
         if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+            _setter("network_excludes", network_excludes)
 
     @property
     @pulumi.getter
@@ -78,10 +89,21 @@ class _ThreatInsightSettingsState:
                This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
                is not guarantee from the API sides
         """
+        _ThreatInsightSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            network_excludes=network_excludes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+            _setter("network_excludes", network_excludes)
 
     @property
     @pulumi.getter
@@ -213,6 +235,10 @@ class ThreatInsightSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ThreatInsightSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

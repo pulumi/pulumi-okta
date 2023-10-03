@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -44,14 +44,29 @@ class EmailDomainDnsValidationRecord(dict):
         :param str value: DNS record value
                - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
         """
+        EmailDomainDnsValidationRecord._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration=expiration,
+            fqdn=fqdn,
+            record_type=record_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             record_type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if record_type is not None:
-            pulumi.set(__self__, "record_type", record_type)
+            _setter("record_type", record_type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -100,10 +115,25 @@ class GetDomainDnsRecordResult(dict):
         :param str record_type: Record type can be TXT or CNAME.
         :param Sequence[str] values: DNS verification value
         """
-        pulumi.set(__self__, "expiration", expiration)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "record_type", record_type)
-        pulumi.set(__self__, "values", values)
+        GetDomainDnsRecordResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration=expiration,
+            fqdn=fqdn,
+            record_type=record_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration: str,
+             fqdn: str,
+             record_type: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expiration", expiration)
+        _setter("fqdn", fqdn)
+        _setter("record_type", record_type)
+        _setter("values", values)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['BehaviourArgs', 'Behaviour']
@@ -37,19 +37,40 @@ class BehaviourArgs:
         :param pulumi.Input[int] velocity: Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
                type.
         """
-        pulumi.set(__self__, "type", type)
+        BehaviourArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            location_granularity_type=location_granularity_type,
+            name=name,
+            number_of_authentications=number_of_authentications,
+            radius_from_location=radius_from_location,
+            status=status,
+            velocity=velocity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             location_granularity_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             number_of_authentications: Optional[pulumi.Input[int]] = None,
+             radius_from_location: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             velocity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if location_granularity_type is not None:
-            pulumi.set(__self__, "location_granularity_type", location_granularity_type)
+            _setter("location_granularity_type", location_granularity_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if number_of_authentications is not None:
-            pulumi.set(__self__, "number_of_authentications", number_of_authentications)
+            _setter("number_of_authentications", number_of_authentications)
         if radius_from_location is not None:
-            pulumi.set(__self__, "radius_from_location", radius_from_location)
+            _setter("radius_from_location", radius_from_location)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if velocity is not None:
-            pulumi.set(__self__, "velocity", velocity)
+            _setter("velocity", velocity)
 
     @property
     @pulumi.getter
@@ -168,20 +189,41 @@ class _BehaviourState:
         :param pulumi.Input[int] velocity: Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
                type.
         """
+        _BehaviourState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location_granularity_type=location_granularity_type,
+            name=name,
+            number_of_authentications=number_of_authentications,
+            radius_from_location=radius_from_location,
+            status=status,
+            type=type,
+            velocity=velocity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location_granularity_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             number_of_authentications: Optional[pulumi.Input[int]] = None,
+             radius_from_location: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             velocity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location_granularity_type is not None:
-            pulumi.set(__self__, "location_granularity_type", location_granularity_type)
+            _setter("location_granularity_type", location_granularity_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if number_of_authentications is not None:
-            pulumi.set(__self__, "number_of_authentications", number_of_authentications)
+            _setter("number_of_authentications", number_of_authentications)
         if radius_from_location is not None:
-            pulumi.set(__self__, "radius_from_location", radius_from_location)
+            _setter("radius_from_location", radius_from_location)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if velocity is not None:
-            pulumi.set(__self__, "velocity", velocity)
+            _setter("velocity", velocity)
 
     @property
     @pulumi.getter(name="locationGranularityType")
@@ -393,6 +435,10 @@ class Behaviour(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BehaviourArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

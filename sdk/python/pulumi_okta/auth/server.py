@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerArgs', 'Server']
@@ -29,17 +29,36 @@ class ServerArgs:
         :param pulumi.Input[str] name: The name of the authorization server.
         :param pulumi.Input[str] status: The status of the auth server. It defaults to `"ACTIVE"`
         """
-        pulumi.set(__self__, "audiences", audiences)
+        ServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audiences=audiences,
+            credentials_rotation_mode=credentials_rotation_mode,
+            description=description,
+            issuer_mode=issuer_mode,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audiences: pulumi.Input[Sequence[pulumi.Input[str]]],
+             credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             issuer_mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("audiences", audiences)
         if credentials_rotation_mode is not None:
-            pulumi.set(__self__, "credentials_rotation_mode", credentials_rotation_mode)
+            _setter("credentials_rotation_mode", credentials_rotation_mode)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if issuer_mode is not None:
-            pulumi.set(__self__, "issuer_mode", issuer_mode)
+            _setter("issuer_mode", issuer_mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -140,26 +159,53 @@ class _ServerState:
         :param pulumi.Input[str] name: The name of the authorization server.
         :param pulumi.Input[str] status: The status of the auth server. It defaults to `"ACTIVE"`
         """
+        _ServerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audiences=audiences,
+            credentials_last_rotated=credentials_last_rotated,
+            credentials_next_rotation=credentials_next_rotation,
+            credentials_rotation_mode=credentials_rotation_mode,
+            description=description,
+            issuer=issuer,
+            issuer_mode=issuer_mode,
+            kid=kid,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             credentials_last_rotated: Optional[pulumi.Input[str]] = None,
+             credentials_next_rotation: Optional[pulumi.Input[str]] = None,
+             credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             issuer_mode: Optional[pulumi.Input[str]] = None,
+             kid: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if audiences is not None:
-            pulumi.set(__self__, "audiences", audiences)
+            _setter("audiences", audiences)
         if credentials_last_rotated is not None:
-            pulumi.set(__self__, "credentials_last_rotated", credentials_last_rotated)
+            _setter("credentials_last_rotated", credentials_last_rotated)
         if credentials_next_rotation is not None:
-            pulumi.set(__self__, "credentials_next_rotation", credentials_next_rotation)
+            _setter("credentials_next_rotation", credentials_next_rotation)
         if credentials_rotation_mode is not None:
-            pulumi.set(__self__, "credentials_rotation_mode", credentials_rotation_mode)
+            _setter("credentials_rotation_mode", credentials_rotation_mode)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
         if issuer_mode is not None:
-            pulumi.set(__self__, "issuer_mode", issuer_mode)
+            _setter("issuer_mode", issuer_mode)
         if kid is not None:
-            pulumi.set(__self__, "kid", kid)
+            _setter("kid", kid)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -371,6 +417,10 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
