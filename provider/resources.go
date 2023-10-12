@@ -101,66 +101,9 @@ func Provider() tfbridge.ProviderInfo {
 		TFProviderVersion: okta.OktaTerraformProviderVersion,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// App Resources
-			"okta_app_auto_login": {
-				Tok:  makeResource(appMod, "AutoLogin"),
-				Docs: &tfbridge.DocInfo{Source: "app_auto_login.html.markdown"},
-			},
-			"okta_app_bookmark": {
-				Tok:  makeResource(appMod, "Bookmark"),
-				Docs: &tfbridge.DocInfo{Source: "app_bookmark.html.markdown"},
-			},
-			"okta_app_group_assignment": {
-				Tok:  makeResource(appMod, "GroupAssignment"),
-				Docs: &tfbridge.DocInfo{Source: "app_group_assignment.html.markdown"},
-			},
-			"okta_app_oauth": {
-				Tok:  makeResource(appMod, "OAuth"),
-				Docs: &tfbridge.DocInfo{Source: "app_oauth.html.markdown"},
-			},
+			"okta_app_oauth":                          {Tok: makeResource(appMod, "OAuth")},
 			"okta_app_oauth_redirect_uri":             {Tok: makeResource(appMod, "OAuthRedirectUri")},
 			"okta_app_oauth_post_logout_redirect_uri": {Tok: makeResource(appMod, "OAuthPostLogoutRedirectUri")},
-			"okta_app_saml": {
-				Tok:  makeResource(appMod, "Saml"),
-				Docs: &tfbridge.DocInfo{Source: "app_saml.html.markdown"},
-			},
-			"okta_app_secure_password_store": {
-				Tok:  makeResource(appMod, "SecurePasswordStore"),
-				Docs: &tfbridge.DocInfo{Source: "app_secure_password_store.html.markdown"},
-			},
-			"okta_app_swa": {
-				Tok:  makeResource(appMod, "Swa"),
-				Docs: &tfbridge.DocInfo{Source: "app_swa.html.markdown"},
-			},
-			"okta_app_three_field": {
-				Tok:  makeResource(appMod, "ThreeField"),
-				Docs: &tfbridge.DocInfo{Source: "app_three_field.html.markdown"},
-			},
-			"okta_app_user": {
-				Tok:  makeResource(appMod, "User"),
-				Docs: &tfbridge.DocInfo{Source: "app_user.html.markdown"},
-			},
-			"okta_app_basic_auth": {
-				Tok:  makeResource(appMod, "BasicAuth"),
-				Docs: &tfbridge.DocInfo{Source: "app_basic_auth.html.markdown"},
-			},
-
-			// Auth Resources
-			"okta_auth_server": {
-				Tok:  makeResource(authMod, "Server"),
-				Docs: &tfbridge.DocInfo{Source: "auth_server.html.markdown"},
-			},
-			"okta_auth_server_claim": {
-				Tok:  makeResource(authMod, "ServerClaim"),
-				Docs: &tfbridge.DocInfo{Source: "auth_server_claim.html.markdown"},
-			},
-			"okta_auth_server_policy": {
-				Tok:  makeResource(authMod, "ServerPolicy"),
-				Docs: &tfbridge.DocInfo{Source: "auth_server_policy.html.markdown"},
-			},
-			"okta_auth_server_scope": {
-				Tok:  makeResource(authMod, "ServerScope"),
-				Docs: &tfbridge.DocInfo{Source: "auth_server_scope.html.markdown"},
-			},
 
 			// Factor Resources
 			"okta_factor": {
@@ -173,29 +116,6 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(groupMod, "Group"),
 				Docs: &tfbridge.DocInfo{Source: "group.html.markdown"},
 			},
-			"okta_group_rule": {
-				Tok:  makeResource(groupMod, "Rule"),
-				Docs: &tfbridge.DocInfo{Source: "group_rule.html.markdown"},
-			},
-			"okta_group_role": {Tok: makeResource(groupMod, "Role")},
-
-			// Idp Resources
-			"okta_idp_oidc": {
-				Tok:  makeResource(idpMod, "Oidc"),
-				Docs: &tfbridge.DocInfo{Source: "idp_oidc.html.markdown"},
-			},
-			"okta_idp_saml": {
-				Tok:  makeResource(idpMod, "Saml"),
-				Docs: &tfbridge.DocInfo{Source: "idp_saml.html.markdown"},
-			},
-			"okta_idp_saml_key": {
-				Tok:  makeResource(idpMod, "SamlKey"),
-				Docs: &tfbridge.DocInfo{Source: "idp_saml_signing_key.html.markdown"},
-			},
-			"okta_idp_social": {
-				Tok:  makeResource(idpMod, "Social"),
-				Docs: &tfbridge.DocInfo{Source: "idp_social.html.markdown"},
-			},
 
 			// Inline Resources
 			"okta_inline_hook": {
@@ -207,36 +127,6 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_network_zone": {
 				Tok:  makeResource(networkMod, "Zone"),
 				Docs: &tfbridge.DocInfo{Source: "network_zone.html.markdown"},
-			},
-
-			// Policy Resources
-			"okta_policy_mfa": {
-				Tok:  makeResource(policyMod, "Mfa"),
-				Docs: &tfbridge.DocInfo{Source: "policy_mfa.html.markdown"},
-			},
-			"okta_policy_password": {
-				Tok:  makeResource(policyMod, "Password"),
-				Docs: &tfbridge.DocInfo{Source: "policy_password.html.markdown"},
-			},
-			"okta_policy_rule_idp_discovery": {
-				Tok:  makeResource(policyMod, "RuleIdpDiscovery"),
-				Docs: &tfbridge.DocInfo{Source: "policy_rule_idp_discovery.html.markdown"},
-			},
-			"okta_policy_rule_mfa": {
-				Tok:  makeResource(policyMod, "RuleMfa"),
-				Docs: &tfbridge.DocInfo{Source: "policy_rule_mfa.html.markdown"},
-			},
-			"okta_policy_rule_password": {
-				Tok:  makeResource(policyMod, "RulePassword"),
-				Docs: &tfbridge.DocInfo{Source: "policy_rule_password.html.markdown"},
-			},
-			"okta_policy_rule_signon": {
-				Tok:  makeResource(policyMod, "RuleSignon"),
-				Docs: &tfbridge.DocInfo{Source: "policy_rule_signon.html.markdown"},
-			},
-			"okta_policy_signon": {
-				Tok:  makeResource(policyMod, "Signon"),
-				Docs: &tfbridge.DocInfo{Source: "policy_signon.html.markdown"},
 			},
 
 			// Trusted Origin
