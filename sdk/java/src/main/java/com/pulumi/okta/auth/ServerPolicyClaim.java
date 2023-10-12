@@ -18,10 +18,10 @@ import javax.annotation.Nullable;
 
 /**
  * @deprecated
- * okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule
+ * okta.auth/serverpolicyclaim.ServerPolicyClaim has been deprecated in favor of okta.auth/serverpolicyrule.ServerPolicyRule
  * 
  */
-@Deprecated /* okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule */
+@Deprecated /* okta.auth/serverpolicyclaim.ServerPolicyClaim has been deprecated in favor of okta.auth/serverpolicyrule.ServerPolicyRule */
 @ResourceType(type="okta:auth/serverPolicyClaim:ServerPolicyClaim")
 public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
     /**
@@ -53,14 +53,14 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
         return this.authServerId;
     }
     /**
-     * Accepted grant type values: authorization*code, implicit, password, client*credentials
+     * Accepted grant type values: authorization_code, implicit, password, client_credentials
      * 
      */
     @Export(name="grantTypeWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> grantTypeWhitelists;
 
     /**
-     * @return Accepted grant type values: authorization*code, implicit, password, client*credentials
+     * @return Accepted grant type values: authorization_code, implicit, password, client_credentials
      * 
      */
     public Output<List<String>> grantTypeWhitelists() {
@@ -165,14 +165,18 @@ public class ServerPolicyClaim extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.refreshTokenLifetimeMinutes);
     }
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+     * `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+     * `refresh_token_lifetime_minutes`.
      * 
      */
     @Export(name="refreshTokenWindowMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> refreshTokenWindowMinutes;
 
     /**
-     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+     * `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+     * `refresh_token_lifetime_minutes`.
      * 
      */
     public Output<Optional<Integer>> refreshTokenWindowMinutes() {

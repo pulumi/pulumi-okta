@@ -48,14 +48,14 @@ public final class ServerPolicyClaimArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Accepted grant type values: authorization*code, implicit, password, client*credentials
+     * Accepted grant type values: authorization_code, implicit, password, client_credentials
      * 
      */
     @Import(name="grantTypeWhitelists", required=true)
     private Output<List<String>> grantTypeWhitelists;
 
     /**
-     * @return Accepted grant type values: authorization*code, implicit, password, client*credentials
+     * @return Accepted grant type values: authorization_code, implicit, password, client_credentials
      * 
      */
     public Output<List<String>> grantTypeWhitelists() {
@@ -168,14 +168,18 @@ public final class ServerPolicyClaimArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+     * `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+     * `refresh_token_lifetime_minutes`.
      * 
      */
     @Import(name="refreshTokenWindowMinutes")
     private @Nullable Output<Integer> refreshTokenWindowMinutes;
 
     /**
-     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+     * `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+     * `refresh_token_lifetime_minutes`.
      * 
      */
     public Optional<Output<Integer>> refreshTokenWindowMinutes() {
@@ -331,7 +335,7 @@ public final class ServerPolicyClaimArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param grantTypeWhitelists Accepted grant type values: authorization*code, implicit, password, client*credentials
+         * @param grantTypeWhitelists Accepted grant type values: authorization_code, implicit, password, client_credentials
          * 
          * @return builder
          * 
@@ -342,7 +346,7 @@ public final class ServerPolicyClaimArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param grantTypeWhitelists Accepted grant type values: authorization*code, implicit, password, client*credentials
+         * @param grantTypeWhitelists Accepted grant type values: authorization_code, implicit, password, client_credentials
          * 
          * @return builder
          * 
@@ -352,7 +356,7 @@ public final class ServerPolicyClaimArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param grantTypeWhitelists Accepted grant type values: authorization*code, implicit, password, client*credentials
+         * @param grantTypeWhitelists Accepted grant type values: authorization_code, implicit, password, client_credentials
          * 
          * @return builder
          * 
@@ -529,7 +533,9 @@ public final class ServerPolicyClaimArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+         * `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+         * `refresh_token_lifetime_minutes`.
          * 
          * @return builder
          * 
@@ -540,7 +546,9 @@ public final class ServerPolicyClaimArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+         * `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+         * `refresh_token_lifetime_minutes`.
          * 
          * @return builder
          * 
