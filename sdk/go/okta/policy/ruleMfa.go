@@ -12,39 +12,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// This resource allows you to create and configure an MFA Policy Rule.
-//
-// ## Import
-//
-// A Policy Rule can be imported via the Policy and Rule ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:policy/ruleMfa:RuleMfa example &#60;policy id&#62;/&#60;rule id&#62;
-//
-// ```
 type RuleMfa struct {
 	pulumi.CustomResourceState
 
 	// Applications to exclude
 	AppExcludes RuleMfaAppExcludeArrayOutput `pulumi:"appExcludes"`
-	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// Applications to include
 	AppIncludes RuleMfaAppIncludeArrayOutput `pulumi:"appIncludes"`
-	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
+	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll pulumi.StringPtrOutput `pulumi:"enroll"`
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy Rule Name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 	NetworkConnection pulumi.StringPtrOutput `pulumi:"networkConnection"`
-	// The network zones to exclude. Conflicts with `networkIncludes`.
+	// The zones to exclude
 	NetworkExcludes pulumi.StringArrayOutput `pulumi:"networkExcludes"`
-	// The network zones to include. Conflicts with `networkExcludes`.
+	// The zones to include
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
-	// Policy ID.
+	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Set of User IDs to Exclude
 	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
@@ -82,23 +71,23 @@ func GetRuleMfa(ctx *pulumi.Context,
 type ruleMfaState struct {
 	// Applications to exclude
 	AppExcludes []RuleMfaAppExclude `pulumi:"appExcludes"`
-	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// Applications to include
 	AppIncludes []RuleMfaAppInclude `pulumi:"appIncludes"`
-	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
+	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll *string `pulumi:"enroll"`
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy Rule Name
 	Name *string `pulumi:"name"`
-	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 	NetworkConnection *string `pulumi:"networkConnection"`
-	// The network zones to exclude. Conflicts with `networkIncludes`.
+	// The zones to exclude
 	NetworkExcludes []string `pulumi:"networkExcludes"`
-	// The network zones to include. Conflicts with `networkExcludes`.
+	// The zones to include
 	NetworkIncludes []string `pulumi:"networkIncludes"`
-	// Policy ID.
+	// Policy ID of the Rule
 	PolicyId *string `pulumi:"policyId"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
-	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status *string `pulumi:"status"`
 	// Set of User IDs to Exclude
 	UsersExcludeds []string `pulumi:"usersExcludeds"`
@@ -107,23 +96,23 @@ type ruleMfaState struct {
 type RuleMfaState struct {
 	// Applications to exclude
 	AppExcludes RuleMfaAppExcludeArrayInput
-	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// Applications to include
 	AppIncludes RuleMfaAppIncludeArrayInput
-	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
+	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll pulumi.StringPtrInput
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy Rule Name
 	Name pulumi.StringPtrInput
-	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 	NetworkConnection pulumi.StringPtrInput
-	// The network zones to exclude. Conflicts with `networkIncludes`.
+	// The zones to exclude
 	NetworkExcludes pulumi.StringArrayInput
-	// The network zones to include. Conflicts with `networkExcludes`.
+	// The zones to include
 	NetworkIncludes pulumi.StringArrayInput
-	// Policy ID.
+	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
-	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrInput
 	// Set of User IDs to Exclude
 	UsersExcludeds pulumi.StringArrayInput
@@ -136,23 +125,23 @@ func (RuleMfaState) ElementType() reflect.Type {
 type ruleMfaArgs struct {
 	// Applications to exclude
 	AppExcludes []RuleMfaAppExclude `pulumi:"appExcludes"`
-	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// Applications to include
 	AppIncludes []RuleMfaAppInclude `pulumi:"appIncludes"`
-	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
+	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll *string `pulumi:"enroll"`
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy Rule Name
 	Name *string `pulumi:"name"`
-	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 	NetworkConnection *string `pulumi:"networkConnection"`
-	// The network zones to exclude. Conflicts with `networkIncludes`.
+	// The zones to exclude
 	NetworkExcludes []string `pulumi:"networkExcludes"`
-	// The network zones to include. Conflicts with `networkExcludes`.
+	// The zones to include
 	NetworkIncludes []string `pulumi:"networkIncludes"`
-	// Policy ID.
+	// Policy ID of the Rule
 	PolicyId *string `pulumi:"policyId"`
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
-	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status *string `pulumi:"status"`
 	// Set of User IDs to Exclude
 	UsersExcludeds []string `pulumi:"usersExcludeds"`
@@ -162,23 +151,23 @@ type ruleMfaArgs struct {
 type RuleMfaArgs struct {
 	// Applications to exclude
 	AppExcludes RuleMfaAppExcludeArrayInput
-	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// Applications to include
 	AppIncludes RuleMfaAppIncludeArrayInput
-	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
+	// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 	Enroll pulumi.StringPtrInput
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy Rule Name
 	Name pulumi.StringPtrInput
-	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 	NetworkConnection pulumi.StringPtrInput
-	// The network zones to exclude. Conflicts with `networkIncludes`.
+	// The zones to exclude
 	NetworkExcludes pulumi.StringArrayInput
-	// The network zones to include. Conflicts with `networkExcludes`.
+	// The zones to include
 	NetworkIncludes pulumi.StringArrayInput
-	// Policy ID.
+	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrInput
 	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
-	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrInput
 	// Set of User IDs to Exclude
 	UsersExcludeds pulumi.StringArrayInput
@@ -300,37 +289,37 @@ func (o RuleMfaOutput) AppExcludes() RuleMfaAppExcludeArrayOutput {
 	return o.ApplyT(func(v *RuleMfa) RuleMfaAppExcludeArrayOutput { return v.AppExcludes }).(RuleMfaAppExcludeArrayOutput)
 }
 
-// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+// Applications to include
 func (o RuleMfaOutput) AppIncludes() RuleMfaAppIncludeArrayOutput {
 	return o.ApplyT(func(v *RuleMfa) RuleMfaAppIncludeArrayOutput { return v.AppIncludes }).(RuleMfaAppIncludeArrayOutput)
 }
 
-// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
+// Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
 func (o RuleMfaOutput) Enroll() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+// Policy Rule Name
 func (o RuleMfaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 func (o RuleMfaOutput) NetworkConnection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.NetworkConnection }).(pulumi.StringPtrOutput)
 }
 
-// The network zones to exclude. Conflicts with `networkIncludes`.
+// The zones to exclude
 func (o RuleMfaOutput) NetworkExcludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
 }
 
-// The network zones to include. Conflicts with `networkExcludes`.
+// The zones to include
 func (o RuleMfaOutput) NetworkIncludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
 }
 
-// Policy ID.
+// Policy ID of the Rule
 func (o RuleMfaOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
@@ -340,7 +329,7 @@ func (o RuleMfaOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+// Policy Rule Status: ACTIVE or INACTIVE.
 func (o RuleMfaOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

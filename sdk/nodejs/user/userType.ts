@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates a User type.
- *
- * This resource allows you to create and configure a User Type.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.user.UserType("example", {
- *     description: "example",
- *     displayName: "example",
- * });
- * ```
- *
- * ## Import
- *
- * A User Type can be imported via the Okta ID.
- *
- * ```sh
- *  $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
- * ```
- */
 export class UserType extends pulumi.CustomResource {
     /**
      * Get an existing UserType resource's state with the given name, ID, and optional extra
@@ -58,15 +33,15 @@ export class UserType extends pulumi.CustomResource {
     }
 
     /**
-     * Description of the User Type.
+     * A human-readable description of the User type
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Display Name of the User Type.
+     * The display name of the user type
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * Name of the User Type.
+     * Name of the user type
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -108,15 +83,15 @@ export class UserType extends pulumi.CustomResource {
  */
 export interface UserTypeState {
     /**
-     * Description of the User Type.
+     * A human-readable description of the User type
      */
     description?: pulumi.Input<string>;
     /**
-     * Display Name of the User Type.
+     * The display name of the user type
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Name of the User Type.
+     * Name of the user type
      */
     name?: pulumi.Input<string>;
 }
@@ -126,15 +101,15 @@ export interface UserTypeState {
  */
 export interface UserTypeArgs {
     /**
-     * Description of the User Type.
+     * A human-readable description of the User type
      */
     description: pulumi.Input<string>;
     /**
-     * Display Name of the User Type.
+     * The display name of the user type
      */
     displayName: pulumi.Input<string>;
     /**
-     * Name of the User Type.
+     * Name of the user type
      */
     name?: pulumi.Input<string>;
 }

@@ -17,14 +17,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     public static final ServerArgs Empty = new ServerArgs();
 
     /**
-     * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+     * Currently Okta only supports a single value here
      * 
      */
     @Import(name="audiences", required=true)
     private Output<List<String>> audiences;
 
     /**
-     * @return The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+     * @return Currently Okta only supports a single value here
      * 
      */
     public Output<List<String>> audiences() {
@@ -32,14 +32,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+     * Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
      * 
      */
     @Import(name="credentialsRotationMode")
     private @Nullable Output<String> credentialsRotationMode;
 
     /**
-     * @return The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+     * @return Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
      * 
      */
     public Optional<Output<String>> credentialsRotationMode() {
@@ -62,14 +62,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`.
+     * *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`.
+     * @return *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
      * 
      */
     public Optional<Output<String>> issuerMode() {
@@ -91,17 +91,9 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The status of the auth server. It defaults to `&#34;ACTIVE&#34;`
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the auth server. It defaults to `&#34;ACTIVE&#34;`
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -136,7 +128,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audiences The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+         * @param audiences Currently Okta only supports a single value here
          * 
          * @return builder
          * 
@@ -147,7 +139,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audiences The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+         * @param audiences Currently Okta only supports a single value here
          * 
          * @return builder
          * 
@@ -157,7 +149,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audiences The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+         * @param audiences Currently Okta only supports a single value here
          * 
          * @return builder
          * 
@@ -167,7 +159,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsRotationMode The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+         * @param credentialsRotationMode Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
          * 
          * @return builder
          * 
@@ -178,7 +170,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsRotationMode The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+         * @param credentialsRotationMode Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
          * 
          * @return builder
          * 
@@ -209,7 +201,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`.
+         * @param issuerMode *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
          * 
          * @return builder
          * 
@@ -220,7 +212,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`.
+         * @param issuerMode *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
          * 
          * @return builder
          * 
@@ -250,23 +242,11 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
-        /**
-         * @param status The status of the auth server. It defaults to `&#34;ACTIVE&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the auth server. It defaults to `&#34;ACTIVE&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

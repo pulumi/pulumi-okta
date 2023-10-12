@@ -15,10 +15,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class IndexFunctions {
     /**
-     * Use this data source to retrieve a domain from Okta.
-     * 
-     * - https://developer.okta.com/docs/reference/api/domains/#get-domain
-     * - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+     * Get a domain from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -62,10 +59,7 @@ public final class IndexFunctions {
         return getDomain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve a domain from Okta.
-     * 
-     * - https://developer.okta.com/docs/reference/api/domains/#get-domain
-     * - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+     * Get a domain from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -109,10 +103,7 @@ public final class IndexFunctions {
         return getDomainPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve a domain from Okta.
-     * 
-     * - https://developer.okta.com/docs/reference/api/domains/#get-domain
-     * - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+     * Get a domain from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -156,10 +147,7 @@ public final class IndexFunctions {
         return Deployment.getInstance().invoke("okta:Index/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve a domain from Okta.
-     * 
-     * - https://developer.okta.com/docs/reference/api/domains/#get-domain
-     * - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+     * Get a domain from Okta.
      * 
      * ## Example Usage
      * ```java

@@ -169,7 +169,7 @@ class GetSamlResult:
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> str:
         """
-        Custom error page URL.
+        Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -177,7 +177,7 @@ class GetSamlResult:
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> str:
         """
-        Custom login page URL.
+        Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -185,7 +185,7 @@ class GetSamlResult:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> bool:
         """
-        Enable self-service.
+        Enable self service
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -193,20 +193,23 @@ class GetSamlResult:
     @pulumi.getter(name="acsEndpoints")
     def acs_endpoints(self) -> Sequence[str]:
         """
-        An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        List of ACS endpoints for this SAML application
         """
         return pulumi.get(self, "acs_endpoints")
 
     @property
     @pulumi.getter(name="activeOnly")
     def active_only(self) -> Optional[bool]:
+        """
+        Search only ACTIVE applications.
+        """
         return pulumi.get(self, "active_only")
 
     @property
     @pulumi.getter(name="appSettingsJson")
     def app_settings_json(self) -> str:
         """
-        Application settings in JSON format.
+        Application settings in JSON format
         """
         return pulumi.get(self, "app_settings_json")
 
@@ -214,23 +217,20 @@ class GetSamlResult:
     @pulumi.getter(name="assertionSigned")
     def assertion_signed(self) -> bool:
         """
-        Determines whether the SAML assertion is digitally signed.
+        Determines whether the SAML assertion is digitally signed
         """
         return pulumi.get(self, "assertion_signed")
 
     @property
     @pulumi.getter(name="attributeStatements")
     def attribute_statements(self) -> Sequence['outputs.GetSamlAttributeStatementResult']:
-        """
-        List of SAML Attribute statements.
-        """
         return pulumi.get(self, "attribute_statements")
 
     @property
     @pulumi.getter
     def audience(self) -> str:
         """
-        Audience restriction.
+        Audience Restriction
         """
         return pulumi.get(self, "audience")
 
@@ -238,7 +238,7 @@ class GetSamlResult:
     @pulumi.getter(name="authnContextClassRef")
     def authn_context_class_ref(self) -> str:
         """
-        Identifies the SAML authentication context class for the assertion’s authentication statement.
+        Identifies the SAML authentication context class for the assertion’s authentication statement
         """
         return pulumi.get(self, "authn_context_class_ref")
 
@@ -246,7 +246,7 @@ class GetSamlResult:
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> bool:
         """
-        Display auto submit toolbar.
+        Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -262,7 +262,7 @@ class GetSamlResult:
     @pulumi.getter
     def destination(self) -> str:
         """
-        Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         """
         return pulumi.get(self, "destination")
 
@@ -270,7 +270,7 @@ class GetSamlResult:
     @pulumi.getter(name="digestAlgorithm")
     def digest_algorithm(self) -> str:
         """
-        Determines the digest algorithm used to digitally sign the SAML assertion and response.
+        Determines the digest algorithm used to digitally sign the SAML assertion and response
         """
         return pulumi.get(self, "digest_algorithm")
 
@@ -278,7 +278,7 @@ class GetSamlResult:
     @pulumi.getter
     def features(self) -> Sequence[str]:
         """
-        features enabled.
+        features to enable
         """
         return pulumi.get(self, "features")
 
@@ -286,7 +286,7 @@ class GetSamlResult:
     @pulumi.getter
     def groups(self) -> Sequence[str]:
         """
-        List of groups IDs assigned to the application.
+        Groups associated with the application
         """
         warnings.warn("""The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`""", DeprecationWarning)
         pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`""")
@@ -297,7 +297,7 @@ class GetSamlResult:
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> bool:
         """
-        Do not display application icon on mobile app.
+        Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
@@ -313,7 +313,7 @@ class GetSamlResult:
     @pulumi.getter(name="honorForceAuthn")
     def honor_force_authn(self) -> bool:
         """
-        Prompt user to re-authenticate if SP asks for it.
+        Prompt user to re-authenticate if SP asks for it
         """
         return pulumi.get(self, "honor_force_authn")
 
@@ -321,7 +321,7 @@ class GetSamlResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        id of application.
+        Id of application to retrieve, conflicts with label and label_prefix.
         """
         return pulumi.get(self, "id")
 
@@ -329,7 +329,7 @@ class GetSamlResult:
     @pulumi.getter(name="idpIssuer")
     def idp_issuer(self) -> str:
         """
-        SAML issuer ID.
+        SAML issuer ID
         """
         return pulumi.get(self, "idp_issuer")
 
@@ -337,7 +337,7 @@ class GetSamlResult:
     @pulumi.getter(name="inlineHookId")
     def inline_hook_id(self) -> str:
         """
-        Saml Inline Hook associated with the application.
+        Saml Inline Hook setting
         """
         return pulumi.get(self, "inline_hook_id")
 
@@ -345,7 +345,7 @@ class GetSamlResult:
     @pulumi.getter(name="keyId")
     def key_id(self) -> str:
         """
-        Certificate key ID.
+        Certificate ID
         """
         return pulumi.get(self, "key_id")
 
@@ -353,20 +353,26 @@ class GetSamlResult:
     @pulumi.getter
     def label(self) -> Optional[str]:
         """
-        label of application.
+        The label of the app to retrieve, conflicts with label_prefix and id. Label
+        			uses the ?q=\\n\\n query parameter exposed by Okta's API. It should be noted that at this time
+        			this searches both name and label. This is used to avoid paginating through all applications.
         """
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter(name="labelPrefix")
     def label_prefix(self) -> Optional[str]:
+        """
+        Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+        			provider to do a starts with query as opposed to an equals query.
+        """
         return pulumi.get(self, "label_prefix")
 
     @property
     @pulumi.getter
     def links(self) -> str:
         """
-        Generic JSON containing discoverable resources related to the app.
+        Discoverable resources related to the app
         """
         return pulumi.get(self, "links")
 
@@ -374,7 +380,7 @@ class GetSamlResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        name of application.
+        Name of application.
         """
         return pulumi.get(self, "name")
 
@@ -382,7 +388,7 @@ class GetSamlResult:
     @pulumi.getter
     def recipient(self) -> str:
         """
-        The location where the app may present the SAML assertion.
+        The location where the app may present the SAML assertion
         """
         return pulumi.get(self, "recipient")
 
@@ -398,7 +404,7 @@ class GetSamlResult:
     @pulumi.getter(name="responseSigned")
     def response_signed(self) -> bool:
         """
-        Determines whether the SAML auth response message is digitally signed.
+        Determines whether the SAML auth response message is digitally signed
         """
         return pulumi.get(self, "response_signed")
 
@@ -414,7 +420,7 @@ class GetSamlResult:
     @pulumi.getter(name="signatureAlgorithm")
     def signature_algorithm(self) -> str:
         """
-        Signature algorithm used ot digitally sign the assertion and response.
+        Signature algorithm used ot digitally sign the assertion and response
         """
         return pulumi.get(self, "signature_algorithm")
 
@@ -422,7 +428,7 @@ class GetSamlResult:
     @pulumi.getter(name="singleLogoutCertificate")
     def single_logout_certificate(self) -> str:
         """
-        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests
         """
         return pulumi.get(self, "single_logout_certificate")
 
@@ -430,7 +436,7 @@ class GetSamlResult:
     @pulumi.getter(name="singleLogoutIssuer")
     def single_logout_issuer(self) -> str:
         """
-        The issuer of the Service Provider that generates the Single Logout request.
+        The issuer of the Service Provider that generates the Single Logout request
         """
         return pulumi.get(self, "single_logout_issuer")
 
@@ -438,13 +444,16 @@ class GetSamlResult:
     @pulumi.getter(name="singleLogoutUrl")
     def single_logout_url(self) -> str:
         """
-        The location where the logout response is sent.
+        The location where the logout response is sent
         """
         return pulumi.get(self, "single_logout_url")
 
     @property
     @pulumi.getter(name="skipGroups")
     def skip_groups(self) -> Optional[bool]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
         warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
 
@@ -453,6 +462,9 @@ class GetSamlResult:
     @property
     @pulumi.getter(name="skipUsers")
     def skip_users(self) -> Optional[bool]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
         warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
 
@@ -462,7 +474,7 @@ class GetSamlResult:
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> str:
         """
-        SAML service provider issuer.
+        SAML SP issuer ID
         """
         return pulumi.get(self, "sp_issuer")
 
@@ -470,7 +482,7 @@ class GetSamlResult:
     @pulumi.getter(name="ssoUrl")
     def sso_url(self) -> str:
         """
-        Single Sign-on Url.
+        Single Sign On URL
         """
         return pulumi.get(self, "sso_url")
 
@@ -478,7 +490,7 @@ class GetSamlResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        status of application.
+        Status of application.
         """
         return pulumi.get(self, "status")
 
@@ -494,7 +506,7 @@ class GetSamlResult:
     @pulumi.getter(name="subjectNameIdTemplate")
     def subject_name_id_template(self) -> str:
         """
-        Template for app user's username when a user is assigned to the app.
+        Template for app user's username when a user is assigned to the app
         """
         return pulumi.get(self, "subject_name_id_template")
 
@@ -502,7 +514,7 @@ class GetSamlResult:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> str:
         """
-        Username template.
+        Username template
         """
         return pulumi.get(self, "user_name_template")
 
@@ -510,7 +522,7 @@ class GetSamlResult:
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> str:
         """
-        Push username on update.
+        Push username on update
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -518,7 +530,7 @@ class GetSamlResult:
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> str:
         """
-        Username template suffix.
+        Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -526,13 +538,16 @@ class GetSamlResult:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> str:
         """
-        Username template type.
+        Username template type
         """
         return pulumi.get(self, "user_name_template_type")
 
     @property
     @pulumi.getter
     def users(self) -> Sequence[str]:
+        """
+        Users associated with the application
+        """
         warnings.warn("""The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`""", DeprecationWarning)
         pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`""")
 
@@ -603,7 +618,7 @@ def get_saml(active_only: Optional[bool] = None,
              skip_users: Optional[bool] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSamlResult:
     """
-    Use this data source to retrieve an SAML application from Okta.
+    Get a SAML application from Okta.
 
     ## Example Usage
 
@@ -615,14 +630,16 @@ def get_saml(active_only: Optional[bool] = None,
     ```
 
 
-    :param bool active_only: tells the provider to query for only `ACTIVE` applications.
-    :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
-    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-           the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-           and `label`. This is used to avoid paginating through all applications.
-    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-           provider to do a `starts with` query as opposed to an `equals` query.
+    :param bool active_only: Search only ACTIVE applications.
+    :param str id: Id of application to retrieve, conflicts with label and label_prefix.
+    :param str label: The label of the app to retrieve, conflicts with label_prefix and id. Label
+           			uses the ?q=\\n\\n query parameter exposed by Okta's API. It should be noted that at this time
+           			this searches both name and label. This is used to avoid paginating through all applications.
+    :param str label_prefix: Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+           			provider to do a starts with query as opposed to an equals query.
     :param bool request_compressed: Denotes whether the request is compressed or not.
+    :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+    :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only
@@ -695,7 +712,7 @@ def get_saml_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                     skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlResult]:
     """
-    Use this data source to retrieve an SAML application from Okta.
+    Get a SAML application from Okta.
 
     ## Example Usage
 
@@ -707,13 +724,15 @@ def get_saml_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
     ```
 
 
-    :param bool active_only: tells the provider to query for only `ACTIVE` applications.
-    :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
-    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-           the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
-           and `label`. This is used to avoid paginating through all applications.
-    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-           provider to do a `starts with` query as opposed to an `equals` query.
+    :param bool active_only: Search only ACTIVE applications.
+    :param str id: Id of application to retrieve, conflicts with label and label_prefix.
+    :param str label: The label of the app to retrieve, conflicts with label_prefix and id. Label
+           			uses the ?q=\\n\\n query parameter exposed by Okta's API. It should be noted that at this time
+           			this searches both name and label. This is used to avoid paginating through all applications.
+    :param str label_prefix: Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+           			provider to do a starts with query as opposed to an equals query.
     :param bool request_compressed: Denotes whether the request is compressed or not.
+    :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+    :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
     """
     ...

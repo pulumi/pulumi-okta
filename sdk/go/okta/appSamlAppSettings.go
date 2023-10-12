@@ -13,76 +13,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// This resource allows you to manage app settings of the SAML Application . It's basically the same as
-// `appSettingsJson` field in `app.Saml` resource and can be used in cases where settings require to be managed separately.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSaml, err := app.NewSaml(ctx, "testSaml", &app.SamlArgs{
-//				PreconfiguredApp: pulumi.String("amazon_aws"),
-//				Label:            pulumi.String("Amazon AWS"),
-//				Status:           pulumi.String("ACTIVE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"appFilter":          "okta",
-//				"awsEnvironmentType": "aws.amazon",
-//				"groupFilter":        "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)",
-//				"joinAllRoles":       false,
-//				"loginURL":           "https://console.aws.amazon.com/ec2/home",
-//				"roleValuePattern":   "arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}",
-//				"sessionDuration":    3200,
-//				"useGroupMapping":    false,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = okta.NewAppSamlAppSettings(ctx, "testAppSamlAppSettings", &okta.AppSamlAppSettingsArgs{
-//				AppId:    testSaml.ID(),
-//				Settings: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// A settings for the SAML App can be imported via the Okta ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
-//
-// ```
 type AppSamlAppSettings struct {
 	pulumi.CustomResourceState
 
-	// ID of the application.
+	// Application ID
 	AppId pulumi.StringOutput `pulumi:"appId"`
-	// Application settings in JSON format.
+	// Application settings in JSON format
 	Settings pulumi.StringOutput `pulumi:"settings"`
 }
 
@@ -122,16 +58,16 @@ func GetAppSamlAppSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppSamlAppSettings resources.
 type appSamlAppSettingsState struct {
-	// ID of the application.
+	// Application ID
 	AppId *string `pulumi:"appId"`
-	// Application settings in JSON format.
+	// Application settings in JSON format
 	Settings *string `pulumi:"settings"`
 }
 
 type AppSamlAppSettingsState struct {
-	// ID of the application.
+	// Application ID
 	AppId pulumi.StringPtrInput
-	// Application settings in JSON format.
+	// Application settings in JSON format
 	Settings pulumi.StringPtrInput
 }
 
@@ -140,17 +76,17 @@ func (AppSamlAppSettingsState) ElementType() reflect.Type {
 }
 
 type appSamlAppSettingsArgs struct {
-	// ID of the application.
+	// Application ID
 	AppId string `pulumi:"appId"`
-	// Application settings in JSON format.
+	// Application settings in JSON format
 	Settings string `pulumi:"settings"`
 }
 
 // The set of arguments for constructing a AppSamlAppSettings resource.
 type AppSamlAppSettingsArgs struct {
-	// ID of the application.
+	// Application ID
 	AppId pulumi.StringInput
-	// Application settings in JSON format.
+	// Application settings in JSON format
 	Settings pulumi.StringInput
 }
 
@@ -265,12 +201,12 @@ func (o AppSamlAppSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*
 	}
 }
 
-// ID of the application.
+// Application ID
 func (o AppSamlAppSettingsOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppSamlAppSettings) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// Application settings in JSON format.
+// Application settings in JSON format
 func (o AppSamlAppSettingsOutput) Settings() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppSamlAppSettings) pulumi.StringOutput { return v.Settings }).(pulumi.StringOutput)
 }

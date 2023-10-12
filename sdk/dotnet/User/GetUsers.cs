@@ -12,114 +12,54 @@ namespace Pulumi.Okta.User
     public static class GetUsers
     {
         /// <summary>
-        /// Use this data source to retrieve a list of users from Okta.
+        /// Get a list of users from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Lookup Users by Search Criteria
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
+        /// data "okta.user.getUsers" "example" {
+        ///   search {
+        ///     name       = "profile.company"
+        ///     value      = "Articulate"
+        ///     comparison = "sw"
+        ///   }
+        /// }
         /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.User.GetUsers.Invoke(new()
-        ///     {
-        ///         Searches = new[]
-        ///         {
-        ///             new Okta.User.Inputs.GetUsersSearchInputArgs
-        ///             {
-        ///                 Expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Lookup Users by Group Membership
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleGroup = new Okta.Group.Group("exampleGroup");
-        /// 
-        ///     var exampleUsers = Okta.User.GetUsers.Invoke(new()
-        ///     {
-        ///         GroupId = exampleGroup.Id,
-        ///         IncludeGroups = true,
-        ///         IncludeRoles = true,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
+        /// # Search for multiple users based on a raw search expression string
+        /// data "okta.user.getUsers" "example" {
+        ///   search {
+        ///     expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"
+        ///   }
+        /// }
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("okta:user/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a list of users from Okta.
+        /// Get a list of users from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Lookup Users by Search Criteria
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
+        /// data "okta.user.getUsers" "example" {
+        ///   search {
+        ///     name       = "profile.company"
+        ///     value      = "Articulate"
+        ///     comparison = "sw"
+        ///   }
+        /// }
         /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.User.GetUsers.Invoke(new()
-        ///     {
-        ///         Searches = new[]
-        ///         {
-        ///             new Okta.User.Inputs.GetUsersSearchInputArgs
-        ///             {
-        ///                 Expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Lookup Users by Group Membership
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleGroup = new Okta.Group.Group("exampleGroup");
-        /// 
-        ///     var exampleUsers = Okta.User.GetUsers.Invoke(new()
-        ///     {
-        ///         GroupId = exampleGroup.Id,
-        ///         IncludeGroups = true,
-        ///         IncludeRoles = true,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
+        /// # Search for multiple users based on a raw search expression string
+        /// data "okta.user.getUsers" "example" {
+        ///   search {
+        ///     expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"
+        ///   }
+        /// }
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
@@ -130,31 +70,31 @@ namespace Pulumi.Okta.User
     public sealed class GetUsersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+        /// Search operator used when joining mulitple search clauses
         /// </summary>
         [Input("compoundSearchOperator")]
         public string? CompoundSearchOperator { get; set; }
 
         /// <summary>
-        /// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
+        /// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
         /// </summary>
         [Input("delayReadSeconds")]
         public string? DelayReadSeconds { get; set; }
 
         /// <summary>
-        /// Id of group used to find users based on membership.
+        /// Find users based on group membership using the id of the group.
         /// </summary>
         [Input("groupId")]
         public string? GroupId { get; set; }
 
         /// <summary>
-        /// Fetch each user's group memberships. Defaults to `false`, in which case the `group_memberships` user attribute will be empty.
+        /// Fetch group memberships for each user
         /// </summary>
         [Input("includeGroups")]
         public bool? IncludeGroups { get; set; }
 
         /// <summary>
-        /// Fetch each user's administrator roles. Defaults to `false`, in which case the `admin_roles` user attribute will be empty.
+        /// Fetch user roles for each user
         /// </summary>
         [Input("includeRoles")]
         public bool? IncludeRoles { get; set; }
@@ -163,7 +103,7 @@ namespace Pulumi.Okta.User
         private List<Inputs.GetUsersSearchArgs>? _searches;
 
         /// <summary>
-        /// Map of search criteria. It supports the following properties.
+        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
         /// </summary>
         public List<Inputs.GetUsersSearchArgs> Searches
         {
@@ -180,31 +120,31 @@ namespace Pulumi.Okta.User
     public sealed class GetUsersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+        /// Search operator used when joining mulitple search clauses
         /// </summary>
         [Input("compoundSearchOperator")]
         public Input<string>? CompoundSearchOperator { get; set; }
 
         /// <summary>
-        /// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
+        /// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
         /// </summary>
         [Input("delayReadSeconds")]
         public Input<string>? DelayReadSeconds { get; set; }
 
         /// <summary>
-        /// Id of group used to find users based on membership.
+        /// Find users based on group membership using the id of the group.
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 
         /// <summary>
-        /// Fetch each user's group memberships. Defaults to `false`, in which case the `group_memberships` user attribute will be empty.
+        /// Fetch group memberships for each user
         /// </summary>
         [Input("includeGroups")]
         public Input<bool>? IncludeGroups { get; set; }
 
         /// <summary>
-        /// Fetch each user's administrator roles. Defaults to `false`, in which case the `admin_roles` user attribute will be empty.
+        /// Fetch user roles for each user
         /// </summary>
         [Input("includeRoles")]
         public Input<bool>? IncludeRoles { get; set; }
@@ -213,7 +153,7 @@ namespace Pulumi.Okta.User
         private InputList<Inputs.GetUsersSearchInputArgs>? _searches;
 
         /// <summary>
-        /// Map of search criteria. It supports the following properties.
+        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
         /// </summary>
         public InputList<Inputs.GetUsersSearchInputArgs> Searches
         {
@@ -231,18 +171,36 @@ namespace Pulumi.Okta.User
     [OutputType]
     public sealed class GetUsersResult
     {
+        /// <summary>
+        /// Search operator used when joining mulitple search clauses
+        /// </summary>
         public readonly string? CompoundSearchOperator;
+        /// <summary>
+        /// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+        /// </summary>
         public readonly string? DelayReadSeconds;
+        /// <summary>
+        /// Find users based on group membership using the id of the group.
+        /// </summary>
         public readonly string? GroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Fetch group memberships for each user
+        /// </summary>
         public readonly bool? IncludeGroups;
+        /// <summary>
+        /// Fetch user roles for each user
+        /// </summary>
         public readonly bool? IncludeRoles;
+        /// <summary>
+        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersSearchResult> Searches;
         /// <summary>
-        /// collection of users retrieved from Okta with the following properties.
+        /// collection of users retrieved from Okta.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserResult> Users;
 

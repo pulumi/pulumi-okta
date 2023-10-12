@@ -16,152 +16,61 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates an Okta Group Rule.
- * 
- * This resource allows you to create and configure an Okta Group Rule.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.group.Rule;
- * import com.pulumi.okta.group.RuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Rule(&#34;example&#34;, RuleArgs.builder()        
- *             .expressionType(&#34;urn:okta:expression:1.0&#34;)
- *             .expressionValue(&#34;String.startsWith(user.firstName,\&#34;andy\&#34;)&#34;)
- *             .groupAssignments(&#34;&lt;group id&gt;&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * An Okta Group Rule can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:group/rule:Rule example &amp;#60;group rule id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:group/rule:Rule")
 public class Rule extends com.pulumi.resources.CustomResource {
-    /**
-     * The expression type to use to invoke the rule. The default
-     * is `&#34;urn:okta:expression:1.0&#34;`.
-     * 
-     */
     @Export(name="expressionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expressionType;
 
-    /**
-     * @return The expression type to use to invoke the rule. The default
-     * is `&#34;urn:okta:expression:1.0&#34;`.
-     * 
-     */
     public Output<Optional<String>> expressionType() {
         return Codegen.optional(this.expressionType);
     }
-    /**
-     * The expression value.
-     * 
-     */
     @Export(name="expressionValue", refs={String.class}, tree="[0]")
     private Output<String> expressionValue;
 
-    /**
-     * @return The expression value.
-     * 
-     */
     public Output<String> expressionValue() {
         return this.expressionValue;
     }
-    /**
-     * The list of group ids to assign the users to.
-     * 
-     */
     @Export(name="groupAssignments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> groupAssignments;
 
-    /**
-     * @return The list of group ids to assign the users to.
-     * 
-     */
     public Output<List<String>> groupAssignments() {
         return this.groupAssignments;
     }
-    /**
-     * The name of the Group Rule (min character 1; max characters 50).
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Group Rule (min character 1; max characters 50).
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * Remove users added by this rule from the assigned group after deleting this resource
      * 
      */
     @Export(name="removeAssignedUsers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> removeAssignedUsers;
 
     /**
-     * @return This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * @return Remove users added by this rule from the assigned group after deleting this resource
      * 
      */
     public Output<Optional<Boolean>> removeAssignedUsers() {
         return Codegen.optional(this.removeAssignedUsers);
     }
-    /**
-     * The status of the group rule.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
-    /**
-     * @return The status of the group rule.
-     * 
-     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * The list of user IDs that would be excluded when rules are processed
      * 
      */
     @Export(name="usersExcludeds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> usersExcludeds;
 
     /**
-     * @return The list of user IDs that would be excluded when rules are processed.
+     * @return The list of user IDs that would be excluded when rules are processed
      * 
      */
     public Output<Optional<List<String>>> usersExcludeds() {

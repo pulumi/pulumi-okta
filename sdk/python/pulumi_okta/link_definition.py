@@ -264,34 +264,7 @@ class LinkDefinition(pulumi.CustomResource):
                  primary_title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Link definition operations allow you to manage the creation and removal of the link definitions. If you remove a link
-        definition, links based on that definition are unavailable. Note that this resource is immutable, thus can not be modified.
-
-        > **NOTE:** Links reappear if you recreate the definition. However, Okta is likely to change this behavior so that links don't reappear. Don't rely on this behavior in production environments.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.LinkDefinition("example",
-            associated_description="Elite military force member",
-            associated_name="sardaukar",
-            associated_title="Sardaukar",
-            primary_description="Hereditary ruler of the Imperium and the Known Universe",
-            primary_name="emperor",
-            primary_title="Emperor")
-        ```
-
-        ## Import
-
-        Okta Link Definition can be imported via the Okta Primary Link Name.
-
-        ```sh
-         $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
-        ```
-
+        Create a LinkDefinition resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] associated_description: Description of the associated relationship.
@@ -308,34 +281,7 @@ class LinkDefinition(pulumi.CustomResource):
                  args: LinkDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Link definition operations allow you to manage the creation and removal of the link definitions. If you remove a link
-        definition, links based on that definition are unavailable. Note that this resource is immutable, thus can not be modified.
-
-        > **NOTE:** Links reappear if you recreate the definition. However, Okta is likely to change this behavior so that links don't reappear. Don't rely on this behavior in production environments.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.LinkDefinition("example",
-            associated_description="Elite military force member",
-            associated_name="sardaukar",
-            associated_title="Sardaukar",
-            primary_description="Hereditary ruler of the Imperium and the Known Universe",
-            primary_name="emperor",
-            primary_title="Emperor")
-        ```
-
-        ## Import
-
-        Okta Link Definition can be imported via the Okta Primary Link Name.
-
-        ```sh
-         $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
-        ```
-
+        Create a LinkDefinition resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LinkDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

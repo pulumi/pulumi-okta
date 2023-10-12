@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Use this data source to retrieve a user type from Okta.
+// Get a user type from Okta.
 //
 // ## Example Usage
 //
@@ -51,19 +51,19 @@ func LookupUserType(ctx *pulumi.Context, args *LookupUserTypeArgs, opts ...pulum
 
 // A collection of arguments for invoking getUserType.
 type LookupUserTypeArgs struct {
-	// name of user type to retrieve.
+	// Name of user type to retrieve.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getUserType.
 type LookupUserTypeResult struct {
-	// description of user type.
+	// Description of user type.
 	Description string `pulumi:"description"`
-	// display name of user type.
+	// Display name of user type.
 	DisplayName string `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// name of user type.
+	// Name of user type to retrieve.
 	Name string `pulumi:"name"`
 }
 
@@ -82,7 +82,7 @@ func LookupUserTypeOutput(ctx *pulumi.Context, args LookupUserTypeOutputArgs, op
 
 // A collection of arguments for invoking getUserType.
 type LookupUserTypeOutputArgs struct {
-	// name of user type to retrieve.
+	// Name of user type to retrieve.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -111,12 +111,12 @@ func (o LookupUserTypeResultOutput) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
-// description of user type.
+// Description of user type.
 func (o LookupUserTypeResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserTypeResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// display name of user type.
+// Display name of user type.
 func (o LookupUserTypeResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserTypeResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
@@ -126,7 +126,7 @@ func (o LookupUserTypeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserTypeResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// name of user type.
+// Name of user type to retrieve.
 func (o LookupUserTypeResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserTypeResult) string { return v.Name }).(pulumi.StringOutput)
 }

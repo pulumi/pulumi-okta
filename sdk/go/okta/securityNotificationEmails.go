@@ -12,63 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// This resource allows you to configure Security Notification Emails.
-//
-// > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
-//
-// > **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewSecurityNotificationEmails(ctx, "example", &okta.SecurityNotificationEmailsArgs{
-//				ReportSuspiciousActivityEnabled:     pulumi.Bool(true),
-//				SendEmailForFactorEnrollmentEnabled: pulumi.Bool(true),
-//				SendEmailForFactorResetEnabled:      pulumi.Bool(true),
-//				SendEmailForNewDeviceEnabled:        pulumi.Bool(true),
-//				SendEmailForPasswordChangedEnabled:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Security Notification Emails can be imported without any parameters.
-//
-// ```sh
-//
-//	$ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
-//
-// ```
 type SecurityNotificationEmails struct {
 	pulumi.CustomResourceState
 
-	// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+	// Notifies end users about suspicious or unrecognized activity from their account
 	ReportSuspiciousActivityEnabled pulumi.BoolPtrOutput `pulumi:"reportSuspiciousActivityEnabled"`
-	// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+	// Notifies end users of any activity on their account related to MFA factor enrollment
 	SendEmailForFactorEnrollmentEnabled pulumi.BoolPtrOutput `pulumi:"sendEmailForFactorEnrollmentEnabled"`
-	// Notifies end users that one or more factors have been reset for their account. Default is `true`.
+	// Notifies end users that one or more factors have been reset for their account
 	SendEmailForFactorResetEnabled pulumi.BoolPtrOutput `pulumi:"sendEmailForFactorResetEnabled"`
-	// Notifies end users about new sign-on activity. Default is `true`.
+	// Notifies end users about new sign-on activity
 	SendEmailForNewDeviceEnabled pulumi.BoolPtrOutput `pulumi:"sendEmailForNewDeviceEnabled"`
-	// Notifies end users that the password for their account has changed. Default is `true`.
+	// Notifies end users that the password for their account has changed
 	SendEmailForPasswordChangedEnabled pulumi.BoolPtrOutput `pulumi:"sendEmailForPasswordChangedEnabled"`
 }
 
@@ -102,28 +57,28 @@ func GetSecurityNotificationEmails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityNotificationEmails resources.
 type securityNotificationEmailsState struct {
-	// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+	// Notifies end users about suspicious or unrecognized activity from their account
 	ReportSuspiciousActivityEnabled *bool `pulumi:"reportSuspiciousActivityEnabled"`
-	// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+	// Notifies end users of any activity on their account related to MFA factor enrollment
 	SendEmailForFactorEnrollmentEnabled *bool `pulumi:"sendEmailForFactorEnrollmentEnabled"`
-	// Notifies end users that one or more factors have been reset for their account. Default is `true`.
+	// Notifies end users that one or more factors have been reset for their account
 	SendEmailForFactorResetEnabled *bool `pulumi:"sendEmailForFactorResetEnabled"`
-	// Notifies end users about new sign-on activity. Default is `true`.
+	// Notifies end users about new sign-on activity
 	SendEmailForNewDeviceEnabled *bool `pulumi:"sendEmailForNewDeviceEnabled"`
-	// Notifies end users that the password for their account has changed. Default is `true`.
+	// Notifies end users that the password for their account has changed
 	SendEmailForPasswordChangedEnabled *bool `pulumi:"sendEmailForPasswordChangedEnabled"`
 }
 
 type SecurityNotificationEmailsState struct {
-	// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+	// Notifies end users about suspicious or unrecognized activity from their account
 	ReportSuspiciousActivityEnabled pulumi.BoolPtrInput
-	// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+	// Notifies end users of any activity on their account related to MFA factor enrollment
 	SendEmailForFactorEnrollmentEnabled pulumi.BoolPtrInput
-	// Notifies end users that one or more factors have been reset for their account. Default is `true`.
+	// Notifies end users that one or more factors have been reset for their account
 	SendEmailForFactorResetEnabled pulumi.BoolPtrInput
-	// Notifies end users about new sign-on activity. Default is `true`.
+	// Notifies end users about new sign-on activity
 	SendEmailForNewDeviceEnabled pulumi.BoolPtrInput
-	// Notifies end users that the password for their account has changed. Default is `true`.
+	// Notifies end users that the password for their account has changed
 	SendEmailForPasswordChangedEnabled pulumi.BoolPtrInput
 }
 
@@ -132,29 +87,29 @@ func (SecurityNotificationEmailsState) ElementType() reflect.Type {
 }
 
 type securityNotificationEmailsArgs struct {
-	// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+	// Notifies end users about suspicious or unrecognized activity from their account
 	ReportSuspiciousActivityEnabled *bool `pulumi:"reportSuspiciousActivityEnabled"`
-	// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+	// Notifies end users of any activity on their account related to MFA factor enrollment
 	SendEmailForFactorEnrollmentEnabled *bool `pulumi:"sendEmailForFactorEnrollmentEnabled"`
-	// Notifies end users that one or more factors have been reset for their account. Default is `true`.
+	// Notifies end users that one or more factors have been reset for their account
 	SendEmailForFactorResetEnabled *bool `pulumi:"sendEmailForFactorResetEnabled"`
-	// Notifies end users about new sign-on activity. Default is `true`.
+	// Notifies end users about new sign-on activity
 	SendEmailForNewDeviceEnabled *bool `pulumi:"sendEmailForNewDeviceEnabled"`
-	// Notifies end users that the password for their account has changed. Default is `true`.
+	// Notifies end users that the password for their account has changed
 	SendEmailForPasswordChangedEnabled *bool `pulumi:"sendEmailForPasswordChangedEnabled"`
 }
 
 // The set of arguments for constructing a SecurityNotificationEmails resource.
 type SecurityNotificationEmailsArgs struct {
-	// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+	// Notifies end users about suspicious or unrecognized activity from their account
 	ReportSuspiciousActivityEnabled pulumi.BoolPtrInput
-	// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+	// Notifies end users of any activity on their account related to MFA factor enrollment
 	SendEmailForFactorEnrollmentEnabled pulumi.BoolPtrInput
-	// Notifies end users that one or more factors have been reset for their account. Default is `true`.
+	// Notifies end users that one or more factors have been reset for their account
 	SendEmailForFactorResetEnabled pulumi.BoolPtrInput
-	// Notifies end users about new sign-on activity. Default is `true`.
+	// Notifies end users about new sign-on activity
 	SendEmailForNewDeviceEnabled pulumi.BoolPtrInput
-	// Notifies end users that the password for their account has changed. Default is `true`.
+	// Notifies end users that the password for their account has changed
 	SendEmailForPasswordChangedEnabled pulumi.BoolPtrInput
 }
 
@@ -269,27 +224,27 @@ func (o SecurityNotificationEmailsOutput) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
-// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+// Notifies end users about suspicious or unrecognized activity from their account
 func (o SecurityNotificationEmailsOutput) ReportSuspiciousActivityEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityNotificationEmails) pulumi.BoolPtrOutput { return v.ReportSuspiciousActivityEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+// Notifies end users of any activity on their account related to MFA factor enrollment
 func (o SecurityNotificationEmailsOutput) SendEmailForFactorEnrollmentEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityNotificationEmails) pulumi.BoolPtrOutput { return v.SendEmailForFactorEnrollmentEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Notifies end users that one or more factors have been reset for their account. Default is `true`.
+// Notifies end users that one or more factors have been reset for their account
 func (o SecurityNotificationEmailsOutput) SendEmailForFactorResetEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityNotificationEmails) pulumi.BoolPtrOutput { return v.SendEmailForFactorResetEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Notifies end users about new sign-on activity. Default is `true`.
+// Notifies end users about new sign-on activity
 func (o SecurityNotificationEmailsOutput) SendEmailForNewDeviceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityNotificationEmails) pulumi.BoolPtrOutput { return v.SendEmailForNewDeviceEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Notifies end users that the password for their account has changed. Default is `true`.
+// Notifies end users that the password for their account has changed
 func (o SecurityNotificationEmailsOutput) SendEmailForPasswordChangedEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityNotificationEmails) pulumi.BoolPtrOutput { return v.SendEmailForPasswordChangedEnabled }).(pulumi.BoolPtrOutput)
 }

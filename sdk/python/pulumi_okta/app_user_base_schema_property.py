@@ -26,14 +26,14 @@ class AppUserBaseSchemaPropertyArgs:
         """
         The set of arguments for constructing a AppUserBaseSchemaProperty resource.
         :param pulumi.Input[str] app_id: The Application's ID the user schema property should be assigned to.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] title: The property display name.
-        :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this application's users.
-        :param pulumi.Input[str] user_type: User type ID. By default, it is `"default"`.
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] title: Subschema title (display name)
+        :param pulumi.Input[str] type: Subschema type: string, boolean, number, integer, array, or object
+        :param pulumi.Input[str] master: SubSchema profile manager, if not set it will inherit its setting.
+        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
+        :param pulumi.Input[str] permissions: SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         AppUserBaseSchemaPropertyArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -91,7 +91,7 @@ class AppUserBaseSchemaPropertyArgs:
     @pulumi.getter
     def index(self) -> pulumi.Input[str]:
         """
-        The property name.
+        Subschema unique string identifier
         """
         return pulumi.get(self, "index")
 
@@ -103,7 +103,7 @@ class AppUserBaseSchemaPropertyArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        The property display name.
+        Subschema title (display name)
         """
         return pulumi.get(self, "title")
 
@@ -115,7 +115,7 @@ class AppUserBaseSchemaPropertyArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        Subschema type: string, boolean, number, integer, array, or object
         """
         return pulumi.get(self, "type")
 
@@ -127,7 +127,7 @@ class AppUserBaseSchemaPropertyArgs:
     @pulumi.getter
     def master(self) -> Optional[pulumi.Input[str]]:
         """
-        Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        SubSchema profile manager, if not set it will inherit its setting.
         """
         return pulumi.get(self, "master")
 
@@ -139,7 +139,7 @@ class AppUserBaseSchemaPropertyArgs:
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+        The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
         """
         return pulumi.get(self, "pattern")
 
@@ -151,7 +151,7 @@ class AppUserBaseSchemaPropertyArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
         """
-        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
         """
         return pulumi.get(self, "permissions")
 
@@ -163,7 +163,7 @@ class AppUserBaseSchemaPropertyArgs:
     @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the property is required for this application's users.
+        Whether the subschema is required
         """
         return pulumi.get(self, "required")
 
@@ -175,7 +175,7 @@ class AppUserBaseSchemaPropertyArgs:
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
         """
-        User type ID. By default, it is `"default"`.
+        Custom subschema user type
         """
         return pulumi.get(self, "user_type")
 
@@ -199,14 +199,14 @@ class _AppUserBaseSchemaPropertyState:
         """
         Input properties used for looking up and filtering AppUserBaseSchemaProperty resources.
         :param pulumi.Input[str] app_id: The Application's ID the user schema property should be assigned to.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this application's users.
-        :param pulumi.Input[str] title: The property display name.
-        :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[str] user_type: User type ID. By default, it is `"default"`.
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] master: SubSchema profile manager, if not set it will inherit its setting.
+        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
+        :param pulumi.Input[str] permissions: SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] title: Subschema title (display name)
+        :param pulumi.Input[str] type: Subschema type: string, boolean, number, integer, array, or object
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         _AppUserBaseSchemaPropertyState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -268,7 +268,7 @@ class _AppUserBaseSchemaPropertyState:
     @pulumi.getter
     def index(self) -> Optional[pulumi.Input[str]]:
         """
-        The property name.
+        Subschema unique string identifier
         """
         return pulumi.get(self, "index")
 
@@ -280,7 +280,7 @@ class _AppUserBaseSchemaPropertyState:
     @pulumi.getter
     def master(self) -> Optional[pulumi.Input[str]]:
         """
-        Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        SubSchema profile manager, if not set it will inherit its setting.
         """
         return pulumi.get(self, "master")
 
@@ -292,7 +292,7 @@ class _AppUserBaseSchemaPropertyState:
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+        The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
         """
         return pulumi.get(self, "pattern")
 
@@ -304,7 +304,7 @@ class _AppUserBaseSchemaPropertyState:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
         """
-        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
         """
         return pulumi.get(self, "permissions")
 
@@ -316,7 +316,7 @@ class _AppUserBaseSchemaPropertyState:
     @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the property is required for this application's users.
+        Whether the subschema is required
         """
         return pulumi.get(self, "required")
 
@@ -328,7 +328,7 @@ class _AppUserBaseSchemaPropertyState:
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
         """
-        The property display name.
+        Subschema title (display name)
         """
         return pulumi.get(self, "title")
 
@@ -340,7 +340,7 @@ class _AppUserBaseSchemaPropertyState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        Subschema type: string, boolean, number, integer, array, or object
         """
         return pulumi.get(self, "type")
 
@@ -352,7 +352,7 @@ class _AppUserBaseSchemaPropertyState:
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
         """
-        User type ID. By default, it is `"default"`.
+        Custom subschema user type
         """
         return pulumi.get(self, "user_type")
 
@@ -377,43 +377,18 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
                  user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Application User Base Schema property.
-
-        This resource allows you to configure a base app user schema property.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.AppUserBaseSchemaProperty("example",
-            app_id="<app id>",
-            index="customPropertyName",
-            master="OKTA",
-            title="customPropertyName",
-            type="string")
-        ```
-
-        ## Import
-
-        App user base schema property can be imported via the property index and app id.
-
-        ```sh
-         $ pulumi import okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
-        ```
-
+        Create a AppUserBaseSchemaProperty resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The Application's ID the user schema property should be assigned to.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this application's users.
-        :param pulumi.Input[str] title: The property display name.
-        :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[str] user_type: User type ID. By default, it is `"default"`.
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] master: SubSchema profile manager, if not set it will inherit its setting.
+        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
+        :param pulumi.Input[str] permissions: SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] title: Subschema title (display name)
+        :param pulumi.Input[str] type: Subschema type: string, boolean, number, integer, array, or object
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         ...
     @overload
@@ -422,32 +397,7 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
                  args: AppUserBaseSchemaPropertyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Application User Base Schema property.
-
-        This resource allows you to configure a base app user schema property.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.AppUserBaseSchemaProperty("example",
-            app_id="<app id>",
-            index="customPropertyName",
-            master="OKTA",
-            title="customPropertyName",
-            type="string")
-        ```
-
-        ## Import
-
-        App user base schema property can be imported via the property index and app id.
-
-        ```sh
-         $ pulumi import okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
-        ```
-
+        Create a AppUserBaseSchemaProperty resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppUserBaseSchemaPropertyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -529,14 +479,14 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The Application's ID the user schema property should be assigned to.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this application's users.
-        :param pulumi.Input[str] title: The property display name.
-        :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[str] user_type: User type ID. By default, it is `"default"`.
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] master: SubSchema profile manager, if not set it will inherit its setting.
+        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
+        :param pulumi.Input[str] permissions: SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] title: Subschema title (display name)
+        :param pulumi.Input[str] type: Subschema type: string, boolean, number, integer, array, or object
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -565,7 +515,7 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def index(self) -> pulumi.Output[str]:
         """
-        The property name.
+        Subschema unique string identifier
         """
         return pulumi.get(self, "index")
 
@@ -573,7 +523,7 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def master(self) -> pulumi.Output[Optional[str]]:
         """
-        Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+        SubSchema profile manager, if not set it will inherit its setting.
         """
         return pulumi.get(self, "master")
 
@@ -581,7 +531,7 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
+        The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
         """
         return pulumi.get(self, "pattern")
 
@@ -589,7 +539,7 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[str]]:
         """
-        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
         """
         return pulumi.get(self, "permissions")
 
@@ -597,7 +547,7 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def required(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the property is required for this application's users.
+        Whether the subschema is required
         """
         return pulumi.get(self, "required")
 
@@ -605,7 +555,7 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
         """
-        The property display name.
+        Subschema title (display name)
         """
         return pulumi.get(self, "title")
 
@@ -613,7 +563,7 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        Subschema type: string, boolean, number, integer, array, or object
         """
         return pulumi.get(self, "type")
 
@@ -621,7 +571,7 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="userType")
     def user_type(self) -> pulumi.Output[Optional[str]]:
         """
-        User type ID. By default, it is `"default"`.
+        Custom subschema user type
         """
         return pulumi.get(self, "user_type")
 

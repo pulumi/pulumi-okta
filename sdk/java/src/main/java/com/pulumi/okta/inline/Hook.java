@@ -17,116 +17,29 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates an inline hook.
- * 
- * This resource allows you to create and configure an inline hook.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.inline.Hook;
- * import com.pulumi.okta.inline.HookArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Hook(&#34;example&#34;, HookArgs.builder()        
- *             .auth(Map.ofEntries(
- *                 Map.entry(&#34;key&#34;, &#34;Authorization&#34;),
- *                 Map.entry(&#34;type&#34;, &#34;HEADER&#34;),
- *                 Map.entry(&#34;value&#34;, &#34;secret&#34;)
- *             ))
- *             .channel(Map.ofEntries(
- *                 Map.entry(&#34;method&#34;, &#34;POST&#34;),
- *                 Map.entry(&#34;uri&#34;, &#34;https://example.com/test&#34;),
- *                 Map.entry(&#34;version&#34;, &#34;1.0.0&#34;)
- *             ))
- *             .type(&#34;com.okta.oauth2.tokens.transform&#34;)
- *             .version(&#34;1.0.0&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * An inline hook can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:inline/hook:Hook example &amp;#60;hook id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:inline/hook:Hook")
 public class Hook extends com.pulumi.resources.CustomResource {
-    /**
-     * Authentication required for inline hook request.
-     * 
-     */
     @Export(name="auth", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> auth;
 
-    /**
-     * @return Authentication required for inline hook request.
-     * 
-     */
     public Output<Optional<Map<String,String>>> auth() {
         return Codegen.optional(this.auth);
     }
-    /**
-     * Details of the endpoint the inline hook will hit.
-     * 
-     */
     @Export(name="channel", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> channel;
 
-    /**
-     * @return Details of the endpoint the inline hook will hit.
-     * 
-     */
     public Output<Map<String,String>> channel() {
         return this.channel;
     }
-    /**
-     * Map of headers to send along in inline hook request.
-     * 
-     */
     @Export(name="headers", refs={List.class,HookHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<HookHeader>> headers;
 
-    /**
-     * @return Map of headers to send along in inline hook request.
-     * 
-     */
     public Output<Optional<List<HookHeader>>> headers() {
         return Codegen.optional(this.headers);
     }
-    /**
-     * The inline hook display name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The inline hook display name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -136,31 +49,15 @@ public class Hook extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
-    /**
-     * The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }

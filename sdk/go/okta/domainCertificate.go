@@ -13,76 +13,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewDomain(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = okta.NewDomainCertificate(ctx, "test", &okta.DomainCertificateArgs{
-//				DomainId: pulumi.Any(okta_domain.Test.Id),
-//				Type:     pulumi.String("PEM"),
-//				Certificate: pulumi.String(`-----BEGIN CERTIFICATE-----
-//
-// MIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA
-// ...
-// NSgRtSXq11j8O4JONi8EXe7cEtvzUiLR5PL3itsK2svtrZ9jIwQ95wOPaA==
-// -----END CERTIFICATE-----
-// `),
-//
-//	CertificateChain: pulumi.String(`-----BEGIN CERTIFICATE-----
-//
-// MIIFFjCCAv6gAwIBAgIRAJErCErPDBinU/bWLiWnX1owDQYJKoZIhvcNAQELBQAw
-// ...
-// Dfvp7OOGAN6dEOM4+qR9sdjoSYKEBpsr6GtPAQw4dy753ec5
-// -----END CERTIFICATE-----
-// `),
-//
-//	PrivateKey: pulumi.String(`-----BEGIN PRIVATE KEY-----
-//
-// MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC5cyk6x63iBJSW
-// ...
-// nUFLNE8pXSnsqb0eOL74f3uQ
-// -----END PRIVATE KEY-----
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// This resource does not support importing.
 type DomainCertificate struct {
 	pulumi.CustomResourceState
 
-	// Certificate content.
+	// Certificate content
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
-	// Certificate certificate chain.
+	// Certificate chain
 	CertificateChain pulumi.StringOutput `pulumi:"certificateChain"`
-	// Domain ID.
+	// Domain's ID
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
-	// Certificate private key.
+	// Certificate private key
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
-	// Certificate type. Valid value is `"PEM"`.
+	// Certificate type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -131,28 +73,28 @@ func GetDomainCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainCertificate resources.
 type domainCertificateState struct {
-	// Certificate content.
+	// Certificate content
 	Certificate *string `pulumi:"certificate"`
-	// Certificate certificate chain.
+	// Certificate chain
 	CertificateChain *string `pulumi:"certificateChain"`
-	// Domain ID.
+	// Domain's ID
 	DomainId *string `pulumi:"domainId"`
-	// Certificate private key.
+	// Certificate private key
 	PrivateKey *string `pulumi:"privateKey"`
-	// Certificate type. Valid value is `"PEM"`.
+	// Certificate type
 	Type *string `pulumi:"type"`
 }
 
 type DomainCertificateState struct {
-	// Certificate content.
+	// Certificate content
 	Certificate pulumi.StringPtrInput
-	// Certificate certificate chain.
+	// Certificate chain
 	CertificateChain pulumi.StringPtrInput
-	// Domain ID.
+	// Domain's ID
 	DomainId pulumi.StringPtrInput
-	// Certificate private key.
+	// Certificate private key
 	PrivateKey pulumi.StringPtrInput
-	// Certificate type. Valid value is `"PEM"`.
+	// Certificate type
 	Type pulumi.StringPtrInput
 }
 
@@ -161,29 +103,29 @@ func (DomainCertificateState) ElementType() reflect.Type {
 }
 
 type domainCertificateArgs struct {
-	// Certificate content.
+	// Certificate content
 	Certificate string `pulumi:"certificate"`
-	// Certificate certificate chain.
+	// Certificate chain
 	CertificateChain string `pulumi:"certificateChain"`
-	// Domain ID.
+	// Domain's ID
 	DomainId string `pulumi:"domainId"`
-	// Certificate private key.
+	// Certificate private key
 	PrivateKey string `pulumi:"privateKey"`
-	// Certificate type. Valid value is `"PEM"`.
+	// Certificate type
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DomainCertificate resource.
 type DomainCertificateArgs struct {
-	// Certificate content.
+	// Certificate content
 	Certificate pulumi.StringInput
-	// Certificate certificate chain.
+	// Certificate chain
 	CertificateChain pulumi.StringInput
-	// Domain ID.
+	// Domain's ID
 	DomainId pulumi.StringInput
-	// Certificate private key.
+	// Certificate private key
 	PrivateKey pulumi.StringInput
-	// Certificate type. Valid value is `"PEM"`.
+	// Certificate type
 	Type pulumi.StringInput
 }
 
@@ -298,27 +240,27 @@ func (o DomainCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*D
 	}
 }
 
-// Certificate content.
+// Certificate content
 func (o DomainCertificateOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainCertificate) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
 }
 
-// Certificate certificate chain.
+// Certificate chain
 func (o DomainCertificateOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainCertificate) pulumi.StringOutput { return v.CertificateChain }).(pulumi.StringOutput)
 }
 
-// Domain ID.
+// Domain's ID
 func (o DomainCertificateOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainCertificate) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
-// Certificate private key.
+// Certificate private key
 func (o DomainCertificateOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainCertificate) pulumi.StringOutput { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// Certificate type. Valid value is `"PEM"`.
+// Certificate type
 func (o DomainCertificateOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainCertificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

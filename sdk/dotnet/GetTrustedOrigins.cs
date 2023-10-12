@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     public static class GetTrustedOrigins
     {
         /// <summary>
-        /// This resource allows you to retrieve a list of trusted origins from Okta.
+        /// Get List of Trusted Origins using filters.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -37,7 +37,7 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustedOriginsResult>("okta:index/getTrustedOrigins:getTrustedOrigins", args ?? new GetTrustedOriginsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This resource allows you to retrieve a list of trusted origins from Okta.
+        /// Get List of Trusted Origins using filters.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -66,7 +66,7 @@ namespace Pulumi.Okta
     public sealed class GetTrustedOriginsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+        /// Filter criteria. Filter value will be URL-encoded by the provider
         /// </summary>
         [Input("filter")]
         public string? Filter { get; set; }
@@ -80,7 +80,7 @@ namespace Pulumi.Okta
     public sealed class GetTrustedOriginsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+        /// Filter criteria. Filter value will be URL-encoded by the provider
         /// </summary>
         [Input("filter")]
         public Input<string>? Filter { get; set; }
@@ -95,6 +95,9 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetTrustedOriginsResult
     {
+        /// <summary>
+        /// Filter criteria. Filter value will be URL-encoded by the provider
+        /// </summary>
         public readonly string? Filter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

@@ -17,14 +17,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     public static final SwaArgs Empty = new SwaArgs();
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      * 
      */
     @Import(name="accessibilityErrorRedirectUrl")
     private @Nullable Output<String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL.
+     * @return Custom error page URL
      * 
      */
     public Optional<Output<String>> accessibilityErrorRedirectUrl() {
@@ -32,14 +32,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      * 
      */
     @Import(name="accessibilityLoginRedirectUrl")
     private @Nullable Output<String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page for this application.
+     * @return Custom login page URL
      * 
      */
     public Optional<Output<String>> accessibilityLoginRedirectUrl() {
@@ -47,14 +47,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service
      * 
      */
     @Import(name="accessibilitySelfService")
     private @Nullable Output<Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self-service. By default, it is `false`.
+     * @return Enable self service
      * 
      */
     public Optional<Output<Boolean>> accessibilitySelfService() {
@@ -77,14 +77,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Displays specific appLinks for the app. The value for each application link should be boolean.
+     * Displays specific appLinks for the app
      * 
      */
     @Import(name="appLinksJson")
     private @Nullable Output<String> appLinksJson;
 
     /**
-     * @return Displays specific appLinks for the app. The value for each application link should be boolean.
+     * @return Displays specific appLinks for the app
      * 
      */
     public Optional<Output<String>> appLinksJson() {
@@ -92,14 +92,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      * 
      */
     @Import(name="autoSubmitToolbar")
     private @Nullable Output<Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     public Optional<Output<Boolean>> autoSubmitToolbar() {
@@ -107,14 +107,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Login button field.
+     * Login button field
      * 
      */
     @Import(name="buttonField")
     private @Nullable Output<String> buttonField;
 
     /**
-     * @return Login button field.
+     * @return Login button field
      * 
      */
     public Optional<Output<String>> buttonField() {
@@ -122,14 +122,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * CSS selector for the checkbox.
+     * CSS selector for the checkbox
      * 
      */
     @Import(name="checkbox")
     private @Nullable Output<String> checkbox;
 
     /**
-     * @return CSS selector for the checkbox.
+     * @return CSS selector for the checkbox
      * 
      */
     public Optional<Output<String>> checkbox() {
@@ -152,14 +152,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      * 
      */
     @Import(name="hideIos")
     private @Nullable Output<Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     public Optional<Output<Boolean>> hideIos() {
@@ -167,14 +167,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      * 
      */
     @Import(name="hideWeb")
     private @Nullable Output<Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users.
+     * @return Do not display application icon to users
      * 
      */
     public Optional<Output<Boolean>> hideWeb() {
@@ -182,14 +182,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The display name of the Application.
+     * Pretty name of app.
      * 
      */
     @Import(name="label", required=true)
     private Output<String> label;
 
     /**
-     * @return The display name of the Application.
+     * @return Pretty name of app.
      * 
      */
     public Output<String> label() {
@@ -197,14 +197,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to logo of the application.
      * 
      */
     @Import(name="logo")
     private @Nullable Output<String> logo;
 
     /**
-     * @return Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * @return Local path to logo of the application.
      * 
      */
     public Optional<Output<String>> logo() {
@@ -212,14 +212,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Login password field.
+     * Login password field
      * 
      */
     @Import(name="passwordField")
     private @Nullable Output<String> passwordField;
 
     /**
-     * @return Login password field.
+     * @return Login password field
      * 
      */
     public Optional<Output<String>> passwordField() {
@@ -227,14 +227,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.
+     * Preconfigured app name
      * 
      */
     @Import(name="preconfiguredApp")
     private @Nullable Output<String> preconfiguredApp;
 
     /**
-     * @return name of application from the Okta Integration Network, if not included a custom app will be created.
+     * @return Preconfigured app name
      * 
      */
     public Optional<Output<String>> preconfiguredApp() {
@@ -242,14 +242,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+     * If going to the login page URL redirects to another page, then enter that URL here
      * 
      */
     @Import(name="redirectUrl")
     private @Nullable Output<String> redirectUrl;
 
     /**
-     * @return Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+     * @return If going to the login page URL redirects to another page, then enter that URL here
      * 
      */
     public Optional<Output<String>> redirectUrl() {
@@ -257,14 +257,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of application. By default, it is `&#34;ACTIVE&#34;`.
+     * Status of application.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of application. By default, it is `&#34;ACTIVE&#34;`.
+     * @return Status of application.
      * 
      */
     public Optional<Output<String>> status() {
@@ -272,14 +272,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL of the sign-in page for this app.
+     * Login URL
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL of the sign-in page for this app.
+     * @return Login URL
      * 
      */
     public Optional<Output<String>> url() {
@@ -287,14 +287,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A regular expression that further restricts url to the specified regular expression.
+     * A regex that further restricts URL to the specified regex
      * 
      */
     @Import(name="urlRegex")
     private @Nullable Output<String> urlRegex;
 
     /**
-     * @return A regular expression that further restricts url to the specified regular expression.
+     * @return A regex that further restricts URL to the specified regex
      * 
      */
     public Optional<Output<String>> urlRegex() {
@@ -302,14 +302,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template. Default: `&#34;${source.login}&#34;`
+     * Username template
      * 
      */
     @Import(name="userNameTemplate")
     private @Nullable Output<String> userNameTemplate;
 
     /**
-     * @return Username template. Default: `&#34;${source.login}&#34;`
+     * @return Username template
      * 
      */
     public Optional<Output<String>> userNameTemplate() {
@@ -317,14 +317,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * Push username on update
      * 
      */
     @Import(name="userNameTemplatePushStatus")
     private @Nullable Output<String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * @return Push username on update
      * 
      */
     public Optional<Output<String>> userNameTemplatePushStatus() {
@@ -332,14 +332,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template suffix.
+     * Username template suffix
      * 
      */
     @Import(name="userNameTemplateSuffix")
     private @Nullable Output<String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix.
+     * @return Username template suffix
      * 
      */
     public Optional<Output<String>> userNameTemplateSuffix() {
@@ -347,14 +347,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * Username template type
      * 
      */
     @Import(name="userNameTemplateType")
     private @Nullable Output<String> userNameTemplateType;
 
     /**
-     * @return Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * @return Username template type
      * 
      */
     public Optional<Output<String>> userNameTemplateType() {
@@ -362,14 +362,14 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Login username field.
+     * Login username field
      * 
      */
     @Import(name="usernameField")
     private @Nullable Output<String> usernameField;
 
     /**
-     * @return Login username field.
+     * @return Login username field
      * 
      */
     public Optional<Output<String>> usernameField() {
@@ -424,7 +424,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appLinksJson Displays specific appLinks for the app. The value for each application link should be boolean.
+         * @param appLinksJson Displays specific appLinks for the app
          * 
          * @return builder
          * 
@@ -519,7 +519,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appLinksJson Displays specific appLinks for the app. The value for each application link should be boolean.
+         * @param appLinksJson Displays specific appLinks for the app
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buttonField Login button field.
+         * @param buttonField Login button field
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buttonField Login button field.
+         * @param buttonField Login button field
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checkbox CSS selector for the checkbox.
+         * @param checkbox CSS selector for the checkbox
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checkbox CSS selector for the checkbox.
+         * @param checkbox CSS selector for the checkbox
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -624,7 +624,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -645,7 +645,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -655,7 +655,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param label The display name of the Application.
+         * @param label Pretty name of app.
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param label The display name of the Application.
+         * @param label Pretty name of app.
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+         * @param logo Local path to logo of the application.
          * 
          * @return builder
          * 
@@ -687,7 +687,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+         * @param logo Local path to logo of the application.
          * 
          * @return builder
          * 
@@ -697,7 +697,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordField Login password field.
+         * @param passwordField Login password field
          * 
          * @return builder
          * 
@@ -708,7 +708,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordField Login password field.
+         * @param passwordField Login password field
          * 
          * @return builder
          * 
@@ -718,7 +718,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preconfiguredApp name of application from the Okta Integration Network, if not included a custom app will be created.
+         * @param preconfiguredApp Preconfigured app name
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preconfiguredApp name of application from the Okta Integration Network, if not included a custom app will be created.
+         * @param preconfiguredApp Preconfigured app name
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectUrl Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+         * @param redirectUrl If going to the login page URL redirects to another page, then enter that URL here
          * 
          * @return builder
          * 
@@ -750,7 +750,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectUrl Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+         * @param redirectUrl If going to the login page URL redirects to another page, then enter that URL here
          * 
          * @return builder
          * 
@@ -760,7 +760,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of application. By default, it is `&#34;ACTIVE&#34;`.
+         * @param status Status of application.
          * 
          * @return builder
          * 
@@ -771,7 +771,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of application. By default, it is `&#34;ACTIVE&#34;`.
+         * @param status Status of application.
          * 
          * @return builder
          * 
@@ -781,7 +781,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the sign-in page for this app.
+         * @param url Login URL
          * 
          * @return builder
          * 
@@ -792,7 +792,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the sign-in page for this app.
+         * @param url Login URL
          * 
          * @return builder
          * 
@@ -802,7 +802,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param urlRegex A regular expression that further restricts url to the specified regular expression.
+         * @param urlRegex A regex that further restricts URL to the specified regex
          * 
          * @return builder
          * 
@@ -813,7 +813,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param urlRegex A regular expression that further restricts url to the specified regular expression.
+         * @param urlRegex A regex that further restricts URL to the specified regex
          * 
          * @return builder
          * 
@@ -823,7 +823,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
+         * @param userNameTemplate Username template
          * 
          * @return builder
          * 
@@ -834,7 +834,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
+         * @param userNameTemplate Username template
          * 
          * @return builder
          * 
@@ -844,7 +844,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+         * @param userNameTemplatePushStatus Push username on update
          * 
          * @return builder
          * 
@@ -855,7 +855,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+         * @param userNameTemplatePushStatus Push username on update
          * 
          * @return builder
          * 
@@ -865,7 +865,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix.
+         * @param userNameTemplateSuffix Username template suffix
          * 
          * @return builder
          * 
@@ -876,7 +876,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix.
+         * @param userNameTemplateSuffix Username template suffix
          * 
          * @return builder
          * 
@@ -886,7 +886,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
+         * @param userNameTemplateType Username template type
          * 
          * @return builder
          * 
@@ -897,7 +897,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
+         * @param userNameTemplateType Username template type
          * 
          * @return builder
          * 
@@ -907,7 +907,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameField Login username field.
+         * @param usernameField Login username field
          * 
          * @return builder
          * 
@@ -918,7 +918,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameField Login username field.
+         * @param usernameField Login username field
          * 
          * @return builder
          * 

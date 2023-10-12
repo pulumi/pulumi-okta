@@ -33,14 +33,14 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the authorization server.
+     * Auth server ID
      * 
      */
     @Import(name="authServerId")
     private @Nullable Output<String> authServerId;
 
     /**
-     * @return ID of the authorization server.
+     * @return Auth server ID
      * 
      */
     public Optional<Output<String>> authServerId() {
@@ -48,14 +48,14 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+     * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      * 
      */
     @Import(name="claimType")
     private @Nullable Output<String> claimType;
 
     /**
-     * @return Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+     * @return Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      * 
      */
     public Optional<Output<String>> claimType() {
@@ -63,14 +63,14 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of group filter if `value_type` is `&#34;GROUPS&#34;`. Can be set to one of the following `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+     * Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      * 
      */
     @Import(name="groupFilterType")
     private @Nullable Output<String> groupFilterType;
 
     /**
-     * @return Specifies the type of group filter if `value_type` is `&#34;GROUPS&#34;`. Can be set to one of the following `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+     * @return Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      * 
      */
     public Optional<Output<String>> groupFilterType() {
@@ -78,14 +78,14 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the claim.
+     * Auth server claim name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the claim.
+     * @return Auth server claim name
      * 
      */
     public Optional<Output<String>> name() {
@@ -93,31 +93,23 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of scopes the auth server claim is tied to.
+     * Auth server claim list of scopes
      * 
      */
     @Import(name="scopes")
     private @Nullable Output<List<String>> scopes;
 
     /**
-     * @return The list of scopes the auth server claim is tied to.
+     * @return Auth server claim list of scopes
      * 
      */
     public Optional<Output<List<String>>> scopes() {
         return Optional.ofNullable(this.scopes);
     }
 
-    /**
-     * The status of the application. It defaults to `&#34;ACTIVE&#34;`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the application. It defaults to `&#34;ACTIVE&#34;`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -138,14 +130,14 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of value of the claim. It can be set to `&#34;EXPRESSION&#34;` or `&#34;GROUPS&#34;`. It defaults to `&#34;EXPRESSION&#34;`.
+     * The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      * 
      */
     @Import(name="valueType")
     private @Nullable Output<String> valueType;
 
     /**
-     * @return The type of value of the claim. It can be set to `&#34;EXPRESSION&#34;` or `&#34;GROUPS&#34;`. It defaults to `&#34;EXPRESSION&#34;`.
+     * @return The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      * 
      */
     public Optional<Output<String>> valueType() {
@@ -206,7 +198,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authServerId ID of the authorization server.
+         * @param authServerId Auth server ID
          * 
          * @return builder
          * 
@@ -217,7 +209,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authServerId ID of the authorization server.
+         * @param authServerId Auth server ID
          * 
          * @return builder
          * 
@@ -227,7 +219,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param claimType Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+         * @param claimType Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
          * 
          * @return builder
          * 
@@ -238,7 +230,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param claimType Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+         * @param claimType Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
          * 
          * @return builder
          * 
@@ -248,7 +240,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupFilterType Specifies the type of group filter if `value_type` is `&#34;GROUPS&#34;`. Can be set to one of the following `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+         * @param groupFilterType Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
          * 
          * @return builder
          * 
@@ -259,7 +251,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupFilterType Specifies the type of group filter if `value_type` is `&#34;GROUPS&#34;`. Can be set to one of the following `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+         * @param groupFilterType Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
          * 
          * @return builder
          * 
@@ -269,7 +261,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the claim.
+         * @param name Auth server claim name
          * 
          * @return builder
          * 
@@ -280,7 +272,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the claim.
+         * @param name Auth server claim name
          * 
          * @return builder
          * 
@@ -290,7 +282,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopes The list of scopes the auth server claim is tied to.
+         * @param scopes Auth server claim list of scopes
          * 
          * @return builder
          * 
@@ -301,7 +293,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopes The list of scopes the auth server claim is tied to.
+         * @param scopes Auth server claim list of scopes
          * 
          * @return builder
          * 
@@ -311,7 +303,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopes The list of scopes the auth server claim is tied to.
+         * @param scopes Auth server claim list of scopes
          * 
          * @return builder
          * 
@@ -320,23 +312,11 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
             return scopes(List.of(scopes));
         }
 
-        /**
-         * @param status The status of the application. It defaults to `&#34;ACTIVE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the application. It defaults to `&#34;ACTIVE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
@@ -363,7 +343,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueType The type of value of the claim. It can be set to `&#34;EXPRESSION&#34;` or `&#34;GROUPS&#34;`. It defaults to `&#34;EXPRESSION&#34;`.
+         * @param valueType The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
          * 
          * @return builder
          * 
@@ -374,7 +354,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueType The type of value of the claim. It can be set to `&#34;EXPRESSION&#34;` or `&#34;GROUPS&#34;`. It defaults to `&#34;EXPRESSION&#34;`.
+         * @param valueType The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
          * 
          * @return builder
          * 

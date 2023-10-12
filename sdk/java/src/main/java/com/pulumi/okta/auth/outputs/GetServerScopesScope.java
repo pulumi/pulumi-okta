@@ -10,105 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerScopesScope {
-    /**
-     * @return Indicates whether a consent dialog is needed for the Scope
-     * 
-     */
     private String consent;
-    /**
-     * @return Whether the Scope is a default Scope
-     * 
-     */
     private Boolean default_;
-    /**
-     * @return Description of the Scope
-     * 
-     */
     private String description;
-    /**
-     * @return Name of the end user displayed in a consent dialog box
-     * 
-     */
     private String displayName;
-    /**
-     * @return ID of the Scope
-     * 
-     */
     private String id;
-    /**
-     * @return Whether the Scope should be included in the metadata
-     * 
-     */
     private String metadataPublish;
-    /**
-     * @return Name of the Scope
-     * 
-     */
     private String name;
     private Boolean optional;
-    /**
-     * @return Whether Okta created the Scope
-     * 
-     */
     private Boolean system;
 
     private GetServerScopesScope() {}
-    /**
-     * @return Indicates whether a consent dialog is needed for the Scope
-     * 
-     */
     public String consent() {
         return this.consent;
     }
-    /**
-     * @return Whether the Scope is a default Scope
-     * 
-     */
     public Boolean default_() {
         return this.default_;
     }
-    /**
-     * @return Description of the Scope
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Name of the end user displayed in a consent dialog box
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
-    /**
-     * @return ID of the Scope
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Whether the Scope should be included in the metadata
-     * 
-     */
     public String metadataPublish() {
         return this.metadataPublish;
     }
-    /**
-     * @return Name of the Scope
-     * 
-     */
     public String name() {
         return this.name;
     }
     public Boolean optional() {
         return this.optional;
     }
-    /**
-     * @return Whether Okta created the Scope
-     * 
-     */
     public Boolean system() {
         return this.system;
     }

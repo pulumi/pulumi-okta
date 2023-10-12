@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Use this data source to retrieve a behaviors from Okta.
+// Get a behaviors by search criteria.
 //
 // ## Example Usage
 //
@@ -51,17 +51,17 @@ func GetBehaviours(ctx *pulumi.Context, args *GetBehavioursArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getBehaviours.
 type GetBehavioursArgs struct {
-	// Searches query to look up behaviors.
+	// Searches the name property of behaviors for matching value
 	Q *string `pulumi:"q"`
 }
 
 // A collection of values returned by getBehaviours.
 type GetBehavioursResult struct {
-	// List of behaviors.
 	Behaviors []GetBehavioursBehavior `pulumi:"behaviors"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string  `pulumi:"id"`
-	Q  *string `pulumi:"q"`
+	Id string `pulumi:"id"`
+	// Searches the name property of behaviors for matching value
+	Q *string `pulumi:"q"`
 }
 
 func GetBehavioursOutput(ctx *pulumi.Context, args GetBehavioursOutputArgs, opts ...pulumi.InvokeOption) GetBehavioursResultOutput {
@@ -79,7 +79,7 @@ func GetBehavioursOutput(ctx *pulumi.Context, args GetBehavioursOutputArgs, opts
 
 // A collection of arguments for invoking getBehaviours.
 type GetBehavioursOutputArgs struct {
-	// Searches query to look up behaviors.
+	// Searches the name property of behaviors for matching value
 	Q pulumi.StringPtrInput `pulumi:"q"`
 }
 
@@ -108,7 +108,6 @@ func (o GetBehavioursResultOutput) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
-// List of behaviors.
 func (o GetBehavioursResultOutput) Behaviors() GetBehavioursBehaviorArrayOutput {
 	return o.ApplyT(func(v GetBehavioursResult) []GetBehavioursBehavior { return v.Behaviors }).(GetBehavioursBehaviorArrayOutput)
 }
@@ -118,6 +117,7 @@ func (o GetBehavioursResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBehavioursResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Searches the name property of behaviors for matching value
 func (o GetBehavioursResultOutput) Q() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetBehavioursResult) *string { return v.Q }).(pulumi.StringPtrOutput)
 }

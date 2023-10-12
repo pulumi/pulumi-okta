@@ -13,88 +13,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// This resource allows you to manage a profile mapping by source and target IDs.
-//
-// > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/profile"
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			user, err := user.GetUserProfileMappingSource(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = profile.NewMapping(ctx, "example", &profile.MappingArgs{
-//				DeleteWhenAbsent: pulumi.Bool(true),
-//				Mappings: profile.MappingMappingArray{
-//					&profile.MappingMappingArgs{
-//						Expression: pulumi.String("appuser.firstName"),
-//						Id:         pulumi.String("firstName"),
-//					},
-//					&profile.MappingMappingArgs{
-//						Expression: pulumi.String("appuser.lastName"),
-//						Id:         pulumi.String("lastName"),
-//					},
-//					&profile.MappingMappingArgs{
-//						Expression: pulumi.String("appuser.email"),
-//						Id:         pulumi.String("email"),
-//					},
-//					&profile.MappingMappingArgs{
-//						Expression: pulumi.String("appuser.email"),
-//						Id:         pulumi.String("login"),
-//					},
-//				},
-//				SourceId: pulumi.String("<source id>"),
-//				TargetId: *pulumi.String(user.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Mind here, once the source is deleted this resources will no longer exist.
 type Mapping struct {
 	pulumi.CustomResourceState
 
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
-	//
-	// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-	//
-	// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 	AlwaysApply pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
-	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
-	DeleteWhenAbsent pulumi.BoolPtrOutput `pulumi:"deleteWhenAbsent"`
-	// Priority of the policy.
-	Mappings MappingMappingArrayOutput `pulumi:"mappings"`
-	// Source id of the profile mapping.
-	SourceId pulumi.StringOutput `pulumi:"sourceId"`
-	// Name of the mapping source.
+	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
+	DeleteWhenAbsent pulumi.BoolPtrOutput      `pulumi:"deleteWhenAbsent"`
+	Mappings         MappingMappingArrayOutput `pulumi:"mappings"`
+	// The source id of the mapping to manage.
+	SourceId   pulumi.StringOutput `pulumi:"sourceId"`
 	SourceName pulumi.StringOutput `pulumi:"sourceName"`
-	// ID of the mapping source.
 	SourceType pulumi.StringOutput `pulumi:"sourceType"`
-	// ID of the mapping target.
-	TargetId pulumi.StringOutput `pulumi:"targetId"`
-	// Name of the mapping target.
+	// The target id of the mapping to manage.
+	TargetId   pulumi.StringOutput `pulumi:"targetId"`
 	TargetName pulumi.StringOutput `pulumi:"targetName"`
-	// ID of the mapping target.
 	TargetType pulumi.StringOutput `pulumi:"targetType"`
 }
 
@@ -135,51 +68,33 @@ func GetMapping(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Mapping resources.
 type mappingState struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
-	//
-	// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-	//
-	// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 	AlwaysApply *bool `pulumi:"alwaysApply"`
-	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
-	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
-	// Priority of the policy.
-	Mappings []MappingMapping `pulumi:"mappings"`
-	// Source id of the profile mapping.
-	SourceId *string `pulumi:"sourceId"`
-	// Name of the mapping source.
+	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
+	DeleteWhenAbsent *bool            `pulumi:"deleteWhenAbsent"`
+	Mappings         []MappingMapping `pulumi:"mappings"`
+	// The source id of the mapping to manage.
+	SourceId   *string `pulumi:"sourceId"`
 	SourceName *string `pulumi:"sourceName"`
-	// ID of the mapping source.
 	SourceType *string `pulumi:"sourceType"`
-	// ID of the mapping target.
-	TargetId *string `pulumi:"targetId"`
-	// Name of the mapping target.
+	// The target id of the mapping to manage.
+	TargetId   *string `pulumi:"targetId"`
 	TargetName *string `pulumi:"targetName"`
-	// ID of the mapping target.
 	TargetType *string `pulumi:"targetType"`
 }
 
 type MappingState struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
-	//
-	// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-	//
-	// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 	AlwaysApply pulumi.BoolPtrInput
-	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
+	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
 	DeleteWhenAbsent pulumi.BoolPtrInput
-	// Priority of the policy.
-	Mappings MappingMappingArrayInput
-	// Source id of the profile mapping.
-	SourceId pulumi.StringPtrInput
-	// Name of the mapping source.
+	Mappings         MappingMappingArrayInput
+	// The source id of the mapping to manage.
+	SourceId   pulumi.StringPtrInput
 	SourceName pulumi.StringPtrInput
-	// ID of the mapping source.
 	SourceType pulumi.StringPtrInput
-	// ID of the mapping target.
-	TargetId pulumi.StringPtrInput
-	// Name of the mapping target.
+	// The target id of the mapping to manage.
+	TargetId   pulumi.StringPtrInput
 	TargetName pulumi.StringPtrInput
-	// ID of the mapping target.
 	TargetType pulumi.StringPtrInput
 }
 
@@ -189,36 +104,26 @@ func (MappingState) ElementType() reflect.Type {
 
 type mappingArgs struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
-	//
-	// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-	//
-	// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 	AlwaysApply *bool `pulumi:"alwaysApply"`
-	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
-	DeleteWhenAbsent *bool `pulumi:"deleteWhenAbsent"`
-	// Priority of the policy.
-	Mappings []MappingMapping `pulumi:"mappings"`
-	// Source id of the profile mapping.
+	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
+	DeleteWhenAbsent *bool            `pulumi:"deleteWhenAbsent"`
+	Mappings         []MappingMapping `pulumi:"mappings"`
+	// The source id of the mapping to manage.
 	SourceId string `pulumi:"sourceId"`
-	// ID of the mapping target.
+	// The target id of the mapping to manage.
 	TargetId string `pulumi:"targetId"`
 }
 
 // The set of arguments for constructing a Mapping resource.
 type MappingArgs struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
-	//
-	// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-	//
-	// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 	AlwaysApply pulumi.BoolPtrInput
-	// Tells the provider whether to attempt to delete missing mappings under profile mapping.
+	// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
 	DeleteWhenAbsent pulumi.BoolPtrInput
-	// Priority of the policy.
-	Mappings MappingMappingArrayInput
-	// Source id of the profile mapping.
+	Mappings         MappingMappingArrayInput
+	// The source id of the mapping to manage.
 	SourceId pulumi.StringInput
-	// ID of the mapping target.
+	// The target id of the mapping to manage.
 	TargetId pulumi.StringInput
 }
 
@@ -334,50 +239,41 @@ func (o MappingOutput) ToOutput(ctx context.Context) pulumix.Output[*Mapping] {
 }
 
 // Whether apply the changes to all users with this profile after updating or creating the these mappings.
-//
-// > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-//
-// > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 func (o MappingOutput) AlwaysApply() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Mapping) pulumi.BoolPtrOutput { return v.AlwaysApply }).(pulumi.BoolPtrOutput)
 }
 
-// Tells the provider whether to attempt to delete missing mappings under profile mapping.
+// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
 func (o MappingOutput) DeleteWhenAbsent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Mapping) pulumi.BoolPtrOutput { return v.DeleteWhenAbsent }).(pulumi.BoolPtrOutput)
 }
 
-// Priority of the policy.
 func (o MappingOutput) Mappings() MappingMappingArrayOutput {
 	return o.ApplyT(func(v *Mapping) MappingMappingArrayOutput { return v.Mappings }).(MappingMappingArrayOutput)
 }
 
-// Source id of the profile mapping.
+// The source id of the mapping to manage.
 func (o MappingOutput) SourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.SourceId }).(pulumi.StringOutput)
 }
 
-// Name of the mapping source.
 func (o MappingOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.SourceName }).(pulumi.StringOutput)
 }
 
-// ID of the mapping source.
 func (o MappingOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
 }
 
-// ID of the mapping target.
+// The target id of the mapping to manage.
 func (o MappingOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
 }
 
-// Name of the mapping target.
 func (o MappingOutput) TargetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.TargetName }).(pulumi.StringOutput)
 }
 
-// ID of the mapping target.
 func (o MappingOutput) TargetType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mapping) pulumi.StringOutput { return v.TargetType }).(pulumi.StringOutput)
 }

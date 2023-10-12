@@ -19,7 +19,7 @@ class UserGroupMembershipsArgs:
         """
         The set of arguments for constructing a UserGroupMemberships resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of Okta group IDs which the user should have membership managed for.
-        :param pulumi.Input[str] user_id: Okta user ID.
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         UserGroupMembershipsArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -51,7 +51,7 @@ class UserGroupMembershipsArgs:
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[str]:
         """
-        Okta user ID.
+        ID of a Okta User
         """
         return pulumi.get(self, "user_id")
 
@@ -68,7 +68,7 @@ class _UserGroupMembershipsState:
         """
         Input properties used for looking up and filtering UserGroupMemberships resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of Okta group IDs which the user should have membership managed for.
-        :param pulumi.Input[str] user_id: Okta user ID.
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         _UserGroupMembershipsState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -102,7 +102,7 @@ class _UserGroupMembershipsState:
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Okta user ID.
+        ID of a Okta User
         """
         return pulumi.get(self, "user_id")
 
@@ -120,29 +120,12 @@ class UserGroupMemberships(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test_user = okta.user.User("testUser",
-            first_name="TestAcc",
-            last_name="Smith",
-            login="testAcc-replace_with_uuid@example.com",
-            email="testAcc-replace_with_uuid@example.com")
-        test_user_group_memberships = okta.UserGroupMemberships("testUserGroupMemberships",
-            user_id=test_user.id,
-            groups=[
-                okta_group["test_1"]["id"],
-                okta_group["test_2"]["id"],
-            ])
-        ```
+        Resource to manage a set of group memberships for a specific user.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of Okta group IDs which the user should have membership managed for.
-        :param pulumi.Input[str] user_id: Okta user ID.
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         ...
     @overload
@@ -151,24 +134,7 @@ class UserGroupMemberships(pulumi.CustomResource):
                  args: UserGroupMembershipsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test_user = okta.user.User("testUser",
-            first_name="TestAcc",
-            last_name="Smith",
-            login="testAcc-replace_with_uuid@example.com",
-            email="testAcc-replace_with_uuid@example.com")
-        test_user_group_memberships = okta.UserGroupMemberships("testUserGroupMemberships",
-            user_id=test_user.id,
-            groups=[
-                okta_group["test_1"]["id"],
-                okta_group["test_2"]["id"],
-            ])
-        ```
+        Resource to manage a set of group memberships for a specific user.
 
         :param str resource_name: The name of the resource.
         :param UserGroupMembershipsArgs args: The arguments to use to populate this resource's properties.
@@ -226,7 +192,7 @@ class UserGroupMemberships(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of Okta group IDs which the user should have membership managed for.
-        :param pulumi.Input[str] user_id: Okta user ID.
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -248,7 +214,7 @@ class UserGroupMemberships(pulumi.CustomResource):
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
         """
-        Okta user ID.
+        ID of a Okta User
         """
         return pulumi.get(self, "user_id")
 

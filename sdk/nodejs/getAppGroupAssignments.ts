@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
+ * Get a set of groups assigned to an Okta application.
  *
  * ## Example Usage
  *
@@ -31,7 +31,7 @@ export function getAppGroupAssignments(args: GetAppGroupAssignmentsArgs, opts?: 
  */
 export interface GetAppGroupAssignmentsArgs {
     /**
-     * The ID of the Okta application you want to retrieve the groups for.
+     * ID of the Okta App being queried for groups
      */
     id: string;
 }
@@ -41,16 +41,16 @@ export interface GetAppGroupAssignmentsArgs {
  */
 export interface GetAppGroupAssignmentsResult {
     /**
-     * List of groups IDs assigned to the application.
+     * List of groups IDs assigned to the app
      */
     readonly groups: string[];
     /**
-     * ID of application.
+     * ID of the Okta App being queried for groups
      */
     readonly id: string;
 }
 /**
- * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
+ * Get a set of groups assigned to an Okta application.
  *
  * ## Example Usage
  *
@@ -72,7 +72,7 @@ export function getAppGroupAssignmentsOutput(args: GetAppGroupAssignmentsOutputA
  */
 export interface GetAppGroupAssignmentsOutputArgs {
     /**
-     * The ID of the Okta application you want to retrieve the groups for.
+     * ID of the Okta App being queried for groups
      */
     id: pulumi.Input<string>;
 }

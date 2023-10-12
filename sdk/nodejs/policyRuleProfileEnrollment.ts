@@ -6,68 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
- *
- * A [profile enrollment
- * policy](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-policy)
- * is limited to one default rule. This resource does not create a rule for an
- * enrollment policy, it allows the default policy rule to be updated.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const examplePolicyProfileEnrollment = new okta.PolicyProfileEnrollment("examplePolicyProfileEnrollment", {});
- * const exampleHook = new okta.inline.Hook("exampleHook", {
- *     status: "ACTIVE",
- *     type: "com.okta.user.pre-registration",
- *     version: "1.0.3",
- *     channel: {
- *         type: "HTTP",
- *         version: "1.0.0",
- *         uri: "https://example.com/test2",
- *         method: "POST",
- *     },
- * });
- * const exampleGroup = new okta.group.Group("exampleGroup", {description: "Group of some users"});
- * const examplePolicyRuleProfileEnrollment = new okta.PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment", {
- *     policyId: examplePolicyProfileEnrollment.id,
- *     inlineHookId: exampleHook.id,
- *     targetGroupId: exampleGroup.id,
- *     unknownUserAction: "REGISTER",
- *     emailVerification: true,
- *     access: "ALLOW",
- *     profileAttributes: [
- *         {
- *             name: "email",
- *             label: "Email",
- *             required: true,
- *         },
- *         {
- *             name: "name",
- *             label: "Name",
- *             required: true,
- *         },
- *         {
- *             name: "t-shirt",
- *             label: "T-Shirt Size",
- *             required: false,
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * A Policy Rule can be imported via the Policy and Rule ID.
- *
- * ```sh
- *  $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
- * ```
- */
 export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
     /**
      * Get an existing PolicyRuleProfileEnrollment resource's state with the given name, ID, and optional extra
@@ -97,15 +35,15 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
     }
 
     /**
-     * Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+     * Allow or deny access based on the rule conditions: ALLOW or DENY
      */
     public readonly access!: pulumi.Output<string | undefined>;
     /**
-     * Indicates whether email verification should occur before access is granted. Default is `true`.
+     * Indicates whether email verification should occur before access is granted
      */
     public readonly emailVerification!: pulumi.Output<boolean | undefined>;
     /**
-     * ID of a Registration Inline Hook.
+     * ID of a Registration Inline Hook
      */
     public readonly inlineHookId!: pulumi.Output<string | undefined>;
     /**
@@ -113,19 +51,19 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Policy ID.
+     * ID of the policy
      */
     public readonly policyId!: pulumi.Output<string>;
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * A list of attributes to prompt the user during registration or progressive profiling
      */
     public readonly profileAttributes!: pulumi.Output<outputs.PolicyRuleProfileEnrollmentProfileAttribute[] | undefined>;
     /**
-     * Status of the Rule.
+     * Status of the rule
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The ID of a Group that this User should be added to.
+     * The ID of a Group that this User should be added to
      */
     public readonly targetGroupId!: pulumi.Output<string | undefined>;
     /**
@@ -133,7 +71,7 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
      */
     public readonly uiSchemaId!: pulumi.Output<string | undefined>;
     /**
-     * Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+     * Which action should be taken if this User is new
      */
     public readonly unknownUserAction!: pulumi.Output<string>;
 
@@ -189,15 +127,15 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
  */
 export interface PolicyRuleProfileEnrollmentState {
     /**
-     * Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+     * Allow or deny access based on the rule conditions: ALLOW or DENY
      */
     access?: pulumi.Input<string>;
     /**
-     * Indicates whether email verification should occur before access is granted. Default is `true`.
+     * Indicates whether email verification should occur before access is granted
      */
     emailVerification?: pulumi.Input<boolean>;
     /**
-     * ID of a Registration Inline Hook.
+     * ID of a Registration Inline Hook
      */
     inlineHookId?: pulumi.Input<string>;
     /**
@@ -205,19 +143,19 @@ export interface PolicyRuleProfileEnrollmentState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Policy ID.
+     * ID of the policy
      */
     policyId?: pulumi.Input<string>;
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * A list of attributes to prompt the user during registration or progressive profiling
      */
     profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[]>;
     /**
-     * Status of the Rule.
+     * Status of the rule
      */
     status?: pulumi.Input<string>;
     /**
-     * The ID of a Group that this User should be added to.
+     * The ID of a Group that this User should be added to
      */
     targetGroupId?: pulumi.Input<string>;
     /**
@@ -225,7 +163,7 @@ export interface PolicyRuleProfileEnrollmentState {
      */
     uiSchemaId?: pulumi.Input<string>;
     /**
-     * Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+     * Which action should be taken if this User is new
      */
     unknownUserAction?: pulumi.Input<string>;
 }
@@ -235,27 +173,27 @@ export interface PolicyRuleProfileEnrollmentState {
  */
 export interface PolicyRuleProfileEnrollmentArgs {
     /**
-     * Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+     * Allow or deny access based on the rule conditions: ALLOW or DENY
      */
     access?: pulumi.Input<string>;
     /**
-     * Indicates whether email verification should occur before access is granted. Default is `true`.
+     * Indicates whether email verification should occur before access is granted
      */
     emailVerification?: pulumi.Input<boolean>;
     /**
-     * ID of a Registration Inline Hook.
+     * ID of a Registration Inline Hook
      */
     inlineHookId?: pulumi.Input<string>;
     /**
-     * Policy ID.
+     * ID of the policy
      */
     policyId: pulumi.Input<string>;
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * A list of attributes to prompt the user during registration or progressive profiling
      */
     profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[]>;
     /**
-     * The ID of a Group that this User should be added to.
+     * The ID of a Group that this User should be added to
      */
     targetGroupId?: pulumi.Input<string>;
     /**
@@ -263,7 +201,7 @@ export interface PolicyRuleProfileEnrollmentArgs {
      */
     uiSchemaId?: pulumi.Input<string>;
     /**
-     * Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+     * Which action should be taken if this User is new
      */
     unknownUserAction: pulumi.Input<string>;
 }

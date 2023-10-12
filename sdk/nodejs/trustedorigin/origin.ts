@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates a Trusted Origin.
- *
- * This resource allows you to create and configure a Trusted Origin.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.trustedorigin.Origin("example", {
- *     origin: "https://example.com",
- *     scopes: ["CORS"],
- * });
- * ```
- *
- * ## Import
- *
- * A Trusted Origin can be imported via the Okta ID.
- *
- * ```sh
- *  $ pulumi import okta:trustedorigin/origin:Origin example &#60;trusted origin id&#62;
- * ```
- */
 export class Origin extends pulumi.CustomResource {
     /**
      * Get an existing Origin resource's state with the given name, ID, and optional extra
@@ -58,19 +33,19 @@ export class Origin extends pulumi.CustomResource {
     }
 
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
+     * Whether the Trusted Origin is active or not - can only be issued post-creation
      */
     public readonly active!: pulumi.Output<boolean | undefined>;
     /**
-     * Unique name for this trusted origin.
+     * Unique name for this trusted origin
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Unique origin URL for this trusted origin.
+     * Unique origin URL for this trusted origin
      */
     public readonly origin!: pulumi.Output<string>;
     /**
-     * Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
+     * Scopes of the Trusted Origin - can either be CORS or REDIRECT only
      */
     public readonly scopes!: pulumi.Output<string[]>;
 
@@ -114,19 +89,19 @@ export class Origin extends pulumi.CustomResource {
  */
 export interface OriginState {
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
+     * Whether the Trusted Origin is active or not - can only be issued post-creation
      */
     active?: pulumi.Input<boolean>;
     /**
-     * Unique name for this trusted origin.
+     * Unique name for this trusted origin
      */
     name?: pulumi.Input<string>;
     /**
-     * Unique origin URL for this trusted origin.
+     * Unique origin URL for this trusted origin
      */
     origin?: pulumi.Input<string>;
     /**
-     * Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
+     * Scopes of the Trusted Origin - can either be CORS or REDIRECT only
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -136,19 +111,19 @@ export interface OriginState {
  */
 export interface OriginArgs {
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
+     * Whether the Trusted Origin is active or not - can only be issued post-creation
      */
     active?: pulumi.Input<boolean>;
     /**
-     * Unique name for this trusted origin.
+     * Unique name for this trusted origin
      */
     name?: pulumi.Input<string>;
     /**
-     * Unique origin URL for this trusted origin.
+     * Unique origin URL for this trusted origin
      */
     origin: pulumi.Input<string>;
     /**
-     * Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
+     * Scopes of the Trusted Origin - can either be CORS or REDIRECT only
      */
     scopes: pulumi.Input<pulumi.Input<string>[]>;
 }

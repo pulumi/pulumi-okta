@@ -30,18 +30,18 @@ class ThemeArgs:
         """
         The set of arguments for constructing a Theme resource.
         :param pulumi.Input[str] brand_id: Brand ID
-        :param pulumi.Input[str] background_image: (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
-        :param pulumi.Input[str] email_template_touch_point_variant: (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
-        :param pulumi.Input[str] end_user_dashboard_touch_point_variant: (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
-        :param pulumi.Input[str] error_page_touch_point_variant: (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
-        :param pulumi.Input[str] favicon: (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
-        :param pulumi.Input[str] logo: (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
-        :param pulumi.Input[str] primary_color_contrast_hex: (Optional) Primary color contrast hex code
-        :param pulumi.Input[str] primary_color_hex: (Required) Primary color hex code
-        :param pulumi.Input[str] secondary_color_contrast_hex: (Optional) Secondary color contrast hex code
-        :param pulumi.Input[str] secondary_color_hex: (Required) Secondary color hex code
-        :param pulumi.Input[str] sign_in_page_touch_point_variant: (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
-        :param pulumi.Input[str] theme_id: Theme ID, used for read (faux-create)
+        :param pulumi.Input[str] background_image: Path to local file
+        :param pulumi.Input[str] email_template_touch_point_variant: Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        :param pulumi.Input[str] end_user_dashboard_touch_point_variant: Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        :param pulumi.Input[str] error_page_touch_point_variant: Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        :param pulumi.Input[str] favicon: Path to local file
+        :param pulumi.Input[str] logo: Path to local file
+        :param pulumi.Input[str] primary_color_contrast_hex: Primary color contrast hex code
+        :param pulumi.Input[str] primary_color_hex: Primary color hex code
+        :param pulumi.Input[str] secondary_color_contrast_hex: Secondary color contrast hex code
+        :param pulumi.Input[str] secondary_color_hex: Secondary color hex code
+        :param pulumi.Input[str] sign_in_page_touch_point_variant: Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        :param pulumi.Input[str] theme_id: Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
         """
         ThemeArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -118,7 +118,7 @@ class ThemeArgs:
     @pulumi.getter(name="backgroundImage")
     def background_image(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
+        Path to local file
         """
         return pulumi.get(self, "background_image")
 
@@ -130,7 +130,7 @@ class ThemeArgs:
     @pulumi.getter(name="emailTemplateTouchPointVariant")
     def email_template_touch_point_variant(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
+        Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
         """
         return pulumi.get(self, "email_template_touch_point_variant")
 
@@ -142,7 +142,7 @@ class ThemeArgs:
     @pulumi.getter(name="endUserDashboardTouchPointVariant")
     def end_user_dashboard_touch_point_variant(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
         """
         return pulumi.get(self, "end_user_dashboard_touch_point_variant")
 
@@ -154,7 +154,7 @@ class ThemeArgs:
     @pulumi.getter(name="errorPageTouchPointVariant")
     def error_page_touch_point_variant(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "error_page_touch_point_variant")
 
@@ -166,7 +166,7 @@ class ThemeArgs:
     @pulumi.getter
     def favicon(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
+        Path to local file
         """
         return pulumi.get(self, "favicon")
 
@@ -178,7 +178,7 @@ class ThemeArgs:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
+        Path to local file
         """
         return pulumi.get(self, "logo")
 
@@ -190,7 +190,7 @@ class ThemeArgs:
     @pulumi.getter(name="primaryColorContrastHex")
     def primary_color_contrast_hex(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Primary color contrast hex code
+        Primary color contrast hex code
         """
         return pulumi.get(self, "primary_color_contrast_hex")
 
@@ -202,7 +202,7 @@ class ThemeArgs:
     @pulumi.getter(name="primaryColorHex")
     def primary_color_hex(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Primary color hex code
+        Primary color hex code
         """
         return pulumi.get(self, "primary_color_hex")
 
@@ -214,7 +214,7 @@ class ThemeArgs:
     @pulumi.getter(name="secondaryColorContrastHex")
     def secondary_color_contrast_hex(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Secondary color contrast hex code
+        Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_contrast_hex")
 
@@ -226,7 +226,7 @@ class ThemeArgs:
     @pulumi.getter(name="secondaryColorHex")
     def secondary_color_hex(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Secondary color hex code
+        Secondary color hex code
         """
         return pulumi.get(self, "secondary_color_hex")
 
@@ -238,7 +238,7 @@ class ThemeArgs:
     @pulumi.getter(name="signInPageTouchPointVariant")
     def sign_in_page_touch_point_variant(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "sign_in_page_touch_point_variant")
 
@@ -250,7 +250,7 @@ class ThemeArgs:
     @pulumi.getter(name="themeId")
     def theme_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Theme ID, used for read (faux-create)
+        Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
         """
         return pulumi.get(self, "theme_id")
 
@@ -281,23 +281,23 @@ class _ThemeState:
                  theme_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Theme resources.
-        :param pulumi.Input[str] background_image: (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
-        :param pulumi.Input[str] background_image_url: (Read-Only) Background image URL
+        :param pulumi.Input[str] background_image: Path to local file
+        :param pulumi.Input[str] background_image_url: Background image URL
         :param pulumi.Input[str] brand_id: Brand ID
-        :param pulumi.Input[str] email_template_touch_point_variant: (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
-        :param pulumi.Input[str] end_user_dashboard_touch_point_variant: (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
-        :param pulumi.Input[str] error_page_touch_point_variant: (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
-        :param pulumi.Input[str] favicon: (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
-        :param pulumi.Input[str] favicon_url: (Read-Only) Favicon URL
-        :param pulumi.Input[str] links: Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
-        :param pulumi.Input[str] logo: (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
-        :param pulumi.Input[str] logo_url: (Read-Only) Logo URL
-        :param pulumi.Input[str] primary_color_contrast_hex: (Optional) Primary color contrast hex code
-        :param pulumi.Input[str] primary_color_hex: (Required) Primary color hex code
-        :param pulumi.Input[str] secondary_color_contrast_hex: (Optional) Secondary color contrast hex code
-        :param pulumi.Input[str] secondary_color_hex: (Required) Secondary color hex code
-        :param pulumi.Input[str] sign_in_page_touch_point_variant: (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
-        :param pulumi.Input[str] theme_id: Theme ID, used for read (faux-create)
+        :param pulumi.Input[str] email_template_touch_point_variant: Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        :param pulumi.Input[str] end_user_dashboard_touch_point_variant: Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        :param pulumi.Input[str] error_page_touch_point_variant: Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        :param pulumi.Input[str] favicon: Path to local file
+        :param pulumi.Input[str] favicon_url: Favicon URL
+        :param pulumi.Input[str] links: Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        :param pulumi.Input[str] logo: Path to local file
+        :param pulumi.Input[str] logo_url: Logo URL
+        :param pulumi.Input[str] primary_color_contrast_hex: Primary color contrast hex code
+        :param pulumi.Input[str] primary_color_hex: Primary color hex code
+        :param pulumi.Input[str] secondary_color_contrast_hex: Secondary color contrast hex code
+        :param pulumi.Input[str] secondary_color_hex: Secondary color hex code
+        :param pulumi.Input[str] sign_in_page_touch_point_variant: Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        :param pulumi.Input[str] theme_id: Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
         """
         _ThemeState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -379,7 +379,7 @@ class _ThemeState:
     @pulumi.getter(name="backgroundImage")
     def background_image(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
+        Path to local file
         """
         return pulumi.get(self, "background_image")
 
@@ -391,7 +391,7 @@ class _ThemeState:
     @pulumi.getter(name="backgroundImageUrl")
     def background_image_url(self) -> Optional[pulumi.Input[str]]:
         """
-        (Read-Only) Background image URL
+        Background image URL
         """
         return pulumi.get(self, "background_image_url")
 
@@ -415,7 +415,7 @@ class _ThemeState:
     @pulumi.getter(name="emailTemplateTouchPointVariant")
     def email_template_touch_point_variant(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
+        Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
         """
         return pulumi.get(self, "email_template_touch_point_variant")
 
@@ -427,7 +427,7 @@ class _ThemeState:
     @pulumi.getter(name="endUserDashboardTouchPointVariant")
     def end_user_dashboard_touch_point_variant(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
         """
         return pulumi.get(self, "end_user_dashboard_touch_point_variant")
 
@@ -439,7 +439,7 @@ class _ThemeState:
     @pulumi.getter(name="errorPageTouchPointVariant")
     def error_page_touch_point_variant(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "error_page_touch_point_variant")
 
@@ -451,7 +451,7 @@ class _ThemeState:
     @pulumi.getter
     def favicon(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
+        Path to local file
         """
         return pulumi.get(self, "favicon")
 
@@ -463,7 +463,7 @@ class _ThemeState:
     @pulumi.getter(name="faviconUrl")
     def favicon_url(self) -> Optional[pulumi.Input[str]]:
         """
-        (Read-Only) Favicon URL
+        Favicon URL
         """
         return pulumi.get(self, "favicon_url")
 
@@ -475,7 +475,7 @@ class _ThemeState:
     @pulumi.getter
     def links(self) -> Optional[pulumi.Input[str]]:
         """
-        Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
+        Link relations for this object - JSON HAL - Discoverable resources related to the email template
         """
         return pulumi.get(self, "links")
 
@@ -487,7 +487,7 @@ class _ThemeState:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
+        Path to local file
         """
         return pulumi.get(self, "logo")
 
@@ -499,7 +499,7 @@ class _ThemeState:
     @pulumi.getter(name="logoUrl")
     def logo_url(self) -> Optional[pulumi.Input[str]]:
         """
-        (Read-Only) Logo URL
+        Logo URL
         """
         return pulumi.get(self, "logo_url")
 
@@ -511,7 +511,7 @@ class _ThemeState:
     @pulumi.getter(name="primaryColorContrastHex")
     def primary_color_contrast_hex(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Primary color contrast hex code
+        Primary color contrast hex code
         """
         return pulumi.get(self, "primary_color_contrast_hex")
 
@@ -523,7 +523,7 @@ class _ThemeState:
     @pulumi.getter(name="primaryColorHex")
     def primary_color_hex(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Primary color hex code
+        Primary color hex code
         """
         return pulumi.get(self, "primary_color_hex")
 
@@ -535,7 +535,7 @@ class _ThemeState:
     @pulumi.getter(name="secondaryColorContrastHex")
     def secondary_color_contrast_hex(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Secondary color contrast hex code
+        Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_contrast_hex")
 
@@ -547,7 +547,7 @@ class _ThemeState:
     @pulumi.getter(name="secondaryColorHex")
     def secondary_color_hex(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Secondary color hex code
+        Secondary color hex code
         """
         return pulumi.get(self, "secondary_color_hex")
 
@@ -559,7 +559,7 @@ class _ThemeState:
     @pulumi.getter(name="signInPageTouchPointVariant")
     def sign_in_page_touch_point_variant(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "sign_in_page_touch_point_variant")
 
@@ -571,7 +571,7 @@ class _ThemeState:
     @pulumi.getter(name="themeId")
     def theme_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Theme ID, used for read (faux-create)
+        Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
         """
         return pulumi.get(self, "theme_id")
 
@@ -600,29 +600,22 @@ class Theme(pulumi.CustomResource):
                  theme_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        An Okta Brand can be imported via the ID.
-
-        ```sh
-         $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
-        ```
-
+        Create a Theme resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] background_image: (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
+        :param pulumi.Input[str] background_image: Path to local file
         :param pulumi.Input[str] brand_id: Brand ID
-        :param pulumi.Input[str] email_template_touch_point_variant: (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
-        :param pulumi.Input[str] end_user_dashboard_touch_point_variant: (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
-        :param pulumi.Input[str] error_page_touch_point_variant: (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
-        :param pulumi.Input[str] favicon: (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
-        :param pulumi.Input[str] logo: (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
-        :param pulumi.Input[str] primary_color_contrast_hex: (Optional) Primary color contrast hex code
-        :param pulumi.Input[str] primary_color_hex: (Required) Primary color hex code
-        :param pulumi.Input[str] secondary_color_contrast_hex: (Optional) Secondary color contrast hex code
-        :param pulumi.Input[str] secondary_color_hex: (Required) Secondary color hex code
-        :param pulumi.Input[str] sign_in_page_touch_point_variant: (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
-        :param pulumi.Input[str] theme_id: Theme ID, used for read (faux-create)
+        :param pulumi.Input[str] email_template_touch_point_variant: Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        :param pulumi.Input[str] end_user_dashboard_touch_point_variant: Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        :param pulumi.Input[str] error_page_touch_point_variant: Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        :param pulumi.Input[str] favicon: Path to local file
+        :param pulumi.Input[str] logo: Path to local file
+        :param pulumi.Input[str] primary_color_contrast_hex: Primary color contrast hex code
+        :param pulumi.Input[str] primary_color_hex: Primary color hex code
+        :param pulumi.Input[str] secondary_color_contrast_hex: Secondary color contrast hex code
+        :param pulumi.Input[str] secondary_color_hex: Secondary color hex code
+        :param pulumi.Input[str] sign_in_page_touch_point_variant: Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        :param pulumi.Input[str] theme_id: Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
         """
         ...
     @overload
@@ -631,14 +624,7 @@ class Theme(pulumi.CustomResource):
                  args: ThemeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        An Okta Brand can be imported via the ID.
-
-        ```sh
-         $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
-        ```
-
+        Create a Theme resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ThemeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -733,23 +719,23 @@ class Theme(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] background_image: (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
-        :param pulumi.Input[str] background_image_url: (Read-Only) Background image URL
+        :param pulumi.Input[str] background_image: Path to local file
+        :param pulumi.Input[str] background_image_url: Background image URL
         :param pulumi.Input[str] brand_id: Brand ID
-        :param pulumi.Input[str] email_template_touch_point_variant: (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
-        :param pulumi.Input[str] end_user_dashboard_touch_point_variant: (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
-        :param pulumi.Input[str] error_page_touch_point_variant: (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
-        :param pulumi.Input[str] favicon: (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
-        :param pulumi.Input[str] favicon_url: (Read-Only) Favicon URL
-        :param pulumi.Input[str] links: Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
-        :param pulumi.Input[str] logo: (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
-        :param pulumi.Input[str] logo_url: (Read-Only) Logo URL
-        :param pulumi.Input[str] primary_color_contrast_hex: (Optional) Primary color contrast hex code
-        :param pulumi.Input[str] primary_color_hex: (Required) Primary color hex code
-        :param pulumi.Input[str] secondary_color_contrast_hex: (Optional) Secondary color contrast hex code
-        :param pulumi.Input[str] secondary_color_hex: (Required) Secondary color hex code
-        :param pulumi.Input[str] sign_in_page_touch_point_variant: (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
-        :param pulumi.Input[str] theme_id: Theme ID, used for read (faux-create)
+        :param pulumi.Input[str] email_template_touch_point_variant: Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        :param pulumi.Input[str] end_user_dashboard_touch_point_variant: Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        :param pulumi.Input[str] error_page_touch_point_variant: Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        :param pulumi.Input[str] favicon: Path to local file
+        :param pulumi.Input[str] favicon_url: Favicon URL
+        :param pulumi.Input[str] links: Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        :param pulumi.Input[str] logo: Path to local file
+        :param pulumi.Input[str] logo_url: Logo URL
+        :param pulumi.Input[str] primary_color_contrast_hex: Primary color contrast hex code
+        :param pulumi.Input[str] primary_color_hex: Primary color hex code
+        :param pulumi.Input[str] secondary_color_contrast_hex: Secondary color contrast hex code
+        :param pulumi.Input[str] secondary_color_hex: Secondary color hex code
+        :param pulumi.Input[str] sign_in_page_touch_point_variant: Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        :param pulumi.Input[str] theme_id: Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -778,7 +764,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="backgroundImage")
     def background_image(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
+        Path to local file
         """
         return pulumi.get(self, "background_image")
 
@@ -786,7 +772,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="backgroundImageUrl")
     def background_image_url(self) -> pulumi.Output[str]:
         """
-        (Read-Only) Background image URL
+        Background image URL
         """
         return pulumi.get(self, "background_image_url")
 
@@ -802,7 +788,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="emailTemplateTouchPointVariant")
     def email_template_touch_point_variant(self) -> pulumi.Output[Optional[str]]:
         """
-        (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
+        Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
         """
         return pulumi.get(self, "email_template_touch_point_variant")
 
@@ -810,7 +796,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="endUserDashboardTouchPointVariant")
     def end_user_dashboard_touch_point_variant(self) -> pulumi.Output[Optional[str]]:
         """
-        (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
         """
         return pulumi.get(self, "end_user_dashboard_touch_point_variant")
 
@@ -818,7 +804,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="errorPageTouchPointVariant")
     def error_page_touch_point_variant(self) -> pulumi.Output[Optional[str]]:
         """
-        (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "error_page_touch_point_variant")
 
@@ -826,7 +812,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter
     def favicon(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
+        Path to local file
         """
         return pulumi.get(self, "favicon")
 
@@ -834,7 +820,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="faviconUrl")
     def favicon_url(self) -> pulumi.Output[str]:
         """
-        (Read-Only) Favicon URL
+        Favicon URL
         """
         return pulumi.get(self, "favicon_url")
 
@@ -842,7 +828,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter
     def links(self) -> pulumi.Output[str]:
         """
-        Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
+        Link relations for this object - JSON HAL - Discoverable resources related to the email template
         """
         return pulumi.get(self, "links")
 
@@ -850,7 +836,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter
     def logo(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
+        Path to local file
         """
         return pulumi.get(self, "logo")
 
@@ -858,7 +844,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="logoUrl")
     def logo_url(self) -> pulumi.Output[str]:
         """
-        (Read-Only) Logo URL
+        Logo URL
         """
         return pulumi.get(self, "logo_url")
 
@@ -866,7 +852,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="primaryColorContrastHex")
     def primary_color_contrast_hex(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Primary color contrast hex code
+        Primary color contrast hex code
         """
         return pulumi.get(self, "primary_color_contrast_hex")
 
@@ -874,7 +860,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="primaryColorHex")
     def primary_color_hex(self) -> pulumi.Output[Optional[str]]:
         """
-        (Required) Primary color hex code
+        Primary color hex code
         """
         return pulumi.get(self, "primary_color_hex")
 
@@ -882,7 +868,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="secondaryColorContrastHex")
     def secondary_color_contrast_hex(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Secondary color contrast hex code
+        Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_contrast_hex")
 
@@ -890,7 +876,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="secondaryColorHex")
     def secondary_color_hex(self) -> pulumi.Output[Optional[str]]:
         """
-        (Required) Secondary color hex code
+        Secondary color hex code
         """
         return pulumi.get(self, "secondary_color_hex")
 
@@ -898,7 +884,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="signInPageTouchPointVariant")
     def sign_in_page_touch_point_variant(self) -> pulumi.Output[Optional[str]]:
         """
-        (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "sign_in_page_touch_point_variant")
 
@@ -906,7 +892,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="themeId")
     def theme_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Theme ID, used for read (faux-create)
+        Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
         """
         return pulumi.get(self, "theme_id")
 

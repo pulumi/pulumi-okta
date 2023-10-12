@@ -16,14 +16,14 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
     public static final SecurityNotificationEmailsArgs Empty = new SecurityNotificationEmailsArgs();
 
     /**
-     * Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+     * Notifies end users about suspicious or unrecognized activity from their account
      * 
      */
     @Import(name="reportSuspiciousActivityEnabled")
     private @Nullable Output<Boolean> reportSuspiciousActivityEnabled;
 
     /**
-     * @return Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+     * @return Notifies end users about suspicious or unrecognized activity from their account
      * 
      */
     public Optional<Output<Boolean>> reportSuspiciousActivityEnabled() {
@@ -31,14 +31,14 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+     * Notifies end users of any activity on their account related to MFA factor enrollment
      * 
      */
     @Import(name="sendEmailForFactorEnrollmentEnabled")
     private @Nullable Output<Boolean> sendEmailForFactorEnrollmentEnabled;
 
     /**
-     * @return Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+     * @return Notifies end users of any activity on their account related to MFA factor enrollment
      * 
      */
     public Optional<Output<Boolean>> sendEmailForFactorEnrollmentEnabled() {
@@ -46,14 +46,14 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Notifies end users that one or more factors have been reset for their account. Default is `true`.
+     * Notifies end users that one or more factors have been reset for their account
      * 
      */
     @Import(name="sendEmailForFactorResetEnabled")
     private @Nullable Output<Boolean> sendEmailForFactorResetEnabled;
 
     /**
-     * @return Notifies end users that one or more factors have been reset for their account. Default is `true`.
+     * @return Notifies end users that one or more factors have been reset for their account
      * 
      */
     public Optional<Output<Boolean>> sendEmailForFactorResetEnabled() {
@@ -61,14 +61,14 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Notifies end users about new sign-on activity. Default is `true`.
+     * Notifies end users about new sign-on activity
      * 
      */
     @Import(name="sendEmailForNewDeviceEnabled")
     private @Nullable Output<Boolean> sendEmailForNewDeviceEnabled;
 
     /**
-     * @return Notifies end users about new sign-on activity. Default is `true`.
+     * @return Notifies end users about new sign-on activity
      * 
      */
     public Optional<Output<Boolean>> sendEmailForNewDeviceEnabled() {
@@ -76,14 +76,14 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Notifies end users that the password for their account has changed. Default is `true`.
+     * Notifies end users that the password for their account has changed
      * 
      */
     @Import(name="sendEmailForPasswordChangedEnabled")
     private @Nullable Output<Boolean> sendEmailForPasswordChangedEnabled;
 
     /**
-     * @return Notifies end users that the password for their account has changed. Default is `true`.
+     * @return Notifies end users that the password for their account has changed
      * 
      */
     public Optional<Output<Boolean>> sendEmailForPasswordChangedEnabled() {
@@ -119,7 +119,7 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param reportSuspiciousActivityEnabled Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+         * @param reportSuspiciousActivityEnabled Notifies end users about suspicious or unrecognized activity from their account
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param reportSuspiciousActivityEnabled Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+         * @param reportSuspiciousActivityEnabled Notifies end users about suspicious or unrecognized activity from their account
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sendEmailForFactorEnrollmentEnabled Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+         * @param sendEmailForFactorEnrollmentEnabled Notifies end users of any activity on their account related to MFA factor enrollment
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sendEmailForFactorEnrollmentEnabled Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+         * @param sendEmailForFactorEnrollmentEnabled Notifies end users of any activity on their account related to MFA factor enrollment
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sendEmailForFactorResetEnabled Notifies end users that one or more factors have been reset for their account. Default is `true`.
+         * @param sendEmailForFactorResetEnabled Notifies end users that one or more factors have been reset for their account
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sendEmailForFactorResetEnabled Notifies end users that one or more factors have been reset for their account. Default is `true`.
+         * @param sendEmailForFactorResetEnabled Notifies end users that one or more factors have been reset for their account
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sendEmailForNewDeviceEnabled Notifies end users about new sign-on activity. Default is `true`.
+         * @param sendEmailForNewDeviceEnabled Notifies end users about new sign-on activity
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sendEmailForNewDeviceEnabled Notifies end users about new sign-on activity. Default is `true`.
+         * @param sendEmailForNewDeviceEnabled Notifies end users about new sign-on activity
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sendEmailForPasswordChangedEnabled Notifies end users that the password for their account has changed. Default is `true`.
+         * @param sendEmailForPasswordChangedEnabled Notifies end users that the password for their account has changed
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class SecurityNotificationEmailsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sendEmailForPasswordChangedEnabled Notifies end users that the password for their account has changed. Default is `true`.
+         * @param sendEmailForPasswordChangedEnabled Notifies end users that the password for their account has changed
          * 
          * @return builder
          * 

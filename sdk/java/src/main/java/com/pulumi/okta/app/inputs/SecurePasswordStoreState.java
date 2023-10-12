@@ -17,14 +17,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     public static final SecurePasswordStoreState Empty = new SecurePasswordStoreState();
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      * 
      */
     @Import(name="accessibilityErrorRedirectUrl")
     private @Nullable Output<String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL.
+     * @return Custom error page URL
      * 
      */
     public Optional<Output<String>> accessibilityErrorRedirectUrl() {
@@ -32,14 +32,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      * 
      */
     @Import(name="accessibilityLoginRedirectUrl")
     private @Nullable Output<String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page for this application.
+     * @return Custom login page URL
      * 
      */
     public Optional<Output<String>> accessibilityLoginRedirectUrl() {
@@ -47,14 +47,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service
      * 
      */
     @Import(name="accessibilitySelfService")
     private @Nullable Output<Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self-service. By default, it is `false`.
+     * @return Enable self service
      * 
      */
     public Optional<Output<Boolean>> accessibilitySelfService() {
@@ -77,14 +77,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Displays specific appLinks for the app. The value for each application link should be boolean.
+     * Displays specific appLinks for the app
      * 
      */
     @Import(name="appLinksJson")
     private @Nullable Output<String> appLinksJson;
 
     /**
-     * @return Displays specific appLinks for the app. The value for each application link should be boolean.
+     * @return Displays specific appLinks for the app
      * 
      */
     public Optional<Output<String>> appLinksJson() {
@@ -92,14 +92,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      * 
      */
     @Import(name="autoSubmitToolbar")
     private @Nullable Output<Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     public Optional<Output<Boolean>> autoSubmitToolbar() {
@@ -107,14 +107,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
+     * Application credentials scheme
      * 
      */
     @Import(name="credentialsScheme")
     private @Nullable Output<String> credentialsScheme;
 
     /**
-     * @return Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
+     * @return Application credentials scheme
      * 
      */
     public Optional<Output<String>> credentialsScheme() {
@@ -137,14 +137,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      * 
      */
     @Import(name="hideIos")
     private @Nullable Output<Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     public Optional<Output<Boolean>> hideIos() {
@@ -152,14 +152,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      * 
      */
     @Import(name="hideWeb")
     private @Nullable Output<Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users.
+     * @return Do not display application icon to users
      * 
      */
     public Optional<Output<Boolean>> hideWeb() {
@@ -167,14 +167,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The display name of the Application.
+     * Pretty name of app.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The display name of the Application.
+     * @return Pretty name of app.
      * 
      */
     public Optional<Output<String>> label() {
@@ -182,14 +182,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to logo of the application.
      * 
      */
     @Import(name="logo")
     private @Nullable Output<String> logo;
 
     /**
-     * @return Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * @return Local path to logo of the application.
      * 
      */
     public Optional<Output<String>> logo() {
@@ -212,14 +212,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name assigned to the application by Okta.
+     * Name of the app.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name assigned to the application by Okta.
+     * @return Name of the app.
      * 
      */
     public Optional<Output<String>> name() {
@@ -227,14 +227,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      * 
      */
     @Import(name="optionalField1")
     private @Nullable Output<String> optionalField1;
 
     /**
-     * @return Name of optional param in the login form.
+     * @return Name of optional param in the login form
      * 
      */
     public Optional<Output<String>> optionalField1() {
@@ -242,14 +242,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      * 
      */
     @Import(name="optionalField1Value")
     private @Nullable Output<String> optionalField1Value;
 
     /**
-     * @return Name of optional value in the login form.
+     * @return Name of optional value in login form
      * 
      */
     public Optional<Output<String>> optionalField1Value() {
@@ -257,14 +257,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      * 
      */
     @Import(name="optionalField2")
     private @Nullable Output<String> optionalField2;
 
     /**
-     * @return Name of optional param in the login form.
+     * @return Name of optional param in the login form
      * 
      */
     public Optional<Output<String>> optionalField2() {
@@ -272,14 +272,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      * 
      */
     @Import(name="optionalField2Value")
     private @Nullable Output<String> optionalField2Value;
 
     /**
-     * @return Name of optional value in the login form.
+     * @return Name of optional value in login form
      * 
      */
     public Optional<Output<String>> optionalField2Value() {
@@ -287,14 +287,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      * 
      */
     @Import(name="optionalField3")
     private @Nullable Output<String> optionalField3;
 
     /**
-     * @return Name of optional param in the login form.
+     * @return Name of optional param in the login form
      * 
      */
     public Optional<Output<String>> optionalField3() {
@@ -302,14 +302,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      * 
      */
     @Import(name="optionalField3Value")
     private @Nullable Output<String> optionalField3Value;
 
     /**
-     * @return Name of optional value in the login form.
+     * @return Name of optional value in login form
      * 
      */
     public Optional<Output<String>> optionalField3Value() {
@@ -317,14 +317,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Login password field.
+     * Login password field
      * 
      */
     @Import(name="passwordField")
     private @Nullable Output<String> passwordField;
 
     /**
-     * @return Login password field.
+     * @return Login password field
      * 
      */
     public Optional<Output<String>> passwordField() {
@@ -332,14 +332,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
+     * Allow user to reveal password
      * 
      */
     @Import(name="revealPassword")
     private @Nullable Output<Boolean> revealPassword;
 
     /**
-     * @return Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
+     * @return Allow user to reveal password
      * 
      */
     public Optional<Output<Boolean>> revealPassword() {
@@ -377,14 +377,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Sign-on mode of application.
+     * Sign on mode of application.
      * 
      */
     @Import(name="signOnMode")
     private @Nullable Output<String> signOnMode;
 
     /**
-     * @return Sign-on mode of application.
+     * @return Sign on mode of application.
      * 
      */
     public Optional<Output<String>> signOnMode() {
@@ -392,14 +392,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Status of application. By default, it is `&#34;ACTIVE&#34;`.
+     * Status of application.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of application. By default, it is `&#34;ACTIVE&#34;`.
+     * @return Status of application.
      * 
      */
     public Optional<Output<String>> status() {
@@ -407,14 +407,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Login URL.
+     * Login URL
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return Login URL.
+     * @return Login URL
      * 
      */
     public Optional<Output<String>> url() {
@@ -422,14 +422,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Username template. Default: `&#34;${source.login}&#34;`
+     * Username template
      * 
      */
     @Import(name="userNameTemplate")
     private @Nullable Output<String> userNameTemplate;
 
     /**
-     * @return Username template. Default: `&#34;${source.login}&#34;`
+     * @return Username template
      * 
      */
     public Optional<Output<String>> userNameTemplate() {
@@ -437,14 +437,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * Push username on update
      * 
      */
     @Import(name="userNameTemplatePushStatus")
     private @Nullable Output<String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * @return Push username on update
      * 
      */
     public Optional<Output<String>> userNameTemplatePushStatus() {
@@ -452,14 +452,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Username template suffix.
+     * Username template suffix
      * 
      */
     @Import(name="userNameTemplateSuffix")
     private @Nullable Output<String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix.
+     * @return Username template suffix
      * 
      */
     public Optional<Output<String>> userNameTemplateSuffix() {
@@ -467,14 +467,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * Username template type
      * 
      */
     @Import(name="userNameTemplateType")
     private @Nullable Output<String> userNameTemplateType;
 
     /**
-     * @return Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * @return Username template type
      * 
      */
     public Optional<Output<String>> userNameTemplateType() {
@@ -482,14 +482,14 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Login username field.
+     * Login username field
      * 
      */
     @Import(name="usernameField")
     private @Nullable Output<String> usernameField;
 
     /**
-     * @return Login username field.
+     * @return Login username field
      * 
      */
     public Optional<Output<String>> usernameField() {
@@ -552,7 +552,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -563,7 +563,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -594,7 +594,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param appLinksJson Displays specific appLinks for the app. The value for each application link should be boolean.
+         * @param appLinksJson Displays specific appLinks for the app
          * 
          * @return builder
          * 
@@ -647,7 +647,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param appLinksJson Displays specific appLinks for the app. The value for each application link should be boolean.
+         * @param appLinksJson Displays specific appLinks for the app
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param credentialsScheme Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
+         * @param credentialsScheme Application credentials scheme
          * 
          * @return builder
          * 
@@ -689,7 +689,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param credentialsScheme Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
+         * @param credentialsScheme Application credentials scheme
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -731,7 +731,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -752,7 +752,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -762,7 +762,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param label The display name of the Application.
+         * @param label Pretty name of app.
          * 
          * @return builder
          * 
@@ -773,7 +773,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param label The display name of the Application.
+         * @param label Pretty name of app.
          * 
          * @return builder
          * 
@@ -783,7 +783,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+         * @param logo Local path to logo of the application.
          * 
          * @return builder
          * 
@@ -794,7 +794,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+         * @param logo Local path to logo of the application.
          * 
          * @return builder
          * 
@@ -825,7 +825,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name assigned to the application by Okta.
+         * @param name Name of the app.
          * 
          * @return builder
          * 
@@ -836,7 +836,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name assigned to the application by Okta.
+         * @param name Name of the app.
          * 
          * @return builder
          * 
@@ -846,7 +846,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField1 Name of optional param in the login form.
+         * @param optionalField1 Name of optional param in the login form
          * 
          * @return builder
          * 
@@ -857,7 +857,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField1 Name of optional param in the login form.
+         * @param optionalField1 Name of optional param in the login form
          * 
          * @return builder
          * 
@@ -867,7 +867,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField1Value Name of optional value in the login form.
+         * @param optionalField1Value Name of optional value in login form
          * 
          * @return builder
          * 
@@ -878,7 +878,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField1Value Name of optional value in the login form.
+         * @param optionalField1Value Name of optional value in login form
          * 
          * @return builder
          * 
@@ -888,7 +888,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField2 Name of optional param in the login form.
+         * @param optionalField2 Name of optional param in the login form
          * 
          * @return builder
          * 
@@ -899,7 +899,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField2 Name of optional param in the login form.
+         * @param optionalField2 Name of optional param in the login form
          * 
          * @return builder
          * 
@@ -909,7 +909,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField2Value Name of optional value in the login form.
+         * @param optionalField2Value Name of optional value in login form
          * 
          * @return builder
          * 
@@ -920,7 +920,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField2Value Name of optional value in the login form.
+         * @param optionalField2Value Name of optional value in login form
          * 
          * @return builder
          * 
@@ -930,7 +930,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField3 Name of optional param in the login form.
+         * @param optionalField3 Name of optional param in the login form
          * 
          * @return builder
          * 
@@ -941,7 +941,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField3 Name of optional param in the login form.
+         * @param optionalField3 Name of optional param in the login form
          * 
          * @return builder
          * 
@@ -951,7 +951,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField3Value Name of optional value in the login form.
+         * @param optionalField3Value Name of optional value in login form
          * 
          * @return builder
          * 
@@ -962,7 +962,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param optionalField3Value Name of optional value in the login form.
+         * @param optionalField3Value Name of optional value in login form
          * 
          * @return builder
          * 
@@ -972,7 +972,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param passwordField Login password field.
+         * @param passwordField Login password field
          * 
          * @return builder
          * 
@@ -983,7 +983,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param passwordField Login password field.
+         * @param passwordField Login password field
          * 
          * @return builder
          * 
@@ -993,7 +993,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param revealPassword Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
+         * @param revealPassword Allow user to reveal password
          * 
          * @return builder
          * 
@@ -1004,7 +1004,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param revealPassword Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
+         * @param revealPassword Allow user to reveal password
          * 
          * @return builder
          * 
@@ -1056,7 +1056,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signOnMode Sign-on mode of application.
+         * @param signOnMode Sign on mode of application.
          * 
          * @return builder
          * 
@@ -1067,7 +1067,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signOnMode Sign-on mode of application.
+         * @param signOnMode Sign on mode of application.
          * 
          * @return builder
          * 
@@ -1077,7 +1077,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param status Status of application. By default, it is `&#34;ACTIVE&#34;`.
+         * @param status Status of application.
          * 
          * @return builder
          * 
@@ -1088,7 +1088,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param status Status of application. By default, it is `&#34;ACTIVE&#34;`.
+         * @param status Status of application.
          * 
          * @return builder
          * 
@@ -1098,7 +1098,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param url Login URL.
+         * @param url Login URL
          * 
          * @return builder
          * 
@@ -1109,7 +1109,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param url Login URL.
+         * @param url Login URL
          * 
          * @return builder
          * 
@@ -1119,7 +1119,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
+         * @param userNameTemplate Username template
          * 
          * @return builder
          * 
@@ -1130,7 +1130,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
+         * @param userNameTemplate Username template
          * 
          * @return builder
          * 
@@ -1140,7 +1140,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+         * @param userNameTemplatePushStatus Push username on update
          * 
          * @return builder
          * 
@@ -1151,7 +1151,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+         * @param userNameTemplatePushStatus Push username on update
          * 
          * @return builder
          * 
@@ -1161,7 +1161,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix.
+         * @param userNameTemplateSuffix Username template suffix
          * 
          * @return builder
          * 
@@ -1172,7 +1172,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix.
+         * @param userNameTemplateSuffix Username template suffix
          * 
          * @return builder
          * 
@@ -1182,7 +1182,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
+         * @param userNameTemplateType Username template type
          * 
          * @return builder
          * 
@@ -1193,7 +1193,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
+         * @param userNameTemplateType Username template type
          * 
          * @return builder
          * 
@@ -1203,7 +1203,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param usernameField Login username field.
+         * @param usernameField Login username field
          * 
          * @return builder
          * 
@@ -1214,7 +1214,7 @@ public final class SecurePasswordStoreState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param usernameField Login username field.
+         * @param usernameField Login username field
          * 
          * @return builder
          * 

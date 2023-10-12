@@ -9,89 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Inline
 {
-    /// <summary>
-    /// Creates an inline hook.
-    /// 
-    /// This resource allows you to create and configure an inline hook.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Inline.Hook("example", new()
-    ///     {
-    ///         Auth = 
-    ///         {
-    ///             { "key", "Authorization" },
-    ///             { "type", "HEADER" },
-    ///             { "value", "secret" },
-    ///         },
-    ///         Channel = 
-    ///         {
-    ///             { "method", "POST" },
-    ///             { "uri", "https://example.com/test" },
-    ///             { "version", "1.0.0" },
-    ///         },
-    ///         Type = "com.okta.oauth2.tokens.transform",
-    ///         Version = "1.0.0",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An inline hook can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:inline/hook:Hook example &amp;#60;hook id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:inline/hook:Hook")]
     public partial class Hook : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Authentication required for inline hook request.
-        /// </summary>
         [Output("auth")]
         public Output<ImmutableDictionary<string, string>?> Auth { get; private set; } = null!;
 
-        /// <summary>
-        /// Details of the endpoint the inline hook will hit.
-        /// </summary>
         [Output("channel")]
         public Output<ImmutableDictionary<string, string>> Channel { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of headers to send along in inline hook request.
-        /// </summary>
         [Output("headers")]
         public Output<ImmutableArray<Outputs.HookHeader>> Headers { get; private set; } = null!;
 
-        /// <summary>
-        /// The inline hook display name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// Version of the channel. The currently-supported version is `"1.0.0"`.
-        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -143,10 +81,6 @@ namespace Pulumi.Okta.Inline
     {
         [Input("auth")]
         private InputMap<string>? _auth;
-
-        /// <summary>
-        /// Authentication required for inline hook request.
-        /// </summary>
         public InputMap<string> Auth
         {
             get => _auth ?? (_auth = new InputMap<string>());
@@ -155,10 +89,6 @@ namespace Pulumi.Okta.Inline
 
         [Input("channel", required: true)]
         private InputMap<string>? _channel;
-
-        /// <summary>
-        /// Details of the endpoint the inline hook will hit.
-        /// </summary>
         public InputMap<string> Channel
         {
             get => _channel ?? (_channel = new InputMap<string>());
@@ -167,34 +97,21 @@ namespace Pulumi.Okta.Inline
 
         [Input("headers")]
         private InputList<Inputs.HookHeaderArgs>? _headers;
-
-        /// <summary>
-        /// Map of headers to send along in inline hook request.
-        /// </summary>
         public InputList<Inputs.HookHeaderArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<Inputs.HookHeaderArgs>());
             set => _headers = value;
         }
 
-        /// <summary>
-        /// The inline hook display name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// Version of the channel. The currently-supported version is `"1.0.0"`.
-        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -208,10 +125,6 @@ namespace Pulumi.Okta.Inline
     {
         [Input("auth")]
         private InputMap<string>? _auth;
-
-        /// <summary>
-        /// Authentication required for inline hook request.
-        /// </summary>
         public InputMap<string> Auth
         {
             get => _auth ?? (_auth = new InputMap<string>());
@@ -220,10 +133,6 @@ namespace Pulumi.Okta.Inline
 
         [Input("channel")]
         private InputMap<string>? _channel;
-
-        /// <summary>
-        /// Details of the endpoint the inline hook will hit.
-        /// </summary>
         public InputMap<string> Channel
         {
             get => _channel ?? (_channel = new InputMap<string>());
@@ -232,34 +141,21 @@ namespace Pulumi.Okta.Inline
 
         [Input("headers")]
         private InputList<Inputs.HookHeaderGetArgs>? _headers;
-
-        /// <summary>
-        /// Map of headers to send along in inline hook request.
-        /// </summary>
         public InputList<Inputs.HookHeaderGetArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<Inputs.HookHeaderGetArgs>());
             set => _headers = value;
         }
 
-        /// <summary>
-        /// The inline hook display name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// Version of the channel. The currently-supported version is `"1.0.0"`.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

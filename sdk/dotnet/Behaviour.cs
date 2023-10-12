@@ -9,110 +9,47 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
-    /// <summary>
-    /// This resource allows you to create and configure a behavior.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myLocation = new Okta.Behaviour("myLocation", new()
-    ///     {
-    ///         LocationGranularityType = "LAT_LONG",
-    ///         NumberOfAuthentications = 50,
-    ///         RadiusFromLocation = 20,
-    ///         Type = "ANOMALOUS_LOCATION",
-    ///     });
-    /// 
-    ///     var myCity = new Okta.Behaviour("myCity", new()
-    ///     {
-    ///         LocationGranularityType = "CITY",
-    ///         NumberOfAuthentications = 50,
-    ///         Type = "ANOMALOUS_LOCATION",
-    ///     });
-    /// 
-    ///     var myDevice = new Okta.Behaviour("myDevice", new()
-    ///     {
-    ///         NumberOfAuthentications = 50,
-    ///         Type = "ANOMALOUS_DEVICE",
-    ///     });
-    /// 
-    ///     var myIp = new Okta.Behaviour("myIp", new()
-    ///     {
-    ///         NumberOfAuthentications = 50,
-    ///         Type = "ANOMALOUS_IP",
-    ///     });
-    /// 
-    ///     var myVelocity = new Okta.Behaviour("myVelocity", new()
-    ///     {
-    ///         Type = "VELOCITY",
-    ///         Velocity = 25,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Behavior can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:index/behaviour:Behaviour example &amp;#60;behavior id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:index/behaviour:Behaviour")]
     public partial class Behaviour : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Determines the method and level of detail used to evaluate the behavior.
-        /// Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
-        /// or `"SUBDIVISION"`.
         /// </summary>
         [Output("locationGranularityType")]
         public Output<string?> LocationGranularityType { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the behavior.
+        /// Name of the behavior
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of recent authentications used to evaluate the behavior. Required
-        /// for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
+        /// The number of recent authentications used to evaluate the behavior.
         /// </summary>
         [Output("numberOfAuthentications")]
         public Output<int?> NumberOfAuthentications { get; private set; } = null!;
 
         /// <summary>
-        /// Radius from location (in kilometers). Should be at least 5. Required
-        /// when `location_granularity_type` is set to `"LAT_LONG"`.
+        /// Radius from location (in kilometers)
         /// </summary>
         [Output("radiusFromLocation")]
         public Output<int?> RadiusFromLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the behavior. By default, it is`"ACTIVE"`.
+        /// Behavior status: ACTIVE or INACTIVE.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
-        /// or `"VELOCITY"`. Resource will be recreated when the type changes.
+        /// Behavior type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
-        /// type.
+        /// Velocity (in kilometers per hour).
         /// </summary>
         [Output("velocity")]
         public Output<int?> Velocity { get; private set; } = null!;
@@ -165,48 +102,42 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Determines the method and level of detail used to evaluate the behavior.
-        /// Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
-        /// or `"SUBDIVISION"`.
         /// </summary>
         [Input("locationGranularityType")]
         public Input<string>? LocationGranularityType { get; set; }
 
         /// <summary>
-        /// Name of the behavior.
+        /// Name of the behavior
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of recent authentications used to evaluate the behavior. Required
-        /// for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
+        /// The number of recent authentications used to evaluate the behavior.
         /// </summary>
         [Input("numberOfAuthentications")]
         public Input<int>? NumberOfAuthentications { get; set; }
 
         /// <summary>
-        /// Radius from location (in kilometers). Should be at least 5. Required
-        /// when `location_granularity_type` is set to `"LAT_LONG"`.
+        /// Radius from location (in kilometers)
         /// </summary>
         [Input("radiusFromLocation")]
         public Input<int>? RadiusFromLocation { get; set; }
 
         /// <summary>
-        /// The status of the behavior. By default, it is`"ACTIVE"`.
+        /// Behavior status: ACTIVE or INACTIVE.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
-        /// or `"VELOCITY"`. Resource will be recreated when the type changes.
+        /// Behavior type
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
-        /// type.
+        /// Velocity (in kilometers per hour).
         /// </summary>
         [Input("velocity")]
         public Input<int>? Velocity { get; set; }
@@ -221,48 +152,42 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Determines the method and level of detail used to evaluate the behavior.
-        /// Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
-        /// or `"SUBDIVISION"`.
         /// </summary>
         [Input("locationGranularityType")]
         public Input<string>? LocationGranularityType { get; set; }
 
         /// <summary>
-        /// Name of the behavior.
+        /// Name of the behavior
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of recent authentications used to evaluate the behavior. Required
-        /// for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
+        /// The number of recent authentications used to evaluate the behavior.
         /// </summary>
         [Input("numberOfAuthentications")]
         public Input<int>? NumberOfAuthentications { get; set; }
 
         /// <summary>
-        /// Radius from location (in kilometers). Should be at least 5. Required
-        /// when `location_granularity_type` is set to `"LAT_LONG"`.
+        /// Radius from location (in kilometers)
         /// </summary>
         [Input("radiusFromLocation")]
         public Input<int>? RadiusFromLocation { get; set; }
 
         /// <summary>
-        /// The status of the behavior. By default, it is`"ACTIVE"`.
+        /// Behavior status: ACTIVE or INACTIVE.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
-        /// or `"VELOCITY"`. Resource will be recreated when the type changes.
+        /// Behavior type
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
-        /// type.
+        /// Velocity (in kilometers per hour).
         /// </summary>
         [Input("velocity")]
         public Input<int>? Velocity { get; set; }

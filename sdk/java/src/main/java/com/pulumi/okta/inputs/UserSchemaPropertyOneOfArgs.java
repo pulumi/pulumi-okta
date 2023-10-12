@@ -14,14 +14,14 @@ public final class UserSchemaPropertyOneOfArgs extends com.pulumi.resources.Reso
     public static final UserSchemaPropertyOneOfArgs Empty = new UserSchemaPropertyOneOfArgs();
 
     /**
-     * value mapping to member of `enum`.
+     * Enum value
      * 
      */
     @Import(name="const", required=true)
     private Output<String> const_;
 
     /**
-     * @return value mapping to member of `enum`.
+     * @return Enum value
      * 
      */
     public Output<String> const_() {
@@ -29,14 +29,14 @@ public final class UserSchemaPropertyOneOfArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * display name for the enum value.
+     * Enum title
      * 
      */
     @Import(name="title", required=true)
     private Output<String> title;
 
     /**
-     * @return display name for the enum value.
+     * @return Enum title
      * 
      */
     public Output<String> title() {
@@ -69,7 +69,7 @@ public final class UserSchemaPropertyOneOfArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param const_ value mapping to member of `enum`.
+         * @param const_ Enum value
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class UserSchemaPropertyOneOfArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param const_ value mapping to member of `enum`.
+         * @param const_ Enum value
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class UserSchemaPropertyOneOfArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title Enum title
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class UserSchemaPropertyOneOfArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title Enum title
          * 
          * @return builder
          * 

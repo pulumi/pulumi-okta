@@ -9,38 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
-    /// <summary>
-    /// This resource allows you manage org settings, logo, support and communication options.
-    /// 
-    /// &gt; **IMPORTANT:** You must specify all Org Setting properties when you update an org's profile. Any property not specified in the script will be deleted.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.OrgConfiguration("example", new()
-    ///     {
-    ///         CompanyName = "Umbrella Corporation",
-    ///         Website = "https://terraform.io",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Okta Org Configuration can be imported even without specifying the Org ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:index/orgConfiguration:OrgConfiguration")]
     public partial class OrgConfiguration : global::Pulumi.CustomResource
     {

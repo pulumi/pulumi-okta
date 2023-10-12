@@ -14,14 +14,14 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
     public static final EmailDomainArgs Empty = new EmailDomainArgs();
 
     /**
-     * Brand id of the email domain.
+     * Brand id
      * 
      */
     @Import(name="brandId", required=true)
     private Output<String> brandId;
 
     /**
-     * @return Brand id of the email domain.
+     * @return Brand id
      * 
      */
     public Output<String> brandId() {
@@ -29,14 +29,14 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Display name of the email domain.
+     * Display name
      * 
      */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
     /**
-     * @return Display name of the email domain.
+     * @return Display name
      * 
      */
     public Output<String> displayName() {
@@ -44,14 +44,14 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Mail domain to send from.
+     * Domain name
      * 
      */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
     /**
-     * @return Mail domain to send from.
+     * @return Domain name
      * 
      */
     public Output<String> domain() {
@@ -59,14 +59,14 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User name of the email domain.
+     * User name
      * 
      */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
     /**
-     * @return User name of the email domain.
+     * @return User name
      * 
      */
     public Output<String> userName() {
@@ -101,7 +101,7 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brandId Brand id of the email domain.
+         * @param brandId Brand id
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brandId Brand id of the email domain.
+         * @param brandId Brand id
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Display name of the email domain.
+         * @param displayName Display name
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Display name of the email domain.
+         * @param displayName Display name
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain Mail domain to send from.
+         * @param domain Domain name
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain Mail domain to send from.
+         * @param domain Domain name
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName User name of the email domain.
+         * @param userName User name
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName User name of the email domain.
+         * @param userName User name
          * 
          * @return builder
          * 

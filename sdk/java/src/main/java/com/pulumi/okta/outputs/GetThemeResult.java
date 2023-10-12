@@ -14,19 +14,23 @@ public final class GetThemeResult {
      * 
      */
     private String backgroundImageUrl;
+    /**
+     * @return Brand ID
+     * 
+     */
     private String brandId;
     /**
-     * @return (Enum) Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+     * @return Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
      * 
      */
     private String emailTemplateTouchPointVariant;
     /**
-     * @return (Enum) Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+     * @return Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      * 
      */
     private String endUserDashboardTouchPointVariant;
     /**
-     * @return (Enum) Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * @return Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     private String errorPageTouchPointVariant;
@@ -36,12 +40,12 @@ public final class GetThemeResult {
      */
     private String faviconUrl;
     /**
-     * @return Theme URL
+     * @return The ID of the theme
      * 
      */
     private String id;
     /**
-     * @return Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the email template
      * 
      */
     private String links;
@@ -71,10 +75,14 @@ public final class GetThemeResult {
      */
     private String secondaryColorHex;
     /**
-     * @return (Enum) Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * @return Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     private String signInPageTouchPointVariant;
+    /**
+     * @return Theme ID
+     * 
+     */
     private String themeId;
 
     private GetThemeResult() {}
@@ -85,25 +93,29 @@ public final class GetThemeResult {
     public String backgroundImageUrl() {
         return this.backgroundImageUrl;
     }
+    /**
+     * @return Brand ID
+     * 
+     */
     public String brandId() {
         return this.brandId;
     }
     /**
-     * @return (Enum) Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+     * @return Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
      * 
      */
     public String emailTemplateTouchPointVariant() {
         return this.emailTemplateTouchPointVariant;
     }
     /**
-     * @return (Enum) Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+     * @return Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      * 
      */
     public String endUserDashboardTouchPointVariant() {
         return this.endUserDashboardTouchPointVariant;
     }
     /**
-     * @return (Enum) Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * @return Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     public String errorPageTouchPointVariant() {
@@ -117,14 +129,14 @@ public final class GetThemeResult {
         return this.faviconUrl;
     }
     /**
-     * @return Theme URL
+     * @return The ID of the theme
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the email template
      * 
      */
     public String links() {
@@ -166,12 +178,16 @@ public final class GetThemeResult {
         return this.secondaryColorHex;
     }
     /**
-     * @return (Enum) Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * @return Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     public String signInPageTouchPointVariant() {
         return this.signInPageTouchPointVariant;
     }
+    /**
+     * @return Theme ID
+     * 
+     */
     public String themeId() {
         return this.themeId;
     }

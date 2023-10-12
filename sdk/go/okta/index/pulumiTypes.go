@@ -17,13 +17,9 @@ var _ = internal.GetEnvOrDefault
 type EmailDomainDnsValidationRecord struct {
 	// Deprecated: This field has been removed in the newest go sdk version and has become noop
 	Expiration *string `pulumi:"expiration"`
-	// DNS record name.
-	Fqdn *string `pulumi:"fqdn"`
-	// Record type can be TXT or cname.
+	Fqdn       *string `pulumi:"fqdn"`
 	RecordType *string `pulumi:"recordType"`
-	// DNS record value
-	// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
-	Value *string `pulumi:"value"`
+	Value      *string `pulumi:"value"`
 }
 
 // EmailDomainDnsValidationRecordInput is an input type that accepts EmailDomainDnsValidationRecordArgs and EmailDomainDnsValidationRecordOutput values.
@@ -40,13 +36,9 @@ type EmailDomainDnsValidationRecordInput interface {
 type EmailDomainDnsValidationRecordArgs struct {
 	// Deprecated: This field has been removed in the newest go sdk version and has become noop
 	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
-	// DNS record name.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Record type can be TXT or cname.
+	Fqdn       pulumi.StringPtrInput `pulumi:"fqdn"`
 	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
-	// DNS record value
-	// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value      pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EmailDomainDnsValidationRecordArgs) ElementType() reflect.Type {
@@ -123,18 +115,14 @@ func (o EmailDomainDnsValidationRecordOutput) Expiration() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
-// DNS record name.
 func (o EmailDomainDnsValidationRecordOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Record type can be TXT or cname.
 func (o EmailDomainDnsValidationRecordOutput) RecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.RecordType }).(pulumi.StringPtrOutput)
 }
 
-// DNS record value
-// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
 func (o EmailDomainDnsValidationRecordOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -166,14 +154,10 @@ func (o EmailDomainDnsValidationRecordArrayOutput) Index(i pulumi.IntInput) Emai
 }
 
 type GetDomainDnsRecord struct {
-	// TXT record expiration.
-	Expiration string `pulumi:"expiration"`
-	// DNS record name.
-	Fqdn string `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
-	RecordType string `pulumi:"recordType"`
-	// DNS verification value
-	Values []string `pulumi:"values"`
+	Expiration string   `pulumi:"expiration"`
+	Fqdn       string   `pulumi:"fqdn"`
+	RecordType string   `pulumi:"recordType"`
+	Values     []string `pulumi:"values"`
 }
 
 // GetDomainDnsRecordInput is an input type that accepts GetDomainDnsRecordArgs and GetDomainDnsRecordOutput values.
@@ -188,14 +172,10 @@ type GetDomainDnsRecordInput interface {
 }
 
 type GetDomainDnsRecordArgs struct {
-	// TXT record expiration.
-	Expiration pulumi.StringInput `pulumi:"expiration"`
-	// DNS record name.
-	Fqdn pulumi.StringInput `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
-	RecordType pulumi.StringInput `pulumi:"recordType"`
-	// DNS verification value
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Expiration pulumi.StringInput      `pulumi:"expiration"`
+	Fqdn       pulumi.StringInput      `pulumi:"fqdn"`
+	RecordType pulumi.StringInput      `pulumi:"recordType"`
+	Values     pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (GetDomainDnsRecordArgs) ElementType() reflect.Type {
@@ -267,22 +247,18 @@ func (o GetDomainDnsRecordOutput) ToOutput(ctx context.Context) pulumix.Output[G
 	}
 }
 
-// TXT record expiration.
 func (o GetDomainDnsRecordOutput) Expiration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainDnsRecord) string { return v.Expiration }).(pulumi.StringOutput)
 }
 
-// DNS record name.
 func (o GetDomainDnsRecordOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainDnsRecord) string { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// Record type can be TXT or CNAME.
 func (o GetDomainDnsRecordOutput) RecordType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainDnsRecord) string { return v.RecordType }).(pulumi.StringOutput)
 }
 
-// DNS verification value
 func (o GetDomainDnsRecordOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDomainDnsRecord) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

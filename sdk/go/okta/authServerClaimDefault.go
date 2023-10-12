@@ -13,72 +13,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Configures Default Authorization Server Claim.
-//
-// This resource allows you to configure Default Authorization Server Claims.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewAuthServerClaimDefault(ctx, "example", &okta.AuthServerClaimDefaultArgs{
-//				AuthServerId: pulumi.String("<auth server id>"),
-//				Value:        pulumi.String("(appuser != null) ? appuser.userName : app.clientId"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
-//
-// ```sh
-//
-//	$ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim id&#62;
-//
-// ```
-//
-//	or
-//
-// ```sh
-//
-//	$ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
-//
-// ```
 type AuthServerClaimDefault struct {
 	pulumi.CustomResourceState
 
 	// Specifies whether to include claims in token.
 	AlwaysIncludeInToken pulumi.BoolOutput `pulumi:"alwaysIncludeInToken"`
-	// ID of the authorization server.
+	// Auth server ID
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
-	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+	// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
 	ClaimType pulumi.StringOutput `pulumi:"claimType"`
-	// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-	// `"emailVerified"`, `"familyName"`, `"gender"`, `"givenName"`, `"locale"`, `"middleName"`, `"name"`, `"nickname"`,
-	// `"phoneNumber"`, `"picture"`, `"preferredUsername"`, `"profile"`, `"updatedAt"`, `"website"`, `"zoneinfo"`.
+	// Default auth server claim name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The list of scopes the auth server claim is tied to.
+	// Auth server claim list of scopes
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// The status of the application.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The value of the claim. Only required for `"sub"` claim.
+	// The value of the claim.
 	Value pulumi.StringPtrOutput `pulumi:"value"`
 	// The type of value of the claim.
 	ValueType pulumi.StringOutput `pulumi:"valueType"`
@@ -119,19 +69,17 @@ func GetAuthServerClaimDefault(ctx *pulumi.Context,
 type authServerClaimDefaultState struct {
 	// Specifies whether to include claims in token.
 	AlwaysIncludeInToken *bool `pulumi:"alwaysIncludeInToken"`
-	// ID of the authorization server.
+	// Auth server ID
 	AuthServerId *string `pulumi:"authServerId"`
-	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+	// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
 	ClaimType *string `pulumi:"claimType"`
-	// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-	// `"emailVerified"`, `"familyName"`, `"gender"`, `"givenName"`, `"locale"`, `"middleName"`, `"name"`, `"nickname"`,
-	// `"phoneNumber"`, `"picture"`, `"preferredUsername"`, `"profile"`, `"updatedAt"`, `"website"`, `"zoneinfo"`.
+	// Default auth server claim name
 	Name *string `pulumi:"name"`
-	// The list of scopes the auth server claim is tied to.
+	// Auth server claim list of scopes
 	Scopes []string `pulumi:"scopes"`
 	// The status of the application.
 	Status *string `pulumi:"status"`
-	// The value of the claim. Only required for `"sub"` claim.
+	// The value of the claim.
 	Value *string `pulumi:"value"`
 	// The type of value of the claim.
 	ValueType *string `pulumi:"valueType"`
@@ -140,19 +88,17 @@ type authServerClaimDefaultState struct {
 type AuthServerClaimDefaultState struct {
 	// Specifies whether to include claims in token.
 	AlwaysIncludeInToken pulumi.BoolPtrInput
-	// ID of the authorization server.
+	// Auth server ID
 	AuthServerId pulumi.StringPtrInput
-	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+	// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
 	ClaimType pulumi.StringPtrInput
-	// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-	// `"emailVerified"`, `"familyName"`, `"gender"`, `"givenName"`, `"locale"`, `"middleName"`, `"name"`, `"nickname"`,
-	// `"phoneNumber"`, `"picture"`, `"preferredUsername"`, `"profile"`, `"updatedAt"`, `"website"`, `"zoneinfo"`.
+	// Default auth server claim name
 	Name pulumi.StringPtrInput
-	// The list of scopes the auth server claim is tied to.
+	// Auth server claim list of scopes
 	Scopes pulumi.StringArrayInput
 	// The status of the application.
 	Status pulumi.StringPtrInput
-	// The value of the claim. Only required for `"sub"` claim.
+	// The value of the claim.
 	Value pulumi.StringPtrInput
 	// The type of value of the claim.
 	ValueType pulumi.StringPtrInput
@@ -165,13 +111,11 @@ func (AuthServerClaimDefaultState) ElementType() reflect.Type {
 type authServerClaimDefaultArgs struct {
 	// Specifies whether to include claims in token.
 	AlwaysIncludeInToken *bool `pulumi:"alwaysIncludeInToken"`
-	// ID of the authorization server.
+	// Auth server ID
 	AuthServerId string `pulumi:"authServerId"`
-	// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-	// `"emailVerified"`, `"familyName"`, `"gender"`, `"givenName"`, `"locale"`, `"middleName"`, `"name"`, `"nickname"`,
-	// `"phoneNumber"`, `"picture"`, `"preferredUsername"`, `"profile"`, `"updatedAt"`, `"website"`, `"zoneinfo"`.
+	// Default auth server claim name
 	Name *string `pulumi:"name"`
-	// The value of the claim. Only required for `"sub"` claim.
+	// The value of the claim.
 	Value *string `pulumi:"value"`
 }
 
@@ -179,13 +123,11 @@ type authServerClaimDefaultArgs struct {
 type AuthServerClaimDefaultArgs struct {
 	// Specifies whether to include claims in token.
 	AlwaysIncludeInToken pulumi.BoolPtrInput
-	// ID of the authorization server.
+	// Auth server ID
 	AuthServerId pulumi.StringInput
-	// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-	// `"emailVerified"`, `"familyName"`, `"gender"`, `"givenName"`, `"locale"`, `"middleName"`, `"name"`, `"nickname"`,
-	// `"phoneNumber"`, `"picture"`, `"preferredUsername"`, `"profile"`, `"updatedAt"`, `"website"`, `"zoneinfo"`.
+	// Default auth server claim name
 	Name pulumi.StringPtrInput
-	// The value of the claim. Only required for `"sub"` claim.
+	// The value of the claim.
 	Value pulumi.StringPtrInput
 }
 
@@ -305,24 +247,22 @@ func (o AuthServerClaimDefaultOutput) AlwaysIncludeInToken() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AuthServerClaimDefault) pulumi.BoolOutput { return v.AlwaysIncludeInToken }).(pulumi.BoolOutput)
 }
 
-// ID of the authorization server.
+// Auth server ID
 func (o AuthServerClaimDefaultOutput) AuthServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthServerClaimDefault) pulumi.StringOutput { return v.AuthServerId }).(pulumi.StringOutput)
 }
 
-// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
 func (o AuthServerClaimDefaultOutput) ClaimType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthServerClaimDefault) pulumi.StringOutput { return v.ClaimType }).(pulumi.StringOutput)
 }
 
-// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-// `"emailVerified"`, `"familyName"`, `"gender"`, `"givenName"`, `"locale"`, `"middleName"`, `"name"`, `"nickname"`,
-// `"phoneNumber"`, `"picture"`, `"preferredUsername"`, `"profile"`, `"updatedAt"`, `"website"`, `"zoneinfo"`.
+// Default auth server claim name
 func (o AuthServerClaimDefaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthServerClaimDefault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The list of scopes the auth server claim is tied to.
+// Auth server claim list of scopes
 func (o AuthServerClaimDefaultOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthServerClaimDefault) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -332,7 +272,7 @@ func (o AuthServerClaimDefaultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthServerClaimDefault) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The value of the claim. Only required for `"sub"` claim.
+// The value of the claim.
 func (o AuthServerClaimDefaultOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthServerClaimDefault) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
 }

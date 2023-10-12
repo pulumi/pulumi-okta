@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     public static class GetAuthServerClaims
     {
         /// <summary>
-        /// Use this data source to retrieve a list of authorization server claims from Okta.
+        /// Get a list of authorization server claims from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthServerClaimsResult>("okta:index/getAuthServerClaims:getAuthServerClaims", args ?? new GetAuthServerClaimsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a list of authorization server claims from Okta.
+        /// Get a list of authorization server claims from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
     public sealed class GetAuthServerClaimsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Auth server ID.
+        /// Auth server ID
         /// </summary>
         [Input("authServerId", required: true)]
         public string AuthServerId { get; set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Okta
     public sealed class GetAuthServerClaimsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Auth server ID.
+        /// Auth server ID
         /// </summary>
         [Input("authServerId", required: true)]
         public Input<string> AuthServerId { get; set; } = null!;
@@ -101,9 +101,12 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetAuthServerClaimsResult
     {
+        /// <summary>
+        /// Auth server ID
+        /// </summary>
         public readonly string AuthServerId;
         /// <summary>
-        /// collection of authorization server claims retrieved from Okta with the following properties.
+        /// Collection of authorization server claims retrieved from Okta with the following properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAuthServerClaimsClaimResult> Claims;
         /// <summary>

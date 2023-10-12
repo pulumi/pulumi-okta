@@ -9,43 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Auth
 {
-    /// <summary>
-    /// Creates an Authorization Server Claim.
-    /// 
-    /// This resource allows you to create and configure an Authorization Server Claim.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Auth.ServerClaim("example", new()
-    ///     {
-    ///         AuthServerId = "&lt;auth server id&gt;",
-    ///         ClaimType = "IDENTITY",
-    ///         Scopes = new[]
-    ///         {
-    ///             okta_auth_server_scope.Example.Name,
-    ///         },
-    ///         Value = "String.substringAfter(user.email, \"@\") == \"example.com\"",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:auth/serverClaim:ServerClaim example &amp;#60;auth server id&amp;#62;/&amp;#60;claim id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:auth/serverClaim:ServerClaim")]
     public partial class ServerClaim : global::Pulumi.CustomResource
     {
@@ -56,38 +19,35 @@ namespace Pulumi.Okta.Auth
         public Output<bool?> AlwaysIncludeInToken { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the authorization server.
+        /// Auth server ID
         /// </summary>
         [Output("authServerId")]
         public Output<string> AuthServerId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+        /// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
         /// </summary>
         [Output("claimType")]
         public Output<string> ClaimType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of group filter if `value_type` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
+        /// Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
         /// </summary>
         [Output("groupFilterType")]
         public Output<string?> GroupFilterType { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the claim.
+        /// Auth server claim name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The list of scopes the auth server claim is tied to.
+        /// Auth server claim list of scopes
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the application. It defaults to `"ACTIVE"`.
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
@@ -98,7 +58,7 @@ namespace Pulumi.Okta.Auth
         public Output<string> Value { get; private set; } = null!;
 
         /// <summary>
-        /// The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
+        /// The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
         /// </summary>
         [Output("valueType")]
         public Output<string?> ValueType { get; private set; } = null!;
@@ -156,25 +116,25 @@ namespace Pulumi.Okta.Auth
         public Input<bool>? AlwaysIncludeInToken { get; set; }
 
         /// <summary>
-        /// ID of the authorization server.
+        /// Auth server ID
         /// </summary>
         [Input("authServerId", required: true)]
         public Input<string> AuthServerId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+        /// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
         /// </summary>
         [Input("claimType", required: true)]
         public Input<string> ClaimType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the type of group filter if `value_type` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
+        /// Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
         /// </summary>
         [Input("groupFilterType")]
         public Input<string>? GroupFilterType { get; set; }
 
         /// <summary>
-        /// The name of the claim.
+        /// Auth server claim name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -183,7 +143,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// The list of scopes the auth server claim is tied to.
+        /// Auth server claim list of scopes
         /// </summary>
         public InputList<string> Scopes
         {
@@ -191,9 +151,6 @@ namespace Pulumi.Okta.Auth
             set => _scopes = value;
         }
 
-        /// <summary>
-        /// The status of the application. It defaults to `"ACTIVE"`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -204,7 +161,7 @@ namespace Pulumi.Okta.Auth
         public Input<string> Value { get; set; } = null!;
 
         /// <summary>
-        /// The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
+        /// The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
         /// </summary>
         [Input("valueType")]
         public Input<string>? ValueType { get; set; }
@@ -224,25 +181,25 @@ namespace Pulumi.Okta.Auth
         public Input<bool>? AlwaysIncludeInToken { get; set; }
 
         /// <summary>
-        /// ID of the authorization server.
+        /// Auth server ID
         /// </summary>
         [Input("authServerId")]
         public Input<string>? AuthServerId { get; set; }
 
         /// <summary>
-        /// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+        /// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
         /// </summary>
         [Input("claimType")]
         public Input<string>? ClaimType { get; set; }
 
         /// <summary>
-        /// Specifies the type of group filter if `value_type` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
+        /// Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
         /// </summary>
         [Input("groupFilterType")]
         public Input<string>? GroupFilterType { get; set; }
 
         /// <summary>
-        /// The name of the claim.
+        /// Auth server claim name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -251,7 +208,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// The list of scopes the auth server claim is tied to.
+        /// Auth server claim list of scopes
         /// </summary>
         public InputList<string> Scopes
         {
@@ -259,9 +216,6 @@ namespace Pulumi.Okta.Auth
             set => _scopes = value;
         }
 
-        /// <summary>
-        /// The status of the application. It defaults to `"ACTIVE"`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -272,7 +226,7 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Value { get; set; }
 
         /// <summary>
-        /// The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
+        /// The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
         /// </summary>
         [Input("valueType")]
         public Input<string>? ValueType { get; set; }

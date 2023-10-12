@@ -12,14 +12,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMetadataSamlResult {
+    /**
+     * @return The application ID.
+     * 
+     */
     private String appId;
     /**
-     * @return public certificate from application metadata.
+     * @return Public certificate from application metadata.
      * 
      */
     private String certificate;
     /**
-     * @return Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+     * @return Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
      * 
      */
     private String entityId;
@@ -38,9 +42,13 @@ public final class GetMetadataSamlResult {
      * 
      */
     private String id;
+    /**
+     * @return Certificate Key ID.
+     * 
+     */
     private @Nullable String keyId;
     /**
-     * @return raw metadata of application.
+     * @return Raw metadata of application.
      * 
      */
     private String metadata;
@@ -51,18 +59,22 @@ public final class GetMetadataSamlResult {
     private Boolean wantAuthnRequestsSigned;
 
     private GetMetadataSamlResult() {}
+    /**
+     * @return The application ID.
+     * 
+     */
     public String appId() {
         return this.appId;
     }
     /**
-     * @return public certificate from application metadata.
+     * @return Public certificate from application metadata.
      * 
      */
     public String certificate() {
         return this.certificate;
     }
     /**
-     * @return Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+     * @return Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
      * 
      */
     public String entityId() {
@@ -89,11 +101,15 @@ public final class GetMetadataSamlResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Certificate Key ID.
+     * 
+     */
     public Optional<String> keyId() {
         return Optional.ofNullable(this.keyId);
     }
     /**
-     * @return raw metadata of application.
+     * @return Raw metadata of application.
      * 
      */
     public String metadata() {

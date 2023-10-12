@@ -14,113 +14,55 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * A SAML IdP Signing Key can be imported via the key id.
- * 
- * ```sh
- *  $ pulumi import okta:idp/samlKey:SamlKey example &amp;#60;key id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:idp/samlKey:SamlKey")
 public class SamlKey extends com.pulumi.resources.CustomResource {
-    /**
-     * Date created.
-     * 
-     */
     @Export(name="created", refs={String.class}, tree="[0]")
     private Output<String> created;
 
-    /**
-     * @return Date created.
-     * 
-     */
     public Output<String> created() {
         return this.created;
     }
-    /**
-     * Date the cert expires.
-     * 
-     */
     @Export(name="expiresAt", refs={String.class}, tree="[0]")
     private Output<String> expiresAt;
 
-    /**
-     * @return Date the cert expires.
-     * 
-     */
     public Output<String> expiresAt() {
         return this.expiresAt;
     }
-    /**
-     * Key ID.
-     * 
-     */
     @Export(name="kid", refs={String.class}, tree="[0]")
     private Output<String> kid;
 
-    /**
-     * @return Key ID.
-     * 
-     */
     public Output<String> kid() {
         return this.kid;
     }
-    /**
-     * Identifies the cryptographic algorithm family used with the key.
-     * 
-     */
     @Export(name="kty", refs={String.class}, tree="[0]")
     private Output<String> kty;
 
-    /**
-     * @return Identifies the cryptographic algorithm family used with the key.
-     * 
-     */
     public Output<String> kty() {
         return this.kty;
     }
-    /**
-     * Intended use of the public key.
-     * 
-     */
     @Export(name="use", refs={String.class}, tree="[0]")
     private Output<String> use;
 
-    /**
-     * @return Intended use of the public key.
-     * 
-     */
     public Output<String> use() {
         return this.use;
     }
     /**
-     * base64-encoded X.509 certificate chain with DER encoding.
+     * base64-encoded X.509 certificate chain with DER encoding
      * 
      */
     @Export(name="x5cs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> x5cs;
 
     /**
-     * @return base64-encoded X.509 certificate chain with DER encoding.
+     * @return base64-encoded X.509 certificate chain with DER encoding
      * 
      */
     public Output<List<String>> x5cs() {
         return this.x5cs;
     }
-    /**
-     * base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
-     * 
-     */
     @Export(name="x5tS256", refs={String.class}, tree="[0]")
     private Output<String> x5tS256;
 
-    /**
-     * @return base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
-     * 
-     */
     public Output<String> x5tS256() {
         return this.x5tS256;
     }

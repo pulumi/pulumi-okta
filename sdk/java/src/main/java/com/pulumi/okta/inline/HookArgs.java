@@ -18,62 +18,30 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final HookArgs Empty = new HookArgs();
 
-    /**
-     * Authentication required for inline hook request.
-     * 
-     */
     @Import(name="auth")
     private @Nullable Output<Map<String,String>> auth;
 
-    /**
-     * @return Authentication required for inline hook request.
-     * 
-     */
     public Optional<Output<Map<String,String>>> auth() {
         return Optional.ofNullable(this.auth);
     }
 
-    /**
-     * Details of the endpoint the inline hook will hit.
-     * 
-     */
     @Import(name="channel", required=true)
     private Output<Map<String,String>> channel;
 
-    /**
-     * @return Details of the endpoint the inline hook will hit.
-     * 
-     */
     public Output<Map<String,String>> channel() {
         return this.channel;
     }
 
-    /**
-     * Map of headers to send along in inline hook request.
-     * 
-     */
     @Import(name="headers")
     private @Nullable Output<List<HookHeaderArgs>> headers;
 
-    /**
-     * @return Map of headers to send along in inline hook request.
-     * 
-     */
     public Optional<Output<List<HookHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
     }
 
-    /**
-     * The inline hook display name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The inline hook display name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -85,32 +53,16 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
-     * 
-     */
     @Import(name="version", required=true)
     private Output<String> version;
 
-    /**
-     * @return Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
@@ -145,96 +97,42 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
             $ = new HookArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param auth Authentication required for inline hook request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auth(@Nullable Output<Map<String,String>> auth) {
             $.auth = auth;
             return this;
         }
 
-        /**
-         * @param auth Authentication required for inline hook request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auth(Map<String,String> auth) {
             return auth(Output.of(auth));
         }
 
-        /**
-         * @param channel Details of the endpoint the inline hook will hit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channel(Output<Map<String,String>> channel) {
             $.channel = channel;
             return this;
         }
 
-        /**
-         * @param channel Details of the endpoint the inline hook will hit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channel(Map<String,String> channel) {
             return channel(Output.of(channel));
         }
 
-        /**
-         * @param headers Map of headers to send along in inline hook request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(@Nullable Output<List<HookHeaderArgs>> headers) {
             $.headers = headers;
             return this;
         }
 
-        /**
-         * @param headers Map of headers to send along in inline hook request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(List<HookHeaderArgs> headers) {
             return headers(Output.of(headers));
         }
 
-        /**
-         * @param headers Map of headers to send along in inline hook request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(HookHeaderArgs... headers) {
             return headers(List.of(headers));
         }
 
-        /**
-         * @param name The inline hook display name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The inline hook display name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -248,44 +146,20 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
             return status(Output.of(status));
         }
 
-        /**
-         * @param type The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param version Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

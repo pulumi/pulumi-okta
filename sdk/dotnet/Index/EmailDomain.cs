@@ -9,73 +9,41 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Index
 {
-    /// <summary>
-    /// This resource allows you to create and configure an email domain.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Index.EmailDomain("example", new()
-    ///     {
-    ///         BrandId = "abc123",
-    ///         DisplayName = "test",
-    ///         Domain = "example.com",
-    ///         UserName = "paul_atreides",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Custom email domain can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:Index/emailDomain:EmailDomain example &amp;#60;domain id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:Index/emailDomain:EmailDomain")]
     public partial class EmailDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Brand id of the email domain.
+        /// Brand id
         /// </summary>
         [Output("brandId")]
         public Output<string> BrandId { get; private set; } = null!;
 
         /// <summary>
-        /// Display name of the email domain.
+        /// Display name
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// TXT and CNAME records to be registered for the domain.
+        /// TXT and cname records to be registered for the email Domain
         /// </summary>
         [Output("dnsValidationRecords")]
         public Output<ImmutableArray<Outputs.EmailDomainDnsValidationRecord>> DnsValidationRecords { get; private set; } = null!;
 
         /// <summary>
-        /// Mail domain to send from.
+        /// Domain name
         /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// User name of the email domain.
+        /// User name
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the email domain (shows whether the domain is verified).
+        /// Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
         /// </summary>
         [Output("validationStatus")]
         public Output<string> ValidationStatus { get; private set; } = null!;
@@ -127,25 +95,25 @@ namespace Pulumi.Okta.Index
     public sealed class EmailDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Brand id of the email domain.
+        /// Brand id
         /// </summary>
         [Input("brandId", required: true)]
         public Input<string> BrandId { get; set; } = null!;
 
         /// <summary>
-        /// Display name of the email domain.
+        /// Display name
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Mail domain to send from.
+        /// Domain name
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
         /// <summary>
-        /// User name of the email domain.
+        /// User name
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -159,13 +127,13 @@ namespace Pulumi.Okta.Index
     public sealed class EmailDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Brand id of the email domain.
+        /// Brand id
         /// </summary>
         [Input("brandId")]
         public Input<string>? BrandId { get; set; }
 
         /// <summary>
-        /// Display name of the email domain.
+        /// Display name
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -174,7 +142,7 @@ namespace Pulumi.Okta.Index
         private InputList<Inputs.EmailDomainDnsValidationRecordGetArgs>? _dnsValidationRecords;
 
         /// <summary>
-        /// TXT and CNAME records to be registered for the domain.
+        /// TXT and cname records to be registered for the email Domain
         /// </summary>
         public InputList<Inputs.EmailDomainDnsValidationRecordGetArgs> DnsValidationRecords
         {
@@ -183,19 +151,19 @@ namespace Pulumi.Okta.Index
         }
 
         /// <summary>
-        /// Mail domain to send from.
+        /// Domain name
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// User name of the email domain.
+        /// User name
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
         /// <summary>
-        /// Status of the email domain (shows whether the domain is verified).
+        /// Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
         /// </summary>
         [Input("validationStatus")]
         public Input<string>? ValidationStatus { get; set; }

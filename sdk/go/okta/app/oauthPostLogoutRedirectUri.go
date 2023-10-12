@@ -13,63 +13,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// This resource allows you to manage post logout redirection URI for use in redirect-based flows.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testOAuth, err := app.NewOAuth(ctx, "testOAuth", &app.OAuthArgs{
-//				Label: pulumi.String("testAcc_replace_with_uuid"),
-//				Type:  pulumi.String("web"),
-//				GrantTypes: pulumi.StringArray{
-//					pulumi.String("authorization_code"),
-//				},
-//				ResponseTypes: pulumi.StringArray{
-//					pulumi.String("code"),
-//				},
-//				RedirectUris: pulumi.StringArray{
-//					pulumi.String("myapp://callback"),
-//				},
-//				PostLogoutRedirectUris: pulumi.StringArray{
-//					pulumi.String("https://www.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = app.NewOAuthPostLogoutRedirectUri(ctx, "testOAuthPostLogoutRedirectUri", &app.OAuthPostLogoutRedirectUriArgs{
-//				AppId: testOAuth.ID(),
-//				Uri:   pulumi.String("https://www.example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// A post logout redirect URI can be imported via the Okta ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
-//
-// ```
 type OAuthPostLogoutRedirectUri struct {
 	pulumi.CustomResourceState
 

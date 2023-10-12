@@ -13,40 +13,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleSignonFactorSequence {
     /**
-     * @return Primary factor type of the auth section.
+     * @return Type of a Factor
      * 
      */
     private String primaryCriteriaFactorType;
     /**
-     * @return Primary provider of the auth section.
+     * @return Factor provider
      * 
      */
     private String primaryCriteriaProvider;
-    /**
-     * @return Additional authentication steps.
-     * 
-     */
     private @Nullable List<RuleSignonFactorSequenceSecondaryCriteria> secondaryCriterias;
 
     private RuleSignonFactorSequence() {}
     /**
-     * @return Primary factor type of the auth section.
+     * @return Type of a Factor
      * 
      */
     public String primaryCriteriaFactorType() {
         return this.primaryCriteriaFactorType;
     }
     /**
-     * @return Primary provider of the auth section.
+     * @return Factor provider
      * 
      */
     public String primaryCriteriaProvider() {
         return this.primaryCriteriaProvider;
     }
-    /**
-     * @return Additional authentication steps.
-     * 
-     */
     public List<RuleSignonFactorSequenceSecondaryCriteria> secondaryCriterias() {
         return this.secondaryCriterias == null ? List.of() : this.secondaryCriterias;
     }

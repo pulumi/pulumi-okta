@@ -9,230 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.App
 {
-    /// <summary>
-    /// This resource allows you to create and configure a SAML Application.
-    /// 
-    /// &gt; If you receive the error `You do not have permission to access the feature
-    /// you are requesting` contact support and
-    /// request feature flag `ADVANCED_SSO` be applied to your org.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.App.Saml("example", new()
-    ///     {
-    ///         AttributeStatements = new[]
-    ///         {
-    ///             new Okta.App.Inputs.SamlAttributeStatementArgs
-    ///             {
-    ///                 FilterType = "REGEX",
-    ///                 FilterValue = ".*",
-    ///                 Name = "groups",
-    ///                 Type = "GROUP",
-    ///             },
-    ///         },
-    ///         Audience = "https://example.com/audience",
-    ///         AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-    ///         Destination = "https://example.com",
-    ///         DigestAlgorithm = "SHA256",
-    ///         HonorForceAuthn = false,
-    ///         Label = "example",
-    ///         Recipient = "https://example.com",
-    ///         ResponseSigned = true,
-    ///         SignatureAlgorithm = "RSA_SHA256",
-    ///         SsoUrl = "https://example.com",
-    ///         SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-    ///         SubjectNameIdTemplate = "${user.userName}",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With inline hook
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testHook = new Okta.Inline.Hook("testHook", new()
-    ///     {
-    ///         Status = "ACTIVE",
-    ///         Type = "com.okta.saml.tokens.transform",
-    ///         Version = "1.0.2",
-    ///         Channel = 
-    ///         {
-    ///             { "type", "HTTP" },
-    ///             { "version", "1.0.0" },
-    ///             { "uri", "https://example.com/test1" },
-    ///             { "method", "POST" },
-    ///         },
-    ///         Auth = 
-    ///         {
-    ///             { "key", "Authorization" },
-    ///             { "type", "HEADER" },
-    ///             { "value", "secret" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testSaml = new Okta.App.Saml("testSaml", new()
-    ///     {
-    ///         Label = "testAcc_replace_with_uuid",
-    ///         SsoUrl = "https://google.com",
-    ///         Recipient = "https://here.com",
-    ///         Destination = "https://its-about-the-journey.com",
-    ///         Audience = "https://audience.com",
-    ///         SubjectNameIdTemplate = "${user.userName}",
-    ///         SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-    ///         ResponseSigned = true,
-    ///         SignatureAlgorithm = "RSA_SHA256",
-    ///         DigestAlgorithm = "SHA256",
-    ///         HonorForceAuthn = false,
-    ///         AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-    ///         InlineHookId = testHook.Id,
-    ///         AttributeStatements = new[]
-    ///         {
-    ///             new Okta.App.Inputs.SamlAttributeStatementArgs
-    ///             {
-    ///                 Type = "GROUP",
-    ///                 Name = "groups",
-    ///                 FilterType = "REGEX",
-    ///                 FilterValue = ".*",
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             testHook,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Pre-configured app with SAML 1.1 sign-on mode
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Okta.App.Saml("test", new()
-    ///     {
-    ///         AppSettingsJson = @"{
-    ///     ""groupFilter"": ""app1.*"",
-    ///     ""siteURL"": ""https://www.okta.com""
-    /// }
-    /// 
-    /// ",
-    ///         Label = "SharePoint (On-Premise)",
-    ///         PreconfiguredApp = "sharepoint_onpremise",
-    ///         SamlVersion = "1.1",
-    ///         Status = "ACTIVE",
-    ///         UserNameTemplate = "${source.login}",
-    ///         UserNameTemplateType = "BUILT_IN",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var office365 = new Okta.App.Saml("office365", new()
-    ///     {
-    ///         AppLinksJson = @"  {
-    ///       ""calendar"": false,
-    ///       ""crm"": false,
-    ///       ""delve"": false,
-    ///       ""excel"": false,
-    ///       ""forms"": false,
-    ///       ""mail"": false,
-    ///       ""newsfeed"": false,
-    ///       ""onedrive"": false,
-    ///       ""people"": false,
-    ///       ""planner"": false,
-    ///       ""powerbi"": false,
-    ///       ""powerpoint"": false,
-    ///       ""sites"": false,
-    ///       ""sway"": false,
-    ///       ""tasks"": false,
-    ///       ""teams"": false,
-    ///       ""video"": false,
-    ///       ""word"": false,
-    ///       ""yammer"": false,
-    ///       ""login"": true
-    ///   }
-    /// 
-    /// ",
-    ///         AppSettingsJson = @"    {
-    ///        ""wsFedConfigureType"": ""AUTO"",
-    ///        ""windowsTransportEnabled"": false,
-    ///        ""domain"": ""okta.com"",
-    ///        ""msftTenant"": ""okta"",
-    ///        ""domains"": [],
-    ///        ""requireAdminConsent"": false
-    ///     }
-    /// 
-    /// ",
-    ///         Label = "Microsoft Office 365",
-    ///         PreconfiguredApp = "office365",
-    ///         SamlVersion = "1.1",
-    ///         Status = "ACTIVE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// A SAML App can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:app/saml:Saml")]
     public partial class Saml : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Output("accessibilityErrorRedirectUrl")]
         public Output<string?> AccessibilityErrorRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Output("accessibilityLoginRedirectUrl")]
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self-service. Default is: `false`.
+        /// Enable self service
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
 
         /// <summary>
-        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        /// List of ACS endpoints for this SAML application
         /// </summary>
         [Output("acsEndpoints")]
         public Output<ImmutableArray<string>> AcsEndpoints { get; private set; } = null!;
@@ -244,26 +43,23 @@ namespace Pulumi.Okta.App
         public Output<string?> AdminNote { get; private set; } = null!;
 
         /// <summary>
-        /// Displays specific appLinks for the app. The value for each application link should be boolean.
+        /// Displays specific appLinks for the app
         /// </summary>
         [Output("appLinksJson")]
         public Output<string?> AppLinksJson { get; private set; } = null!;
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Output("appSettingsJson")]
         public Output<string?> AppSettingsJson { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether the SAML assertion is digitally signed.
+        /// Determines whether the SAML assertion is digitally signed
         /// </summary>
         [Output("assertionSigned")]
         public Output<bool?> AssertionSigned { get; private set; } = null!;
 
-        /// <summary>
-        /// List of SAML Attribute statements.
-        /// </summary>
         [Output("attributeStatements")]
         public Output<ImmutableArray<Outputs.SamlAttributeStatement>> AttributeStatements { get; private set; } = null!;
 
@@ -274,7 +70,7 @@ namespace Pulumi.Okta.App
         public Output<string?> Audience { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// Id of this apps authentication policy
         /// </summary>
         [Output("authenticationPolicy")]
         public Output<string?> AuthenticationPolicy { get; private set; } = null!;
@@ -286,13 +82,13 @@ namespace Pulumi.Okta.App
         public Output<string?> AuthnContextClassRef { get; private set; } = null!;
 
         /// <summary>
-        /// Display auto submit toolbar. Default is: `false`
+        /// Display auto submit toolbar
         /// </summary>
         [Output("autoSubmitToolbar")]
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
 
         /// <summary>
-        /// The raw signing certificate.
+        /// cert from SAML XML metadata payload
         /// </summary>
         [Output("certificate")]
         public Output<string> Certificate { get; private set; } = null!;
@@ -316,7 +112,7 @@ namespace Pulumi.Okta.App
         public Output<string?> DigestAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// Url that can be used to embed this application into another portal.
+        /// The url that can be used to embed this application in other portals.
         /// </summary>
         [Output("embedUrl")]
         public Output<string> EmbedUrl { get; private set; } = null!;
@@ -328,139 +124,139 @@ namespace Pulumi.Okta.App
         public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
-        /// Entity ID, the ID portion of the `entity_url`.
+        /// Entity ID, the ID portion of the entity_url
         /// </summary>
         [Output("entityKey")]
         public Output<string> EntityKey { get; private set; } = null!;
 
         /// <summary>
-        /// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
+        /// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
         /// </summary>
         [Output("entityUrl")]
         public Output<string> EntityUrl { get; private set; } = null!;
 
         /// <summary>
-        /// features enabled. Notice: you can't currently configure provisioning features via the API.
+        /// features to enable
         /// </summary>
         [Output("features")]
         public Output<ImmutableArray<string>> Features { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon on mobile app. Default is: `false`
+        /// Do not display application icon on mobile app
         /// </summary>
         [Output("hideIos")]
         public Output<bool?> HideIos { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon to users. Default is: `false`
+        /// Do not display application icon to users
         /// </summary>
         [Output("hideWeb")]
         public Output<bool?> HideWeb { get; private set; } = null!;
 
         /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it. Default is: `false`
+        /// Prompt user to re-authenticate if SP asks for it
         /// </summary>
         [Output("honorForceAuthn")]
         public Output<bool?> HonorForceAuthn { get; private set; } = null!;
 
         /// <summary>
-        /// `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
+        /// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
         /// </summary>
         [Output("httpPostBinding")]
         public Output<string> HttpPostBinding { get; private set; } = null!;
 
         /// <summary>
-        /// `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
+        /// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         /// </summary>
         [Output("httpRedirectBinding")]
         public Output<string> HttpRedirectBinding { get; private set; } = null!;
 
         /// <summary>
-        /// SAML issuer ID.
+        /// SAML issuer ID
         /// </summary>
         [Output("idpIssuer")]
         public Output<string?> IdpIssuer { get; private set; } = null!;
 
         /// <summary>
-        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
+        /// *Early Access Property*. Enable Federation Broker Mode.
         /// </summary>
         [Output("implicitAssignment")]
         public Output<bool?> ImplicitAssignment { get; private set; } = null!;
 
         /// <summary>
-        /// Saml Inline Hook associated with the application.
+        /// Saml Inline Hook setting
         /// </summary>
         [Output("inlineHookId")]
         public Output<string?> InlineHookId { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate key ID.
+        /// Certificate ID
         /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
+        /// Certificate name. This modulates the rotation of keys. New name == new key.
         /// </summary>
         [Output("keyName")]
         public Output<string?> KeyName { get; private set; } = null!;
 
         /// <summary>
-        /// Number of years the certificate is valid (2 - 10 years).
+        /// Number of years the certificate is valid.
         /// </summary>
         [Output("keyYearsValid")]
         public Output<int?> KeyYearsValid { get; private set; } = null!;
 
         /// <summary>
-        /// An array of all key credentials for the application. Format of each entry is as follows:
+        /// Application keys
         /// </summary>
         [Output("keys")]
         public Output<ImmutableArray<Outputs.SamlKey>> Keys { get; private set; } = null!;
 
         /// <summary>
-        /// label of application.
+        /// Pretty name of app.
         /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
 
         /// <summary>
-        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local path to logo of the application.
         /// </summary>
         [Output("logo")]
         public Output<string?> Logo { get; private set; } = null!;
 
         /// <summary>
-        /// Direct link of application logo.
+        /// URL of the application's logo
         /// </summary>
         [Output("logoUrl")]
         public Output<string> LogoUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The raw SAML metadata in XML.
+        /// SAML xml metadata payload
         /// </summary>
         [Output("metadata")]
         public Output<string> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// SAML xml metadata URL.
+        /// SAML xml metadata URL
         /// </summary>
         [Output("metadataUrl")]
         public Output<string> MetadataUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the attribute statement.
+        /// The reference name of the attribute statement
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
+        /// Name of preexisting SAML application. For instance 'slack'
         /// </summary>
         [Output("preconfiguredApp")]
         public Output<string?> PreconfiguredApp { get; private set; } = null!;
 
         /// <summary>
-        /// The location where the app may present the SAML assertion.
+        /// The location where the app may present the SAML assertion
         /// </summary>
         [Output("recipient")]
         public Output<string?> Recipient { get; private set; } = null!;
@@ -472,7 +268,7 @@ namespace Pulumi.Okta.App
         public Output<bool?> RequestCompressed { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether the SAML auth response message is digitally signed.
+        /// Determines whether the SAML auth response message is digitally signed
         /// </summary>
         [Output("responseSigned")]
         public Output<bool?> ResponseSigned { get; private set; } = null!;
@@ -484,55 +280,55 @@ namespace Pulumi.Okta.App
         public Output<bool?> SamlSignedRequestEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+        /// SAML version for the app's sign-on mode
         /// </summary>
         [Output("samlVersion")]
         public Output<string?> SamlVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Sign-on mode of application.
+        /// Sign on mode of application.
         /// </summary>
         [Output("signOnMode")]
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// Signature algorithm used ot digitally sign the assertion and response.
+        /// Signature algorithm used ot digitally sign the assertion and response
         /// </summary>
         [Output("signatureAlgorithm")]
         public Output<string?> SignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
         /// </summary>
         [Output("singleLogoutCertificate")]
         public Output<string?> SingleLogoutCertificate { get; private set; } = null!;
 
         /// <summary>
-        /// The issuer of the Service Provider that generates the Single Logout request.
+        /// The issuer of the Service Provider that generates the Single Logout request
         /// </summary>
         [Output("singleLogoutIssuer")]
         public Output<string?> SingleLogoutIssuer { get; private set; } = null!;
 
         /// <summary>
-        /// The location where the logout response is sent.
+        /// The location where the logout response is sent
         /// </summary>
         [Output("singleLogoutUrl")]
         public Output<string?> SingleLogoutUrl { get; private set; } = null!;
 
         /// <summary>
-        /// SAML service provider issuer.
+        /// SAML SP issuer ID
         /// </summary>
         [Output("spIssuer")]
         public Output<string?> SpIssuer { get; private set; } = null!;
 
         /// <summary>
-        /// Single Sign-on Url.
+        /// Single Sign On URL
         /// </summary>
         [Output("ssoUrl")]
         public Output<string?> SsoUrl { get; private set; } = null!;
 
         /// <summary>
-        /// status of application.
+        /// Status of application.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -544,31 +340,31 @@ namespace Pulumi.Okta.App
         public Output<string?> SubjectNameIdFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Template for app user's username when a user is assigned to the app.
+        /// Template for app user's username when a user is assigned to the app
         /// </summary>
         [Output("subjectNameIdTemplate")]
         public Output<string?> SubjectNameIdTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Username template. Default is: `"${source.login}"`
+        /// Username template
         /// </summary>
         [Output("userNameTemplate")]
         public Output<string?> UserNameTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// Push username on update
         /// </summary>
         [Output("userNameTemplatePushStatus")]
         public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Username template suffix.
+        /// Username template suffix
         /// </summary>
         [Output("userNameTemplateSuffix")]
         public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// Username template type. Default is: `"BUILT_IN"`.
+        /// Username template type
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
@@ -620,19 +416,19 @@ namespace Pulumi.Okta.App
     public sealed class SamlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Input("accessibilityErrorRedirectUrl")]
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service. Default is: `false`.
+        /// Enable self service
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -641,7 +437,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _acsEndpoints;
 
         /// <summary>
-        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        /// List of ACS endpoints for this SAML application
         /// </summary>
         public InputList<string> AcsEndpoints
         {
@@ -656,29 +452,25 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app. The value for each application link should be boolean.
+        /// Displays specific appLinks for the app
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Input("appSettingsJson")]
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
-        /// Determines whether the SAML assertion is digitally signed.
+        /// Determines whether the SAML assertion is digitally signed
         /// </summary>
         [Input("assertionSigned")]
         public Input<bool>? AssertionSigned { get; set; }
 
         [Input("attributeStatements")]
         private InputList<Inputs.SamlAttributeStatementArgs>? _attributeStatements;
-
-        /// <summary>
-        /// List of SAML Attribute statements.
-        /// </summary>
         public InputList<Inputs.SamlAttributeStatementArgs> AttributeStatements
         {
             get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.SamlAttributeStatementArgs>());
@@ -692,7 +484,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Audience { get; set; }
 
         /// <summary>
-        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// Id of this apps authentication policy
         /// </summary>
         [Input("authenticationPolicy")]
         public Input<string>? AuthenticationPolicy { get; set; }
@@ -704,7 +496,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthnContextClassRef { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar. Default is: `false`
+        /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -734,73 +526,73 @@ namespace Pulumi.Okta.App
         public Input<string>? EnduserNote { get; set; }
 
         /// <summary>
-        /// Do not display application icon on mobile app. Default is: `false`
+        /// Do not display application icon on mobile app
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users. Default is: `false`
+        /// Do not display application icon to users
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it. Default is: `false`
+        /// Prompt user to re-authenticate if SP asks for it
         /// </summary>
         [Input("honorForceAuthn")]
         public Input<bool>? HonorForceAuthn { get; set; }
 
         /// <summary>
-        /// SAML issuer ID.
+        /// SAML issuer ID
         /// </summary>
         [Input("idpIssuer")]
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
-        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
+        /// *Early Access Property*. Enable Federation Broker Mode.
         /// </summary>
         [Input("implicitAssignment")]
         public Input<bool>? ImplicitAssignment { get; set; }
 
         /// <summary>
-        /// Saml Inline Hook associated with the application.
+        /// Saml Inline Hook setting
         /// </summary>
         [Input("inlineHookId")]
         public Input<string>? InlineHookId { get; set; }
 
         /// <summary>
-        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
+        /// Certificate name. This modulates the rotation of keys. New name == new key.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
-        /// Number of years the certificate is valid (2 - 10 years).
+        /// Number of years the certificate is valid.
         /// </summary>
         [Input("keyYearsValid")]
         public Input<int>? KeyYearsValid { get; set; }
 
         /// <summary>
-        /// label of application.
+        /// Pretty name of app.
         /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local path to logo of the application.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
+        /// Name of preexisting SAML application. For instance 'slack'
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// The location where the app may present the SAML assertion.
+        /// The location where the app may present the SAML assertion
         /// </summary>
         [Input("recipient")]
         public Input<string>? Recipient { get; set; }
@@ -812,7 +604,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? RequestCompressed { get; set; }
 
         /// <summary>
-        /// Determines whether the SAML auth response message is digitally signed.
+        /// Determines whether the SAML auth response message is digitally signed
         /// </summary>
         [Input("responseSigned")]
         public Input<bool>? ResponseSigned { get; set; }
@@ -824,49 +616,49 @@ namespace Pulumi.Okta.App
         public Input<bool>? SamlSignedRequestEnabled { get; set; }
 
         /// <summary>
-        /// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+        /// SAML version for the app's sign-on mode
         /// </summary>
         [Input("samlVersion")]
         public Input<string>? SamlVersion { get; set; }
 
         /// <summary>
-        /// Signature algorithm used ot digitally sign the assertion and response.
+        /// Signature algorithm used ot digitally sign the assertion and response
         /// </summary>
         [Input("signatureAlgorithm")]
         public Input<string>? SignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
         /// </summary>
         [Input("singleLogoutCertificate")]
         public Input<string>? SingleLogoutCertificate { get; set; }
 
         /// <summary>
-        /// The issuer of the Service Provider that generates the Single Logout request.
+        /// The issuer of the Service Provider that generates the Single Logout request
         /// </summary>
         [Input("singleLogoutIssuer")]
         public Input<string>? SingleLogoutIssuer { get; set; }
 
         /// <summary>
-        /// The location where the logout response is sent.
+        /// The location where the logout response is sent
         /// </summary>
         [Input("singleLogoutUrl")]
         public Input<string>? SingleLogoutUrl { get; set; }
 
         /// <summary>
-        /// SAML service provider issuer.
+        /// SAML SP issuer ID
         /// </summary>
         [Input("spIssuer")]
         public Input<string>? SpIssuer { get; set; }
 
         /// <summary>
-        /// Single Sign-on Url.
+        /// Single Sign On URL
         /// </summary>
         [Input("ssoUrl")]
         public Input<string>? SsoUrl { get; set; }
 
         /// <summary>
-        /// status of application.
+        /// Status of application.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -878,31 +670,31 @@ namespace Pulumi.Okta.App
         public Input<string>? SubjectNameIdFormat { get; set; }
 
         /// <summary>
-        /// Template for app user's username when a user is assigned to the app.
+        /// Template for app user's username when a user is assigned to the app
         /// </summary>
         [Input("subjectNameIdTemplate")]
         public Input<string>? SubjectNameIdTemplate { get; set; }
 
         /// <summary>
-        /// Username template. Default is: `"${source.login}"`
+        /// Username template
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// Push username on update
         /// </summary>
         [Input("userNameTemplatePushStatus")]
         public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
-        /// Username template suffix.
+        /// Username template suffix
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type. Default is: `"BUILT_IN"`.
+        /// Username template type
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
@@ -916,19 +708,19 @@ namespace Pulumi.Okta.App
     public sealed class SamlState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Input("accessibilityErrorRedirectUrl")]
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service. Default is: `false`.
+        /// Enable self service
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -937,7 +729,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _acsEndpoints;
 
         /// <summary>
-        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        /// List of ACS endpoints for this SAML application
         /// </summary>
         public InputList<string> AcsEndpoints
         {
@@ -952,29 +744,25 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app. The value for each application link should be boolean.
+        /// Displays specific appLinks for the app
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Input("appSettingsJson")]
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
-        /// Determines whether the SAML assertion is digitally signed.
+        /// Determines whether the SAML assertion is digitally signed
         /// </summary>
         [Input("assertionSigned")]
         public Input<bool>? AssertionSigned { get; set; }
 
         [Input("attributeStatements")]
         private InputList<Inputs.SamlAttributeStatementGetArgs>? _attributeStatements;
-
-        /// <summary>
-        /// List of SAML Attribute statements.
-        /// </summary>
         public InputList<Inputs.SamlAttributeStatementGetArgs> AttributeStatements
         {
             get => _attributeStatements ?? (_attributeStatements = new InputList<Inputs.SamlAttributeStatementGetArgs>());
@@ -988,7 +776,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Audience { get; set; }
 
         /// <summary>
-        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// Id of this apps authentication policy
         /// </summary>
         [Input("authenticationPolicy")]
         public Input<string>? AuthenticationPolicy { get; set; }
@@ -1000,13 +788,13 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthnContextClassRef { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar. Default is: `false`
+        /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
         /// <summary>
-        /// The raw signing certificate.
+        /// cert from SAML XML metadata payload
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
@@ -1030,7 +818,7 @@ namespace Pulumi.Okta.App
         public Input<string>? DigestAlgorithm { get; set; }
 
         /// <summary>
-        /// Url that can be used to embed this application into another portal.
+        /// The url that can be used to embed this application in other portals.
         /// </summary>
         [Input("embedUrl")]
         public Input<string>? EmbedUrl { get; set; }
@@ -1042,13 +830,13 @@ namespace Pulumi.Okta.App
         public Input<string>? EnduserNote { get; set; }
 
         /// <summary>
-        /// Entity ID, the ID portion of the `entity_url`.
+        /// Entity ID, the ID portion of the entity_url
         /// </summary>
         [Input("entityKey")]
         public Input<string>? EntityKey { get; set; }
 
         /// <summary>
-        /// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
+        /// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
         /// </summary>
         [Input("entityUrl")]
         public Input<string>? EntityUrl { get; set; }
@@ -1057,7 +845,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _features;
 
         /// <summary>
-        /// features enabled. Notice: you can't currently configure provisioning features via the API.
+        /// features to enable
         /// </summary>
         public InputList<string> Features
         {
@@ -1066,67 +854,67 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Do not display application icon on mobile app. Default is: `false`
+        /// Do not display application icon on mobile app
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users. Default is: `false`
+        /// Do not display application icon to users
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it. Default is: `false`
+        /// Prompt user to re-authenticate if SP asks for it
         /// </summary>
         [Input("honorForceAuthn")]
         public Input<bool>? HonorForceAuthn { get; set; }
 
         /// <summary>
-        /// `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
+        /// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
         /// </summary>
         [Input("httpPostBinding")]
         public Input<string>? HttpPostBinding { get; set; }
 
         /// <summary>
-        /// `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
+        /// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         /// </summary>
         [Input("httpRedirectBinding")]
         public Input<string>? HttpRedirectBinding { get; set; }
 
         /// <summary>
-        /// SAML issuer ID.
+        /// SAML issuer ID
         /// </summary>
         [Input("idpIssuer")]
         public Input<string>? IdpIssuer { get; set; }
 
         /// <summary>
-        /// _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
+        /// *Early Access Property*. Enable Federation Broker Mode.
         /// </summary>
         [Input("implicitAssignment")]
         public Input<bool>? ImplicitAssignment { get; set; }
 
         /// <summary>
-        /// Saml Inline Hook associated with the application.
+        /// Saml Inline Hook setting
         /// </summary>
         [Input("inlineHookId")]
         public Input<string>? InlineHookId { get; set; }
 
         /// <summary>
-        /// Certificate key ID.
+        /// Certificate ID
         /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
+        /// Certificate name. This modulates the rotation of keys. New name == new key.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
-        /// Number of years the certificate is valid (2 - 10 years).
+        /// Number of years the certificate is valid.
         /// </summary>
         [Input("keyYearsValid")]
         public Input<int>? KeyYearsValid { get; set; }
@@ -1135,7 +923,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.SamlKeyGetArgs>? _keys;
 
         /// <summary>
-        /// An array of all key credentials for the application. Format of each entry is as follows:
+        /// Application keys
         /// </summary>
         public InputList<Inputs.SamlKeyGetArgs> Keys
         {
@@ -1144,49 +932,49 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// label of application.
+        /// Pretty name of app.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local path to logo of the application.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// Direct link of application logo.
+        /// URL of the application's logo
         /// </summary>
         [Input("logoUrl")]
         public Input<string>? LogoUrl { get; set; }
 
         /// <summary>
-        /// The raw SAML metadata in XML.
+        /// SAML xml metadata payload
         /// </summary>
         [Input("metadata")]
         public Input<string>? Metadata { get; set; }
 
         /// <summary>
-        /// SAML xml metadata URL.
+        /// SAML xml metadata URL
         /// </summary>
         [Input("metadataUrl")]
         public Input<string>? MetadataUrl { get; set; }
 
         /// <summary>
-        /// The name of the attribute statement.
+        /// The reference name of the attribute statement
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
+        /// Name of preexisting SAML application. For instance 'slack'
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// The location where the app may present the SAML assertion.
+        /// The location where the app may present the SAML assertion
         /// </summary>
         [Input("recipient")]
         public Input<string>? Recipient { get; set; }
@@ -1198,7 +986,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? RequestCompressed { get; set; }
 
         /// <summary>
-        /// Determines whether the SAML auth response message is digitally signed.
+        /// Determines whether the SAML auth response message is digitally signed
         /// </summary>
         [Input("responseSigned")]
         public Input<bool>? ResponseSigned { get; set; }
@@ -1210,55 +998,55 @@ namespace Pulumi.Okta.App
         public Input<bool>? SamlSignedRequestEnabled { get; set; }
 
         /// <summary>
-        /// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+        /// SAML version for the app's sign-on mode
         /// </summary>
         [Input("samlVersion")]
         public Input<string>? SamlVersion { get; set; }
 
         /// <summary>
-        /// Sign-on mode of application.
+        /// Sign on mode of application.
         /// </summary>
         [Input("signOnMode")]
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// Signature algorithm used ot digitally sign the assertion and response.
+        /// Signature algorithm used ot digitally sign the assertion and response
         /// </summary>
         [Input("signatureAlgorithm")]
         public Input<string>? SignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
         /// </summary>
         [Input("singleLogoutCertificate")]
         public Input<string>? SingleLogoutCertificate { get; set; }
 
         /// <summary>
-        /// The issuer of the Service Provider that generates the Single Logout request.
+        /// The issuer of the Service Provider that generates the Single Logout request
         /// </summary>
         [Input("singleLogoutIssuer")]
         public Input<string>? SingleLogoutIssuer { get; set; }
 
         /// <summary>
-        /// The location where the logout response is sent.
+        /// The location where the logout response is sent
         /// </summary>
         [Input("singleLogoutUrl")]
         public Input<string>? SingleLogoutUrl { get; set; }
 
         /// <summary>
-        /// SAML service provider issuer.
+        /// SAML SP issuer ID
         /// </summary>
         [Input("spIssuer")]
         public Input<string>? SpIssuer { get; set; }
 
         /// <summary>
-        /// Single Sign-on Url.
+        /// Single Sign On URL
         /// </summary>
         [Input("ssoUrl")]
         public Input<string>? SsoUrl { get; set; }
 
         /// <summary>
-        /// status of application.
+        /// Status of application.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -1270,31 +1058,31 @@ namespace Pulumi.Okta.App
         public Input<string>? SubjectNameIdFormat { get; set; }
 
         /// <summary>
-        /// Template for app user's username when a user is assigned to the app.
+        /// Template for app user's username when a user is assigned to the app
         /// </summary>
         [Input("subjectNameIdTemplate")]
         public Input<string>? SubjectNameIdTemplate { get; set; }
 
         /// <summary>
-        /// Username template. Default is: `"${source.login}"`
+        /// Username template
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// Push username on update
         /// </summary>
         [Input("userNameTemplatePushStatus")]
         public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
-        /// Username template suffix.
+        /// Username template suffix
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type. Default is: `"BUILT_IN"`.
+        /// Username template type
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }

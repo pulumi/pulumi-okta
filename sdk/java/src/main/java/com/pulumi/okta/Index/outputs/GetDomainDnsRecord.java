@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainDnsRecord {
-    /**
-     * @return TXT record expiration.
-     * 
-     */
     private String expiration;
-    /**
-     * @return DNS record name.
-     * 
-     */
     private String fqdn;
-    /**
-     * @return Record type can be TXT or CNAME.
-     * 
-     */
     private String recordType;
-    /**
-     * @return DNS verification value
-     * 
-     */
     private List<String> values;
 
     private GetDomainDnsRecord() {}
-    /**
-     * @return TXT record expiration.
-     * 
-     */
     public String expiration() {
         return this.expiration;
     }
-    /**
-     * @return DNS record name.
-     * 
-     */
     public String fqdn() {
         return this.fqdn;
     }
-    /**
-     * @return Record type can be TXT or CNAME.
-     * 
-     */
     public String recordType() {
         return this.recordType;
     }
-    /**
-     * @return DNS verification value
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

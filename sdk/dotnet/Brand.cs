@@ -10,28 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// This resource allows you to create and configure an Okta
-    /// [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
-    /// 
-    /// ## Import
-    /// 
-    /// An Okta Brand can be imported via the ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:index/brand:Brand example &amp;#60;brand id&amp;#62;
-    /// ```
+    /// Manages brand
     /// </summary>
     [OktaResourceType("okta:index/brand:Brand")]
     public partial class Brand : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+        /// Consent for updating the custom privacy policy URL.
         /// </summary>
         [Output("agreeToCustomPrivacyPolicy")]
         public Output<bool> AgreeToCustomPrivacyPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        /// Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
         /// </summary>
         [Output("brandId")]
         public Output<string> BrandId { get; private set; } = null!;
@@ -67,13 +58,13 @@ namespace Pulumi.Okta
         public Output<string?> EmailDomainId { get; private set; } = null!;
 
         /// <summary>
-        /// (Read-only) Is this the default brand
+        /// Is this the default brand
         /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
         /// <summary>
-        /// (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        /// Link relations for this object - JSON HAL - Discoverable resources related to the brand
         /// </summary>
         [Output("links")]
         public Output<string> Links { get; private set; } = null!;
@@ -85,13 +76,13 @@ namespace Pulumi.Okta
         public Output<string?> Locale { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the brand
+        /// Brand name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        /// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         /// </summary>
         [Output("removePoweredByOkta")]
         public Output<bool> RemovePoweredByOkta { get; private set; } = null!;
@@ -143,13 +134,13 @@ namespace Pulumi.Okta
     public sealed class BrandArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+        /// Consent for updating the custom privacy policy URL.
         /// </summary>
         [Input("agreeToCustomPrivacyPolicy")]
         public Input<bool>? AgreeToCustomPrivacyPolicy { get; set; }
 
         /// <summary>
-        /// (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        /// Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
         /// </summary>
         [Input("brandId")]
         public Input<string>? BrandId { get; set; }
@@ -191,13 +182,13 @@ namespace Pulumi.Okta
         public Input<string>? Locale { get; set; }
 
         /// <summary>
-        /// Name of the brand
+        /// Brand name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        /// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         /// </summary>
         [Input("removePoweredByOkta")]
         public Input<bool>? RemovePoweredByOkta { get; set; }
@@ -211,13 +202,13 @@ namespace Pulumi.Okta
     public sealed class BrandState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+        /// Consent for updating the custom privacy policy URL.
         /// </summary>
         [Input("agreeToCustomPrivacyPolicy")]
         public Input<bool>? AgreeToCustomPrivacyPolicy { get; set; }
 
         /// <summary>
-        /// (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        /// Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
         /// </summary>
         [Input("brandId")]
         public Input<string>? BrandId { get; set; }
@@ -253,13 +244,13 @@ namespace Pulumi.Okta
         public Input<string>? EmailDomainId { get; set; }
 
         /// <summary>
-        /// (Read-only) Is this the default brand
+        /// Is this the default brand
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
 
         /// <summary>
-        /// (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        /// Link relations for this object - JSON HAL - Discoverable resources related to the brand
         /// </summary>
         [Input("links")]
         public Input<string>? Links { get; set; }
@@ -271,13 +262,13 @@ namespace Pulumi.Okta
         public Input<string>? Locale { get; set; }
 
         /// <summary>
-        /// Name of the brand
+        /// Brand name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        /// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         /// </summary>
         [Input("removePoweredByOkta")]
         public Input<bool>? RemovePoweredByOkta { get; set; }

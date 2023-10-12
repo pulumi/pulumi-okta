@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupSchemaPropertyMasterOverridePriority {
-    /**
-     * @return Type of profile source.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return ID of profile source.
-     * 
-     */
     private String value;
 
     private GroupSchemaPropertyMasterOverridePriority() {}
-    /**
-     * @return Type of profile source.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return ID of profile source.
-     * 
-     */
     public String value() {
         return this.value;
     }

@@ -19,7 +19,7 @@ class PolicyProfileEnrollmentAppsArgs:
         """
         The set of arguments for constructing a PolicyProfileEnrollmentApps resource.
         :param pulumi.Input[str] policy_id: ID of the enrollment policy.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app IDs to be added to this policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app IDs to be added to this policy
         """
         PolicyProfileEnrollmentAppsArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -52,7 +52,7 @@ class PolicyProfileEnrollmentAppsArgs:
     @pulumi.getter
     def apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of app IDs to be added to this policy.
+        List of app IDs to be added to this policy
         """
         return pulumi.get(self, "apps")
 
@@ -69,8 +69,8 @@ class _PolicyProfileEnrollmentAppsState:
                  policy_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PolicyProfileEnrollmentApps resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app IDs to be added to this policy.
-        :param pulumi.Input[str] default_policy_id: ID of the default enrollment policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app IDs to be added to this policy
+        :param pulumi.Input[str] default_policy_id: ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
         :param pulumi.Input[str] policy_id: ID of the enrollment policy.
         """
         _PolicyProfileEnrollmentAppsState._configure(
@@ -97,7 +97,7 @@ class _PolicyProfileEnrollmentAppsState:
     @pulumi.getter
     def apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of app IDs to be added to this policy.
+        List of app IDs to be added to this policy
         """
         return pulumi.get(self, "apps")
 
@@ -109,7 +109,7 @@ class _PolicyProfileEnrollmentAppsState:
     @pulumi.getter(name="defaultPolicyId")
     def default_policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the default enrollment policy.
+        ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
         """
         return pulumi.get(self, "default_policy_id")
 
@@ -139,40 +139,10 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
                  policy_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        This resource allows you to manage the apps in the Profile Enrollment Policy.
-
-        **Important Notes:**
-         - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
-         - When re-assigning the app to another policy, please use `depends_on` in the policy to which the app will be assigned. This is necessary to avoid
-             unexpected behavior, since if the app is unassigned from the policy it is just assigned to the `Default` one.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_policy = okta.policy.get_policy(name="My Policy",
-            type="PROFILE_ENROLLMENT")
-        test = okta.app.get_app(label="My App")
-        example_policy_profile_enrollment_apps = okta.PolicyProfileEnrollmentApps("examplePolicyProfileEnrollmentApps",
-            policy_id=okta_policy["example"]["id"],
-            apps=[data["okta_app"]["id"]])
-        ```
-
-        ## Import
-
-        A Profile Enrollment Policy Apps can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &#60;policy id&#62;
-        ```
-
+        Create a PolicyProfileEnrollmentApps resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app IDs to be added to this policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app IDs to be added to this policy
         :param pulumi.Input[str] policy_id: ID of the enrollment policy.
         """
         ...
@@ -182,37 +152,7 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
                  args: PolicyProfileEnrollmentAppsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        This resource allows you to manage the apps in the Profile Enrollment Policy.
-
-        **Important Notes:**
-         - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
-         - When re-assigning the app to another policy, please use `depends_on` in the policy to which the app will be assigned. This is necessary to avoid
-             unexpected behavior, since if the app is unassigned from the policy it is just assigned to the `Default` one.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_policy = okta.policy.get_policy(name="My Policy",
-            type="PROFILE_ENROLLMENT")
-        test = okta.app.get_app(label="My App")
-        example_policy_profile_enrollment_apps = okta.PolicyProfileEnrollmentApps("examplePolicyProfileEnrollmentApps",
-            policy_id=okta_policy["example"]["id"],
-            apps=[data["okta_app"]["id"]])
-        ```
-
-        ## Import
-
-        A Profile Enrollment Policy Apps can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &#60;policy id&#62;
-        ```
-
+        Create a PolicyProfileEnrollmentApps resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PolicyProfileEnrollmentAppsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -268,8 +208,8 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app IDs to be added to this policy.
-        :param pulumi.Input[str] default_policy_id: ID of the default enrollment policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app IDs to be added to this policy
+        :param pulumi.Input[str] default_policy_id: ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
         :param pulumi.Input[str] policy_id: ID of the enrollment policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -285,7 +225,7 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
     @pulumi.getter
     def apps(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of app IDs to be added to this policy.
+        List of app IDs to be added to this policy
         """
         return pulumi.get(self, "apps")
 
@@ -293,7 +233,7 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
     @pulumi.getter(name="defaultPolicyId")
     def default_policy_id(self) -> pulumi.Output[str]:
         """
-        ID of the default enrollment policy.
+        ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
         """
         return pulumi.get(self, "default_policy_id")
 

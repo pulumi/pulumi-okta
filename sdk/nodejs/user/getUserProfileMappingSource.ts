@@ -5,9 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve the base user Profile Mapping source or target from Okta.
+ * Get the base user Profile Mapping source or target from Okta.
  *
- * > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
+ * > **NOTE:** If using this resource with OAuth2 scopes, this resource
+ * requires `okta.profileMappings.read` scope.
  *
  * ## Example Usage
  *
@@ -30,22 +31,23 @@ export function getUserProfileMappingSource(opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetUserProfileMappingSourceResult {
     /**
-     * id of the source.
+     * ID of the source
      */
     readonly id: string;
     /**
-     * name of source.
+     * Name of source.
      */
     readonly name: string;
     /**
-     * type of source.
+     * Type of source.
      */
     readonly type: string;
 }
 /**
- * Use this data source to retrieve the base user Profile Mapping source or target from Okta.
+ * Get the base user Profile Mapping source or target from Okta.
  *
- * > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
+ * > **NOTE:** If using this resource with OAuth2 scopes, this resource
+ * requires `okta.profileMappings.read` scope.
  *
  * ## Example Usage
  *

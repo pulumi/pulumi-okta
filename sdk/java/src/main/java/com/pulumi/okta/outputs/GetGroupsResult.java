@@ -13,29 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupsResult {
-    /**
-     * @return collection of groups retrieved from Okta with the following properties.
-     * 
-     */
     private List<GetGroupsGroup> groups;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    private @Nullable String q;
-    private @Nullable String search;
     /**
-     * @return Group type.
+     * @return Searches the name property of groups for matching value
      * 
      */
+    private @Nullable String q;
+    /**
+     * @return Searches for groups with a supported filtering expression for all attributes except for &#39;*embedded&#39;, &#39;*links&#39;, and &#39;objectClass&#39;
+     * 
+     */
+    private @Nullable String search;
     private @Nullable String type;
 
     private GetGroupsResult() {}
-    /**
-     * @return collection of groups retrieved from Okta with the following properties.
-     * 
-     */
     public List<GetGroupsGroup> groups() {
         return this.groups;
     }
@@ -46,16 +42,20 @@ public final class GetGroupsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Searches the name property of groups for matching value
+     * 
+     */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
+    /**
+     * @return Searches for groups with a supported filtering expression for all attributes except for &#39;*embedded&#39;, &#39;*links&#39;, and &#39;objectClass&#39;
+     * 
+     */
     public Optional<String> search() {
         return Optional.ofNullable(this.search);
     }
-    /**
-     * @return Group type.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

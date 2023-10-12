@@ -18,10 +18,6 @@ class HookHeader(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        """
-        :param str key: Key to use for authentication, usually the header name, for example `"Authorization"`.
-        :param str value: Authentication secret.
-        """
         HookHeader._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             key=key,
@@ -41,17 +37,11 @@ class HookHeader(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        Key to use for authentication, usually the header name, for example `"Authorization"`.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        Authentication secret.
-        """
         return pulumi.get(self, "value")
 
 

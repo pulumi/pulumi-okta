@@ -9,54 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.App
 {
-    /// <summary>
-    /// This resource allows you to manage redirection URI for use in redirect-based flows.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testOAuth = new Okta.App.OAuth("testOAuth", new()
-    ///     {
-    ///         Label = "testAcc_replace_with_uuid",
-    ///         Type = "web",
-    ///         GrantTypes = new[]
-    ///         {
-    ///             "authorization_code",
-    ///         },
-    ///         ResponseTypes = new[]
-    ///         {
-    ///             "code",
-    ///         },
-    ///         RedirectUris = new[]
-    ///         {
-    ///             "myapp://callback",
-    ///         },
-    ///     });
-    /// 
-    ///     var testOAuthRedirectUri = new Okta.App.OAuthRedirectUri("testOAuthRedirectUri", new()
-    ///     {
-    ///         AppId = testOAuth.Id,
-    ///         Uri = "http://google.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// A redirect URI can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &amp;#60;app id&amp;#62;/&amp;#60;uri&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:app/oAuthRedirectUri:OAuthRedirectUri")]
     public partial class OAuthRedirectUri : global::Pulumi.CustomResource
     {

@@ -31,14 +31,14 @@ public final class AppGroupAssignmentsArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A group to assign the app to.
+     * A group to assign to this application
      * 
      */
     @Import(name="groups", required=true)
     private Output<List<AppGroupAssignmentsGroupArgs>> groups;
 
     /**
-     * @return A group to assign the app to.
+     * @return A group to assign to this application
      * 
      */
     public Output<List<AppGroupAssignmentsGroupArgs>> groups() {
@@ -92,7 +92,7 @@ public final class AppGroupAssignmentsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param groups A group to assign the app to.
+         * @param groups A group to assign to this application
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AppGroupAssignmentsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param groups A group to assign the app to.
+         * @param groups A group to assign to this application
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class AppGroupAssignmentsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param groups A group to assign the app to.
+         * @param groups A group to assign to this application
          * 
          * @return builder
          * 

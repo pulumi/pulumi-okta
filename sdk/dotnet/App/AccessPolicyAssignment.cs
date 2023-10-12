@@ -10,26 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// Assigns an access policy (colloquially known as a sign-on policy and/or an
-    /// authentication policy) to an application. This resource does not perform true
-    /// delete as it will not delete an application and the app's access policy can't be
-    /// removed; it can only be changed to a different access policy. This resource is
-    /// only logical within the context of an application therefore `app_id` is
-    /// immutable once set. Use this resource to manage assigning an access policy to an
-    /// application. It will assign the given `policy_id` to the application at creation
-    /// and during update.
-    /// 
-    /// &gt; Inside the product a sign-on policy is referenced as an _authentication
-    /// policy_, in the public API the policy is of type
-    /// [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
-    /// 
-    /// ## Import
-    /// 
-    /// An Okta App's Access Policy Assignment can be imported via its associated Application ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &amp;#60;app id&amp;#62;
-    /// ```
+    /// Manages assignment of Access Policy to an Application
     /// </summary>
     [OktaResourceType("okta:app/accessPolicyAssignment:AccessPolicyAssignment")]
     public partial class AccessPolicyAssignment : global::Pulumi.CustomResource

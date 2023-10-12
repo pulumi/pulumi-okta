@@ -15,86 +15,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Link value operations allow you to create relationships between primary and associated users.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.LinkDefinition;
- * import com.pulumi.okta.LinkDefinitionArgs;
- * import com.pulumi.okta.user.User;
- * import com.pulumi.okta.user.UserArgs;
- * import com.pulumi.okta.LinkValue;
- * import com.pulumi.okta.LinkValueArgs;
- * import com.pulumi.codegen.internal.KeyedValue;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var padishah = new LinkDefinition(&#34;padishah&#34;, LinkDefinitionArgs.builder()        
- *             .primaryName(&#34;emperor&#34;)
- *             .primaryTitle(&#34;Emperor&#34;)
- *             .primaryDescription(&#34;Hereditary ruler of the Imperium and the Known Universe&#34;)
- *             .associatedName(&#34;sardaukar&#34;)
- *             .associatedTitle(&#34;Sardaukar&#34;)
- *             .associatedDescription(&#34;Elite military force member&#34;)
- *             .build());
- * 
- *         var emperor = new User(&#34;emperor&#34;, UserArgs.builder()        
- *             .firstName(&#34;Shaddam&#34;)
- *             .lastName(&#34;Corrino IV&#34;)
- *             .login(&#34;shaddam.corrino.iv@salusa-secundus.planet&#34;)
- *             .email(&#34;shaddam.corrino.iv@salusa-secundus.planet&#34;)
- *             .build());
- * 
- *         for (var i = 0; i &lt; 5; i++) {
- *             new User(&#34;sardaukars-&#34; + i, UserArgs.builder()            
- *                 .firstName(&#34;Amrit&#34;)
- *                 .lastName(String.format(&#34;Sardaukar_%s&#34;, range.value()))
- *                 .login(String.format(&#34;amritsardaukar_%s@salusa-secundus.planet&#34;, range.value()))
- *                 .email(String.format(&#34;amritsardaukar_%s@salusa-secundus.planet&#34;, range.value()))
- *                 .build());
- * 
- *         
- * }
- *         var example = new LinkValue(&#34;example&#34;, LinkValueArgs.builder()        
- *             .primaryName(padishah.primaryName())
- *             .primaryUserId(emperor.id())
- *             .associatedUserIds(            
- *                 sardaukars[0].id(),
- *                 sardaukars[1].id(),
- *                 sardaukars[2].id(),
- *                 sardaukars[3].id(),
- *                 sardaukars[4].id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Okta Link Value can be imported via Primary Name and Primary User ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/linkValue:LinkValue example &amp;#60;primary_name&amp;#62;/&amp;#60;primary_user_id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:index/linkValue:LinkValue")
 public class LinkValue extends com.pulumi.resources.CustomResource {
     /**
@@ -112,28 +32,28 @@ public class LinkValue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.associatedUserIds);
     }
     /**
-     * Name of the `primary` relationship being assigned.
+     * Name of the &#39;primary&#39; relationship being assigned.
      * 
      */
     @Export(name="primaryName", refs={String.class}, tree="[0]")
     private Output<String> primaryName;
 
     /**
-     * @return Name of the `primary` relationship being assigned.
+     * @return Name of the &#39;primary&#39; relationship being assigned.
      * 
      */
     public Output<String> primaryName() {
         return this.primaryName;
     }
     /**
-     * User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+     * User ID to be assigned to &#39;primary&#39; for the &#39;associated&#39; user in the specified relationship.
      * 
      */
     @Export(name="primaryUserId", refs={String.class}, tree="[0]")
     private Output<String> primaryUserId;
 
     /**
-     * @return User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+     * @return User ID to be assigned to &#39;primary&#39; for the &#39;associated&#39; user in the specified relationship.
      * 
      */
     public Output<String> primaryUserId() {

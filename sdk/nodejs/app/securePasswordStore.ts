@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * This resource allows you to create and configure a Secure Password Store Application.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.app.SecurePasswordStore("example", {
- *     credentialsScheme: "ADMIN_SETS_CREDENTIALS",
- *     label: "example",
- *     passwordField: "pass",
- *     url: "https://test.com",
- *     usernameField: "user",
- * });
- * ```
- *
- * ## Import
- *
- * Secure Password Store Application can be imported via the Okta ID.
- *
- * ```sh
- *  $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;
- * ```
- */
 export class SecurePasswordStore extends pulumi.CustomResource {
     /**
      * Get an existing SecurePasswordStore resource's state with the given name, ID, and optional extra
@@ -59,15 +33,15 @@ export class SecurePasswordStore extends pulumi.CustomResource {
     }
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -75,15 +49,15 @@ export class SecurePasswordStore extends pulumi.CustomResource {
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
     /**
-     * Displays specific appLinks for the app. The value for each application link should be boolean.
+     * Displays specific appLinks for the app
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
-     * Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+     * Application credentials scheme
      */
     public readonly credentialsScheme!: pulumi.Output<string | undefined>;
     /**
@@ -91,19 +65,19 @@ export class SecurePasswordStore extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
-     * The display name of the Application.
+     * Pretty name of app.
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to logo of the application.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -111,39 +85,39 @@ export class SecurePasswordStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly logoUrl!: pulumi.Output<string>;
     /**
-     * Name assigned to the application by Okta.
+     * Name of the app.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      */
     public readonly optionalField1!: pulumi.Output<string | undefined>;
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      */
     public readonly optionalField1Value!: pulumi.Output<string | undefined>;
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      */
     public readonly optionalField2!: pulumi.Output<string | undefined>;
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      */
     public readonly optionalField2Value!: pulumi.Output<string | undefined>;
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      */
     public readonly optionalField3!: pulumi.Output<string | undefined>;
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      */
     public readonly optionalField3Value!: pulumi.Output<string | undefined>;
     /**
-     * Login password field.
+     * Login password field
      */
     public readonly passwordField!: pulumi.Output<string>;
     /**
-     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+     * Allow user to reveal password
      */
     public readonly revealPassword!: pulumi.Output<boolean | undefined>;
     /**
@@ -155,35 +129,35 @@ export class SecurePasswordStore extends pulumi.CustomResource {
      */
     public readonly sharedUsername!: pulumi.Output<string | undefined>;
     /**
-     * Sign-on mode of application.
+     * Sign on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Status of application. By default, it is `"ACTIVE"`.
+     * Status of application.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Login URL.
+     * Login URL
      */
     public readonly url!: pulumi.Output<string>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     * Push username on update
      */
     public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
     /**
-     * Username template suffix.
+     * Username template suffix
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
-     * Login username field.
+     * Login username field
      */
     public readonly usernameField!: pulumi.Output<string>;
 
@@ -289,15 +263,15 @@ export class SecurePasswordStore extends pulumi.CustomResource {
  */
 export interface SecurePasswordStoreState {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -305,15 +279,15 @@ export interface SecurePasswordStoreState {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app. The value for each application link should be boolean.
+     * Displays specific appLinks for the app
      */
     appLinksJson?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+     * Application credentials scheme
      */
     credentialsScheme?: pulumi.Input<string>;
     /**
@@ -321,19 +295,19 @@ export interface SecurePasswordStoreState {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * The display name of the Application.
+     * Pretty name of app.
      */
     label?: pulumi.Input<string>;
     /**
-     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -341,39 +315,39 @@ export interface SecurePasswordStoreState {
      */
     logoUrl?: pulumi.Input<string>;
     /**
-     * Name assigned to the application by Okta.
+     * Name of the app.
      */
     name?: pulumi.Input<string>;
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      */
     optionalField1?: pulumi.Input<string>;
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      */
     optionalField1Value?: pulumi.Input<string>;
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      */
     optionalField2?: pulumi.Input<string>;
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      */
     optionalField2Value?: pulumi.Input<string>;
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      */
     optionalField3?: pulumi.Input<string>;
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      */
     optionalField3Value?: pulumi.Input<string>;
     /**
-     * Login password field.
+     * Login password field
      */
     passwordField?: pulumi.Input<string>;
     /**
-     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+     * Allow user to reveal password
      */
     revealPassword?: pulumi.Input<boolean>;
     /**
@@ -385,35 +359,35 @@ export interface SecurePasswordStoreState {
      */
     sharedUsername?: pulumi.Input<string>;
     /**
-     * Sign-on mode of application.
+     * Sign on mode of application.
      */
     signOnMode?: pulumi.Input<string>;
     /**
-     * Status of application. By default, it is `"ACTIVE"`.
+     * Status of application.
      */
     status?: pulumi.Input<string>;
     /**
-     * Login URL.
+     * Login URL
      */
     url?: pulumi.Input<string>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     * Push username on update
      */
     userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
-     * Username template suffix.
+     * Username template suffix
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
-     * Login username field.
+     * Login username field
      */
     usernameField?: pulumi.Input<string>;
 }
@@ -423,15 +397,15 @@ export interface SecurePasswordStoreState {
  */
 export interface SecurePasswordStoreArgs {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -439,15 +413,15 @@ export interface SecurePasswordStoreArgs {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app. The value for each application link should be boolean.
+     * Displays specific appLinks for the app
      */
     appLinksJson?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+     * Application credentials scheme
      */
     credentialsScheme?: pulumi.Input<string>;
     /**
@@ -455,51 +429,51 @@ export interface SecurePasswordStoreArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * The display name of the Application.
+     * Pretty name of app.
      */
     label: pulumi.Input<string>;
     /**
-     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      */
     optionalField1?: pulumi.Input<string>;
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      */
     optionalField1Value?: pulumi.Input<string>;
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      */
     optionalField2?: pulumi.Input<string>;
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      */
     optionalField2Value?: pulumi.Input<string>;
     /**
-     * Name of optional param in the login form.
+     * Name of optional param in the login form
      */
     optionalField3?: pulumi.Input<string>;
     /**
-     * Name of optional value in the login form.
+     * Name of optional value in login form
      */
     optionalField3Value?: pulumi.Input<string>;
     /**
-     * Login password field.
+     * Login password field
      */
     passwordField: pulumi.Input<string>;
     /**
-     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+     * Allow user to reveal password
      */
     revealPassword?: pulumi.Input<boolean>;
     /**
@@ -511,31 +485,31 @@ export interface SecurePasswordStoreArgs {
      */
     sharedUsername?: pulumi.Input<string>;
     /**
-     * Status of application. By default, it is `"ACTIVE"`.
+     * Status of application.
      */
     status?: pulumi.Input<string>;
     /**
-     * Login URL.
+     * Login URL
      */
     url: pulumi.Input<string>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     * Push username on update
      */
     userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
-     * Username template suffix.
+     * Username template suffix
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
-     * Login username field.
+     * Login username field
      */
     usernameField: pulumi.Input<string>;
 }

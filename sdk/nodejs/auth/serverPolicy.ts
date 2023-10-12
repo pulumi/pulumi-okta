@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates an Authorization Server Policy.
- *
- * This resource allows you to create and configure an Authorization Server Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.auth.ServerPolicy("example", {
- *     authServerId: "<auth server id>",
- *     clientWhitelists: ["ALL_CLIENTS"],
- *     description: "example",
- *     priority: 1,
- *     status: "ACTIVE",
- * });
- * ```
- *
- * ## Import
- *
- * Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
- *
- * ```sh
- *  $ pulumi import okta:auth/serverPolicy:ServerPolicy example &#60;auth server id&#62;/&#60;policy id&#62;
- * ```
- */
 export class ServerPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ServerPolicy resource's state with the given name, ID, and optional extra
@@ -65,7 +37,7 @@ export class ServerPolicy extends pulumi.CustomResource {
      */
     public readonly authServerId!: pulumi.Output<string>;
     /**
-     * The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+     * The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      */
     public readonly clientWhitelists!: pulumi.Output<string[]>;
     /**
@@ -77,12 +49,9 @@ export class ServerPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The priority of the Auth Server Policy.
+     * Priority of the auth server policy
      */
     public readonly priority!: pulumi.Output<number>;
-    /**
-     * The status of the Auth Server Policy.
-     */
     public readonly status!: pulumi.Output<string | undefined>;
 
     /**
@@ -139,7 +108,7 @@ export interface ServerPolicyState {
      */
     authServerId?: pulumi.Input<string>;
     /**
-     * The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+     * The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      */
     clientWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -151,12 +120,9 @@ export interface ServerPolicyState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The priority of the Auth Server Policy.
+     * Priority of the auth server policy
      */
     priority?: pulumi.Input<number>;
-    /**
-     * The status of the Auth Server Policy.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -169,7 +135,7 @@ export interface ServerPolicyArgs {
      */
     authServerId: pulumi.Input<string>;
     /**
-     * The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+     * The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      */
     clientWhitelists: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -181,11 +147,8 @@ export interface ServerPolicyArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The priority of the Auth Server Policy.
+     * Priority of the auth server policy
      */
     priority: pulumi.Input<number>;
-    /**
-     * The status of the Auth Server Policy.
-     */
     status?: pulumi.Input<string>;
 }

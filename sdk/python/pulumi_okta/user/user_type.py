@@ -19,9 +19,9 @@ class UserTypeArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserType resource.
-        :param pulumi.Input[str] description: Description of the User Type.
-        :param pulumi.Input[str] display_name: Display Name of the User Type.
-        :param pulumi.Input[str] name: Name of the User Type.
+        :param pulumi.Input[str] description: A human-readable description of the User type
+        :param pulumi.Input[str] display_name: The display name of the user type
+        :param pulumi.Input[str] name: Name of the user type
         """
         UserTypeArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -45,7 +45,7 @@ class UserTypeArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
         """
-        Description of the User Type.
+        A human-readable description of the User type
         """
         return pulumi.get(self, "description")
 
@@ -57,7 +57,7 @@ class UserTypeArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
-        Display Name of the User Type.
+        The display name of the user type
         """
         return pulumi.get(self, "display_name")
 
@@ -69,7 +69,7 @@ class UserTypeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the User Type.
+        Name of the user type
         """
         return pulumi.get(self, "name")
 
@@ -86,9 +86,9 @@ class _UserTypeState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserType resources.
-        :param pulumi.Input[str] description: Description of the User Type.
-        :param pulumi.Input[str] display_name: Display Name of the User Type.
-        :param pulumi.Input[str] name: Name of the User Type.
+        :param pulumi.Input[str] description: A human-readable description of the User type
+        :param pulumi.Input[str] display_name: The display name of the user type
+        :param pulumi.Input[str] name: Name of the user type
         """
         _UserTypeState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -114,7 +114,7 @@ class _UserTypeState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the User Type.
+        A human-readable description of the User type
         """
         return pulumi.get(self, "description")
 
@@ -126,7 +126,7 @@ class _UserTypeState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Display Name of the User Type.
+        The display name of the user type
         """
         return pulumi.get(self, "display_name")
 
@@ -138,7 +138,7 @@ class _UserTypeState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the User Type.
+        Name of the user type
         """
         return pulumi.get(self, "name")
 
@@ -157,34 +157,12 @@ class UserType(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates a User type.
-
-        This resource allows you to create and configure a User Type.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.user.UserType("example",
-            description="example",
-            display_name="example")
-        ```
-
-        ## Import
-
-        A User Type can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
-        ```
-
+        Create a UserType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the User Type.
-        :param pulumi.Input[str] display_name: Display Name of the User Type.
-        :param pulumi.Input[str] name: Name of the User Type.
+        :param pulumi.Input[str] description: A human-readable description of the User type
+        :param pulumi.Input[str] display_name: The display name of the user type
+        :param pulumi.Input[str] name: Name of the user type
         """
         ...
     @overload
@@ -193,29 +171,7 @@ class UserType(pulumi.CustomResource):
                  args: UserTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a User type.
-
-        This resource allows you to create and configure a User Type.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.user.UserType("example",
-            description="example",
-            display_name="example")
-        ```
-
-        ## Import
-
-        A User Type can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
-        ```
-
+        Create a UserType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,9 +230,9 @@ class UserType(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the User Type.
-        :param pulumi.Input[str] display_name: Display Name of the User Type.
-        :param pulumi.Input[str] name: Name of the User Type.
+        :param pulumi.Input[str] description: A human-readable description of the User type
+        :param pulumi.Input[str] display_name: The display name of the user type
+        :param pulumi.Input[str] name: Name of the user type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -291,7 +247,7 @@ class UserType(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        Description of the User Type.
+        A human-readable description of the User type
         """
         return pulumi.get(self, "description")
 
@@ -299,7 +255,7 @@ class UserType(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        Display Name of the User Type.
+        The display name of the user type
         """
         return pulumi.get(self, "display_name")
 
@@ -307,7 +263,7 @@ class UserType(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the User Type.
+        Name of the user type
         """
         return pulumi.get(self, "name")
 

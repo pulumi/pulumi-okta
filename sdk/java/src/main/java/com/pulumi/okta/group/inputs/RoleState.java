@@ -18,16 +18,14 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     public static final RoleState Empty = new RoleState();
 
     /**
-     * When this setting is enabled, the admins won&#39;t receive any of the default Okta
-     * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+     * When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails
      * 
      */
     @Import(name="disableNotifications")
     private @Nullable Output<Boolean> disableNotifications;
 
     /**
-     * @return When this setting is enabled, the admins won&#39;t receive any of the default Okta
-     * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+     * @return When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails
      * 
      */
     public Optional<Output<Boolean>> disableNotifications() {
@@ -35,14 +33,14 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of group to attach admin roles to.
+     * ID of group to attach admin roles to
      * 
      */
     @Import(name="groupId")
     private @Nullable Output<String> groupId;
 
     /**
-     * @return The ID of group to attach admin roles to.
+     * @return ID of group to attach admin roles to
      * 
      */
     public Optional<Output<String>> groupId() {
@@ -50,42 +48,14 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Admin role assigned to the group. It can be any one of the following values:
-     * `&#34;API_ADMIN&#34;`,
-     * `&#34;APP_ADMIN&#34;`,
-     * `&#34;CUSTOM&#34;`,
-     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
-     * `&#34;HELP_DESK_ADMIN&#34;`,
-     * `&#34;MOBILE_ADMIN&#34;`,
-     * `&#34;ORG_ADMIN&#34;`,
-     * `&#34;READ_ONLY_ADMIN&#34;`,
-     * `&#34;REPORT_ADMIN&#34;`,
-     * `&#34;SUPER_ADMIN&#34;`,
-     * `&#34;USER_ADMIN&#34;`
-     * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
-     * 
-     * - `&#34;USER_ADMIN&#34;` is the Group Administrator.
+     * Type of Role to assign
      * 
      */
     @Import(name="roleType")
     private @Nullable Output<String> roleType;
 
     /**
-     * @return Admin role assigned to the group. It can be any one of the following values:
-     * `&#34;API_ADMIN&#34;`,
-     * `&#34;APP_ADMIN&#34;`,
-     * `&#34;CUSTOM&#34;`,
-     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
-     * `&#34;HELP_DESK_ADMIN&#34;`,
-     * `&#34;MOBILE_ADMIN&#34;`,
-     * `&#34;ORG_ADMIN&#34;`,
-     * `&#34;READ_ONLY_ADMIN&#34;`,
-     * `&#34;REPORT_ADMIN&#34;`,
-     * `&#34;SUPER_ADMIN&#34;`,
-     * `&#34;USER_ADMIN&#34;`
-     * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
-     * 
-     * - `&#34;USER_ADMIN&#34;` is the Group Administrator.
+     * @return Type of Role to assign
      * 
      */
     public Optional<Output<String>> roleType() {
@@ -93,20 +63,14 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of app names (name represents set of app instances, like &#39;salesforce&#39; or &#39;
-     * facebook&#39;), or a combination of app name and app instance ID (like &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;) you would like as
-     * the targets of the admin role.
-     * - Only supported when used with the role type `&#34;APP_ADMIN&#34;`.
+     * List of apps ids for the targets of the admin role.
      * 
      */
     @Import(name="targetAppLists")
     private @Nullable Output<List<String>> targetAppLists;
 
     /**
-     * @return A list of app names (name represents set of app instances, like &#39;salesforce&#39; or &#39;
-     * facebook&#39;), or a combination of app name and app instance ID (like &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;) you would like as
-     * the targets of the admin role.
-     * - Only supported when used with the role type `&#34;APP_ADMIN&#34;`.
+     * @return List of apps ids for the targets of the admin role.
      * 
      */
     public Optional<Output<List<String>>> targetAppLists() {
@@ -114,16 +78,14 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of group IDs you would like as the targets of the admin role.
-     * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+     * List of groups ids for the targets of the admin role.
      * 
      */
     @Import(name="targetGroupLists")
     private @Nullable Output<List<String>> targetGroupLists;
 
     /**
-     * @return A list of group IDs you would like as the targets of the admin role.
-     * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+     * @return List of groups ids for the targets of the admin role.
      * 
      */
     public Optional<Output<List<String>>> targetGroupLists() {
@@ -159,8 +121,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableNotifications When this setting is enabled, the admins won&#39;t receive any of the default Okta
-         * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+         * @param disableNotifications When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails
          * 
          * @return builder
          * 
@@ -171,8 +132,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableNotifications When this setting is enabled, the admins won&#39;t receive any of the default Okta
-         * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+         * @param disableNotifications When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails
          * 
          * @return builder
          * 
@@ -182,7 +142,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupId The ID of group to attach admin roles to.
+         * @param groupId ID of group to attach admin roles to
          * 
          * @return builder
          * 
@@ -193,7 +153,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupId The ID of group to attach admin roles to.
+         * @param groupId ID of group to attach admin roles to
          * 
          * @return builder
          * 
@@ -203,21 +163,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleType Admin role assigned to the group. It can be any one of the following values:
-         * `&#34;API_ADMIN&#34;`,
-         * `&#34;APP_ADMIN&#34;`,
-         * `&#34;CUSTOM&#34;`,
-         * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
-         * `&#34;HELP_DESK_ADMIN&#34;`,
-         * `&#34;MOBILE_ADMIN&#34;`,
-         * `&#34;ORG_ADMIN&#34;`,
-         * `&#34;READ_ONLY_ADMIN&#34;`,
-         * `&#34;REPORT_ADMIN&#34;`,
-         * `&#34;SUPER_ADMIN&#34;`,
-         * `&#34;USER_ADMIN&#34;`
-         * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
-         * 
-         * - `&#34;USER_ADMIN&#34;` is the Group Administrator.
+         * @param roleType Type of Role to assign
          * 
          * @return builder
          * 
@@ -228,21 +174,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleType Admin role assigned to the group. It can be any one of the following values:
-         * `&#34;API_ADMIN&#34;`,
-         * `&#34;APP_ADMIN&#34;`,
-         * `&#34;CUSTOM&#34;`,
-         * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
-         * `&#34;HELP_DESK_ADMIN&#34;`,
-         * `&#34;MOBILE_ADMIN&#34;`,
-         * `&#34;ORG_ADMIN&#34;`,
-         * `&#34;READ_ONLY_ADMIN&#34;`,
-         * `&#34;REPORT_ADMIN&#34;`,
-         * `&#34;SUPER_ADMIN&#34;`,
-         * `&#34;USER_ADMIN&#34;`
-         * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
-         * 
-         * - `&#34;USER_ADMIN&#34;` is the Group Administrator.
+         * @param roleType Type of Role to assign
          * 
          * @return builder
          * 
@@ -252,10 +184,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetAppLists A list of app names (name represents set of app instances, like &#39;salesforce&#39; or &#39;
-         * facebook&#39;), or a combination of app name and app instance ID (like &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;) you would like as
-         * the targets of the admin role.
-         * - Only supported when used with the role type `&#34;APP_ADMIN&#34;`.
+         * @param targetAppLists List of apps ids for the targets of the admin role.
          * 
          * @return builder
          * 
@@ -266,10 +195,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetAppLists A list of app names (name represents set of app instances, like &#39;salesforce&#39; or &#39;
-         * facebook&#39;), or a combination of app name and app instance ID (like &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;) you would like as
-         * the targets of the admin role.
-         * - Only supported when used with the role type `&#34;APP_ADMIN&#34;`.
+         * @param targetAppLists List of apps ids for the targets of the admin role.
          * 
          * @return builder
          * 
@@ -279,10 +205,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetAppLists A list of app names (name represents set of app instances, like &#39;salesforce&#39; or &#39;
-         * facebook&#39;), or a combination of app name and app instance ID (like &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;) you would like as
-         * the targets of the admin role.
-         * - Only supported when used with the role type `&#34;APP_ADMIN&#34;`.
+         * @param targetAppLists List of apps ids for the targets of the admin role.
          * 
          * @return builder
          * 
@@ -292,8 +215,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetGroupLists A list of group IDs you would like as the targets of the admin role.
-         * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+         * @param targetGroupLists List of groups ids for the targets of the admin role.
          * 
          * @return builder
          * 
@@ -304,8 +226,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetGroupLists A list of group IDs you would like as the targets of the admin role.
-         * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+         * @param targetGroupLists List of groups ids for the targets of the admin role.
          * 
          * @return builder
          * 
@@ -315,8 +236,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetGroupLists A list of group IDs you would like as the targets of the admin role.
-         * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+         * @param targetGroupLists List of groups ids for the targets of the admin role.
          * 
          * @return builder
          * 

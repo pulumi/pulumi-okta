@@ -12,15 +12,9 @@ namespace Pulumi.Okta.Inline.Inputs
 
     public sealed class HookHeaderArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Key to use for authentication, usually the header name, for example `"Authorization"`.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// Authentication secret.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

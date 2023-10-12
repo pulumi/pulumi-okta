@@ -13,37 +13,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use
-// Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
-// The `resources` field supports the following:
-//   - Apps
-//   - Groups
-//   - All Users within a Group
-//   - All Users within the org
-//   - All Groups within the org
-//   - All Apps within the org
-//   - All Apps of the same type
-//
-// > **NOTE:** This an `Early Access` feature.
-//
-// ## Import
-//
-// Okta Resource Set can be imported via the Okta ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
-//
-// ```
+// Resource to manage administrative Role assignments for a User
 type ResourceSet struct {
 	pulumi.CustomResourceState
 
-	// A description of the Resource Set.
+	// A description of the Resource Set
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Unique name given to the Resource Set.
+	// Unique name given to the Resource Set
 	Label pulumi.StringOutput `pulumi:"label"`
-	// The endpoints that reference the resources to be included in the new Resource Set. At least one
-	// endpoint must be specified when creating resource set.
+	// The endpoints that reference the resources to be included in the new Resource Set
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
 }
 
@@ -83,22 +61,20 @@ func GetResourceSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceSet resources.
 type resourceSetState struct {
-	// A description of the Resource Set.
+	// A description of the Resource Set
 	Description *string `pulumi:"description"`
-	// Unique name given to the Resource Set.
+	// Unique name given to the Resource Set
 	Label *string `pulumi:"label"`
-	// The endpoints that reference the resources to be included in the new Resource Set. At least one
-	// endpoint must be specified when creating resource set.
+	// The endpoints that reference the resources to be included in the new Resource Set
 	Resources []string `pulumi:"resources"`
 }
 
 type ResourceSetState struct {
-	// A description of the Resource Set.
+	// A description of the Resource Set
 	Description pulumi.StringPtrInput
-	// Unique name given to the Resource Set.
+	// Unique name given to the Resource Set
 	Label pulumi.StringPtrInput
-	// The endpoints that reference the resources to be included in the new Resource Set. At least one
-	// endpoint must be specified when creating resource set.
+	// The endpoints that reference the resources to be included in the new Resource Set
 	Resources pulumi.StringArrayInput
 }
 
@@ -107,23 +83,21 @@ func (ResourceSetState) ElementType() reflect.Type {
 }
 
 type resourceSetArgs struct {
-	// A description of the Resource Set.
+	// A description of the Resource Set
 	Description string `pulumi:"description"`
-	// Unique name given to the Resource Set.
+	// Unique name given to the Resource Set
 	Label string `pulumi:"label"`
-	// The endpoints that reference the resources to be included in the new Resource Set. At least one
-	// endpoint must be specified when creating resource set.
+	// The endpoints that reference the resources to be included in the new Resource Set
 	Resources []string `pulumi:"resources"`
 }
 
 // The set of arguments for constructing a ResourceSet resource.
 type ResourceSetArgs struct {
-	// A description of the Resource Set.
+	// A description of the Resource Set
 	Description pulumi.StringInput
-	// Unique name given to the Resource Set.
+	// Unique name given to the Resource Set
 	Label pulumi.StringInput
-	// The endpoints that reference the resources to be included in the new Resource Set. At least one
-	// endpoint must be specified when creating resource set.
+	// The endpoints that reference the resources to be included in the new Resource Set
 	Resources pulumi.StringArrayInput
 }
 
@@ -238,18 +212,17 @@ func (o ResourceSetOutput) ToOutput(ctx context.Context) pulumix.Output[*Resourc
 	}
 }
 
-// A description of the Resource Set.
+// A description of the Resource Set
 func (o ResourceSetOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Unique name given to the Resource Set.
+// Unique name given to the Resource Set
 func (o ResourceSetOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
 }
 
-// The endpoints that reference the resources to be included in the new Resource Set. At least one
-// endpoint must be specified when creating resource set.
+// The endpoints that reference the resources to be included in the new Resource Set
 func (o ResourceSetOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }

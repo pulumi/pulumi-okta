@@ -5,45 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Creates security question factor for a user.
- *
- * This resource allows you to create and configure security question factor for a user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleUser = new okta.user.User("exampleUser", {
- *     firstName: "John",
- *     lastName: "Smith",
- *     login: "john.smith@example.com",
- *     email: "john.smith@example.com",
- * });
- * const exampleUserSecurityQuestions = okta.getUserSecurityQuestionsOutput({
- *     userId: exampleUser.id,
- * });
- * const exampleFactor = new okta.factor.Factor("exampleFactor", {
- *     providerId: "okta_question",
- *     active: true,
- * });
- * const exampleUserFactorQuestion = new okta.UserFactorQuestion("exampleUserFactorQuestion", {
- *     userId: exampleUser.id,
- *     key: exampleUserSecurityQuestions.apply(exampleUserSecurityQuestions => exampleUserSecurityQuestions.questions?.[0]?.key),
- *     answer: "meatball",
- * }, {
- *     dependsOn: [exampleFactor],
- * });
- * ```
- *
- * ## Import
- *
- * Security question factor for a user can be imported via the `user_id` and the `factor_id`.
- *
- * ```sh
- *  $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
- * ```
+ * Resource to manage a question factor for a user
  */
 export class UserFactorQuestion extends pulumi.CustomResource {
     /**
@@ -74,23 +36,23 @@ export class UserFactorQuestion extends pulumi.CustomResource {
     }
 
     /**
-     * Security question answer. Note here that answer won't be set during the resource import.
+     * User password security answer
      */
     public readonly answer!: pulumi.Output<string>;
     /**
-     * Security question unique key.
+     * Unique key for question
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * The status of the security question factor.
+     * User factor status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Display text for security question.
+     * Display text for question
      */
     public /*out*/ readonly text!: pulumi.Output<string>;
     /**
-     * ID of the user. Resource will be recreated when `userId` changes.
+     * ID of a Okta User
      */
     public readonly userId!: pulumi.Output<string>;
 
@@ -141,23 +103,23 @@ export class UserFactorQuestion extends pulumi.CustomResource {
  */
 export interface UserFactorQuestionState {
     /**
-     * Security question answer. Note here that answer won't be set during the resource import.
+     * User password security answer
      */
     answer?: pulumi.Input<string>;
     /**
-     * Security question unique key.
+     * Unique key for question
      */
     key?: pulumi.Input<string>;
     /**
-     * The status of the security question factor.
+     * User factor status.
      */
     status?: pulumi.Input<string>;
     /**
-     * Display text for security question.
+     * Display text for question
      */
     text?: pulumi.Input<string>;
     /**
-     * ID of the user. Resource will be recreated when `userId` changes.
+     * ID of a Okta User
      */
     userId?: pulumi.Input<string>;
 }
@@ -167,15 +129,15 @@ export interface UserFactorQuestionState {
  */
 export interface UserFactorQuestionArgs {
     /**
-     * Security question answer. Note here that answer won't be set during the resource import.
+     * User password security answer
      */
     answer: pulumi.Input<string>;
     /**
-     * Security question unique key.
+     * Unique key for question
      */
     key: pulumi.Input<string>;
     /**
-     * ID of the user. Resource will be recreated when `userId` changes.
+     * ID of a Okta User
      */
     userId: pulumi.Input<string>;
 }

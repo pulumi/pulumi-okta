@@ -13,14 +13,14 @@ public final class GetUserSecurityQuestionsPlainArgs extends com.pulumi.resource
     public static final GetUserSecurityQuestionsPlainArgs Empty = new GetUserSecurityQuestionsPlainArgs();
 
     /**
-     * User ID.
+     * ID of a Okta User
      * 
      */
     @Import(name="userId", required=true)
     private String userId;
 
     /**
-     * @return User ID.
+     * @return ID of a Okta User
      * 
      */
     public String userId() {
@@ -52,7 +52,7 @@ public final class GetUserSecurityQuestionsPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param userId User ID.
+         * @param userId ID of a Okta User
          * 
          * @return builder
          * 

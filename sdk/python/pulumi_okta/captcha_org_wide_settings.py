@@ -18,8 +18,8 @@ class CaptchaOrgWideSettingsArgs:
                  enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CaptchaOrgWideSettings resource.
-        :param pulumi.Input[str] captcha_id: The ID of the CAPTCHA.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_fors: Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+        :param pulumi.Input[str] captcha_id: ID of the CAPTCHA
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_fors: Set of pages that have CAPTCHA enabled
         """
         CaptchaOrgWideSettingsArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -41,7 +41,7 @@ class CaptchaOrgWideSettingsArgs:
     @pulumi.getter(name="captchaId")
     def captcha_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the CAPTCHA.
+        ID of the CAPTCHA
         """
         return pulumi.get(self, "captcha_id")
 
@@ -53,7 +53,7 @@ class CaptchaOrgWideSettingsArgs:
     @pulumi.getter(name="enabledFors")
     def enabled_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+        Set of pages that have CAPTCHA enabled
         """
         return pulumi.get(self, "enabled_fors")
 
@@ -69,8 +69,8 @@ class _CaptchaOrgWideSettingsState:
                  enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CaptchaOrgWideSettings resources.
-        :param pulumi.Input[str] captcha_id: The ID of the CAPTCHA.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_fors: Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+        :param pulumi.Input[str] captcha_id: ID of the CAPTCHA
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_fors: Set of pages that have CAPTCHA enabled
         """
         _CaptchaOrgWideSettingsState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -92,7 +92,7 @@ class _CaptchaOrgWideSettingsState:
     @pulumi.getter(name="captchaId")
     def captcha_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the CAPTCHA.
+        ID of the CAPTCHA
         """
         return pulumi.get(self, "captcha_id")
 
@@ -104,7 +104,7 @@ class _CaptchaOrgWideSettingsState:
     @pulumi.getter(name="enabledFors")
     def enabled_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+        Set of pages that have CAPTCHA enabled
         """
         return pulumi.get(self, "enabled_fors")
 
@@ -122,51 +122,11 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
                  enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        This resource allows you to configure which parts of the authentication flow requires users to pass the CAPTCHA logic.
-        CAPTCHA org-wide settings can be disabled by unsetting `captcha_id` and `enabled_for`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_captcha = okta.Captcha("exampleCaptcha",
-            type="HCAPTCHA",
-            site_key="some_key",
-            secret_key="some_secret_key")
-        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings",
-            captcha_id=okta_captcha["test"]["id"],
-            enabled_fors=["SSR"])
-        ```
-
-        The following example disables org-wide CAPTCHA.
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_captcha = okta.Captcha("exampleCaptcha",
-            secret_key="some_secret_key",
-            site_key="some_key",
-            type="HCAPTCHA")
-        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings")
-        ```
-
-        ## Import
-
-        Org-Wide CAPTCHA settings can be imported without any parameters.
-
-        ```sh
-         $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
-        ```
-
+        Create a CaptchaOrgWideSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] captcha_id: The ID of the CAPTCHA.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_fors: Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+        :param pulumi.Input[str] captcha_id: ID of the CAPTCHA
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_fors: Set of pages that have CAPTCHA enabled
         """
         ...
     @overload
@@ -175,47 +135,7 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
                  args: Optional[CaptchaOrgWideSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        This resource allows you to configure which parts of the authentication flow requires users to pass the CAPTCHA logic.
-        CAPTCHA org-wide settings can be disabled by unsetting `captcha_id` and `enabled_for`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_captcha = okta.Captcha("exampleCaptcha",
-            type="HCAPTCHA",
-            site_key="some_key",
-            secret_key="some_secret_key")
-        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings",
-            captcha_id=okta_captcha["test"]["id"],
-            enabled_fors=["SSR"])
-        ```
-
-        The following example disables org-wide CAPTCHA.
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_captcha = okta.Captcha("exampleCaptcha",
-            secret_key="some_secret_key",
-            site_key="some_key",
-            type="HCAPTCHA")
-        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings")
-        ```
-
-        ## Import
-
-        Org-Wide CAPTCHA settings can be imported without any parameters.
-
-        ```sh
-         $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
-        ```
-
+        Create a CaptchaOrgWideSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CaptchaOrgWideSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,8 +187,8 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] captcha_id: The ID of the CAPTCHA.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_fors: Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+        :param pulumi.Input[str] captcha_id: ID of the CAPTCHA
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_fors: Set of pages that have CAPTCHA enabled
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -282,7 +202,7 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
     @pulumi.getter(name="captchaId")
     def captcha_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the CAPTCHA.
+        ID of the CAPTCHA
         """
         return pulumi.get(self, "captcha_id")
 
@@ -290,7 +210,7 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
     @pulumi.getter(name="enabledFors")
     def enabled_fors(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+        Set of pages that have CAPTCHA enabled
         """
         return pulumi.get(self, "enabled_fors")
 

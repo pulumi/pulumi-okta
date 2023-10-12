@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve the metadata for SAML application from Okta.
+ * Get a SAML application's metadata from Okta.
  *
  * ## Example Usage
  *
@@ -46,13 +46,16 @@ export interface GetMetadataSamlArgs {
  * A collection of values returned by getMetadataSaml.
  */
 export interface GetMetadataSamlResult {
+    /**
+     * The application ID.
+     */
     readonly appId: string;
     /**
-     * public certificate from application metadata.
+     * Public certificate from application metadata.
      */
     readonly certificate: string;
     /**
-     * Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+     * Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
      */
     readonly entityId: string;
     /**
@@ -67,9 +70,12 @@ export interface GetMetadataSamlResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Certificate Key ID.
+     */
     readonly keyId?: string;
     /**
-     * raw metadata of application.
+     * Raw metadata of application.
      */
     readonly metadata: string;
     /**
@@ -78,7 +84,7 @@ export interface GetMetadataSamlResult {
     readonly wantAuthnRequestsSigned: boolean;
 }
 /**
- * Use this data source to retrieve the metadata for SAML application from Okta.
+ * Get a SAML application's metadata from Okta.
  *
  * ## Example Usage
  *

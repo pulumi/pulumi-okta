@@ -17,109 +17,65 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RuleArgs Empty = new RuleArgs();
 
-    /**
-     * The expression type to use to invoke the rule. The default
-     * is `&#34;urn:okta:expression:1.0&#34;`.
-     * 
-     */
     @Import(name="expressionType")
     private @Nullable Output<String> expressionType;
 
-    /**
-     * @return The expression type to use to invoke the rule. The default
-     * is `&#34;urn:okta:expression:1.0&#34;`.
-     * 
-     */
     public Optional<Output<String>> expressionType() {
         return Optional.ofNullable(this.expressionType);
     }
 
-    /**
-     * The expression value.
-     * 
-     */
     @Import(name="expressionValue", required=true)
     private Output<String> expressionValue;
 
-    /**
-     * @return The expression value.
-     * 
-     */
     public Output<String> expressionValue() {
         return this.expressionValue;
     }
 
-    /**
-     * The list of group ids to assign the users to.
-     * 
-     */
     @Import(name="groupAssignments", required=true)
     private Output<List<String>> groupAssignments;
 
-    /**
-     * @return The list of group ids to assign the users to.
-     * 
-     */
     public Output<List<String>> groupAssignments() {
         return this.groupAssignments;
     }
 
-    /**
-     * The name of the Group Rule (min character 1; max characters 50).
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Group Rule (min character 1; max characters 50).
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
     /**
-     * This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * Remove users added by this rule from the assigned group after deleting this resource
      * 
      */
     @Import(name="removeAssignedUsers")
     private @Nullable Output<Boolean> removeAssignedUsers;
 
     /**
-     * @return This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * @return Remove users added by this rule from the assigned group after deleting this resource
      * 
      */
     public Optional<Output<Boolean>> removeAssignedUsers() {
         return Optional.ofNullable(this.removeAssignedUsers);
     }
 
-    /**
-     * The status of the group rule.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the group rule.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * The list of user IDs that would be excluded when rules are processed
      * 
      */
     @Import(name="usersExcludeds")
     private @Nullable Output<List<String>> usersExcludeds;
 
     /**
-     * @return The list of user IDs that would be excluded when rules are processed.
+     * @return The list of user IDs that would be excluded when rules are processed
      * 
      */
     public Optional<Output<List<String>>> usersExcludeds() {
@@ -156,105 +112,48 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param expressionType The expression type to use to invoke the rule. The default
-         * is `&#34;urn:okta:expression:1.0&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressionType(@Nullable Output<String> expressionType) {
             $.expressionType = expressionType;
             return this;
         }
 
-        /**
-         * @param expressionType The expression type to use to invoke the rule. The default
-         * is `&#34;urn:okta:expression:1.0&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressionType(String expressionType) {
             return expressionType(Output.of(expressionType));
         }
 
-        /**
-         * @param expressionValue The expression value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressionValue(Output<String> expressionValue) {
             $.expressionValue = expressionValue;
             return this;
         }
 
-        /**
-         * @param expressionValue The expression value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressionValue(String expressionValue) {
             return expressionValue(Output.of(expressionValue));
         }
 
-        /**
-         * @param groupAssignments The list of group ids to assign the users to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupAssignments(Output<List<String>> groupAssignments) {
             $.groupAssignments = groupAssignments;
             return this;
         }
 
-        /**
-         * @param groupAssignments The list of group ids to assign the users to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupAssignments(List<String> groupAssignments) {
             return groupAssignments(Output.of(groupAssignments));
         }
 
-        /**
-         * @param groupAssignments The list of group ids to assign the users to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupAssignments(String... groupAssignments) {
             return groupAssignments(List.of(groupAssignments));
         }
 
-        /**
-         * @param name The name of the Group Rule (min character 1; max characters 50).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Group Rule (min character 1; max characters 50).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
         /**
-         * @param removeAssignedUsers This tells the provider to remove users added by this rule from the assigned
-         * group after destroying this resource. Default is `false`.
+         * @param removeAssignedUsers Remove users added by this rule from the assigned group after deleting this resource
          * 
          * @return builder
          * 
@@ -265,8 +164,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param removeAssignedUsers This tells the provider to remove users added by this rule from the assigned
-         * group after destroying this resource. Default is `false`.
+         * @param removeAssignedUsers Remove users added by this rule from the assigned group after deleting this resource
          * 
          * @return builder
          * 
@@ -275,29 +173,17 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
             return removeAssignedUsers(Output.of(removeAssignedUsers));
         }
 
-        /**
-         * @param status The status of the group rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the group rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed.
+         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed
          * 
          * @return builder
          * 
@@ -308,7 +194,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed.
+         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed
          * 
          * @return builder
          * 
@@ -318,7 +204,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed.
+         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed
          * 
          * @return builder
          * 

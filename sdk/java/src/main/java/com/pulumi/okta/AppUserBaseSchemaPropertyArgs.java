@@ -32,14 +32,14 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The property name.
+     * Subschema unique string identifier
      * 
      */
     @Import(name="index", required=true)
     private Output<String> index;
 
     /**
-     * @return The property name.
+     * @return Subschema unique string identifier
      * 
      */
     public Output<String> index() {
@@ -47,14 +47,14 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+     * SubSchema profile manager, if not set it will inherit its setting.
      * 
      */
     @Import(name="master")
     private @Nullable Output<String> master;
 
     /**
-     * @return Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+     * @return SubSchema profile manager, if not set it will inherit its setting.
      * 
      */
     public Optional<Output<String>> master() {
@@ -62,14 +62,14 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
+     * The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
      * 
      */
     @Import(name="pattern")
     private @Nullable Output<String> pattern;
 
     /**
-     * @return The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
+     * @return The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
      * 
      */
     public Optional<Output<String>> pattern() {
@@ -77,14 +77,14 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<String> permissions;
 
     /**
-     * @return Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * @return SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
      * 
      */
     public Optional<Output<String>> permissions() {
@@ -92,14 +92,14 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Whether the property is required for this application&#39;s users.
+     * Whether the subschema is required
      * 
      */
     @Import(name="required")
     private @Nullable Output<Boolean> required;
 
     /**
-     * @return Whether the property is required for this application&#39;s users.
+     * @return Whether the subschema is required
      * 
      */
     public Optional<Output<Boolean>> required() {
@@ -107,14 +107,14 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The property display name.
+     * Subschema title (display name)
      * 
      */
     @Import(name="title", required=true)
     private Output<String> title;
 
     /**
-     * @return The property display name.
+     * @return Subschema title (display name)
      * 
      */
     public Output<String> title() {
@@ -122,14 +122,14 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+     * Subschema type: string, boolean, number, integer, array, or object
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+     * @return Subschema type: string, boolean, number, integer, array, or object
      * 
      */
     public Output<String> type() {
@@ -137,14 +137,14 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * User type ID. By default, it is `&#34;default&#34;`.
+     * Custom subschema user type
      * 
      */
     @Import(name="userType")
     private @Nullable Output<String> userType;
 
     /**
-     * @return User type ID. By default, it is `&#34;default&#34;`.
+     * @return Custom subschema user type
      * 
      */
     public Optional<Output<String>> userType() {
@@ -205,7 +205,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param index The property name.
+         * @param index Subschema unique string identifier
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param index The property name.
+         * @param index Subschema unique string identifier
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param master Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+         * @param master SubSchema profile manager, if not set it will inherit its setting.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param master Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+         * @param master SubSchema profile manager, if not set it will inherit its setting.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param pattern The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
+         * @param pattern The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param pattern The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
+         * @param pattern The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param permissions Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+         * @param permissions SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param permissions Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+         * @param permissions SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param required Whether the property is required for this application&#39;s users.
+         * @param required Whether the subschema is required
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param required Whether the property is required for this application&#39;s users.
+         * @param required Whether the subschema is required
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param title The property display name.
+         * @param title Subschema title (display name)
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param title The property display name.
+         * @param title Subschema title (display name)
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+         * @param type Subschema type: string, boolean, number, integer, array, or object
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+         * @param type Subschema type: string, boolean, number, integer, array, or object
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param userType User type ID. By default, it is `&#34;default&#34;`.
+         * @param userType Custom subschema user type
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class AppUserBaseSchemaPropertyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param userType User type ID. By default, it is `&#34;default&#34;`.
+         * @param userType Custom subschema user type
          * 
          * @return builder
          * 

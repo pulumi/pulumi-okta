@@ -13,9 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupResult {
+    /**
+     * @return Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
+     * 
+     */
     private @Nullable String delayReadSeconds;
     /**
-     * @return description of group.
+     * @return Description of group.
      * 
      */
     private String description;
@@ -24,29 +28,33 @@ public final class GetGroupResult {
      * 
      */
     private String id;
+    /**
+     * @return Fetch group users, having default off cuts down on API calls.
+     * 
+     */
     private @Nullable Boolean includeUsers;
     /**
-     * @return name of group.
+     * @return Name of group.
      * 
      */
     private String name;
-    /**
-     * @return type of group.
-     * 
-     */
     private @Nullable String type;
     /**
-     * @return user ids that are members of this group, only included if `include_users` is set to `true`.
+     * @return Users associated with the group. This can also be done per user.
      * 
      */
     private List<String> users;
 
     private GetGroupResult() {}
+    /**
+     * @return Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
+     * 
+     */
     public Optional<String> delayReadSeconds() {
         return Optional.ofNullable(this.delayReadSeconds);
     }
     /**
-     * @return description of group.
+     * @return Description of group.
      * 
      */
     public String description() {
@@ -59,25 +67,25 @@ public final class GetGroupResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Fetch group users, having default off cuts down on API calls.
+     * 
+     */
     public Optional<Boolean> includeUsers() {
         return Optional.ofNullable(this.includeUsers);
     }
     /**
-     * @return name of group.
+     * @return Name of group.
      * 
      */
     public String name() {
         return this.name;
     }
-    /**
-     * @return type of group.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
     /**
-     * @return user ids that are members of this group, only included if `include_users` is set to `true`.
+     * @return Users associated with the group. This can also be done per user.
      * 
      */
     public List<String> users() {

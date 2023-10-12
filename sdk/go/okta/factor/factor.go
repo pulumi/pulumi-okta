@@ -13,42 +13,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Allows you to manage the activation of Okta MFA methods.
-//
-// This resource allows you to manage Okta MFA methods.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/factor"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := factor.NewFactor(ctx, "example", &factor.FactorArgs{
-//				ProviderId: pulumi.String("google_otp"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Factor struct {
 	pulumi.CustomResourceState
 
-	// Whether to activate the provider, by default, it is set to `true`.
+	// Is this provider active?
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
-	// The MFA provider name.
-	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+	// Factor provider ID
 	ProviderId pulumi.StringOutput `pulumi:"providerId"`
 }
 
@@ -85,18 +55,16 @@ func GetFactor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Factor resources.
 type factorState struct {
-	// Whether to activate the provider, by default, it is set to `true`.
+	// Is this provider active?
 	Active *bool `pulumi:"active"`
-	// The MFA provider name.
-	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+	// Factor provider ID
 	ProviderId *string `pulumi:"providerId"`
 }
 
 type FactorState struct {
-	// Whether to activate the provider, by default, it is set to `true`.
+	// Is this provider active?
 	Active pulumi.BoolPtrInput
-	// The MFA provider name.
-	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+	// Factor provider ID
 	ProviderId pulumi.StringPtrInput
 }
 
@@ -105,19 +73,17 @@ func (FactorState) ElementType() reflect.Type {
 }
 
 type factorArgs struct {
-	// Whether to activate the provider, by default, it is set to `true`.
+	// Is this provider active?
 	Active *bool `pulumi:"active"`
-	// The MFA provider name.
-	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+	// Factor provider ID
 	ProviderId string `pulumi:"providerId"`
 }
 
 // The set of arguments for constructing a Factor resource.
 type FactorArgs struct {
-	// Whether to activate the provider, by default, it is set to `true`.
+	// Is this provider active?
 	Active pulumi.BoolPtrInput
-	// The MFA provider name.
-	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+	// Factor provider ID
 	ProviderId pulumi.StringInput
 }
 
@@ -232,13 +198,12 @@ func (o FactorOutput) ToOutput(ctx context.Context) pulumix.Output[*Factor] {
 	}
 }
 
-// Whether to activate the provider, by default, it is set to `true`.
+// Is this provider active?
 func (o FactorOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Factor) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
-// The MFA provider name.
-// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+// Factor provider ID
 func (o FactorOutput) ProviderId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Factor) pulumi.StringOutput { return v.ProviderId }).(pulumi.StringOutput)
 }

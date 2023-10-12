@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates an Authorization Server Claim.
- *
- * This resource allows you to create and configure an Authorization Server Claim.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.auth.ServerClaim("example", {
- *     authServerId: "<auth server id>",
- *     claimType: "IDENTITY",
- *     scopes: [okta_auth_server_scope.example.name],
- *     value: "String.substringAfter(user.email, \"@\") == \"example.com\"",
- * });
- * ```
- *
- * ## Import
- *
- * Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
- *
- * ```sh
- *  $ pulumi import okta:auth/serverClaim:ServerClaim example &#60;auth server id&#62;/&#60;claim id&#62;
- * ```
- */
 export class ServerClaim extends pulumi.CustomResource {
     /**
      * Get an existing ServerClaim resource's state with the given name, ID, and optional extra
@@ -64,35 +37,32 @@ export class ServerClaim extends pulumi.CustomResource {
      */
     public readonly alwaysIncludeInToken!: pulumi.Output<boolean | undefined>;
     /**
-     * ID of the authorization server.
+     * Auth server ID
      */
     public readonly authServerId!: pulumi.Output<string>;
     /**
-     * Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+     * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      */
     public readonly claimType!: pulumi.Output<string>;
     /**
-     * Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
+     * Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      */
     public readonly groupFilterType!: pulumi.Output<string | undefined>;
     /**
-     * The name of the claim.
+     * Auth server claim name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The list of scopes the auth server claim is tied to.
+     * Auth server claim list of scopes
      */
     public readonly scopes!: pulumi.Output<string[] | undefined>;
-    /**
-     * The status of the application. It defaults to `"ACTIVE"`.
-     */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
      * The value of the claim.
      */
     public readonly value!: pulumi.Output<string>;
     /**
-     * The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
+     * The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      */
     public readonly valueType!: pulumi.Output<string | undefined>;
 
@@ -153,35 +123,32 @@ export interface ServerClaimState {
      */
     alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**
-     * ID of the authorization server.
+     * Auth server ID
      */
     authServerId?: pulumi.Input<string>;
     /**
-     * Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+     * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      */
     claimType?: pulumi.Input<string>;
     /**
-     * Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
+     * Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      */
     groupFilterType?: pulumi.Input<string>;
     /**
-     * The name of the claim.
+     * Auth server claim name
      */
     name?: pulumi.Input<string>;
     /**
-     * The list of scopes the auth server claim is tied to.
+     * Auth server claim list of scopes
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The status of the application. It defaults to `"ACTIVE"`.
-     */
     status?: pulumi.Input<string>;
     /**
      * The value of the claim.
      */
     value?: pulumi.Input<string>;
     /**
-     * The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
+     * The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      */
     valueType?: pulumi.Input<string>;
 }
@@ -195,35 +162,32 @@ export interface ServerClaimArgs {
      */
     alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**
-     * ID of the authorization server.
+     * Auth server ID
      */
     authServerId: pulumi.Input<string>;
     /**
-     * Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+     * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      */
     claimType: pulumi.Input<string>;
     /**
-     * Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
+     * Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      */
     groupFilterType?: pulumi.Input<string>;
     /**
-     * The name of the claim.
+     * Auth server claim name
      */
     name?: pulumi.Input<string>;
     /**
-     * The list of scopes the auth server claim is tied to.
+     * Auth server claim list of scopes
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The status of the application. It defaults to `"ACTIVE"`.
-     */
     status?: pulumi.Input<string>;
     /**
      * The value of the claim.
      */
     value: pulumi.Input<string>;
     /**
-     * The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
+     * The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      */
     valueType?: pulumi.Input<string>;
 }

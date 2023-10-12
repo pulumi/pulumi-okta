@@ -15,212 +15,129 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates an Okta Network Zone.
- * 
- * This resource allows you to create and configure an Okta Network Zone.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.network.Zone;
- * import com.pulumi.okta.network.ZoneArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
- *             .gateways(            
- *                 &#34;1.2.3.4/24&#34;,
- *                 &#34;2.3.4.5-2.3.4.15&#34;)
- *             .proxies(            
- *                 &#34;2.2.3.4/24&#34;,
- *                 &#34;3.3.4.5-3.3.4.15&#34;)
- *             .type(&#34;IP&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Dynamic Tor Blocker
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.network.Zone;
- * import com.pulumi.okta.network.ZoneArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
- *             .dynamicProxyType(&#34;TorAnonymizer&#34;)
- *             .type(&#34;DYNAMIC&#34;)
- *             .usage(&#34;BLOCKLIST&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Okta Network Zone can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:network/zone:Zone example &amp;#60;zone id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:network/zone:Zone")
 public class Zone extends com.pulumi.resources.CustomResource {
     /**
-     * Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+     * Format of each array value: a string representation of an ASN numeric value
      * 
      */
     @Export(name="asns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> asns;
 
     /**
-     * @return Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+     * @return Format of each array value: a string representation of an ASN numeric value
      * 
      */
     public Output<Optional<List<String>>> asns() {
         return Codegen.optional(this.asns);
     }
     /**
-     * Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-     * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
      * 
      */
     @Export(name="dynamicLocations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dynamicLocations;
 
     /**
-     * @return Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-     * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+     * @return Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
      * 
      */
     public Output<Optional<List<String>>> dynamicLocations() {
         return Codegen.optional(this.dynamicLocations);
     }
     /**
-     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     * Type of proxy being controlled by this network zone
      * 
      */
     @Export(name="dynamicProxyType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dynamicProxyType;
 
     /**
-     * @return Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     * @return Type of proxy being controlled by this network zone
      * 
      */
     public Output<Optional<String>> dynamicProxyType() {
         return Codegen.optional(this.dynamicProxyType);
     }
     /**
-     * Array of values in CIDR/range form.
+     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      * 
      */
     @Export(name="gateways", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> gateways;
 
     /**
-     * @return Array of values in CIDR/range form.
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      * 
      */
     public Output<Optional<List<String>>> gateways() {
         return Codegen.optional(this.gateways);
     }
     /**
-     * Name of the Network Zone Resource.
+     * Name of the Network Zone Resource
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the Network Zone Resource.
+     * @return Name of the Network Zone Resource
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Array of values in CIDR/range form. Can not be set if `usage` is set to `&#34;BLOCKLIST&#34;`.
+     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      * 
      */
     @Export(name="proxies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> proxies;
 
     /**
-     * @return Array of values in CIDR/range form. Can not be set if `usage` is set to `&#34;BLOCKLIST&#34;`.
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      * 
      */
     public Output<Optional<List<String>>> proxies() {
         return Codegen.optional(this.proxies);
     }
     /**
-     * Network Status - can either be ACTIVE or INACTIVE only.
+     * Network Status - can either be ACTIVE or INACTIVE only
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Network Status - can either be ACTIVE or INACTIVE only.
+     * @return Network Status - can either be ACTIVE or INACTIVE only
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * Type of the Network Zone - can either be `&#34;IP&#34;` or `&#34;DYNAMIC&#34;` only.
+     * Type of the Network Zone - can either be IP or DYNAMIC only
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the Network Zone - can either be `&#34;IP&#34;` or `&#34;DYNAMIC&#34;` only.
+     * @return Type of the Network Zone - can either be IP or DYNAMIC only
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * Usage of the Network Zone - can be either `&#34;POLICY&#34;` or `&#34;BLOCKLIST&#34;`. By default, it is `&#34;POLICY&#34;`.
+     * Zone&#39;s purpose: POLICY or BLOCKLIST
      * 
      */
     @Export(name="usage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usage;
 
     /**
-     * @return Usage of the Network Zone - can be either `&#34;POLICY&#34;` or `&#34;BLOCKLIST&#34;`. By default, it is `&#34;POLICY&#34;`.
+     * @return Zone&#39;s purpose: POLICY or BLOCKLIST
      * 
      */
     public Output<Optional<String>> usage() {

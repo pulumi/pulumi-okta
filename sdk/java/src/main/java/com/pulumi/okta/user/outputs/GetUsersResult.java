@@ -15,30 +15,66 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUsersResult {
+    /**
+     * @return Search operator used when joining mulitple search clauses
+     * 
+     */
     private @Nullable String compoundSearchOperator;
+    /**
+     * @return Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+     * 
+     */
     private @Nullable String delayReadSeconds;
+    /**
+     * @return Find users based on group membership using the id of the group.
+     * 
+     */
     private @Nullable String groupId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Fetch group memberships for each user
+     * 
+     */
     private @Nullable Boolean includeGroups;
+    /**
+     * @return Fetch user roles for each user
+     * 
+     */
     private @Nullable Boolean includeRoles;
+    /**
+     * @return Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+     * 
+     */
     private @Nullable List<GetUsersSearch> searches;
     /**
-     * @return collection of users retrieved from Okta with the following properties.
+     * @return collection of users retrieved from Okta.
      * 
      */
     private List<GetUsersUser> users;
 
     private GetUsersResult() {}
+    /**
+     * @return Search operator used when joining mulitple search clauses
+     * 
+     */
     public Optional<String> compoundSearchOperator() {
         return Optional.ofNullable(this.compoundSearchOperator);
     }
+    /**
+     * @return Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+     * 
+     */
     public Optional<String> delayReadSeconds() {
         return Optional.ofNullable(this.delayReadSeconds);
     }
+    /**
+     * @return Find users based on group membership using the id of the group.
+     * 
+     */
     public Optional<String> groupId() {
         return Optional.ofNullable(this.groupId);
     }
@@ -49,17 +85,29 @@ public final class GetUsersResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Fetch group memberships for each user
+     * 
+     */
     public Optional<Boolean> includeGroups() {
         return Optional.ofNullable(this.includeGroups);
     }
+    /**
+     * @return Fetch user roles for each user
+     * 
+     */
     public Optional<Boolean> includeRoles() {
         return Optional.ofNullable(this.includeRoles);
     }
+    /**
+     * @return Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+     * 
+     */
     public List<GetUsersSearch> searches() {
         return this.searches == null ? List.of() : this.searches;
     }
     /**
-     * @return collection of users retrieved from Okta with the following properties.
+     * @return collection of users retrieved from Okta.
      * 
      */
     public List<GetUsersUser> users() {

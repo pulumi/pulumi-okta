@@ -16,14 +16,14 @@ public final class GetEveryoneGroupArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetEveryoneGroupArgs Empty = new GetEveryoneGroupArgs();
 
     /**
-     * whether to retrieve all member ids.
+     * Fetch group users, having default off cuts down on API calls.
      * 
      */
     @Import(name="includeUsers")
     private @Nullable Output<Boolean> includeUsers;
 
     /**
-     * @return whether to retrieve all member ids.
+     * @return Fetch group users, having default off cuts down on API calls.
      * 
      */
     public Optional<Output<Boolean>> includeUsers() {
@@ -55,7 +55,7 @@ public final class GetEveryoneGroupArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param includeUsers whether to retrieve all member ids.
+         * @param includeUsers Fetch group users, having default off cuts down on API calls.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class GetEveryoneGroupArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param includeUsers whether to retrieve all member ids.
+         * @param includeUsers Fetch group users, having default off cuts down on API calls.
          * 
          * @return builder
          * 

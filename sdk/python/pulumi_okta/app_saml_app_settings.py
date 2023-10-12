@@ -18,8 +18,8 @@ class AppSamlAppSettingsArgs:
                  settings: pulumi.Input[str]):
         """
         The set of arguments for constructing a AppSamlAppSettings resource.
-        :param pulumi.Input[str] app_id: ID of the application.
-        :param pulumi.Input[str] settings: Application settings in JSON format.
+        :param pulumi.Input[str] app_id: Application ID
+        :param pulumi.Input[str] settings: Application settings in JSON format
         """
         AppSamlAppSettingsArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -39,7 +39,7 @@ class AppSamlAppSettingsArgs:
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[str]:
         """
-        ID of the application.
+        Application ID
         """
         return pulumi.get(self, "app_id")
 
@@ -51,7 +51,7 @@ class AppSamlAppSettingsArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input[str]:
         """
-        Application settings in JSON format.
+        Application settings in JSON format
         """
         return pulumi.get(self, "settings")
 
@@ -67,8 +67,8 @@ class _AppSamlAppSettingsState:
                  settings: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AppSamlAppSettings resources.
-        :param pulumi.Input[str] app_id: ID of the application.
-        :param pulumi.Input[str] settings: Application settings in JSON format.
+        :param pulumi.Input[str] app_id: Application ID
+        :param pulumi.Input[str] settings: Application settings in JSON format
         """
         _AppSamlAppSettingsState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -90,7 +90,7 @@ class _AppSamlAppSettingsState:
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the application.
+        Application ID
         """
         return pulumi.get(self, "app_id")
 
@@ -102,7 +102,7 @@ class _AppSamlAppSettingsState:
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[str]]:
         """
-        Application settings in JSON format.
+        Application settings in JSON format
         """
         return pulumi.get(self, "settings")
 
@@ -120,46 +120,11 @@ class AppSamlAppSettings(pulumi.CustomResource):
                  settings: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to manage app settings of the SAML Application . It's basically the same as
-        `app_settings_json` field in `app.Saml` resource and can be used in cases where settings require to be managed separately.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        test_saml = okta.app.Saml("testSaml",
-            preconfigured_app="amazon_aws",
-            label="Amazon AWS",
-            status="ACTIVE")
-        test_app_saml_app_settings = okta.AppSamlAppSettings("testAppSamlAppSettings",
-            app_id=test_saml.id,
-            settings=json.dumps({
-                "appFilter": "okta",
-                "awsEnvironmentType": "aws.amazon",
-                "groupFilter": "aws_(?{{accountid}}\\\\\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\\\\\-_]+)",
-                "joinAllRoles": False,
-                "loginURL": "https://console.aws.amazon.com/ec2/home",
-                "roleValuePattern": "arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}",
-                "sessionDuration": 3200,
-                "useGroupMapping": False,
-            }))
-        ```
-
-        ## Import
-
-        A settings for the SAML App can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
-        ```
-
+        Create a AppSamlAppSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: ID of the application.
-        :param pulumi.Input[str] settings: Application settings in JSON format.
+        :param pulumi.Input[str] app_id: Application ID
+        :param pulumi.Input[str] settings: Application settings in JSON format
         """
         ...
     @overload
@@ -168,42 +133,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
                  args: AppSamlAppSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to manage app settings of the SAML Application . It's basically the same as
-        `app_settings_json` field in `app.Saml` resource and can be used in cases where settings require to be managed separately.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        test_saml = okta.app.Saml("testSaml",
-            preconfigured_app="amazon_aws",
-            label="Amazon AWS",
-            status="ACTIVE")
-        test_app_saml_app_settings = okta.AppSamlAppSettings("testAppSamlAppSettings",
-            app_id=test_saml.id,
-            settings=json.dumps({
-                "appFilter": "okta",
-                "awsEnvironmentType": "aws.amazon",
-                "groupFilter": "aws_(?{{accountid}}\\\\\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\\\\\-_]+)",
-                "joinAllRoles": False,
-                "loginURL": "https://console.aws.amazon.com/ec2/home",
-                "roleValuePattern": "arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}",
-                "sessionDuration": 3200,
-                "useGroupMapping": False,
-            }))
-        ```
-
-        ## Import
-
-        A settings for the SAML App can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
-        ```
-
+        Create a AppSamlAppSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppSamlAppSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,8 +189,8 @@ class AppSamlAppSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: ID of the application.
-        :param pulumi.Input[str] settings: Application settings in JSON format.
+        :param pulumi.Input[str] app_id: Application ID
+        :param pulumi.Input[str] settings: Application settings in JSON format
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -274,7 +204,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[str]:
         """
-        ID of the application.
+        Application ID
         """
         return pulumi.get(self, "app_id")
 
@@ -282,7 +212,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
     @pulumi.getter
     def settings(self) -> pulumi.Output[str]:
         """
-        Application settings in JSON format.
+        Application settings in JSON format
         """
         return pulumi.get(self, "settings")
 

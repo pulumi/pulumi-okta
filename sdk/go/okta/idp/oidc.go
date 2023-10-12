@@ -13,128 +13,47 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Creates an OIDC Identity Provider.
-//
-// This resource allows you to create and configure an OIDC Identity Provider.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/idp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := idp.NewOidc(ctx, "example", &idp.OidcArgs{
-//				AuthorizationBinding: pulumi.String("HTTP-REDIRECT"),
-//				AuthorizationUrl:     pulumi.String("https://idp.example.com/authorize"),
-//				ClientId:             pulumi.String("efg456"),
-//				ClientSecret:         pulumi.String("efg456"),
-//				IssuerUrl:            pulumi.String("https://id.example.com"),
-//				JwksBinding:          pulumi.String("HTTP-REDIRECT"),
-//				JwksUrl:              pulumi.String("https://idp.example.com/keys"),
-//				Scopes: pulumi.StringArray{
-//					pulumi.String("openid"),
-//				},
-//				TokenBinding:     pulumi.String("HTTP-POST"),
-//				TokenUrl:         pulumi.String("https://idp.example.com/token"),
-//				UserInfoBinding:  pulumi.String("HTTP-REDIRECT"),
-//				UserInfoUrl:      pulumi.String("https://idp.example.com/userinfo"),
-//				UsernameTemplate: pulumi.String("idpuser.email"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// An OIDC IdP can be imported via the Okta ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:idp/oidc:Oidc example &#60;idp id&#62;
-//
-// ```
 type Oidc struct {
 	pulumi.CustomResourceState
 
-	// Specifies the account linking action for an IdP user.
-	AccountLinkAction pulumi.StringPtrOutput `pulumi:"accountLinkAction"`
-	// Group memberships to determine link candidates.
+	AccountLinkAction        pulumi.StringPtrOutput   `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes pulumi.StringArrayOutput `pulumi:"accountLinkGroupIncludes"`
-	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AuthorizationBinding pulumi.StringOutput `pulumi:"authorizationBinding"`
-	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
-	AuthorizationUrl pulumi.StringOutput `pulumi:"authorizationUrl"`
-	// Unique identifier issued by AS for the Okta IdP instance.
-	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// Client secret issued by AS for the Okta IdP instance.
-	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
-	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-	DeprovisionedAction pulumi.StringPtrOutput `pulumi:"deprovisionedAction"`
-	// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-	GroupsAction pulumi.StringPtrOutput `pulumi:"groupsAction"`
-	// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
-	GroupsAssignments pulumi.StringArrayOutput `pulumi:"groupsAssignments"`
-	// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-	GroupsAttribute pulumi.StringPtrOutput `pulumi:"groupsAttribute"`
-	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
-	GroupsFilters pulumi.StringArrayOutput `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
-	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
-	// URI that identifies the issuer.
-	IssuerUrl pulumi.StringOutput `pulumi:"issuerUrl"`
-	// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	JwksBinding pulumi.StringOutput `pulumi:"jwksBinding"`
-	// Endpoint where the keys signer publishes its keys in a JWK Set.
-	JwksUrl pulumi.StringOutput `pulumi:"jwksUrl"`
-	// Maximum allowable clock-skew when processing messages from the IdP.
-	MaxClockSkew pulumi.IntPtrOutput `pulumi:"maxClockSkew"`
-	// The Application's display name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Determines if the IdP should act as a source of truth for user profile attributes.
-	ProfileMaster pulumi.BoolPtrOutput `pulumi:"profileMaster"`
-	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
-	ProtocolType pulumi.StringPtrOutput `pulumi:"protocolType"`
-	// Provisioning action for an IdP user during authentication.
+	AuthorizationBinding     pulumi.StringOutput      `pulumi:"authorizationBinding"`
+	AuthorizationUrl         pulumi.StringOutput      `pulumi:"authorizationUrl"`
+	ClientId                 pulumi.StringOutput      `pulumi:"clientId"`
+	ClientSecret             pulumi.StringOutput      `pulumi:"clientSecret"`
+	DeprovisionedAction      pulumi.StringPtrOutput   `pulumi:"deprovisionedAction"`
+	GroupsAction             pulumi.StringPtrOutput   `pulumi:"groupsAction"`
+	GroupsAssignments        pulumi.StringArrayOutput `pulumi:"groupsAssignments"`
+	GroupsAttribute          pulumi.StringPtrOutput   `pulumi:"groupsAttribute"`
+	GroupsFilters            pulumi.StringArrayOutput `pulumi:"groupsFilters"`
+	// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
+	IssuerMode   pulumi.StringPtrOutput `pulumi:"issuerMode"`
+	IssuerUrl    pulumi.StringOutput    `pulumi:"issuerUrl"`
+	JwksBinding  pulumi.StringOutput    `pulumi:"jwksBinding"`
+	JwksUrl      pulumi.StringOutput    `pulumi:"jwksUrl"`
+	MaxClockSkew pulumi.IntPtrOutput    `pulumi:"maxClockSkew"`
+	// Name of the IdP
+	Name               pulumi.StringOutput    `pulumi:"name"`
+	ProfileMaster      pulumi.BoolPtrOutput   `pulumi:"profileMaster"`
+	ProtocolType       pulumi.StringPtrOutput `pulumi:"protocolType"`
 	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
-	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+	// The HMAC Signature Algorithm used when signing an authorization request
 	RequestSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
-	RequestSignatureScope pulumi.StringPtrOutput `pulumi:"requestSignatureScope"`
-	// The scopes of the IdP.
-	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
-	// Status of the IdP.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-	SubjectMatchAttribute pulumi.StringPtrOutput `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-	SubjectMatchType pulumi.StringPtrOutput `pulumi:"subjectMatchType"`
-	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-	SuspendedAction pulumi.StringPtrOutput `pulumi:"suspendedAction"`
-	// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	TokenBinding pulumi.StringOutput `pulumi:"tokenBinding"`
-	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-	TokenUrl pulumi.StringOutput `pulumi:"tokenUrl"`
+	// Specifies whether to digitally sign an authorization request to the IdP
+	RequestSignatureScope pulumi.StringPtrOutput   `pulumi:"requestSignatureScope"`
+	Scopes                pulumi.StringArrayOutput `pulumi:"scopes"`
+	Status                pulumi.StringPtrOutput   `pulumi:"status"`
+	SubjectMatchAttribute pulumi.StringPtrOutput   `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType      pulumi.StringPtrOutput   `pulumi:"subjectMatchType"`
+	SuspendedAction       pulumi.StringPtrOutput   `pulumi:"suspendedAction"`
+	TokenBinding          pulumi.StringOutput      `pulumi:"tokenBinding"`
+	TokenUrl              pulumi.StringOutput      `pulumi:"tokenUrl"`
 	// Type of OIDC IdP.
-	Type            pulumi.StringOutput    `pulumi:"type"`
-	UserInfoBinding pulumi.StringPtrOutput `pulumi:"userInfoBinding"`
-	// Protected resource endpoint that returns claims about the authenticated user.
-	UserInfoUrl pulumi.StringPtrOutput `pulumi:"userInfoUrl"`
-	// User type ID. Can be used as `targetId` in the `profile.Mapping` resource.
-	UserTypeId pulumi.StringOutput `pulumi:"userTypeId"`
-	// Okta EL Expression to generate or transform a unique username for the IdP user.
+	Type             pulumi.StringOutput    `pulumi:"type"`
+	UserInfoBinding  pulumi.StringPtrOutput `pulumi:"userInfoBinding"`
+	UserInfoUrl      pulumi.StringPtrOutput `pulumi:"userInfoUrl"`
+	UserTypeId       pulumi.StringOutput    `pulumi:"userTypeId"`
 	UsernameTemplate pulumi.StringPtrOutput `pulumi:"usernameTemplate"`
 }
 
@@ -205,142 +124,86 @@ func GetOidc(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Oidc resources.
 type oidcState struct {
-	// Specifies the account linking action for an IdP user.
-	AccountLinkAction *string `pulumi:"accountLinkAction"`
-	// Group memberships to determine link candidates.
+	AccountLinkAction        *string  `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AuthorizationBinding *string `pulumi:"authorizationBinding"`
-	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
-	AuthorizationUrl *string `pulumi:"authorizationUrl"`
-	// Unique identifier issued by AS for the Okta IdP instance.
-	ClientId *string `pulumi:"clientId"`
-	// Client secret issued by AS for the Okta IdP instance.
-	ClientSecret *string `pulumi:"clientSecret"`
-	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-	DeprovisionedAction *string `pulumi:"deprovisionedAction"`
-	// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-	GroupsAction *string `pulumi:"groupsAction"`
-	// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
-	GroupsAssignments []string `pulumi:"groupsAssignments"`
-	// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-	GroupsAttribute *string `pulumi:"groupsAttribute"`
-	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
-	GroupsFilters []string `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
-	IssuerMode *string `pulumi:"issuerMode"`
-	// URI that identifies the issuer.
-	IssuerUrl *string `pulumi:"issuerUrl"`
-	// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	JwksBinding *string `pulumi:"jwksBinding"`
-	// Endpoint where the keys signer publishes its keys in a JWK Set.
-	JwksUrl *string `pulumi:"jwksUrl"`
-	// Maximum allowable clock-skew when processing messages from the IdP.
-	MaxClockSkew *int `pulumi:"maxClockSkew"`
-	// The Application's display name.
-	Name *string `pulumi:"name"`
-	// Determines if the IdP should act as a source of truth for user profile attributes.
-	ProfileMaster *bool `pulumi:"profileMaster"`
-	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
-	ProtocolType *string `pulumi:"protocolType"`
-	// Provisioning action for an IdP user during authentication.
+	AuthorizationBinding     *string  `pulumi:"authorizationBinding"`
+	AuthorizationUrl         *string  `pulumi:"authorizationUrl"`
+	ClientId                 *string  `pulumi:"clientId"`
+	ClientSecret             *string  `pulumi:"clientSecret"`
+	DeprovisionedAction      *string  `pulumi:"deprovisionedAction"`
+	GroupsAction             *string  `pulumi:"groupsAction"`
+	GroupsAssignments        []string `pulumi:"groupsAssignments"`
+	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
+	GroupsFilters            []string `pulumi:"groupsFilters"`
+	// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
+	IssuerMode   *string `pulumi:"issuerMode"`
+	IssuerUrl    *string `pulumi:"issuerUrl"`
+	JwksBinding  *string `pulumi:"jwksBinding"`
+	JwksUrl      *string `pulumi:"jwksUrl"`
+	MaxClockSkew *int    `pulumi:"maxClockSkew"`
+	// Name of the IdP
+	Name               *string `pulumi:"name"`
+	ProfileMaster      *bool   `pulumi:"profileMaster"`
+	ProtocolType       *string `pulumi:"protocolType"`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+	// The HMAC Signature Algorithm used when signing an authorization request
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
-	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// The scopes of the IdP.
-	Scopes []string `pulumi:"scopes"`
-	// Status of the IdP.
-	Status *string `pulumi:"status"`
-	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-	SubjectMatchAttribute *string `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-	SubjectMatchType *string `pulumi:"subjectMatchType"`
-	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-	SuspendedAction *string `pulumi:"suspendedAction"`
-	// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	TokenBinding *string `pulumi:"tokenBinding"`
-	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-	TokenUrl *string `pulumi:"tokenUrl"`
+	// Specifies whether to digitally sign an authorization request to the IdP
+	RequestSignatureScope *string  `pulumi:"requestSignatureScope"`
+	Scopes                []string `pulumi:"scopes"`
+	Status                *string  `pulumi:"status"`
+	SubjectMatchAttribute *string  `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType      *string  `pulumi:"subjectMatchType"`
+	SuspendedAction       *string  `pulumi:"suspendedAction"`
+	TokenBinding          *string  `pulumi:"tokenBinding"`
+	TokenUrl              *string  `pulumi:"tokenUrl"`
 	// Type of OIDC IdP.
-	Type            *string `pulumi:"type"`
-	UserInfoBinding *string `pulumi:"userInfoBinding"`
-	// Protected resource endpoint that returns claims about the authenticated user.
-	UserInfoUrl *string `pulumi:"userInfoUrl"`
-	// User type ID. Can be used as `targetId` in the `profile.Mapping` resource.
-	UserTypeId *string `pulumi:"userTypeId"`
-	// Okta EL Expression to generate or transform a unique username for the IdP user.
+	Type             *string `pulumi:"type"`
+	UserInfoBinding  *string `pulumi:"userInfoBinding"`
+	UserInfoUrl      *string `pulumi:"userInfoUrl"`
+	UserTypeId       *string `pulumi:"userTypeId"`
 	UsernameTemplate *string `pulumi:"usernameTemplate"`
 }
 
 type OidcState struct {
-	// Specifies the account linking action for an IdP user.
-	AccountLinkAction pulumi.StringPtrInput
-	// Group memberships to determine link candidates.
+	AccountLinkAction        pulumi.StringPtrInput
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AuthorizationBinding pulumi.StringPtrInput
-	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
-	AuthorizationUrl pulumi.StringPtrInput
-	// Unique identifier issued by AS for the Okta IdP instance.
-	ClientId pulumi.StringPtrInput
-	// Client secret issued by AS for the Okta IdP instance.
-	ClientSecret pulumi.StringPtrInput
-	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-	DeprovisionedAction pulumi.StringPtrInput
-	// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-	GroupsAction pulumi.StringPtrInput
-	// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
-	GroupsAssignments pulumi.StringArrayInput
-	// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-	GroupsAttribute pulumi.StringPtrInput
-	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
-	GroupsFilters pulumi.StringArrayInput
-	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
-	IssuerMode pulumi.StringPtrInput
-	// URI that identifies the issuer.
-	IssuerUrl pulumi.StringPtrInput
-	// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	JwksBinding pulumi.StringPtrInput
-	// Endpoint where the keys signer publishes its keys in a JWK Set.
-	JwksUrl pulumi.StringPtrInput
-	// Maximum allowable clock-skew when processing messages from the IdP.
+	AuthorizationBinding     pulumi.StringPtrInput
+	AuthorizationUrl         pulumi.StringPtrInput
+	ClientId                 pulumi.StringPtrInput
+	ClientSecret             pulumi.StringPtrInput
+	DeprovisionedAction      pulumi.StringPtrInput
+	GroupsAction             pulumi.StringPtrInput
+	GroupsAssignments        pulumi.StringArrayInput
+	GroupsAttribute          pulumi.StringPtrInput
+	GroupsFilters            pulumi.StringArrayInput
+	// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
+	IssuerMode   pulumi.StringPtrInput
+	IssuerUrl    pulumi.StringPtrInput
+	JwksBinding  pulumi.StringPtrInput
+	JwksUrl      pulumi.StringPtrInput
 	MaxClockSkew pulumi.IntPtrInput
-	// The Application's display name.
-	Name pulumi.StringPtrInput
-	// Determines if the IdP should act as a source of truth for user profile attributes.
-	ProfileMaster pulumi.BoolPtrInput
-	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
-	ProtocolType pulumi.StringPtrInput
-	// Provisioning action for an IdP user during authentication.
+	// Name of the IdP
+	Name               pulumi.StringPtrInput
+	ProfileMaster      pulumi.BoolPtrInput
+	ProtocolType       pulumi.StringPtrInput
 	ProvisioningAction pulumi.StringPtrInput
-	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+	// The HMAC Signature Algorithm used when signing an authorization request
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an authorization request to the IdP
 	RequestSignatureScope pulumi.StringPtrInput
-	// The scopes of the IdP.
-	Scopes pulumi.StringArrayInput
-	// Status of the IdP.
-	Status pulumi.StringPtrInput
-	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+	Scopes                pulumi.StringArrayInput
+	Status                pulumi.StringPtrInput
 	SubjectMatchAttribute pulumi.StringPtrInput
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-	SubjectMatchType pulumi.StringPtrInput
-	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-	SuspendedAction pulumi.StringPtrInput
-	// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	TokenBinding pulumi.StringPtrInput
-	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-	TokenUrl pulumi.StringPtrInput
+	SubjectMatchType      pulumi.StringPtrInput
+	SuspendedAction       pulumi.StringPtrInput
+	TokenBinding          pulumi.StringPtrInput
+	TokenUrl              pulumi.StringPtrInput
 	// Type of OIDC IdP.
-	Type            pulumi.StringPtrInput
-	UserInfoBinding pulumi.StringPtrInput
-	// Protected resource endpoint that returns claims about the authenticated user.
-	UserInfoUrl pulumi.StringPtrInput
-	// User type ID. Can be used as `targetId` in the `profile.Mapping` resource.
-	UserTypeId pulumi.StringPtrInput
-	// Okta EL Expression to generate or transform a unique username for the IdP user.
+	Type             pulumi.StringPtrInput
+	UserInfoBinding  pulumi.StringPtrInput
+	UserInfoUrl      pulumi.StringPtrInput
+	UserTypeId       pulumi.StringPtrInput
 	UsernameTemplate pulumi.StringPtrInput
 }
 
@@ -349,136 +212,82 @@ func (OidcState) ElementType() reflect.Type {
 }
 
 type oidcArgs struct {
-	// Specifies the account linking action for an IdP user.
-	AccountLinkAction *string `pulumi:"accountLinkAction"`
-	// Group memberships to determine link candidates.
+	AccountLinkAction        *string  `pulumi:"accountLinkAction"`
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AuthorizationBinding string `pulumi:"authorizationBinding"`
-	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
-	AuthorizationUrl string `pulumi:"authorizationUrl"`
-	// Unique identifier issued by AS for the Okta IdP instance.
-	ClientId string `pulumi:"clientId"`
-	// Client secret issued by AS for the Okta IdP instance.
-	ClientSecret string `pulumi:"clientSecret"`
-	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-	DeprovisionedAction *string `pulumi:"deprovisionedAction"`
-	// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-	GroupsAction *string `pulumi:"groupsAction"`
-	// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
-	GroupsAssignments []string `pulumi:"groupsAssignments"`
-	// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-	GroupsAttribute *string `pulumi:"groupsAttribute"`
-	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
-	GroupsFilters []string `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
-	IssuerMode *string `pulumi:"issuerMode"`
-	// URI that identifies the issuer.
-	IssuerUrl string `pulumi:"issuerUrl"`
-	// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	JwksBinding string `pulumi:"jwksBinding"`
-	// Endpoint where the keys signer publishes its keys in a JWK Set.
-	JwksUrl string `pulumi:"jwksUrl"`
-	// Maximum allowable clock-skew when processing messages from the IdP.
-	MaxClockSkew *int `pulumi:"maxClockSkew"`
-	// The Application's display name.
-	Name *string `pulumi:"name"`
-	// Determines if the IdP should act as a source of truth for user profile attributes.
-	ProfileMaster *bool `pulumi:"profileMaster"`
-	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
-	ProtocolType *string `pulumi:"protocolType"`
-	// Provisioning action for an IdP user during authentication.
+	AuthorizationBinding     string   `pulumi:"authorizationBinding"`
+	AuthorizationUrl         string   `pulumi:"authorizationUrl"`
+	ClientId                 string   `pulumi:"clientId"`
+	ClientSecret             string   `pulumi:"clientSecret"`
+	DeprovisionedAction      *string  `pulumi:"deprovisionedAction"`
+	GroupsAction             *string  `pulumi:"groupsAction"`
+	GroupsAssignments        []string `pulumi:"groupsAssignments"`
+	GroupsAttribute          *string  `pulumi:"groupsAttribute"`
+	GroupsFilters            []string `pulumi:"groupsFilters"`
+	// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
+	IssuerMode   *string `pulumi:"issuerMode"`
+	IssuerUrl    string  `pulumi:"issuerUrl"`
+	JwksBinding  string  `pulumi:"jwksBinding"`
+	JwksUrl      string  `pulumi:"jwksUrl"`
+	MaxClockSkew *int    `pulumi:"maxClockSkew"`
+	// Name of the IdP
+	Name               *string `pulumi:"name"`
+	ProfileMaster      *bool   `pulumi:"profileMaster"`
+	ProtocolType       *string `pulumi:"protocolType"`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+	// The HMAC Signature Algorithm used when signing an authorization request
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
-	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
-	// The scopes of the IdP.
-	Scopes []string `pulumi:"scopes"`
-	// Status of the IdP.
-	Status *string `pulumi:"status"`
-	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-	SubjectMatchAttribute *string `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-	SubjectMatchType *string `pulumi:"subjectMatchType"`
-	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-	SuspendedAction *string `pulumi:"suspendedAction"`
-	// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	TokenBinding string `pulumi:"tokenBinding"`
-	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-	TokenUrl        string  `pulumi:"tokenUrl"`
-	UserInfoBinding *string `pulumi:"userInfoBinding"`
-	// Protected resource endpoint that returns claims about the authenticated user.
-	UserInfoUrl *string `pulumi:"userInfoUrl"`
-	// Okta EL Expression to generate or transform a unique username for the IdP user.
-	UsernameTemplate *string `pulumi:"usernameTemplate"`
+	// Specifies whether to digitally sign an authorization request to the IdP
+	RequestSignatureScope *string  `pulumi:"requestSignatureScope"`
+	Scopes                []string `pulumi:"scopes"`
+	Status                *string  `pulumi:"status"`
+	SubjectMatchAttribute *string  `pulumi:"subjectMatchAttribute"`
+	SubjectMatchType      *string  `pulumi:"subjectMatchType"`
+	SuspendedAction       *string  `pulumi:"suspendedAction"`
+	TokenBinding          string   `pulumi:"tokenBinding"`
+	TokenUrl              string   `pulumi:"tokenUrl"`
+	UserInfoBinding       *string  `pulumi:"userInfoBinding"`
+	UserInfoUrl           *string  `pulumi:"userInfoUrl"`
+	UsernameTemplate      *string  `pulumi:"usernameTemplate"`
 }
 
 // The set of arguments for constructing a Oidc resource.
 type OidcArgs struct {
-	// Specifies the account linking action for an IdP user.
-	AccountLinkAction pulumi.StringPtrInput
-	// Group memberships to determine link candidates.
+	AccountLinkAction        pulumi.StringPtrInput
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	AuthorizationBinding pulumi.StringInput
-	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
-	AuthorizationUrl pulumi.StringInput
-	// Unique identifier issued by AS for the Okta IdP instance.
-	ClientId pulumi.StringInput
-	// Client secret issued by AS for the Okta IdP instance.
-	ClientSecret pulumi.StringInput
-	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-	DeprovisionedAction pulumi.StringPtrInput
-	// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-	GroupsAction pulumi.StringPtrInput
-	// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
-	GroupsAssignments pulumi.StringArrayInput
-	// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-	GroupsAttribute pulumi.StringPtrInput
-	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
-	GroupsFilters pulumi.StringArrayInput
-	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
-	IssuerMode pulumi.StringPtrInput
-	// URI that identifies the issuer.
-	IssuerUrl pulumi.StringInput
-	// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	JwksBinding pulumi.StringInput
-	// Endpoint where the keys signer publishes its keys in a JWK Set.
-	JwksUrl pulumi.StringInput
-	// Maximum allowable clock-skew when processing messages from the IdP.
+	AuthorizationBinding     pulumi.StringInput
+	AuthorizationUrl         pulumi.StringInput
+	ClientId                 pulumi.StringInput
+	ClientSecret             pulumi.StringInput
+	DeprovisionedAction      pulumi.StringPtrInput
+	GroupsAction             pulumi.StringPtrInput
+	GroupsAssignments        pulumi.StringArrayInput
+	GroupsAttribute          pulumi.StringPtrInput
+	GroupsFilters            pulumi.StringArrayInput
+	// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
+	IssuerMode   pulumi.StringPtrInput
+	IssuerUrl    pulumi.StringInput
+	JwksBinding  pulumi.StringInput
+	JwksUrl      pulumi.StringInput
 	MaxClockSkew pulumi.IntPtrInput
-	// The Application's display name.
-	Name pulumi.StringPtrInput
-	// Determines if the IdP should act as a source of truth for user profile attributes.
-	ProfileMaster pulumi.BoolPtrInput
-	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
-	ProtocolType pulumi.StringPtrInput
-	// Provisioning action for an IdP user during authentication.
+	// Name of the IdP
+	Name               pulumi.StringPtrInput
+	ProfileMaster      pulumi.BoolPtrInput
+	ProtocolType       pulumi.StringPtrInput
 	ProvisioningAction pulumi.StringPtrInput
-	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+	// The HMAC Signature Algorithm used when signing an authorization request
 	RequestSignatureAlgorithm pulumi.StringPtrInput
-	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
+	// Specifies whether to digitally sign an authorization request to the IdP
 	RequestSignatureScope pulumi.StringPtrInput
-	// The scopes of the IdP.
-	Scopes pulumi.StringArrayInput
-	// Status of the IdP.
-	Status pulumi.StringPtrInput
-	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+	Scopes                pulumi.StringArrayInput
+	Status                pulumi.StringPtrInput
 	SubjectMatchAttribute pulumi.StringPtrInput
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-	SubjectMatchType pulumi.StringPtrInput
-	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-	SuspendedAction pulumi.StringPtrInput
-	// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
-	TokenBinding pulumi.StringInput
-	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-	TokenUrl        pulumi.StringInput
-	UserInfoBinding pulumi.StringPtrInput
-	// Protected resource endpoint that returns claims about the authenticated user.
-	UserInfoUrl pulumi.StringPtrInput
-	// Okta EL Expression to generate or transform a unique username for the IdP user.
-	UsernameTemplate pulumi.StringPtrInput
+	SubjectMatchType      pulumi.StringPtrInput
+	SuspendedAction       pulumi.StringPtrInput
+	TokenBinding          pulumi.StringInput
+	TokenUrl              pulumi.StringInput
+	UserInfoBinding       pulumi.StringPtrInput
+	UserInfoUrl           pulumi.StringPtrInput
+	UsernameTemplate      pulumi.StringPtrInput
 }
 
 func (OidcArgs) ElementType() reflect.Type {
@@ -592,147 +401,122 @@ func (o OidcOutput) ToOutput(ctx context.Context) pulumix.Output[*Oidc] {
 	}
 }
 
-// Specifies the account linking action for an IdP user.
 func (o OidcOutput) AccountLinkAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.AccountLinkAction }).(pulumi.StringPtrOutput)
 }
 
-// Group memberships to determine link candidates.
 func (o OidcOutput) AccountLinkGroupIncludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringArrayOutput { return v.AccountLinkGroupIncludes }).(pulumi.StringArrayOutput)
 }
 
-// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 func (o OidcOutput) AuthorizationBinding() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.AuthorizationBinding }).(pulumi.StringOutput)
 }
 
-// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
 func (o OidcOutput) AuthorizationUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.AuthorizationUrl }).(pulumi.StringOutput)
 }
 
-// Unique identifier issued by AS for the Okta IdP instance.
 func (o OidcOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Client secret issued by AS for the Okta IdP instance.
 func (o OidcOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
 func (o OidcOutput) DeprovisionedAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.DeprovisionedAction }).(pulumi.StringPtrOutput)
 }
 
-// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
 func (o OidcOutput) GroupsAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.GroupsAction }).(pulumi.StringPtrOutput)
 }
 
-// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
 func (o OidcOutput) GroupsAssignments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringArrayOutput { return v.GroupsAssignments }).(pulumi.StringArrayOutput)
 }
 
-// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
 func (o OidcOutput) GroupsAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.GroupsAttribute }).(pulumi.StringPtrOutput)
 }
 
-// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
 func (o OidcOutput) GroupsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringArrayOutput { return v.GroupsFilters }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
+// Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
 func (o OidcOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }
 
-// URI that identifies the issuer.
 func (o OidcOutput) IssuerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.IssuerUrl }).(pulumi.StringOutput)
 }
 
-// The method of making a request for the OIDC JWKS. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 func (o OidcOutput) JwksBinding() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.JwksBinding }).(pulumi.StringOutput)
 }
 
-// Endpoint where the keys signer publishes its keys in a JWK Set.
 func (o OidcOutput) JwksUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.JwksUrl }).(pulumi.StringOutput)
 }
 
-// Maximum allowable clock-skew when processing messages from the IdP.
 func (o OidcOutput) MaxClockSkew() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.IntPtrOutput { return v.MaxClockSkew }).(pulumi.IntPtrOutput)
 }
 
-// The Application's display name.
+// Name of the IdP
 func (o OidcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Determines if the IdP should act as a source of truth for user profile attributes.
 func (o OidcOutput) ProfileMaster() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.BoolPtrOutput { return v.ProfileMaster }).(pulumi.BoolPtrOutput)
 }
 
-// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
 func (o OidcOutput) ProtocolType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.ProtocolType }).(pulumi.StringPtrOutput)
 }
 
-// Provisioning action for an IdP user during authentication.
 func (o OidcOutput) ProvisioningAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
 }
 
-// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `"HS256"`. It can be `"HS256"`, `"HS384"`, `"HS512"`, `"SHA-256"`. `"RS256"`, `"RS384"`, or `"RS512"`. NOTE: `"SHA-256"` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+// The HMAC Signature Algorithm used when signing an authorization request
 func (o OidcOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `"REQUEST"`. It can be `"REQUEST"` or `"NONE"`.
+// Specifies whether to digitally sign an authorization request to the IdP
 func (o OidcOutput) RequestSignatureScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.RequestSignatureScope }).(pulumi.StringPtrOutput)
 }
 
-// The scopes of the IdP.
 func (o OidcOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
-// Status of the IdP.
 func (o OidcOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
 func (o OidcOutput) SubjectMatchAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.SubjectMatchAttribute }).(pulumi.StringPtrOutput)
 }
 
-// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
 func (o OidcOutput) SubjectMatchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.SubjectMatchType }).(pulumi.StringPtrOutput)
 }
 
-// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
 func (o OidcOutput) SuspendedAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.SuspendedAction }).(pulumi.StringPtrOutput)
 }
 
-// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
 func (o OidcOutput) TokenBinding() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.TokenBinding }).(pulumi.StringOutput)
 }
 
-// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 func (o OidcOutput) TokenUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.TokenUrl }).(pulumi.StringOutput)
 }
@@ -746,17 +530,14 @@ func (o OidcOutput) UserInfoBinding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.UserInfoBinding }).(pulumi.StringPtrOutput)
 }
 
-// Protected resource endpoint that returns claims about the authenticated user.
 func (o OidcOutput) UserInfoUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.UserInfoUrl }).(pulumi.StringPtrOutput)
 }
 
-// User type ID. Can be used as `targetId` in the `profile.Mapping` resource.
 func (o OidcOutput) UserTypeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.UserTypeId }).(pulumi.StringOutput)
 }
 
-// Okta EL Expression to generate or transform a unique username for the IdP user.
 func (o OidcOutput) UsernameTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.UsernameTemplate }).(pulumi.StringPtrOutput)
 }

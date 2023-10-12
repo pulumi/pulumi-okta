@@ -13,25 +13,10 @@ namespace Pulumi.Okta.Outputs
     [OutputType]
     public sealed class GetTrustedOriginsTrustedOriginResult
     {
-        /// <summary>
-        /// Whether the Trusted Origin is active or not - can only be issued post-creation
-        /// </summary>
         public readonly bool Active;
-        /// <summary>
-        /// The ID of the Trusted Origin.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Unique name for this trusted origin.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Unique origin URL for this trusted origin.
-        /// </summary>
         public readonly string Origin;
-        /// <summary>
-        /// Scopes of the Trusted Origin
-        /// </summary>
         public readonly ImmutableArray<string> Scopes;
 
         [OutputConstructor]

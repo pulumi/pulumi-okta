@@ -15,51 +15,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * This resource allows you manage org settings, logo, support and communication options.
- * 
- * &gt; **IMPORTANT:** You must specify all Org Setting properties when you update an org&#39;s profile. Any property not specified in the script will be deleted.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.OrgConfiguration;
- * import com.pulumi.okta.OrgConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new OrgConfiguration(&#34;example&#34;, OrgConfigurationArgs.builder()        
- *             .companyName(&#34;Umbrella Corporation&#34;)
- *             .website(&#34;https://terraform.io&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Okta Org Configuration can be imported even without specifying the Org ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
- * ```
- * 
- */
 @ResourceType(type="okta:index/orgConfiguration:OrgConfiguration")
 public class OrgConfiguration extends com.pulumi.resources.CustomResource {
     /**

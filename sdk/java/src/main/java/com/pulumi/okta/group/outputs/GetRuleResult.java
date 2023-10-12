@@ -37,10 +37,6 @@ public final class GetRuleResult {
      * 
      */
     private @Nullable String name;
-    /**
-     * @return The status of the group rule.
-     * 
-     */
     private @Nullable String status;
     /**
      * @return The list of user IDs that would be excluded when rules are processed.
@@ -84,10 +80,6 @@ public final class GetRuleResult {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return The status of the group rule.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

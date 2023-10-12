@@ -4,44 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * This resource allows you to manage app settings of the SAML Application . It's basically the same as
- * `appSettingsJson` field in `okta.app.Saml` resource and can be used in cases where settings require to be managed separately.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const testSaml = new okta.app.Saml("testSaml", {
- *     preconfiguredApp: "amazon_aws",
- *     label: "Amazon AWS",
- *     status: "ACTIVE",
- * });
- * const testAppSamlAppSettings = new okta.AppSamlAppSettings("testAppSamlAppSettings", {
- *     appId: testSaml.id,
- *     settings: JSON.stringify({
- *         appFilter: "okta",
- *         awsEnvironmentType: "aws.amazon",
- *         groupFilter: "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)",
- *         joinAllRoles: false,
- *         loginURL: "https://console.aws.amazon.com/ec2/home",
- *         roleValuePattern: "arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}",
- *         sessionDuration: 3200,
- *         useGroupMapping: false,
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * A settings for the SAML App can be imported via the Okta ID.
- *
- * ```sh
- *  $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
- * ```
- */
 export class AppSamlAppSettings extends pulumi.CustomResource {
     /**
      * Get an existing AppSamlAppSettings resource's state with the given name, ID, and optional extra
@@ -71,11 +33,11 @@ export class AppSamlAppSettings extends pulumi.CustomResource {
     }
 
     /**
-     * ID of the application.
+     * Application ID
      */
     public readonly appId!: pulumi.Output<string>;
     /**
-     * Application settings in JSON format.
+     * Application settings in JSON format
      */
     public readonly settings!: pulumi.Output<string>;
 
@@ -115,11 +77,11 @@ export class AppSamlAppSettings extends pulumi.CustomResource {
  */
 export interface AppSamlAppSettingsState {
     /**
-     * ID of the application.
+     * Application ID
      */
     appId?: pulumi.Input<string>;
     /**
-     * Application settings in JSON format.
+     * Application settings in JSON format
      */
     settings?: pulumi.Input<string>;
 }
@@ -129,11 +91,11 @@ export interface AppSamlAppSettingsState {
  */
 export interface AppSamlAppSettingsArgs {
     /**
-     * ID of the application.
+     * Application ID
      */
     appId: pulumi.Input<string>;
     /**
-     * Application settings in JSON format.
+     * Application settings in JSON format
      */
     settings: pulumi.Input<string>;
 }

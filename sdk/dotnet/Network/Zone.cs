@@ -9,120 +9,59 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Network
 {
-    /// <summary>
-    /// Creates an Okta Network Zone.
-    /// 
-    /// This resource allows you to create and configure an Okta Network Zone.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Network.Zone("example", new()
-    ///     {
-    ///         Gateways = new[]
-    ///         {
-    ///             "1.2.3.4/24",
-    ///             "2.3.4.5-2.3.4.15",
-    ///         },
-    ///         Proxies = new[]
-    ///         {
-    ///             "2.2.3.4/24",
-    ///             "3.3.4.5-3.3.4.15",
-    ///         },
-    ///         Type = "IP",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Dynamic Tor Blocker
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Network.Zone("example", new()
-    ///     {
-    ///         DynamicProxyType = "TorAnonymizer",
-    ///         Type = "DYNAMIC",
-    ///         Usage = "BLOCKLIST",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Okta Network Zone can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:network/zone:Zone example &amp;#60;zone id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:network/zone:Zone")]
     public partial class Zone : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        /// Format of each array value: a string representation of an ASN numeric value
         /// </summary>
         [Output("asns")]
         public Output<ImmutableArray<string>> Asns { get; private set; } = null!;
 
         /// <summary>
-        /// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-        /// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        /// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
         /// </summary>
         [Output("dynamicLocations")]
         public Output<ImmutableArray<string>> DynamicLocations { get; private set; } = null!;
 
         /// <summary>
-        /// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        /// Type of proxy being controlled by this network zone
         /// </summary>
         [Output("dynamicProxyType")]
         public Output<string?> DynamicProxyType { get; private set; } = null!;
 
         /// <summary>
-        /// Array of values in CIDR/range form.
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
         /// </summary>
         [Output("gateways")]
         public Output<ImmutableArray<string>> Gateways { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Network Zone Resource.
+        /// Name of the Network Zone Resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
         /// </summary>
         [Output("proxies")]
         public Output<ImmutableArray<string>> Proxies { get; private set; } = null!;
 
         /// <summary>
-        /// Network Status - can either be ACTIVE or INACTIVE only.
+        /// Network Status - can either be ACTIVE or INACTIVE only
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+        /// Type of the Network Zone - can either be IP or DYNAMIC only
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        /// Zone's purpose: POLICY or BLOCKLIST
         /// </summary>
         [Output("usage")]
         public Output<string?> Usage { get; private set; } = null!;
@@ -177,7 +116,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _asns;
 
         /// <summary>
-        /// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        /// Format of each array value: a string representation of an ASN numeric value
         /// </summary>
         public InputList<string> Asns
         {
@@ -189,8 +128,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _dynamicLocations;
 
         /// <summary>
-        /// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-        /// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        /// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
         /// </summary>
         public InputList<string> DynamicLocations
         {
@@ -199,7 +137,7 @@ namespace Pulumi.Okta.Network
         }
 
         /// <summary>
-        /// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        /// Type of proxy being controlled by this network zone
         /// </summary>
         [Input("dynamicProxyType")]
         public Input<string>? DynamicProxyType { get; set; }
@@ -208,7 +146,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _gateways;
 
         /// <summary>
-        /// Array of values in CIDR/range form.
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
         /// </summary>
         public InputList<string> Gateways
         {
@@ -217,7 +155,7 @@ namespace Pulumi.Okta.Network
         }
 
         /// <summary>
-        /// Name of the Network Zone Resource.
+        /// Name of the Network Zone Resource
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -226,7 +164,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _proxies;
 
         /// <summary>
-        /// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
         /// </summary>
         public InputList<string> Proxies
         {
@@ -235,19 +173,19 @@ namespace Pulumi.Okta.Network
         }
 
         /// <summary>
-        /// Network Status - can either be ACTIVE or INACTIVE only.
+        /// Network Status - can either be ACTIVE or INACTIVE only
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+        /// Type of the Network Zone - can either be IP or DYNAMIC only
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        /// Zone's purpose: POLICY or BLOCKLIST
         /// </summary>
         [Input("usage")]
         public Input<string>? Usage { get; set; }
@@ -264,7 +202,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _asns;
 
         /// <summary>
-        /// Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        /// Format of each array value: a string representation of an ASN numeric value
         /// </summary>
         public InputList<string> Asns
         {
@@ -276,8 +214,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _dynamicLocations;
 
         /// <summary>
-        /// Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-        /// and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        /// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
         /// </summary>
         public InputList<string> DynamicLocations
         {
@@ -286,7 +223,7 @@ namespace Pulumi.Okta.Network
         }
 
         /// <summary>
-        /// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        /// Type of proxy being controlled by this network zone
         /// </summary>
         [Input("dynamicProxyType")]
         public Input<string>? DynamicProxyType { get; set; }
@@ -295,7 +232,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _gateways;
 
         /// <summary>
-        /// Array of values in CIDR/range form.
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
         /// </summary>
         public InputList<string> Gateways
         {
@@ -304,7 +241,7 @@ namespace Pulumi.Okta.Network
         }
 
         /// <summary>
-        /// Name of the Network Zone Resource.
+        /// Name of the Network Zone Resource
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -313,7 +250,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _proxies;
 
         /// <summary>
-        /// Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
         /// </summary>
         public InputList<string> Proxies
         {
@@ -322,19 +259,19 @@ namespace Pulumi.Okta.Network
         }
 
         /// <summary>
-        /// Network Status - can either be ACTIVE or INACTIVE only.
+        /// Network Status - can either be ACTIVE or INACTIVE only
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+        /// Type of the Network Zone - can either be IP or DYNAMIC only
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        /// Zone's purpose: POLICY or BLOCKLIST
         /// </summary>
         [Input("usage")]
         public Input<string>? Usage { get; set; }

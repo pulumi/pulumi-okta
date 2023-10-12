@@ -16,104 +16,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a Trusted Origin.
- * 
- * This resource allows you to create and configure a Trusted Origin.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.trustedorigin.Origin;
- * import com.pulumi.okta.trustedorigin.OriginArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Origin(&#34;example&#34;, OriginArgs.builder()        
- *             .origin(&#34;https://example.com&#34;)
- *             .scopes(&#34;CORS&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * A Trusted Origin can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:trustedorigin/origin:Origin example &amp;#60;trusted origin id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:trustedorigin/origin:Origin")
 public class Origin extends com.pulumi.resources.CustomResource {
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is &#39;true&#39;.
+     * Whether the Trusted Origin is active or not - can only be issued post-creation
      * 
      */
     @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
-     * @return Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is &#39;true&#39;.
+     * @return Whether the Trusted Origin is active or not - can only be issued post-creation
      * 
      */
     public Output<Optional<Boolean>> active() {
         return Codegen.optional(this.active);
     }
     /**
-     * Unique name for this trusted origin.
+     * Unique name for this trusted origin
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Unique name for this trusted origin.
+     * @return Unique name for this trusted origin
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Unique origin URL for this trusted origin.
+     * Unique origin URL for this trusted origin
      * 
      */
     @Export(name="origin", refs={String.class}, tree="[0]")
     private Output<String> origin;
 
     /**
-     * @return Unique origin URL for this trusted origin.
+     * @return Unique origin URL for this trusted origin
      * 
      */
     public Output<String> origin() {
         return this.origin;
     }
     /**
-     * Scopes of the Trusted Origin - can be `&#34;CORS&#34;` and/or `&#34;REDIRECT&#34;`.
+     * Scopes of the Trusted Origin - can either be CORS or REDIRECT only
      * 
      */
     @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
-     * @return Scopes of the Trusted Origin - can be `&#34;CORS&#34;` and/or `&#34;REDIRECT&#34;`.
+     * @return Scopes of the Trusted Origin - can either be CORS or REDIRECT only
      * 
      */
     public Output<List<String>> scopes() {

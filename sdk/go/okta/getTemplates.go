@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Use this data source to retrieve the [email
-// templates](https://developer.okta.com/docs/reference/api/brands/#email-template)
-// of a brand in an Okta organization.
+// Get the email templates belonging to a brand in an Okta organization.
 func GetTemplates(ctx *pulumi.Context, args *GetTemplatesArgs, opts ...pulumi.InvokeOption) (*GetTemplatesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTemplatesResult
@@ -33,8 +31,9 @@ type GetTemplatesArgs struct {
 
 // A collection of values returned by getTemplates.
 type GetTemplatesResult struct {
+	// Brand ID
 	BrandId string `pulumi:"brandId"`
-	// List of `getTemplate` belonging to the brand
+	// List of `getTemplate` belonging to a brand in the organization
 	EmailTemplates []GetTemplatesEmailTemplate `pulumi:"emailTemplates"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -84,11 +83,12 @@ func (o GetTemplatesResultOutput) ToOutput(ctx context.Context) pulumix.Output[G
 	}
 }
 
+// Brand ID
 func (o GetTemplatesResultOutput) BrandId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTemplatesResult) string { return v.BrandId }).(pulumi.StringOutput)
 }
 
-// List of `getTemplate` belonging to the brand
+// List of `getTemplate` belonging to a brand in the organization
 func (o GetTemplatesResultOutput) EmailTemplates() GetTemplatesEmailTemplateArrayOutput {
 	return o.ApplyT(func(v GetTemplatesResult) []GetTemplatesEmailTemplate { return v.EmailTemplates }).(GetTemplatesEmailTemplateArrayOutput)
 }

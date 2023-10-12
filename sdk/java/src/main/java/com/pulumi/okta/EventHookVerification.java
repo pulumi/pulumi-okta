@@ -13,75 +13,17 @@ import com.pulumi.okta.inputs.EventHookVerificationState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Verifies the Event Hook. The resource won&#39;t be created unless the URI provided in the event hook returns a valid
- * JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request)
- * documentation for details.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.EventHook;
- * import com.pulumi.okta.EventHookArgs;
- * import com.pulumi.okta.EventHookVerification;
- * import com.pulumi.okta.EventHookVerificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleEventHook = new EventHook(&#34;exampleEventHook&#34;, EventHookArgs.builder()        
- *             .events(            
- *                 &#34;user.lifecycle.create&#34;,
- *                 &#34;user.lifecycle.delete.initiated&#34;)
- *             .channel(Map.ofEntries(
- *                 Map.entry(&#34;type&#34;, &#34;HTTP&#34;),
- *                 Map.entry(&#34;version&#34;, &#34;1.0.0&#34;),
- *                 Map.entry(&#34;uri&#34;, &#34;https://example.com/test&#34;)
- *             ))
- *             .auth(Map.ofEntries(
- *                 Map.entry(&#34;type&#34;, &#34;HEADER&#34;),
- *                 Map.entry(&#34;key&#34;, &#34;Authorization&#34;),
- *                 Map.entry(&#34;value&#34;, &#34;123&#34;)
- *             ))
- *             .build());
- * 
- *         var exampleEventHookVerification = new EventHookVerification(&#34;exampleEventHookVerification&#34;, EventHookVerificationArgs.builder()        
- *             .eventHookId(exampleEventHook.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * This resource does not support importing.
- * 
- */
 @ResourceType(type="okta:index/eventHookVerification:EventHookVerification")
 public class EventHookVerification extends com.pulumi.resources.CustomResource {
     /**
-     * Event Hook ID.
+     * Event hook ID
      * 
      */
     @Export(name="eventHookId", refs={String.class}, tree="[0]")
     private Output<String> eventHookId;
 
     /**
-     * @return Event Hook ID.
+     * @return Event hook ID
      * 
      */
     public Output<String> eventHookId() {

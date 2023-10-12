@@ -13,62 +13,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Verifies the Event Hook. The resource won't be created unless the URI provided in the event hook returns a valid
-// JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request)
-// documentation for details.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEventHook, err := okta.NewEventHook(ctx, "exampleEventHook", &okta.EventHookArgs{
-//				Events: pulumi.StringArray{
-//					pulumi.String("user.lifecycle.create"),
-//					pulumi.String("user.lifecycle.delete.initiated"),
-//				},
-//				Channel: pulumi.StringMap{
-//					"type":    pulumi.String("HTTP"),
-//					"version": pulumi.String("1.0.0"),
-//					"uri":     pulumi.String("https://example.com/test"),
-//				},
-//				Auth: pulumi.StringMap{
-//					"type":  pulumi.String("HEADER"),
-//					"key":   pulumi.String("Authorization"),
-//					"value": pulumi.String("123"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = okta.NewEventHookVerification(ctx, "exampleEventHookVerification", &okta.EventHookVerificationArgs{
-//				EventHookId: exampleEventHook.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// This resource does not support importing.
 type EventHookVerification struct {
 	pulumi.CustomResourceState
 
-	// Event Hook ID.
+	// Event hook ID
 	EventHookId pulumi.StringOutput `pulumi:"eventHookId"`
 }
 
@@ -105,12 +53,12 @@ func GetEventHookVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventHookVerification resources.
 type eventHookVerificationState struct {
-	// Event Hook ID.
+	// Event hook ID
 	EventHookId *string `pulumi:"eventHookId"`
 }
 
 type EventHookVerificationState struct {
-	// Event Hook ID.
+	// Event hook ID
 	EventHookId pulumi.StringPtrInput
 }
 
@@ -119,13 +67,13 @@ func (EventHookVerificationState) ElementType() reflect.Type {
 }
 
 type eventHookVerificationArgs struct {
-	// Event Hook ID.
+	// Event hook ID
 	EventHookId string `pulumi:"eventHookId"`
 }
 
 // The set of arguments for constructing a EventHookVerification resource.
 type EventHookVerificationArgs struct {
-	// Event Hook ID.
+	// Event hook ID
 	EventHookId pulumi.StringInput
 }
 
@@ -240,7 +188,7 @@ func (o EventHookVerificationOutput) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
-// Event Hook ID.
+// Event hook ID
 func (o EventHookVerificationOutput) EventHookId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHookVerification) pulumi.StringOutput { return v.EventHookId }).(pulumi.StringOutput)
 }

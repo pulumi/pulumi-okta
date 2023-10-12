@@ -17,7 +17,7 @@ class EmailSenderVerificationArgs:
                  sender_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a EmailSenderVerification resource.
-        :param pulumi.Input[str] sender_id: Email sender ID.
+        :param pulumi.Input[str] sender_id: Email sender ID
         """
         EmailSenderVerificationArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -34,7 +34,7 @@ class EmailSenderVerificationArgs:
     @pulumi.getter(name="senderId")
     def sender_id(self) -> pulumi.Input[str]:
         """
-        Email sender ID.
+        Email sender ID
         """
         return pulumi.get(self, "sender_id")
 
@@ -49,7 +49,7 @@ class _EmailSenderVerificationState:
                  sender_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EmailSenderVerification resources.
-        :param pulumi.Input[str] sender_id: Email sender ID.
+        :param pulumi.Input[str] sender_id: Email sender ID
         """
         _EmailSenderVerificationState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -67,7 +67,7 @@ class _EmailSenderVerificationState:
     @pulumi.getter(name="senderId")
     def sender_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Email sender ID.
+        Email sender ID
         """
         return pulumi.get(self, "sender_id")
 
@@ -84,30 +84,10 @@ class EmailSenderVerification(pulumi.CustomResource):
                  sender_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **DEPRECATED** use `Index.EmailDomainVerification` instead.
-
-        Verifies the email sender. The resource won't be created if the email sender could not be verified.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_email_sender = okta.EmailSender("exampleEmailSender",
-            from_name="Paul Atreides",
-            from_address="no-reply@caladan.planet",
-            subdomain="mail")
-        example_email_sender_verification = okta.EmailSenderVerification("exampleEmailSenderVerification", sender_id=okta_email_sender["valid"]["id"])
-        ```
-
-        ## Import
-
-        This resource does not support importing.
-
+        Create a EmailSenderVerification resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] sender_id: Email sender ID.
+        :param pulumi.Input[str] sender_id: Email sender ID
         """
         ...
     @overload
@@ -116,27 +96,7 @@ class EmailSenderVerification(pulumi.CustomResource):
                  args: EmailSenderVerificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **DEPRECATED** use `Index.EmailDomainVerification` instead.
-
-        Verifies the email sender. The resource won't be created if the email sender could not be verified.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_email_sender = okta.EmailSender("exampleEmailSender",
-            from_name="Paul Atreides",
-            from_address="no-reply@caladan.planet",
-            subdomain="mail")
-        example_email_sender_verification = okta.EmailSenderVerification("exampleEmailSenderVerification", sender_id=okta_email_sender["valid"]["id"])
-        ```
-
-        ## Import
-
-        This resource does not support importing.
-
+        Create a EmailSenderVerification resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EmailSenderVerificationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,7 +147,7 @@ class EmailSenderVerification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] sender_id: Email sender ID.
+        :param pulumi.Input[str] sender_id: Email sender ID
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -200,7 +160,7 @@ class EmailSenderVerification(pulumi.CustomResource):
     @pulumi.getter(name="senderId")
     def sender_id(self) -> pulumi.Output[str]:
         """
-        Email sender ID.
+        Email sender ID
         """
         return pulumi.get(self, "sender_id")
 

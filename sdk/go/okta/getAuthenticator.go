@@ -12,9 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+// Get an authenticator by key, name of ID.
 //
-// Use this data source to retrieve an authenticator.
+// > **WARNING:** This feature is only available as a part of the
+// Identity Engine. Contact support
+// for further information.
 //
 // ## Example Usage
 //
@@ -31,31 +33,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.LookupAuthenticator(ctx, &okta.LookupAuthenticatorArgs{
-//				Name: pulumi.StringRef("Security Question"),
+//				Key: pulumi.StringRef("security_question"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupAuthenticator(ctx, &okta.LookupAuthenticatorArgs{
-//				Key: pulumi.StringRef("okta_email"),
+//			_, err = okta.LookupAuthenticator(ctx, &okta.LookupAuthenticatorArgs{
+//				Name: pulumi.StringRef("Okta Verify"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -88,26 +72,28 @@ type LookupAuthenticatorArgs struct {
 // A collection of values returned by getAuthenticator.
 type LookupAuthenticatorResult struct {
 	// ID of the authenticator.
-	Id  *string `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// A human-readable string that identifies the authenticator.
 	Key *string `pulumi:"key"`
 	// Name of the authenticator.
 	Name *string `pulumi:"name"`
-	// (Specific to `securityKey`) The provider server port (for example 1812).
+	// The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
 	ProviderAuthPort int `pulumi:"providerAuthPort"`
-	// (Specific to `securityKey`) Server host name or IP address.
+	// Server host name or IP address
 	ProviderHostname string `pulumi:"providerHostname"`
 	// (Specific to `securityKey`) App Instance ID.
 	ProviderInstanceId string `pulumi:"providerInstanceId"`
-	ProviderJson       string `pulumi:"providerJson"`
+	// Authenticator Provider in JSON format
+	ProviderJson string `pulumi:"providerJson"`
 	// Provider type.
 	ProviderType string `pulumi:"providerType"`
 	// Username template expected by the provider.
 	ProviderUserNameTemplate string `pulumi:"providerUserNameTemplate"`
-	// Settings for the authenticator (expressed in JSON).
+	// Authenticator settings in JSON format
 	Settings string `pulumi:"settings"`
 	// Status of the Authenticator.
 	Status string `pulumi:"status"`
-	// The type of Authenticator.
+	// Type of the authenticator
 	Type string `pulumi:"type"`
 }
 
@@ -164,6 +150,7 @@ func (o LookupAuthenticatorResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// A human-readable string that identifies the authenticator.
 func (o LookupAuthenticatorResultOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -173,12 +160,12 @@ func (o LookupAuthenticatorResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Specific to `securityKey`) The provider server port (for example 1812).
+// The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
 func (o LookupAuthenticatorResultOutput) ProviderAuthPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) int { return v.ProviderAuthPort }).(pulumi.IntOutput)
 }
 
-// (Specific to `securityKey`) Server host name or IP address.
+// Server host name or IP address
 func (o LookupAuthenticatorResultOutput) ProviderHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.ProviderHostname }).(pulumi.StringOutput)
 }
@@ -188,6 +175,7 @@ func (o LookupAuthenticatorResultOutput) ProviderInstanceId() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.ProviderInstanceId }).(pulumi.StringOutput)
 }
 
+// Authenticator Provider in JSON format
 func (o LookupAuthenticatorResultOutput) ProviderJson() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.ProviderJson }).(pulumi.StringOutput)
 }
@@ -202,7 +190,7 @@ func (o LookupAuthenticatorResultOutput) ProviderUserNameTemplate() pulumi.Strin
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.ProviderUserNameTemplate }).(pulumi.StringOutput)
 }
 
-// Settings for the authenticator (expressed in JSON).
+// Authenticator settings in JSON format
 func (o LookupAuthenticatorResultOutput) Settings() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.Settings }).(pulumi.StringOutput)
 }
@@ -212,7 +200,7 @@ func (o LookupAuthenticatorResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The type of Authenticator.
+// Type of the authenticator
 func (o LookupAuthenticatorResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthenticatorResult) string { return v.Type }).(pulumi.StringOutput)
 }

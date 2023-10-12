@@ -9,114 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.User
 {
-    /// <summary>
-    /// Creates an Okta User.
-    /// 
-    /// This resource allows you to create and configure an Okta User.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Full profile:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.User.User("example", new()
-    ///     {
-    ///         City = "New York",
-    ///         CostCenter = "10",
-    ///         CountryCode = "US",
-    ///         Department = "IT",
-    ///         DisplayName = "Dr. John Smith",
-    ///         Division = "Acquisitions",
-    ///         Email = "john.smith@example.com",
-    ///         EmployeeNumber = "111111",
-    ///         FirstName = "John",
-    ///         HonorificPrefix = "Dr.",
-    ///         HonorificSuffix = "Jr.",
-    ///         LastName = "Smith",
-    ///         Locale = "en_US",
-    ///         Login = "john.smith@example.com",
-    ///         Manager = "Jimbo",
-    ///         ManagerId = "222222",
-    ///         MiddleName = "John",
-    ///         MobilePhone = "1112223333",
-    ///         NickName = "Johnny",
-    ///         Organization = "Testing Inc.",
-    ///         PostalAddress = "1234 Testing St.",
-    ///         PreferredLanguage = "en-us",
-    ///         PrimaryPhone = "4445556666",
-    ///         ProfileUrl = "https://www.example.com/profile",
-    ///         SecondEmail = "john.smith.fun@example.com",
-    ///         State = "NY",
-    ///         StreetAddress = "5678 Testing Ave.",
-    ///         Timezone = "America/New_York",
-    ///         Title = "Director",
-    ///         UserType = "Employee",
-    ///         ZipCode = "11111",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// With Password Inline Hook:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test2 = new Okta.User.User("test2", new()
-    ///     {
-    ///         Email = "example@example.com",
-    ///         FirstName = "John",
-    ///         LastName = "Smith",
-    ///         Login = "example@example.com",
-    ///         PasswordInlineHook = "default",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An Okta User can be imported via the ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:user/user:User example &amp;#60;user id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:user/user:User")]
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// User profile property.
+        /// User city
         /// </summary>
         [Output("city")]
         public Output<string?> City { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User cost center
         /// </summary>
         [Output("costCenter")]
         public Output<string?> CostCenter { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User country code
         /// </summary>
         [Output("countryCode")]
         public Output<string?> CountryCode { get; private set; } = null!;
 
         /// <summary>
-        /// raw JSON containing all custom profile attributes.
+        /// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
         /// </summary>
         [Output("customProfileAttributes")]
         public Output<string> CustomProfileAttributes { get; private set; } = null!;
@@ -128,124 +43,121 @@ namespace Pulumi.Okta.User
         public Output<ImmutableArray<string>> CustomProfileAttributesToIgnores { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User department
         /// </summary>
         [Output("department")]
         public Output<string?> Department { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User display name, suitable to show end users
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User division
         /// </summary>
         [Output("division")]
         public Output<string?> Division { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User primary email address
         /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User employee number
         /// </summary>
         [Output("employeeNumber")]
         public Output<string?> EmployeeNumber { get; private set; } = null!;
 
         /// <summary>
-        /// If set to `true`, the user will have to change the password at the next login. This property will be used
-        /// when user is being created and works only when `password` field is set. Default is `false`.
+        /// If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
         /// </summary>
         [Output("expirePasswordOnCreate")]
         public Output<bool?> ExpirePasswordOnCreate { get; private set; } = null!;
 
         /// <summary>
-        /// User's First Name, required by default.
+        /// User first name
         /// </summary>
         [Output("firstName")]
         public Output<string> FirstName { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User honorific prefix
         /// </summary>
         [Output("honorificPrefix")]
         public Output<string?> HonorificPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User honorific suffix
         /// </summary>
         [Output("honorificSuffix")]
         public Output<string?> HonorificSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// User's Last Name, required by default.
+        /// User last name
         /// </summary>
         [Output("lastName")]
         public Output<string> LastName { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User default location
         /// </summary>
         [Output("locale")]
         public Output<string?> Locale { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User Okta login
         /// </summary>
         [Output("login")]
         public Output<string> Login { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// Manager of User
         /// </summary>
         [Output("manager")]
         public Output<string?> Manager { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// Manager ID of User
         /// </summary>
         [Output("managerId")]
         public Output<string?> ManagerId { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User middle name
         /// </summary>
         [Output("middleName")]
         public Output<string?> MiddleName { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User mobile phone number
         /// </summary>
         [Output("mobilePhone")]
         public Output<string?> MobilePhone { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User nickname
         /// </summary>
         [Output("nickName")]
         public Output<string?> NickName { get; private set; } = null!;
 
         /// <summary>
-        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-        /// outside the provider. After successful password change this field should be removed and `password` field should be used
-        /// for further changes.
+        /// Old User Password. Should be only set in case the password was not changed using the provider
         /// </summary>
         [Output("oldPassword")]
         public Output<string?> OldPassword { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User organization
         /// </summary>
         [Output("organization")]
         public Output<string?> Organization { get; private set; } = null!;
 
         /// <summary>
-        /// User password.
+        /// User Password
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -257,34 +169,31 @@ namespace Pulumi.Okta.User
         public Output<Outputs.UserPasswordHash?> PasswordHash { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies that a Password Import Inline Hook should be triggered to handle verification
-        /// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
-        /// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-        /// field should not be specified when using Password Import Inline Hook.
+        /// When specified, the Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in
         /// </summary>
         [Output("passwordInlineHook")]
         public Output<string?> PasswordInlineHook { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User mailing address
         /// </summary>
         [Output("postalAddress")]
         public Output<string?> PostalAddress { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User preferred language
         /// </summary>
         [Output("preferredLanguage")]
         public Output<string?> PreferredLanguage { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User primary phone number
         /// </summary>
         [Output("primaryPhone")]
         public Output<string?> PrimaryPhone { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User online profile (web page)
         /// </summary>
         [Output("profileUrl")]
         public Output<string?> ProfileUrl { get; private set; } = null!;
@@ -296,22 +205,19 @@ namespace Pulumi.Okta.User
         public Output<string> RawStatus { get; private set; } = null!;
 
         /// <summary>
-        /// User password recovery answer.
-        /// 
-        /// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-        /// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+        /// User Password Recovery Answer
         /// </summary>
         [Output("recoveryAnswer")]
         public Output<string?> RecoveryAnswer { get; private set; } = null!;
 
         /// <summary>
-        /// User password recovery question.
+        /// User Password Recovery Question
         /// </summary>
         [Output("recoveryQuestion")]
         public Output<string?> RecoveryQuestion { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User secondary email address, used for account recovery
         /// </summary>
         [Output("secondEmail")]
         public Output<string?> SecondEmail { get; private set; } = null!;
@@ -323,43 +229,43 @@ namespace Pulumi.Okta.User
         public Output<bool?> SkipRoles { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User state or region
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
+        /// The status of the User in Okta - remove to set user back to active/provisioned
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User street address
         /// </summary>
         [Output("streetAddress")]
         public Output<string?> StreetAddress { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User default timezone
         /// </summary>
         [Output("timezone")]
         public Output<string?> Timezone { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User title
         /// </summary>
         [Output("title")]
         public Output<string?> Title { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User employee type
         /// </summary>
         [Output("userType")]
         public Output<string?> UserType { get; private set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User zipcode or postal code
         /// </summary>
         [Output("zipCode")]
         public Output<string?> ZipCode { get; private set; } = null!;
@@ -417,25 +323,25 @@ namespace Pulumi.Okta.User
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// User profile property.
+        /// User city
         /// </summary>
         [Input("city")]
         public Input<string>? City { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User cost center
         /// </summary>
         [Input("costCenter")]
         public Input<string>? CostCenter { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User country code
         /// </summary>
         [Input("countryCode")]
         public Input<string>? CountryCode { get; set; }
 
         /// <summary>
-        /// raw JSON containing all custom profile attributes.
+        /// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
         /// </summary>
         [Input("customProfileAttributes")]
         public Input<string>? CustomProfileAttributes { get; set; }
@@ -453,104 +359,103 @@ namespace Pulumi.Okta.User
         }
 
         /// <summary>
-        /// User profile property.
+        /// User department
         /// </summary>
         [Input("department")]
         public Input<string>? Department { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User display name, suitable to show end users
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User division
         /// </summary>
         [Input("division")]
         public Input<string>? Division { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User primary email address
         /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User employee number
         /// </summary>
         [Input("employeeNumber")]
         public Input<string>? EmployeeNumber { get; set; }
 
         /// <summary>
-        /// If set to `true`, the user will have to change the password at the next login. This property will be used
-        /// when user is being created and works only when `password` field is set. Default is `false`.
+        /// If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
         /// </summary>
         [Input("expirePasswordOnCreate")]
         public Input<bool>? ExpirePasswordOnCreate { get; set; }
 
         /// <summary>
-        /// User's First Name, required by default.
+        /// User first name
         /// </summary>
         [Input("firstName", required: true)]
         public Input<string> FirstName { get; set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User honorific prefix
         /// </summary>
         [Input("honorificPrefix")]
         public Input<string>? HonorificPrefix { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User honorific suffix
         /// </summary>
         [Input("honorificSuffix")]
         public Input<string>? HonorificSuffix { get; set; }
 
         /// <summary>
-        /// User's Last Name, required by default.
+        /// User last name
         /// </summary>
         [Input("lastName", required: true)]
         public Input<string> LastName { get; set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// User default location
         /// </summary>
         [Input("locale")]
         public Input<string>? Locale { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User Okta login
         /// </summary>
         [Input("login", required: true)]
         public Input<string> Login { get; set; } = null!;
 
         /// <summary>
-        /// User profile property.
+        /// Manager of User
         /// </summary>
         [Input("manager")]
         public Input<string>? Manager { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// Manager ID of User
         /// </summary>
         [Input("managerId")]
         public Input<string>? ManagerId { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User middle name
         /// </summary>
         [Input("middleName")]
         public Input<string>? MiddleName { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User mobile phone number
         /// </summary>
         [Input("mobilePhone")]
         public Input<string>? MobilePhone { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User nickname
         /// </summary>
         [Input("nickName")]
         public Input<string>? NickName { get; set; }
@@ -559,9 +464,7 @@ namespace Pulumi.Okta.User
         private Input<string>? _oldPassword;
 
         /// <summary>
-        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-        /// outside the provider. After successful password change this field should be removed and `password` field should be used
-        /// for further changes.
+        /// Old User Password. Should be only set in case the password was not changed using the provider
         /// </summary>
         public Input<string>? OldPassword
         {
@@ -574,7 +477,7 @@ namespace Pulumi.Okta.User
         }
 
         /// <summary>
-        /// User profile property.
+        /// User organization
         /// </summary>
         [Input("organization")]
         public Input<string>? Organization { get; set; }
@@ -583,7 +486,7 @@ namespace Pulumi.Okta.User
         private Input<string>? _password;
 
         /// <summary>
-        /// User password.
+        /// User Password
         /// </summary>
         public Input<string>? Password
         {
@@ -602,34 +505,31 @@ namespace Pulumi.Okta.User
         public Input<Inputs.UserPasswordHashArgs>? PasswordHash { get; set; }
 
         /// <summary>
-        /// Specifies that a Password Import Inline Hook should be triggered to handle verification
-        /// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
-        /// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-        /// field should not be specified when using Password Import Inline Hook.
+        /// When specified, the Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in
         /// </summary>
         [Input("passwordInlineHook")]
         public Input<string>? PasswordInlineHook { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User mailing address
         /// </summary>
         [Input("postalAddress")]
         public Input<string>? PostalAddress { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User preferred language
         /// </summary>
         [Input("preferredLanguage")]
         public Input<string>? PreferredLanguage { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User primary phone number
         /// </summary>
         [Input("primaryPhone")]
         public Input<string>? PrimaryPhone { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User online profile (web page)
         /// </summary>
         [Input("profileUrl")]
         public Input<string>? ProfileUrl { get; set; }
@@ -638,10 +538,7 @@ namespace Pulumi.Okta.User
         private Input<string>? _recoveryAnswer;
 
         /// <summary>
-        /// User password recovery answer.
-        /// 
-        /// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-        /// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+        /// User Password Recovery Answer
         /// </summary>
         public Input<string>? RecoveryAnswer
         {
@@ -654,13 +551,13 @@ namespace Pulumi.Okta.User
         }
 
         /// <summary>
-        /// User password recovery question.
+        /// User Password Recovery Question
         /// </summary>
         [Input("recoveryQuestion")]
         public Input<string>? RecoveryQuestion { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User secondary email address, used for account recovery
         /// </summary>
         [Input("secondEmail")]
         public Input<string>? SecondEmail { get; set; }
@@ -672,43 +569,43 @@ namespace Pulumi.Okta.User
         public Input<bool>? SkipRoles { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User state or region
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
+        /// The status of the User in Okta - remove to set user back to active/provisioned
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User street address
         /// </summary>
         [Input("streetAddress")]
         public Input<string>? StreetAddress { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User default timezone
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User title
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User employee type
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User zipcode or postal code
         /// </summary>
         [Input("zipCode")]
         public Input<string>? ZipCode { get; set; }
@@ -722,25 +619,25 @@ namespace Pulumi.Okta.User
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// User profile property.
+        /// User city
         /// </summary>
         [Input("city")]
         public Input<string>? City { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User cost center
         /// </summary>
         [Input("costCenter")]
         public Input<string>? CostCenter { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User country code
         /// </summary>
         [Input("countryCode")]
         public Input<string>? CountryCode { get; set; }
 
         /// <summary>
-        /// raw JSON containing all custom profile attributes.
+        /// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
         /// </summary>
         [Input("customProfileAttributes")]
         public Input<string>? CustomProfileAttributes { get; set; }
@@ -758,104 +655,103 @@ namespace Pulumi.Okta.User
         }
 
         /// <summary>
-        /// User profile property.
+        /// User department
         /// </summary>
         [Input("department")]
         public Input<string>? Department { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User display name, suitable to show end users
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User division
         /// </summary>
         [Input("division")]
         public Input<string>? Division { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User primary email address
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User employee number
         /// </summary>
         [Input("employeeNumber")]
         public Input<string>? EmployeeNumber { get; set; }
 
         /// <summary>
-        /// If set to `true`, the user will have to change the password at the next login. This property will be used
-        /// when user is being created and works only when `password` field is set. Default is `false`.
+        /// If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
         /// </summary>
         [Input("expirePasswordOnCreate")]
         public Input<bool>? ExpirePasswordOnCreate { get; set; }
 
         /// <summary>
-        /// User's First Name, required by default.
+        /// User first name
         /// </summary>
         [Input("firstName")]
         public Input<string>? FirstName { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User honorific prefix
         /// </summary>
         [Input("honorificPrefix")]
         public Input<string>? HonorificPrefix { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User honorific suffix
         /// </summary>
         [Input("honorificSuffix")]
         public Input<string>? HonorificSuffix { get; set; }
 
         /// <summary>
-        /// User's Last Name, required by default.
+        /// User last name
         /// </summary>
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User default location
         /// </summary>
         [Input("locale")]
         public Input<string>? Locale { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User Okta login
         /// </summary>
         [Input("login")]
         public Input<string>? Login { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// Manager of User
         /// </summary>
         [Input("manager")]
         public Input<string>? Manager { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// Manager ID of User
         /// </summary>
         [Input("managerId")]
         public Input<string>? ManagerId { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User middle name
         /// </summary>
         [Input("middleName")]
         public Input<string>? MiddleName { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User mobile phone number
         /// </summary>
         [Input("mobilePhone")]
         public Input<string>? MobilePhone { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User nickname
         /// </summary>
         [Input("nickName")]
         public Input<string>? NickName { get; set; }
@@ -864,9 +760,7 @@ namespace Pulumi.Okta.User
         private Input<string>? _oldPassword;
 
         /// <summary>
-        /// Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-        /// outside the provider. After successful password change this field should be removed and `password` field should be used
-        /// for further changes.
+        /// Old User Password. Should be only set in case the password was not changed using the provider
         /// </summary>
         public Input<string>? OldPassword
         {
@@ -879,7 +773,7 @@ namespace Pulumi.Okta.User
         }
 
         /// <summary>
-        /// User profile property.
+        /// User organization
         /// </summary>
         [Input("organization")]
         public Input<string>? Organization { get; set; }
@@ -888,7 +782,7 @@ namespace Pulumi.Okta.User
         private Input<string>? _password;
 
         /// <summary>
-        /// User password.
+        /// User Password
         /// </summary>
         public Input<string>? Password
         {
@@ -907,34 +801,31 @@ namespace Pulumi.Okta.User
         public Input<Inputs.UserPasswordHashGetArgs>? PasswordHash { get; set; }
 
         /// <summary>
-        /// Specifies that a Password Import Inline Hook should be triggered to handle verification
-        /// of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
-        /// from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-        /// field should not be specified when using Password Import Inline Hook.
+        /// When specified, the Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in
         /// </summary>
         [Input("passwordInlineHook")]
         public Input<string>? PasswordInlineHook { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User mailing address
         /// </summary>
         [Input("postalAddress")]
         public Input<string>? PostalAddress { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User preferred language
         /// </summary>
         [Input("preferredLanguage")]
         public Input<string>? PreferredLanguage { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User primary phone number
         /// </summary>
         [Input("primaryPhone")]
         public Input<string>? PrimaryPhone { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User online profile (web page)
         /// </summary>
         [Input("profileUrl")]
         public Input<string>? ProfileUrl { get; set; }
@@ -949,10 +840,7 @@ namespace Pulumi.Okta.User
         private Input<string>? _recoveryAnswer;
 
         /// <summary>
-        /// User password recovery answer.
-        /// 
-        /// - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-        /// - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+        /// User Password Recovery Answer
         /// </summary>
         public Input<string>? RecoveryAnswer
         {
@@ -965,13 +853,13 @@ namespace Pulumi.Okta.User
         }
 
         /// <summary>
-        /// User password recovery question.
+        /// User Password Recovery Question
         /// </summary>
         [Input("recoveryQuestion")]
         public Input<string>? RecoveryQuestion { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User secondary email address, used for account recovery
         /// </summary>
         [Input("secondEmail")]
         public Input<string>? SecondEmail { get; set; }
@@ -983,43 +871,43 @@ namespace Pulumi.Okta.User
         public Input<bool>? SkipRoles { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User state or region
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
+        /// The status of the User in Okta - remove to set user back to active/provisioned
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User street address
         /// </summary>
         [Input("streetAddress")]
         public Input<string>? StreetAddress { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User default timezone
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User title
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User employee type
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
 
         /// <summary>
-        /// User profile property.
+        /// User zipcode or postal code
         /// </summary>
         [Input("zipCode")]
         public Input<string>? ZipCode { get; set; }

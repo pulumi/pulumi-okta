@@ -13,37 +13,13 @@ namespace Pulumi.Okta.Outputs
     [OutputType]
     public sealed class GetAuthServerClaimsClaimResult
     {
-        /// <summary>
-        /// Specifies whether to include Claims in the token.
-        /// </summary>
         public readonly bool AlwaysIncludeInToken;
-        /// <summary>
-        /// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
-        /// </summary>
         public readonly string ClaimType;
-        /// <summary>
-        /// ID of the claim.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the claim.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Specifies the scopes for this Claim.
-        /// </summary>
         public readonly ImmutableArray<string> Scopes;
-        /// <summary>
-        /// Status of the claim.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Value of the claim
-        /// </summary>
         public readonly string Value;
-        /// <summary>
-        /// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
-        /// </summary>
         public readonly string ValueType;
 
         [OutputConstructor]

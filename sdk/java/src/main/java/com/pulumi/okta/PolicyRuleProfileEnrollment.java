@@ -17,137 +17,45 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
- * 
- * A [profile enrollment
- * policy](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-policy)
- * is limited to one default rule. This resource does not create a rule for an
- * enrollment policy, it allows the default policy rule to be updated.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.PolicyProfileEnrollment;
- * import com.pulumi.okta.inline.Hook;
- * import com.pulumi.okta.inline.HookArgs;
- * import com.pulumi.okta.group.Group;
- * import com.pulumi.okta.group.GroupArgs;
- * import com.pulumi.okta.PolicyRuleProfileEnrollment;
- * import com.pulumi.okta.PolicyRuleProfileEnrollmentArgs;
- * import com.pulumi.okta.inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var examplePolicyProfileEnrollment = new PolicyProfileEnrollment(&#34;examplePolicyProfileEnrollment&#34;);
- * 
- *         var exampleHook = new Hook(&#34;exampleHook&#34;, HookArgs.builder()        
- *             .status(&#34;ACTIVE&#34;)
- *             .type(&#34;com.okta.user.pre-registration&#34;)
- *             .version(&#34;1.0.3&#34;)
- *             .channel(Map.ofEntries(
- *                 Map.entry(&#34;type&#34;, &#34;HTTP&#34;),
- *                 Map.entry(&#34;version&#34;, &#34;1.0.0&#34;),
- *                 Map.entry(&#34;uri&#34;, &#34;https://example.com/test2&#34;),
- *                 Map.entry(&#34;method&#34;, &#34;POST&#34;)
- *             ))
- *             .build());
- * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .description(&#34;Group of some users&#34;)
- *             .build());
- * 
- *         var examplePolicyRuleProfileEnrollment = new PolicyRuleProfileEnrollment(&#34;examplePolicyRuleProfileEnrollment&#34;, PolicyRuleProfileEnrollmentArgs.builder()        
- *             .policyId(examplePolicyProfileEnrollment.id())
- *             .inlineHookId(exampleHook.id())
- *             .targetGroupId(exampleGroup.id())
- *             .unknownUserAction(&#34;REGISTER&#34;)
- *             .emailVerification(true)
- *             .access(&#34;ALLOW&#34;)
- *             .profileAttributes(            
- *                 PolicyRuleProfileEnrollmentProfileAttributeArgs.builder()
- *                     .name(&#34;email&#34;)
- *                     .label(&#34;Email&#34;)
- *                     .required(true)
- *                     .build(),
- *                 PolicyRuleProfileEnrollmentProfileAttributeArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .label(&#34;Name&#34;)
- *                     .required(true)
- *                     .build(),
- *                 PolicyRuleProfileEnrollmentProfileAttributeArgs.builder()
- *                     .name(&#34;t-shirt&#34;)
- *                     .label(&#34;T-Shirt Size&#34;)
- *                     .required(false)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * A Policy Rule can be imported via the Policy and Rule ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment")
 public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomResource {
     /**
-     * Allow or deny access based on the rule conditions. Valid values are: `&#34;ALLOW&#34;`, `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+     * Allow or deny access based on the rule conditions: ALLOW or DENY
      * 
      */
     @Export(name="access", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> access;
 
     /**
-     * @return Allow or deny access based on the rule conditions. Valid values are: `&#34;ALLOW&#34;`, `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+     * @return Allow or deny access based on the rule conditions: ALLOW or DENY
      * 
      */
     public Output<Optional<String>> access() {
         return Codegen.optional(this.access);
     }
     /**
-     * Indicates whether email verification should occur before access is granted. Default is `true`.
+     * Indicates whether email verification should occur before access is granted
      * 
      */
     @Export(name="emailVerification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> emailVerification;
 
     /**
-     * @return Indicates whether email verification should occur before access is granted. Default is `true`.
+     * @return Indicates whether email verification should occur before access is granted
      * 
      */
     public Output<Optional<Boolean>> emailVerification() {
         return Codegen.optional(this.emailVerification);
     }
     /**
-     * ID of a Registration Inline Hook.
+     * ID of a Registration Inline Hook
      * 
      */
     @Export(name="inlineHookId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inlineHookId;
 
     /**
-     * @return ID of a Registration Inline Hook.
+     * @return ID of a Registration Inline Hook
      * 
      */
     public Output<Optional<String>> inlineHookId() {
@@ -168,56 +76,56 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
         return this.name;
     }
     /**
-     * Policy ID.
+     * ID of the policy
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
-     * @return Policy ID.
+     * @return ID of the policy
      * 
      */
     public Output<String> policyId() {
         return this.policyId;
     }
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * A list of attributes to prompt the user during registration or progressive profiling
      * 
      */
     @Export(name="profileAttributes", refs={List.class,PolicyRuleProfileEnrollmentProfileAttribute.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PolicyRuleProfileEnrollmentProfileAttribute>> profileAttributes;
 
     /**
-     * @return A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * @return A list of attributes to prompt the user during registration or progressive profiling
      * 
      */
     public Output<Optional<List<PolicyRuleProfileEnrollmentProfileAttribute>>> profileAttributes() {
         return Codegen.optional(this.profileAttributes);
     }
     /**
-     * Status of the Rule.
+     * Status of the rule
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Status of the Rule.
+     * @return Status of the rule
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * The ID of a Group that this User should be added to.
+     * The ID of a Group that this User should be added to
      * 
      */
     @Export(name="targetGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetGroupId;
 
     /**
-     * @return The ID of a Group that this User should be added to.
+     * @return The ID of a Group that this User should be added to
      * 
      */
     public Output<Optional<String>> targetGroupId() {
@@ -238,14 +146,14 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.uiSchemaId);
     }
     /**
-     * Which action should be taken if this User is new. Valid values are: `&#34;DENY&#34;`, `&#34;REGISTER&#34;`.
+     * Which action should be taken if this User is new
      * 
      */
     @Export(name="unknownUserAction", refs={String.class}, tree="[0]")
     private Output<String> unknownUserAction;
 
     /**
-     * @return Which action should be taken if this User is new. Valid values are: `&#34;DENY&#34;`, `&#34;REGISTER&#34;`.
+     * @return Which action should be taken if this User is new
      * 
      */
     public Output<String> unknownUserAction() {

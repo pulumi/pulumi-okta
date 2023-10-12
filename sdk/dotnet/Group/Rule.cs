@@ -9,86 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Group
 {
-    /// <summary>
-    /// Creates an Okta Group Rule.
-    /// 
-    /// This resource allows you to create and configure an Okta Group Rule.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Group.Rule("example", new()
-    ///     {
-    ///         ExpressionType = "urn:okta:expression:1.0",
-    ///         ExpressionValue = "String.startsWith(user.firstName,\"andy\")",
-    ///         GroupAssignments = new[]
-    ///         {
-    ///             "&lt;group id&gt;",
-    ///         },
-    ///         Status = "ACTIVE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An Okta Group Rule can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:group/rule:Rule example &amp;#60;group rule id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:group/rule:Rule")]
     public partial class Rule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The expression type to use to invoke the rule. The default
-        /// is `"urn:okta:expression:1.0"`.
-        /// </summary>
         [Output("expressionType")]
         public Output<string?> ExpressionType { get; private set; } = null!;
 
-        /// <summary>
-        /// The expression value.
-        /// </summary>
         [Output("expressionValue")]
         public Output<string> ExpressionValue { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of group ids to assign the users to.
-        /// </summary>
         [Output("groupAssignments")]
         public Output<ImmutableArray<string>> GroupAssignments { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Group Rule (min character 1; max characters 50).
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// This tells the provider to remove users added by this rule from the assigned
-        /// group after destroying this resource. Default is `false`.
+        /// Remove users added by this rule from the assigned group after deleting this resource
         /// </summary>
         [Output("removeAssignedUsers")]
         public Output<bool?> RemoveAssignedUsers { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the group rule.
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The list of user IDs that would be excluded when rules are processed.
+        /// The list of user IDs that would be excluded when rules are processed
         /// </summary>
         [Output("usersExcludeds")]
         public Output<ImmutableArray<string>> UsersExcludeds { get; private set; } = null!;
@@ -139,47 +85,29 @@ namespace Pulumi.Okta.Group
 
     public sealed class RuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The expression type to use to invoke the rule. The default
-        /// is `"urn:okta:expression:1.0"`.
-        /// </summary>
         [Input("expressionType")]
         public Input<string>? ExpressionType { get; set; }
 
-        /// <summary>
-        /// The expression value.
-        /// </summary>
         [Input("expressionValue", required: true)]
         public Input<string> ExpressionValue { get; set; } = null!;
 
         [Input("groupAssignments", required: true)]
         private InputList<string>? _groupAssignments;
-
-        /// <summary>
-        /// The list of group ids to assign the users to.
-        /// </summary>
         public InputList<string> GroupAssignments
         {
             get => _groupAssignments ?? (_groupAssignments = new InputList<string>());
             set => _groupAssignments = value;
         }
 
-        /// <summary>
-        /// The name of the Group Rule (min character 1; max characters 50).
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// This tells the provider to remove users added by this rule from the assigned
-        /// group after destroying this resource. Default is `false`.
+        /// Remove users added by this rule from the assigned group after deleting this resource
         /// </summary>
         [Input("removeAssignedUsers")]
         public Input<bool>? RemoveAssignedUsers { get; set; }
 
-        /// <summary>
-        /// The status of the group rule.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -187,7 +115,7 @@ namespace Pulumi.Okta.Group
         private InputList<string>? _usersExcludeds;
 
         /// <summary>
-        /// The list of user IDs that would be excluded when rules are processed.
+        /// The list of user IDs that would be excluded when rules are processed
         /// </summary>
         public InputList<string> UsersExcludeds
         {
@@ -203,47 +131,29 @@ namespace Pulumi.Okta.Group
 
     public sealed class RuleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The expression type to use to invoke the rule. The default
-        /// is `"urn:okta:expression:1.0"`.
-        /// </summary>
         [Input("expressionType")]
         public Input<string>? ExpressionType { get; set; }
 
-        /// <summary>
-        /// The expression value.
-        /// </summary>
         [Input("expressionValue")]
         public Input<string>? ExpressionValue { get; set; }
 
         [Input("groupAssignments")]
         private InputList<string>? _groupAssignments;
-
-        /// <summary>
-        /// The list of group ids to assign the users to.
-        /// </summary>
         public InputList<string> GroupAssignments
         {
             get => _groupAssignments ?? (_groupAssignments = new InputList<string>());
             set => _groupAssignments = value;
         }
 
-        /// <summary>
-        /// The name of the Group Rule (min character 1; max characters 50).
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// This tells the provider to remove users added by this rule from the assigned
-        /// group after destroying this resource. Default is `false`.
+        /// Remove users added by this rule from the assigned group after deleting this resource
         /// </summary>
         [Input("removeAssignedUsers")]
         public Input<bool>? RemoveAssignedUsers { get; set; }
 
-        /// <summary>
-        /// The status of the group rule.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -251,7 +161,7 @@ namespace Pulumi.Okta.Group
         private InputList<string>? _usersExcludeds;
 
         /// <summary>
-        /// The list of user IDs that would be excluded when rules are processed.
+        /// The list of user IDs that would be excluded when rules are processed
         /// </summary>
         public InputList<string> UsersExcludeds
         {

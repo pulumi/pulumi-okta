@@ -13,13 +13,7 @@ namespace Pulumi.Okta.Outputs
     [OutputType]
     public sealed class TemplateSmsTranslation
     {
-        /// <summary>
-        /// The language to map the template to.
-        /// </summary>
         public readonly string Language;
-        /// <summary>
-        /// The SMS message.
-        /// </summary>
         public readonly string Template;
 
         [OutputConstructor]

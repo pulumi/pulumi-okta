@@ -12,10 +12,7 @@ namespace Pulumi.Okta.Index
     public static class GetDomain
     {
         /// <summary>
-        /// Use this data source to retrieve a domain from Okta.
-        /// 
-        /// - https://developer.okta.com/docs/reference/api/domains/#get-domain
-        /// - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+        /// Get a domain from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -50,10 +47,7 @@ namespace Pulumi.Okta.Index
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("okta:Index/getDomain:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a domain from Okta.
-        /// 
-        /// - https://developer.okta.com/docs/reference/api/domains/#get-domain
-        /// - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+        /// Get a domain from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -92,7 +86,7 @@ namespace Pulumi.Okta.Index
     public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Okta ID of the domain or the domain name itself.
+        /// Brand ID
         /// </summary>
         [Input("domainIdOrName", required: true)]
         public string DomainIdOrName { get; set; } = null!;
@@ -106,7 +100,7 @@ namespace Pulumi.Okta.Index
     public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Okta ID of the domain or the domain name itself.
+        /// Brand ID
         /// </summary>
         [Input("domainIdOrName", required: true)]
         public Input<string> DomainIdOrName { get; set; } = null!;
@@ -122,20 +116,23 @@ namespace Pulumi.Okta.Index
     public sealed class GetDomainResult
     {
         /// <summary>
-        /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED"
+        /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED
         /// </summary>
         public readonly string CertificateSourceType;
         /// <summary>
-        /// TXT and CNAME records to be registered for the Domain.
+        /// TXT and CNAME records to be registered for the Domain
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainDnsRecordResult> DnsRecords;
         /// <summary>
         /// Domain name
         /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// Brand ID
+        /// </summary>
         public readonly string DomainIdOrName;
         /// <summary>
-        /// Domain ID
+        /// The ID of the Domain
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -143,7 +140,7 @@ namespace Pulumi.Okta.Index
         /// </summary>
         public readonly ImmutableDictionary<string, string> PublicCertificate;
         /// <summary>
-        /// Status of the domain. Values: `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED`
+        /// Status of the domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
         /// </summary>
         public readonly string ValidationStatus;
 

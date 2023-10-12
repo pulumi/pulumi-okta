@@ -18,8 +18,8 @@ class AppSignonPolicyArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AppSignonPolicy resource.
-        :param pulumi.Input[str] description: Description of the policy.
-        :param pulumi.Input[str] name: Name of the policy.
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[str] name: Policy Name
         """
         AppSignonPolicyArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -40,7 +40,7 @@ class AppSignonPolicyArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
         """
-        Description of the policy.
+        Policy Description
         """
         return pulumi.get(self, "description")
 
@@ -52,7 +52,7 @@ class AppSignonPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the policy.
+        Policy Name
         """
         return pulumi.get(self, "name")
 
@@ -68,8 +68,8 @@ class _AppSignonPolicyState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AppSignonPolicy resources.
-        :param pulumi.Input[str] description: Description of the policy.
-        :param pulumi.Input[str] name: Name of the policy.
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[str] name: Policy Name
         """
         _AppSignonPolicyState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -91,7 +91,7 @@ class _AppSignonPolicyState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the policy.
+        Policy Description
         """
         return pulumi.get(self, "description")
 
@@ -103,7 +103,7 @@ class _AppSignonPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the policy.
+        Policy Name
         """
         return pulumi.get(self, "name")
 
@@ -121,46 +121,11 @@ class AppSignonPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        my_app_policy = okta.AppSignonPolicy("myAppPolicy", description="Authentication Policy to be used on my app.")
-        my_app = okta.app.OAuth("myApp",
-            label="My App",
-            type="web",
-            grant_types=["authorization_code"],
-            redirect_uris=["http://localhost:3000"],
-            post_logout_redirect_uris=["http://localhost:3000"],
-            response_types=["code"],
-            authentication_policy=my_app_policy.id)
-        ```
-
-        The created policy can be extended using `app_signon_policy_rules`.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        my_app_policy = okta.AppSignonPolicy("myAppPolicy", description="Authentication Policy to be used on my app.")
-        some_rule = okta.AppSignonPolicyRule("someRule",
-            policy_id=resource["okta_app_signon_policy"]["my_app_policy"]["id"],
-            factor_mode="1FA",
-            re_authentication_frequency="PT43800H",
-            constraints=[json.dumps({
-                "knowledge": {
-                    "types": ["password"],
-                },
-            })])
-        ```
-
+        Create a AppSignonPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the policy.
-        :param pulumi.Input[str] name: Name of the policy.
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[str] name: Policy Name
         """
         ...
     @overload
@@ -169,42 +134,7 @@ class AppSignonPolicy(pulumi.CustomResource):
                  args: AppSignonPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        my_app_policy = okta.AppSignonPolicy("myAppPolicy", description="Authentication Policy to be used on my app.")
-        my_app = okta.app.OAuth("myApp",
-            label="My App",
-            type="web",
-            grant_types=["authorization_code"],
-            redirect_uris=["http://localhost:3000"],
-            post_logout_redirect_uris=["http://localhost:3000"],
-            response_types=["code"],
-            authentication_policy=my_app_policy.id)
-        ```
-
-        The created policy can be extended using `app_signon_policy_rules`.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        my_app_policy = okta.AppSignonPolicy("myAppPolicy", description="Authentication Policy to be used on my app.")
-        some_rule = okta.AppSignonPolicyRule("someRule",
-            policy_id=resource["okta_app_signon_policy"]["my_app_policy"]["id"],
-            factor_mode="1FA",
-            re_authentication_frequency="PT43800H",
-            constraints=[json.dumps({
-                "knowledge": {
-                    "types": ["password"],
-                },
-            })])
-        ```
-
+        Create a AppSignonPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppSignonPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,8 +188,8 @@ class AppSignonPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the policy.
-        :param pulumi.Input[str] name: Name of the policy.
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[str] name: Policy Name
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -273,7 +203,7 @@ class AppSignonPolicy(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        Description of the policy.
+        Policy Description
         """
         return pulumi.get(self, "description")
 
@@ -281,7 +211,7 @@ class AppSignonPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the policy.
+        Policy Name
         """
         return pulumi.get(self, "name")
 

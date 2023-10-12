@@ -16,53 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates an Authorization Server Claim.
- * 
- * This resource allows you to create and configure an Authorization Server Claim.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.auth.ServerClaim;
- * import com.pulumi.okta.auth.ServerClaimArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerClaim(&#34;example&#34;, ServerClaimArgs.builder()        
- *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
- *             .claimType(&#34;IDENTITY&#34;)
- *             .scopes(okta_auth_server_scope.example().name())
- *             .value(&#34;String.substringAfter(user.email, \&#34;@\&#34;) == \&#34;example.com\&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
- * 
- * ```sh
- *  $ pulumi import okta:auth/serverClaim:ServerClaim example &amp;#60;auth server id&amp;#62;/&amp;#60;claim id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:auth/serverClaim:ServerClaim")
 public class ServerClaim extends com.pulumi.resources.CustomResource {
     /**
@@ -80,86 +33,78 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.alwaysIncludeInToken);
     }
     /**
-     * ID of the authorization server.
+     * Auth server ID
      * 
      */
     @Export(name="authServerId", refs={String.class}, tree="[0]")
     private Output<String> authServerId;
 
     /**
-     * @return ID of the authorization server.
+     * @return Auth server ID
      * 
      */
     public Output<String> authServerId() {
         return this.authServerId;
     }
     /**
-     * Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+     * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      * 
      */
     @Export(name="claimType", refs={String.class}, tree="[0]")
     private Output<String> claimType;
 
     /**
-     * @return Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+     * @return Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      * 
      */
     public Output<String> claimType() {
         return this.claimType;
     }
     /**
-     * Specifies the type of group filter if `value_type` is `&#34;GROUPS&#34;`. Can be set to one of the following `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+     * Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      * 
      */
     @Export(name="groupFilterType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupFilterType;
 
     /**
-     * @return Specifies the type of group filter if `value_type` is `&#34;GROUPS&#34;`. Can be set to one of the following `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+     * @return Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      * 
      */
     public Output<Optional<String>> groupFilterType() {
         return Codegen.optional(this.groupFilterType);
     }
     /**
-     * The name of the claim.
+     * Auth server claim name
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the claim.
+     * @return Auth server claim name
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The list of scopes the auth server claim is tied to.
+     * Auth server claim list of scopes
      * 
      */
     @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> scopes;
 
     /**
-     * @return The list of scopes the auth server claim is tied to.
+     * @return Auth server claim list of scopes
      * 
      */
     public Output<Optional<List<String>>> scopes() {
         return Codegen.optional(this.scopes);
     }
-    /**
-     * The status of the application. It defaults to `&#34;ACTIVE&#34;`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
-    /**
-     * @return The status of the application. It defaults to `&#34;ACTIVE&#34;`.
-     * 
-     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
@@ -178,14 +123,14 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
         return this.value;
     }
     /**
-     * The type of value of the claim. It can be set to `&#34;EXPRESSION&#34;` or `&#34;GROUPS&#34;`. It defaults to `&#34;EXPRESSION&#34;`.
+     * The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      * 
      */
     @Export(name="valueType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> valueType;
 
     /**
-     * @return The type of value of the claim. It can be set to `&#34;EXPRESSION&#34;` or `&#34;GROUPS&#34;`. It defaults to `&#34;EXPRESSION&#34;`.
+     * @return The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      * 
      */
     public Output<Optional<String>> valueType() {

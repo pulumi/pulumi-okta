@@ -15,7 +15,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AppGroupAssignmentsGroup struct {
-	// ID of the group to assign.
+	// A group to associate with the application
 	Id string `pulumi:"id"`
 	// Priority of group assignment
 	Priority *int `pulumi:"priority"`
@@ -35,7 +35,7 @@ type AppGroupAssignmentsGroupInput interface {
 }
 
 type AppGroupAssignmentsGroupArgs struct {
-	// ID of the group to assign.
+	// A group to associate with the application
 	Id pulumi.StringInput `pulumi:"id"`
 	// Priority of group assignment
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
@@ -112,7 +112,7 @@ func (o AppGroupAssignmentsGroupOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
-// ID of the group to assign.
+// A group to associate with the application
 func (o AppGroupAssignmentsGroupOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AppGroupAssignmentsGroup) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -154,12 +154,10 @@ func (o AppGroupAssignmentsGroupArrayOutput) Index(i pulumi.IntInput) AppGroupAs
 }
 
 type AppSignonPolicyRulePlatformInclude struct {
-	// Only available and required when using `osType = "OTHER"`
+	// Only available with OTHER OS type
 	OsExpression *string `pulumi:"osExpression"`
-	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
-	OsType *string `pulumi:"osType"`
-	// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
-	Type *string `pulumi:"type"`
+	OsType       *string `pulumi:"osType"`
+	Type         *string `pulumi:"type"`
 }
 
 // AppSignonPolicyRulePlatformIncludeInput is an input type that accepts AppSignonPolicyRulePlatformIncludeArgs and AppSignonPolicyRulePlatformIncludeOutput values.
@@ -174,12 +172,10 @@ type AppSignonPolicyRulePlatformIncludeInput interface {
 }
 
 type AppSignonPolicyRulePlatformIncludeArgs struct {
-	// Only available and required when using `osType = "OTHER"`
+	// Only available with OTHER OS type
 	OsExpression pulumi.StringPtrInput `pulumi:"osExpression"`
-	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	OsType       pulumi.StringPtrInput `pulumi:"osType"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (AppSignonPolicyRulePlatformIncludeArgs) ElementType() reflect.Type {
@@ -251,17 +247,15 @@ func (o AppSignonPolicyRulePlatformIncludeOutput) ToOutput(ctx context.Context) 
 	}
 }
 
-// Only available and required when using `osType = "OTHER"`
+// Only available with OTHER OS type
 func (o AppSignonPolicyRulePlatformIncludeOutput) OsExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.OsExpression }).(pulumi.StringPtrOutput)
 }
 
-// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
 func (o AppSignonPolicyRulePlatformIncludeOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
 func (o AppSignonPolicyRulePlatformIncludeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -293,9 +287,9 @@ func (o AppSignonPolicyRulePlatformIncludeArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type AppUserSchemaPropertyArrayOneOf struct {
-	// value mapping to member of `arrayEnum`.
+	// Enum value
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title string `pulumi:"title"`
 }
 
@@ -311,9 +305,9 @@ type AppUserSchemaPropertyArrayOneOfInput interface {
 }
 
 type AppUserSchemaPropertyArrayOneOfArgs struct {
-	// value mapping to member of `arrayEnum`.
+	// Enum value
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -386,12 +380,12 @@ func (o AppUserSchemaPropertyArrayOneOfOutput) ToOutput(ctx context.Context) pul
 	}
 }
 
-// value mapping to member of `arrayEnum`.
+// Enum value
 func (o AppUserSchemaPropertyArrayOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v AppUserSchemaPropertyArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Enum title
 func (o AppUserSchemaPropertyArrayOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v AppUserSchemaPropertyArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -423,9 +417,9 @@ func (o AppUserSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) App
 }
 
 type AppUserSchemaPropertyOneOf struct {
-	// value mapping to member of `arrayEnum`.
+	// Enum value
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title string `pulumi:"title"`
 }
 
@@ -441,9 +435,9 @@ type AppUserSchemaPropertyOneOfInput interface {
 }
 
 type AppUserSchemaPropertyOneOfArgs struct {
-	// value mapping to member of `arrayEnum`.
+	// Enum value
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -516,12 +510,12 @@ func (o AppUserSchemaPropertyOneOfOutput) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
-// value mapping to member of `arrayEnum`.
+// Enum value
 func (o AppUserSchemaPropertyOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v AppUserSchemaPropertyOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Enum title
 func (o AppUserSchemaPropertyOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v AppUserSchemaPropertyOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -553,14 +547,10 @@ func (o AppUserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) AppUserS
 }
 
 type DomainDnsRecord struct {
-	// TXT record expiration.
-	Expiration *string `pulumi:"expiration"`
-	// DNS record name.
-	Fqdn *string `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
-	RecordType *string `pulumi:"recordType"`
-	// DNS verification value
-	Values []string `pulumi:"values"`
+	Expiration *string  `pulumi:"expiration"`
+	Fqdn       *string  `pulumi:"fqdn"`
+	RecordType *string  `pulumi:"recordType"`
+	Values     []string `pulumi:"values"`
 }
 
 // DomainDnsRecordInput is an input type that accepts DomainDnsRecordArgs and DomainDnsRecordOutput values.
@@ -575,14 +565,10 @@ type DomainDnsRecordInput interface {
 }
 
 type DomainDnsRecordArgs struct {
-	// TXT record expiration.
-	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
-	// DNS record name.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
-	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
-	// DNS verification value
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Expiration pulumi.StringPtrInput   `pulumi:"expiration"`
+	Fqdn       pulumi.StringPtrInput   `pulumi:"fqdn"`
+	RecordType pulumi.StringPtrInput   `pulumi:"recordType"`
+	Values     pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (DomainDnsRecordArgs) ElementType() reflect.Type {
@@ -654,22 +640,18 @@ func (o DomainDnsRecordOutput) ToOutput(ctx context.Context) pulumix.Output[Doma
 	}
 }
 
-// TXT record expiration.
 func (o DomainDnsRecordOutput) Expiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDnsRecord) *string { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
-// DNS record name.
 func (o DomainDnsRecordOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDnsRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Record type can be TXT or CNAME.
 func (o DomainDnsRecordOutput) RecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDnsRecord) *string { return v.RecordType }).(pulumi.StringPtrOutput)
 }
 
-// DNS verification value
 func (o DomainDnsRecordOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDnsRecord) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -701,12 +683,9 @@ func (o DomainDnsRecordArrayOutput) Index(i pulumi.IntInput) DomainDnsRecordOutp
 }
 
 type EmailSenderDnsRecord struct {
-	// DNS record name.
-	Fqdn *string `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
+	Fqdn       *string `pulumi:"fqdn"`
 	RecordType *string `pulumi:"recordType"`
-	// DNS verification value
-	Value *string `pulumi:"value"`
+	Value      *string `pulumi:"value"`
 }
 
 // EmailSenderDnsRecordInput is an input type that accepts EmailSenderDnsRecordArgs and EmailSenderDnsRecordOutput values.
@@ -721,12 +700,9 @@ type EmailSenderDnsRecordInput interface {
 }
 
 type EmailSenderDnsRecordArgs struct {
-	// DNS record name.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
+	Fqdn       pulumi.StringPtrInput `pulumi:"fqdn"`
 	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
-	// DNS verification value
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value      pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EmailSenderDnsRecordArgs) ElementType() reflect.Type {
@@ -798,17 +774,14 @@ func (o EmailSenderDnsRecordOutput) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
-// DNS record name.
 func (o EmailSenderDnsRecordOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailSenderDnsRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Record type can be TXT or CNAME.
 func (o EmailSenderDnsRecordOutput) RecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailSenderDnsRecord) *string { return v.RecordType }).(pulumi.StringPtrOutput)
 }
 
-// DNS verification value
 func (o EmailSenderDnsRecordOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailSenderDnsRecord) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -840,9 +813,7 @@ func (o EmailSenderDnsRecordArrayOutput) Index(i pulumi.IntInput) EmailSenderDns
 }
 
 type EventHookHeader struct {
-	// Key to use for authentication, usually the header name, for example `"Authorization"`.
-	Key *string `pulumi:"key"`
-	// Authentication secret.
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -858,9 +829,7 @@ type EventHookHeaderInput interface {
 }
 
 type EventHookHeaderArgs struct {
-	// Key to use for authentication, usually the header name, for example `"Authorization"`.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Authentication secret.
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -933,12 +902,10 @@ func (o EventHookHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[Even
 	}
 }
 
-// Key to use for authentication, usually the header name, for example `"Authorization"`.
 func (o EventHookHeaderOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHookHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Authentication secret.
 func (o EventHookHeaderOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHookHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -970,9 +937,9 @@ func (o EventHookHeaderArrayOutput) Index(i pulumi.IntInput) EventHookHeaderOutp
 }
 
 type GroupSchemaPropertyArrayOneOf struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title string `pulumi:"title"`
 }
 
@@ -988,9 +955,9 @@ type GroupSchemaPropertyArrayOneOfInput interface {
 }
 
 type GroupSchemaPropertyArrayOneOfArgs struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -1063,12 +1030,12 @@ func (o GroupSchemaPropertyArrayOneOfOutput) ToOutput(ctx context.Context) pulum
 	}
 }
 
-// value mapping to member of `enum`.
+// Enum value
 func (o GroupSchemaPropertyArrayOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Enum title
 func (o GroupSchemaPropertyArrayOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -1100,10 +1067,8 @@ func (o GroupSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) Group
 }
 
 type GroupSchemaPropertyMasterOverridePriority struct {
-	// Type of profile source.
-	Type *string `pulumi:"type"`
-	// ID of profile source.
-	Value string `pulumi:"value"`
+	Type  *string `pulumi:"type"`
+	Value string  `pulumi:"value"`
 }
 
 // GroupSchemaPropertyMasterOverridePriorityInput is an input type that accepts GroupSchemaPropertyMasterOverridePriorityArgs and GroupSchemaPropertyMasterOverridePriorityOutput values.
@@ -1118,10 +1083,8 @@ type GroupSchemaPropertyMasterOverridePriorityInput interface {
 }
 
 type GroupSchemaPropertyMasterOverridePriorityArgs struct {
-	// Type of profile source.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// ID of profile source.
-	Value pulumi.StringInput `pulumi:"value"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.StringInput    `pulumi:"value"`
 }
 
 func (GroupSchemaPropertyMasterOverridePriorityArgs) ElementType() reflect.Type {
@@ -1193,12 +1156,10 @@ func (o GroupSchemaPropertyMasterOverridePriorityOutput) ToOutput(ctx context.Co
 	}
 }
 
-// Type of profile source.
 func (o GroupSchemaPropertyMasterOverridePriorityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyMasterOverridePriority) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// ID of profile source.
 func (o GroupSchemaPropertyMasterOverridePriorityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyMasterOverridePriority) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1230,9 +1191,9 @@ func (o GroupSchemaPropertyMasterOverridePriorityArrayOutput) Index(i pulumi.Int
 }
 
 type GroupSchemaPropertyOneOf struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title string `pulumi:"title"`
 }
 
@@ -1248,9 +1209,9 @@ type GroupSchemaPropertyOneOfInput interface {
 }
 
 type GroupSchemaPropertyOneOfArgs struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -1323,12 +1284,12 @@ func (o GroupSchemaPropertyOneOfOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
-// value mapping to member of `enum`.
+// Enum value
 func (o GroupSchemaPropertyOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Enum title
 func (o GroupSchemaPropertyOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -1364,7 +1325,7 @@ type PolicyRuleProfileEnrollmentProfileAttribute struct {
 	Label string `pulumi:"label"`
 	// The name of a User Profile property
 	Name string `pulumi:"name"`
-	// Indicates if this property is required for enrollment. Default is `false`.
+	// Indicates if this property is required for enrollment
 	Required *bool `pulumi:"required"`
 }
 
@@ -1384,7 +1345,7 @@ type PolicyRuleProfileEnrollmentProfileAttributeArgs struct {
 	Label pulumi.StringInput `pulumi:"label"`
 	// The name of a User Profile property
 	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates if this property is required for enrollment. Default is `false`.
+	// Indicates if this property is required for enrollment
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 }
 
@@ -1467,7 +1428,7 @@ func (o PolicyRuleProfileEnrollmentProfileAttributeOutput) Name() pulumi.StringO
 	return o.ApplyT(func(v PolicyRuleProfileEnrollmentProfileAttribute) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates if this property is required for enrollment. Default is `false`.
+// Indicates if this property is required for enrollment
 func (o PolicyRuleProfileEnrollmentProfileAttributeOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleProfileEnrollmentProfileAttribute) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
@@ -1499,9 +1460,7 @@ func (o PolicyRuleProfileEnrollmentProfileAttributeArrayOutput) Index(i pulumi.I
 }
 
 type TemplateSmsTranslation struct {
-	// The language to map the template to.
 	Language string `pulumi:"language"`
-	// The SMS message.
 	Template string `pulumi:"template"`
 }
 
@@ -1517,9 +1476,7 @@ type TemplateSmsTranslationInput interface {
 }
 
 type TemplateSmsTranslationArgs struct {
-	// The language to map the template to.
 	Language pulumi.StringInput `pulumi:"language"`
-	// The SMS message.
 	Template pulumi.StringInput `pulumi:"template"`
 }
 
@@ -1592,12 +1549,10 @@ func (o TemplateSmsTranslationOutput) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
-// The language to map the template to.
 func (o TemplateSmsTranslationOutput) Language() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSmsTranslation) string { return v.Language }).(pulumi.StringOutput)
 }
 
-// The SMS message.
 func (o TemplateSmsTranslationOutput) Template() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSmsTranslation) string { return v.Template }).(pulumi.StringOutput)
 }
@@ -1629,9 +1584,9 @@ func (o TemplateSmsTranslationArrayOutput) Index(i pulumi.IntInput) TemplateSmsT
 }
 
 type UserSchemaPropertyArrayOneOf struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title string `pulumi:"title"`
 }
 
@@ -1647,9 +1602,9 @@ type UserSchemaPropertyArrayOneOfInput interface {
 }
 
 type UserSchemaPropertyArrayOneOfArgs struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -1722,12 +1677,12 @@ func (o UserSchemaPropertyArrayOneOfOutput) ToOutput(ctx context.Context) pulumi
 	}
 }
 
-// value mapping to member of `enum`.
+// Enum value
 func (o UserSchemaPropertyArrayOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSchemaPropertyArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Enum title
 func (o UserSchemaPropertyArrayOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSchemaPropertyArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -1759,10 +1714,8 @@ func (o UserSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) UserSc
 }
 
 type UserSchemaPropertyMasterOverridePriority struct {
-	// Type of profile source.
-	Type *string `pulumi:"type"`
-	// ID of profile source.
-	Value string `pulumi:"value"`
+	Type  *string `pulumi:"type"`
+	Value string  `pulumi:"value"`
 }
 
 // UserSchemaPropertyMasterOverridePriorityInput is an input type that accepts UserSchemaPropertyMasterOverridePriorityArgs and UserSchemaPropertyMasterOverridePriorityOutput values.
@@ -1777,10 +1730,8 @@ type UserSchemaPropertyMasterOverridePriorityInput interface {
 }
 
 type UserSchemaPropertyMasterOverridePriorityArgs struct {
-	// Type of profile source.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// ID of profile source.
-	Value pulumi.StringInput `pulumi:"value"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.StringInput    `pulumi:"value"`
 }
 
 func (UserSchemaPropertyMasterOverridePriorityArgs) ElementType() reflect.Type {
@@ -1852,12 +1803,10 @@ func (o UserSchemaPropertyMasterOverridePriorityOutput) ToOutput(ctx context.Con
 	}
 }
 
-// Type of profile source.
 func (o UserSchemaPropertyMasterOverridePriorityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSchemaPropertyMasterOverridePriority) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// ID of profile source.
 func (o UserSchemaPropertyMasterOverridePriorityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSchemaPropertyMasterOverridePriority) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1889,9 +1838,9 @@ func (o UserSchemaPropertyMasterOverridePriorityArrayOutput) Index(i pulumi.IntI
 }
 
 type UserSchemaPropertyOneOf struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title string `pulumi:"title"`
 }
 
@@ -1907,9 +1856,9 @@ type UserSchemaPropertyOneOfInput interface {
 }
 
 type UserSchemaPropertyOneOfArgs struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -1982,12 +1931,12 @@ func (o UserSchemaPropertyOneOfOutput) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
-// value mapping to member of `enum`.
+// Enum value
 func (o UserSchemaPropertyOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSchemaPropertyOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Enum title
 func (o UserSchemaPropertyOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSchemaPropertyOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -2019,22 +1968,14 @@ func (o UserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) UserSchemaP
 }
 
 type GetAuthServerClaimsClaim struct {
-	// Specifies whether to include Claims in the token.
-	AlwaysIncludeInToken bool `pulumi:"alwaysIncludeInToken"`
-	// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
-	ClaimType string `pulumi:"claimType"`
-	// ID of the claim.
-	Id string `pulumi:"id"`
-	// Name of the claim.
-	Name string `pulumi:"name"`
-	// Specifies the scopes for this Claim.
-	Scopes []string `pulumi:"scopes"`
-	// Status of the claim.
-	Status string `pulumi:"status"`
-	// Value of the claim
-	Value string `pulumi:"value"`
-	// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
-	ValueType string `pulumi:"valueType"`
+	AlwaysIncludeInToken bool     `pulumi:"alwaysIncludeInToken"`
+	ClaimType            string   `pulumi:"claimType"`
+	Id                   string   `pulumi:"id"`
+	Name                 string   `pulumi:"name"`
+	Scopes               []string `pulumi:"scopes"`
+	Status               string   `pulumi:"status"`
+	Value                string   `pulumi:"value"`
+	ValueType            string   `pulumi:"valueType"`
 }
 
 // GetAuthServerClaimsClaimInput is an input type that accepts GetAuthServerClaimsClaimArgs and GetAuthServerClaimsClaimOutput values.
@@ -2049,22 +1990,14 @@ type GetAuthServerClaimsClaimInput interface {
 }
 
 type GetAuthServerClaimsClaimArgs struct {
-	// Specifies whether to include Claims in the token.
-	AlwaysIncludeInToken pulumi.BoolInput `pulumi:"alwaysIncludeInToken"`
-	// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
-	ClaimType pulumi.StringInput `pulumi:"claimType"`
-	// ID of the claim.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Name of the claim.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the scopes for this Claim.
-	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
-	// Status of the claim.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Value of the claim
-	Value pulumi.StringInput `pulumi:"value"`
-	// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
-	ValueType pulumi.StringInput `pulumi:"valueType"`
+	AlwaysIncludeInToken pulumi.BoolInput        `pulumi:"alwaysIncludeInToken"`
+	ClaimType            pulumi.StringInput      `pulumi:"claimType"`
+	Id                   pulumi.StringInput      `pulumi:"id"`
+	Name                 pulumi.StringInput      `pulumi:"name"`
+	Scopes               pulumi.StringArrayInput `pulumi:"scopes"`
+	Status               pulumi.StringInput      `pulumi:"status"`
+	Value                pulumi.StringInput      `pulumi:"value"`
+	ValueType            pulumi.StringInput      `pulumi:"valueType"`
 }
 
 func (GetAuthServerClaimsClaimArgs) ElementType() reflect.Type {
@@ -2136,42 +2069,34 @@ func (o GetAuthServerClaimsClaimOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
-// Specifies whether to include Claims in the token.
 func (o GetAuthServerClaimsClaimOutput) AlwaysIncludeInToken() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) bool { return v.AlwaysIncludeInToken }).(pulumi.BoolOutput)
 }
 
-// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
 func (o GetAuthServerClaimsClaimOutput) ClaimType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.ClaimType }).(pulumi.StringOutput)
 }
 
-// ID of the claim.
 func (o GetAuthServerClaimsClaimOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the claim.
 func (o GetAuthServerClaimsClaimOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the scopes for this Claim.
 func (o GetAuthServerClaimsClaimOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
-// Status of the claim.
 func (o GetAuthServerClaimsClaimOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Value of the claim
 func (o GetAuthServerClaimsClaimOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
 func (o GetAuthServerClaimsClaimOutput) ValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.ValueType }).(pulumi.StringOutput)
 }
@@ -2203,16 +2128,11 @@ func (o GetAuthServerClaimsClaimArrayOutput) Index(i pulumi.IntInput) GetAuthSer
 }
 
 type GetBehavioursBehavior struct {
-	// Behavior ID.
-	Id string `pulumi:"id"`
-	// Behavior name.
-	Name string `pulumi:"name"`
-	// Map of behavior settings.
+	Id       string            `pulumi:"id"`
+	Name     string            `pulumi:"name"`
 	Settings map[string]string `pulumi:"settings"`
-	// Behavior status.
-	Status string `pulumi:"status"`
-	// Behavior type.
-	Type string `pulumi:"type"`
+	Status   string            `pulumi:"status"`
+	Type     string            `pulumi:"type"`
 }
 
 // GetBehavioursBehaviorInput is an input type that accepts GetBehavioursBehaviorArgs and GetBehavioursBehaviorOutput values.
@@ -2227,16 +2147,11 @@ type GetBehavioursBehaviorInput interface {
 }
 
 type GetBehavioursBehaviorArgs struct {
-	// Behavior ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Behavior name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Map of behavior settings.
+	Id       pulumi.StringInput    `pulumi:"id"`
+	Name     pulumi.StringInput    `pulumi:"name"`
 	Settings pulumi.StringMapInput `pulumi:"settings"`
-	// Behavior status.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Behavior type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Status   pulumi.StringInput    `pulumi:"status"`
+	Type     pulumi.StringInput    `pulumi:"type"`
 }
 
 func (GetBehavioursBehaviorArgs) ElementType() reflect.Type {
@@ -2308,27 +2223,22 @@ func (o GetBehavioursBehaviorOutput) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
-// Behavior ID.
 func (o GetBehavioursBehaviorOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBehavioursBehavior) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Behavior name.
 func (o GetBehavioursBehaviorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBehavioursBehavior) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Map of behavior settings.
 func (o GetBehavioursBehaviorOutput) Settings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetBehavioursBehavior) map[string]string { return v.Settings }).(pulumi.StringMapOutput)
 }
 
-// Behavior status.
 func (o GetBehavioursBehaviorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBehavioursBehavior) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Behavior type.
 func (o GetBehavioursBehaviorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBehavioursBehavior) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2650,17 +2560,11 @@ func (o GetEmailCustomizationsEmailCustomizationArrayOutput) Index(i pulumi.IntI
 }
 
 type GetGroupsGroup struct {
-	// raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
 	CustomProfileAttributes string `pulumi:"customProfileAttributes"`
-	// Group description.
-	Description string `pulumi:"description"`
-	// Group ID.
-	Id string `pulumi:"id"`
-	// Group name.
-	Name string `pulumi:"name"`
-	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
-	Type string `pulumi:"type"`
+	Description             string `pulumi:"description"`
+	Id                      string `pulumi:"id"`
+	Name                    string `pulumi:"name"`
+	Type                    string `pulumi:"type"`
 }
 
 // GetGroupsGroupInput is an input type that accepts GetGroupsGroupArgs and GetGroupsGroupOutput values.
@@ -2675,17 +2579,11 @@ type GetGroupsGroupInput interface {
 }
 
 type GetGroupsGroupArgs struct {
-	// raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
 	CustomProfileAttributes pulumi.StringInput `pulumi:"customProfileAttributes"`
-	// Group description.
-	Description pulumi.StringInput `pulumi:"description"`
-	// Group ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Group name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
-	Type pulumi.StringInput `pulumi:"type"`
+	Description             pulumi.StringInput `pulumi:"description"`
+	Id                      pulumi.StringInput `pulumi:"id"`
+	Name                    pulumi.StringInput `pulumi:"name"`
+	Type                    pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetGroupsGroupArgs) ElementType() reflect.Type {
@@ -2757,28 +2655,22 @@ func (o GetGroupsGroupOutput) ToOutput(ctx context.Context) pulumix.Output[GetGr
 	}
 }
 
-// raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
 func (o GetGroupsGroupOutput) CustomProfileAttributes() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.CustomProfileAttributes }).(pulumi.StringOutput)
 }
 
-// Group description.
 func (o GetGroupsGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Group ID.
 func (o GetGroupsGroupOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Group name.
 func (o GetGroupsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
 func (o GetGroupsGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3124,15 +3016,10 @@ func (o GetThemesThemeArrayOutput) Index(i pulumi.IntInput) GetThemesThemeOutput
 }
 
 type GetTrustedOriginsTrustedOrigin struct {
-	// Whether the Trusted Origin is active or not - can only be issued post-creation
-	Active bool `pulumi:"active"`
-	// The ID of the Trusted Origin.
-	Id string `pulumi:"id"`
-	// Unique name for this trusted origin.
-	Name string `pulumi:"name"`
-	// Unique origin URL for this trusted origin.
-	Origin string `pulumi:"origin"`
-	// Scopes of the Trusted Origin
+	Active bool     `pulumi:"active"`
+	Id     string   `pulumi:"id"`
+	Name   string   `pulumi:"name"`
+	Origin string   `pulumi:"origin"`
 	Scopes []string `pulumi:"scopes"`
 }
 
@@ -3148,15 +3035,10 @@ type GetTrustedOriginsTrustedOriginInput interface {
 }
 
 type GetTrustedOriginsTrustedOriginArgs struct {
-	// Whether the Trusted Origin is active or not - can only be issued post-creation
-	Active pulumi.BoolInput `pulumi:"active"`
-	// The ID of the Trusted Origin.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Unique name for this trusted origin.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Unique origin URL for this trusted origin.
-	Origin pulumi.StringInput `pulumi:"origin"`
-	// Scopes of the Trusted Origin
+	Active pulumi.BoolInput        `pulumi:"active"`
+	Id     pulumi.StringInput      `pulumi:"id"`
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Origin pulumi.StringInput      `pulumi:"origin"`
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 }
 
@@ -3229,27 +3111,22 @@ func (o GetTrustedOriginsTrustedOriginOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
-// Whether the Trusted Origin is active or not - can only be issued post-creation
 func (o GetTrustedOriginsTrustedOriginOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) bool { return v.Active }).(pulumi.BoolOutput)
 }
 
-// The ID of the Trusted Origin.
 func (o GetTrustedOriginsTrustedOriginOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Unique name for this trusted origin.
 func (o GetTrustedOriginsTrustedOriginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Unique origin URL for this trusted origin.
 func (o GetTrustedOriginsTrustedOriginOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) string { return v.Origin }).(pulumi.StringOutput)
 }
 
-// Scopes of the Trusted Origin
 func (o GetTrustedOriginsTrustedOriginOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -3281,9 +3158,7 @@ func (o GetTrustedOriginsTrustedOriginArrayOutput) Index(i pulumi.IntInput) GetT
 }
 
 type GetUserSecurityQuestionsQuestion struct {
-	// Security question unique key.
-	Key string `pulumi:"key"`
-	// Display text for security question.
+	Key  string `pulumi:"key"`
 	Text string `pulumi:"text"`
 }
 
@@ -3299,9 +3174,7 @@ type GetUserSecurityQuestionsQuestionInput interface {
 }
 
 type GetUserSecurityQuestionsQuestionArgs struct {
-	// Security question unique key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Display text for security question.
+	Key  pulumi.StringInput `pulumi:"key"`
 	Text pulumi.StringInput `pulumi:"text"`
 }
 
@@ -3374,12 +3247,10 @@ func (o GetUserSecurityQuestionsQuestionOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
-// Security question unique key.
 func (o GetUserSecurityQuestionsQuestionOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSecurityQuestionsQuestion) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Display text for security question.
 func (o GetUserSecurityQuestionsQuestionOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSecurityQuestionsQuestion) string { return v.Text }).(pulumi.StringOutput)
 }

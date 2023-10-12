@@ -9,48 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
-    /// <summary>
-    /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-    /// 
-    /// This resource allows you to create and configure a Profile Enrollment Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.PolicyProfileEnrollment("example", new()
-    ///     {
-    ///         Status = "ACTIVE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// A Profile Enrollment Policy can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &amp;#60;policy id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:index/policyProfileEnrollment:PolicyProfileEnrollment")]
     public partial class PolicyProfileEnrollment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Policy Name.
+        /// Name of the policy
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the policy.
+        /// Status of the policy
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -102,13 +71,13 @@ namespace Pulumi.Okta
     public sealed class PolicyProfileEnrollmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Policy Name.
+        /// Name of the policy
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Status of the policy.
+        /// Status of the policy
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -122,13 +91,13 @@ namespace Pulumi.Okta
     public sealed class PolicyProfileEnrollmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Policy Name.
+        /// Name of the policy
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Status of the policy.
+        /// Status of the policy
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

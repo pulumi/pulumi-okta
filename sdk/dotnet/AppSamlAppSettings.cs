@@ -9,66 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
-    /// <summary>
-    /// This resource allows you to manage app settings of the SAML Application . It's basically the same as
-    /// `app_settings_json` field in `okta.app.Saml` resource and can be used in cases where settings require to be managed separately.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testSaml = new Okta.App.Saml("testSaml", new()
-    ///     {
-    ///         PreconfiguredApp = "amazon_aws",
-    ///         Label = "Amazon AWS",
-    ///         Status = "ACTIVE",
-    ///     });
-    /// 
-    ///     var testAppSamlAppSettings = new Okta.AppSamlAppSettings("testAppSamlAppSettings", new()
-    ///     {
-    ///         AppId = testSaml.Id,
-    ///         Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["appFilter"] = "okta",
-    ///             ["awsEnvironmentType"] = "aws.amazon",
-    ///             ["groupFilter"] = "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)",
-    ///             ["joinAllRoles"] = false,
-    ///             ["loginURL"] = "https://console.aws.amazon.com/ec2/home",
-    ///             ["roleValuePattern"] = "arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}",
-    ///             ["sessionDuration"] = 3200,
-    ///             ["useGroupMapping"] = false,
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// A settings for the SAML App can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &amp;#60;app id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:index/appSamlAppSettings:AppSamlAppSettings")]
     public partial class AppSamlAppSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of the application.
+        /// Application ID
         /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Output("settings")]
         public Output<string> Settings { get; private set; } = null!;
@@ -120,13 +71,13 @@ namespace Pulumi.Okta
     public sealed class AppSamlAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the application.
+        /// Application ID
         /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Input("settings", required: true)]
         public Input<string> Settings { get; set; } = null!;
@@ -140,13 +91,13 @@ namespace Pulumi.Okta
     public sealed class AppSamlAppSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the application.
+        /// Application ID
         /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }

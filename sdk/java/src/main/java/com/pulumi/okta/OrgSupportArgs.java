@@ -16,14 +16,14 @@ public final class OrgSupportArgs extends com.pulumi.resources.ResourceArgs {
     public static final OrgSupportArgs Empty = new OrgSupportArgs();
 
     /**
-     * Number of days the support should be extended by in addition to the standard eight hours.
+     * Number of days the support should be extended by
      * 
      */
     @Import(name="extendBy")
     private @Nullable Output<Integer> extendBy;
 
     /**
-     * @return Number of days the support should be extended by in addition to the standard eight hours.
+     * @return Number of days the support should be extended by
      * 
      */
     public Optional<Output<Integer>> extendBy() {
@@ -55,7 +55,7 @@ public final class OrgSupportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extendBy Number of days the support should be extended by in addition to the standard eight hours.
+         * @param extendBy Number of days the support should be extended by
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class OrgSupportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extendBy Number of days the support should be extended by in addition to the standard eight hours.
+         * @param extendBy Number of days the support should be extended by
          * 
          * @return builder
          * 

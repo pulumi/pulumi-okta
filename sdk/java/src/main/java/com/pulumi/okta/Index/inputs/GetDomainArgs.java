@@ -14,14 +14,14 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDomainArgs Empty = new GetDomainArgs();
 
     /**
-     * The Okta ID of the domain or the domain name itself.
+     * Brand ID
      * 
      */
     @Import(name="domainIdOrName", required=true)
     private Output<String> domainIdOrName;
 
     /**
-     * @return The Okta ID of the domain or the domain name itself.
+     * @return Brand ID
      * 
      */
     public Output<String> domainIdOrName() {
@@ -53,7 +53,7 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param domainIdOrName The Okta ID of the domain or the domain name itself.
+         * @param domainIdOrName Brand ID
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param domainIdOrName The Okta ID of the domain or the domain name itself.
+         * @param domainIdOrName Brand ID
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
     public static final AdminRoleTargetsArgs Empty = new AdminRoleTargetsArgs();
 
     /**
-     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;).
+     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;)
      * 
      */
     @Import(name="apps")
     private @Nullable Output<List<String>> apps;
 
     /**
-     * @return List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;).
+     * @return List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;)
      * 
      */
     public Optional<Output<List<String>>> apps() {
@@ -32,14 +32,14 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * List of group IDs. Conflicts with `apps`.
+     * List of group IDs
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
     /**
-     * @return List of group IDs. Conflicts with `apps`.
+     * @return List of group IDs
      * 
      */
     public Optional<Output<List<String>>> groups() {
@@ -47,14 +47,14 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * Type of the role that is assigned to the user and supports optional targets
      * 
      */
     @Import(name="roleType", required=true)
     private Output<String> roleType;
 
     /**
-     * @return Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * @return Type of the role that is assigned to the user and supports optional targets
      * 
      */
     public Output<String> roleType() {
@@ -62,14 +62,14 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * ID of the user.
+     * User associated with the role
      * 
      */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
     /**
-     * @return ID of the user.
+     * @return User associated with the role
      * 
      */
     public Output<String> userId() {
@@ -104,7 +104,7 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param apps List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;).
+         * @param apps List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;)
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param apps List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;).
+         * @param apps List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;)
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param apps List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;).
+         * @param apps List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;)
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groups List of group IDs. Conflicts with `apps`.
+         * @param groups List of group IDs
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groups List of group IDs. Conflicts with `apps`.
+         * @param groups List of group IDs
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groups List of group IDs. Conflicts with `apps`.
+         * @param groups List of group IDs
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param roleType Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+         * @param roleType Type of the role that is assigned to the user and supports optional targets
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param roleType Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+         * @param roleType Type of the role that is assigned to the user and supports optional targets
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userId ID of the user.
+         * @param userId User associated with the role
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userId ID of the user.
+         * @param userId User associated with the role
          * 
          * @return builder
          * 

@@ -5,9 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ * Get an authenticator by key, name of ID.
  *
- * Use this data source to retrieve an authenticator.
+ * > **WARNING:** This feature is only available as a part of the
+ * Identity Engine. Contact support
+ * for further information.
  *
  * ## Example Usage
  *
@@ -16,16 +18,10 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const test = okta.getAuthenticator({
- *     name: "Security Question",
+ *     key: "security_question",
  * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getAuthenticator({
- *     key: "okta_email",
+ * const test1 = okta.getAuthenticator({
+ *     name: "Okta Verify",
  * });
  * ```
  */
@@ -66,23 +62,29 @@ export interface GetAuthenticatorResult {
      * ID of the authenticator.
      */
     readonly id?: string;
+    /**
+     * A human-readable string that identifies the authenticator.
+     */
     readonly key?: string;
     /**
      * Name of the authenticator.
      */
     readonly name?: string;
     /**
-     * (Specific to `securityKey`) The provider server port (for example 1812).
+     * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
      */
     readonly providerAuthPort: number;
     /**
-     * (Specific to `securityKey`) Server host name or IP address.
+     * Server host name or IP address
      */
     readonly providerHostname: string;
     /**
      * (Specific to `securityKey`) App Instance ID.
      */
     readonly providerInstanceId: string;
+    /**
+     * Authenticator Provider in JSON format
+     */
     readonly providerJson: string;
     /**
      * Provider type.
@@ -93,7 +95,7 @@ export interface GetAuthenticatorResult {
      */
     readonly providerUserNameTemplate: string;
     /**
-     * Settings for the authenticator (expressed in JSON).
+     * Authenticator settings in JSON format
      */
     readonly settings: string;
     /**
@@ -101,14 +103,16 @@ export interface GetAuthenticatorResult {
      */
     readonly status: string;
     /**
-     * The type of Authenticator.
+     * Type of the authenticator
      */
     readonly type: string;
 }
 /**
- * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ * Get an authenticator by key, name of ID.
  *
- * Use this data source to retrieve an authenticator.
+ * > **WARNING:** This feature is only available as a part of the
+ * Identity Engine. Contact support
+ * for further information.
  *
  * ## Example Usage
  *
@@ -117,16 +121,10 @@ export interface GetAuthenticatorResult {
  * import * as okta from "@pulumi/okta";
  *
  * const test = okta.getAuthenticator({
- *     name: "Security Question",
+ *     key: "security_question",
  * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getAuthenticator({
- *     key: "okta_email",
+ * const test1 = okta.getAuthenticator({
+ *     name: "Okta Verify",
  * });
  * ```
  */

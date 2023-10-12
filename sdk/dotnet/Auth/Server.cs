@@ -9,48 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Auth
 {
-    /// <summary>
-    /// Creates an Authorization Server.
-    /// 
-    /// This resource allows you to create and configure an Authorization Server.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Auth.Server("example", new()
-    ///     {
-    ///         Audiences = new[]
-    ///         {
-    ///             "api://example",
-    ///         },
-    ///         Description = "My Example Auth Server",
-    ///         IssuerMode = "CUSTOM_URL",
-    ///         Status = "ACTIVE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Authorization Server can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:auth/server:Server example &amp;#60;auth server id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:auth/server:Server")]
     public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        /// Currently Okta only supports a single value here
         /// </summary>
         [Output("audiences")]
         public Output<ImmutableArray<string>> Audiences { get; private set; } = null!;
@@ -62,13 +25,13 @@ namespace Pulumi.Okta.Auth
         public Output<string> CredentialsLastRotated { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
+        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
         /// </summary>
         [Output("credentialsNextRotation")]
         public Output<string> CredentialsNextRotation { get; private set; } = null!;
 
         /// <summary>
-        /// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        /// Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         /// </summary>
         [Output("credentialsRotationMode")]
         public Output<string?> CredentialsRotationMode { get; private set; } = null!;
@@ -80,13 +43,13 @@ namespace Pulumi.Okta.Auth
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
+        /// allows you to use a custom issuer URL
         /// </summary>
         [Output("issuer")]
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+        /// *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
@@ -103,9 +66,6 @@ namespace Pulumi.Okta.Auth
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the auth server. It defaults to `"ACTIVE"`
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
@@ -159,7 +119,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _audiences;
 
         /// <summary>
-        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        /// Currently Okta only supports a single value here
         /// </summary>
         public InputList<string> Audiences
         {
@@ -168,7 +128,7 @@ namespace Pulumi.Okta.Auth
         }
 
         /// <summary>
-        /// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        /// Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         /// </summary>
         [Input("credentialsRotationMode")]
         public Input<string>? CredentialsRotationMode { get; set; }
@@ -180,7 +140,7 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+        /// *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -191,9 +151,6 @@ namespace Pulumi.Okta.Auth
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The status of the auth server. It defaults to `"ACTIVE"`
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -209,7 +166,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _audiences;
 
         /// <summary>
-        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        /// Currently Okta only supports a single value here
         /// </summary>
         public InputList<string> Audiences
         {
@@ -224,13 +181,13 @@ namespace Pulumi.Okta.Auth
         public Input<string>? CredentialsLastRotated { get; set; }
 
         /// <summary>
-        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
+        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
         /// </summary>
         [Input("credentialsNextRotation")]
         public Input<string>? CredentialsNextRotation { get; set; }
 
         /// <summary>
-        /// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        /// Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         /// </summary>
         [Input("credentialsRotationMode")]
         public Input<string>? CredentialsRotationMode { get; set; }
@@ -242,13 +199,13 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
+        /// allows you to use a custom issuer URL
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 
         /// <summary>
-        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+        /// *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -265,9 +222,6 @@ namespace Pulumi.Okta.Auth
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The status of the auth server. It defaults to `"ACTIVE"`
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

@@ -38,12 +38,6 @@ class EmailDomainDnsValidationRecord(dict):
                  fqdn: Optional[str] = None,
                  record_type: Optional[str] = None,
                  value: Optional[str] = None):
-        """
-        :param str fqdn: DNS record name.
-        :param str record_type: Record type can be TXT or cname.
-        :param str value: DNS record value
-               - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
-        """
         EmailDomainDnsValidationRecord._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             expiration=expiration,
@@ -79,26 +73,16 @@ class EmailDomainDnsValidationRecord(dict):
     @property
     @pulumi.getter
     def fqdn(self) -> Optional[str]:
-        """
-        DNS record name.
-        """
         return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter(name="recordType")
     def record_type(self) -> Optional[str]:
-        """
-        Record type can be TXT or cname.
-        """
         return pulumi.get(self, "record_type")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        DNS record value
-        - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
-        """
         return pulumi.get(self, "value")
 
 
@@ -109,12 +93,6 @@ class GetDomainDnsRecordResult(dict):
                  fqdn: str,
                  record_type: str,
                  values: Sequence[str]):
-        """
-        :param str expiration: TXT record expiration.
-        :param str fqdn: DNS record name.
-        :param str record_type: Record type can be TXT or CNAME.
-        :param Sequence[str] values: DNS verification value
-        """
         GetDomainDnsRecordResult._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             expiration=expiration,
@@ -138,33 +116,21 @@ class GetDomainDnsRecordResult(dict):
     @property
     @pulumi.getter
     def expiration(self) -> str:
-        """
-        TXT record expiration.
-        """
         return pulumi.get(self, "expiration")
 
     @property
     @pulumi.getter
     def fqdn(self) -> str:
-        """
-        DNS record name.
-        """
         return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter(name="recordType")
     def record_type(self) -> str:
-        """
-        Record type can be TXT or CNAME.
-        """
         return pulumi.get(self, "record_type")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        DNS verification value
-        """
         return pulumi.get(self, "values")
 
 

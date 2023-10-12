@@ -13,72 +13,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Creates an inline hook.
-//
-// This resource allows you to create and configure an inline hook.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/inline"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := inline.NewHook(ctx, "example", &inline.HookArgs{
-//				Auth: pulumi.StringMap{
-//					"key":   pulumi.String("Authorization"),
-//					"type":  pulumi.String("HEADER"),
-//					"value": pulumi.String("secret"),
-//				},
-//				Channel: pulumi.StringMap{
-//					"method":  pulumi.String("POST"),
-//					"uri":     pulumi.String("https://example.com/test"),
-//					"version": pulumi.String("1.0.0"),
-//				},
-//				Type:    pulumi.String("com.okta.oauth2.tokens.transform"),
-//				Version: pulumi.String("1.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// An inline hook can be imported via the Okta ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
-//
-// ```
 type Hook struct {
 	pulumi.CustomResourceState
 
-	// Authentication required for inline hook request.
-	Auth pulumi.StringMapOutput `pulumi:"auth"`
-	// Details of the endpoint the inline hook will hit.
+	Auth    pulumi.StringMapOutput `pulumi:"auth"`
 	Channel pulumi.StringMapOutput `pulumi:"channel"`
-	// Map of headers to send along in inline hook request.
-	Headers HookHeaderArrayOutput `pulumi:"headers"`
-	// The inline hook display name.
-	Name   pulumi.StringOutput    `pulumi:"name"`
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the channel. The currently-supported version is `"1.0.0"`.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Headers HookHeaderArrayOutput  `pulumi:"headers"`
+	Name    pulumi.StringOutput    `pulumi:"name"`
+	Status  pulumi.StringPtrOutput `pulumi:"status"`
+	Type    pulumi.StringOutput    `pulumi:"type"`
+	Version pulumi.StringOutput    `pulumi:"version"`
 }
 
 // NewHook registers a new resource with the given unique name, arguments, and options.
@@ -120,34 +64,22 @@ func GetHook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Hook resources.
 type hookState struct {
-	// Authentication required for inline hook request.
-	Auth map[string]string `pulumi:"auth"`
-	// Details of the endpoint the inline hook will hit.
+	Auth    map[string]string `pulumi:"auth"`
 	Channel map[string]string `pulumi:"channel"`
-	// Map of headers to send along in inline hook request.
-	Headers []HookHeader `pulumi:"headers"`
-	// The inline hook display name.
-	Name   *string `pulumi:"name"`
-	Status *string `pulumi:"status"`
-	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-	Type *string `pulumi:"type"`
-	// Version of the channel. The currently-supported version is `"1.0.0"`.
-	Version *string `pulumi:"version"`
+	Headers []HookHeader      `pulumi:"headers"`
+	Name    *string           `pulumi:"name"`
+	Status  *string           `pulumi:"status"`
+	Type    *string           `pulumi:"type"`
+	Version *string           `pulumi:"version"`
 }
 
 type HookState struct {
-	// Authentication required for inline hook request.
-	Auth pulumi.StringMapInput
-	// Details of the endpoint the inline hook will hit.
+	Auth    pulumi.StringMapInput
 	Channel pulumi.StringMapInput
-	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayInput
-	// The inline hook display name.
-	Name   pulumi.StringPtrInput
-	Status pulumi.StringPtrInput
-	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-	Type pulumi.StringPtrInput
-	// Version of the channel. The currently-supported version is `"1.0.0"`.
+	Name    pulumi.StringPtrInput
+	Status  pulumi.StringPtrInput
+	Type    pulumi.StringPtrInput
 	Version pulumi.StringPtrInput
 }
 
@@ -156,35 +88,23 @@ func (HookState) ElementType() reflect.Type {
 }
 
 type hookArgs struct {
-	// Authentication required for inline hook request.
-	Auth map[string]string `pulumi:"auth"`
-	// Details of the endpoint the inline hook will hit.
+	Auth    map[string]string `pulumi:"auth"`
 	Channel map[string]string `pulumi:"channel"`
-	// Map of headers to send along in inline hook request.
-	Headers []HookHeader `pulumi:"headers"`
-	// The inline hook display name.
-	Name   *string `pulumi:"name"`
-	Status *string `pulumi:"status"`
-	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-	Type string `pulumi:"type"`
-	// Version of the channel. The currently-supported version is `"1.0.0"`.
-	Version string `pulumi:"version"`
+	Headers []HookHeader      `pulumi:"headers"`
+	Name    *string           `pulumi:"name"`
+	Status  *string           `pulumi:"status"`
+	Type    string            `pulumi:"type"`
+	Version string            `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Hook resource.
 type HookArgs struct {
-	// Authentication required for inline hook request.
-	Auth pulumi.StringMapInput
-	// Details of the endpoint the inline hook will hit.
+	Auth    pulumi.StringMapInput
 	Channel pulumi.StringMapInput
-	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayInput
-	// The inline hook display name.
-	Name   pulumi.StringPtrInput
-	Status pulumi.StringPtrInput
-	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-	Type pulumi.StringInput
-	// Version of the channel. The currently-supported version is `"1.0.0"`.
+	Name    pulumi.StringPtrInput
+	Status  pulumi.StringPtrInput
+	Type    pulumi.StringInput
 	Version pulumi.StringInput
 }
 
@@ -299,22 +219,18 @@ func (o HookOutput) ToOutput(ctx context.Context) pulumix.Output[*Hook] {
 	}
 }
 
-// Authentication required for inline hook request.
 func (o HookOutput) Auth() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringMapOutput { return v.Auth }).(pulumi.StringMapOutput)
 }
 
-// Details of the endpoint the inline hook will hit.
 func (o HookOutput) Channel() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringMapOutput { return v.Channel }).(pulumi.StringMapOutput)
 }
 
-// Map of headers to send along in inline hook request.
 func (o HookOutput) Headers() HookHeaderArrayOutput {
 	return o.ApplyT(func(v *Hook) HookHeaderArrayOutput { return v.Headers }).(HookHeaderArrayOutput)
 }
 
-// The inline hook display name.
 func (o HookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -323,12 +239,10 @@ func (o HookOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
 func (o HookOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Version of the channel. The currently-supported version is `"1.0.0"`.
 func (o HookOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

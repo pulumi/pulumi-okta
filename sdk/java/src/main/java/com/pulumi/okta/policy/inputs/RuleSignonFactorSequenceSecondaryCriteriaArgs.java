@@ -14,14 +14,14 @@ public final class RuleSignonFactorSequenceSecondaryCriteriaArgs extends com.pul
     public static final RuleSignonFactorSequenceSecondaryCriteriaArgs Empty = new RuleSignonFactorSequenceSecondaryCriteriaArgs();
 
     /**
-     * Factor type of the additional authentication step.
+     * Type of a Factor
      * 
      */
     @Import(name="factorType", required=true)
     private Output<String> factorType;
 
     /**
-     * @return Factor type of the additional authentication step.
+     * @return Type of a Factor
      * 
      */
     public Output<String> factorType() {
@@ -29,14 +29,14 @@ public final class RuleSignonFactorSequenceSecondaryCriteriaArgs extends com.pul
     }
 
     /**
-     * Provider of the additional authentication step.
+     * Factor provider
      * 
      */
     @Import(name="provider", required=true)
     private Output<String> provider;
 
     /**
-     * @return Provider of the additional authentication step.
+     * @return Factor provider
      * 
      */
     public Output<String> provider() {
@@ -69,7 +69,7 @@ public final class RuleSignonFactorSequenceSecondaryCriteriaArgs extends com.pul
         }
 
         /**
-         * @param factorType Factor type of the additional authentication step.
+         * @param factorType Type of a Factor
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class RuleSignonFactorSequenceSecondaryCriteriaArgs extends com.pul
         }
 
         /**
-         * @param factorType Factor type of the additional authentication step.
+         * @param factorType Type of a Factor
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class RuleSignonFactorSequenceSecondaryCriteriaArgs extends com.pul
         }
 
         /**
-         * @param provider Provider of the additional authentication step.
+         * @param provider Factor provider
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class RuleSignonFactorSequenceSecondaryCriteriaArgs extends com.pul
         }
 
         /**
-         * @param provider Provider of the additional authentication step.
+         * @param provider Factor provider
          * 
          * @return builder
          * 

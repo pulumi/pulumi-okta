@@ -9,43 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
-    /// <summary>
-    /// Link definition operations allow you to manage the creation and removal of the link definitions. If you remove a link
-    /// definition, links based on that definition are unavailable. Note that this resource is immutable, thus can not be modified.
-    /// 
-    /// &gt; **NOTE:** Links reappear if you recreate the definition. However, Okta is likely to change this behavior so that links don't reappear. Don't rely on this behavior in production environments.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.LinkDefinition("example", new()
-    ///     {
-    ///         AssociatedDescription = "Elite military force member",
-    ///         AssociatedName = "sardaukar",
-    ///         AssociatedTitle = "Sardaukar",
-    ///         PrimaryDescription = "Hereditary ruler of the Imperium and the Known Universe",
-    ///         PrimaryName = "emperor",
-    ///         PrimaryTitle = "Emperor",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Okta Link Definition can be imported via the Okta Primary Link Name.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:index/linkDefinition:LinkDefinition example &amp;#60;primary_name&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:index/linkDefinition:LinkDefinition")]
     public partial class LinkDefinition : global::Pulumi.CustomResource
     {

@@ -16,36 +16,27 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and configure an Okta
- * [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
- * 
- * ## Import
- * 
- * An Okta Brand can be imported via the ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/brand:Brand example &amp;#60;brand id&amp;#62;
- * ```
+ * Manages brand
  * 
  */
 @ResourceType(type="okta:index/brand:Brand")
 public class Brand extends com.pulumi.resources.CustomResource {
     /**
-     * Is a required input flag with when changing custom_privacy_url, shouldn&#39;t be considered as a readable property
+     * Consent for updating the custom privacy policy URL.
      * 
      */
     @Export(name="agreeToCustomPrivacyPolicy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> agreeToCustomPrivacyPolicy;
 
     /**
-     * @return Is a required input flag with when changing custom_privacy_url, shouldn&#39;t be considered as a readable property
+     * @return Consent for updating the custom privacy policy URL.
      * 
      */
     public Output<Boolean> agreeToCustomPrivacyPolicy() {
         return this.agreeToCustomPrivacyPolicy;
     }
     /**
-     * (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+     * Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
      * 
      * @deprecated
      * Okta has fully support brand creation, this attribute is a no op and will be removed
@@ -56,7 +47,7 @@ public class Brand extends com.pulumi.resources.CustomResource {
     private Output<String> brandId;
 
     /**
-     * @return (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+     * @return Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
      * 
      */
     public Output<String> brandId() {
@@ -133,28 +124,28 @@ public class Brand extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.emailDomainId);
     }
     /**
-     * (Read-only) Is this the default brand
+     * Is this the default brand
      * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
     /**
-     * @return (Read-only) Is this the default brand
+     * @return Is this the default brand
      * 
      */
     public Output<Boolean> isDefault() {
         return this.isDefault;
     }
     /**
-     * (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * Link relations for this object - JSON HAL - Discoverable resources related to the brand
      * 
      */
     @Export(name="links", refs={String.class}, tree="[0]")
     private Output<String> links;
 
     /**
-     * @return (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the brand
      * 
      */
     public Output<String> links() {
@@ -175,28 +166,28 @@ public class Brand extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.locale);
     }
     /**
-     * Name of the brand
+     * Brand name
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the brand
+     * @return Brand name
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
     @Export(name="removePoweredByOkta", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> removePoweredByOkta;
 
     /**
-     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
     public Output<Boolean> removePoweredByOkta() {

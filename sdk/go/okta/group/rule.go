@@ -13,68 +13,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Creates an Okta Group Rule.
-//
-// This resource allows you to create and configure an Okta Group Rule.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/group"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := group.NewRule(ctx, "example", &group.RuleArgs{
-//				ExpressionType:  pulumi.String("urn:okta:expression:1.0"),
-//				ExpressionValue: pulumi.String("String.startsWith(user.firstName,\"andy\")"),
-//				GroupAssignments: pulumi.StringArray{
-//					pulumi.String("<group id>"),
-//				},
-//				Status: pulumi.String("ACTIVE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// An Okta Group Rule can be imported via the Okta ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
-//
-// ```
 type Rule struct {
 	pulumi.CustomResourceState
 
-	// The expression type to use to invoke the rule. The default
-	// is `"urn:okta:expression:1.0"`.
-	ExpressionType pulumi.StringPtrOutput `pulumi:"expressionType"`
-	// The expression value.
-	ExpressionValue pulumi.StringOutput `pulumi:"expressionValue"`
-	// The list of group ids to assign the users to.
+	ExpressionType   pulumi.StringPtrOutput   `pulumi:"expressionType"`
+	ExpressionValue  pulumi.StringOutput      `pulumi:"expressionValue"`
 	GroupAssignments pulumi.StringArrayOutput `pulumi:"groupAssignments"`
-	// The name of the Group Rule (min character 1; max characters 50).
-	Name pulumi.StringOutput `pulumi:"name"`
-	// This tells the provider to remove users added by this rule from the assigned
-	// group after destroying this resource. Default is `false`.
-	RemoveAssignedUsers pulumi.BoolPtrOutput `pulumi:"removeAssignedUsers"`
-	// The status of the group rule.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The list of user IDs that would be excluded when rules are processed.
+	Name             pulumi.StringOutput      `pulumi:"name"`
+	// Remove users added by this rule from the assigned group after deleting this resource
+	RemoveAssignedUsers pulumi.BoolPtrOutput   `pulumi:"removeAssignedUsers"`
+	Status              pulumi.StringPtrOutput `pulumi:"status"`
+	// The list of user IDs that would be excluded when rules are processed
 	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
 }
 
@@ -114,40 +63,26 @@ func GetRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Rule resources.
 type ruleState struct {
-	// The expression type to use to invoke the rule. The default
-	// is `"urn:okta:expression:1.0"`.
-	ExpressionType *string `pulumi:"expressionType"`
-	// The expression value.
-	ExpressionValue *string `pulumi:"expressionValue"`
-	// The list of group ids to assign the users to.
+	ExpressionType   *string  `pulumi:"expressionType"`
+	ExpressionValue  *string  `pulumi:"expressionValue"`
 	GroupAssignments []string `pulumi:"groupAssignments"`
-	// The name of the Group Rule (min character 1; max characters 50).
-	Name *string `pulumi:"name"`
-	// This tells the provider to remove users added by this rule from the assigned
-	// group after destroying this resource. Default is `false`.
-	RemoveAssignedUsers *bool `pulumi:"removeAssignedUsers"`
-	// The status of the group rule.
-	Status *string `pulumi:"status"`
-	// The list of user IDs that would be excluded when rules are processed.
+	Name             *string  `pulumi:"name"`
+	// Remove users added by this rule from the assigned group after deleting this resource
+	RemoveAssignedUsers *bool   `pulumi:"removeAssignedUsers"`
+	Status              *string `pulumi:"status"`
+	// The list of user IDs that would be excluded when rules are processed
 	UsersExcludeds []string `pulumi:"usersExcludeds"`
 }
 
 type RuleState struct {
-	// The expression type to use to invoke the rule. The default
-	// is `"urn:okta:expression:1.0"`.
-	ExpressionType pulumi.StringPtrInput
-	// The expression value.
-	ExpressionValue pulumi.StringPtrInput
-	// The list of group ids to assign the users to.
+	ExpressionType   pulumi.StringPtrInput
+	ExpressionValue  pulumi.StringPtrInput
 	GroupAssignments pulumi.StringArrayInput
-	// The name of the Group Rule (min character 1; max characters 50).
-	Name pulumi.StringPtrInput
-	// This tells the provider to remove users added by this rule from the assigned
-	// group after destroying this resource. Default is `false`.
+	Name             pulumi.StringPtrInput
+	// Remove users added by this rule from the assigned group after deleting this resource
 	RemoveAssignedUsers pulumi.BoolPtrInput
-	// The status of the group rule.
-	Status pulumi.StringPtrInput
-	// The list of user IDs that would be excluded when rules are processed.
+	Status              pulumi.StringPtrInput
+	// The list of user IDs that would be excluded when rules are processed
 	UsersExcludeds pulumi.StringArrayInput
 }
 
@@ -156,41 +91,27 @@ func (RuleState) ElementType() reflect.Type {
 }
 
 type ruleArgs struct {
-	// The expression type to use to invoke the rule. The default
-	// is `"urn:okta:expression:1.0"`.
-	ExpressionType *string `pulumi:"expressionType"`
-	// The expression value.
-	ExpressionValue string `pulumi:"expressionValue"`
-	// The list of group ids to assign the users to.
+	ExpressionType   *string  `pulumi:"expressionType"`
+	ExpressionValue  string   `pulumi:"expressionValue"`
 	GroupAssignments []string `pulumi:"groupAssignments"`
-	// The name of the Group Rule (min character 1; max characters 50).
-	Name *string `pulumi:"name"`
-	// This tells the provider to remove users added by this rule from the assigned
-	// group after destroying this resource. Default is `false`.
-	RemoveAssignedUsers *bool `pulumi:"removeAssignedUsers"`
-	// The status of the group rule.
-	Status *string `pulumi:"status"`
-	// The list of user IDs that would be excluded when rules are processed.
+	Name             *string  `pulumi:"name"`
+	// Remove users added by this rule from the assigned group after deleting this resource
+	RemoveAssignedUsers *bool   `pulumi:"removeAssignedUsers"`
+	Status              *string `pulumi:"status"`
+	// The list of user IDs that would be excluded when rules are processed
 	UsersExcludeds []string `pulumi:"usersExcludeds"`
 }
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
-	// The expression type to use to invoke the rule. The default
-	// is `"urn:okta:expression:1.0"`.
-	ExpressionType pulumi.StringPtrInput
-	// The expression value.
-	ExpressionValue pulumi.StringInput
-	// The list of group ids to assign the users to.
+	ExpressionType   pulumi.StringPtrInput
+	ExpressionValue  pulumi.StringInput
 	GroupAssignments pulumi.StringArrayInput
-	// The name of the Group Rule (min character 1; max characters 50).
-	Name pulumi.StringPtrInput
-	// This tells the provider to remove users added by this rule from the assigned
-	// group after destroying this resource. Default is `false`.
+	Name             pulumi.StringPtrInput
+	// Remove users added by this rule from the assigned group after deleting this resource
 	RemoveAssignedUsers pulumi.BoolPtrInput
-	// The status of the group rule.
-	Status pulumi.StringPtrInput
-	// The list of user IDs that would be excluded when rules are processed.
+	Status              pulumi.StringPtrInput
+	// The list of user IDs that would be excluded when rules are processed
 	UsersExcludeds pulumi.StringArrayInput
 }
 
@@ -305,39 +226,32 @@ func (o RuleOutput) ToOutput(ctx context.Context) pulumix.Output[*Rule] {
 	}
 }
 
-// The expression type to use to invoke the rule. The default
-// is `"urn:okta:expression:1.0"`.
 func (o RuleOutput) ExpressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.ExpressionType }).(pulumi.StringPtrOutput)
 }
 
-// The expression value.
 func (o RuleOutput) ExpressionValue() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.ExpressionValue }).(pulumi.StringOutput)
 }
 
-// The list of group ids to assign the users to.
 func (o RuleOutput) GroupAssignments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringArrayOutput { return v.GroupAssignments }).(pulumi.StringArrayOutput)
 }
 
-// The name of the Group Rule (min character 1; max characters 50).
 func (o RuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// This tells the provider to remove users added by this rule from the assigned
-// group after destroying this resource. Default is `false`.
+// Remove users added by this rule from the assigned group after deleting this resource
 func (o RuleOutput) RemoveAssignedUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.BoolPtrOutput { return v.RemoveAssignedUsers }).(pulumi.BoolPtrOutput)
 }
 
-// The status of the group rule.
 func (o RuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The list of user IDs that would be excluded when rules are processed.
+// The list of user IDs that would be excluded when rules are processed
 func (o RuleOutput) UsersExcludeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
 }

@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Use this data source to retrieve a list of user's security questions.
-//
 // ## Example Usage
 //
 // ```go
@@ -58,17 +56,17 @@ func GetUserSecurityQuestions(ctx *pulumi.Context, args *GetUserSecurityQuestion
 
 // A collection of arguments for invoking getUserSecurityQuestions.
 type GetUserSecurityQuestionsArgs struct {
-	// User ID.
+	// ID of a Okta User
 	UserId string `pulumi:"userId"`
 }
 
 // A collection of values returned by getUserSecurityQuestions.
 type GetUserSecurityQuestionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// collection of user's security question retrieved from Okta with the following properties:
+	Id        string                             `pulumi:"id"`
 	Questions []GetUserSecurityQuestionsQuestion `pulumi:"questions"`
-	UserId    string                             `pulumi:"userId"`
+	// ID of a Okta User
+	UserId string `pulumi:"userId"`
 }
 
 func GetUserSecurityQuestionsOutput(ctx *pulumi.Context, args GetUserSecurityQuestionsOutputArgs, opts ...pulumi.InvokeOption) GetUserSecurityQuestionsResultOutput {
@@ -86,7 +84,7 @@ func GetUserSecurityQuestionsOutput(ctx *pulumi.Context, args GetUserSecurityQue
 
 // A collection of arguments for invoking getUserSecurityQuestions.
 type GetUserSecurityQuestionsOutputArgs struct {
-	// User ID.
+	// ID of a Okta User
 	UserId pulumi.StringInput `pulumi:"userId"`
 }
 
@@ -120,11 +118,11 @@ func (o GetUserSecurityQuestionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSecurityQuestionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// collection of user's security question retrieved from Okta with the following properties:
 func (o GetUserSecurityQuestionsResultOutput) Questions() GetUserSecurityQuestionsQuestionArrayOutput {
 	return o.ApplyT(func(v GetUserSecurityQuestionsResult) []GetUserSecurityQuestionsQuestion { return v.Questions }).(GetUserSecurityQuestionsQuestionArrayOutput)
 }
 
+// ID of a Okta User
 func (o GetUserSecurityQuestionsResultOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSecurityQuestionsResult) string { return v.UserId }).(pulumi.StringOutput)
 }

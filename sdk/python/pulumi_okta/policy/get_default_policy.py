@@ -41,7 +41,7 @@ class GetDefaultPolicyResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        type of policy.
+        Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
         """
         return pulumi.get(self, "type")
 
@@ -59,7 +59,9 @@ class AwaitableGetDefaultPolicyResult(GetDefaultPolicyResult):
 def get_default_policy(type: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultPolicyResult:
     """
-    Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `policy_get_policy` with default names, this is simply a shortcut.
+    Use this data source to retrieve a default policy from Okta. This
+    same thing can be achieved using the `policy_get_policy` with default
+    names, this is simply a shortcut.
 
     ## Example Usage
 
@@ -71,8 +73,7 @@ def get_default_policy(type: Optional[str] = None,
     ```
 
 
-    :param str type: Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
-           `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
+    :param str type: Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
     """
     __args__ = dict()
     __args__['type'] = type
@@ -88,7 +89,9 @@ def get_default_policy(type: Optional[str] = None,
 def get_default_policy_output(type: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultPolicyResult]:
     """
-    Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `policy_get_policy` with default names, this is simply a shortcut.
+    Use this data source to retrieve a default policy from Okta. This
+    same thing can be achieved using the `policy_get_policy` with default
+    names, this is simply a shortcut.
 
     ## Example Usage
 
@@ -100,7 +103,6 @@ def get_default_policy_output(type: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str type: Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
-           `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
+    :param str type: Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
     """
     ...

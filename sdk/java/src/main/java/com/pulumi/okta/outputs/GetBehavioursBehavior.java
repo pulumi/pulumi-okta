@@ -10,65 +10,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBehavioursBehavior {
-    /**
-     * @return Behavior ID.
-     * 
-     */
     private String id;
-    /**
-     * @return Behavior name.
-     * 
-     */
     private String name;
-    /**
-     * @return Map of behavior settings.
-     * 
-     */
     private Map<String,String> settings;
-    /**
-     * @return Behavior status.
-     * 
-     */
     private String status;
-    /**
-     * @return Behavior type.
-     * 
-     */
     private String type;
 
     private GetBehavioursBehavior() {}
-    /**
-     * @return Behavior ID.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Behavior name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Map of behavior settings.
-     * 
-     */
     public Map<String,String> settings() {
         return this.settings;
     }
-    /**
-     * @return Behavior status.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Behavior type.
-     * 
-     */
     public String type() {
         return this.type;
     }

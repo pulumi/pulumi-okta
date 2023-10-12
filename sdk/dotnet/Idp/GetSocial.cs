@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Idp
     public static class GetSocial
     {
         /// <summary>
-        /// Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
+        /// Get a social IdP from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Okta.Idp
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
+        /// Get a social IdP from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -157,6 +157,9 @@ namespace Pulumi.Okta.Idp
         /// Whitelist of Okta Group identifiers.
         /// </summary>
         public readonly ImmutableArray<string> GroupsFilters;
+        /// <summary>
+        /// The id of the social idp to retrieve, conflicts with `name`.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
@@ -166,6 +169,9 @@ namespace Pulumi.Okta.Idp
         /// Maximum allowable clock-skew when processing messages from the IdP.
         /// </summary>
         public readonly int MaxClockSkew;
+        /// <summary>
+        /// The name of the social idp to retrieve, conflicts with `id`.
+        /// </summary>
         public readonly string? Name;
         /// <summary>
         /// Determines if the IdP should act as a source of truth for user profile attributes.

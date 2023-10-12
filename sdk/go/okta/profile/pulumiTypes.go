@@ -15,11 +15,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type MappingMapping struct {
-	// Combination or single source properties that will be mapped to the target property.
 	Expression string `pulumi:"expression"`
-	// Key of mapping.
-	Id string `pulumi:"id"`
-	// Whether to update target properties on user create & update or just on create.
+	// The mapping property key.
+	Id         string  `pulumi:"id"`
 	PushStatus *string `pulumi:"pushStatus"`
 }
 
@@ -35,11 +33,9 @@ type MappingMappingInput interface {
 }
 
 type MappingMappingArgs struct {
-	// Combination or single source properties that will be mapped to the target property.
 	Expression pulumi.StringInput `pulumi:"expression"`
-	// Key of mapping.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Whether to update target properties on user create & update or just on create.
+	// The mapping property key.
+	Id         pulumi.StringInput    `pulumi:"id"`
 	PushStatus pulumi.StringPtrInput `pulumi:"pushStatus"`
 }
 
@@ -112,17 +108,15 @@ func (o MappingMappingOutput) ToOutput(ctx context.Context) pulumix.Output[Mappi
 	}
 }
 
-// Combination or single source properties that will be mapped to the target property.
 func (o MappingMappingOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v MappingMapping) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-// Key of mapping.
+// The mapping property key.
 func (o MappingMappingOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MappingMapping) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Whether to update target properties on user create & update or just on create.
 func (o MappingMappingOutput) PushStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MappingMapping) *string { return v.PushStatus }).(pulumi.StringPtrOutput)
 }

@@ -16,157 +16,73 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Assigns Admin roles to Okta Groups.
- * 
- * This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one
- * interface between the Okta group and the admin role.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.group.Role;
- * import com.pulumi.okta.group.RoleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .groupId(&#34;&lt;group id&gt;&#34;)
- *             .roleType(&#34;READ_ONLY_ADMIN&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Individual admin role assignment can be imported by passing the group and role assignment IDs as follows
- * 
- * ```sh
- *  $ pulumi import okta:group/role:Role example &amp;#60;group id&amp;#62;/&amp;#60;role id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:group/role:Role")
 public class Role extends com.pulumi.resources.CustomResource {
     /**
-     * When this setting is enabled, the admins won&#39;t receive any of the default Okta
-     * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+     * When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails
      * 
      */
     @Export(name="disableNotifications", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableNotifications;
 
     /**
-     * @return When this setting is enabled, the admins won&#39;t receive any of the default Okta
-     * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+     * @return When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails
      * 
      */
     public Output<Optional<Boolean>> disableNotifications() {
         return Codegen.optional(this.disableNotifications);
     }
     /**
-     * The ID of group to attach admin roles to.
+     * ID of group to attach admin roles to
      * 
      */
     @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
-     * @return The ID of group to attach admin roles to.
+     * @return ID of group to attach admin roles to
      * 
      */
     public Output<String> groupId() {
         return this.groupId;
     }
     /**
-     * Admin role assigned to the group. It can be any one of the following values:
-     * `&#34;API_ADMIN&#34;`,
-     * `&#34;APP_ADMIN&#34;`,
-     * `&#34;CUSTOM&#34;`,
-     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
-     * `&#34;HELP_DESK_ADMIN&#34;`,
-     * `&#34;MOBILE_ADMIN&#34;`,
-     * `&#34;ORG_ADMIN&#34;`,
-     * `&#34;READ_ONLY_ADMIN&#34;`,
-     * `&#34;REPORT_ADMIN&#34;`,
-     * `&#34;SUPER_ADMIN&#34;`,
-     * `&#34;USER_ADMIN&#34;`
-     * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
-     * 
-     * - `&#34;USER_ADMIN&#34;` is the Group Administrator.
+     * Type of Role to assign
      * 
      */
     @Export(name="roleType", refs={String.class}, tree="[0]")
     private Output<String> roleType;
 
     /**
-     * @return Admin role assigned to the group. It can be any one of the following values:
-     * `&#34;API_ADMIN&#34;`,
-     * `&#34;APP_ADMIN&#34;`,
-     * `&#34;CUSTOM&#34;`,
-     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
-     * `&#34;HELP_DESK_ADMIN&#34;`,
-     * `&#34;MOBILE_ADMIN&#34;`,
-     * `&#34;ORG_ADMIN&#34;`,
-     * `&#34;READ_ONLY_ADMIN&#34;`,
-     * `&#34;REPORT_ADMIN&#34;`,
-     * `&#34;SUPER_ADMIN&#34;`,
-     * `&#34;USER_ADMIN&#34;`
-     * . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
-     * 
-     * - `&#34;USER_ADMIN&#34;` is the Group Administrator.
+     * @return Type of Role to assign
      * 
      */
     public Output<String> roleType() {
         return this.roleType;
     }
     /**
-     * A list of app names (name represents set of app instances, like &#39;salesforce&#39; or &#39;
-     * facebook&#39;), or a combination of app name and app instance ID (like &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;) you would like as
-     * the targets of the admin role.
-     * - Only supported when used with the role type `&#34;APP_ADMIN&#34;`.
+     * List of apps ids for the targets of the admin role.
      * 
      */
     @Export(name="targetAppLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> targetAppLists;
 
     /**
-     * @return A list of app names (name represents set of app instances, like &#39;salesforce&#39; or &#39;
-     * facebook&#39;), or a combination of app name and app instance ID (like &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;) you would like as
-     * the targets of the admin role.
-     * - Only supported when used with the role type `&#34;APP_ADMIN&#34;`.
+     * @return List of apps ids for the targets of the admin role.
      * 
      */
     public Output<Optional<List<String>>> targetAppLists() {
         return Codegen.optional(this.targetAppLists);
     }
     /**
-     * A list of group IDs you would like as the targets of the admin role.
-     * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+     * List of groups ids for the targets of the admin role.
      * 
      */
     @Export(name="targetGroupLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> targetGroupLists;
 
     /**
-     * @return A list of group IDs you would like as the targets of the admin role.
-     * - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
+     * @return List of groups ids for the targets of the admin role.
      * 
      */
     public Output<Optional<List<String>>> targetGroupLists() {

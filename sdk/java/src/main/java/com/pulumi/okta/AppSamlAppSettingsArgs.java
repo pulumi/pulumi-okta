@@ -14,14 +14,14 @@ public final class AppSamlAppSettingsArgs extends com.pulumi.resources.ResourceA
     public static final AppSamlAppSettingsArgs Empty = new AppSamlAppSettingsArgs();
 
     /**
-     * ID of the application.
+     * Application ID
      * 
      */
     @Import(name="appId", required=true)
     private Output<String> appId;
 
     /**
-     * @return ID of the application.
+     * @return Application ID
      * 
      */
     public Output<String> appId() {
@@ -29,14 +29,14 @@ public final class AppSamlAppSettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Application settings in JSON format.
+     * Application settings in JSON format
      * 
      */
     @Import(name="settings", required=true)
     private Output<String> settings;
 
     /**
-     * @return Application settings in JSON format.
+     * @return Application settings in JSON format
      * 
      */
     public Output<String> settings() {
@@ -69,7 +69,7 @@ public final class AppSamlAppSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param appId ID of the application.
+         * @param appId Application ID
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class AppSamlAppSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param appId ID of the application.
+         * @param appId Application ID
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class AppSamlAppSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param settings Application settings in JSON format.
+         * @param settings Application settings in JSON format
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class AppSamlAppSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param settings Application settings in JSON format.
+         * @param settings Application settings in JSON format
          * 
          * @return builder
          * 

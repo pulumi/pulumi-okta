@@ -36,9 +36,6 @@ class GetBehavioursResult:
     @property
     @pulumi.getter
     def behaviors(self) -> Sequence['outputs.GetBehavioursBehaviorResult']:
-        """
-        List of behaviors.
-        """
         return pulumi.get(self, "behaviors")
 
     @property
@@ -52,6 +49,9 @@ class GetBehavioursResult:
     @property
     @pulumi.getter
     def q(self) -> Optional[str]:
+        """
+        Searches the name property of behaviors for matching value
+        """
         return pulumi.get(self, "q")
 
 
@@ -69,7 +69,7 @@ class AwaitableGetBehavioursResult(GetBehavioursResult):
 def get_behaviours(q: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBehavioursResult:
     """
-    Use this data source to retrieve a behaviors from Okta.
+    Get a behaviors by search criteria.
 
     ## Example Usage
 
@@ -81,7 +81,7 @@ def get_behaviours(q: Optional[str] = None,
     ```
 
 
-    :param str q: Searches query to look up behaviors.
+    :param str q: Searches the name property of behaviors for matching value
     """
     __args__ = dict()
     __args__['q'] = q
@@ -98,7 +98,7 @@ def get_behaviours(q: Optional[str] = None,
 def get_behaviours_output(q: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBehavioursResult]:
     """
-    Use this data source to retrieve a behaviors from Okta.
+    Get a behaviors by search criteria.
 
     ## Example Usage
 
@@ -110,6 +110,6 @@ def get_behaviours_output(q: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str q: Searches query to look up behaviors.
+    :param str q: Searches the name property of behaviors for matching value
     """
     ...

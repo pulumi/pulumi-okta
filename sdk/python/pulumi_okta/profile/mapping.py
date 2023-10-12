@@ -23,15 +23,10 @@ class MappingArgs:
                  mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None):
         """
         The set of arguments for constructing a Mapping resource.
-        :param pulumi.Input[str] source_id: Source id of the profile mapping.
-        :param pulumi.Input[str] target_id: ID of the mapping target.
+        :param pulumi.Input[str] source_id: The source id of the mapping to manage.
+        :param pulumi.Input[str] target_id: The target id of the mapping to manage.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
-               
-               > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-               
-               > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-        :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
-        :param pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]] mappings: Priority of the policy.
+        :param pulumi.Input[bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         """
         MappingArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -63,7 +58,7 @@ class MappingArgs:
     @pulumi.getter(name="sourceId")
     def source_id(self) -> pulumi.Input[str]:
         """
-        Source id of the profile mapping.
+        The source id of the mapping to manage.
         """
         return pulumi.get(self, "source_id")
 
@@ -75,7 +70,7 @@ class MappingArgs:
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Input[str]:
         """
-        ID of the mapping target.
+        The target id of the mapping to manage.
         """
         return pulumi.get(self, "target_id")
 
@@ -88,10 +83,6 @@ class MappingArgs:
     def always_apply(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
-
-        > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-
-        > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         """
         return pulumi.get(self, "always_apply")
 
@@ -103,7 +94,7 @@ class MappingArgs:
     @pulumi.getter(name="deleteWhenAbsent")
     def delete_when_absent(self) -> Optional[pulumi.Input[bool]]:
         """
-        Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         """
         return pulumi.get(self, "delete_when_absent")
 
@@ -114,9 +105,6 @@ class MappingArgs:
     @property
     @pulumi.getter
     def mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]]:
-        """
-        Priority of the policy.
-        """
         return pulumi.get(self, "mappings")
 
     @mappings.setter
@@ -139,18 +127,9 @@ class _MappingState:
         """
         Input properties used for looking up and filtering Mapping resources.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
-               
-               > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-               
-               > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-        :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
-        :param pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]] mappings: Priority of the policy.
-        :param pulumi.Input[str] source_id: Source id of the profile mapping.
-        :param pulumi.Input[str] source_name: Name of the mapping source.
-        :param pulumi.Input[str] source_type: ID of the mapping source.
-        :param pulumi.Input[str] target_id: ID of the mapping target.
-        :param pulumi.Input[str] target_name: Name of the mapping target.
-        :param pulumi.Input[str] target_type: ID of the mapping target.
+        :param pulumi.Input[bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
+        :param pulumi.Input[str] source_id: The source id of the mapping to manage.
+        :param pulumi.Input[str] target_id: The target id of the mapping to manage.
         """
         _MappingState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -201,10 +180,6 @@ class _MappingState:
     def always_apply(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
-
-        > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-
-        > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         """
         return pulumi.get(self, "always_apply")
 
@@ -216,7 +191,7 @@ class _MappingState:
     @pulumi.getter(name="deleteWhenAbsent")
     def delete_when_absent(self) -> Optional[pulumi.Input[bool]]:
         """
-        Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         """
         return pulumi.get(self, "delete_when_absent")
 
@@ -227,9 +202,6 @@ class _MappingState:
     @property
     @pulumi.getter
     def mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]]:
-        """
-        Priority of the policy.
-        """
         return pulumi.get(self, "mappings")
 
     @mappings.setter
@@ -240,7 +212,7 @@ class _MappingState:
     @pulumi.getter(name="sourceId")
     def source_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Source id of the profile mapping.
+        The source id of the mapping to manage.
         """
         return pulumi.get(self, "source_id")
 
@@ -251,9 +223,6 @@ class _MappingState:
     @property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the mapping source.
-        """
         return pulumi.get(self, "source_name")
 
     @source_name.setter
@@ -263,9 +232,6 @@ class _MappingState:
     @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the mapping source.
-        """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
@@ -276,7 +242,7 @@ class _MappingState:
     @pulumi.getter(name="targetId")
     def target_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the mapping target.
+        The target id of the mapping to manage.
         """
         return pulumi.get(self, "target_id")
 
@@ -287,9 +253,6 @@ class _MappingState:
     @property
     @pulumi.getter(name="targetName")
     def target_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the mapping target.
-        """
         return pulumi.get(self, "target_name")
 
     @target_name.setter
@@ -299,9 +262,6 @@ class _MappingState:
     @property
     @pulumi.getter(name="targetType")
     def target_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the mapping target.
-        """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
@@ -321,56 +281,13 @@ class Mapping(pulumi.CustomResource):
                  target_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to manage a profile mapping by source and target IDs.
-
-        > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        user = okta.user.get_user_profile_mapping_source()
-        example = okta.profile.Mapping("example",
-            delete_when_absent=True,
-            mappings=[
-                okta.profile.MappingMappingArgs(
-                    expression="appuser.firstName",
-                    id="firstName",
-                ),
-                okta.profile.MappingMappingArgs(
-                    expression="appuser.lastName",
-                    id="lastName",
-                ),
-                okta.profile.MappingMappingArgs(
-                    expression="appuser.email",
-                    id="email",
-                ),
-                okta.profile.MappingMappingArgs(
-                    expression="appuser.email",
-                    id="login",
-                ),
-            ],
-            source_id="<source id>",
-            target_id=user.id)
-        ```
-
-        ## Import
-
-        There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Mind here, once the source is deleted this resources will no longer exist.
-
+        Create a Mapping resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
-               
-               > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-               
-               > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-        :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
-        :param pulumi.Input[str] source_id: Source id of the profile mapping.
-        :param pulumi.Input[str] target_id: ID of the mapping target.
+        :param pulumi.Input[bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
+        :param pulumi.Input[str] source_id: The source id of the mapping to manage.
+        :param pulumi.Input[str] target_id: The target id of the mapping to manage.
         """
         ...
     @overload
@@ -379,45 +296,7 @@ class Mapping(pulumi.CustomResource):
                  args: MappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to manage a profile mapping by source and target IDs.
-
-        > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        user = okta.user.get_user_profile_mapping_source()
-        example = okta.profile.Mapping("example",
-            delete_when_absent=True,
-            mappings=[
-                okta.profile.MappingMappingArgs(
-                    expression="appuser.firstName",
-                    id="firstName",
-                ),
-                okta.profile.MappingMappingArgs(
-                    expression="appuser.lastName",
-                    id="lastName",
-                ),
-                okta.profile.MappingMappingArgs(
-                    expression="appuser.email",
-                    id="email",
-                ),
-                okta.profile.MappingMappingArgs(
-                    expression="appuser.email",
-                    id="login",
-                ),
-            ],
-            source_id="<source id>",
-            target_id=user.id)
-        ```
-
-        ## Import
-
-        There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Mind here, once the source is deleted this resources will no longer exist.
-
+        Create a Mapping resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MappingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -491,18 +370,9 @@ class Mapping(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
-               
-               > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-               
-               > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-        :param pulumi.Input[bool] delete_when_absent: Tells the provider whether to attempt to delete missing mappings under profile mapping.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]] mappings: Priority of the policy.
-        :param pulumi.Input[str] source_id: Source id of the profile mapping.
-        :param pulumi.Input[str] source_name: Name of the mapping source.
-        :param pulumi.Input[str] source_type: ID of the mapping source.
-        :param pulumi.Input[str] target_id: ID of the mapping target.
-        :param pulumi.Input[str] target_name: Name of the mapping target.
-        :param pulumi.Input[str] target_type: ID of the mapping target.
+        :param pulumi.Input[bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
+        :param pulumi.Input[str] source_id: The source id of the mapping to manage.
+        :param pulumi.Input[str] target_id: The target id of the mapping to manage.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -524,10 +394,6 @@ class Mapping(pulumi.CustomResource):
     def always_apply(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
-
-        > **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-
-        > **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         """
         return pulumi.get(self, "always_apply")
 
@@ -535,63 +401,48 @@ class Mapping(pulumi.CustomResource):
     @pulumi.getter(name="deleteWhenAbsent")
     def delete_when_absent(self) -> pulumi.Output[Optional[bool]]:
         """
-        Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         """
         return pulumi.get(self, "delete_when_absent")
 
     @property
     @pulumi.getter
     def mappings(self) -> pulumi.Output[Optional[Sequence['outputs.MappingMapping']]]:
-        """
-        Priority of the policy.
-        """
         return pulumi.get(self, "mappings")
 
     @property
     @pulumi.getter(name="sourceId")
     def source_id(self) -> pulumi.Output[str]:
         """
-        Source id of the profile mapping.
+        The source id of the mapping to manage.
         """
         return pulumi.get(self, "source_id")
 
     @property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> pulumi.Output[str]:
-        """
-        Name of the mapping source.
-        """
         return pulumi.get(self, "source_name")
 
     @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Output[str]:
-        """
-        ID of the mapping source.
-        """
         return pulumi.get(self, "source_type")
 
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Output[str]:
         """
-        ID of the mapping target.
+        The target id of the mapping to manage.
         """
         return pulumi.get(self, "target_id")
 
     @property
     @pulumi.getter(name="targetName")
     def target_name(self) -> pulumi.Output[str]:
-        """
-        Name of the mapping target.
-        """
         return pulumi.get(self, "target_name")
 
     @property
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Output[str]:
-        """
-        ID of the mapping target.
-        """
         return pulumi.get(self, "target_type")
 

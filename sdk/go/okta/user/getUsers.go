@@ -12,66 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Use this data source to retrieve a list of users from Okta.
+// Get a list of users from Okta.
 //
 // ## Example Usage
+//
 // ### Lookup Users by Search Criteria
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := user.GetUsers(ctx, &user.GetUsersArgs{
-//				Searches: []user.GetUsersSearch{
-//					{
-//						Expression: pulumi.StringRef("profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"),
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
+//	data "user.getUsers" "example" {
+//	  search {
+//	    name       = "profile.company"
+//	    value      = "Articulate"
+//	    comparison = "sw"
+//	  }
 //	}
 //
-// ```
-// ### Lookup Users by Group Membership
-// ```go
-// package main
+// # Search for multiple users based on a raw search expression string
 //
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/group"
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGroup, err := group.NewGroup(ctx, "exampleGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_ = user.GetUsersOutput(ctx, user.GetUsersOutputArgs{
-//				GroupId:       exampleGroup.ID(),
-//				IncludeGroups: pulumi.Bool(true),
-//				IncludeRoles:  pulumi.Bool(true),
-//			}, nil)
-//			return nil
-//		})
+//	data "user.getUsers" "example" {
+//	  search {
+//	    expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"
+//	  }
 //	}
-//
-// ```
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUsersResult
@@ -84,31 +45,37 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getUsers.
 type GetUsersArgs struct {
-	// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+	// Search operator used when joining mulitple search clauses
 	CompoundSearchOperator *string `pulumi:"compoundSearchOperator"`
-	// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
+	// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
 	DelayReadSeconds *string `pulumi:"delayReadSeconds"`
-	// Id of group used to find users based on membership.
+	// Find users based on group membership using the id of the group.
 	GroupId *string `pulumi:"groupId"`
-	// Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
+	// Fetch group memberships for each user
 	IncludeGroups *bool `pulumi:"includeGroups"`
-	// Fetch each user's administrator roles. Defaults to `false`, in which case the `adminRoles` user attribute will be empty.
+	// Fetch user roles for each user
 	IncludeRoles *bool `pulumi:"includeRoles"`
-	// Map of search criteria. It supports the following properties.
+	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
 	Searches []GetUsersSearch `pulumi:"searches"`
 }
 
 // A collection of values returned by getUsers.
 type GetUsersResult struct {
+	// Search operator used when joining mulitple search clauses
 	CompoundSearchOperator *string `pulumi:"compoundSearchOperator"`
-	DelayReadSeconds       *string `pulumi:"delayReadSeconds"`
-	GroupId                *string `pulumi:"groupId"`
+	// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+	DelayReadSeconds *string `pulumi:"delayReadSeconds"`
+	// Find users based on group membership using the id of the group.
+	GroupId *string `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string           `pulumi:"id"`
-	IncludeGroups *bool            `pulumi:"includeGroups"`
-	IncludeRoles  *bool            `pulumi:"includeRoles"`
-	Searches      []GetUsersSearch `pulumi:"searches"`
-	// collection of users retrieved from Okta with the following properties.
+	Id string `pulumi:"id"`
+	// Fetch group memberships for each user
+	IncludeGroups *bool `pulumi:"includeGroups"`
+	// Fetch user roles for each user
+	IncludeRoles *bool `pulumi:"includeRoles"`
+	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+	Searches []GetUsersSearch `pulumi:"searches"`
+	// collection of users retrieved from Okta.
 	Users []GetUsersUser `pulumi:"users"`
 }
 
@@ -127,17 +94,17 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getUsers.
 type GetUsersOutputArgs struct {
-	// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+	// Search operator used when joining mulitple search clauses
 	CompoundSearchOperator pulumi.StringPtrInput `pulumi:"compoundSearchOperator"`
-	// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
+	// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
 	DelayReadSeconds pulumi.StringPtrInput `pulumi:"delayReadSeconds"`
-	// Id of group used to find users based on membership.
+	// Find users based on group membership using the id of the group.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
-	// Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
+	// Fetch group memberships for each user
 	IncludeGroups pulumi.BoolPtrInput `pulumi:"includeGroups"`
-	// Fetch each user's administrator roles. Defaults to `false`, in which case the `adminRoles` user attribute will be empty.
+	// Fetch user roles for each user
 	IncludeRoles pulumi.BoolPtrInput `pulumi:"includeRoles"`
-	// Map of search criteria. It supports the following properties.
+	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
 	Searches GetUsersSearchArrayInput `pulumi:"searches"`
 }
 
@@ -166,14 +133,17 @@ func (o GetUsersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUs
 	}
 }
 
+// Search operator used when joining mulitple search clauses
 func (o GetUsersResultOutput) CompoundSearchOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *string { return v.CompoundSearchOperator }).(pulumi.StringPtrOutput)
 }
 
+// Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
 func (o GetUsersResultOutput) DelayReadSeconds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *string { return v.DelayReadSeconds }).(pulumi.StringPtrOutput)
 }
 
+// Find users based on group membership using the id of the group.
 func (o GetUsersResultOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
@@ -183,19 +153,22 @@ func (o GetUsersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Fetch group memberships for each user
 func (o GetUsersResultOutput) IncludeGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *bool { return v.IncludeGroups }).(pulumi.BoolPtrOutput)
 }
 
+// Fetch user roles for each user
 func (o GetUsersResultOutput) IncludeRoles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *bool { return v.IncludeRoles }).(pulumi.BoolPtrOutput)
 }
 
+// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
 func (o GetUsersResultOutput) Searches() GetUsersSearchArrayOutput {
 	return o.ApplyT(func(v GetUsersResult) []GetUsersSearch { return v.Searches }).(GetUsersSearchArrayOutput)
 }
 
-// collection of users retrieved from Okta with the following properties.
+// collection of users retrieved from Okta.
 func (o GetUsersResultOutput) Users() GetUsersUserArrayOutput {
 	return o.ApplyT(func(v GetUsersResult) []GetUsersUser { return v.Users }).(GetUsersUserArrayOutput)
 }

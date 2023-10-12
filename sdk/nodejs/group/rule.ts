@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates an Okta Group Rule.
- *
- * This resource allows you to create and configure an Okta Group Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.group.Rule("example", {
- *     expressionType: "urn:okta:expression:1.0",
- *     expressionValue: "String.startsWith(user.firstName,\"andy\")",
- *     groupAssignments: ["<group id>"],
- *     status: "ACTIVE",
- * });
- * ```
- *
- * ## Import
- *
- * An Okta Group Rule can be imported via the Okta ID.
- *
- * ```sh
- *  $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
- * ```
- */
 export class Rule extends pulumi.CustomResource {
     /**
      * Get an existing Rule resource's state with the given name, ID, and optional extra
@@ -59,34 +32,17 @@ export class Rule extends pulumi.CustomResource {
         return obj['__pulumiType'] === Rule.__pulumiType;
     }
 
-    /**
-     * The expression type to use to invoke the rule. The default
-     * is `"urn:okta:expression:1.0"`.
-     */
     public readonly expressionType!: pulumi.Output<string | undefined>;
-    /**
-     * The expression value.
-     */
     public readonly expressionValue!: pulumi.Output<string>;
-    /**
-     * The list of group ids to assign the users to.
-     */
     public readonly groupAssignments!: pulumi.Output<string[]>;
-    /**
-     * The name of the Group Rule (min character 1; max characters 50).
-     */
     public readonly name!: pulumi.Output<string>;
     /**
-     * This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * Remove users added by this rule from the assigned group after deleting this resource
      */
     public readonly removeAssignedUsers!: pulumi.Output<boolean | undefined>;
-    /**
-     * The status of the group rule.
-     */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * The list of user IDs that would be excluded when rules are processed
      */
     public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
 
@@ -135,34 +91,17 @@ export class Rule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Rule resources.
  */
 export interface RuleState {
-    /**
-     * The expression type to use to invoke the rule. The default
-     * is `"urn:okta:expression:1.0"`.
-     */
     expressionType?: pulumi.Input<string>;
-    /**
-     * The expression value.
-     */
     expressionValue?: pulumi.Input<string>;
-    /**
-     * The list of group ids to assign the users to.
-     */
     groupAssignments?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the Group Rule (min character 1; max characters 50).
-     */
     name?: pulumi.Input<string>;
     /**
-     * This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * Remove users added by this rule from the assigned group after deleting this resource
      */
     removeAssignedUsers?: pulumi.Input<boolean>;
-    /**
-     * The status of the group rule.
-     */
     status?: pulumi.Input<string>;
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * The list of user IDs that would be excluded when rules are processed
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -171,34 +110,17 @@ export interface RuleState {
  * The set of arguments for constructing a Rule resource.
  */
 export interface RuleArgs {
-    /**
-     * The expression type to use to invoke the rule. The default
-     * is `"urn:okta:expression:1.0"`.
-     */
     expressionType?: pulumi.Input<string>;
-    /**
-     * The expression value.
-     */
     expressionValue: pulumi.Input<string>;
-    /**
-     * The list of group ids to assign the users to.
-     */
     groupAssignments: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the Group Rule (min character 1; max characters 50).
-     */
     name?: pulumi.Input<string>;
     /**
-     * This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * Remove users added by this rule from the assigned group after deleting this resource
      */
     removeAssignedUsers?: pulumi.Input<boolean>;
-    /**
-     * The status of the group rule.
-     */
     status?: pulumi.Input<string>;
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * The list of user IDs that would be excluded when rules are processed
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

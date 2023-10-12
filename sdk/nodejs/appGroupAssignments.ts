@@ -6,54 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Assigns groups to an application.
- *
- * This resource allows you to create multiple App Group assignments.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.AppGroupAssignments("example", {
- *     appId: "<app id>",
- *     groups: [
- *         {
- *             id: "<group id>",
- *             priority: 1,
- *         },
- *         {
- *             id: "<another group id>",
- *             priority: 2,
- *             profile: JSON.stringify({
- *                 "application profile field": "application profile value",
- *             }),
- *         },
- *     ],
- * });
- * ```
- *
- * !> **NOTE** It would seem that setting/updating base/custom group schema values
- * was the original purpose for setting a `profile` JSON value during the [Assign
- * group to
- * application](https://developer.okta.com/docs/reference/api/apps/#assign-group-to-application)
- * API call that will take place when the `priority` value is changed. We couldn't
- * verify this works when writing a new integration test against this old feature
- * and were receiving an API 400 error. This feature may work for older orgs, or
- * classic orgs, but we can not guarantee for all orgs.
- *
- * > **IMPORTANT:** When using `okta.AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
- *
- * ## Import
- *
- * An application's group assignments can be imported via `app_id`.
- *
- * ```sh
- *  $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
- * ```
- */
 export class AppGroupAssignments extends pulumi.CustomResource {
     /**
      * Get an existing AppGroupAssignments resource's state with the given name, ID, and optional extra
@@ -87,7 +39,7 @@ export class AppGroupAssignments extends pulumi.CustomResource {
      */
     public readonly appId!: pulumi.Output<string>;
     /**
-     * A group to assign the app to.
+     * A group to assign to this application
      */
     public readonly groups!: pulumi.Output<outputs.AppGroupAssignmentsGroup[]>;
 
@@ -131,7 +83,7 @@ export interface AppGroupAssignmentsState {
      */
     appId?: pulumi.Input<string>;
     /**
-     * A group to assign the app to.
+     * A group to assign to this application
      */
     groups?: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
 }
@@ -145,7 +97,7 @@ export interface AppGroupAssignmentsArgs {
      */
     appId: pulumi.Input<string>;
     /**
-     * A group to assign the app to.
+     * A group to assign to this application
      */
     groups: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
 }

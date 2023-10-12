@@ -32,14 +32,14 @@ public final class UserGroupMembershipsState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Okta user ID.
+     * ID of a Okta User
      * 
      */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
     /**
-     * @return Okta user ID.
+     * @return ID of a Okta User
      * 
      */
     public Optional<Output<String>> userId() {
@@ -103,7 +103,7 @@ public final class UserGroupMembershipsState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param userId Okta user ID.
+         * @param userId ID of a Okta User
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class UserGroupMembershipsState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param userId Okta user ID.
+         * @param userId ID of a Okta User
          * 
          * @return builder
          * 
