@@ -106,33 +106,20 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_app_oauth_post_logout_redirect_uri": {Tok: makeResource(appMod, "OAuthPostLogoutRedirectUri")},
 
 			// Factor Resources
-			"okta_factor": {
-				Tok:  makeResource(factorMod, "Factor"),
-				Docs: &tfbridge.DocInfo{Source: "factor.html.markdown"},
-			},
+			"okta_factor": {Tok: makeResource(factorMod, "Factor")},
 
 			// Group Resources
-			"okta_group": {
-				Tok:  makeResource(groupMod, "Group"),
-				Docs: &tfbridge.DocInfo{Source: "group.html.markdown"},
-			},
+			"okta_group": {Tok: makeResource(groupMod, "Group")},
 
 			// Inline Resources
-			"okta_inline_hook": {
-				Tok:  makeResource(inlineMod, "Hook"),
-				Docs: &tfbridge.DocInfo{Source: "inline_hook.html.markdown"},
-			},
+			"okta_inline_hook": {Tok: makeResource(inlineMod, "Hook")},
 
 			// Network Resources
-			"okta_network_zone": {
-				Tok:  makeResource(networkMod, "Zone"),
-				Docs: &tfbridge.DocInfo{Source: "network_zone.html.markdown"},
-			},
+			"okta_network_zone": {Tok: makeResource(networkMod, "Zone")},
 
 			// Trusted Origin
 			"okta_trusted_origin": {
-				Tok:  makeResource(trustedOriginMod, "Origin"),
-				Docs: &tfbridge.DocInfo{Source: "trusted_origin.html.markdown"},
+				Tok: makeResource(trustedOriginMod, "Origin"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"origin": {
 						CSharpName: "OriginName",
@@ -141,17 +128,11 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// User Resources
-			"okta_user": {
-				Tok:  makeResource(userMod, "User"),
-				Docs: &tfbridge.DocInfo{Source: "user.html.markdown"},
-			},
+			"okta_user":      {Tok: makeResource(userMod, "User")},
 			"okta_user_type": {Tok: makeResource(userMod, "UserType")},
 
 			// Profile Resources
-			"okta_profile_mapping": {
-				Tok:  makeResource(profileMod, "Mapping"),
-				Docs: &tfbridge.DocInfo{Source: "profile_mapping.html.markdown"},
-			},
+			"okta_profile_mapping": {Tok: makeResource(profileMod, "Mapping")},
 
 			// All new resources will be put in top level package i.e. mainMod
 			"okta_event_hook":                     {Tok: makeResource(mainMod, "EventHook")},
@@ -208,65 +189,54 @@ func Provider() tfbridge.ProviderInfo {
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// App DataSources
 			"okta_app": {
-				Tok:  makeDataSource(appMod, "getApp"),
-				Docs: &tfbridge.DocInfo{Source: "app.html.markdown"},
+				Tok: makeDataSource(appMod, "getApp"),
 			},
 			"okta_app_metadata_saml": {
-				Tok:  makeDataSource(appMod, "getMetadataSaml"),
-				Docs: &tfbridge.DocInfo{Source: "app_saml_metadata.html.markdown"},
+				Tok: makeDataSource(appMod, "getMetadataSaml"),
 			},
 			"okta_app_saml": {
-				Tok:  makeDataSource(appMod, "getSaml"),
-				Docs: &tfbridge.DocInfo{Source: "app_saml.html.markdown"},
+				Tok: makeDataSource(appMod, "getSaml"),
 			},
 			"okta_app_oauth": {Tok: makeDataSource(appMod, "getOauth")},
 
 			// Auth DataSources
 			"okta_auth_server": {
-				Tok:  makeDataSource(authMod, "getServer"),
-				Docs: &tfbridge.DocInfo{Source: "auth_server.html.markdown"},
+				Tok: makeDataSource(authMod, "getServer"),
 			},
 			"okta_auth_server_policy": {Tok: makeDataSource(authMod, "getServerPolicy")},
 			"okta_auth_server_scopes": {Tok: makeDataSource(authMod, "getServerScopes")},
 
 			// Group DataSources
 			"okta_group": {
-				Tok:  makeDataSource(groupMod, "getGroup"),
-				Docs: &tfbridge.DocInfo{Source: "group.html.markdown"},
+				Tok: makeDataSource(groupMod, "getGroup"),
 			},
 			"okta_everyone_group": {Tok: makeDataSource(groupMod, "getEveryoneGroup")},
 
 			// Idp DataSources
 			"okta_idp_metadata_saml": {
-				Tok:  makeDataSource(idpMod, "getMetadataSaml"),
-				Docs: &tfbridge.DocInfo{Source: "idp_saml_metadata.html.markdown"},
+				Tok: makeDataSource(idpMod, "getMetadataSaml"),
 			},
 			"okta_idp_saml": {
-				Tok:  makeDataSource(idpMod, "getSaml"),
-				Docs: &tfbridge.DocInfo{Source: "idp_saml.html.markdown"},
+				Tok: makeDataSource(idpMod, "getSaml"),
 			},
 			"okta_idp_oidc":   {Tok: makeDataSource(idpMod, "getOidc")},
 			"okta_idp_social": {Tok: makeDataSource(idpMod, "getSocial")},
 
 			// Policy DataSources
 			"okta_policy": {
-				Tok:  makeDataSource(policyMod, "getPolicy"),
-				Docs: &tfbridge.DocInfo{Source: "policy.html.markdown"},
+				Tok: makeDataSource(policyMod, "getPolicy"),
 			},
 			"okta_default_policy": {Tok: makeDataSource(policyMod, "getDefaultPolicy")},
 
 			// User DataSources
 			"okta_user": {
-				Tok:  makeDataSource(userMod, "getUser"),
-				Docs: &tfbridge.DocInfo{Source: "user.html.markdown"},
+				Tok: makeDataSource(userMod, "getUser"),
 			},
 			"okta_users": {
-				Tok:  makeDataSource(userMod, "getUsers"),
-				Docs: &tfbridge.DocInfo{Source: "users.html.markdown"},
+				Tok: makeDataSource(userMod, "getUsers"),
 			},
 			"okta_user_profile_mapping_source": {
-				Tok:  makeDataSource(userMod, "getUserProfileMappingSource"),
-				Docs: &tfbridge.DocInfo{Source: "user_profile_mapping_source.html.markdown"},
+				Tok: makeDataSource(userMod, "getUserProfileMappingSource"),
 			},
 			"okta_user_type": {Tok: makeDataSource(userMod, "getUserType")},
 
