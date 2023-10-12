@@ -145,7 +145,7 @@ require (
 	github.com/hashicorp/hcl/v2 v2.18.0 // indirect
 	github.com/hashicorp/hil v0.0.0-20190212132231-97b3a9cdfa93 // indirect
 	github.com/hashicorp/logutils v1.0.0 // indirect
-	github.com/hashicorp/terraform-plugin-framework v1.4.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework v1.4.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.12.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.19.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
@@ -193,7 +193,7 @@ require (
 	github.com/muesli/termenv v0.15.1 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/oklog/run v1.1.0 // indirect
-	github.com/okta/okta-sdk-golang/v3 v3.0.14 // indirect
+	github.com/okta/okta-sdk-golang/v3 v3.0.15 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect

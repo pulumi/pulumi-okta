@@ -441,9 +441,7 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameResourceWithAlias("okta_auth_server_policy_rule",
 		makeResource(authMod, "ServerPolicyClaim"), makeResource(authMod, "ServerPolicyRule"),
 		authMod, authMod, &tfbridge.ResourceInfo{
-			Docs: &tfbridge.DocInfo{
-				Source: "auth_server_policy_rule.html.markdown"},
-		})
+			Docs: &tfbridge.DocInfo{Source: "auth_server_policy_rule.md"}})
 
 	prov.MustComputeTokens(tks.KnownModules("okta_", mainMod, []string{
 		"app_",
