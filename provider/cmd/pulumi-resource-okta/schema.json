@@ -5706,7 +5706,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values: authorization*code, implicit, password, client*credentials\n"
+                    "description": "Accepted grant type values: authorization_code, implicit, password, client_credentials\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
@@ -5744,14 +5744,14 @@
                 },
                 "refreshTokenWindowMinutes": {
                     "type": "integer",
-                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.\n"
+                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is\n`10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and\n`refresh_token_lifetime_minutes`.\n"
                 },
                 "scopeWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`\n"
+                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `\n"
                 },
                 "status": {
                     "type": "string"
@@ -5796,7 +5796,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values: authorization*code, implicit, password, client*credentials\n"
+                    "description": "Accepted grant type values: authorization_code, implicit, password, client_credentials\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
@@ -5834,14 +5834,14 @@
                 },
                 "refreshTokenWindowMinutes": {
                     "type": "integer",
-                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.\n"
+                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is\n`10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and\n`refresh_token_lifetime_minutes`.\n"
                 },
                 "scopeWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`\n"
+                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `\n"
                 },
                 "status": {
                     "type": "string"
@@ -5887,7 +5887,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Accepted grant type values: authorization*code, implicit, password, client*credentials\n"
+                        "description": "Accepted grant type values: authorization_code, implicit, password, client_credentials\n"
                     },
                     "groupBlacklists": {
                         "type": "array",
@@ -5925,14 +5925,14 @@
                     },
                     "refreshTokenWindowMinutes": {
                         "type": "integer",
-                        "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.\n"
+                        "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is\n`10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and\n`refresh_token_lifetime_minutes`.\n"
                     },
                     "scopeWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`\n"
+                        "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `\n"
                     },
                     "status": {
                         "type": "string"
@@ -5958,7 +5958,7 @@
                 },
                 "type": "object"
             },
-            "deprecationMessage": "okta.auth.ServerPolicyClaim has been deprecated in favor of okta.auth.ServerPolicyRule"
+            "deprecationMessage": "okta.auth/serverpolicyclaim.ServerPolicyClaim has been deprecated in favor of okta.auth/serverpolicyrule.ServerPolicyRule"
         },
         "okta:auth/serverPolicyRule:ServerPolicyRule": {
             "properties": {

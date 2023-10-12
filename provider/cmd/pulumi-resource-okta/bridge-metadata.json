@@ -278,30 +278,13 @@
             },
             "okta_auth_server_policy_rule": {
                 "current": "okta:auth/serverPolicyRule:ServerPolicyRule",
-                "majorVersion": 4,
-                "fields": {
-                    "grant_type_whitelist": {
-                        "maxItemsOne": false
-                    },
-                    "group_blacklist": {
-                        "maxItemsOne": false
-                    },
-                    "group_whitelist": {
-                        "maxItemsOne": false
-                    },
-                    "scope_whitelist": {
-                        "maxItemsOne": false
-                    },
-                    "user_blacklist": {
-                        "maxItemsOne": false
-                    },
-                    "user_whitelist": {
-                        "maxItemsOne": false
+                "past": [
+                    {
+                        "name": "okta:auth/serverPolicyClaim:ServerPolicyClaim",
+                        "inCodegen": true,
+                        "majorVersion": 4
                     }
-                }
-            },
-            "okta_auth_server_policy_rule_legacy": {
-                "current": "okta:auth/serverPolicyClaim:ServerPolicyClaim",
+                ],
                 "majorVersion": 4,
                 "fields": {
                     "grant_type_whitelist": {
