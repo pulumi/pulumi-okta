@@ -19,14 +19,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     public static final UserState Empty = new UserState();
 
     /**
-     * User profile property.
+     * User city
      * 
      */
     @Import(name="city")
     private @Nullable Output<String> city;
 
     /**
-     * @return User profile property.
+     * @return User city
      * 
      */
     public Optional<Output<String>> city() {
@@ -34,14 +34,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User cost center
      * 
      */
     @Import(name="costCenter")
     private @Nullable Output<String> costCenter;
 
     /**
-     * @return User profile property.
+     * @return User cost center
      * 
      */
     public Optional<Output<String>> costCenter() {
@@ -49,14 +49,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User country code
      * 
      */
     @Import(name="countryCode")
     private @Nullable Output<String> countryCode;
 
     /**
-     * @return User profile property.
+     * @return User country code
      * 
      */
     public Optional<Output<String>> countryCode() {
@@ -64,14 +64,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * raw JSON containing all custom profile attributes.
+     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
      * 
      */
     @Import(name="customProfileAttributes")
     private @Nullable Output<String> customProfileAttributes;
 
     /**
-     * @return raw JSON containing all custom profile attributes.
+     * @return JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
      * 
      */
     public Optional<Output<String>> customProfileAttributes() {
@@ -94,14 +94,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User department
      * 
      */
     @Import(name="department")
     private @Nullable Output<String> department;
 
     /**
-     * @return User profile property.
+     * @return User department
      * 
      */
     public Optional<Output<String>> department() {
@@ -109,14 +109,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User display name, suitable to show end users
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return User profile property.
+     * @return User display name, suitable to show end users
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -124,14 +124,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User division
      * 
      */
     @Import(name="division")
     private @Nullable Output<String> division;
 
     /**
-     * @return User profile property.
+     * @return User division
      * 
      */
     public Optional<Output<String>> division() {
@@ -139,14 +139,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User primary email address
      * 
      */
     @Import(name="email")
     private @Nullable Output<String> email;
 
     /**
-     * @return User profile property.
+     * @return User primary email address
      * 
      */
     public Optional<Output<String>> email() {
@@ -154,14 +154,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User employee number
      * 
      */
     @Import(name="employeeNumber")
     private @Nullable Output<String> employeeNumber;
 
     /**
-     * @return User profile property.
+     * @return User employee number
      * 
      */
     public Optional<Output<String>> employeeNumber() {
@@ -169,16 +169,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If set to `true`, the user will have to change the password at the next login. This property will be used
-     * when user is being created and works only when `password` field is set. Default is `false`.
+     * If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
      * 
      */
     @Import(name="expirePasswordOnCreate")
     private @Nullable Output<Boolean> expirePasswordOnCreate;
 
     /**
-     * @return If set to `true`, the user will have to change the password at the next login. This property will be used
-     * when user is being created and works only when `password` field is set. Default is `false`.
+     * @return If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
      * 
      */
     public Optional<Output<Boolean>> expirePasswordOnCreate() {
@@ -186,14 +184,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User&#39;s First Name, required by default.
+     * User first name
      * 
      */
     @Import(name="firstName")
     private @Nullable Output<String> firstName;
 
     /**
-     * @return User&#39;s First Name, required by default.
+     * @return User first name
      * 
      */
     public Optional<Output<String>> firstName() {
@@ -201,14 +199,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User honorific prefix
      * 
      */
     @Import(name="honorificPrefix")
     private @Nullable Output<String> honorificPrefix;
 
     /**
-     * @return User profile property.
+     * @return User honorific prefix
      * 
      */
     public Optional<Output<String>> honorificPrefix() {
@@ -216,14 +214,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User honorific suffix
      * 
      */
     @Import(name="honorificSuffix")
     private @Nullable Output<String> honorificSuffix;
 
     /**
-     * @return User profile property.
+     * @return User honorific suffix
      * 
      */
     public Optional<Output<String>> honorificSuffix() {
@@ -231,14 +229,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User&#39;s Last Name, required by default.
+     * User last name
      * 
      */
     @Import(name="lastName")
     private @Nullable Output<String> lastName;
 
     /**
-     * @return User&#39;s Last Name, required by default.
+     * @return User last name
      * 
      */
     public Optional<Output<String>> lastName() {
@@ -246,14 +244,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User default location
      * 
      */
     @Import(name="locale")
     private @Nullable Output<String> locale;
 
     /**
-     * @return User profile property.
+     * @return User default location
      * 
      */
     public Optional<Output<String>> locale() {
@@ -261,14 +259,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User Okta login
      * 
      */
     @Import(name="login")
     private @Nullable Output<String> login;
 
     /**
-     * @return User profile property.
+     * @return User Okta login
      * 
      */
     public Optional<Output<String>> login() {
@@ -276,14 +274,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * Manager of User
      * 
      */
     @Import(name="manager")
     private @Nullable Output<String> manager;
 
     /**
-     * @return User profile property.
+     * @return Manager of User
      * 
      */
     public Optional<Output<String>> manager() {
@@ -291,14 +289,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * Manager ID of User
      * 
      */
     @Import(name="managerId")
     private @Nullable Output<String> managerId;
 
     /**
-     * @return User profile property.
+     * @return Manager ID of User
      * 
      */
     public Optional<Output<String>> managerId() {
@@ -306,14 +304,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User middle name
      * 
      */
     @Import(name="middleName")
     private @Nullable Output<String> middleName;
 
     /**
-     * @return User profile property.
+     * @return User middle name
      * 
      */
     public Optional<Output<String>> middleName() {
@@ -321,14 +319,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User mobile phone number
      * 
      */
     @Import(name="mobilePhone")
     private @Nullable Output<String> mobilePhone;
 
     /**
-     * @return User profile property.
+     * @return User mobile phone number
      * 
      */
     public Optional<Output<String>> mobilePhone() {
@@ -336,14 +334,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User nickname
      * 
      */
     @Import(name="nickName")
     private @Nullable Output<String> nickName;
 
     /**
-     * @return User profile property.
+     * @return User nickname
      * 
      */
     public Optional<Output<String>> nickName() {
@@ -351,18 +349,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-     * outside the provider. After successful password change this field should be removed and `password` field should be used
-     * for further changes.
+     * Old User Password. Should be only set in case the password was not changed using the provider
      * 
      */
     @Import(name="oldPassword")
     private @Nullable Output<String> oldPassword;
 
     /**
-     * @return Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-     * outside the provider. After successful password change this field should be removed and `password` field should be used
-     * for further changes.
+     * @return Old User Password. Should be only set in case the password was not changed using the provider
      * 
      */
     public Optional<Output<String>> oldPassword() {
@@ -370,14 +364,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User organization
      * 
      */
     @Import(name="organization")
     private @Nullable Output<String> organization;
 
     /**
-     * @return User profile property.
+     * @return User organization
      * 
      */
     public Optional<Output<String>> organization() {
@@ -385,14 +379,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User password.
+     * User Password
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return User password.
+     * @return User Password
      * 
      */
     public Optional<Output<String>> password() {
@@ -415,20 +409,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies that a Password Import Inline Hook should be triggered to handle verification
-     * of the user&#39;s password the first time the user logs in. This allows an existing password to be imported into Okta directly
-     * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-     * field should not be specified when using Password Import Inline Hook.
+     * When specified, the Password Inline Hook is triggered to handle verification of the end user&#39;s password the first time the user tries to sign in
      * 
      */
     @Import(name="passwordInlineHook")
     private @Nullable Output<String> passwordInlineHook;
 
     /**
-     * @return Specifies that a Password Import Inline Hook should be triggered to handle verification
-     * of the user&#39;s password the first time the user logs in. This allows an existing password to be imported into Okta directly
-     * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-     * field should not be specified when using Password Import Inline Hook.
+     * @return When specified, the Password Inline Hook is triggered to handle verification of the end user&#39;s password the first time the user tries to sign in
      * 
      */
     public Optional<Output<String>> passwordInlineHook() {
@@ -436,14 +424,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User mailing address
      * 
      */
     @Import(name="postalAddress")
     private @Nullable Output<String> postalAddress;
 
     /**
-     * @return User profile property.
+     * @return User mailing address
      * 
      */
     public Optional<Output<String>> postalAddress() {
@@ -451,14 +439,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User preferred language
      * 
      */
     @Import(name="preferredLanguage")
     private @Nullable Output<String> preferredLanguage;
 
     /**
-     * @return User profile property.
+     * @return User preferred language
      * 
      */
     public Optional<Output<String>> preferredLanguage() {
@@ -466,14 +454,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User primary phone number
      * 
      */
     @Import(name="primaryPhone")
     private @Nullable Output<String> primaryPhone;
 
     /**
-     * @return User profile property.
+     * @return User primary phone number
      * 
      */
     public Optional<Output<String>> primaryPhone() {
@@ -481,14 +469,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User online profile (web page)
      * 
      */
     @Import(name="profileUrl")
     private @Nullable Output<String> profileUrl;
 
     /**
-     * @return User profile property.
+     * @return User online profile (web page)
      * 
      */
     public Optional<Output<String>> profileUrl() {
@@ -511,20 +499,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User password recovery answer.
-     * 
-     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-     * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+     * User Password Recovery Answer
      * 
      */
     @Import(name="recoveryAnswer")
     private @Nullable Output<String> recoveryAnswer;
 
     /**
-     * @return User password recovery answer.
-     * 
-     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-     * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+     * @return User Password Recovery Answer
      * 
      */
     public Optional<Output<String>> recoveryAnswer() {
@@ -532,14 +514,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User password recovery question.
+     * User Password Recovery Question
      * 
      */
     @Import(name="recoveryQuestion")
     private @Nullable Output<String> recoveryQuestion;
 
     /**
-     * @return User password recovery question.
+     * @return User Password Recovery Question
      * 
      */
     public Optional<Output<String>> recoveryQuestion() {
@@ -547,14 +529,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User secondary email address, used for account recovery
      * 
      */
     @Import(name="secondEmail")
     private @Nullable Output<String> secondEmail;
 
     /**
-     * @return User profile property.
+     * @return User secondary email address, used for account recovery
      * 
      */
     public Optional<Output<String>> secondEmail() {
@@ -585,14 +567,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User state or region
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return User profile property.
+     * @return User state or region
      * 
      */
     public Optional<Output<String>> state() {
@@ -600,14 +582,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property. Valid values are &#34;ACTIVE&#34;, &#34;DEPROVISIONED&#34;, &#34;STAGED&#34;, &#34;SUSPENDED&#34;
+     * The status of the User in Okta - remove to set user back to active/provisioned
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return User profile property. Valid values are &#34;ACTIVE&#34;, &#34;DEPROVISIONED&#34;, &#34;STAGED&#34;, &#34;SUSPENDED&#34;
+     * @return The status of the User in Okta - remove to set user back to active/provisioned
      * 
      */
     public Optional<Output<String>> status() {
@@ -615,14 +597,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User street address
      * 
      */
     @Import(name="streetAddress")
     private @Nullable Output<String> streetAddress;
 
     /**
-     * @return User profile property.
+     * @return User street address
      * 
      */
     public Optional<Output<String>> streetAddress() {
@@ -630,14 +612,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User default timezone
      * 
      */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
     /**
-     * @return User profile property.
+     * @return User default timezone
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -645,14 +627,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User title
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return User profile property.
+     * @return User title
      * 
      */
     public Optional<Output<String>> title() {
@@ -660,14 +642,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User employee type
      * 
      */
     @Import(name="userType")
     private @Nullable Output<String> userType;
 
     /**
-     * @return User profile property.
+     * @return User employee type
      * 
      */
     public Optional<Output<String>> userType() {
@@ -675,14 +657,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User profile property.
+     * User zipcode or postal code
      * 
      */
     @Import(name="zipCode")
     private @Nullable Output<String> zipCode;
 
     /**
-     * @return User profile property.
+     * @return User zipcode or postal code
      * 
      */
     public Optional<Output<String>> zipCode() {
@@ -756,7 +738,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param city User profile property.
+         * @param city User city
          * 
          * @return builder
          * 
@@ -767,7 +749,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param city User profile property.
+         * @param city User city
          * 
          * @return builder
          * 
@@ -777,7 +759,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param costCenter User profile property.
+         * @param costCenter User cost center
          * 
          * @return builder
          * 
@@ -788,7 +770,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param costCenter User profile property.
+         * @param costCenter User cost center
          * 
          * @return builder
          * 
@@ -798,7 +780,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param countryCode User profile property.
+         * @param countryCode User country code
          * 
          * @return builder
          * 
@@ -809,7 +791,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param countryCode User profile property.
+         * @param countryCode User country code
          * 
          * @return builder
          * 
@@ -819,7 +801,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customProfileAttributes raw JSON containing all custom profile attributes.
+         * @param customProfileAttributes JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
          * 
          * @return builder
          * 
@@ -830,7 +812,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customProfileAttributes raw JSON containing all custom profile attributes.
+         * @param customProfileAttributes JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
          * 
          * @return builder
          * 
@@ -871,7 +853,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param department User profile property.
+         * @param department User department
          * 
          * @return builder
          * 
@@ -882,7 +864,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param department User profile property.
+         * @param department User department
          * 
          * @return builder
          * 
@@ -892,7 +874,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName User profile property.
+         * @param displayName User display name, suitable to show end users
          * 
          * @return builder
          * 
@@ -903,7 +885,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName User profile property.
+         * @param displayName User display name, suitable to show end users
          * 
          * @return builder
          * 
@@ -913,7 +895,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param division User profile property.
+         * @param division User division
          * 
          * @return builder
          * 
@@ -924,7 +906,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param division User profile property.
+         * @param division User division
          * 
          * @return builder
          * 
@@ -934,7 +916,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param email User profile property.
+         * @param email User primary email address
          * 
          * @return builder
          * 
@@ -945,7 +927,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param email User profile property.
+         * @param email User primary email address
          * 
          * @return builder
          * 
@@ -955,7 +937,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param employeeNumber User profile property.
+         * @param employeeNumber User employee number
          * 
          * @return builder
          * 
@@ -966,7 +948,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param employeeNumber User profile property.
+         * @param employeeNumber User employee number
          * 
          * @return builder
          * 
@@ -976,8 +958,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expirePasswordOnCreate If set to `true`, the user will have to change the password at the next login. This property will be used
-         * when user is being created and works only when `password` field is set. Default is `false`.
+         * @param expirePasswordOnCreate If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
          * 
          * @return builder
          * 
@@ -988,8 +969,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expirePasswordOnCreate If set to `true`, the user will have to change the password at the next login. This property will be used
-         * when user is being created and works only when `password` field is set. Default is `false`.
+         * @param expirePasswordOnCreate If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
          * 
          * @return builder
          * 
@@ -999,7 +979,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firstName User&#39;s First Name, required by default.
+         * @param firstName User first name
          * 
          * @return builder
          * 
@@ -1010,7 +990,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firstName User&#39;s First Name, required by default.
+         * @param firstName User first name
          * 
          * @return builder
          * 
@@ -1020,7 +1000,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param honorificPrefix User profile property.
+         * @param honorificPrefix User honorific prefix
          * 
          * @return builder
          * 
@@ -1031,7 +1011,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param honorificPrefix User profile property.
+         * @param honorificPrefix User honorific prefix
          * 
          * @return builder
          * 
@@ -1041,7 +1021,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param honorificSuffix User profile property.
+         * @param honorificSuffix User honorific suffix
          * 
          * @return builder
          * 
@@ -1052,7 +1032,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param honorificSuffix User profile property.
+         * @param honorificSuffix User honorific suffix
          * 
          * @return builder
          * 
@@ -1062,7 +1042,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastName User&#39;s Last Name, required by default.
+         * @param lastName User last name
          * 
          * @return builder
          * 
@@ -1073,7 +1053,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastName User&#39;s Last Name, required by default.
+         * @param lastName User last name
          * 
          * @return builder
          * 
@@ -1083,7 +1063,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locale User profile property.
+         * @param locale User default location
          * 
          * @return builder
          * 
@@ -1094,7 +1074,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locale User profile property.
+         * @param locale User default location
          * 
          * @return builder
          * 
@@ -1104,7 +1084,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param login User profile property.
+         * @param login User Okta login
          * 
          * @return builder
          * 
@@ -1115,7 +1095,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param login User profile property.
+         * @param login User Okta login
          * 
          * @return builder
          * 
@@ -1125,7 +1105,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manager User profile property.
+         * @param manager Manager of User
          * 
          * @return builder
          * 
@@ -1136,7 +1116,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manager User profile property.
+         * @param manager Manager of User
          * 
          * @return builder
          * 
@@ -1146,7 +1126,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managerId User profile property.
+         * @param managerId Manager ID of User
          * 
          * @return builder
          * 
@@ -1157,7 +1137,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managerId User profile property.
+         * @param managerId Manager ID of User
          * 
          * @return builder
          * 
@@ -1167,7 +1147,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param middleName User profile property.
+         * @param middleName User middle name
          * 
          * @return builder
          * 
@@ -1178,7 +1158,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param middleName User profile property.
+         * @param middleName User middle name
          * 
          * @return builder
          * 
@@ -1188,7 +1168,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mobilePhone User profile property.
+         * @param mobilePhone User mobile phone number
          * 
          * @return builder
          * 
@@ -1199,7 +1179,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mobilePhone User profile property.
+         * @param mobilePhone User mobile phone number
          * 
          * @return builder
          * 
@@ -1209,7 +1189,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nickName User profile property.
+         * @param nickName User nickname
          * 
          * @return builder
          * 
@@ -1220,7 +1200,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nickName User profile property.
+         * @param nickName User nickname
          * 
          * @return builder
          * 
@@ -1230,9 +1210,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oldPassword Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-         * outside the provider. After successful password change this field should be removed and `password` field should be used
-         * for further changes.
+         * @param oldPassword Old User Password. Should be only set in case the password was not changed using the provider
          * 
          * @return builder
          * 
@@ -1243,9 +1221,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oldPassword Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-         * outside the provider. After successful password change this field should be removed and `password` field should be used
-         * for further changes.
+         * @param oldPassword Old User Password. Should be only set in case the password was not changed using the provider
          * 
          * @return builder
          * 
@@ -1255,7 +1231,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organization User profile property.
+         * @param organization User organization
          * 
          * @return builder
          * 
@@ -1266,7 +1242,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organization User profile property.
+         * @param organization User organization
          * 
          * @return builder
          * 
@@ -1276,7 +1252,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password User password.
+         * @param password User Password
          * 
          * @return builder
          * 
@@ -1287,7 +1263,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password User password.
+         * @param password User Password
          * 
          * @return builder
          * 
@@ -1318,10 +1294,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordInlineHook Specifies that a Password Import Inline Hook should be triggered to handle verification
-         * of the user&#39;s password the first time the user logs in. This allows an existing password to be imported into Okta directly
-         * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-         * field should not be specified when using Password Import Inline Hook.
+         * @param passwordInlineHook When specified, the Password Inline Hook is triggered to handle verification of the end user&#39;s password the first time the user tries to sign in
          * 
          * @return builder
          * 
@@ -1332,10 +1305,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordInlineHook Specifies that a Password Import Inline Hook should be triggered to handle verification
-         * of the user&#39;s password the first time the user logs in. This allows an existing password to be imported into Okta directly
-         * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-         * field should not be specified when using Password Import Inline Hook.
+         * @param passwordInlineHook When specified, the Password Inline Hook is triggered to handle verification of the end user&#39;s password the first time the user tries to sign in
          * 
          * @return builder
          * 
@@ -1345,7 +1315,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param postalAddress User profile property.
+         * @param postalAddress User mailing address
          * 
          * @return builder
          * 
@@ -1356,7 +1326,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param postalAddress User profile property.
+         * @param postalAddress User mailing address
          * 
          * @return builder
          * 
@@ -1366,7 +1336,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredLanguage User profile property.
+         * @param preferredLanguage User preferred language
          * 
          * @return builder
          * 
@@ -1377,7 +1347,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredLanguage User profile property.
+         * @param preferredLanguage User preferred language
          * 
          * @return builder
          * 
@@ -1387,7 +1357,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryPhone User profile property.
+         * @param primaryPhone User primary phone number
          * 
          * @return builder
          * 
@@ -1398,7 +1368,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryPhone User profile property.
+         * @param primaryPhone User primary phone number
          * 
          * @return builder
          * 
@@ -1408,7 +1378,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileUrl User profile property.
+         * @param profileUrl User online profile (web page)
          * 
          * @return builder
          * 
@@ -1419,7 +1389,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileUrl User profile property.
+         * @param profileUrl User online profile (web page)
          * 
          * @return builder
          * 
@@ -1450,10 +1420,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryAnswer User password recovery answer.
-         * 
-         * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-         * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+         * @param recoveryAnswer User Password Recovery Answer
          * 
          * @return builder
          * 
@@ -1464,10 +1431,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryAnswer User password recovery answer.
-         * 
-         * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-         * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+         * @param recoveryAnswer User Password Recovery Answer
          * 
          * @return builder
          * 
@@ -1477,7 +1441,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryQuestion User password recovery question.
+         * @param recoveryQuestion User Password Recovery Question
          * 
          * @return builder
          * 
@@ -1488,7 +1452,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryQuestion User password recovery question.
+         * @param recoveryQuestion User Password Recovery Question
          * 
          * @return builder
          * 
@@ -1498,7 +1462,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondEmail User profile property.
+         * @param secondEmail User secondary email address, used for account recovery
          * 
          * @return builder
          * 
@@ -1509,7 +1473,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondEmail User profile property.
+         * @param secondEmail User secondary email address, used for account recovery
          * 
          * @return builder
          * 
@@ -1548,7 +1512,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state User profile property.
+         * @param state User state or region
          * 
          * @return builder
          * 
@@ -1559,7 +1523,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state User profile property.
+         * @param state User state or region
          * 
          * @return builder
          * 
@@ -1569,7 +1533,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status User profile property. Valid values are &#34;ACTIVE&#34;, &#34;DEPROVISIONED&#34;, &#34;STAGED&#34;, &#34;SUSPENDED&#34;
+         * @param status The status of the User in Okta - remove to set user back to active/provisioned
          * 
          * @return builder
          * 
@@ -1580,7 +1544,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status User profile property. Valid values are &#34;ACTIVE&#34;, &#34;DEPROVISIONED&#34;, &#34;STAGED&#34;, &#34;SUSPENDED&#34;
+         * @param status The status of the User in Okta - remove to set user back to active/provisioned
          * 
          * @return builder
          * 
@@ -1590,7 +1554,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streetAddress User profile property.
+         * @param streetAddress User street address
          * 
          * @return builder
          * 
@@ -1601,7 +1565,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streetAddress User profile property.
+         * @param streetAddress User street address
          * 
          * @return builder
          * 
@@ -1611,7 +1575,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timezone User profile property.
+         * @param timezone User default timezone
          * 
          * @return builder
          * 
@@ -1622,7 +1586,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timezone User profile property.
+         * @param timezone User default timezone
          * 
          * @return builder
          * 
@@ -1632,7 +1596,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param title User profile property.
+         * @param title User title
          * 
          * @return builder
          * 
@@ -1643,7 +1607,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param title User profile property.
+         * @param title User title
          * 
          * @return builder
          * 
@@ -1653,7 +1617,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userType User profile property.
+         * @param userType User employee type
          * 
          * @return builder
          * 
@@ -1664,7 +1628,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userType User profile property.
+         * @param userType User employee type
          * 
          * @return builder
          * 
@@ -1674,7 +1638,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zipCode User profile property.
+         * @param zipCode User zipcode or postal code
          * 
          * @return builder
          * 
@@ -1685,7 +1649,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zipCode User profile property.
+         * @param zipCode User zipcode or postal code
          * 
          * @return builder
          * 

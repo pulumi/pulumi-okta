@@ -14,14 +14,14 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPolicyArgs Empty = new GetPolicyArgs();
 
     /**
-     * Name of policy to retrieve.
+     * Name of the policy
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of policy to retrieve.
+     * @return Name of the policy
      * 
      */
     public Output<String> name() {
@@ -29,16 +29,14 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
-     * - All:
+     * Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
-     * - All:
+     * @return Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
      * 
      */
     public Output<String> type() {
@@ -71,7 +69,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of policy to retrieve.
+         * @param name Name of the policy
          * 
          * @return builder
          * 
@@ -82,7 +80,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of policy to retrieve.
+         * @param name Name of the policy
          * 
          * @return builder
          * 
@@ -92,8 +90,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
-         * - All:
+         * @param type Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
          * 
          * @return builder
          * 
@@ -104,8 +101,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
-         * - All:
+         * @param type Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
          * 
          * @return builder
          * 

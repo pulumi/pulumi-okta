@@ -16,14 +16,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     public static final ThemeArgs Empty = new ThemeArgs();
 
     /**
-     * (Optional) Local path to background image file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+     * Path to local file
      * 
      */
     @Import(name="backgroundImage")
     private @Nullable Output<String> backgroundImage;
 
     /**
-     * @return (Optional) Local path to background image file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+     * @return Path to local file
      * 
      */
     public Optional<Output<String>> backgroundImage() {
@@ -46,14 +46,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
+     * Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
      * 
      */
     @Import(name="emailTemplateTouchPointVariant")
     private @Nullable Output<String> emailTemplateTouchPointVariant;
 
     /**
-     * @return (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
+     * @return Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
      * 
      */
     public Optional<Output<String>> emailTemplateTouchPointVariant() {
@@ -61,14 +61,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+     * Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      * 
      */
     @Import(name="endUserDashboardTouchPointVariant")
     private @Nullable Output<String> endUserDashboardTouchPointVariant;
 
     /**
-     * @return (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+     * @return Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      * 
      */
     public Optional<Output<String>> endUserDashboardTouchPointVariant() {
@@ -76,14 +76,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     @Import(name="errorPageTouchPointVariant")
     private @Nullable Output<String> errorPageTouchPointVariant;
 
     /**
-     * @return (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * @return Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     public Optional<Output<String>> errorPageTouchPointVariant() {
@@ -91,14 +91,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) Local path to favicon file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+     * Path to local file
      * 
      */
     @Import(name="favicon")
     private @Nullable Output<String> favicon;
 
     /**
-     * @return (Optional) Local path to favicon file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+     * @return Path to local file
      * 
      */
     public Optional<Output<String>> favicon() {
@@ -106,14 +106,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) Local path to logo file. Setting the value to the blank string `&#34;&#34;` will delete the logo on the theme at Okta but will not delete the local file.
+     * Path to local file
      * 
      */
     @Import(name="logo")
     private @Nullable Output<String> logo;
 
     /**
-     * @return (Optional) Local path to logo file. Setting the value to the blank string `&#34;&#34;` will delete the logo on the theme at Okta but will not delete the local file.
+     * @return Path to local file
      * 
      */
     public Optional<Output<String>> logo() {
@@ -121,14 +121,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) Primary color contrast hex code
+     * Primary color contrast hex code
      * 
      */
     @Import(name="primaryColorContrastHex")
     private @Nullable Output<String> primaryColorContrastHex;
 
     /**
-     * @return (Optional) Primary color contrast hex code
+     * @return Primary color contrast hex code
      * 
      */
     public Optional<Output<String>> primaryColorContrastHex() {
@@ -136,14 +136,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required) Primary color hex code
+     * Primary color hex code
      * 
      */
     @Import(name="primaryColorHex")
     private @Nullable Output<String> primaryColorHex;
 
     /**
-     * @return (Required) Primary color hex code
+     * @return Primary color hex code
      * 
      */
     public Optional<Output<String>> primaryColorHex() {
@@ -151,14 +151,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) Secondary color contrast hex code
+     * Secondary color contrast hex code
      * 
      */
     @Import(name="secondaryColorContrastHex")
     private @Nullable Output<String> secondaryColorContrastHex;
 
     /**
-     * @return (Optional) Secondary color contrast hex code
+     * @return Secondary color contrast hex code
      * 
      */
     public Optional<Output<String>> secondaryColorContrastHex() {
@@ -166,14 +166,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required) Secondary color hex code
+     * Secondary color hex code
      * 
      */
     @Import(name="secondaryColorHex")
     private @Nullable Output<String> secondaryColorHex;
 
     /**
-     * @return (Required) Secondary color hex code
+     * @return Secondary color hex code
      * 
      */
     public Optional<Output<String>> secondaryColorHex() {
@@ -181,14 +181,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     @Import(name="signInPageTouchPointVariant")
     private @Nullable Output<String> signInPageTouchPointVariant;
 
     /**
-     * @return (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * @return Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     public Optional<Output<String>> signInPageTouchPointVariant() {
@@ -196,14 +196,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Theme ID, used for read (faux-create)
+     * Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
      * 
      */
     @Import(name="themeId")
     private @Nullable Output<String> themeId;
 
     /**
-     * @return Theme ID, used for read (faux-create)
+     * @return Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
      * 
      */
     public Optional<Output<String>> themeId() {
@@ -247,7 +247,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backgroundImage (Optional) Local path to background image file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+         * @param backgroundImage Path to local file
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backgroundImage (Optional) Local path to background image file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+         * @param backgroundImage Path to local file
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailTemplateTouchPointVariant (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
+         * @param emailTemplateTouchPointVariant Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailTemplateTouchPointVariant (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
+         * @param emailTemplateTouchPointVariant Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endUserDashboardTouchPointVariant (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+         * @param endUserDashboardTouchPointVariant Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endUserDashboardTouchPointVariant (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+         * @param endUserDashboardTouchPointVariant Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorPageTouchPointVariant (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+         * @param errorPageTouchPointVariant Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorPageTouchPointVariant (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+         * @param errorPageTouchPointVariant Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param favicon (Optional) Local path to favicon file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+         * @param favicon Path to local file
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param favicon (Optional) Local path to favicon file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+         * @param favicon Path to local file
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo (Optional) Local path to logo file. Setting the value to the blank string `&#34;&#34;` will delete the logo on the theme at Okta but will not delete the local file.
+         * @param logo Path to local file
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo (Optional) Local path to logo file. Setting the value to the blank string `&#34;&#34;` will delete the logo on the theme at Okta but will not delete the local file.
+         * @param logo Path to local file
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryColorContrastHex (Optional) Primary color contrast hex code
+         * @param primaryColorContrastHex Primary color contrast hex code
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryColorContrastHex (Optional) Primary color contrast hex code
+         * @param primaryColorContrastHex Primary color contrast hex code
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryColorHex (Required) Primary color hex code
+         * @param primaryColorHex Primary color hex code
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryColorHex (Required) Primary color hex code
+         * @param primaryColorHex Primary color hex code
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryColorContrastHex (Optional) Secondary color contrast hex code
+         * @param secondaryColorContrastHex Secondary color contrast hex code
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryColorContrastHex (Optional) Secondary color contrast hex code
+         * @param secondaryColorContrastHex Secondary color contrast hex code
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryColorHex (Required) Secondary color hex code
+         * @param secondaryColorHex Secondary color hex code
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryColorHex (Required) Secondary color hex code
+         * @param secondaryColorHex Secondary color hex code
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signInPageTouchPointVariant (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+         * @param signInPageTouchPointVariant Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signInPageTouchPointVariant (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+         * @param signInPageTouchPointVariant Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param themeId Theme ID, used for read (faux-create)
+         * @param themeId Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param themeId Theme ID, used for read (faux-create)
+         * @param themeId Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
          * 
          * @return builder
          * 

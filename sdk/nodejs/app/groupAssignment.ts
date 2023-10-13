@@ -4,15 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Import
- *
- * An application group assignment can be imported via the `app_id` and the `group_id`.
- *
- * ```sh
- *  $ pulumi import okta:app/groupAssignment:GroupAssignment example &#60;app_id&#62;/&#60;group_id&#62;
- * ```
- */
 export class GroupAssignment extends pulumi.CustomResource {
     /**
      * Get an existing GroupAssignment resource's state with the given name, ID, and optional extra
@@ -42,11 +33,11 @@ export class GroupAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the application to assign a group to.
+     * App to associate group with
      */
     public readonly appId!: pulumi.Output<string>;
     /**
-     * The ID of the group to assign the app to.
+     * Group associated with the application
      */
     public readonly groupId!: pulumi.Output<string>;
     /**
@@ -104,11 +95,11 @@ export class GroupAssignment extends pulumi.CustomResource {
  */
 export interface GroupAssignmentState {
     /**
-     * The ID of the application to assign a group to.
+     * App to associate group with
      */
     appId?: pulumi.Input<string>;
     /**
-     * The ID of the group to assign the app to.
+     * Group associated with the application
      */
     groupId?: pulumi.Input<string>;
     /**
@@ -130,11 +121,11 @@ export interface GroupAssignmentState {
  */
 export interface GroupAssignmentArgs {
     /**
-     * The ID of the application to assign a group to.
+     * App to associate group with
      */
     appId: pulumi.Input<string>;
     /**
-     * The ID of the group to assign the app to.
+     * Group associated with the application
      */
     groupId: pulumi.Input<string>;
     /**

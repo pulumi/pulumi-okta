@@ -16,14 +16,14 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
     public static final AppSignonPolicyState Empty = new AppSignonPolicyState();
 
     /**
-     * Description of the policy.
+     * Policy Description
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the policy.
+     * @return Policy Description
      * 
      */
     public Optional<Output<String>> description() {
@@ -31,14 +31,14 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the policy.
+     * Policy Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the policy.
+     * @return Policy Name
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Description of the policy.
+         * @param description Policy Description
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Description of the policy.
+         * @param description Policy Description
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the policy.
+         * @param name Policy Name
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the policy.
+         * @param name Policy Name
          * 
          * @return builder
          * 

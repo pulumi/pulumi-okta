@@ -47,20 +47,23 @@ class GetPolicyResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        name of policy.
+        Name of the policy
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of the policy
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        type of policy.
+        Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
         """
         return pulumi.get(self, "type")
 
@@ -81,7 +84,7 @@ def get_policy(name: Optional[str] = None,
                type: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
-    Use this data source to retrieve a policy from Okta.
+    Get a policy from Okta.
 
     ## Example Usage
 
@@ -94,9 +97,8 @@ def get_policy(name: Optional[str] = None,
     ```
 
 
-    :param str name: Name of policy to retrieve.
-    :param str type: Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
-           - All:
+    :param str name: Name of the policy
+    :param str type: Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
     """
     __args__ = dict()
     __args__['name'] = name
@@ -116,7 +118,7 @@ def get_policy_output(name: Optional[pulumi.Input[str]] = None,
                       type: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
-    Use this data source to retrieve a policy from Okta.
+    Get a policy from Okta.
 
     ## Example Usage
 
@@ -129,8 +131,7 @@ def get_policy_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: Name of policy to retrieve.
-    :param str type: Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
-           - All:
+    :param str name: Name of the policy
+    :param str type: Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
     """
     ...

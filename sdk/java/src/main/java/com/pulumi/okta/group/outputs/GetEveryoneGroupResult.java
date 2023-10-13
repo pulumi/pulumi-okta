@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetEveryoneGroupResult {
     /**
-     * @return description of group.
+     * @return Description of group.
      * 
      */
     private String description;
@@ -22,11 +22,15 @@ public final class GetEveryoneGroupResult {
      * 
      */
     private String id;
+    /**
+     * @return Fetch group users, having default off cuts down on API calls.
+     * 
+     */
     private @Nullable Boolean includeUsers;
 
     private GetEveryoneGroupResult() {}
     /**
-     * @return description of group.
+     * @return Description of group.
      * 
      */
     public String description() {
@@ -39,6 +43,10 @@ public final class GetEveryoneGroupResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Fetch group users, having default off cuts down on API calls.
+     * 
+     */
     public Optional<Boolean> includeUsers() {
         return Optional.ofNullable(this.includeUsers);
     }

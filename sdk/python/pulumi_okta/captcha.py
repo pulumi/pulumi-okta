@@ -20,10 +20,10 @@ class CaptchaArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Captcha resource.
-        :param pulumi.Input[str] secret_key: Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
-        :param pulumi.Input[str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
-        :param pulumi.Input[str] type: Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
-        :param pulumi.Input[str] name: Name of the captcha.
+        :param pulumi.Input[str] secret_key: Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
+        :param pulumi.Input[str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
+        :param pulumi.Input[str] type: Captcha type
+        :param pulumi.Input[str] name: Name of the CAPTCHA
         """
         CaptchaArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -50,7 +50,7 @@ class CaptchaArgs:
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> pulumi.Input[str]:
         """
-        Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+        Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         """
         return pulumi.get(self, "secret_key")
 
@@ -62,7 +62,7 @@ class CaptchaArgs:
     @pulumi.getter(name="siteKey")
     def site_key(self) -> pulumi.Input[str]:
         """
-        Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+        Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         """
         return pulumi.get(self, "site_key")
 
@@ -74,7 +74,7 @@ class CaptchaArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+        Captcha type
         """
         return pulumi.get(self, "type")
 
@@ -86,7 +86,7 @@ class CaptchaArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the captcha.
+        Name of the CAPTCHA
         """
         return pulumi.get(self, "name")
 
@@ -104,10 +104,10 @@ class _CaptchaState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Captcha resources.
-        :param pulumi.Input[str] name: Name of the captcha.
-        :param pulumi.Input[str] secret_key: Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
-        :param pulumi.Input[str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
-        :param pulumi.Input[str] type: Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+        :param pulumi.Input[str] name: Name of the CAPTCHA
+        :param pulumi.Input[str] secret_key: Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
+        :param pulumi.Input[str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
+        :param pulumi.Input[str] type: Captcha type
         """
         _CaptchaState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -137,7 +137,7 @@ class _CaptchaState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the captcha.
+        Name of the CAPTCHA
         """
         return pulumi.get(self, "name")
 
@@ -149,7 +149,7 @@ class _CaptchaState:
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+        Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         """
         return pulumi.get(self, "secret_key")
 
@@ -161,7 +161,7 @@ class _CaptchaState:
     @pulumi.getter(name="siteKey")
     def site_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+        Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         """
         return pulumi.get(self, "site_key")
 
@@ -173,7 +173,7 @@ class _CaptchaState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+        Captcha type
         """
         return pulumi.get(self, "type")
 
@@ -193,36 +193,13 @@ class Captcha(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        This resource allows you to create and configure a CAPTCHA.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.Captcha("example",
-            secret_key="some_secret_key",
-            site_key="some_key",
-            type="HCAPTCHA")
-        ```
-
-        ## Import
-
-        Behavior can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
-        ```
-
+        Create a Captcha resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the captcha.
-        :param pulumi.Input[str] secret_key: Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
-        :param pulumi.Input[str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
-        :param pulumi.Input[str] type: Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+        :param pulumi.Input[str] name: Name of the CAPTCHA
+        :param pulumi.Input[str] secret_key: Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
+        :param pulumi.Input[str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
+        :param pulumi.Input[str] type: Captcha type
         """
         ...
     @overload
@@ -231,30 +208,7 @@ class Captcha(pulumi.CustomResource):
                  args: CaptchaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        This resource allows you to create and configure a CAPTCHA.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.Captcha("example",
-            secret_key="some_secret_key",
-            site_key="some_key",
-            type="HCAPTCHA")
-        ```
-
-        ## Import
-
-        Behavior can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
-        ```
-
+        Create a Captcha resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CaptchaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -320,10 +274,10 @@ class Captcha(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the captcha.
-        :param pulumi.Input[str] secret_key: Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
-        :param pulumi.Input[str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
-        :param pulumi.Input[str] type: Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+        :param pulumi.Input[str] name: Name of the CAPTCHA
+        :param pulumi.Input[str] secret_key: Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
+        :param pulumi.Input[str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
+        :param pulumi.Input[str] type: Captcha type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -339,7 +293,7 @@ class Captcha(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the captcha.
+        Name of the CAPTCHA
         """
         return pulumi.get(self, "name")
 
@@ -347,7 +301,7 @@ class Captcha(pulumi.CustomResource):
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> pulumi.Output[str]:
         """
-        Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+        Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         """
         return pulumi.get(self, "secret_key")
 
@@ -355,7 +309,7 @@ class Captcha(pulumi.CustomResource):
     @pulumi.getter(name="siteKey")
     def site_key(self) -> pulumi.Output[str]:
         """
-        Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+        Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         """
         return pulumi.get(self, "site_key")
 
@@ -363,7 +317,7 @@ class Captcha(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+        Captcha type
         """
         return pulumi.get(self, "type")
 

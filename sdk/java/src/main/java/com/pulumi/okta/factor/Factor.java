@@ -15,69 +15,31 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Allows you to manage the activation of Okta MFA methods.
- * 
- * This resource allows you to manage Okta MFA methods.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.factor.Factor;
- * import com.pulumi.okta.factor.FactorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Factor(&#34;example&#34;, FactorArgs.builder()        
- *             .providerId(&#34;google_otp&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="okta:factor/factor:Factor")
 public class Factor extends com.pulumi.resources.CustomResource {
     /**
-     * Whether to activate the provider, by default, it is set to `true`.
+     * Is this provider active?
      * 
      */
     @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
-     * @return Whether to activate the provider, by default, it is set to `true`.
+     * @return Is this provider active?
      * 
      */
     public Output<Optional<Boolean>> active() {
         return Codegen.optional(this.active);
     }
     /**
-     * The MFA provider name.
-     * Allowed values are `&#34;duo&#34;`, `&#34;fido_u2f&#34;`, `&#34;fido_webauthn&#34;`, `&#34;google_otp&#34;`, `&#34;okta_call&#34;`, `&#34;okta_otp&#34;`, `&#34;okta_password&#34;`, `&#34;okta_push&#34;`, `&#34;okta_question&#34;`, `&#34;okta_sms&#34;`, `&#34;okta_email&#34;`, `&#34;rsa_token&#34;`, `&#34;symantec_vip&#34;`, `&#34;yubikey_token&#34;`, or `&#34;hotp&#34;`.
+     * Factor provider ID
      * 
      */
     @Export(name="providerId", refs={String.class}, tree="[0]")
     private Output<String> providerId;
 
     /**
-     * @return The MFA provider name.
-     * Allowed values are `&#34;duo&#34;`, `&#34;fido_u2f&#34;`, `&#34;fido_webauthn&#34;`, `&#34;google_otp&#34;`, `&#34;okta_call&#34;`, `&#34;okta_otp&#34;`, `&#34;okta_password&#34;`, `&#34;okta_push&#34;`, `&#34;okta_question&#34;`, `&#34;okta_sms&#34;`, `&#34;okta_email&#34;`, `&#34;rsa_token&#34;`, `&#34;symantec_vip&#34;`, `&#34;yubikey_token&#34;`, or `&#34;hotp&#34;`.
+     * @return Factor provider ID
      * 
      */
     public Output<String> providerId() {

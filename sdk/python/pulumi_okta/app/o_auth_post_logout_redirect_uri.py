@@ -120,34 +120,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to manage post logout redirection URI for use in redirect-based flows.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test_o_auth = okta.app.OAuth("testOAuth",
-            label="testAcc_replace_with_uuid",
-            type="web",
-            grant_types=["authorization_code"],
-            response_types=["code"],
-            redirect_uris=["myapp://callback"],
-            post_logout_redirect_uris=["https://www.example.com"])
-        test_o_auth_post_logout_redirect_uri = okta.app.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri",
-            app_id=test_o_auth.id,
-            uri="https://www.example.com")
-        ```
-
-        ## Import
-
-        A post logout redirect URI can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
-        ```
-
+        Create a OAuthPostLogoutRedirectUri resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: OAuth application ID.
@@ -160,34 +133,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
                  args: OAuthPostLogoutRedirectUriArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to manage post logout redirection URI for use in redirect-based flows.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test_o_auth = okta.app.OAuth("testOAuth",
-            label="testAcc_replace_with_uuid",
-            type="web",
-            grant_types=["authorization_code"],
-            response_types=["code"],
-            redirect_uris=["myapp://callback"],
-            post_logout_redirect_uris=["https://www.example.com"])
-        test_o_auth_post_logout_redirect_uri = okta.app.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri",
-            app_id=test_o_auth.id,
-            uri="https://www.example.com")
-        ```
-
-        ## Import
-
-        A post logout redirect URI can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
-        ```
-
+        Create a OAuthPostLogoutRedirectUri resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OAuthPostLogoutRedirectUriArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

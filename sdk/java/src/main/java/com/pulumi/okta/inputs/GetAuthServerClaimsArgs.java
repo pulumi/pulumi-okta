@@ -14,14 +14,14 @@ public final class GetAuthServerClaimsArgs extends com.pulumi.resources.InvokeAr
     public static final GetAuthServerClaimsArgs Empty = new GetAuthServerClaimsArgs();
 
     /**
-     * Auth server ID.
+     * Auth server ID
      * 
      */
     @Import(name="authServerId", required=true)
     private Output<String> authServerId;
 
     /**
-     * @return Auth server ID.
+     * @return Auth server ID
      * 
      */
     public Output<String> authServerId() {
@@ -53,7 +53,7 @@ public final class GetAuthServerClaimsArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param authServerId Auth server ID.
+         * @param authServerId Auth server ID
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetAuthServerClaimsArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param authServerId Auth server ID.
+         * @param authServerId Auth server ID
          * 
          * @return builder
          * 

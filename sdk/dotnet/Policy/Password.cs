@@ -9,222 +9,185 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Policy
 {
-    /// <summary>
-    /// Creates a Password Policy.
-    /// 
-    /// This resource allows you to create and configure a Password Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Policy.Password("example", new()
-    ///     {
-    ///         Description = "Example",
-    ///         GroupsIncludeds = new[]
-    ///         {
-    ///             data.Okta_group.Everyone.Id,
-    ///         },
-    ///         PasswordHistoryCount = 4,
-    ///         Status = "ACTIVE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// A Password Policy can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:policy/password:Password example &amp;#60;policy id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:policy/password:Password")]
     public partial class Password : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
+        /// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         /// </summary>
         [Output("authProvider")]
         public Output<string?> AuthProvider { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
+        /// Enable or disable voice call recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Output("callRecovery")]
         public Output<string?> CallRecovery { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Description. Type `"string"`
+        /// Policy Description
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
+        /// Enable or disable email password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Output("emailRecovery")]
         public Output<string?> EmailRecovery { get; private set; } = null!;
 
         /// <summary>
-        /// List of Group IDs to Include. Type `"list(string)"`
+        /// List of Group IDs to Include
         /// </summary>
         [Output("groupsIncludeds")]
         public Output<ImmutableArray<string>> GroupsIncludeds { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Name. Type `"string"`
+        /// Policy Name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
+        /// Number of minutes before a locked account is unlocked: 0 = no limit.
         /// </summary>
         [Output("passwordAutoUnlockMinutes")]
         public Output<int?> PasswordAutoUnlockMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Check Passwords Against Common Password Dictionary. Type `"bool"`
+        /// Check Passwords Against Common Password Dictionary.
         /// </summary>
         [Output("passwordDictionaryLookup")]
         public Output<bool?> PasswordDictionaryLookup { get; private set; } = null!;
 
         /// <summary>
-        /// User firstName attribute must be excluded from the password. Type `"bool"`
+        /// User firstName attribute must be excluded from the password
         /// </summary>
         [Output("passwordExcludeFirstName")]
         public Output<bool?> PasswordExcludeFirstName { get; private set; } = null!;
 
         /// <summary>
-        /// User lastName attribute must be excluded from the password. Type `"bool"`
+        /// User lastName attribute must be excluded from the password
         /// </summary>
         [Output("passwordExcludeLastName")]
         public Output<bool?> PasswordExcludeLastName { get; private set; } = null!;
 
         /// <summary>
-        /// If the username must be excluded from the password. Type `"bool"`
+        /// If the user name must be excluded from the password.
         /// </summary>
         [Output("passwordExcludeUsername")]
         public Output<bool?> PasswordExcludeUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
+        /// Length in days a user will be warned before password expiry: 0 = no warning.
         /// </summary>
         [Output("passwordExpireWarnDays")]
         public Output<int?> PasswordExpireWarnDays { get; private set; } = null!;
 
         /// <summary>
-        /// Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
+        /// Number of distinct passwords that must be created before they can be reused: 0 = none.
         /// </summary>
         [Output("passwordHistoryCount")]
         public Output<int?> PasswordHistoryCount { get; private set; } = null!;
 
         /// <summary>
-        /// Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
+        /// Notification channels to use to notify a user when their account has been locked.
         /// </summary>
         [Output("passwordLockoutNotificationChannels")]
         public Output<ImmutableArray<string>> PasswordLockoutNotificationChannels { get; private set; } = null!;
 
         /// <summary>
-        /// Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
+        /// Length in days a password is valid before expiry: 0 = no limit.
         /// </summary>
         [Output("passwordMaxAgeDays")]
         public Output<int?> PasswordMaxAgeDays { get; private set; } = null!;
 
         /// <summary>
-        /// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
+        /// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
         /// </summary>
         [Output("passwordMaxLockoutAttempts")]
         public Output<int?> PasswordMaxLockoutAttempts { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
+        /// Minimum time interval in minutes between password changes: 0 = no limit.
         /// </summary>
         [Output("passwordMinAgeMinutes")]
         public Output<int?> PasswordMinAgeMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum password length. Default is 8. Type `"number"`
+        /// Minimum password length.
         /// </summary>
         [Output("passwordMinLength")]
         public Output<int?> PasswordMinLength { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum number of lower case characters in a password. Type `"number"`
+        /// If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Output("passwordMinLowercase")]
         public Output<int?> PasswordMinLowercase { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum number of numbers in a password. Type `"number"`
+        /// If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Output("passwordMinNumber")]
         public Output<int?> PasswordMinNumber { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum number of symbols in a password. Type `"number"`
+        /// If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Output("passwordMinSymbol")]
         public Output<int?> PasswordMinSymbol { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum number of upper case characters in a password. Type `"number"`
+        /// If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Output("passwordMinUppercase")]
         public Output<int?> PasswordMinUppercase { get; private set; } = null!;
 
         /// <summary>
-        /// If a user should be informed when their account is locked.  Type `"bool"`
+        /// If a user should be informed when their account is locked.
         /// </summary>
         [Output("passwordShowLockoutFailures")]
         public Output<bool?> PasswordShowLockoutFailures { get; private set; } = null!;
 
         /// <summary>
-        /// Priority of the policy. Type `"number"`
+        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Min length of the password recovery question answer.  Type `"number"`
+        /// Min length of the password recovery question answer.
         /// </summary>
         [Output("questionMinLength")]
         public Output<int?> QuestionMinLength { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
+        /// Enable or disable security question password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Output("questionRecovery")]
         public Output<string?> QuestionRecovery { get; private set; } = null!;
 
         /// <summary>
-        /// Lifetime in minutes of the recovery email token.  Type `"number"`
+        /// Lifetime in minutes of the recovery email token.
         /// </summary>
         [Output("recoveryEmailToken")]
         public Output<int?> RecoveryEmailToken { get; private set; } = null!;
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
         /// </summary>
         [Output("skipUnlock")]
         public Output<bool?> SkipUnlock { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
+        /// Enable or disable SMS password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Output("smsRecovery")]
         public Output<string?> SmsRecovery { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+        /// Policy Status: ACTIVE or INACTIVE.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -276,25 +239,25 @@ namespace Pulumi.Okta.Policy
     public sealed class PasswordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
+        /// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         /// </summary>
         [Input("authProvider")]
         public Input<string>? AuthProvider { get; set; }
 
         /// <summary>
-        /// Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
+        /// Enable or disable voice call recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Input("callRecovery")]
         public Input<string>? CallRecovery { get; set; }
 
         /// <summary>
-        /// Policy Description. Type `"string"`
+        /// Policy Description
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
+        /// Enable or disable email password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Input("emailRecovery")]
         public Input<string>? EmailRecovery { get; set; }
@@ -303,7 +266,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _groupsIncludeds;
 
         /// <summary>
-        /// List of Group IDs to Include. Type `"list(string)"`
+        /// List of Group IDs to Include
         /// </summary>
         public InputList<string> GroupsIncludeds
         {
@@ -312,49 +275,49 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy Name. Type `"string"`
+        /// Policy Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
+        /// Number of minutes before a locked account is unlocked: 0 = no limit.
         /// </summary>
         [Input("passwordAutoUnlockMinutes")]
         public Input<int>? PasswordAutoUnlockMinutes { get; set; }
 
         /// <summary>
-        /// Check Passwords Against Common Password Dictionary. Type `"bool"`
+        /// Check Passwords Against Common Password Dictionary.
         /// </summary>
         [Input("passwordDictionaryLookup")]
         public Input<bool>? PasswordDictionaryLookup { get; set; }
 
         /// <summary>
-        /// User firstName attribute must be excluded from the password. Type `"bool"`
+        /// User firstName attribute must be excluded from the password
         /// </summary>
         [Input("passwordExcludeFirstName")]
         public Input<bool>? PasswordExcludeFirstName { get; set; }
 
         /// <summary>
-        /// User lastName attribute must be excluded from the password. Type `"bool"`
+        /// User lastName attribute must be excluded from the password
         /// </summary>
         [Input("passwordExcludeLastName")]
         public Input<bool>? PasswordExcludeLastName { get; set; }
 
         /// <summary>
-        /// If the username must be excluded from the password. Type `"bool"`
+        /// If the user name must be excluded from the password.
         /// </summary>
         [Input("passwordExcludeUsername")]
         public Input<bool>? PasswordExcludeUsername { get; set; }
 
         /// <summary>
-        /// Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
+        /// Length in days a user will be warned before password expiry: 0 = no warning.
         /// </summary>
         [Input("passwordExpireWarnDays")]
         public Input<int>? PasswordExpireWarnDays { get; set; }
 
         /// <summary>
-        /// Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
+        /// Number of distinct passwords that must be created before they can be reused: 0 = none.
         /// </summary>
         [Input("passwordHistoryCount")]
         public Input<int>? PasswordHistoryCount { get; set; }
@@ -363,7 +326,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _passwordLockoutNotificationChannels;
 
         /// <summary>
-        /// Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
+        /// Notification channels to use to notify a user when their account has been locked.
         /// </summary>
         public InputList<string> PasswordLockoutNotificationChannels
         {
@@ -372,97 +335,97 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
+        /// Length in days a password is valid before expiry: 0 = no limit.
         /// </summary>
         [Input("passwordMaxAgeDays")]
         public Input<int>? PasswordMaxAgeDays { get; set; }
 
         /// <summary>
-        /// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
+        /// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
         /// </summary>
         [Input("passwordMaxLockoutAttempts")]
         public Input<int>? PasswordMaxLockoutAttempts { get; set; }
 
         /// <summary>
-        /// Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
+        /// Minimum time interval in minutes between password changes: 0 = no limit.
         /// </summary>
         [Input("passwordMinAgeMinutes")]
         public Input<int>? PasswordMinAgeMinutes { get; set; }
 
         /// <summary>
-        /// Minimum password length. Default is 8. Type `"number"`
+        /// Minimum password length.
         /// </summary>
         [Input("passwordMinLength")]
         public Input<int>? PasswordMinLength { get; set; }
 
         /// <summary>
-        /// Minimum number of lower case characters in a password. Type `"number"`
+        /// If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Input("passwordMinLowercase")]
         public Input<int>? PasswordMinLowercase { get; set; }
 
         /// <summary>
-        /// Minimum number of numbers in a password. Type `"number"`
+        /// If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Input("passwordMinNumber")]
         public Input<int>? PasswordMinNumber { get; set; }
 
         /// <summary>
-        /// Minimum number of symbols in a password. Type `"number"`
+        /// If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Input("passwordMinSymbol")]
         public Input<int>? PasswordMinSymbol { get; set; }
 
         /// <summary>
-        /// Minimum number of upper case characters in a password. Type `"number"`
+        /// If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Input("passwordMinUppercase")]
         public Input<int>? PasswordMinUppercase { get; set; }
 
         /// <summary>
-        /// If a user should be informed when their account is locked.  Type `"bool"`
+        /// If a user should be informed when their account is locked.
         /// </summary>
         [Input("passwordShowLockoutFailures")]
         public Input<bool>? PasswordShowLockoutFailures { get; set; }
 
         /// <summary>
-        /// Priority of the policy. Type `"number"`
+        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Min length of the password recovery question answer.  Type `"number"`
+        /// Min length of the password recovery question answer.
         /// </summary>
         [Input("questionMinLength")]
         public Input<int>? QuestionMinLength { get; set; }
 
         /// <summary>
-        /// Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
+        /// Enable or disable security question password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Input("questionRecovery")]
         public Input<string>? QuestionRecovery { get; set; }
 
         /// <summary>
-        /// Lifetime in minutes of the recovery email token.  Type `"number"`
+        /// Lifetime in minutes of the recovery email token.
         /// </summary>
         [Input("recoveryEmailToken")]
         public Input<int>? RecoveryEmailToken { get; set; }
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
         /// </summary>
         [Input("skipUnlock")]
         public Input<bool>? SkipUnlock { get; set; }
 
         /// <summary>
-        /// Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
+        /// Enable or disable SMS password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Input("smsRecovery")]
         public Input<string>? SmsRecovery { get; set; }
 
         /// <summary>
-        /// Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+        /// Policy Status: ACTIVE or INACTIVE.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -476,25 +439,25 @@ namespace Pulumi.Okta.Policy
     public sealed class PasswordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
+        /// Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
         /// </summary>
         [Input("authProvider")]
         public Input<string>? AuthProvider { get; set; }
 
         /// <summary>
-        /// Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
+        /// Enable or disable voice call recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Input("callRecovery")]
         public Input<string>? CallRecovery { get; set; }
 
         /// <summary>
-        /// Policy Description. Type `"string"`
+        /// Policy Description
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
+        /// Enable or disable email password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Input("emailRecovery")]
         public Input<string>? EmailRecovery { get; set; }
@@ -503,7 +466,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _groupsIncludeds;
 
         /// <summary>
-        /// List of Group IDs to Include. Type `"list(string)"`
+        /// List of Group IDs to Include
         /// </summary>
         public InputList<string> GroupsIncludeds
         {
@@ -512,49 +475,49 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy Name. Type `"string"`
+        /// Policy Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
+        /// Number of minutes before a locked account is unlocked: 0 = no limit.
         /// </summary>
         [Input("passwordAutoUnlockMinutes")]
         public Input<int>? PasswordAutoUnlockMinutes { get; set; }
 
         /// <summary>
-        /// Check Passwords Against Common Password Dictionary. Type `"bool"`
+        /// Check Passwords Against Common Password Dictionary.
         /// </summary>
         [Input("passwordDictionaryLookup")]
         public Input<bool>? PasswordDictionaryLookup { get; set; }
 
         /// <summary>
-        /// User firstName attribute must be excluded from the password. Type `"bool"`
+        /// User firstName attribute must be excluded from the password
         /// </summary>
         [Input("passwordExcludeFirstName")]
         public Input<bool>? PasswordExcludeFirstName { get; set; }
 
         /// <summary>
-        /// User lastName attribute must be excluded from the password. Type `"bool"`
+        /// User lastName attribute must be excluded from the password
         /// </summary>
         [Input("passwordExcludeLastName")]
         public Input<bool>? PasswordExcludeLastName { get; set; }
 
         /// <summary>
-        /// If the username must be excluded from the password. Type `"bool"`
+        /// If the user name must be excluded from the password.
         /// </summary>
         [Input("passwordExcludeUsername")]
         public Input<bool>? PasswordExcludeUsername { get; set; }
 
         /// <summary>
-        /// Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
+        /// Length in days a user will be warned before password expiry: 0 = no warning.
         /// </summary>
         [Input("passwordExpireWarnDays")]
         public Input<int>? PasswordExpireWarnDays { get; set; }
 
         /// <summary>
-        /// Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
+        /// Number of distinct passwords that must be created before they can be reused: 0 = none.
         /// </summary>
         [Input("passwordHistoryCount")]
         public Input<int>? PasswordHistoryCount { get; set; }
@@ -563,7 +526,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _passwordLockoutNotificationChannels;
 
         /// <summary>
-        /// Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
+        /// Notification channels to use to notify a user when their account has been locked.
         /// </summary>
         public InputList<string> PasswordLockoutNotificationChannels
         {
@@ -572,97 +535,97 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
+        /// Length in days a password is valid before expiry: 0 = no limit.
         /// </summary>
         [Input("passwordMaxAgeDays")]
         public Input<int>? PasswordMaxAgeDays { get; set; }
 
         /// <summary>
-        /// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
+        /// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
         /// </summary>
         [Input("passwordMaxLockoutAttempts")]
         public Input<int>? PasswordMaxLockoutAttempts { get; set; }
 
         /// <summary>
-        /// Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
+        /// Minimum time interval in minutes between password changes: 0 = no limit.
         /// </summary>
         [Input("passwordMinAgeMinutes")]
         public Input<int>? PasswordMinAgeMinutes { get; set; }
 
         /// <summary>
-        /// Minimum password length. Default is 8. Type `"number"`
+        /// Minimum password length.
         /// </summary>
         [Input("passwordMinLength")]
         public Input<int>? PasswordMinLength { get; set; }
 
         /// <summary>
-        /// Minimum number of lower case characters in a password. Type `"number"`
+        /// If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Input("passwordMinLowercase")]
         public Input<int>? PasswordMinLowercase { get; set; }
 
         /// <summary>
-        /// Minimum number of numbers in a password. Type `"number"`
+        /// If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Input("passwordMinNumber")]
         public Input<int>? PasswordMinNumber { get; set; }
 
         /// <summary>
-        /// Minimum number of symbols in a password. Type `"number"`
+        /// If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Input("passwordMinSymbol")]
         public Input<int>? PasswordMinSymbol { get; set; }
 
         /// <summary>
-        /// Minimum number of upper case characters in a password. Type `"number"`
+        /// If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
         /// </summary>
         [Input("passwordMinUppercase")]
         public Input<int>? PasswordMinUppercase { get; set; }
 
         /// <summary>
-        /// If a user should be informed when their account is locked.  Type `"bool"`
+        /// If a user should be informed when their account is locked.
         /// </summary>
         [Input("passwordShowLockoutFailures")]
         public Input<bool>? PasswordShowLockoutFailures { get; set; }
 
         /// <summary>
-        /// Priority of the policy. Type `"number"`
+        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Min length of the password recovery question answer.  Type `"number"`
+        /// Min length of the password recovery question answer.
         /// </summary>
         [Input("questionMinLength")]
         public Input<int>? QuestionMinLength { get; set; }
 
         /// <summary>
-        /// Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
+        /// Enable or disable security question password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Input("questionRecovery")]
         public Input<string>? QuestionRecovery { get; set; }
 
         /// <summary>
-        /// Lifetime in minutes of the recovery email token.  Type `"number"`
+        /// Lifetime in minutes of the recovery email token.
         /// </summary>
         [Input("recoveryEmailToken")]
         public Input<int>? RecoveryEmailToken { get; set; }
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
         /// </summary>
         [Input("skipUnlock")]
         public Input<bool>? SkipUnlock { get; set; }
 
         /// <summary>
-        /// Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
+        /// Enable or disable SMS password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Input("smsRecovery")]
         public Input<string>? SmsRecovery { get; set; }
 
         /// <summary>
-        /// Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+        /// Policy Status: ACTIVE or INACTIVE.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

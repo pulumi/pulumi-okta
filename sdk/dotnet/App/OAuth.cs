@@ -9,139 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.App
 {
-    /// <summary>
-    /// This resource allows you to create and configure an OIDC Application.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.App.OAuth("example", new()
-    ///     {
-    ///         GrantTypes = new[]
-    ///         {
-    ///             "authorization_code",
-    ///         },
-    ///         Label = "example",
-    ///         RedirectUris = new[]
-    ///         {
-    ///             "https://example.com/",
-    ///         },
-    ///         ResponseTypes = new[]
-    ///         {
-    ///             "code",
-    ///         },
-    ///         Type = "web",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With JWKS value
-    /// 
-    /// See also Advanced PEM secrets and JWKS example.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.App.OAuth("example", new()
-    ///     {
-    ///         GrantTypes = new[]
-    ///         {
-    ///             "client_credentials",
-    ///         },
-    ///         Jwks = new[]
-    ///         {
-    ///             new Okta.App.Inputs.OAuthJwkArgs
-    ///             {
-    ///                 E = "AQAB",
-    ///                 Kid = "SIGNING_KEY_RSA",
-    ///                 Kty = "RSA",
-    ///                 N = "xyz",
-    ///             },
-    ///             new Okta.App.Inputs.OAuthJwkArgs
-    ///             {
-    ///                 Kid = "SIGNING_KEY_EC",
-    ///                 Kty = "EC",
-    ///                 X = "K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I",
-    ///                 Y = "8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo",
-    ///             },
-    ///         },
-    ///         Label = "example",
-    ///         ResponseTypes = new[]
-    ///         {
-    ///             "token",
-    ///         },
-    ///         TokenEndpointAuthMethod = "private_key_jwt",
-    ///         Type = "service",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ## Etc.
-    /// 
-    /// ### Resetting client secret
-    /// 
-    /// If the client secret needs to be reset run an apply with `omit_secret` set to
-    /// true in the resource. This causes `client_secret` to be set to blank. Remove
-    /// `omit_secret` and run apply again. The resource will set a new `client_secret`
-    /// for the app.
-    /// 
-    /// ### Private Keys
-    /// 
-    /// The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
-    /// The operator either uploads their own private key or Okta can generate one in
-    /// the Admin UI Panel under the apps Client Credentials. PKCS#8 format can be
-    /// identified by a header that starts with `-----BEGIN PRIVATE KEY-----`. If the
-    /// operator has a PKCS#1 (unencrypted) format private key (the header starts with
-    /// `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
-    /// key with `openssl`:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An OIDC Application can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:app/oAuth:OAuth")]
     public partial class OAuth : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Output("accessibilityErrorRedirectUrl")]
         public Output<string?> AccessibilityErrorRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Output("accessibilityLoginRedirectUrl")]
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self service
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -153,53 +37,49 @@ namespace Pulumi.Okta.App
         public Output<string?> AdminNote { get; private set; } = null!;
 
         /// <summary>
-        /// Displays specific appLinks for the app. The value for each application link should be boolean.
+        /// Displays specific appLinks for the app
         /// </summary>
         [Output("appLinksJson")]
         public Output<string?> AppLinksJson { get; private set; } = null!;
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Output("appSettingsJson")]
         public Output<string?> AppSettingsJson { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// Id of this apps authentication policy
         /// </summary>
         [Output("authenticationPolicy")]
         public Output<string?> AuthenticationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Requested key rotation mode.  If
-        /// `auto_key_rotation` isn't specified, the client automatically opts in for Okta's
-        /// key rotation. You can update this property via the API or via the administrator
-        /// UI.
-        /// See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Requested key rotation mode.
         /// </summary>
         [Output("autoKeyRotation")]
         public Output<bool?> AutoKeyRotation { get; private set; } = null!;
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar
         /// </summary>
         [Output("autoSubmitToolbar")]
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
 
         /// <summary>
-        /// OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        /// OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
         /// </summary>
         [Output("clientBasicSecret")]
         public Output<string?> ClientBasicSecret { get; private set; } = null!;
 
         /// <summary>
-        /// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// OAuth client ID. If set during creation, app is created with this id.
         /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
         /// </summary>
         [Output("clientSecret")]
         public Output<string> ClientSecret { get; private set; } = null!;
@@ -211,7 +91,7 @@ namespace Pulumi.Okta.App
         public Output<string?> ClientUri { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
+        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
         /// </summary>
         [Output("consentMethod")]
         public Output<string?> ConsentMethod { get; private set; } = null!;
@@ -223,83 +103,76 @@ namespace Pulumi.Okta.App
         public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
-        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-        /// `"interaction_code"` (*OIE only*).
+        /// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
         /// </summary>
         [Output("grantTypes")]
         public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
+        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
         /// </summary>
         [Output("groupsClaim")]
         public Output<Outputs.OAuthGroupsClaim?> GroupsClaim { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app
         /// </summary>
         [Output("hideIos")]
         public Output<bool?> HideIos { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon to users.
+        /// Do not display application icon to users
         /// </summary>
         [Output("hideWeb")]
         public Output<bool?> HideWeb { get; private set; } = null!;
 
         /// <summary>
-        /// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// *Early Access Property*. Enable Federation Broker Mode.
         /// </summary>
         [Output("implicitAssignment")]
         public Output<bool?> ImplicitAssignment { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-        /// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        /// Issuer mode inherited from OAuth App
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
-        /// </summary>
         [Output("jwks")]
         public Output<ImmutableArray<Outputs.OAuthJwk>> Jwks { get; private set; } = null!;
 
         /// <summary>
-        /// URL of the custom authorization server's JSON Web Key Set document.
+        /// URL reference to JWKS
         /// </summary>
         [Output("jwksUri")]
         public Output<string?> JwksUri { get; private set; } = null!;
 
         /// <summary>
-        /// The Application's display name.
+        /// Pretty name of app.
         /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+        /// The type of Idp-Initiated login that the client supports, if any
         /// </summary>
         [Output("loginMode")]
         public Output<string?> LoginMode { get; private set; } = null!;
 
         /// <summary>
-        /// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
+        /// List of scopes to use for the request
         /// </summary>
         [Output("loginScopes")]
         public Output<ImmutableArray<string>> LoginScopes { get; private set; } = null!;
 
         /// <summary>
-        /// URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
+        /// URI that initiates login.
         /// </summary>
         [Output("loginUri")]
         public Output<string?> LoginUri { get; private set; } = null!;
 
         /// <summary>
-        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local path to logo of the application.
         /// </summary>
         [Output("logo")]
         public Output<string?> Logo { get; private set; } = null!;
@@ -311,7 +184,7 @@ namespace Pulumi.Okta.App
         public Output<string?> LogoUri { get; private set; } = null!;
 
         /// <summary>
-        /// Direct link of application logo.
+        /// URL of the application's logo
         /// </summary>
         [Output("logoUrl")]
         public Output<string> LogoUrl { get; private set; } = null!;
@@ -323,17 +196,13 @@ namespace Pulumi.Okta.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =&gt; false.
+        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true =&gt; false your app will be recreated.
         /// </summary>
         [Output("omitSecret")]
         public Output<bool?> OmitSecret { get; private set; } = null!;
 
         /// <summary>
-        /// Require Proof Key for Code Exchange (PKCE) for
-        /// additional verification.  If `pkce_required` isn't specified when adding a new
-        /// application, Okta sets it to `true` by default for `"browser"` and `"native"`
-        /// application types.
-        /// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Output("pkceRequired")]
         public Output<bool?> PkceRequired { get; private set; } = null!;
@@ -345,72 +214,55 @@ namespace Pulumi.Okta.App
         public Output<string?> PolicyUri { get; private set; } = null!;
 
         /// <summary>
-        /// List of URIs for redirection after logout.
+        /// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
         /// </summary>
         [Output("postLogoutRedirectUris")]
         public Output<ImmutableArray<string>> PostLogoutRedirectUris { get; private set; } = null!;
 
         /// <summary>
-        /// Custom JSON that represents an OAuth application's profile.
+        /// Custom JSON that represents an OAuth application's profile
         /// </summary>
         [Output("profile")]
         public Output<string?> Profile { get; private set; } = null!;
 
         /// <summary>
-        /// List of URIs for use in the redirect-based flow. This is required for all application types except service.
+        /// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         /// </summary>
         [Output("redirectUris")]
         public Output<ImmutableArray<string>> RedirectUris { get; private set; } = null!;
 
         /// <summary>
-        /// Grace period for token rotation. Valid values: 0 to 60 seconds.
+        /// *Early Access Property* Grace period for token rotation
         /// </summary>
         [Output("refreshTokenLeeway")]
-        public Output<int> RefreshTokenLeeway { get; private set; } = null!;
+        public Output<int?> RefreshTokenLeeway { get; private set; } = null!;
 
         /// <summary>
-        /// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+        /// *Early Access Property* Refresh token rotation behavior
         /// </summary>
         [Output("refreshTokenRotation")]
-        public Output<string> RefreshTokenRotation { get; private set; } = null!;
+        public Output<string?> RefreshTokenRotation { get; private set; } = null!;
 
         /// <summary>
-        /// List of OAuth 2.0 response type strings. Array
-        /// values of `"code"`, `"token"`, `"id_token"`. The `grant_types` and `response_types`
-        /// values described are partially orthogonal, as they refer to arguments
-        /// passed to different endpoints in the OAuth 2.0 protocol (opens new window).
-        /// However, they are related in that the `grant_types` available to a client
-        /// influence the `response_types` that the client is allowed to use, and vice versa.
-        /// For instance, a grant_types value that includes authorization_code implies a
-        /// `response_types` value that includes code, as both values are defined as part of
-        /// the OAuth 2.0 authorization code grant.
-        /// See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
+        /// List of OAuth 2.0 response type strings.
         /// </summary>
         [Output("responseTypes")]
         public Output<ImmutableArray<string>> ResponseTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Sign-on mode of application.
+        /// Sign on mode of application.
         /// </summary>
         [Output("signOnMode")]
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the application, by default, it is `"ACTIVE"`.
+        /// Status of application.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Requested authentication method for
-        /// the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
-        /// `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.  Use
-        /// `pkce_required` to require PKCE for your confidential clients using the
-        /// Authorization Code flow. If `"token_endpoint_auth_method"` is `"none"`,
-        /// `pkce_required` needs to be `true`. If `pkce_required` isn't specified when
-        /// adding a new application, Okta sets it to `true` by default for `"browser"` and
-        /// `"native"` application types.
-        /// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Requested authentication method for the token endpoint.
         /// </summary>
         [Output("tokenEndpointAuthMethod")]
         public Output<string?> TokenEndpointAuthMethod { get; private set; } = null!;
@@ -422,37 +274,37 @@ namespace Pulumi.Okta.App
         public Output<string?> TosUri { get; private set; } = null!;
 
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+        /// Groups claim type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Username template. Default: `"${source.login}"`
+        /// Username template
         /// </summary>
         [Output("userNameTemplate")]
         public Output<string?> UserNameTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// Push username on update
         /// </summary>
         [Output("userNameTemplatePushStatus")]
         public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Username template suffix.
+        /// Username template suffix
         /// </summary>
         [Output("userNameTemplateSuffix")]
         public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`.
+        /// Username template type
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
 
         /// <summary>
-        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
         /// </summary>
         [Output("wildcardRedirect")]
         public Output<string?> WildcardRedirect { get; private set; } = null!;
@@ -509,19 +361,19 @@ namespace Pulumi.Okta.App
     public sealed class OAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Input("accessibilityErrorRedirectUrl")]
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self service
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -533,35 +385,31 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app. The value for each application link should be boolean.
+        /// Displays specific appLinks for the app
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Input("appSettingsJson")]
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
-        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// Id of this apps authentication policy
         /// </summary>
         [Input("authenticationPolicy")]
         public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
-        /// Requested key rotation mode.  If
-        /// `auto_key_rotation` isn't specified, the client automatically opts in for Okta's
-        /// key rotation. You can update this property via the API or via the administrator
-        /// UI.
-        /// See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Requested key rotation mode.
         /// </summary>
         [Input("autoKeyRotation")]
         public Input<bool>? AutoKeyRotation { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -570,7 +418,7 @@ namespace Pulumi.Okta.App
         private Input<string>? _clientBasicSecret;
 
         /// <summary>
-        /// OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        /// OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
         /// </summary>
         public Input<string>? ClientBasicSecret
         {
@@ -583,7 +431,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// OAuth client ID. If set during creation, app is created with this id.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -595,7 +443,7 @@ namespace Pulumi.Okta.App
         public Input<string>? ClientUri { get; set; }
 
         /// <summary>
-        /// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
+        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
         /// </summary>
         [Input("consentMethod")]
         public Input<string>? ConsentMethod { get; set; }
@@ -610,10 +458,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
-        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-        /// `"interaction_code"` (*OIE only*).
+        /// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -622,42 +467,37 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
+        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
         /// </summary>
         [Input("groupsClaim")]
         public Input<Inputs.OAuthGroupsClaimArgs>? GroupsClaim { get; set; }
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users.
+        /// Do not display application icon to users
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// *Early Access Property*. Enable Federation Broker Mode.
         /// </summary>
         [Input("implicitAssignment")]
         public Input<bool>? ImplicitAssignment { get; set; }
 
         /// <summary>
-        /// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-        /// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        /// Issuer mode inherited from OAuth App
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
 
         [Input("jwks")]
         private InputList<Inputs.OAuthJwkArgs>? _jwks;
-
-        /// <summary>
-        /// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
-        /// </summary>
         public InputList<Inputs.OAuthJwkArgs> Jwks
         {
             get => _jwks ?? (_jwks = new InputList<Inputs.OAuthJwkArgs>());
@@ -665,19 +505,19 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// URL of the custom authorization server's JSON Web Key Set document.
+        /// URL reference to JWKS
         /// </summary>
         [Input("jwksUri")]
         public Input<string>? JwksUri { get; set; }
 
         /// <summary>
-        /// The Application's display name.
+        /// Pretty name of app.
         /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+        /// The type of Idp-Initiated login that the client supports, if any
         /// </summary>
         [Input("loginMode")]
         public Input<string>? LoginMode { get; set; }
@@ -686,7 +526,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _loginScopes;
 
         /// <summary>
-        /// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
+        /// List of scopes to use for the request
         /// </summary>
         public InputList<string> LoginScopes
         {
@@ -695,13 +535,13 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
+        /// URI that initiates login.
         /// </summary>
         [Input("loginUri")]
         public Input<string>? LoginUri { get; set; }
 
         /// <summary>
-        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local path to logo of the application.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
@@ -713,17 +553,13 @@ namespace Pulumi.Okta.App
         public Input<string>? LogoUri { get; set; }
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =&gt; false.
+        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true =&gt; false your app will be recreated.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
-        /// Require Proof Key for Code Exchange (PKCE) for
-        /// additional verification.  If `pkce_required` isn't specified when adding a new
-        /// application, Okta sets it to `true` by default for `"browser"` and `"native"`
-        /// application types.
-        /// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Input("pkceRequired")]
         public Input<bool>? PkceRequired { get; set; }
@@ -738,7 +574,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _postLogoutRedirectUris;
 
         /// <summary>
-        /// List of URIs for redirection after logout.
+        /// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
         /// </summary>
         public InputList<string> PostLogoutRedirectUris
         {
@@ -747,7 +583,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Custom JSON that represents an OAuth application's profile.
+        /// Custom JSON that represents an OAuth application's profile
         /// </summary>
         [Input("profile")]
         public Input<string>? Profile { get; set; }
@@ -756,7 +592,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _redirectUris;
 
         /// <summary>
-        /// List of URIs for use in the redirect-based flow. This is required for all application types except service.
+        /// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         /// </summary>
         public InputList<string> RedirectUris
         {
@@ -765,13 +601,13 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Grace period for token rotation. Valid values: 0 to 60 seconds.
+        /// *Early Access Property* Grace period for token rotation
         /// </summary>
         [Input("refreshTokenLeeway")]
         public Input<int>? RefreshTokenLeeway { get; set; }
 
         /// <summary>
-        /// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+        /// *Early Access Property* Refresh token rotation behavior
         /// </summary>
         [Input("refreshTokenRotation")]
         public Input<string>? RefreshTokenRotation { get; set; }
@@ -780,16 +616,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _responseTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 response type strings. Array
-        /// values of `"code"`, `"token"`, `"id_token"`. The `grant_types` and `response_types`
-        /// values described are partially orthogonal, as they refer to arguments
-        /// passed to different endpoints in the OAuth 2.0 protocol (opens new window).
-        /// However, they are related in that the `grant_types` available to a client
-        /// influence the `response_types` that the client is allowed to use, and vice versa.
-        /// For instance, a grant_types value that includes authorization_code implies a
-        /// `response_types` value that includes code, as both values are defined as part of
-        /// the OAuth 2.0 authorization code grant.
-        /// See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
+        /// List of OAuth 2.0 response type strings.
         /// </summary>
         public InputList<string> ResponseTypes
         {
@@ -798,21 +625,13 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// The status of the application, by default, it is `"ACTIVE"`.
+        /// Status of application.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Requested authentication method for
-        /// the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
-        /// `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.  Use
-        /// `pkce_required` to require PKCE for your confidential clients using the
-        /// Authorization Code flow. If `"token_endpoint_auth_method"` is `"none"`,
-        /// `pkce_required` needs to be `true`. If `pkce_required` isn't specified when
-        /// adding a new application, Okta sets it to `true` by default for `"browser"` and
-        /// `"native"` application types.
-        /// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Requested authentication method for the token endpoint.
         /// </summary>
         [Input("tokenEndpointAuthMethod")]
         public Input<string>? TokenEndpointAuthMethod { get; set; }
@@ -824,37 +643,37 @@ namespace Pulumi.Okta.App
         public Input<string>? TosUri { get; set; }
 
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+        /// Groups claim type.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Username template. Default: `"${source.login}"`
+        /// Username template
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// Push username on update
         /// </summary>
         [Input("userNameTemplatePushStatus")]
         public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
-        /// Username template suffix.
+        /// Username template suffix
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`.
+        /// Username template type
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
         /// </summary>
         [Input("wildcardRedirect")]
         public Input<string>? WildcardRedirect { get; set; }
@@ -868,19 +687,19 @@ namespace Pulumi.Okta.App
     public sealed class OAuthState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Input("accessibilityErrorRedirectUrl")]
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self service
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -892,35 +711,31 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app. The value for each application link should be boolean.
+        /// Displays specific appLinks for the app
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Input("appSettingsJson")]
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
-        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        /// Id of this apps authentication policy
         /// </summary>
         [Input("authenticationPolicy")]
         public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
-        /// Requested key rotation mode.  If
-        /// `auto_key_rotation` isn't specified, the client automatically opts in for Okta's
-        /// key rotation. You can update this property via the API or via the administrator
-        /// UI.
-        /// See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Requested key rotation mode.
         /// </summary>
         [Input("autoKeyRotation")]
         public Input<bool>? AutoKeyRotation { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -929,7 +744,7 @@ namespace Pulumi.Okta.App
         private Input<string>? _clientBasicSecret;
 
         /// <summary>
-        /// OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        /// OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
         /// </summary>
         public Input<string>? ClientBasicSecret
         {
@@ -942,7 +757,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// OAuth client ID. If set during creation, app is created with this id.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -951,7 +766,7 @@ namespace Pulumi.Okta.App
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -970,7 +785,7 @@ namespace Pulumi.Okta.App
         public Input<string>? ClientUri { get; set; }
 
         /// <summary>
-        /// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
+        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
         /// </summary>
         [Input("consentMethod")]
         public Input<string>? ConsentMethod { get; set; }
@@ -985,10 +800,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-        /// Defaults to minimum requirements per app type. Valid values: `"authorization_code"`, `"implicit"`, `"password"`, `"refresh_token"`, `"client_credentials"`,
-        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-        /// `"interaction_code"` (*OIE only*).
+        /// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -997,42 +809,37 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
+        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
         /// </summary>
         [Input("groupsClaim")]
         public Input<Inputs.OAuthGroupsClaimGetArgs>? GroupsClaim { get; set; }
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users.
+        /// Do not display application icon to users
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+        /// *Early Access Property*. Enable Federation Broker Mode.
         /// </summary>
         [Input("implicitAssignment")]
         public Input<bool>? ImplicitAssignment { get; set; }
 
         /// <summary>
-        /// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-        /// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        /// Issuer mode inherited from OAuth App
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
 
         [Input("jwks")]
         private InputList<Inputs.OAuthJwkGetArgs>? _jwks;
-
-        /// <summary>
-        /// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
-        /// </summary>
         public InputList<Inputs.OAuthJwkGetArgs> Jwks
         {
             get => _jwks ?? (_jwks = new InputList<Inputs.OAuthJwkGetArgs>());
@@ -1040,19 +847,19 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// URL of the custom authorization server's JSON Web Key Set document.
+        /// URL reference to JWKS
         /// </summary>
         [Input("jwksUri")]
         public Input<string>? JwksUri { get; set; }
 
         /// <summary>
-        /// The Application's display name.
+        /// Pretty name of app.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
+        /// The type of Idp-Initiated login that the client supports, if any
         /// </summary>
         [Input("loginMode")]
         public Input<string>? LoginMode { get; set; }
@@ -1061,7 +868,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _loginScopes;
 
         /// <summary>
-        /// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `login_mode` is NOT `DISABLED`.
+        /// List of scopes to use for the request
         /// </summary>
         public InputList<string> LoginScopes
         {
@@ -1070,13 +877,13 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
+        /// URI that initiates login.
         /// </summary>
         [Input("loginUri")]
         public Input<string>? LoginUri { get; set; }
 
         /// <summary>
-        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local path to logo of the application.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
@@ -1088,7 +895,7 @@ namespace Pulumi.Okta.App
         public Input<string>? LogoUri { get; set; }
 
         /// <summary>
-        /// Direct link of application logo.
+        /// URL of the application's logo
         /// </summary>
         [Input("logoUrl")]
         public Input<string>? LogoUrl { get; set; }
@@ -1100,17 +907,13 @@ namespace Pulumi.Okta.App
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =&gt; false.
+        /// This tells the provider not to persist the application's secret to state. If this is ever changes from true =&gt; false your app will be recreated.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
-        /// Require Proof Key for Code Exchange (PKCE) for
-        /// additional verification.  If `pkce_required` isn't specified when adding a new
-        /// application, Okta sets it to `true` by default for `"browser"` and `"native"`
-        /// application types.
-        /// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Input("pkceRequired")]
         public Input<bool>? PkceRequired { get; set; }
@@ -1125,7 +928,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _postLogoutRedirectUris;
 
         /// <summary>
-        /// List of URIs for redirection after logout.
+        /// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
         /// </summary>
         public InputList<string> PostLogoutRedirectUris
         {
@@ -1134,7 +937,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Custom JSON that represents an OAuth application's profile.
+        /// Custom JSON that represents an OAuth application's profile
         /// </summary>
         [Input("profile")]
         public Input<string>? Profile { get; set; }
@@ -1143,7 +946,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _redirectUris;
 
         /// <summary>
-        /// List of URIs for use in the redirect-based flow. This is required for all application types except service.
+        /// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         /// </summary>
         public InputList<string> RedirectUris
         {
@@ -1152,13 +955,13 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Grace period for token rotation. Valid values: 0 to 60 seconds.
+        /// *Early Access Property* Grace period for token rotation
         /// </summary>
         [Input("refreshTokenLeeway")]
         public Input<int>? RefreshTokenLeeway { get; set; }
 
         /// <summary>
-        /// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
+        /// *Early Access Property* Refresh token rotation behavior
         /// </summary>
         [Input("refreshTokenRotation")]
         public Input<string>? RefreshTokenRotation { get; set; }
@@ -1167,16 +970,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _responseTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 response type strings. Array
-        /// values of `"code"`, `"token"`, `"id_token"`. The `grant_types` and `response_types`
-        /// values described are partially orthogonal, as they refer to arguments
-        /// passed to different endpoints in the OAuth 2.0 protocol (opens new window).
-        /// However, they are related in that the `grant_types` available to a client
-        /// influence the `response_types` that the client is allowed to use, and vice versa.
-        /// For instance, a grant_types value that includes authorization_code implies a
-        /// `response_types` value that includes code, as both values are defined as part of
-        /// the OAuth 2.0 authorization code grant.
-        /// See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
+        /// List of OAuth 2.0 response type strings.
         /// </summary>
         public InputList<string> ResponseTypes
         {
@@ -1185,27 +979,19 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Sign-on mode of application.
+        /// Sign on mode of application.
         /// </summary>
         [Input("signOnMode")]
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// The status of the application, by default, it is `"ACTIVE"`.
+        /// Status of application.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Requested authentication method for
-        /// the token endpoint. It can be set to `"none"`, `"client_secret_post"`,
-        /// `"client_secret_basic"`, `"client_secret_jwt"`, `"private_key_jwt"`.  Use
-        /// `pkce_required` to require PKCE for your confidential clients using the
-        /// Authorization Code flow. If `"token_endpoint_auth_method"` is `"none"`,
-        /// `pkce_required` needs to be `true`. If `pkce_required` isn't specified when
-        /// adding a new application, Okta sets it to `true` by default for `"browser"` and
-        /// `"native"` application types.
-        /// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Requested authentication method for the token endpoint.
         /// </summary>
         [Input("tokenEndpointAuthMethod")]
         public Input<string>? TokenEndpointAuthMethod { get; set; }
@@ -1217,37 +1003,37 @@ namespace Pulumi.Okta.App
         public Input<string>? TosUri { get; set; }
 
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+        /// Groups claim type.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Username template. Default: `"${source.login}"`
+        /// Username template
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// Push username on update
         /// </summary>
         [Input("userNameTemplatePushStatus")]
         public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
-        /// Username template suffix.
+        /// Username template suffix
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`.
+        /// Username template type
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
         /// </summary>
         [Input("wildcardRedirect")]
         public Input<string>? WildcardRedirect { get; set; }

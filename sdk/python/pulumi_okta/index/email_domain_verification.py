@@ -17,7 +17,7 @@ class EmailDomainVerificationArgs:
                  email_domain_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a EmailDomainVerification resource.
-        :param pulumi.Input[str] email_domain_id: Email domain ID.
+        :param pulumi.Input[str] email_domain_id: Email domain ID
         """
         EmailDomainVerificationArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -34,7 +34,7 @@ class EmailDomainVerificationArgs:
     @pulumi.getter(name="emailDomainId")
     def email_domain_id(self) -> pulumi.Input[str]:
         """
-        Email domain ID.
+        Email domain ID
         """
         return pulumi.get(self, "email_domain_id")
 
@@ -49,7 +49,7 @@ class _EmailDomainVerificationState:
                  email_domain_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EmailDomainVerification resources.
-        :param pulumi.Input[str] email_domain_id: Email domain ID.
+        :param pulumi.Input[str] email_domain_id: Email domain ID
         """
         _EmailDomainVerificationState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -67,7 +67,7 @@ class _EmailDomainVerificationState:
     @pulumi.getter(name="emailDomainId")
     def email_domain_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Email domain ID.
+        Email domain ID
         """
         return pulumi.get(self, "email_domain_id")
 
@@ -84,29 +84,10 @@ class EmailDomainVerification(pulumi.CustomResource):
                  email_domain_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Verifies the email domain. The resource won't be created if the email domain could not be verified.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_email_domain = okta.index.EmailDomain("exampleEmailDomain",
-            brand_id="abc123",
-            domain="example.com",
-            display_name="test",
-            user_name="paul_atreides")
-        example_email_domain_verification = okta.index.EmailDomainVerification("exampleEmailDomainVerification", email_domain_id=okta_email_domain["valid"]["id"])
-        ```
-
-        ## Import
-
-        This resource does not support importing.
-
+        Create a EmailDomainVerification resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] email_domain_id: Email domain ID.
+        :param pulumi.Input[str] email_domain_id: Email domain ID
         """
         ...
     @overload
@@ -115,26 +96,7 @@ class EmailDomainVerification(pulumi.CustomResource):
                  args: EmailDomainVerificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Verifies the email domain. The resource won't be created if the email domain could not be verified.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_email_domain = okta.index.EmailDomain("exampleEmailDomain",
-            brand_id="abc123",
-            domain="example.com",
-            display_name="test",
-            user_name="paul_atreides")
-        example_email_domain_verification = okta.index.EmailDomainVerification("exampleEmailDomainVerification", email_domain_id=okta_email_domain["valid"]["id"])
-        ```
-
-        ## Import
-
-        This resource does not support importing.
-
+        Create a EmailDomainVerification resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EmailDomainVerificationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +147,7 @@ class EmailDomainVerification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] email_domain_id: Email domain ID.
+        :param pulumi.Input[str] email_domain_id: Email domain ID
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -198,7 +160,7 @@ class EmailDomainVerification(pulumi.CustomResource):
     @pulumi.getter(name="emailDomainId")
     def email_domain_id(self) -> pulumi.Output[str]:
         """
-        Email domain ID.
+        Email domain ID
         """
         return pulumi.get(self, "email_domain_id")
 

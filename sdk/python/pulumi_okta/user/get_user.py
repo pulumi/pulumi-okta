@@ -162,91 +162,67 @@ class GetUserResult:
     @property
     @pulumi.getter
     def city(self) -> str:
-        """
-        City or locality component of user's address.
-        """
         return pulumi.get(self, "city")
 
     @property
     @pulumi.getter(name="compoundSearchOperator")
     def compound_search_operator(self) -> Optional[str]:
+        """
+        Search operator used when joining mulitple search clauses
+        """
         return pulumi.get(self, "compound_search_operator")
 
     @property
     @pulumi.getter(name="costCenter")
     def cost_center(self) -> str:
-        """
-        Name of a cost center assigned to user.
-        """
         return pulumi.get(self, "cost_center")
 
     @property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> str:
-        """
-        Country name component of user's address.
-        """
         return pulumi.get(self, "country_code")
 
     @property
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> str:
-        """
-        Raw JSON containing all custom profile attributes.
-        """
         return pulumi.get(self, "custom_profile_attributes")
 
     @property
     @pulumi.getter(name="delayReadSeconds")
     def delay_read_seconds(self) -> Optional[str]:
+        """
+        Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
+        """
         return pulumi.get(self, "delay_read_seconds")
 
     @property
     @pulumi.getter
     def department(self) -> str:
-        """
-        Name of user's department.
-        """
         return pulumi.get(self, "department")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
-        """
-        Name of the user, suitable for display to end users.
-        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def division(self) -> str:
-        """
-        Name of user's division.
-        """
         return pulumi.get(self, "division")
 
     @property
     @pulumi.getter
     def email(self) -> str:
-        """
-        Primary email address of user.
-        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter(name="employeeNumber")
     def employee_number(self) -> str:
-        """
-        Organization or company assigned unique identifier for the user.
-        """
         return pulumi.get(self, "employee_number")
 
     @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> str:
-        """
-        Given name of the user.
-        """
         return pulumi.get(self, "first_name")
 
     @property
@@ -257,17 +233,11 @@ class GetUserResult:
     @property
     @pulumi.getter(name="honorificPrefix")
     def honorific_prefix(self) -> str:
-        """
-        Honorific prefix(es) of the user, or title in most Western languages.
-        """
         return pulumi.get(self, "honorific_prefix")
 
     @property
     @pulumi.getter(name="honorificSuffix")
     def honorific_suffix(self) -> str:
-        """
-        Honorific suffix(es) of the user.
-        """
         return pulumi.get(self, "honorific_suffix")
 
     @property
@@ -281,197 +251,143 @@ class GetUserResult:
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> str:
-        """
-        Family name of the user.
-        """
         return pulumi.get(self, "last_name")
 
     @property
     @pulumi.getter
     def locale(self) -> str:
-        """
-        User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
-        """
         return pulumi.get(self, "locale")
 
     @property
     @pulumi.getter
     def login(self) -> str:
-        """
-        Unique identifier for the user.
-        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
     def manager(self) -> str:
-        """
-        Display name of the user's manager.
-        """
         return pulumi.get(self, "manager")
 
     @property
     @pulumi.getter(name="managerId")
     def manager_id(self) -> str:
-        """
-        `id` of a user's manager.
-        """
         return pulumi.get(self, "manager_id")
 
     @property
     @pulumi.getter(name="middleName")
     def middle_name(self) -> str:
-        """
-        Middle name(s) of the user.
-        """
         return pulumi.get(self, "middle_name")
 
     @property
     @pulumi.getter(name="mobilePhone")
     def mobile_phone(self) -> str:
-        """
-        Mobile phone number of user.
-        """
         return pulumi.get(self, "mobile_phone")
 
     @property
     @pulumi.getter(name="nickName")
     def nick_name(self) -> str:
-        """
-        Casual way to address the user in real life.
-        """
         return pulumi.get(self, "nick_name")
 
     @property
     @pulumi.getter
     def organization(self) -> str:
-        """
-        Name of user's organization.
-        """
         return pulumi.get(self, "organization")
 
     @property
     @pulumi.getter(name="postalAddress")
     def postal_address(self) -> str:
-        """
-        Mailing address component of user's address.
-        """
         return pulumi.get(self, "postal_address")
 
     @property
     @pulumi.getter(name="preferredLanguage")
     def preferred_language(self) -> str:
-        """
-        User's preferred written or spoken languages.
-        """
         return pulumi.get(self, "preferred_language")
 
     @property
     @pulumi.getter(name="primaryPhone")
     def primary_phone(self) -> str:
-        """
-        Primary phone number of user such as home number.
-        """
         return pulumi.get(self, "primary_phone")
 
     @property
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> str:
-        """
-        URL of user's online profile (e.g. a web page).
-        """
         return pulumi.get(self, "profile_url")
 
     @property
     @pulumi.getter
     def roles(self) -> Sequence[str]:
-        """
-        All roles assigned to user.
-        """
         return pulumi.get(self, "roles")
 
     @property
     @pulumi.getter
     def searches(self) -> Optional[Sequence['outputs.GetUserSearchResult']]:
+        """
+        Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+        """
         return pulumi.get(self, "searches")
 
     @property
     @pulumi.getter(name="secondEmail")
     def second_email(self) -> str:
-        """
-        Secondary email address of user typically used for account recovery.
-        """
         return pulumi.get(self, "second_email")
 
     @property
     @pulumi.getter(name="skipGroups")
     def skip_groups(self) -> Optional[bool]:
+        """
+        Do not populate user groups information (prevents additional API call)
+        """
         return pulumi.get(self, "skip_groups")
 
     @property
     @pulumi.getter(name="skipRoles")
     def skip_roles(self) -> Optional[bool]:
+        """
+        Do not populate user roles information (prevents additional API call)
+        """
         return pulumi.get(self, "skip_roles")
 
     @property
     @pulumi.getter
     def state(self) -> str:
-        """
-        State or region component of user's address (region).
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Current status of user.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="streetAddress")
     def street_address(self) -> str:
-        """
-        Full street address component of user's address.
-        """
         return pulumi.get(self, "street_address")
 
     @property
     @pulumi.getter
     def timezone(self) -> str:
-        """
-        User's time zone.
-        """
         return pulumi.get(self, "timezone")
 
     @property
     @pulumi.getter
     def title(self) -> str:
-        """
-        User's title, such as "Vice President".
-        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[str]:
+        """
+        Retrieve a single user based on their id
+        """
         return pulumi.get(self, "user_id")
 
     @property
     @pulumi.getter(name="userType")
     def user_type(self) -> str:
-        """
-        Used to describe the organization to user relationship such as "Employee" or "Contractor".
-        """
         return pulumi.get(self, "user_type")
 
     @property
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> str:
-        """
-        Zipcode or postal code component of user's address (postalCode)
-        """
         return pulumi.get(self, "zip_code")
 
 
@@ -534,7 +450,7 @@ def get_user(compound_search_operator: Optional[str] = None,
              user_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to retrieve a users from Okta.
+    Get a single users from Okta.
 
     ## Example Usage
 
@@ -548,10 +464,12 @@ def get_user(compound_search_operator: Optional[str] = None,
     ```
 
 
-    :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+    :param str compound_search_operator: Search operator used when joining mulitple search clauses
     :param str delay_read_seconds: Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
-    :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
-    :param str user_id: String representing a specific user's id value
+    :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+    :param bool skip_groups: Do not populate user groups information (prevents additional API call)
+    :param bool skip_roles: Do not populate user roles information (prevents additional API call)
+    :param str user_id: Retrieve a single user based on their id
     """
     __args__ = dict()
     __args__['compoundSearchOperator'] = compound_search_operator
@@ -618,7 +536,7 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
                     user_id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    Use this data source to retrieve a users from Okta.
+    Get a single users from Okta.
 
     ## Example Usage
 
@@ -632,9 +550,11 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
     ```
 
 
-    :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
+    :param str compound_search_operator: Search operator used when joining mulitple search clauses
     :param str delay_read_seconds: Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
-    :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Map of search criteria. It supports the following properties.
-    :param str user_id: String representing a specific user's id value
+    :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+    :param bool skip_groups: Do not populate user groups information (prevents additional API call)
+    :param bool skip_roles: Do not populate user roles information (prevents additional API call)
+    :param str user_id: Retrieve a single user based on their id
     """
     ...

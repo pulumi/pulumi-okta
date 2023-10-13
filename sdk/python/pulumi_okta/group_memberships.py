@@ -19,9 +19,9 @@ class GroupMembershipsArgs:
                  track_all_users: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GroupMemberships resource.
-        :param pulumi.Input[str] group_id: Okta group ID.
+        :param pulumi.Input[str] group_id: ID of a Okta group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of Okta user IDs which the group should have membership managed for.
-        :param pulumi.Input[bool] track_all_users: The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+        :param pulumi.Input[bool] track_all_users: The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         """
         GroupMembershipsArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -45,7 +45,7 @@ class GroupMembershipsArgs:
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Input[str]:
         """
-        Okta group ID.
+        ID of a Okta group.
         """
         return pulumi.get(self, "group_id")
 
@@ -69,7 +69,7 @@ class GroupMembershipsArgs:
     @pulumi.getter(name="trackAllUsers")
     def track_all_users(self) -> Optional[pulumi.Input[bool]]:
         """
-        The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+        The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         """
         return pulumi.get(self, "track_all_users")
 
@@ -86,8 +86,8 @@ class _GroupMembershipsState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering GroupMemberships resources.
-        :param pulumi.Input[str] group_id: Okta group ID.
-        :param pulumi.Input[bool] track_all_users: The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+        :param pulumi.Input[str] group_id: ID of a Okta group.
+        :param pulumi.Input[bool] track_all_users: The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of Okta user IDs which the group should have membership managed for.
         """
         _GroupMembershipsState._configure(
@@ -114,7 +114,7 @@ class _GroupMembershipsState:
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Okta group ID.
+        ID of a Okta group.
         """
         return pulumi.get(self, "group_id")
 
@@ -126,7 +126,7 @@ class _GroupMembershipsState:
     @pulumi.getter(name="trackAllUsers")
     def track_all_users(self) -> Optional[pulumi.Input[bool]]:
         """
-        The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+        The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         """
         return pulumi.get(self, "track_all_users")
 
@@ -157,46 +157,12 @@ class GroupMemberships(pulumi.CustomResource):
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource to manage a set of memberships for a specific group.
-
-        This resource will allow you to bulk manage group membership in Okta for a given
-        group. This offers an interface to pass multiple users into a single resource
-        call, for better API resource usage. If you need a relationship of a single
-        user to many groups, please use the `UserGroupMemberships` resource.
-
-        **Important**: The default behavior of the resource is to only maintain the
-        state of user ids that are assigned it. This behavior will signal drift only if
-        those users stop being part of the group. If the desired behavior is track all
-        users that are added/removed from the group make use of the `track_all_users`
-        argument with this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test_group = okta.group.Group("testGroup", description="testing, testing")
-        test_group_memberships = okta.GroupMemberships("testGroupMemberships",
-            group_id=test_group.id,
-            users=[
-                okta_user["test1"]["id"],
-                okta_user["test2"]["id"],
-            ])
-        ```
-
-        ## Import
-
-        an Okta Group's memberships can be imported via the Okta group ID.
-
-        ```sh
-         $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
-        ```
+        Resource to manage a set of group memberships for a specific group.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] group_id: Okta group ID.
-        :param pulumi.Input[bool] track_all_users: The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+        :param pulumi.Input[str] group_id: ID of a Okta group.
+        :param pulumi.Input[bool] track_all_users: The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of Okta user IDs which the group should have membership managed for.
         """
         ...
@@ -206,41 +172,7 @@ class GroupMemberships(pulumi.CustomResource):
                  args: GroupMembershipsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource to manage a set of memberships for a specific group.
-
-        This resource will allow you to bulk manage group membership in Okta for a given
-        group. This offers an interface to pass multiple users into a single resource
-        call, for better API resource usage. If you need a relationship of a single
-        user to many groups, please use the `UserGroupMemberships` resource.
-
-        **Important**: The default behavior of the resource is to only maintain the
-        state of user ids that are assigned it. This behavior will signal drift only if
-        those users stop being part of the group. If the desired behavior is track all
-        users that are added/removed from the group make use of the `track_all_users`
-        argument with this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test_group = okta.group.Group("testGroup", description="testing, testing")
-        test_group_memberships = okta.GroupMemberships("testGroupMemberships",
-            group_id=test_group.id,
-            users=[
-                okta_user["test1"]["id"],
-                okta_user["test2"]["id"],
-            ])
-        ```
-
-        ## Import
-
-        an Okta Group's memberships can be imported via the Okta group ID.
-
-        ```sh
-         $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
-        ```
+        Resource to manage a set of group memberships for a specific group.
 
         :param str resource_name: The name of the resource.
         :param GroupMembershipsArgs args: The arguments to use to populate this resource's properties.
@@ -300,8 +232,8 @@ class GroupMemberships(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] group_id: Okta group ID.
-        :param pulumi.Input[bool] track_all_users: The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+        :param pulumi.Input[str] group_id: ID of a Okta group.
+        :param pulumi.Input[bool] track_all_users: The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of Okta user IDs which the group should have membership managed for.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -317,7 +249,7 @@ class GroupMemberships(pulumi.CustomResource):
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[str]:
         """
-        Okta group ID.
+        ID of a Okta group.
         """
         return pulumi.get(self, "group_id")
 
@@ -325,7 +257,7 @@ class GroupMemberships(pulumi.CustomResource):
     @pulumi.getter(name="trackAllUsers")
     def track_all_users(self) -> pulumi.Output[Optional[bool]]:
         """
-        The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+        The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         """
         return pulumi.get(self, "track_all_users")
 

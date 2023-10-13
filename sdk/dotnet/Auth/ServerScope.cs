@@ -9,50 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Auth
 {
-    /// <summary>
-    /// Creates an Authorization Server Scope.
-    /// 
-    /// This resource allows you to create and configure an Authorization Server Scope.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Auth.ServerScope("example", new()
-    ///     {
-    ///         AuthServerId = "&lt;auth server id&gt;",
-    ///         Consent = "IMPLICIT",
-    ///         MetadataPublish = "NO_CLIENTS",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:auth/serverScope:ServerScope example &amp;#60;auth server id&amp;#62;/&amp;#60;scope id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:auth/serverScope:ServerScope")]
     public partial class ServerScope : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Auth Server ID.
+        /// Auth server ID
         /// </summary>
         [Output("authServerId")]
         public Output<string> AuthServerId { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
+        /// EA Feature and thus it is simply ignored if the feature is off
         /// </summary>
         [Output("consent")]
         public Output<string?> Consent { get; private set; } = null!;
@@ -70,19 +37,19 @@ namespace Pulumi.Okta.Auth
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the end user displayed in a consent dialog box.
+        /// Name of the end user displayed in a consent dialog box
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+        /// Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
         /// </summary>
         [Output("metadataPublish")]
         public Output<string?> MetadataPublish { get; private set; } = null!;
 
         /// <summary>
-        /// Auth Server scope name.
+        /// Auth server scope name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -146,13 +113,13 @@ namespace Pulumi.Okta.Auth
     public sealed class ServerScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Auth Server ID.
+        /// Auth server ID
         /// </summary>
         [Input("authServerId", required: true)]
         public Input<string> AuthServerId { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
+        /// EA Feature and thus it is simply ignored if the feature is off
         /// </summary>
         [Input("consent")]
         public Input<string>? Consent { get; set; }
@@ -170,19 +137,19 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the end user displayed in a consent dialog box.
+        /// Name of the end user displayed in a consent dialog box
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+        /// Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
         /// </summary>
         [Input("metadataPublish")]
         public Input<string>? MetadataPublish { get; set; }
 
         /// <summary>
-        /// Auth Server scope name.
+        /// Auth server scope name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -202,13 +169,13 @@ namespace Pulumi.Okta.Auth
     public sealed class ServerScopeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Auth Server ID.
+        /// Auth server ID
         /// </summary>
         [Input("authServerId")]
         public Input<string>? AuthServerId { get; set; }
 
         /// <summary>
-        /// Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
+        /// EA Feature and thus it is simply ignored if the feature is off
         /// </summary>
         [Input("consent")]
         public Input<string>? Consent { get; set; }
@@ -226,19 +193,19 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the end user displayed in a consent dialog box.
+        /// Name of the end user displayed in a consent dialog box
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+        /// Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
         /// </summary>
         [Input("metadataPublish")]
         public Input<string>? MetadataPublish { get; set; }
 
         /// <summary>
-        /// Auth Server scope name.
+        /// Auth server scope name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -13,122 +13,122 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetNetworkZoneResult {
     /**
-     * @return Array of Autonomous System Numbers.
+     * @return Format of each array value: a string representation of an ASN numeric value
      * 
      */
     private List<String> asns;
     /**
-     * @return Array of locations.
+     * @return Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
      * 
      */
     private List<String> dynamicLocations;
     /**
-     * @return Type of proxy being controlled by this dynamic network zone.
+     * @return Type of proxy being controlled by this network zone
      * 
      */
     private String dynamicProxyType;
     /**
-     * @return Array of values in CIDR/range form.
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      * 
      */
     private List<String> gateways;
     /**
-     * @return ID of the network zone.
+     * @return ID of the network zone to retrieve, conflicts with `name`.
      * 
      */
     private @Nullable String id;
     /**
-     * @return Name of the network zone.
+     * @return Name of the network zone to retrieve, conflicts with `id`.
      * 
      */
     private @Nullable String name;
     /**
-     * @return Array of values in CIDR/range form.
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      * 
      */
     private List<String> proxies;
     /**
-     * @return Network Status - can either be ACTIVE or INACTIVE only.
+     * @return Network Status - can either be ACTIVE or INACTIVE only
      * 
      */
     private String status;
     /**
-     * @return Type of the Network Zone.
+     * @return Type of the Network Zone - can either be IP or DYNAMIC only
      * 
      */
     private String type;
     /**
-     * @return Usage of the Network Zone.
+     * @return Zone&#39;s purpose: POLICY or BLOCKLIST
      * 
      */
     private String usage;
 
     private GetNetworkZoneResult() {}
     /**
-     * @return Array of Autonomous System Numbers.
+     * @return Format of each array value: a string representation of an ASN numeric value
      * 
      */
     public List<String> asns() {
         return this.asns;
     }
     /**
-     * @return Array of locations.
+     * @return Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
      * 
      */
     public List<String> dynamicLocations() {
         return this.dynamicLocations;
     }
     /**
-     * @return Type of proxy being controlled by this dynamic network zone.
+     * @return Type of proxy being controlled by this network zone
      * 
      */
     public String dynamicProxyType() {
         return this.dynamicProxyType;
     }
     /**
-     * @return Array of values in CIDR/range form.
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      * 
      */
     public List<String> gateways() {
         return this.gateways;
     }
     /**
-     * @return ID of the network zone.
+     * @return ID of the network zone to retrieve, conflicts with `name`.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Name of the network zone.
+     * @return Name of the network zone to retrieve, conflicts with `id`.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Array of values in CIDR/range form.
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      * 
      */
     public List<String> proxies() {
         return this.proxies;
     }
     /**
-     * @return Network Status - can either be ACTIVE or INACTIVE only.
+     * @return Network Status - can either be ACTIVE or INACTIVE only
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return Type of the Network Zone.
+     * @return Type of the Network Zone - can either be IP or DYNAMIC only
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return Usage of the Network Zone.
+     * @return Zone&#39;s purpose: POLICY or BLOCKLIST
      * 
      */
     public String usage() {

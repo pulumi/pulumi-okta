@@ -17,92 +17,34 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource to manage a set of memberships for a specific group.
- * 
- * This resource will allow you to bulk manage group membership in Okta for a given
- * group. This offers an interface to pass multiple users into a single resource
- * call, for better API resource usage. If you need a relationship of a single
- * user to many groups, please use the `okta.UserGroupMemberships` resource.
- * 
- * **Important**: The default behavior of the resource is to only maintain the
- * state of user ids that are assigned it. This behavior will signal drift only if
- * those users stop being part of the group. If the desired behavior is track all
- * users that are added/removed from the group make use of the `track_all_users`
- * argument with this resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.group.Group;
- * import com.pulumi.okta.group.GroupArgs;
- * import com.pulumi.okta.GroupMemberships;
- * import com.pulumi.okta.GroupMembershipsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testGroup = new Group(&#34;testGroup&#34;, GroupArgs.builder()        
- *             .description(&#34;testing, testing&#34;)
- *             .build());
- * 
- *         var testGroupMemberships = new GroupMemberships(&#34;testGroupMemberships&#34;, GroupMembershipsArgs.builder()        
- *             .groupId(testGroup.id())
- *             .users(            
- *                 okta_user.test1().id(),
- *                 okta_user.test2().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * an Okta Group&#39;s memberships can be imported via the Okta group ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/groupMemberships:GroupMemberships test &amp;#60;group id&amp;#62;
- * ```
+ * Resource to manage a set of group memberships for a specific group.
  * 
  */
 @ResourceType(type="okta:index/groupMemberships:GroupMemberships")
 public class GroupMemberships extends com.pulumi.resources.CustomResource {
     /**
-     * Okta group ID.
+     * ID of a Okta group.
      * 
      */
     @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
-     * @return Okta group ID.
+     * @return ID of a Okta group.
      * 
      */
     public Output<String> groupId() {
         return this.groupId;
     }
     /**
-     * The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+     * The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
      * 
      */
     @Export(name="trackAllUsers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> trackAllUsers;
 
     /**
-     * @return The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+     * @return The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
      * 
      */
     public Output<Optional<Boolean>> trackAllUsers() {

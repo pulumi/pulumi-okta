@@ -15,178 +15,115 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a User Base Schema property.
- * 
- * This resource allows you to configure a base user schema property.
- * 
- * ## IMPORTANT NOTE:
- * 
- * Based on the [official documentation](https://developer.okta.com/docs/reference/api/schemas/#user-profile-base-subschema)
- * base properties can not be modified, except to update permissions, to change the nullability of `firstName` and
- * `lastName` (`required` property) or to specify a `pattern` for `login`. Currently, `title` and `type` are required, so
- * they should be set to the current values of the base property. This will be fixed in the future releases, as this is
- * a breaking change.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.UserBaseSchemaProperty;
- * import com.pulumi.okta.UserBaseSchemaPropertyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new UserBaseSchemaProperty(&#34;example&#34;, UserBaseSchemaPropertyArgs.builder()        
- *             .index(&#34;firstName&#34;)
- *             .master(&#34;OKTA&#34;)
- *             .required(true)
- *             .title(&#34;First name&#34;)
- *             .type(&#34;string&#34;)
- *             .userType(data.okta_user_type().example().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * User schema property of default user type can be imported via the property index.
- * 
- * ```sh
- *  $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &amp;#60;property name&amp;#62;
- * ```
- * 
- *  User schema property of custom user type can be imported via user type id and property index
- * 
- * ```sh
- *  $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &amp;#60;user type id&amp;#62;.&amp;#60;property name&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:index/userBaseSchemaProperty:UserBaseSchemaProperty")
 public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource {
     /**
-     * The property name.
+     * Subschema unique string identifier
      * 
      */
     @Export(name="index", refs={String.class}, tree="[0]")
     private Output<String> index;
 
     /**
-     * @return The property name.
+     * @return Subschema unique string identifier
      * 
      */
     public Output<String> index() {
         return this.index;
     }
     /**
-     * Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+     * SubSchema profile manager, if not set it will inherit its setting.
      * 
      */
     @Export(name="master", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> master;
 
     /**
-     * @return Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+     * @return SubSchema profile manager, if not set it will inherit its setting.
      * 
      */
     public Output<Optional<String>> master() {
         return Codegen.optional(this.master);
     }
     /**
-     * The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
+     * The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
      * 
      */
     @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pattern;
 
     /**
-     * @return The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
+     * @return The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
      * 
      */
     public Output<Optional<String>> pattern() {
         return Codegen.optional(this.pattern);
     }
     /**
-     * Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
      * 
      */
     @Export(name="permissions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permissions;
 
     /**
-     * @return Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * @return SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
      * 
      */
     public Output<Optional<String>> permissions() {
         return Codegen.optional(this.permissions);
     }
     /**
-     * Whether the property is required for this application&#39;s users.
+     * Whether the subschema is required
      * 
      */
     @Export(name="required", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> required;
 
     /**
-     * @return Whether the property is required for this application&#39;s users.
+     * @return Whether the subschema is required
      * 
      */
     public Output<Optional<Boolean>> required() {
         return Codegen.optional(this.required);
     }
     /**
-     * The property display name.
+     * Subschema title (display name)
      * 
      */
     @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
-     * @return The property display name.
+     * @return Subschema title (display name)
      * 
      */
     public Output<String> title() {
         return this.title;
     }
     /**
-     * The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+     * Subschema type: string, boolean, number, integer, array, or object
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+     * @return Subschema type: string, boolean, number, integer, array, or object
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * User type ID.
+     * Custom subschema user type
      * 
      */
     @Export(name="userType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userType;
 
     /**
-     * @return User type ID.
+     * @return Custom subschema user type
      * 
      */
     public Output<Optional<String>> userType() {

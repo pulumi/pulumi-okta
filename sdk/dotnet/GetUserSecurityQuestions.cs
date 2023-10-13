@@ -12,8 +12,6 @@ namespace Pulumi.Okta
     public static class GetUserSecurityQuestions
     {
         /// <summary>
-        /// Use this data source to retrieve a list of user's security questions.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -48,8 +46,6 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSecurityQuestionsResult>("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args ?? new GetUserSecurityQuestionsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a list of user's security questions.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -88,7 +84,7 @@ namespace Pulumi.Okta
     public sealed class GetUserSecurityQuestionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// User ID.
+        /// ID of a Okta User
         /// </summary>
         [Input("userId", required: true)]
         public string UserId { get; set; } = null!;
@@ -102,7 +98,7 @@ namespace Pulumi.Okta
     public sealed class GetUserSecurityQuestionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// User ID.
+        /// ID of a Okta User
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
@@ -121,10 +117,10 @@ namespace Pulumi.Okta
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// collection of user's security question retrieved from Okta with the following properties:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserSecurityQuestionsQuestionResult> Questions;
+        /// <summary>
+        /// ID of a Okta User
+        /// </summary>
         public readonly string UserId;
 
         [OutputConstructor]

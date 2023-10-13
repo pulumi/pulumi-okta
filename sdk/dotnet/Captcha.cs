@@ -9,62 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
-    /// <summary>
-    /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-    /// 
-    /// This resource allows you to create and configure a CAPTCHA.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Captcha("example", new()
-    ///     {
-    ///         SecretKey = "some_secret_key",
-    ///         SiteKey = "some_key",
-    ///         Type = "HCAPTCHA",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Behavior can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:index/captcha:Captcha example &amp;#60;captcha id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:index/captcha:Captcha")]
     public partial class Captcha : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the captcha.
+        /// Name of the CAPTCHA
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+        /// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         /// </summary>
         [Output("secretKey")]
         public Output<string> SecretKey { get; private set; } = null!;
 
         /// <summary>
-        /// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+        /// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         /// </summary>
         [Output("siteKey")]
         public Output<string> SiteKey { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+        /// Captcha type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -120,7 +87,7 @@ namespace Pulumi.Okta
     public sealed class CaptchaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the captcha.
+        /// Name of the CAPTCHA
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -129,7 +96,7 @@ namespace Pulumi.Okta
         private Input<string>? _secretKey;
 
         /// <summary>
-        /// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+        /// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         /// </summary>
         public Input<string>? SecretKey
         {
@@ -142,13 +109,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+        /// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         /// </summary>
         [Input("siteKey", required: true)]
         public Input<string> SiteKey { get; set; } = null!;
 
         /// <summary>
-        /// Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+        /// Captcha type
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -162,7 +129,7 @@ namespace Pulumi.Okta
     public sealed class CaptchaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the captcha.
+        /// Name of the CAPTCHA
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -171,7 +138,7 @@ namespace Pulumi.Okta
         private Input<string>? _secretKey;
 
         /// <summary>
-        /// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+        /// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         /// </summary>
         public Input<string>? SecretKey
         {
@@ -184,13 +151,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+        /// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         /// </summary>
         [Input("siteKey")]
         public Input<string>? SiteKey { get; set; }
 
         /// <summary>
-        /// Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+        /// Captcha type
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

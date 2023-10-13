@@ -17,14 +17,14 @@ public final class PolicyProfileEnrollmentAppsArgs extends com.pulumi.resources.
     public static final PolicyProfileEnrollmentAppsArgs Empty = new PolicyProfileEnrollmentAppsArgs();
 
     /**
-     * List of app IDs to be added to this policy.
+     * List of app IDs to be added to this policy
      * 
      */
     @Import(name="apps")
     private @Nullable Output<List<String>> apps;
 
     /**
-     * @return List of app IDs to be added to this policy.
+     * @return List of app IDs to be added to this policy
      * 
      */
     public Optional<Output<List<String>>> apps() {
@@ -72,7 +72,7 @@ public final class PolicyProfileEnrollmentAppsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param apps List of app IDs to be added to this policy.
+         * @param apps List of app IDs to be added to this policy
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class PolicyProfileEnrollmentAppsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param apps List of app IDs to be added to this policy.
+         * @param apps List of app IDs to be added to this policy
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class PolicyProfileEnrollmentAppsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param apps List of app IDs to be added to this policy.
+         * @param apps List of app IDs to be added to this policy
          * 
          * @return builder
          * 

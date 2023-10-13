@@ -13,67 +13,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource to manage a set of admin roles for a specific user.
-//
-// This resource allows you to manage admin roles for a single user, independent of the user schema itself.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testUser, err := user.NewUser(ctx, "testUser", &user.UserArgs{
-//				FirstName: pulumi.String("TestAcc"),
-//				LastName:  pulumi.String("Smith"),
-//				Login:     pulumi.String("testAcc-replace_with_uuid@example.com"),
-//				Email:     pulumi.String("testAcc-replace_with_uuid@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = okta.NewUserAdminRoles(ctx, "testUserAdminRoles", &okta.UserAdminRolesArgs{
-//				UserId: testUser.ID(),
-//				AdminRoles: pulumi.StringArray{
-//					pulumi.String("APP_ADMIN"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Existing user admin roles can be imported via the Okta User ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:index/userAdminRoles:UserAdminRoles example &#60;user id&#62;
-//
-// ```
+// Resource to manage a set of administrator roles for a specific user.
 type UserAdminRoles struct {
 	pulumi.CustomResourceState
 
-	// The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+	// User Okta admin roles - ie. ['APP*ADMIN', 'USER*ADMIN']
 	AdminRoles pulumi.StringArrayOutput `pulumi:"adminRoles"`
-	// When this setting is enabled, the admins won't receive any of the default Okta
-	// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+	// When this setting is enabled, the admins won't receive any of the default Okta administrator emails
 	DisableNotifications pulumi.BoolPtrOutput `pulumi:"disableNotifications"`
-	// Okta user ID.
+	// ID of a Okta User
 	UserId pulumi.StringOutput `pulumi:"userId"`
 }
 
@@ -113,22 +61,20 @@ func GetUserAdminRoles(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserAdminRoles resources.
 type userAdminRolesState struct {
-	// The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+	// User Okta admin roles - ie. ['APP*ADMIN', 'USER*ADMIN']
 	AdminRoles []string `pulumi:"adminRoles"`
-	// When this setting is enabled, the admins won't receive any of the default Okta
-	// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+	// When this setting is enabled, the admins won't receive any of the default Okta administrator emails
 	DisableNotifications *bool `pulumi:"disableNotifications"`
-	// Okta user ID.
+	// ID of a Okta User
 	UserId *string `pulumi:"userId"`
 }
 
 type UserAdminRolesState struct {
-	// The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+	// User Okta admin roles - ie. ['APP*ADMIN', 'USER*ADMIN']
 	AdminRoles pulumi.StringArrayInput
-	// When this setting is enabled, the admins won't receive any of the default Okta
-	// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+	// When this setting is enabled, the admins won't receive any of the default Okta administrator emails
 	DisableNotifications pulumi.BoolPtrInput
-	// Okta user ID.
+	// ID of a Okta User
 	UserId pulumi.StringPtrInput
 }
 
@@ -137,23 +83,21 @@ func (UserAdminRolesState) ElementType() reflect.Type {
 }
 
 type userAdminRolesArgs struct {
-	// The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+	// User Okta admin roles - ie. ['APP*ADMIN', 'USER*ADMIN']
 	AdminRoles []string `pulumi:"adminRoles"`
-	// When this setting is enabled, the admins won't receive any of the default Okta
-	// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+	// When this setting is enabled, the admins won't receive any of the default Okta administrator emails
 	DisableNotifications *bool `pulumi:"disableNotifications"`
-	// Okta user ID.
+	// ID of a Okta User
 	UserId string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a UserAdminRoles resource.
 type UserAdminRolesArgs struct {
-	// The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+	// User Okta admin roles - ie. ['APP*ADMIN', 'USER*ADMIN']
 	AdminRoles pulumi.StringArrayInput
-	// When this setting is enabled, the admins won't receive any of the default Okta
-	// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+	// When this setting is enabled, the admins won't receive any of the default Okta administrator emails
 	DisableNotifications pulumi.BoolPtrInput
-	// Okta user ID.
+	// ID of a Okta User
 	UserId pulumi.StringInput
 }
 
@@ -268,18 +212,17 @@ func (o UserAdminRolesOutput) ToOutput(ctx context.Context) pulumix.Output[*User
 	}
 }
 
-// The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+// User Okta admin roles - ie. ['APP*ADMIN', 'USER*ADMIN']
 func (o UserAdminRolesOutput) AdminRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserAdminRoles) pulumi.StringArrayOutput { return v.AdminRoles }).(pulumi.StringArrayOutput)
 }
 
-// When this setting is enabled, the admins won't receive any of the default Okta
-// administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+// When this setting is enabled, the admins won't receive any of the default Okta administrator emails
 func (o UserAdminRolesOutput) DisableNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserAdminRoles) pulumi.BoolPtrOutput { return v.DisableNotifications }).(pulumi.BoolPtrOutput)
 }
 
-// Okta user ID.
+// ID of a Okta User
 func (o UserAdminRolesOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserAdminRoles) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }

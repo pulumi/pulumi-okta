@@ -13,47 +13,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Verifies the Domain. This is replacement for the `verify` field from the `Domain` resource. The resource won't be
-// created if the domain could not be verified. The provider will make several requests to verify the domain until
-// the API returns `VERIFIED` verification status.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewDomain(ctx, "exampleDomain", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = okta.NewDomainVerification(ctx, "exampleDomainVerification", &okta.DomainVerificationArgs{
-//				DomainId: pulumi.Any(okta_domain.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// This resource does not support importing.
 type DomainVerification struct {
 	pulumi.CustomResourceState
 
-	// Domain ID.
+	// Domain's ID
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 }
 
@@ -90,12 +53,12 @@ func GetDomainVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainVerification resources.
 type domainVerificationState struct {
-	// Domain ID.
+	// Domain's ID
 	DomainId *string `pulumi:"domainId"`
 }
 
 type DomainVerificationState struct {
-	// Domain ID.
+	// Domain's ID
 	DomainId pulumi.StringPtrInput
 }
 
@@ -104,13 +67,13 @@ func (DomainVerificationState) ElementType() reflect.Type {
 }
 
 type domainVerificationArgs struct {
-	// Domain ID.
+	// Domain's ID
 	DomainId string `pulumi:"domainId"`
 }
 
 // The set of arguments for constructing a DomainVerification resource.
 type DomainVerificationArgs struct {
-	// Domain ID.
+	// Domain's ID
 	DomainId pulumi.StringInput
 }
 
@@ -225,7 +188,7 @@ func (o DomainVerificationOutput) ToOutput(ctx context.Context) pulumix.Output[*
 	}
 }
 
-// Domain ID.
+// Domain's ID
 func (o DomainVerificationOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainVerification) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }

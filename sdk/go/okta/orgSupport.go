@@ -12,44 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// This resource allows you to temporarily allow Okta Support to access your org as an administrator. By default,
-// access will be granted for eight hours. Removing this resource will revoke Okta Support access to your org.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewOrgSupport(ctx, "example", &okta.OrgSupportArgs{
-//				ExtendBy: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// This resource does not support importing.
 type OrgSupport struct {
 	pulumi.CustomResourceState
 
 	// Expiration of Okta Support
 	Expiration pulumi.StringOutput `pulumi:"expiration"`
-	// Number of days the support should be extended by in addition to the standard eight hours.
+	// Number of days the support should be extended by
 	ExtendBy pulumi.IntPtrOutput `pulumi:"extendBy"`
 	// Status of Okta Support
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -87,7 +55,7 @@ func GetOrgSupport(ctx *pulumi.Context,
 type orgSupportState struct {
 	// Expiration of Okta Support
 	Expiration *string `pulumi:"expiration"`
-	// Number of days the support should be extended by in addition to the standard eight hours.
+	// Number of days the support should be extended by
 	ExtendBy *int `pulumi:"extendBy"`
 	// Status of Okta Support
 	Status *string `pulumi:"status"`
@@ -96,7 +64,7 @@ type orgSupportState struct {
 type OrgSupportState struct {
 	// Expiration of Okta Support
 	Expiration pulumi.StringPtrInput
-	// Number of days the support should be extended by in addition to the standard eight hours.
+	// Number of days the support should be extended by
 	ExtendBy pulumi.IntPtrInput
 	// Status of Okta Support
 	Status pulumi.StringPtrInput
@@ -107,13 +75,13 @@ func (OrgSupportState) ElementType() reflect.Type {
 }
 
 type orgSupportArgs struct {
-	// Number of days the support should be extended by in addition to the standard eight hours.
+	// Number of days the support should be extended by
 	ExtendBy *int `pulumi:"extendBy"`
 }
 
 // The set of arguments for constructing a OrgSupport resource.
 type OrgSupportArgs struct {
-	// Number of days the support should be extended by in addition to the standard eight hours.
+	// Number of days the support should be extended by
 	ExtendBy pulumi.IntPtrInput
 }
 
@@ -233,7 +201,7 @@ func (o OrgSupportOutput) Expiration() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrgSupport) pulumi.StringOutput { return v.Expiration }).(pulumi.StringOutput)
 }
 
-// Number of days the support should be extended by in addition to the standard eight hours.
+// Number of days the support should be extended by
 func (o OrgSupportOutput) ExtendBy() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OrgSupport) pulumi.IntPtrOutput { return v.ExtendBy }).(pulumi.IntPtrOutput)
 }

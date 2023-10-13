@@ -13,50 +13,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Verifies the email domain. The resource won't be created if the email domain could not be verified.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/Index"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := Index.NewEmailDomain(ctx, "exampleEmailDomain", &Index.EmailDomainArgs{
-//				BrandId:     pulumi.String("abc123"),
-//				Domain:      pulumi.String("example.com"),
-//				DisplayName: pulumi.String("test"),
-//				UserName:    pulumi.String("paul_atreides"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = Index.NewEmailDomainVerification(ctx, "exampleEmailDomainVerification", &Index.EmailDomainVerificationArgs{
-//				EmailDomainId: pulumi.Any(okta_email_domain.Valid.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// This resource does not support importing.
 type EmailDomainVerification struct {
 	pulumi.CustomResourceState
 
-	// Email domain ID.
+	// Email domain ID
 	EmailDomainId pulumi.StringOutput `pulumi:"emailDomainId"`
 }
 
@@ -93,12 +53,12 @@ func GetEmailDomainVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailDomainVerification resources.
 type emailDomainVerificationState struct {
-	// Email domain ID.
+	// Email domain ID
 	EmailDomainId *string `pulumi:"emailDomainId"`
 }
 
 type EmailDomainVerificationState struct {
-	// Email domain ID.
+	// Email domain ID
 	EmailDomainId pulumi.StringPtrInput
 }
 
@@ -107,13 +67,13 @@ func (EmailDomainVerificationState) ElementType() reflect.Type {
 }
 
 type emailDomainVerificationArgs struct {
-	// Email domain ID.
+	// Email domain ID
 	EmailDomainId string `pulumi:"emailDomainId"`
 }
 
 // The set of arguments for constructing a EmailDomainVerification resource.
 type EmailDomainVerificationArgs struct {
-	// Email domain ID.
+	// Email domain ID
 	EmailDomainId pulumi.StringInput
 }
 
@@ -228,7 +188,7 @@ func (o EmailDomainVerificationOutput) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
-// Email domain ID.
+// Email domain ID
 func (o EmailDomainVerificationOutput) EmailDomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailDomainVerification) pulumi.StringOutput { return v.EmailDomainId }).(pulumi.StringOutput)
 }

@@ -18,315 +18,171 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OidcArgs Empty = new OidcArgs();
 
-    /**
-     * Specifies the account linking action for an IdP user.
-     * 
-     */
     @Import(name="accountLinkAction")
     private @Nullable Output<String> accountLinkAction;
 
-    /**
-     * @return Specifies the account linking action for an IdP user.
-     * 
-     */
     public Optional<Output<String>> accountLinkAction() {
         return Optional.ofNullable(this.accountLinkAction);
     }
 
-    /**
-     * Group memberships to determine link candidates.
-     * 
-     */
     @Import(name="accountLinkGroupIncludes")
     private @Nullable Output<List<String>> accountLinkGroupIncludes;
 
-    /**
-     * @return Group memberships to determine link candidates.
-     * 
-     */
     public Optional<Output<List<String>>> accountLinkGroupIncludes() {
         return Optional.ofNullable(this.accountLinkGroupIncludes);
     }
 
-    /**
-     * The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-     * 
-     */
     @Import(name="authorizationBinding", required=true)
     private Output<String> authorizationBinding;
 
-    /**
-     * @return The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-     * 
-     */
     public Output<String> authorizationBinding() {
         return this.authorizationBinding;
     }
 
-    /**
-     * IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
-     * 
-     */
     @Import(name="authorizationUrl", required=true)
     private Output<String> authorizationUrl;
 
-    /**
-     * @return IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
-     * 
-     */
     public Output<String> authorizationUrl() {
         return this.authorizationUrl;
     }
 
-    /**
-     * Unique identifier issued by AS for the Okta IdP instance.
-     * 
-     */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
-    /**
-     * @return Unique identifier issued by AS for the Okta IdP instance.
-     * 
-     */
     public Output<String> clientId() {
         return this.clientId;
     }
 
-    /**
-     * Client secret issued by AS for the Okta IdP instance.
-     * 
-     */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
-    /**
-     * @return Client secret issued by AS for the Okta IdP instance.
-     * 
-     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
 
-    /**
-     * Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
-     * 
-     */
     @Import(name="deprovisionedAction")
     private @Nullable Output<String> deprovisionedAction;
 
-    /**
-     * @return Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
-     * 
-     */
     public Optional<Output<String>> deprovisionedAction() {
         return Optional.ofNullable(this.deprovisionedAction);
     }
 
-    /**
-     * Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
-     * 
-     */
     @Import(name="groupsAction")
     private @Nullable Output<String> groupsAction;
 
-    /**
-     * @return Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
-     * 
-     */
     public Optional<Output<String>> groupsAction() {
         return Optional.ofNullable(this.groupsAction);
     }
 
-    /**
-     * List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
-     * 
-     */
     @Import(name="groupsAssignments")
     private @Nullable Output<List<String>> groupsAssignments;
 
-    /**
-     * @return List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
-     * 
-     */
     public Optional<Output<List<String>>> groupsAssignments() {
         return Optional.ofNullable(this.groupsAssignments);
     }
 
-    /**
-     * IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-     * 
-     */
     @Import(name="groupsAttribute")
     private @Nullable Output<String> groupsAttribute;
 
-    /**
-     * @return IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-     * 
-     */
     public Optional<Output<String>> groupsAttribute() {
         return Optional.ofNullable(this.groupsAttribute);
     }
 
-    /**
-     * Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
-     * 
-     */
     @Import(name="groupsFilters")
     private @Nullable Output<List<String>> groupsFilters;
 
-    /**
-     * @return Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
-     * 
-     */
     public Optional<Output<List<String>>> groupsFilters() {
         return Optional.ofNullable(this.groupsFilters);
     }
 
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+     * Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+     * @return Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
      * 
      */
     public Optional<Output<String>> issuerMode() {
         return Optional.ofNullable(this.issuerMode);
     }
 
-    /**
-     * URI that identifies the issuer.
-     * 
-     */
     @Import(name="issuerUrl", required=true)
     private Output<String> issuerUrl;
 
-    /**
-     * @return URI that identifies the issuer.
-     * 
-     */
     public Output<String> issuerUrl() {
         return this.issuerUrl;
     }
 
-    /**
-     * The method of making a request for the OIDC JWKS. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-     * 
-     */
     @Import(name="jwksBinding", required=true)
     private Output<String> jwksBinding;
 
-    /**
-     * @return The method of making a request for the OIDC JWKS. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-     * 
-     */
     public Output<String> jwksBinding() {
         return this.jwksBinding;
     }
 
-    /**
-     * Endpoint where the keys signer publishes its keys in a JWK Set.
-     * 
-     */
     @Import(name="jwksUrl", required=true)
     private Output<String> jwksUrl;
 
-    /**
-     * @return Endpoint where the keys signer publishes its keys in a JWK Set.
-     * 
-     */
     public Output<String> jwksUrl() {
         return this.jwksUrl;
     }
 
-    /**
-     * Maximum allowable clock-skew when processing messages from the IdP.
-     * 
-     */
     @Import(name="maxClockSkew")
     private @Nullable Output<Integer> maxClockSkew;
 
-    /**
-     * @return Maximum allowable clock-skew when processing messages from the IdP.
-     * 
-     */
     public Optional<Output<Integer>> maxClockSkew() {
         return Optional.ofNullable(this.maxClockSkew);
     }
 
     /**
-     * The Application&#39;s display name.
+     * Name of the IdP
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Application&#39;s display name.
+     * @return Name of the IdP
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Determines if the IdP should act as a source of truth for user profile attributes.
-     * 
-     */
     @Import(name="profileMaster")
     private @Nullable Output<Boolean> profileMaster;
 
-    /**
-     * @return Determines if the IdP should act as a source of truth for user profile attributes.
-     * 
-     */
     public Optional<Output<Boolean>> profileMaster() {
         return Optional.ofNullable(this.profileMaster);
     }
 
-    /**
-     * The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
-     * 
-     */
     @Import(name="protocolType")
     private @Nullable Output<String> protocolType;
 
-    /**
-     * @return The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
-     * 
-     */
     public Optional<Output<String>> protocolType() {
         return Optional.ofNullable(this.protocolType);
     }
 
-    /**
-     * Provisioning action for an IdP user during authentication.
-     * 
-     */
     @Import(name="provisioningAction")
     private @Nullable Output<String> provisioningAction;
 
-    /**
-     * @return Provisioning action for an IdP user during authentication.
-     * 
-     */
     public Optional<Output<String>> provisioningAction() {
         return Optional.ofNullable(this.provisioningAction);
     }
 
     /**
-     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+     * The HMAC Signature Algorithm used when signing an authorization request
      * 
      */
     @Import(name="requestSignatureAlgorithm")
     private @Nullable Output<String> requestSignatureAlgorithm;
 
     /**
-     * @return The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+     * @return The HMAC Signature Algorithm used when signing an authorization request
      * 
      */
     public Optional<Output<String>> requestSignatureAlgorithm() {
@@ -334,121 +190,65 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * Specifies whether to digitally sign an authorization request to the IdP
      * 
      */
     @Import(name="requestSignatureScope")
     private @Nullable Output<String> requestSignatureScope;
 
     /**
-     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * @return Specifies whether to digitally sign an authorization request to the IdP
      * 
      */
     public Optional<Output<String>> requestSignatureScope() {
         return Optional.ofNullable(this.requestSignatureScope);
     }
 
-    /**
-     * The scopes of the IdP.
-     * 
-     */
     @Import(name="scopes", required=true)
     private Output<List<String>> scopes;
 
-    /**
-     * @return The scopes of the IdP.
-     * 
-     */
     public Output<List<String>> scopes() {
         return this.scopes;
     }
 
-    /**
-     * Status of the IdP.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of the IdP.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
-     * 
-     */
     @Import(name="subjectMatchAttribute")
     private @Nullable Output<String> subjectMatchAttribute;
 
-    /**
-     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
-     * 
-     */
     public Optional<Output<String>> subjectMatchAttribute() {
         return Optional.ofNullable(this.subjectMatchAttribute);
     }
 
-    /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
-     * 
-     */
     @Import(name="subjectMatchType")
     private @Nullable Output<String> subjectMatchType;
 
-    /**
-     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
-     * 
-     */
     public Optional<Output<String>> subjectMatchType() {
         return Optional.ofNullable(this.subjectMatchType);
     }
 
-    /**
-     * Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
-     * 
-     */
     @Import(name="suspendedAction")
     private @Nullable Output<String> suspendedAction;
 
-    /**
-     * @return Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
-     * 
-     */
     public Optional<Output<String>> suspendedAction() {
         return Optional.ofNullable(this.suspendedAction);
     }
 
-    /**
-     * The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-     * 
-     */
     @Import(name="tokenBinding", required=true)
     private Output<String> tokenBinding;
 
-    /**
-     * @return The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-     * 
-     */
     public Output<String> tokenBinding() {
         return this.tokenBinding;
     }
 
-    /**
-     * IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-     * 
-     */
     @Import(name="tokenUrl", required=true)
     private Output<String> tokenUrl;
 
-    /**
-     * @return IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-     * 
-     */
     public Output<String> tokenUrl() {
         return this.tokenUrl;
     }
@@ -460,32 +260,16 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.userInfoBinding);
     }
 
-    /**
-     * Protected resource endpoint that returns claims about the authenticated user.
-     * 
-     */
     @Import(name="userInfoUrl")
     private @Nullable Output<String> userInfoUrl;
 
-    /**
-     * @return Protected resource endpoint that returns claims about the authenticated user.
-     * 
-     */
     public Optional<Output<String>> userInfoUrl() {
         return Optional.ofNullable(this.userInfoUrl);
     }
 
-    /**
-     * Okta EL Expression to generate or transform a unique username for the IdP user.
-     * 
-     */
     @Import(name="usernameTemplate")
     private @Nullable Output<String> usernameTemplate;
 
-    /**
-     * @return Okta EL Expression to generate or transform a unique username for the IdP user.
-     * 
-     */
     public Optional<Output<String>> usernameTemplate() {
         return Optional.ofNullable(this.usernameTemplate);
     }
@@ -545,269 +329,119 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
             $ = new OidcArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountLinkAction Specifies the account linking action for an IdP user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountLinkAction(@Nullable Output<String> accountLinkAction) {
             $.accountLinkAction = accountLinkAction;
             return this;
         }
 
-        /**
-         * @param accountLinkAction Specifies the account linking action for an IdP user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountLinkAction(String accountLinkAction) {
             return accountLinkAction(Output.of(accountLinkAction));
         }
 
-        /**
-         * @param accountLinkGroupIncludes Group memberships to determine link candidates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountLinkGroupIncludes(@Nullable Output<List<String>> accountLinkGroupIncludes) {
             $.accountLinkGroupIncludes = accountLinkGroupIncludes;
             return this;
         }
 
-        /**
-         * @param accountLinkGroupIncludes Group memberships to determine link candidates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountLinkGroupIncludes(List<String> accountLinkGroupIncludes) {
             return accountLinkGroupIncludes(Output.of(accountLinkGroupIncludes));
         }
 
-        /**
-         * @param accountLinkGroupIncludes Group memberships to determine link candidates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountLinkGroupIncludes(String... accountLinkGroupIncludes) {
             return accountLinkGroupIncludes(List.of(accountLinkGroupIncludes));
         }
 
-        /**
-         * @param authorizationBinding The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationBinding(Output<String> authorizationBinding) {
             $.authorizationBinding = authorizationBinding;
             return this;
         }
 
-        /**
-         * @param authorizationBinding The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationBinding(String authorizationBinding) {
             return authorizationBinding(Output.of(authorizationBinding));
         }
 
-        /**
-         * @param authorizationUrl IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationUrl(Output<String> authorizationUrl) {
             $.authorizationUrl = authorizationUrl;
             return this;
         }
 
-        /**
-         * @param authorizationUrl IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationUrl(String authorizationUrl) {
             return authorizationUrl(Output.of(authorizationUrl));
         }
 
-        /**
-         * @param clientId Unique identifier issued by AS for the Okta IdP instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
-        /**
-         * @param clientId Unique identifier issued by AS for the Okta IdP instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
-        /**
-         * @param clientSecret Client secret issued by AS for the Okta IdP instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
-        /**
-         * @param clientSecret Client secret issued by AS for the Okta IdP instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }
 
-        /**
-         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deprovisionedAction(@Nullable Output<String> deprovisionedAction) {
             $.deprovisionedAction = deprovisionedAction;
             return this;
         }
 
-        /**
-         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deprovisionedAction(String deprovisionedAction) {
             return deprovisionedAction(Output.of(deprovisionedAction));
         }
 
-        /**
-         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupsAction(@Nullable Output<String> groupsAction) {
             $.groupsAction = groupsAction;
             return this;
         }
 
-        /**
-         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupsAction(String groupsAction) {
             return groupsAction(Output.of(groupsAction));
         }
 
-        /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupsAssignments(@Nullable Output<List<String>> groupsAssignments) {
             $.groupsAssignments = groupsAssignments;
             return this;
         }
 
-        /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupsAssignments(List<String> groupsAssignments) {
             return groupsAssignments(Output.of(groupsAssignments));
         }
 
-        /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupsAssignments(String... groupsAssignments) {
             return groupsAssignments(List.of(groupsAssignments));
         }
 
-        /**
-         * @param groupsAttribute IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupsAttribute(@Nullable Output<String> groupsAttribute) {
             $.groupsAttribute = groupsAttribute;
             return this;
         }
 
-        /**
-         * @param groupsAttribute IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupsAttribute(String groupsAttribute) {
             return groupsAttribute(Output.of(groupsAttribute));
         }
 
-        /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupsFilters(@Nullable Output<List<String>> groupsFilters) {
             $.groupsFilters = groupsFilters;
             return this;
         }
 
-        /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupsFilters(List<String> groupsFilters) {
             return groupsFilters(Output.of(groupsFilters));
         }
 
-        /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupsFilters(String... groupsFilters) {
             return groupsFilters(List.of(groupsFilters));
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
          * 
          * @return builder
          * 
@@ -818,7 +452,7 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
          * 
          * @return builder
          * 
@@ -827,92 +461,44 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
             return issuerMode(Output.of(issuerMode));
         }
 
-        /**
-         * @param issuerUrl URI that identifies the issuer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuerUrl(Output<String> issuerUrl) {
             $.issuerUrl = issuerUrl;
             return this;
         }
 
-        /**
-         * @param issuerUrl URI that identifies the issuer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuerUrl(String issuerUrl) {
             return issuerUrl(Output.of(issuerUrl));
         }
 
-        /**
-         * @param jwksBinding The method of making a request for the OIDC JWKS. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwksBinding(Output<String> jwksBinding) {
             $.jwksBinding = jwksBinding;
             return this;
         }
 
-        /**
-         * @param jwksBinding The method of making a request for the OIDC JWKS. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwksBinding(String jwksBinding) {
             return jwksBinding(Output.of(jwksBinding));
         }
 
-        /**
-         * @param jwksUrl Endpoint where the keys signer publishes its keys in a JWK Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwksUrl(Output<String> jwksUrl) {
             $.jwksUrl = jwksUrl;
             return this;
         }
 
-        /**
-         * @param jwksUrl Endpoint where the keys signer publishes its keys in a JWK Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwksUrl(String jwksUrl) {
             return jwksUrl(Output.of(jwksUrl));
         }
 
-        /**
-         * @param maxClockSkew Maximum allowable clock-skew when processing messages from the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxClockSkew(@Nullable Output<Integer> maxClockSkew) {
             $.maxClockSkew = maxClockSkew;
             return this;
         }
 
-        /**
-         * @param maxClockSkew Maximum allowable clock-skew when processing messages from the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxClockSkew(Integer maxClockSkew) {
             return maxClockSkew(Output.of(maxClockSkew));
         }
 
         /**
-         * @param name The Application&#39;s display name.
+         * @param name Name of the IdP
          * 
          * @return builder
          * 
@@ -923,7 +509,7 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Application&#39;s display name.
+         * @param name Name of the IdP
          * 
          * @return builder
          * 
@@ -932,71 +518,35 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
-        /**
-         * @param profileMaster Determines if the IdP should act as a source of truth for user profile attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileMaster(@Nullable Output<Boolean> profileMaster) {
             $.profileMaster = profileMaster;
             return this;
         }
 
-        /**
-         * @param profileMaster Determines if the IdP should act as a source of truth for user profile attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileMaster(Boolean profileMaster) {
             return profileMaster(Output.of(profileMaster));
         }
 
-        /**
-         * @param protocolType The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocolType(@Nullable Output<String> protocolType) {
             $.protocolType = protocolType;
             return this;
         }
 
-        /**
-         * @param protocolType The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocolType(String protocolType) {
             return protocolType(Output.of(protocolType));
         }
 
-        /**
-         * @param provisioningAction Provisioning action for an IdP user during authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisioningAction(@Nullable Output<String> provisioningAction) {
             $.provisioningAction = provisioningAction;
             return this;
         }
 
-        /**
-         * @param provisioningAction Provisioning action for an IdP user during authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisioningAction(String provisioningAction) {
             return provisioningAction(Output.of(provisioningAction));
         }
 
         /**
-         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request
          * 
          * @return builder
          * 
@@ -1007,7 +557,7 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request
          * 
          * @return builder
          * 
@@ -1017,7 +567,7 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+         * @param requestSignatureScope Specifies whether to digitally sign an authorization request to the IdP
          * 
          * @return builder
          * 
@@ -1028,7 +578,7 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+         * @param requestSignatureScope Specifies whether to digitally sign an authorization request to the IdP
          * 
          * @return builder
          * 
@@ -1037,159 +587,69 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
             return requestSignatureScope(Output.of(requestSignatureScope));
         }
 
-        /**
-         * @param scopes The scopes of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopes(Output<List<String>> scopes) {
             $.scopes = scopes;
             return this;
         }
 
-        /**
-         * @param scopes The scopes of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopes(List<String> scopes) {
             return scopes(Output.of(scopes));
         }
 
-        /**
-         * @param scopes The scopes of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopes(String... scopes) {
             return scopes(List.of(scopes));
         }
 
-        /**
-         * @param status Status of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectMatchAttribute(@Nullable Output<String> subjectMatchAttribute) {
             $.subjectMatchAttribute = subjectMatchAttribute;
             return this;
         }
 
-        /**
-         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectMatchAttribute(String subjectMatchAttribute) {
             return subjectMatchAttribute(Output.of(subjectMatchAttribute));
         }
 
-        /**
-         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectMatchType(@Nullable Output<String> subjectMatchType) {
             $.subjectMatchType = subjectMatchType;
             return this;
         }
 
-        /**
-         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectMatchType(String subjectMatchType) {
             return subjectMatchType(Output.of(subjectMatchType));
         }
 
-        /**
-         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder suspendedAction(@Nullable Output<String> suspendedAction) {
             $.suspendedAction = suspendedAction;
             return this;
         }
 
-        /**
-         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder suspendedAction(String suspendedAction) {
             return suspendedAction(Output.of(suspendedAction));
         }
 
-        /**
-         * @param tokenBinding The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenBinding(Output<String> tokenBinding) {
             $.tokenBinding = tokenBinding;
             return this;
         }
 
-        /**
-         * @param tokenBinding The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenBinding(String tokenBinding) {
             return tokenBinding(Output.of(tokenBinding));
         }
 
-        /**
-         * @param tokenUrl IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenUrl(Output<String> tokenUrl) {
             $.tokenUrl = tokenUrl;
             return this;
         }
 
-        /**
-         * @param tokenUrl IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenUrl(String tokenUrl) {
             return tokenUrl(Output.of(tokenUrl));
         }
@@ -1203,44 +663,20 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
             return userInfoBinding(Output.of(userInfoBinding));
         }
 
-        /**
-         * @param userInfoUrl Protected resource endpoint that returns claims about the authenticated user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userInfoUrl(@Nullable Output<String> userInfoUrl) {
             $.userInfoUrl = userInfoUrl;
             return this;
         }
 
-        /**
-         * @param userInfoUrl Protected resource endpoint that returns claims about the authenticated user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userInfoUrl(String userInfoUrl) {
             return userInfoUrl(Output.of(userInfoUrl));
         }
 
-        /**
-         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernameTemplate(@Nullable Output<String> usernameTemplate) {
             $.usernameTemplate = usernameTemplate;
             return this;
         }
 
-        /**
-         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernameTemplate(String usernameTemplate) {
             return usernameTemplate(Output.of(usernameTemplate));
         }

@@ -14,41 +14,31 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * An Okta Brand can be imported via the ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/theme:Theme example &amp;#60;brand id&amp;#62;/&amp;#60;theme id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:index/theme:Theme")
 public class Theme extends com.pulumi.resources.CustomResource {
     /**
-     * (Optional) Local path to background image file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+     * Path to local file
      * 
      */
     @Export(name="backgroundImage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backgroundImage;
 
     /**
-     * @return (Optional) Local path to background image file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+     * @return Path to local file
      * 
      */
     public Output<Optional<String>> backgroundImage() {
         return Codegen.optional(this.backgroundImage);
     }
     /**
-     * (Read-Only) Background image URL
+     * Background image URL
      * 
      */
     @Export(name="backgroundImageUrl", refs={String.class}, tree="[0]")
     private Output<String> backgroundImageUrl;
 
     /**
-     * @return (Read-Only) Background image URL
+     * @return Background image URL
      * 
      */
     public Output<String> backgroundImageUrl() {
@@ -69,196 +59,196 @@ public class Theme extends com.pulumi.resources.CustomResource {
         return this.brandId;
     }
     /**
-     * (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
+     * Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
      * 
      */
     @Export(name="emailTemplateTouchPointVariant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> emailTemplateTouchPointVariant;
 
     /**
-     * @return (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
+     * @return Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
      * 
      */
     public Output<Optional<String>> emailTemplateTouchPointVariant() {
         return Codegen.optional(this.emailTemplateTouchPointVariant);
     }
     /**
-     * (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+     * Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      * 
      */
     @Export(name="endUserDashboardTouchPointVariant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endUserDashboardTouchPointVariant;
 
     /**
-     * @return (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+     * @return Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      * 
      */
     public Output<Optional<String>> endUserDashboardTouchPointVariant() {
         return Codegen.optional(this.endUserDashboardTouchPointVariant);
     }
     /**
-     * (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     @Export(name="errorPageTouchPointVariant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> errorPageTouchPointVariant;
 
     /**
-     * @return (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * @return Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     public Output<Optional<String>> errorPageTouchPointVariant() {
         return Codegen.optional(this.errorPageTouchPointVariant);
     }
     /**
-     * (Optional) Local path to favicon file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+     * Path to local file
      * 
      */
     @Export(name="favicon", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> favicon;
 
     /**
-     * @return (Optional) Local path to favicon file. Setting the value to the blank string `&#34;&#34;` will delete the favicon on the theme at Okta but will not delete the local file.
+     * @return Path to local file
      * 
      */
     public Output<Optional<String>> favicon() {
         return Codegen.optional(this.favicon);
     }
     /**
-     * (Read-Only) Favicon URL
+     * Favicon URL
      * 
      */
     @Export(name="faviconUrl", refs={String.class}, tree="[0]")
     private Output<String> faviconUrl;
 
     /**
-     * @return (Read-Only) Favicon URL
+     * @return Favicon URL
      * 
      */
     public Output<String> faviconUrl() {
         return this.faviconUrl;
     }
     /**
-     * Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
+     * Link relations for this object - JSON HAL - Discoverable resources related to the email template
      * 
      */
     @Export(name="links", refs={String.class}, tree="[0]")
     private Output<String> links;
 
     /**
-     * @return Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the email template
      * 
      */
     public Output<String> links() {
         return this.links;
     }
     /**
-     * (Optional) Local path to logo file. Setting the value to the blank string `&#34;&#34;` will delete the logo on the theme at Okta but will not delete the local file.
+     * Path to local file
      * 
      */
     @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
-     * @return (Optional) Local path to logo file. Setting the value to the blank string `&#34;&#34;` will delete the logo on the theme at Okta but will not delete the local file.
+     * @return Path to local file
      * 
      */
     public Output<Optional<String>> logo() {
         return Codegen.optional(this.logo);
     }
     /**
-     * (Read-Only) Logo URL
+     * Logo URL
      * 
      */
     @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
-     * @return (Read-Only) Logo URL
+     * @return Logo URL
      * 
      */
     public Output<String> logoUrl() {
         return this.logoUrl;
     }
     /**
-     * (Optional) Primary color contrast hex code
+     * Primary color contrast hex code
      * 
      */
     @Export(name="primaryColorContrastHex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryColorContrastHex;
 
     /**
-     * @return (Optional) Primary color contrast hex code
+     * @return Primary color contrast hex code
      * 
      */
     public Output<Optional<String>> primaryColorContrastHex() {
         return Codegen.optional(this.primaryColorContrastHex);
     }
     /**
-     * (Required) Primary color hex code
+     * Primary color hex code
      * 
      */
     @Export(name="primaryColorHex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryColorHex;
 
     /**
-     * @return (Required) Primary color hex code
+     * @return Primary color hex code
      * 
      */
     public Output<Optional<String>> primaryColorHex() {
         return Codegen.optional(this.primaryColorHex);
     }
     /**
-     * (Optional) Secondary color contrast hex code
+     * Secondary color contrast hex code
      * 
      */
     @Export(name="secondaryColorContrastHex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secondaryColorContrastHex;
 
     /**
-     * @return (Optional) Secondary color contrast hex code
+     * @return Secondary color contrast hex code
      * 
      */
     public Output<Optional<String>> secondaryColorContrastHex() {
         return Codegen.optional(this.secondaryColorContrastHex);
     }
     /**
-     * (Required) Secondary color hex code
+     * Secondary color hex code
      * 
      */
     @Export(name="secondaryColorHex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secondaryColorHex;
 
     /**
-     * @return (Required) Secondary color hex code
+     * @return Secondary color hex code
      * 
      */
     public Output<Optional<String>> secondaryColorHex() {
         return Codegen.optional(this.secondaryColorHex);
     }
     /**
-     * (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     @Export(name="signInPageTouchPointVariant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signInPageTouchPointVariant;
 
     /**
-     * @return (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * @return Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      * 
      */
     public Output<Optional<String>> signInPageTouchPointVariant() {
         return Codegen.optional(this.signInPageTouchPointVariant);
     }
     /**
-     * Theme ID, used for read (faux-create)
+     * Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
      * 
      */
     @Export(name="themeId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> themeId;
 
     /**
-     * @return Theme ID, used for read (faux-create)
+     * @return Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
      * 
      */
     public Output<Optional<String>> themeId() {

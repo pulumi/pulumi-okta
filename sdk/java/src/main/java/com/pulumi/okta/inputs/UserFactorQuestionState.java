@@ -16,14 +16,14 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
     public static final UserFactorQuestionState Empty = new UserFactorQuestionState();
 
     /**
-     * Security question answer. Note here that answer won&#39;t be set during the resource import.
+     * User password security answer
      * 
      */
     @Import(name="answer")
     private @Nullable Output<String> answer;
 
     /**
-     * @return Security question answer. Note here that answer won&#39;t be set during the resource import.
+     * @return User password security answer
      * 
      */
     public Optional<Output<String>> answer() {
@@ -31,14 +31,14 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Security question unique key.
+     * Unique key for question
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return Security question unique key.
+     * @return Unique key for question
      * 
      */
     public Optional<Output<String>> key() {
@@ -46,14 +46,14 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The status of the security question factor.
+     * User factor status.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the security question factor.
+     * @return User factor status.
      * 
      */
     public Optional<Output<String>> status() {
@@ -61,14 +61,14 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Display text for security question.
+     * Display text for question
      * 
      */
     @Import(name="text")
     private @Nullable Output<String> text;
 
     /**
-     * @return Display text for security question.
+     * @return Display text for question
      * 
      */
     public Optional<Output<String>> text() {
@@ -76,14 +76,14 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * ID of the user. Resource will be recreated when `user_id` changes.
+     * ID of a Okta User
      * 
      */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
     /**
-     * @return ID of the user. Resource will be recreated when `user_id` changes.
+     * @return ID of a Okta User
      * 
      */
     public Optional<Output<String>> userId() {
@@ -119,7 +119,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param answer Security question answer. Note here that answer won&#39;t be set during the resource import.
+         * @param answer User password security answer
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param answer Security question answer. Note here that answer won&#39;t be set during the resource import.
+         * @param answer User password security answer
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key Security question unique key.
+         * @param key Unique key for question
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key Security question unique key.
+         * @param key Unique key for question
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param status The status of the security question factor.
+         * @param status User factor status.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param status The status of the security question factor.
+         * @param status User factor status.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param text Display text for security question.
+         * @param text Display text for question
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param text Display text for security question.
+         * @param text Display text for question
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userId ID of the user. Resource will be recreated when `user_id` changes.
+         * @param userId ID of a Okta User
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userId ID of the user. Resource will be recreated when `user_id` changes.
+         * @param userId ID of a Okta User
          * 
          * @return builder
          * 

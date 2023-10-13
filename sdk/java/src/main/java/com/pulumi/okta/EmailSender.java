@@ -15,119 +15,73 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * &gt; **DEPRECATED** use `okta.Index.EmailDomain` instead.
- * 
- * This resource allows you to create and configure a custom email sender.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.EmailSender;
- * import com.pulumi.okta.EmailSenderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EmailSender(&#34;example&#34;, EmailSenderArgs.builder()        
- *             .fromAddress(&#34;no-reply@caladan.planet&#34;)
- *             .fromName(&#34;Paul Atreides&#34;)
- *             .subdomain(&#34;mail&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Custom email sender can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/emailSender:EmailSender example &amp;#60;sender id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:index/emailSender:EmailSender")
 public class EmailSender extends com.pulumi.resources.CustomResource {
     /**
-     * TXT and CNAME records to be registered for the domain.
+     * TXT and CNAME records to be registered for the Domain
      * 
      */
     @Export(name="dnsRecords", refs={List.class,EmailSenderDnsRecord.class}, tree="[0,1]")
     private Output<List<EmailSenderDnsRecord>> dnsRecords;
 
     /**
-     * @return TXT and CNAME records to be registered for the domain.
+     * @return TXT and CNAME records to be registered for the Domain
      * 
      */
     public Output<List<EmailSenderDnsRecord>> dnsRecords() {
         return this.dnsRecords;
     }
     /**
-     * Email address to send from.
+     * Email address to send from
      * 
      */
     @Export(name="fromAddress", refs={String.class}, tree="[0]")
     private Output<String> fromAddress;
 
     /**
-     * @return Email address to send from.
+     * @return Email address to send from
      * 
      */
     public Output<String> fromAddress() {
         return this.fromAddress;
     }
     /**
-     * Name of sender.
+     * Name of sender
      * 
      */
     @Export(name="fromName", refs={String.class}, tree="[0]")
     private Output<String> fromName;
 
     /**
-     * @return Name of sender.
+     * @return Name of sender
      * 
      */
     public Output<String> fromName() {
         return this.fromName;
     }
     /**
-     * Status of the sender (shows whether the sender is verified).
+     * Verification status
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Status of the sender (shows whether the sender is verified).
+     * @return Verification status
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * Mail domain to send from.
+     * Mail domain to send from
      * 
      */
     @Export(name="subdomain", refs={String.class}, tree="[0]")
     private Output<String> subdomain;
 
     /**
-     * @return Mail domain to send from.
+     * @return Mail domain to send from
      * 
      */
     public Output<String> subdomain() {

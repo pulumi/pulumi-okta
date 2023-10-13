@@ -52,16 +52,25 @@ class GetUsersResult:
     @property
     @pulumi.getter(name="compoundSearchOperator")
     def compound_search_operator(self) -> Optional[str]:
+        """
+        Search operator used when joining mulitple search clauses
+        """
         return pulumi.get(self, "compound_search_operator")
 
     @property
     @pulumi.getter(name="delayReadSeconds")
     def delay_read_seconds(self) -> Optional[str]:
+        """
+        Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+        """
         return pulumi.get(self, "delay_read_seconds")
 
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[str]:
+        """
+        Find users based on group membership using the id of the group.
+        """
         return pulumi.get(self, "group_id")
 
     @property
@@ -75,23 +84,32 @@ class GetUsersResult:
     @property
     @pulumi.getter(name="includeGroups")
     def include_groups(self) -> Optional[bool]:
+        """
+        Fetch group memberships for each user
+        """
         return pulumi.get(self, "include_groups")
 
     @property
     @pulumi.getter(name="includeRoles")
     def include_roles(self) -> Optional[bool]:
+        """
+        Fetch user roles for each user
+        """
         return pulumi.get(self, "include_roles")
 
     @property
     @pulumi.getter
     def searches(self) -> Optional[Sequence['outputs.GetUsersSearchResult']]:
+        """
+        Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+        """
         return pulumi.get(self, "searches")
 
     @property
     @pulumi.getter
     def users(self) -> Sequence['outputs.GetUsersUserResult']:
         """
-        collection of users retrieved from Okta with the following properties.
+        collection of users retrieved from Okta.
         """
         return pulumi.get(self, "users")
 
@@ -120,37 +138,34 @@ def get_users(compound_search_operator: Optional[str] = None,
               searches: Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
-    Use this data source to retrieve a list of users from Okta.
+    Get a list of users from Okta.
 
     ## Example Usage
+
     ### Lookup Users by Search Criteria
 
-    ```python
-    import pulumi
-    import pulumi_okta as okta
+    data "user_get_users" "example" {
+      search {
+        name       = "profile.company"
+        value      = "Articulate"
+        comparison = "sw"
+      }
+    }
 
-    example = okta.user.get_users(searches=[okta.user.GetUsersSearchArgs(
-        expression="profile.department eq \\"Engineering\\" and (created lt \\"2014-01-01T00:00:00.000Z\\" or status eq \\"ACTIVE\\")",
-    )])
-    ```
-    ### Lookup Users by Group Membership
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example_group = okta.group.Group("exampleGroup")
-    example_users = okta.user.get_users_output(group_id=example_group.id,
-        include_groups=True,
-        include_roles=True)
-    ```
+    # Search for multiple users based on a raw search expression string
+    data "user_get_users" "example" {
+      search {
+        expression = "profile.department eq \\"Engineering\\" and (created lt \\"2014-01-01T00:00:00.000Z\\" or status eq \\"ACTIVE\\")"
+      }
+    }
 
 
-    :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
-    :param str delay_read_seconds: Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
-    :param str group_id: Id of group used to find users based on membership.
-    :param bool include_groups: Fetch each user's group memberships. Defaults to `false`, in which case the `group_memberships` user attribute will be empty.
-    :param bool include_roles: Fetch each user's administrator roles. Defaults to `false`, in which case the `admin_roles` user attribute will be empty.
-    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria. It supports the following properties.
+    :param str compound_search_operator: Search operator used when joining mulitple search clauses
+    :param str delay_read_seconds: Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+    :param str group_id: Find users based on group membership using the id of the group.
+    :param bool include_groups: Fetch group memberships for each user
+    :param bool include_roles: Fetch user roles for each user
+    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
     """
     __args__ = dict()
     __args__['compoundSearchOperator'] = compound_search_operator
@@ -182,36 +197,33 @@ def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[st
                      searches: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
     """
-    Use this data source to retrieve a list of users from Okta.
+    Get a list of users from Okta.
 
     ## Example Usage
+
     ### Lookup Users by Search Criteria
 
-    ```python
-    import pulumi
-    import pulumi_okta as okta
+    data "user_get_users" "example" {
+      search {
+        name       = "profile.company"
+        value      = "Articulate"
+        comparison = "sw"
+      }
+    }
 
-    example = okta.user.get_users(searches=[okta.user.GetUsersSearchArgs(
-        expression="profile.department eq \\"Engineering\\" and (created lt \\"2014-01-01T00:00:00.000Z\\" or status eq \\"ACTIVE\\")",
-    )])
-    ```
-    ### Lookup Users by Group Membership
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example_group = okta.group.Group("exampleGroup")
-    example_users = okta.user.get_users_output(group_id=example_group.id,
-        include_groups=True,
-        include_roles=True)
-    ```
+    # Search for multiple users based on a raw search expression string
+    data "user_get_users" "example" {
+      search {
+        expression = "profile.department eq \\"Engineering\\" and (created lt \\"2014-01-01T00:00:00.000Z\\" or status eq \\"ACTIVE\\")"
+      }
+    }
 
 
-    :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
-    :param str delay_read_seconds: Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
-    :param str group_id: Id of group used to find users based on membership.
-    :param bool include_groups: Fetch each user's group memberships. Defaults to `false`, in which case the `group_memberships` user attribute will be empty.
-    :param bool include_roles: Fetch each user's administrator roles. Defaults to `false`, in which case the `admin_roles` user attribute will be empty.
-    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Map of search criteria. It supports the following properties.
+    :param str compound_search_operator: Search operator used when joining mulitple search clauses
+    :param str delay_read_seconds: Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+    :param str group_id: Find users based on group membership using the id of the group.
+    :param bool include_groups: Fetch group memberships for each user
+    :param bool include_roles: Fetch user roles for each user
+    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
     """
     ...

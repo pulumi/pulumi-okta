@@ -14,14 +14,14 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
     public static final DomainCertificateArgs Empty = new DomainCertificateArgs();
 
     /**
-     * Certificate content.
+     * Certificate content
      * 
      */
     @Import(name="certificate", required=true)
     private Output<String> certificate;
 
     /**
-     * @return Certificate content.
+     * @return Certificate content
      * 
      */
     public Output<String> certificate() {
@@ -29,14 +29,14 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Certificate certificate chain.
+     * Certificate chain
      * 
      */
     @Import(name="certificateChain", required=true)
     private Output<String> certificateChain;
 
     /**
-     * @return Certificate certificate chain.
+     * @return Certificate chain
      * 
      */
     public Output<String> certificateChain() {
@@ -44,14 +44,14 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Domain ID.
+     * Domain&#39;s ID
      * 
      */
     @Import(name="domainId", required=true)
     private Output<String> domainId;
 
     /**
-     * @return Domain ID.
+     * @return Domain&#39;s ID
      * 
      */
     public Output<String> domainId() {
@@ -59,14 +59,14 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Certificate private key.
+     * Certificate private key
      * 
      */
     @Import(name="privateKey", required=true)
     private Output<String> privateKey;
 
     /**
-     * @return Certificate private key.
+     * @return Certificate private key
      * 
      */
     public Output<String> privateKey() {
@@ -74,14 +74,14 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Certificate type. Valid value is `&#34;PEM&#34;`.
+     * Certificate type
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Certificate type. Valid value is `&#34;PEM&#34;`.
+     * @return Certificate type
      * 
      */
     public Output<String> type() {
@@ -117,7 +117,7 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param certificate Certificate content.
+         * @param certificate Certificate content
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param certificate Certificate content.
+         * @param certificate Certificate content
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param certificateChain Certificate certificate chain.
+         * @param certificateChain Certificate chain
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param certificateChain Certificate certificate chain.
+         * @param certificateChain Certificate chain
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param domainId Domain ID.
+         * @param domainId Domain&#39;s ID
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param domainId Domain ID.
+         * @param domainId Domain&#39;s ID
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateKey Certificate private key.
+         * @param privateKey Certificate private key
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateKey Certificate private key.
+         * @param privateKey Certificate private key
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type Certificate type. Valid value is `&#34;PEM&#34;`.
+         * @param type Certificate type
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type Certificate type. Valid value is `&#34;PEM&#34;`.
+         * @param type Certificate type
          * 
          * @return builder
          * 

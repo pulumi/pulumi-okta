@@ -59,11 +59,17 @@ class GetAppResult:
     @property
     @pulumi.getter(name="activeOnly")
     def active_only(self) -> Optional[bool]:
+        """
+        Search only ACTIVE applications.
+        """
         return pulumi.get(self, "active_only")
 
     @property
     @pulumi.getter
     def groups(self) -> Sequence[str]:
+        """
+        Groups associated with the application
+        """
         warnings.warn("""The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`""", DeprecationWarning)
         pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`""")
 
@@ -73,7 +79,7 @@ class GetAppResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Application ID.
+        Id of application to retrieve, conflicts with label and label_prefix.
         """
         return pulumi.get(self, "id")
 
@@ -81,20 +87,30 @@ class GetAppResult:
     @pulumi.getter
     def label(self) -> Optional[str]:
         """
-        Application label.
+        The label of the app to retrieve, conflicts with
+        			label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
+        			Okta's List Apps API. The API will search both name and label using that
+        			query. Therefore similarily named and labeled apps may be returned in the query
+        			and have the unitended result of associating the wrong app with this data
+        			source. See:
+        			https://developer.okta.com/docs/reference/api/apps/#list-applications
         """
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter(name="labelPrefix")
     def label_prefix(self) -> Optional[str]:
+        """
+        Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+        			provider to do a starts with query as opposed to an equals query.
+        """
         return pulumi.get(self, "label_prefix")
 
     @property
     @pulumi.getter
     def links(self) -> str:
         """
-        Generic JSON containing discoverable resources related to the app.
+        Discoverable resources related to the app
         """
         return pulumi.get(self, "links")
 
@@ -102,13 +118,16 @@ class GetAppResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Application name.
+        Name of application.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="skipGroups")
     def skip_groups(self) -> Optional[bool]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
         warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
 
@@ -117,6 +136,9 @@ class GetAppResult:
     @property
     @pulumi.getter(name="skipUsers")
     def skip_users(self) -> Optional[bool]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
         warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
 
@@ -126,13 +148,16 @@ class GetAppResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        Application status.
+        Status of application.
         """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def users(self) -> Sequence[str]:
+        """
+        Users associated with the application
+        """
         warnings.warn("""The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`""", DeprecationWarning)
         pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`""")
 
@@ -166,7 +191,7 @@ def get_app(active_only: Optional[bool] = None,
             skip_users: Optional[bool] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
-    Use this data source to retrieve an application from Okta.
+    Get an application of any kind from Okta.
 
     ## Example Usage
 
@@ -178,15 +203,19 @@ def get_app(active_only: Optional[bool] = None,
     ```
 
 
-    :param bool active_only: tells the provider to query for only `ACTIVE` applications.
-    :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
-    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-           the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
-           and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
-           may result in multiple apps being returned for the query. The data source further inspects the lables looking for
-           an exact match.
-    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-           provider to do a `starts with` query as opposed to an `equals` query.
+    :param bool active_only: Search only ACTIVE applications.
+    :param str id: Id of application to retrieve, conflicts with label and label_prefix.
+    :param str label: The label of the app to retrieve, conflicts with
+           			label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
+           			Okta's List Apps API. The API will search both name and label using that
+           			query. Therefore similarily named and labeled apps may be returned in the query
+           			and have the unitended result of associating the wrong app with this data
+           			source. See:
+           			https://developer.okta.com/docs/reference/api/apps/#list-applications
+    :param str label_prefix: Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+           			provider to do a starts with query as opposed to an equals query.
+    :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+    :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only
@@ -221,7 +250,7 @@ def get_app_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                    skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
-    Use this data source to retrieve an application from Okta.
+    Get an application of any kind from Okta.
 
     ## Example Usage
 
@@ -233,14 +262,18 @@ def get_app_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
     ```
 
 
-    :param bool active_only: tells the provider to query for only `ACTIVE` applications.
-    :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
-    :param str label: The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-           the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
-           and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
-           may result in multiple apps being returned for the query. The data source further inspects the lables looking for
-           an exact match.
-    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-           provider to do a `starts with` query as opposed to an `equals` query.
+    :param bool active_only: Search only ACTIVE applications.
+    :param str id: Id of application to retrieve, conflicts with label and label_prefix.
+    :param str label: The label of the app to retrieve, conflicts with
+           			label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
+           			Okta's List Apps API. The API will search both name and label using that
+           			query. Therefore similarily named and labeled apps may be returned in the query
+           			and have the unitended result of associating the wrong app with this data
+           			source. See:
+           			https://developer.okta.com/docs/reference/api/apps/#list-applications
+    :param str label_prefix: Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+           			provider to do a starts with query as opposed to an equals query.
+    :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+    :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
     """
     ...

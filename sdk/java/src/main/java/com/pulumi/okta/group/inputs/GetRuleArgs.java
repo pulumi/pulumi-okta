@@ -16,14 +16,14 @@ public final class GetRuleArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRuleArgs Empty = new GetRuleArgs();
 
     /**
-     * The ID of the group rule to retrieve.
+     * The ID of the Group Rule.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the group rule to retrieve.
+     * @return The ID of the Group Rule.
      * 
      */
     public Optional<Output<String>> id() {
@@ -31,31 +31,23 @@ public final class GetRuleArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the Group Rule to retrieve.
+     * The name of the Group Rule.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Group Rule to retrieve.
+     * @return The name of the Group Rule.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The status of the group rule.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the group rule.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -87,7 +79,7 @@ public final class GetRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the group rule to retrieve.
+         * @param id The ID of the Group Rule.
          * 
          * @return builder
          * 
@@ -98,7 +90,7 @@ public final class GetRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the group rule to retrieve.
+         * @param id The ID of the Group Rule.
          * 
          * @return builder
          * 
@@ -108,7 +100,7 @@ public final class GetRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the Group Rule to retrieve.
+         * @param name The name of the Group Rule.
          * 
          * @return builder
          * 
@@ -119,7 +111,7 @@ public final class GetRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the Group Rule to retrieve.
+         * @param name The name of the Group Rule.
          * 
          * @return builder
          * 
@@ -128,23 +120,11 @@ public final class GetRuleArgs extends com.pulumi.resources.InvokeArgs {
             return name(Output.of(name));
         }
 
-        /**
-         * @param status The status of the group rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the group rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

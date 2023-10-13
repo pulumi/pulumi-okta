@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
- *
- * This resource allows you to create and configure a CAPTCHA.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.Captcha("example", {
- *     secretKey: "some_secret_key",
- *     siteKey: "some_key",
- *     type: "HCAPTCHA",
- * });
- * ```
- *
- * ## Import
- *
- * Behavior can be imported via the Okta ID.
- *
- * ```sh
- *  $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
- * ```
- */
 export class Captcha extends pulumi.CustomResource {
     /**
      * Get an existing Captcha resource's state with the given name, ID, and optional extra
@@ -59,19 +33,19 @@ export class Captcha extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the captcha.
+     * Name of the CAPTCHA
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+     * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      */
     public readonly secretKey!: pulumi.Output<string>;
     /**
-     * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+     * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      */
     public readonly siteKey!: pulumi.Output<string>;
     /**
-     * Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+     * Captcha type
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -120,19 +94,19 @@ export class Captcha extends pulumi.CustomResource {
  */
 export interface CaptchaState {
     /**
-     * Name of the captcha.
+     * Name of the CAPTCHA
      */
     name?: pulumi.Input<string>;
     /**
-     * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+     * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      */
     secretKey?: pulumi.Input<string>;
     /**
-     * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+     * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      */
     siteKey?: pulumi.Input<string>;
     /**
-     * Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+     * Captcha type
      */
     type?: pulumi.Input<string>;
 }
@@ -142,19 +116,19 @@ export interface CaptchaState {
  */
 export interface CaptchaArgs {
     /**
-     * Name of the captcha.
+     * Name of the CAPTCHA
      */
     name?: pulumi.Input<string>;
     /**
-     * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+     * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      */
     secretKey: pulumi.Input<string>;
     /**
-     * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+     * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      */
     siteKey: pulumi.Input<string>;
     /**
-     * Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
+     * Captcha type
      */
     type: pulumi.Input<string>;
 }

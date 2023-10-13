@@ -16,14 +16,14 @@ public final class EmailDomainVerificationState extends com.pulumi.resources.Res
     public static final EmailDomainVerificationState Empty = new EmailDomainVerificationState();
 
     /**
-     * Email domain ID.
+     * Email domain ID
      * 
      */
     @Import(name="emailDomainId")
     private @Nullable Output<String> emailDomainId;
 
     /**
-     * @return Email domain ID.
+     * @return Email domain ID
      * 
      */
     public Optional<Output<String>> emailDomainId() {
@@ -55,7 +55,7 @@ public final class EmailDomainVerificationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param emailDomainId Email domain ID.
+         * @param emailDomainId Email domain ID
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class EmailDomainVerificationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param emailDomainId Email domain ID.
+         * @param emailDomainId Email domain ID
          * 
          * @return builder
          * 

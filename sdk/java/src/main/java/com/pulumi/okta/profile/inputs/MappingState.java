@@ -21,10 +21,6 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * 
-     * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-     * 
-     * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-     * 
      */
     @Import(name="alwaysApply")
     private @Nullable Output<Boolean> alwaysApply;
@@ -32,131 +28,87 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * 
-     * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-     * 
-     * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-     * 
      */
     public Optional<Output<Boolean>> alwaysApply() {
         return Optional.ofNullable(this.alwaysApply);
     }
 
     /**
-     * Tells the provider whether to attempt to delete missing mappings under profile mapping.
+     * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
      * 
      */
     @Import(name="deleteWhenAbsent")
     private @Nullable Output<Boolean> deleteWhenAbsent;
 
     /**
-     * @return Tells the provider whether to attempt to delete missing mappings under profile mapping.
+     * @return When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
      * 
      */
     public Optional<Output<Boolean>> deleteWhenAbsent() {
         return Optional.ofNullable(this.deleteWhenAbsent);
     }
 
-    /**
-     * Priority of the policy.
-     * 
-     */
     @Import(name="mappings")
     private @Nullable Output<List<MappingMappingArgs>> mappings;
 
-    /**
-     * @return Priority of the policy.
-     * 
-     */
     public Optional<Output<List<MappingMappingArgs>>> mappings() {
         return Optional.ofNullable(this.mappings);
     }
 
     /**
-     * Source id of the profile mapping.
+     * The source id of the mapping to manage.
      * 
      */
     @Import(name="sourceId")
     private @Nullable Output<String> sourceId;
 
     /**
-     * @return Source id of the profile mapping.
+     * @return The source id of the mapping to manage.
      * 
      */
     public Optional<Output<String>> sourceId() {
         return Optional.ofNullable(this.sourceId);
     }
 
-    /**
-     * Name of the mapping source.
-     * 
-     */
     @Import(name="sourceName")
     private @Nullable Output<String> sourceName;
 
-    /**
-     * @return Name of the mapping source.
-     * 
-     */
     public Optional<Output<String>> sourceName() {
         return Optional.ofNullable(this.sourceName);
     }
 
-    /**
-     * ID of the mapping source.
-     * 
-     */
     @Import(name="sourceType")
     private @Nullable Output<String> sourceType;
 
-    /**
-     * @return ID of the mapping source.
-     * 
-     */
     public Optional<Output<String>> sourceType() {
         return Optional.ofNullable(this.sourceType);
     }
 
     /**
-     * ID of the mapping target.
+     * The target id of the mapping to manage.
      * 
      */
     @Import(name="targetId")
     private @Nullable Output<String> targetId;
 
     /**
-     * @return ID of the mapping target.
+     * @return The target id of the mapping to manage.
      * 
      */
     public Optional<Output<String>> targetId() {
         return Optional.ofNullable(this.targetId);
     }
 
-    /**
-     * Name of the mapping target.
-     * 
-     */
     @Import(name="targetName")
     private @Nullable Output<String> targetName;
 
-    /**
-     * @return Name of the mapping target.
-     * 
-     */
     public Optional<Output<String>> targetName() {
         return Optional.ofNullable(this.targetName);
     }
 
-    /**
-     * ID of the mapping target.
-     * 
-     */
     @Import(name="targetType")
     private @Nullable Output<String> targetType;
 
-    /**
-     * @return ID of the mapping target.
-     * 
-     */
     public Optional<Output<String>> targetType() {
         return Optional.ofNullable(this.targetType);
     }
@@ -196,10 +148,6 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param alwaysApply Whether apply the changes to all users with this profile after updating or creating the these mappings.
          * 
-         * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-         * 
-         * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-         * 
          * @return builder
          * 
          */
@@ -211,10 +159,6 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param alwaysApply Whether apply the changes to all users with this profile after updating or creating the these mappings.
          * 
-         * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-         * 
-         * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-         * 
          * @return builder
          * 
          */
@@ -223,7 +167,7 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteWhenAbsent Tells the provider whether to attempt to delete missing mappings under profile mapping.
+         * @param deleteWhenAbsent When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
          * 
          * @return builder
          * 
@@ -234,7 +178,7 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteWhenAbsent Tells the provider whether to attempt to delete missing mappings under profile mapping.
+         * @param deleteWhenAbsent When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
          * 
          * @return builder
          * 
@@ -243,39 +187,21 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
             return deleteWhenAbsent(Output.of(deleteWhenAbsent));
         }
 
-        /**
-         * @param mappings Priority of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mappings(@Nullable Output<List<MappingMappingArgs>> mappings) {
             $.mappings = mappings;
             return this;
         }
 
-        /**
-         * @param mappings Priority of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mappings(List<MappingMappingArgs> mappings) {
             return mappings(Output.of(mappings));
         }
 
-        /**
-         * @param mappings Priority of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mappings(MappingMappingArgs... mappings) {
             return mappings(List.of(mappings));
         }
 
         /**
-         * @param sourceId Source id of the profile mapping.
+         * @param sourceId The source id of the mapping to manage.
          * 
          * @return builder
          * 
@@ -286,7 +212,7 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceId Source id of the profile mapping.
+         * @param sourceId The source id of the mapping to manage.
          * 
          * @return builder
          * 
@@ -295,50 +221,26 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
             return sourceId(Output.of(sourceId));
         }
 
-        /**
-         * @param sourceName Name of the mapping source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(@Nullable Output<String> sourceName) {
             $.sourceName = sourceName;
             return this;
         }
 
-        /**
-         * @param sourceName Name of the mapping source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(String sourceName) {
             return sourceName(Output.of(sourceName));
         }
 
-        /**
-         * @param sourceType ID of the mapping source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceType(@Nullable Output<String> sourceType) {
             $.sourceType = sourceType;
             return this;
         }
 
-        /**
-         * @param sourceType ID of the mapping source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceType(String sourceType) {
             return sourceType(Output.of(sourceType));
         }
 
         /**
-         * @param targetId ID of the mapping target.
+         * @param targetId The target id of the mapping to manage.
          * 
          * @return builder
          * 
@@ -349,7 +251,7 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetId ID of the mapping target.
+         * @param targetId The target id of the mapping to manage.
          * 
          * @return builder
          * 
@@ -358,44 +260,20 @@ public final class MappingState extends com.pulumi.resources.ResourceArgs {
             return targetId(Output.of(targetId));
         }
 
-        /**
-         * @param targetName Name of the mapping target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetName(@Nullable Output<String> targetName) {
             $.targetName = targetName;
             return this;
         }
 
-        /**
-         * @param targetName Name of the mapping target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetName(String targetName) {
             return targetName(Output.of(targetName));
         }
 
-        /**
-         * @param targetType ID of the mapping target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetType(@Nullable Output<String> targetType) {
             $.targetType = targetType;
             return this;
         }
 
-        /**
-         * @param targetType ID of the mapping target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetType(String targetType) {
             return targetType(Output.of(targetType));
         }

@@ -21,7 +21,7 @@ class AppOauthApiScopeArgs:
         The set of arguments for constructing a AppOauthApiScope resource.
         :param pulumi.Input[str] app_id: ID of the application.
         :param pulumi.Input[str] issuer: The issuer of your Org Authorization Server, your Org URL.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: List of scopes for which consent is granted.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the application for which consent is granted.
         """
         AppOauthApiScopeArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -68,7 +68,7 @@ class AppOauthApiScopeArgs:
     @pulumi.getter
     def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of scopes for which consent is granted.
+        Scopes of the application for which consent is granted.
         """
         return pulumi.get(self, "scopes")
 
@@ -87,7 +87,7 @@ class _AppOauthApiScopeState:
         Input properties used for looking up and filtering AppOauthApiScope resources.
         :param pulumi.Input[str] app_id: ID of the application.
         :param pulumi.Input[str] issuer: The issuer of your Org Authorization Server, your Org URL.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: List of scopes for which consent is granted.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the application for which consent is granted.
         """
         _AppOauthApiScopeState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -137,7 +137,7 @@ class _AppOauthApiScopeState:
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of scopes for which consent is granted.
+        Scopes of the application for which consent is granted.
         """
         return pulumi.get(self, "scopes")
 
@@ -156,42 +156,12 @@ class AppOauthApiScope(pulumi.CustomResource):
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages API scopes for OAuth applications.
-
-        This resource allows you to grant or revoke API scopes for OAuth2 applications within your organization.
-
-        ```python
-        import pulumi
-        ```
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.AppOauthApiScope("example",
-            app_id="<application_id>",
-            issuer="<your org domain>",
-            scopes=[
-                "okta.users.read",
-                "okta.users.manage",
-            ])
-        ```
-
-        ## Import
-
-        OAuth API scopes can be imported via the Okta Application ID.
-
-        ```sh
-         $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62;
-        ```
-
+        Create a AppOauthApiScope resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: ID of the application.
         :param pulumi.Input[str] issuer: The issuer of your Org Authorization Server, your Org URL.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: List of scopes for which consent is granted.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the application for which consent is granted.
         """
         ...
     @overload
@@ -200,37 +170,7 @@ class AppOauthApiScope(pulumi.CustomResource):
                  args: AppOauthApiScopeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages API scopes for OAuth applications.
-
-        This resource allows you to grant or revoke API scopes for OAuth2 applications within your organization.
-
-        ```python
-        import pulumi
-        ```
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.AppOauthApiScope("example",
-            app_id="<application_id>",
-            issuer="<your org domain>",
-            scopes=[
-                "okta.users.read",
-                "okta.users.manage",
-            ])
-        ```
-
-        ## Import
-
-        OAuth API scopes can be imported via the Okta Application ID.
-
-        ```sh
-         $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62;
-        ```
-
+        Create a AppOauthApiScope resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppOauthApiScopeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,7 +233,7 @@ class AppOauthApiScope(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: ID of the application.
         :param pulumi.Input[str] issuer: The issuer of your Org Authorization Server, your Org URL.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: List of scopes for which consent is granted.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the application for which consent is granted.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -324,7 +264,7 @@ class AppOauthApiScope(pulumi.CustomResource):
     @pulumi.getter
     def scopes(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of scopes for which consent is granted.
+        Scopes of the application for which consent is granted.
         """
         return pulumi.get(self, "scopes")
 

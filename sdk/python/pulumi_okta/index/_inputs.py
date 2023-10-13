@@ -20,12 +20,6 @@ class EmailDomainDnsValidationRecordArgs:
                  fqdn: Optional[pulumi.Input[str]] = None,
                  record_type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] fqdn: DNS record name.
-        :param pulumi.Input[str] record_type: Record type can be TXT or cname.
-        :param pulumi.Input[str] value: DNS record value
-               - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
-        """
         EmailDomainDnsValidationRecordArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             expiration=expiration,
@@ -68,9 +62,6 @@ class EmailDomainDnsValidationRecordArgs:
     @property
     @pulumi.getter
     def fqdn(self) -> Optional[pulumi.Input[str]]:
-        """
-        DNS record name.
-        """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
@@ -80,9 +71,6 @@ class EmailDomainDnsValidationRecordArgs:
     @property
     @pulumi.getter(name="recordType")
     def record_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Record type can be TXT or cname.
-        """
         return pulumi.get(self, "record_type")
 
     @record_type.setter
@@ -92,10 +80,6 @@ class EmailDomainDnsValidationRecordArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        DNS record value
-        - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
-        """
         return pulumi.get(self, "value")
 
     @value.setter

@@ -13,134 +13,73 @@ import com.pulumi.okta.inputs.DomainCertificateState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.Domain;
- * import com.pulumi.okta.DomainCertificate;
- * import com.pulumi.okta.DomainCertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Domain(&#34;example&#34;);
- * 
- *         var test = new DomainCertificate(&#34;test&#34;, DomainCertificateArgs.builder()        
- *             .domainId(okta_domain.test().id())
- *             .type(&#34;PEM&#34;)
- *             .certificate(&#34;&#34;&#34;
- * -----BEGIN CERTIFICATE-----
- * MIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA
- * ...
- * NSgRtSXq11j8O4JONi8EXe7cEtvzUiLR5PL3itsK2svtrZ9jIwQ95wOPaA==
- * -----END CERTIFICATE-----
- *             &#34;&#34;&#34;)
- *             .certificateChain(&#34;&#34;&#34;
- * -----BEGIN CERTIFICATE-----
- * MIIFFjCCAv6gAwIBAgIRAJErCErPDBinU/bWLiWnX1owDQYJKoZIhvcNAQELBQAw
- * ...
- * Dfvp7OOGAN6dEOM4+qR9sdjoSYKEBpsr6GtPAQw4dy753ec5
- * -----END CERTIFICATE-----
- *             &#34;&#34;&#34;)
- *             .privateKey(&#34;&#34;&#34;
- * -----BEGIN PRIVATE KEY-----
- * MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC5cyk6x63iBJSW
- * ...
- * nUFLNE8pXSnsqb0eOL74f3uQ
- * -----END PRIVATE KEY-----
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * This resource does not support importing.
- * 
- */
 @ResourceType(type="okta:index/domainCertificate:DomainCertificate")
 public class DomainCertificate extends com.pulumi.resources.CustomResource {
     /**
-     * Certificate content.
+     * Certificate content
      * 
      */
     @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
-     * @return Certificate content.
+     * @return Certificate content
      * 
      */
     public Output<String> certificate() {
         return this.certificate;
     }
     /**
-     * Certificate certificate chain.
+     * Certificate chain
      * 
      */
     @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output<String> certificateChain;
 
     /**
-     * @return Certificate certificate chain.
+     * @return Certificate chain
      * 
      */
     public Output<String> certificateChain() {
         return this.certificateChain;
     }
     /**
-     * Domain ID.
+     * Domain&#39;s ID
      * 
      */
     @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
     /**
-     * @return Domain ID.
+     * @return Domain&#39;s ID
      * 
      */
     public Output<String> domainId() {
         return this.domainId;
     }
     /**
-     * Certificate private key.
+     * Certificate private key
      * 
      */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output<String> privateKey;
 
     /**
-     * @return Certificate private key.
+     * @return Certificate private key
      * 
      */
     public Output<String> privateKey() {
         return this.privateKey;
     }
     /**
-     * Certificate type. Valid value is `&#34;PEM&#34;`.
+     * Certificate type
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Certificate type. Valid value is `&#34;PEM&#34;`.
+     * @return Certificate type
      * 
      */
     public Output<String> type() {

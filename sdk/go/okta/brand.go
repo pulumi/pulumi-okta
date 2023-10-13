@@ -12,24 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// This resource allows you to create and configure an Okta
-// [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
-//
-// ## Import
-//
-// An Okta Brand can be imported via the ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
-//
-// ```
+// Manages brand
 type Brand struct {
 	pulumi.CustomResourceState
 
-	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+	// Consent for updating the custom privacy policy URL.
 	AgreeToCustomPrivacyPolicy pulumi.BoolOutput `pulumi:"agreeToCustomPrivacyPolicy"`
-	// (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+	// Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
 	//
 	// Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 	BrandId pulumi.StringOutput `pulumi:"brandId"`
@@ -43,15 +32,15 @@ type Brand struct {
 	DefaultAppClassicApplicationUri pulumi.StringPtrOutput `pulumi:"defaultAppClassicApplicationUri"`
 	// Email Domain ID tied to this brand
 	EmailDomainId pulumi.StringPtrOutput `pulumi:"emailDomainId"`
-	// (Read-only) Is this the default brand
+	// Is this the default brand
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
-	// (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+	// Link relations for this object - JSON HAL - Discoverable resources related to the brand
 	Links pulumi.StringOutput `pulumi:"links"`
 	// The language specified as an IETF BCP 47 language tag
 	Locale pulumi.StringPtrOutput `pulumi:"locale"`
-	// Name of the brand
+	// Brand name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+	// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 	RemovePoweredByOkta pulumi.BoolOutput `pulumi:"removePoweredByOkta"`
 }
 
@@ -85,9 +74,9 @@ func GetBrand(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Brand resources.
 type brandState struct {
-	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+	// Consent for updating the custom privacy policy URL.
 	AgreeToCustomPrivacyPolicy *bool `pulumi:"agreeToCustomPrivacyPolicy"`
-	// (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+	// Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
 	//
 	// Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 	BrandId *string `pulumi:"brandId"`
@@ -101,22 +90,22 @@ type brandState struct {
 	DefaultAppClassicApplicationUri *string `pulumi:"defaultAppClassicApplicationUri"`
 	// Email Domain ID tied to this brand
 	EmailDomainId *string `pulumi:"emailDomainId"`
-	// (Read-only) Is this the default brand
+	// Is this the default brand
 	IsDefault *bool `pulumi:"isDefault"`
-	// (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+	// Link relations for this object - JSON HAL - Discoverable resources related to the brand
 	Links *string `pulumi:"links"`
 	// The language specified as an IETF BCP 47 language tag
 	Locale *string `pulumi:"locale"`
-	// Name of the brand
+	// Brand name
 	Name *string `pulumi:"name"`
-	// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+	// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 	RemovePoweredByOkta *bool `pulumi:"removePoweredByOkta"`
 }
 
 type BrandState struct {
-	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+	// Consent for updating the custom privacy policy URL.
 	AgreeToCustomPrivacyPolicy pulumi.BoolPtrInput
-	// (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+	// Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
 	//
 	// Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 	BrandId pulumi.StringPtrInput
@@ -130,15 +119,15 @@ type BrandState struct {
 	DefaultAppClassicApplicationUri pulumi.StringPtrInput
 	// Email Domain ID tied to this brand
 	EmailDomainId pulumi.StringPtrInput
-	// (Read-only) Is this the default brand
+	// Is this the default brand
 	IsDefault pulumi.BoolPtrInput
-	// (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+	// Link relations for this object - JSON HAL - Discoverable resources related to the brand
 	Links pulumi.StringPtrInput
 	// The language specified as an IETF BCP 47 language tag
 	Locale pulumi.StringPtrInput
-	// Name of the brand
+	// Brand name
 	Name pulumi.StringPtrInput
-	// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+	// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 	RemovePoweredByOkta pulumi.BoolPtrInput
 }
 
@@ -147,9 +136,9 @@ func (BrandState) ElementType() reflect.Type {
 }
 
 type brandArgs struct {
-	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+	// Consent for updating the custom privacy policy URL.
 	AgreeToCustomPrivacyPolicy *bool `pulumi:"agreeToCustomPrivacyPolicy"`
-	// (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+	// Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
 	//
 	// Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 	BrandId *string `pulumi:"brandId"`
@@ -165,17 +154,17 @@ type brandArgs struct {
 	EmailDomainId *string `pulumi:"emailDomainId"`
 	// The language specified as an IETF BCP 47 language tag
 	Locale *string `pulumi:"locale"`
-	// Name of the brand
+	// Brand name
 	Name *string `pulumi:"name"`
-	// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+	// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 	RemovePoweredByOkta *bool `pulumi:"removePoweredByOkta"`
 }
 
 // The set of arguments for constructing a Brand resource.
 type BrandArgs struct {
-	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+	// Consent for updating the custom privacy policy URL.
 	AgreeToCustomPrivacyPolicy pulumi.BoolPtrInput
-	// (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+	// Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
 	//
 	// Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 	BrandId pulumi.StringPtrInput
@@ -191,9 +180,9 @@ type BrandArgs struct {
 	EmailDomainId pulumi.StringPtrInput
 	// The language specified as an IETF BCP 47 language tag
 	Locale pulumi.StringPtrInput
-	// Name of the brand
+	// Brand name
 	Name pulumi.StringPtrInput
-	// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+	// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 	RemovePoweredByOkta pulumi.BoolPtrInput
 }
 
@@ -308,12 +297,12 @@ func (o BrandOutput) ToOutput(ctx context.Context) pulumix.Output[*Brand] {
 	}
 }
 
-// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+// Consent for updating the custom privacy policy URL.
 func (o BrandOutput) AgreeToCustomPrivacyPolicy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Brand) pulumi.BoolOutput { return v.AgreeToCustomPrivacyPolicy }).(pulumi.BoolOutput)
 }
 
-// (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+// Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
 //
 // Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 func (o BrandOutput) BrandId() pulumi.StringOutput {
@@ -345,12 +334,12 @@ func (o BrandOutput) EmailDomainId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Brand) pulumi.StringPtrOutput { return v.EmailDomainId }).(pulumi.StringPtrOutput)
 }
 
-// (Read-only) Is this the default brand
+// Is this the default brand
 func (o BrandOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Brand) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+// Link relations for this object - JSON HAL - Discoverable resources related to the brand
 func (o BrandOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v *Brand) pulumi.StringOutput { return v.Links }).(pulumi.StringOutput)
 }
@@ -360,12 +349,12 @@ func (o BrandOutput) Locale() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Brand) pulumi.StringPtrOutput { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
-// Name of the brand
+// Brand name
 func (o BrandOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Brand) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 func (o BrandOutput) RemovePoweredByOkta() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Brand) pulumi.BoolOutput { return v.RemovePoweredByOkta }).(pulumi.BoolOutput)
 }

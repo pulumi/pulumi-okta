@@ -57,7 +57,7 @@ class GetMetadataSamlResult:
     @pulumi.getter(name="assertionsSigned")
     def assertions_signed(self) -> bool:
         """
-        whether assertions are signed.
+        Whether assertions are signed.
         """
         return pulumi.get(self, "assertions_signed")
 
@@ -65,7 +65,7 @@ class GetMetadataSamlResult:
     @pulumi.getter(name="authnRequestSigned")
     def authn_request_signed(self) -> bool:
         """
-        whether authn requests are signed.
+        Whether authn requests are signed.
         """
         return pulumi.get(self, "authn_request_signed")
 
@@ -81,7 +81,7 @@ class GetMetadataSamlResult:
     @pulumi.getter(name="entityId")
     def entity_id(self) -> str:
         """
-        Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+        Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
         """
         return pulumi.get(self, "entity_id")
 
@@ -112,13 +112,16 @@ class GetMetadataSamlResult:
     @property
     @pulumi.getter(name="idpId")
     def idp_id(self) -> Optional[str]:
+        """
+        The id of the IdP to retrieve metadata for.
+        """
         return pulumi.get(self, "idp_id")
 
     @property
     @pulumi.getter
     def metadata(self) -> str:
         """
-        raw IdP metadata.
+        Raw IdP metadata.
         """
         return pulumi.get(self, "metadata")
 
@@ -152,7 +155,7 @@ class AwaitableGetMetadataSamlResult(GetMetadataSamlResult):
 def get_metadata_saml(idp_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetadataSamlResult:
     """
-    Use this data source to retrieve SAML IdP metadata from Okta.
+    Get SAML IdP metadata from Okta.
 
     ## Example Usage
 
@@ -188,7 +191,7 @@ def get_metadata_saml(idp_id: Optional[str] = None,
 def get_metadata_saml_output(idp_id: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetadataSamlResult]:
     """
-    Use this data source to retrieve SAML IdP metadata from Okta.
+    Get SAML IdP metadata from Okta.
 
     ## Example Usage
 

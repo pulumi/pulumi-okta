@@ -34,7 +34,7 @@ class AppGroupAssignmentsGroupArgs:
                  profile: pulumi.Input[str],
                  priority: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] id: ID of the group to assign.
+        :param pulumi.Input[str] id: A group to associate with the application
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param pulumi.Input[int] priority: Priority of group assignment
         """
@@ -60,7 +60,7 @@ class AppGroupAssignmentsGroupArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        ID of the group to assign.
+        A group to associate with the application
         """
         return pulumi.get(self, "id")
 
@@ -100,9 +100,7 @@ class AppSignonPolicyRulePlatformIncludeArgs:
                  os_type: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] os_expression: Only available and required when using `os_type = "OTHER"`
-        :param pulumi.Input[str] os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
-        :param pulumi.Input[str] type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        :param pulumi.Input[str] os_expression: Only available with OTHER OS type
         """
         AppSignonPolicyRulePlatformIncludeArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -128,7 +126,7 @@ class AppSignonPolicyRulePlatformIncludeArgs:
     @pulumi.getter(name="osExpression")
     def os_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        Only available and required when using `os_type = "OTHER"`
+        Only available with OTHER OS type
         """
         return pulumi.get(self, "os_expression")
 
@@ -139,9 +137,6 @@ class AppSignonPolicyRulePlatformIncludeArgs:
     @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
-        """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
@@ -151,9 +146,6 @@ class AppSignonPolicyRulePlatformIncludeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -167,8 +159,8 @@ class AppUserSchemaPropertyArrayOneOfArgs:
                  const: pulumi.Input[str],
                  title: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] const: value mapping to member of `array_enum`.
-        :param pulumi.Input[str] title: display name for the enum value.
+        :param pulumi.Input[str] const: Enum value
+        :param pulumi.Input[str] title: Enum title
         """
         AppUserSchemaPropertyArrayOneOfArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -188,7 +180,7 @@ class AppUserSchemaPropertyArrayOneOfArgs:
     @pulumi.getter
     def const(self) -> pulumi.Input[str]:
         """
-        value mapping to member of `array_enum`.
+        Enum value
         """
         return pulumi.get(self, "const")
 
@@ -200,7 +192,7 @@ class AppUserSchemaPropertyArrayOneOfArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 
@@ -215,8 +207,8 @@ class AppUserSchemaPropertyOneOfArgs:
                  const: pulumi.Input[str],
                  title: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] const: value mapping to member of `array_enum`.
-        :param pulumi.Input[str] title: display name for the enum value.
+        :param pulumi.Input[str] const: Enum value
+        :param pulumi.Input[str] title: Enum title
         """
         AppUserSchemaPropertyOneOfArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -236,7 +228,7 @@ class AppUserSchemaPropertyOneOfArgs:
     @pulumi.getter
     def const(self) -> pulumi.Input[str]:
         """
-        value mapping to member of `array_enum`.
+        Enum value
         """
         return pulumi.get(self, "const")
 
@@ -248,7 +240,7 @@ class AppUserSchemaPropertyOneOfArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 
@@ -264,12 +256,6 @@ class DomainDnsRecordArgs:
                  fqdn: Optional[pulumi.Input[str]] = None,
                  record_type: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] expiration: TXT record expiration.
-        :param pulumi.Input[str] fqdn: DNS record name.
-        :param pulumi.Input[str] record_type: Record type can be TXT or CNAME.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: DNS verification value
-        """
         DomainDnsRecordArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             expiration=expiration,
@@ -297,9 +283,6 @@ class DomainDnsRecordArgs:
     @property
     @pulumi.getter
     def expiration(self) -> Optional[pulumi.Input[str]]:
-        """
-        TXT record expiration.
-        """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
@@ -309,9 +292,6 @@ class DomainDnsRecordArgs:
     @property
     @pulumi.getter
     def fqdn(self) -> Optional[pulumi.Input[str]]:
-        """
-        DNS record name.
-        """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
@@ -321,9 +301,6 @@ class DomainDnsRecordArgs:
     @property
     @pulumi.getter(name="recordType")
     def record_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Record type can be TXT or CNAME.
-        """
         return pulumi.get(self, "record_type")
 
     @record_type.setter
@@ -333,9 +310,6 @@ class DomainDnsRecordArgs:
     @property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        DNS verification value
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -349,11 +323,6 @@ class EmailSenderDnsRecordArgs:
                  fqdn: Optional[pulumi.Input[str]] = None,
                  record_type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] fqdn: DNS record name.
-        :param pulumi.Input[str] record_type: Record type can be TXT or CNAME.
-        :param pulumi.Input[str] value: DNS verification value
-        """
         EmailSenderDnsRecordArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             fqdn=fqdn,
@@ -377,9 +346,6 @@ class EmailSenderDnsRecordArgs:
     @property
     @pulumi.getter
     def fqdn(self) -> Optional[pulumi.Input[str]]:
-        """
-        DNS record name.
-        """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
@@ -389,9 +355,6 @@ class EmailSenderDnsRecordArgs:
     @property
     @pulumi.getter(name="recordType")
     def record_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Record type can be TXT or CNAME.
-        """
         return pulumi.get(self, "record_type")
 
     @record_type.setter
@@ -401,9 +364,6 @@ class EmailSenderDnsRecordArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        DNS verification value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -416,10 +376,6 @@ class EventHookHeaderArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] key: Key to use for authentication, usually the header name, for example `"Authorization"`.
-        :param pulumi.Input[str] value: Authentication secret.
-        """
         EventHookHeaderArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             key=key,
@@ -439,9 +395,6 @@ class EventHookHeaderArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Key to use for authentication, usually the header name, for example `"Authorization"`.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -451,9 +404,6 @@ class EventHookHeaderArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Authentication secret.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -467,8 +417,8 @@ class GroupSchemaPropertyArrayOneOfArgs:
                  const: pulumi.Input[str],
                  title: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] const: value mapping to member of `enum`.
-        :param pulumi.Input[str] title: display name for the enum value.
+        :param pulumi.Input[str] const: Enum value
+        :param pulumi.Input[str] title: Enum title
         """
         GroupSchemaPropertyArrayOneOfArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -488,7 +438,7 @@ class GroupSchemaPropertyArrayOneOfArgs:
     @pulumi.getter
     def const(self) -> pulumi.Input[str]:
         """
-        value mapping to member of `enum`.
+        Enum value
         """
         return pulumi.get(self, "const")
 
@@ -500,7 +450,7 @@ class GroupSchemaPropertyArrayOneOfArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 
@@ -514,10 +464,6 @@ class GroupSchemaPropertyMasterOverridePriorityArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: ID of profile source.
-        :param pulumi.Input[str] type: Type of profile source.
-        """
         GroupSchemaPropertyMasterOverridePriorityArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             value=value,
@@ -536,9 +482,6 @@ class GroupSchemaPropertyMasterOverridePriorityArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        ID of profile source.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -548,9 +491,6 @@ class GroupSchemaPropertyMasterOverridePriorityArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of profile source.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -564,8 +504,8 @@ class GroupSchemaPropertyOneOfArgs:
                  const: pulumi.Input[str],
                  title: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] const: value mapping to member of `enum`.
-        :param pulumi.Input[str] title: display name for the enum value.
+        :param pulumi.Input[str] const: Enum value
+        :param pulumi.Input[str] title: Enum title
         """
         GroupSchemaPropertyOneOfArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -585,7 +525,7 @@ class GroupSchemaPropertyOneOfArgs:
     @pulumi.getter
     def const(self) -> pulumi.Input[str]:
         """
-        value mapping to member of `enum`.
+        Enum value
         """
         return pulumi.get(self, "const")
 
@@ -597,7 +537,7 @@ class GroupSchemaPropertyOneOfArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 
@@ -615,7 +555,7 @@ class PolicyRuleProfileEnrollmentProfileAttributeArgs:
         """
         :param pulumi.Input[str] label: A display-friendly label for this property
         :param pulumi.Input[str] name: The name of a User Profile property
-        :param pulumi.Input[bool] required: Indicates if this property is required for enrollment. Default is `false`.
+        :param pulumi.Input[bool] required: Indicates if this property is required for enrollment
         """
         PolicyRuleProfileEnrollmentProfileAttributeArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -663,7 +603,7 @@ class PolicyRuleProfileEnrollmentProfileAttributeArgs:
     @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates if this property is required for enrollment. Default is `false`.
+        Indicates if this property is required for enrollment
         """
         return pulumi.get(self, "required")
 
@@ -677,10 +617,6 @@ class TemplateSmsTranslationArgs:
     def __init__(__self__, *,
                  language: pulumi.Input[str],
                  template: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] language: The language to map the template to.
-        :param pulumi.Input[str] template: The SMS message.
-        """
         TemplateSmsTranslationArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             language=language,
@@ -698,9 +634,6 @@ class TemplateSmsTranslationArgs:
     @property
     @pulumi.getter
     def language(self) -> pulumi.Input[str]:
-        """
-        The language to map the template to.
-        """
         return pulumi.get(self, "language")
 
     @language.setter
@@ -710,9 +643,6 @@ class TemplateSmsTranslationArgs:
     @property
     @pulumi.getter
     def template(self) -> pulumi.Input[str]:
-        """
-        The SMS message.
-        """
         return pulumi.get(self, "template")
 
     @template.setter
@@ -726,8 +656,8 @@ class UserSchemaPropertyArrayOneOfArgs:
                  const: pulumi.Input[str],
                  title: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] const: value mapping to member of `enum`.
-        :param pulumi.Input[str] title: display name for the enum value.
+        :param pulumi.Input[str] const: Enum value
+        :param pulumi.Input[str] title: Enum title
         """
         UserSchemaPropertyArrayOneOfArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -747,7 +677,7 @@ class UserSchemaPropertyArrayOneOfArgs:
     @pulumi.getter
     def const(self) -> pulumi.Input[str]:
         """
-        value mapping to member of `enum`.
+        Enum value
         """
         return pulumi.get(self, "const")
 
@@ -759,7 +689,7 @@ class UserSchemaPropertyArrayOneOfArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 
@@ -773,10 +703,6 @@ class UserSchemaPropertyMasterOverridePriorityArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: ID of profile source.
-        :param pulumi.Input[str] type: Type of profile source.
-        """
         UserSchemaPropertyMasterOverridePriorityArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             value=value,
@@ -795,9 +721,6 @@ class UserSchemaPropertyMasterOverridePriorityArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        ID of profile source.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -807,9 +730,6 @@ class UserSchemaPropertyMasterOverridePriorityArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of profile source.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -823,8 +743,8 @@ class UserSchemaPropertyOneOfArgs:
                  const: pulumi.Input[str],
                  title: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] const: value mapping to member of `enum`.
-        :param pulumi.Input[str] title: display name for the enum value.
+        :param pulumi.Input[str] const: Enum value
+        :param pulumi.Input[str] title: Enum title
         """
         UserSchemaPropertyOneOfArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -844,7 +764,7 @@ class UserSchemaPropertyOneOfArgs:
     @pulumi.getter
     def const(self) -> pulumi.Input[str]:
         """
-        value mapping to member of `enum`.
+        Enum value
         """
         return pulumi.get(self, "const")
 
@@ -856,7 +776,7 @@ class UserSchemaPropertyOneOfArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 

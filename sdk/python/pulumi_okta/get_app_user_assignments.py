@@ -33,7 +33,7 @@ class GetAppUserAssignmentsResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        ID of application.
+        ID of the Okta App being queried for groups
         """
         return pulumi.get(self, "id")
 
@@ -41,7 +41,7 @@ class GetAppUserAssignmentsResult:
     @pulumi.getter
     def users(self) -> Sequence[str]:
         """
-        List of user IDs assigned to the application.
+        List of user IDs assigned to the app
         """
         return pulumi.get(self, "users")
 
@@ -59,7 +59,7 @@ class AwaitableGetAppUserAssignmentsResult(GetAppUserAssignmentsResult):
 def get_app_user_assignments(id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppUserAssignmentsResult:
     """
-    Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
+    Get a set of users assigned to an Okta application.
 
     ## Example Usage
 
@@ -71,7 +71,7 @@ def get_app_user_assignments(id: Optional[str] = None,
     ```
 
 
-    :param str id: The ID of the Okta application you want to retrieve the groups for.
+    :param str id: ID of the Okta App being queried for groups
     """
     __args__ = dict()
     __args__['id'] = id
@@ -87,7 +87,7 @@ def get_app_user_assignments(id: Optional[str] = None,
 def get_app_user_assignments_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppUserAssignmentsResult]:
     """
-    Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
+    Get a set of users assigned to an Okta application.
 
     ## Example Usage
 
@@ -99,6 +99,6 @@ def get_app_user_assignments_output(id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str id: The ID of the Okta application you want to retrieve the groups for.
+    :param str id: ID of the Okta App being queried for groups
     """
     ...

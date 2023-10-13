@@ -13,14 +13,13 @@ namespace Pulumi.Okta.App.Inputs
     public sealed class OAuthGroupsClaimArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+        /// Groups claim filter. Can only be set if type is FILTER.
         /// </summary>
         [Input("filterType")]
         public Input<string>? FilterType { get; set; }
 
         /// <summary>
-        /// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-        /// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        /// Issuer mode inherited from OAuth App
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -32,7 +31,7 @@ namespace Pulumi.Okta.App.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+        /// Groups claim type.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

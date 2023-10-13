@@ -17,14 +17,14 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSamlArgs Empty = new GetSamlArgs();
 
     /**
-     * tells the provider to query for only `ACTIVE` applications.
+     * Search only ACTIVE applications.
      * 
      */
     @Import(name="activeOnly")
     private @Nullable Output<Boolean> activeOnly;
 
     /**
-     * @return tells the provider to query for only `ACTIVE` applications.
+     * @return Search only ACTIVE applications.
      * 
      */
     public Optional<Output<Boolean>> activeOnly() {
@@ -32,14 +32,14 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+     * Id of application to retrieve, conflicts with label and label_prefix.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+     * @return Id of application to retrieve, conflicts with label and label_prefix.
      * 
      */
     public Optional<Output<String>> id() {
@@ -47,18 +47,18 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-     * the `?q=&lt;label&gt;` query parameter exposed by Okta&#39;s API. It should be noted that at this time this searches both `name`
-     * and `label`. This is used to avoid paginating through all applications.
+     * The label of the app to retrieve, conflicts with label_prefix and id. Label
+     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * 			this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-     * the `?q=&lt;label&gt;` query parameter exposed by Okta&#39;s API. It should be noted that at this time this searches both `name`
-     * and `label`. This is used to avoid paginating through all applications.
+     * @return The label of the app to retrieve, conflicts with label_prefix and id. Label
+     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * 			this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
     public Optional<Output<String>> label() {
@@ -66,16 +66,16 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-     * provider to do a `starts with` query as opposed to an `equals` query.
+     * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+     * 			provider to do a starts with query as opposed to an equals query.
      * 
      */
     @Import(name="labelPrefix")
     private @Nullable Output<String> labelPrefix;
 
     /**
-     * @return Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-     * provider to do a `starts with` query as opposed to an `equals` query.
+     * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+     * 			provider to do a starts with query as opposed to an equals query.
      * 
      */
     public Optional<Output<String>> labelPrefix() {
@@ -98,6 +98,8 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because groups has been removed, this attribute is a no op and will be removed
      * 
@@ -107,6 +109,8 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<Boolean> skipGroups;
 
     /**
+     * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because groups has been removed, this attribute is a no op and will be removed
      * 
@@ -117,6 +121,8 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because users has been removed, this attribute is a no op and will be removed
      * 
@@ -126,6 +132,8 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<Boolean> skipUsers;
 
     /**
+     * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because users has been removed, this attribute is a no op and will be removed
      * 
@@ -166,7 +174,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param activeOnly tells the provider to query for only `ACTIVE` applications.
+         * @param activeOnly Search only ACTIVE applications.
          * 
          * @return builder
          * 
@@ -177,7 +185,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param activeOnly tells the provider to query for only `ACTIVE` applications.
+         * @param activeOnly Search only ACTIVE applications.
          * 
          * @return builder
          * 
@@ -187,7 +195,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+         * @param id Id of application to retrieve, conflicts with label and label_prefix.
          * 
          * @return builder
          * 
@@ -198,7 +206,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+         * @param id Id of application to retrieve, conflicts with label and label_prefix.
          * 
          * @return builder
          * 
@@ -208,9 +216,9 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param label The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-         * the `?q=&lt;label&gt;` query parameter exposed by Okta&#39;s API. It should be noted that at this time this searches both `name`
-         * and `label`. This is used to avoid paginating through all applications.
+         * @param label The label of the app to retrieve, conflicts with label_prefix and id. Label
+         * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+         * 			this searches both name and label. This is used to avoid paginating through all applications.
          * 
          * @return builder
          * 
@@ -221,9 +229,9 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param label The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-         * the `?q=&lt;label&gt;` query parameter exposed by Okta&#39;s API. It should be noted that at this time this searches both `name`
-         * and `label`. This is used to avoid paginating through all applications.
+         * @param label The label of the app to retrieve, conflicts with label_prefix and id. Label
+         * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+         * 			this searches both name and label. This is used to avoid paginating through all applications.
          * 
          * @return builder
          * 
@@ -233,8 +241,8 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param labelPrefix Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-         * provider to do a `starts with` query as opposed to an `equals` query.
+         * @param labelPrefix Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+         * 			provider to do a starts with query as opposed to an equals query.
          * 
          * @return builder
          * 
@@ -245,8 +253,8 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param labelPrefix Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-         * provider to do a `starts with` query as opposed to an `equals` query.
+         * @param labelPrefix Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+         * 			provider to do a starts with query as opposed to an equals query.
          * 
          * @return builder
          * 
@@ -277,6 +285,8 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param skipGroups Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
+         * 
          * @return builder
          * 
          * @deprecated
@@ -290,6 +300,8 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param skipGroups Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
+         * 
          * @return builder
          * 
          * @deprecated
@@ -302,6 +314,8 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param skipUsers Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+         * 
          * @return builder
          * 
          * @deprecated
@@ -315,6 +329,8 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param skipUsers Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+         * 
          * @return builder
          * 
          * @deprecated

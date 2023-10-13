@@ -16,154 +16,48 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * These operations allow the creation and manipulation of custom roles as custom collections of permissions.
- * 
- * &gt; **NOTE:** This an `Early Access` feature.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.AdminRoleCustom;
- * import com.pulumi.okta.AdminRoleCustomArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AdminRoleCustom(&#34;example&#34;, AdminRoleCustomArgs.builder()        
- *             .description(&#34;This role allows app assignment management&#34;)
- *             .label(&#34;AppAssignmentManager&#34;)
- *             .permissions(&#34;okta.apps.assignment.manage&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Okta Custom Admin Role can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &amp;#60;custom role id&amp;#62;
- * ```
+ * Resource to manage administrative Role assignments for a User
  * 
  */
 @ResourceType(type="okta:index/adminRoleCustom:AdminRoleCustom")
 public class AdminRoleCustom extends com.pulumi.resources.CustomResource {
     /**
-     * A human-readable description of the new Role.
+     * A human-readable description of the new Role
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return A human-readable description of the new Role.
+     * @return A human-readable description of the new Role
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * The name given to the new Role.
+     * The name given to the new Role
      * 
      */
     @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
-     * @return The name given to the new Role.
+     * @return The name given to the new Role
      * 
      */
     public Output<String> label() {
         return this.label;
     }
     /**
-     * The permissions that the new Role grants. At least one
-     * permission must be specified when creating custom role. Valid values: `&#34;okta.authzServers.manage&#34;`,
-     * `&#34;okta.authzServers.read&#34;`,
-     * `&#34;okta.apps.assignment.manage&#34;`,
-     * `&#34;okta.apps.manage&#34;`,
-     * `&#34;okta.apps.read&#34;`,
-     * `&#34;okta.customizations.manage&#34;`,
-     * `&#34;okta.customizations.read&#34;`,
-     * `&#34;okta.groups.appAssignment.manage&#34;`,
-     * `&#34;okta.groups.create&#34;`,
-     * `&#34;okta.groups.manage&#34;`,
-     * `&#34;okta.groups.members.manage&#34;`,
-     * `&#34;okta.groups.read&#34;`,
-     * `&#34;okta.profilesources.import.run&#34;`,
-     * `&#34;okta.users.appAssignment.manage&#34;`,
-     * `&#34;okta.users.create&#34;`,
-     * `&#34;okta.users.credentials.expirePassword&#34;`,
-     * `&#34;okta.users.credentials.manage&#34;`,
-     * `&#34;okta.users.credentials.resetFactors&#34;`,
-     * `&#34;okta.users.credentials.resetPassword&#34;`,
-     * `&#34;okta.users.groupMembership.manage&#34;`,
-     * `&#34;okta.users.lifecycle.activate&#34;`,
-     * `&#34;okta.users.lifecycle.clearSessions&#34;`,
-     * `&#34;okta.users.lifecycle.deactivate&#34;`,
-     * `&#34;okta.users.lifecycle.delete&#34;`,
-     * `&#34;okta.users.lifecycle.manage&#34;`,
-     * `&#34;okta.users.lifecycle.suspend&#34;`,
-     * `&#34;okta.users.lifecycle.unlock&#34;`,
-     * `&#34;okta.users.lifecycle.unsuspend&#34;`,
-     * `&#34;okta.users.manage&#34;`,
-     * `&#34;okta.users.read&#34;`,
-     * `&#34;okta.users.userprofile.manage&#34;`,
-     * `&#34;okta.workflows.invoke&#34;`.,
+     * The permissions that the new Role grants.
      * 
      */
     @Export(name="permissions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> permissions;
 
     /**
-     * @return The permissions that the new Role grants. At least one
-     * permission must be specified when creating custom role. Valid values: `&#34;okta.authzServers.manage&#34;`,
-     * `&#34;okta.authzServers.read&#34;`,
-     * `&#34;okta.apps.assignment.manage&#34;`,
-     * `&#34;okta.apps.manage&#34;`,
-     * `&#34;okta.apps.read&#34;`,
-     * `&#34;okta.customizations.manage&#34;`,
-     * `&#34;okta.customizations.read&#34;`,
-     * `&#34;okta.groups.appAssignment.manage&#34;`,
-     * `&#34;okta.groups.create&#34;`,
-     * `&#34;okta.groups.manage&#34;`,
-     * `&#34;okta.groups.members.manage&#34;`,
-     * `&#34;okta.groups.read&#34;`,
-     * `&#34;okta.profilesources.import.run&#34;`,
-     * `&#34;okta.users.appAssignment.manage&#34;`,
-     * `&#34;okta.users.create&#34;`,
-     * `&#34;okta.users.credentials.expirePassword&#34;`,
-     * `&#34;okta.users.credentials.manage&#34;`,
-     * `&#34;okta.users.credentials.resetFactors&#34;`,
-     * `&#34;okta.users.credentials.resetPassword&#34;`,
-     * `&#34;okta.users.groupMembership.manage&#34;`,
-     * `&#34;okta.users.lifecycle.activate&#34;`,
-     * `&#34;okta.users.lifecycle.clearSessions&#34;`,
-     * `&#34;okta.users.lifecycle.deactivate&#34;`,
-     * `&#34;okta.users.lifecycle.delete&#34;`,
-     * `&#34;okta.users.lifecycle.manage&#34;`,
-     * `&#34;okta.users.lifecycle.suspend&#34;`,
-     * `&#34;okta.users.lifecycle.unlock&#34;`,
-     * `&#34;okta.users.lifecycle.unsuspend&#34;`,
-     * `&#34;okta.users.manage&#34;`,
-     * `&#34;okta.users.read&#34;`,
-     * `&#34;okta.users.userprofile.manage&#34;`,
-     * `&#34;okta.workflows.invoke&#34;`.,
+     * @return The permissions that the new Role grants.
      * 
      */
     public Output<Optional<List<String>>> permissions() {

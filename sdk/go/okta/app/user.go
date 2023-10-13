@@ -13,59 +13,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := app.NewUser(ctx, "example", &app.UserArgs{
-//				AppId:    pulumi.String("<app_id>"),
-//				UserId:   pulumi.String("<user id>"),
-//				Username: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// An Application User can be imported via the Okta ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:app/user:User example &#60;app id&#62;/&#60;user id&#62;
-//
-// ```
 type User struct {
 	pulumi.CustomResourceState
 
-	// App to associate user with.
+	// App to associate user with
 	AppId             pulumi.StringOutput `pulumi:"appId"`
 	HasSharedUsername pulumi.BoolOutput   `pulumi:"hasSharedUsername"`
 	// The password to use.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The JSON profile of the App User.
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
-	// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	// Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
 	RetainAssignment pulumi.BoolPtrOutput `pulumi:"retainAssignment"`
-	// User to associate the application with.
+	// User associated with the application
 	UserId pulumi.StringOutput `pulumi:"userId"`
-	// The username to use for the app user. In case the user is assigned to the app with
-	// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+	// The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
 
@@ -112,36 +74,34 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// App to associate user with.
+	// App to associate user with
 	AppId             *string `pulumi:"appId"`
 	HasSharedUsername *bool   `pulumi:"hasSharedUsername"`
 	// The password to use.
 	Password *string `pulumi:"password"`
 	// The JSON profile of the App User.
 	Profile *string `pulumi:"profile"`
-	// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	// Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
 	RetainAssignment *bool `pulumi:"retainAssignment"`
-	// User to associate the application with.
+	// User associated with the application
 	UserId *string `pulumi:"userId"`
-	// The username to use for the app user. In case the user is assigned to the app with
-	// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+	// The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
 	Username *string `pulumi:"username"`
 }
 
 type UserState struct {
-	// App to associate user with.
+	// App to associate user with
 	AppId             pulumi.StringPtrInput
 	HasSharedUsername pulumi.BoolPtrInput
 	// The password to use.
 	Password pulumi.StringPtrInput
 	// The JSON profile of the App User.
 	Profile pulumi.StringPtrInput
-	// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	// Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
 	RetainAssignment pulumi.BoolPtrInput
-	// User to associate the application with.
+	// User associated with the application
 	UserId pulumi.StringPtrInput
-	// The username to use for the app user. In case the user is assigned to the app with
-	// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+	// The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
 	Username pulumi.StringPtrInput
 }
 
@@ -150,35 +110,33 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// App to associate user with.
+	// App to associate user with
 	AppId string `pulumi:"appId"`
 	// The password to use.
 	Password *string `pulumi:"password"`
 	// The JSON profile of the App User.
 	Profile *string `pulumi:"profile"`
-	// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	// Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
 	RetainAssignment *bool `pulumi:"retainAssignment"`
-	// User to associate the application with.
+	// User associated with the application
 	UserId string `pulumi:"userId"`
-	// The username to use for the app user. In case the user is assigned to the app with
-	// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+	// The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
 	Username *string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// App to associate user with.
+	// App to associate user with
 	AppId pulumi.StringInput
 	// The password to use.
 	Password pulumi.StringPtrInput
 	// The JSON profile of the App User.
 	Profile pulumi.StringPtrInput
-	// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+	// Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
 	RetainAssignment pulumi.BoolPtrInput
-	// User to associate the application with.
+	// User associated with the application
 	UserId pulumi.StringInput
-	// The username to use for the app user. In case the user is assigned to the app with
-	// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+	// The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
 	Username pulumi.StringPtrInput
 }
 
@@ -293,7 +251,7 @@ func (o UserOutput) ToOutput(ctx context.Context) pulumix.Output[*User] {
 	}
 }
 
-// App to associate user with.
+// App to associate user with
 func (o UserOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
@@ -312,18 +270,17 @@ func (o UserOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
-// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+// Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
 func (o UserOutput) RetainAssignment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.RetainAssignment }).(pulumi.BoolPtrOutput)
 }
 
-// User to associate the application with.
+// User associated with the application
 func (o UserOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }
 
-// The username to use for the app user. In case the user is assigned to the app with
-// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+// The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
 func (o UserOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }

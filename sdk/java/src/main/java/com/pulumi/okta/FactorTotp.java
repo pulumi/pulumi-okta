@@ -15,78 +15,31 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Allows you to manage the time-based one-time password (TOTP) factors. A time-based one-time password (TOTP) is a
- * temporary passcode that is generated for user authentication. Examples of TOTP include hardware authenticators and
- * mobile app authenticators.
- * 
- * Once saved, the settings cannot be changed (except for the `name` field). Any other change would force resource
- * recreation.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.FactorTotp;
- * import com.pulumi.okta.FactorTotpArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new FactorTotp(&#34;example&#34;, FactorTotpArgs.builder()        
- *             .clockDriftInterval(10)
- *             .hmacAlgorithm(&#34;HMacSHA256&#34;)
- *             .otpLength(10)
- *             .sharedSecretEncoding(&#34;hexadecimal&#34;)
- *             .timeStep(30)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="okta:index/factorTotp:FactorTotp")
 public class FactorTotp extends com.pulumi.resources.CustomResource {
     /**
-     * Clock drift interval. This setting allows you to build in tolerance for any
-     * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
+     * Clock drift interval
      * 
      */
     @Export(name="clockDriftInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> clockDriftInterval;
 
     /**
-     * @return Clock drift interval. This setting allows you to build in tolerance for any
-     * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
+     * @return Clock drift interval
      * 
      */
     public Output<Optional<Integer>> clockDriftInterval() {
         return Codegen.optional(this.clockDriftInterval);
     }
     /**
-     * HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
-     * is `&#34;HMacSHA512&#34;`.
+     * Hash-based message authentication code algorithm
      * 
      */
     @Export(name="hmacAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hmacAlgorithm;
 
     /**
-     * @return HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
-     * is `&#34;HMacSHA512&#34;`.
+     * @return Hash-based message authentication code algorithm
      * 
      */
     public Output<Optional<String>> hmacAlgorithm() {
@@ -121,30 +74,28 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.otpLength);
     }
     /**
-     * Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
-     * Default is `&#34;base32&#34;`.
+     * Shared secret encoding
      * 
      */
     @Export(name="sharedSecretEncoding", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedSecretEncoding;
 
     /**
-     * @return Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
-     * Default is `&#34;base32&#34;`.
+     * @return Shared secret encoding
      * 
      */
     public Output<Optional<String>> sharedSecretEncoding() {
         return Codegen.optional(this.sharedSecretEncoding);
     }
     /**
-     * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * Time step in seconds
      * 
      */
     @Export(name="timeStep", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeStep;
 
     /**
-     * @return Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * @return Time step in seconds
      * 
      */
     public Output<Optional<Integer>> timeStep() {

@@ -13,47 +13,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Use this resource to create an [email
-// customization](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)
-// of an email template belonging to a brand in an Okta organization.
-//
-// > Okta's public API is strict regarding the behavior of the `isDefault`
-// property in [an email
-// customization](https://developer.okta.com/docs/reference/api/brands/#email-customization).
-// Make use of `dependsOn` meta argument to ensure the provider navigates email customization
-// language versions seamlessly. Have all secondary customizations depend on the primary
-// customization that is marked default. See Example Usage.
-//
-// > Caveats for [creating an email
-// customization](https://developer.okta.com/docs/reference/api/brands/#response-body-19).
-// If this is the first customization being created for the email template, and
-// `isDefault` is not set for the customization in its resource configuration, the
-// API will respond with the created customization marked as default. The API will
-// 400 if the language parameter is not one of the supported languages or the body
-// parameter does not contain a required variable reference. The API will error 409
-// if `isDefault` is true and a default customization exists. The API will 404 for
-// an invalid `brandId` or `templateName`.
-//
-// > Caveats for [updating an email
-// customization](https://developer.okta.com/docs/reference/api/brands/#response-body-22).
-// If the `isDefault` parameter is true, the previous default email customization
-// has its `isDefault` set to false (see previous note about mitigating this with
-// `dependsOn` meta argument). The API will 409 if there’s already another email
-// customization for the specified language or the `isDefault` parameter is false
-// and the email customization being updated is the default. The API will 400 if
-// the language parameter is not one of the supported locales or the body parameter
-// does not contain a required variable reference.  The API will 404 for an invalid
-// `brandId` or `templateName`.
-//
-// ## Import
-//
-// An email customization can be imported using the customization ID, brand ID and template name.
-//
-// ```sh
-//
-//	$ pulumi import okta:index/emailCustomization:EmailCustomization example &#60;customization_id&#62;/&#60;brand_id&#62;/&#60;template_name&#62;
-//
-// ```
 type EmailCustomization struct {
 	pulumi.CustomResourceState
 
@@ -61,79 +20,19 @@ type EmailCustomization struct {
 	Body pulumi.StringPtrOutput `pulumi:"body"`
 	// Brand ID
 	BrandId pulumi.StringOutput `pulumi:"brandId"`
-	// `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
+	// Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
 	//
 	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 	ForceIsDefault pulumi.StringPtrOutput `pulumi:"forceIsDefault"`
 	// Whether the customization is the default
 	IsDefault pulumi.BoolPtrOutput `pulumi:"isDefault"`
 	// The language supported by the customization
-	// - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
-	//   `"cs"`,
-	//   `"da"`,
-	//   `"de"`,
-	//   `"el"`,
-	//   `"en"`,
-	//   `"es"`,
-	//   `"fi"`,
-	//   `"fr"`,
-	//   `"hu"`,
-	//   `"id"`,
-	//   `"it"`,
-	//   `"ja"`,
-	//   `"ko"`,
-	//   `"ms"`,
-	//   `"nb"`,
-	//   `"nl-NL"`,
-	//   `"pl"`,
-	//   `"pt-BR"`,
-	//   `"ro"`,
-	//   `"ru"`,
-	//   `"sv"`,
-	//   `"th"`,
-	//   `"tr"`,
-	//   `"uk"`,
-	//   `"vi"`,
-	//   `"zh-CN"`,
-	//   `"zh-TW"`
 	Language pulumi.StringPtrOutput `pulumi:"language"`
 	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 	Links pulumi.StringOutput `pulumi:"links"`
 	// The subject of the customization
 	Subject pulumi.StringPtrOutput `pulumi:"subject"`
 	// Template Name
-	// - Example values: `"AccountLockout"`,
-	//   `"ADForgotPassword"`,
-	//   `"ADForgotPasswordDenied"`,
-	//   `"ADSelfServiceUnlock"`,
-	//   `"ADUserActivation"`,
-	//   `"AuthenticatorEnrolled"`,
-	//   `"AuthenticatorReset"`,
-	//   `"ChangeEmailConfirmation"`,
-	//   `"EmailChallenge"`,
-	//   `"EmailChangeConfirmation"`,
-	//   `"EmailFactorVerification"`,
-	//   `"ForgotPassword"`,
-	//   `"ForgotPasswordDenied"`,
-	//   `"IGAReviewerEndNotification"`,
-	//   `"IGAReviewerNotification"`,
-	//   `"IGAReviewerPendingNotification"`,
-	//   `"IGAReviewerReassigned"`,
-	//   `"LDAPForgotPassword"`,
-	//   `"LDAPForgotPasswordDenied"`,
-	//   `"LDAPSelfServiceUnlock"`,
-	//   `"LDAPUserActivation"`,
-	//   `"MyAccountChangeConfirmation"`,
-	//   `"NewSignOnNotification"`,
-	//   `"OktaVerifyActivation"`,
-	//   `"PasswordChanged"`,
-	//   `"PasswordResetByAdmin"`,
-	//   `"PendingEmailChange"`,
-	//   `"RegistrationActivation"`,
-	//   `"RegistrationEmailVerification"`,
-	//   `"SelfServiceUnlock"`,
-	//   `"SelfServiceUnlockOnUnlockedAccount"`,
-	//   `"UserActivation"`
 	TemplateName pulumi.StringOutput `pulumi:"templateName"`
 }
 
@@ -177,79 +76,19 @@ type emailCustomizationState struct {
 	Body *string `pulumi:"body"`
 	// Brand ID
 	BrandId *string `pulumi:"brandId"`
-	// `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
+	// Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
 	//
 	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 	ForceIsDefault *string `pulumi:"forceIsDefault"`
 	// Whether the customization is the default
 	IsDefault *bool `pulumi:"isDefault"`
 	// The language supported by the customization
-	// - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
-	//   `"cs"`,
-	//   `"da"`,
-	//   `"de"`,
-	//   `"el"`,
-	//   `"en"`,
-	//   `"es"`,
-	//   `"fi"`,
-	//   `"fr"`,
-	//   `"hu"`,
-	//   `"id"`,
-	//   `"it"`,
-	//   `"ja"`,
-	//   `"ko"`,
-	//   `"ms"`,
-	//   `"nb"`,
-	//   `"nl-NL"`,
-	//   `"pl"`,
-	//   `"pt-BR"`,
-	//   `"ro"`,
-	//   `"ru"`,
-	//   `"sv"`,
-	//   `"th"`,
-	//   `"tr"`,
-	//   `"uk"`,
-	//   `"vi"`,
-	//   `"zh-CN"`,
-	//   `"zh-TW"`
 	Language *string `pulumi:"language"`
 	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 	Links *string `pulumi:"links"`
 	// The subject of the customization
 	Subject *string `pulumi:"subject"`
 	// Template Name
-	// - Example values: `"AccountLockout"`,
-	//   `"ADForgotPassword"`,
-	//   `"ADForgotPasswordDenied"`,
-	//   `"ADSelfServiceUnlock"`,
-	//   `"ADUserActivation"`,
-	//   `"AuthenticatorEnrolled"`,
-	//   `"AuthenticatorReset"`,
-	//   `"ChangeEmailConfirmation"`,
-	//   `"EmailChallenge"`,
-	//   `"EmailChangeConfirmation"`,
-	//   `"EmailFactorVerification"`,
-	//   `"ForgotPassword"`,
-	//   `"ForgotPasswordDenied"`,
-	//   `"IGAReviewerEndNotification"`,
-	//   `"IGAReviewerNotification"`,
-	//   `"IGAReviewerPendingNotification"`,
-	//   `"IGAReviewerReassigned"`,
-	//   `"LDAPForgotPassword"`,
-	//   `"LDAPForgotPasswordDenied"`,
-	//   `"LDAPSelfServiceUnlock"`,
-	//   `"LDAPUserActivation"`,
-	//   `"MyAccountChangeConfirmation"`,
-	//   `"NewSignOnNotification"`,
-	//   `"OktaVerifyActivation"`,
-	//   `"PasswordChanged"`,
-	//   `"PasswordResetByAdmin"`,
-	//   `"PendingEmailChange"`,
-	//   `"RegistrationActivation"`,
-	//   `"RegistrationEmailVerification"`,
-	//   `"SelfServiceUnlock"`,
-	//   `"SelfServiceUnlockOnUnlockedAccount"`,
-	//   `"UserActivation"`
 	TemplateName *string `pulumi:"templateName"`
 }
 
@@ -258,79 +97,19 @@ type EmailCustomizationState struct {
 	Body pulumi.StringPtrInput
 	// Brand ID
 	BrandId pulumi.StringPtrInput
-	// `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
+	// Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
 	//
 	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 	ForceIsDefault pulumi.StringPtrInput
 	// Whether the customization is the default
 	IsDefault pulumi.BoolPtrInput
 	// The language supported by the customization
-	// - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
-	//   `"cs"`,
-	//   `"da"`,
-	//   `"de"`,
-	//   `"el"`,
-	//   `"en"`,
-	//   `"es"`,
-	//   `"fi"`,
-	//   `"fr"`,
-	//   `"hu"`,
-	//   `"id"`,
-	//   `"it"`,
-	//   `"ja"`,
-	//   `"ko"`,
-	//   `"ms"`,
-	//   `"nb"`,
-	//   `"nl-NL"`,
-	//   `"pl"`,
-	//   `"pt-BR"`,
-	//   `"ro"`,
-	//   `"ru"`,
-	//   `"sv"`,
-	//   `"th"`,
-	//   `"tr"`,
-	//   `"uk"`,
-	//   `"vi"`,
-	//   `"zh-CN"`,
-	//   `"zh-TW"`
 	Language pulumi.StringPtrInput
 	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 	Links pulumi.StringPtrInput
 	// The subject of the customization
 	Subject pulumi.StringPtrInput
 	// Template Name
-	// - Example values: `"AccountLockout"`,
-	//   `"ADForgotPassword"`,
-	//   `"ADForgotPasswordDenied"`,
-	//   `"ADSelfServiceUnlock"`,
-	//   `"ADUserActivation"`,
-	//   `"AuthenticatorEnrolled"`,
-	//   `"AuthenticatorReset"`,
-	//   `"ChangeEmailConfirmation"`,
-	//   `"EmailChallenge"`,
-	//   `"EmailChangeConfirmation"`,
-	//   `"EmailFactorVerification"`,
-	//   `"ForgotPassword"`,
-	//   `"ForgotPasswordDenied"`,
-	//   `"IGAReviewerEndNotification"`,
-	//   `"IGAReviewerNotification"`,
-	//   `"IGAReviewerPendingNotification"`,
-	//   `"IGAReviewerReassigned"`,
-	//   `"LDAPForgotPassword"`,
-	//   `"LDAPForgotPasswordDenied"`,
-	//   `"LDAPSelfServiceUnlock"`,
-	//   `"LDAPUserActivation"`,
-	//   `"MyAccountChangeConfirmation"`,
-	//   `"NewSignOnNotification"`,
-	//   `"OktaVerifyActivation"`,
-	//   `"PasswordChanged"`,
-	//   `"PasswordResetByAdmin"`,
-	//   `"PendingEmailChange"`,
-	//   `"RegistrationActivation"`,
-	//   `"RegistrationEmailVerification"`,
-	//   `"SelfServiceUnlock"`,
-	//   `"SelfServiceUnlockOnUnlockedAccount"`,
-	//   `"UserActivation"`
 	TemplateName pulumi.StringPtrInput
 }
 
@@ -343,77 +122,17 @@ type emailCustomizationArgs struct {
 	Body *string `pulumi:"body"`
 	// Brand ID
 	BrandId string `pulumi:"brandId"`
-	// `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
+	// Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
 	//
 	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 	ForceIsDefault *string `pulumi:"forceIsDefault"`
 	// Whether the customization is the default
 	IsDefault *bool `pulumi:"isDefault"`
 	// The language supported by the customization
-	// - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
-	//   `"cs"`,
-	//   `"da"`,
-	//   `"de"`,
-	//   `"el"`,
-	//   `"en"`,
-	//   `"es"`,
-	//   `"fi"`,
-	//   `"fr"`,
-	//   `"hu"`,
-	//   `"id"`,
-	//   `"it"`,
-	//   `"ja"`,
-	//   `"ko"`,
-	//   `"ms"`,
-	//   `"nb"`,
-	//   `"nl-NL"`,
-	//   `"pl"`,
-	//   `"pt-BR"`,
-	//   `"ro"`,
-	//   `"ru"`,
-	//   `"sv"`,
-	//   `"th"`,
-	//   `"tr"`,
-	//   `"uk"`,
-	//   `"vi"`,
-	//   `"zh-CN"`,
-	//   `"zh-TW"`
 	Language *string `pulumi:"language"`
 	// The subject of the customization
 	Subject *string `pulumi:"subject"`
 	// Template Name
-	// - Example values: `"AccountLockout"`,
-	//   `"ADForgotPassword"`,
-	//   `"ADForgotPasswordDenied"`,
-	//   `"ADSelfServiceUnlock"`,
-	//   `"ADUserActivation"`,
-	//   `"AuthenticatorEnrolled"`,
-	//   `"AuthenticatorReset"`,
-	//   `"ChangeEmailConfirmation"`,
-	//   `"EmailChallenge"`,
-	//   `"EmailChangeConfirmation"`,
-	//   `"EmailFactorVerification"`,
-	//   `"ForgotPassword"`,
-	//   `"ForgotPasswordDenied"`,
-	//   `"IGAReviewerEndNotification"`,
-	//   `"IGAReviewerNotification"`,
-	//   `"IGAReviewerPendingNotification"`,
-	//   `"IGAReviewerReassigned"`,
-	//   `"LDAPForgotPassword"`,
-	//   `"LDAPForgotPasswordDenied"`,
-	//   `"LDAPSelfServiceUnlock"`,
-	//   `"LDAPUserActivation"`,
-	//   `"MyAccountChangeConfirmation"`,
-	//   `"NewSignOnNotification"`,
-	//   `"OktaVerifyActivation"`,
-	//   `"PasswordChanged"`,
-	//   `"PasswordResetByAdmin"`,
-	//   `"PendingEmailChange"`,
-	//   `"RegistrationActivation"`,
-	//   `"RegistrationEmailVerification"`,
-	//   `"SelfServiceUnlock"`,
-	//   `"SelfServiceUnlockOnUnlockedAccount"`,
-	//   `"UserActivation"`
 	TemplateName string `pulumi:"templateName"`
 }
 
@@ -423,77 +142,17 @@ type EmailCustomizationArgs struct {
 	Body pulumi.StringPtrInput
 	// Brand ID
 	BrandId pulumi.StringInput
-	// `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
+	// Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
 	//
 	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 	ForceIsDefault pulumi.StringPtrInput
 	// Whether the customization is the default
 	IsDefault pulumi.BoolPtrInput
 	// The language supported by the customization
-	// - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
-	//   `"cs"`,
-	//   `"da"`,
-	//   `"de"`,
-	//   `"el"`,
-	//   `"en"`,
-	//   `"es"`,
-	//   `"fi"`,
-	//   `"fr"`,
-	//   `"hu"`,
-	//   `"id"`,
-	//   `"it"`,
-	//   `"ja"`,
-	//   `"ko"`,
-	//   `"ms"`,
-	//   `"nb"`,
-	//   `"nl-NL"`,
-	//   `"pl"`,
-	//   `"pt-BR"`,
-	//   `"ro"`,
-	//   `"ru"`,
-	//   `"sv"`,
-	//   `"th"`,
-	//   `"tr"`,
-	//   `"uk"`,
-	//   `"vi"`,
-	//   `"zh-CN"`,
-	//   `"zh-TW"`
 	Language pulumi.StringPtrInput
 	// The subject of the customization
 	Subject pulumi.StringPtrInput
 	// Template Name
-	// - Example values: `"AccountLockout"`,
-	//   `"ADForgotPassword"`,
-	//   `"ADForgotPasswordDenied"`,
-	//   `"ADSelfServiceUnlock"`,
-	//   `"ADUserActivation"`,
-	//   `"AuthenticatorEnrolled"`,
-	//   `"AuthenticatorReset"`,
-	//   `"ChangeEmailConfirmation"`,
-	//   `"EmailChallenge"`,
-	//   `"EmailChangeConfirmation"`,
-	//   `"EmailFactorVerification"`,
-	//   `"ForgotPassword"`,
-	//   `"ForgotPasswordDenied"`,
-	//   `"IGAReviewerEndNotification"`,
-	//   `"IGAReviewerNotification"`,
-	//   `"IGAReviewerPendingNotification"`,
-	//   `"IGAReviewerReassigned"`,
-	//   `"LDAPForgotPassword"`,
-	//   `"LDAPForgotPasswordDenied"`,
-	//   `"LDAPSelfServiceUnlock"`,
-	//   `"LDAPUserActivation"`,
-	//   `"MyAccountChangeConfirmation"`,
-	//   `"NewSignOnNotification"`,
-	//   `"OktaVerifyActivation"`,
-	//   `"PasswordChanged"`,
-	//   `"PasswordResetByAdmin"`,
-	//   `"PendingEmailChange"`,
-	//   `"RegistrationActivation"`,
-	//   `"RegistrationEmailVerification"`,
-	//   `"SelfServiceUnlock"`,
-	//   `"SelfServiceUnlockOnUnlockedAccount"`,
-	//   `"UserActivation"`
 	TemplateName pulumi.StringInput
 }
 
@@ -618,7 +277,7 @@ func (o EmailCustomizationOutput) BrandId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailCustomization) pulumi.StringOutput { return v.BrandId }).(pulumi.StringOutput)
 }
 
-// `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
+// Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
 //
 // Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 func (o EmailCustomizationOutput) ForceIsDefault() pulumi.StringPtrOutput {
@@ -631,34 +290,6 @@ func (o EmailCustomizationOutput) IsDefault() pulumi.BoolPtrOutput {
 }
 
 // The language supported by the customization
-//   - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
-//     `"cs"`,
-//     `"da"`,
-//     `"de"`,
-//     `"el"`,
-//     `"en"`,
-//     `"es"`,
-//     `"fi"`,
-//     `"fr"`,
-//     `"hu"`,
-//     `"id"`,
-//     `"it"`,
-//     `"ja"`,
-//     `"ko"`,
-//     `"ms"`,
-//     `"nb"`,
-//     `"nl-NL"`,
-//     `"pl"`,
-//     `"pt-BR"`,
-//     `"ro"`,
-//     `"ru"`,
-//     `"sv"`,
-//     `"th"`,
-//     `"tr"`,
-//     `"uk"`,
-//     `"vi"`,
-//     `"zh-CN"`,
-//     `"zh-TW"`
 func (o EmailCustomizationOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailCustomization) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
 }
@@ -674,38 +305,6 @@ func (o EmailCustomizationOutput) Subject() pulumi.StringPtrOutput {
 }
 
 // Template Name
-//   - Example values: `"AccountLockout"`,
-//     `"ADForgotPassword"`,
-//     `"ADForgotPasswordDenied"`,
-//     `"ADSelfServiceUnlock"`,
-//     `"ADUserActivation"`,
-//     `"AuthenticatorEnrolled"`,
-//     `"AuthenticatorReset"`,
-//     `"ChangeEmailConfirmation"`,
-//     `"EmailChallenge"`,
-//     `"EmailChangeConfirmation"`,
-//     `"EmailFactorVerification"`,
-//     `"ForgotPassword"`,
-//     `"ForgotPasswordDenied"`,
-//     `"IGAReviewerEndNotification"`,
-//     `"IGAReviewerNotification"`,
-//     `"IGAReviewerPendingNotification"`,
-//     `"IGAReviewerReassigned"`,
-//     `"LDAPForgotPassword"`,
-//     `"LDAPForgotPasswordDenied"`,
-//     `"LDAPSelfServiceUnlock"`,
-//     `"LDAPUserActivation"`,
-//     `"MyAccountChangeConfirmation"`,
-//     `"NewSignOnNotification"`,
-//     `"OktaVerifyActivation"`,
-//     `"PasswordChanged"`,
-//     `"PasswordResetByAdmin"`,
-//     `"PendingEmailChange"`,
-//     `"RegistrationActivation"`,
-//     `"RegistrationEmailVerification"`,
-//     `"SelfServiceUnlock"`,
-//     `"SelfServiceUnlockOnUnlockedAccount"`,
-//     `"UserActivation"`
 func (o EmailCustomizationOutput) TemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailCustomization) pulumi.StringOutput { return v.TemplateName }).(pulumi.StringOutput)
 }

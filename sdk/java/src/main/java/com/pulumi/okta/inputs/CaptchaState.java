@@ -16,14 +16,14 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
     public static final CaptchaState Empty = new CaptchaState();
 
     /**
-     * Name of the captcha.
+     * Name of the CAPTCHA
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the captcha.
+     * @return Name of the CAPTCHA
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+     * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      * 
      */
     @Import(name="secretKey")
     private @Nullable Output<String> secretKey;
 
     /**
-     * @return Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+     * @return Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      * 
      */
     public Optional<Output<String>> secretKey() {
@@ -46,14 +46,14 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+     * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      * 
      */
     @Import(name="siteKey")
     private @Nullable Output<String> siteKey;
 
     /**
-     * @return Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+     * @return Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      * 
      */
     public Optional<Output<String>> siteKey() {
@@ -61,14 +61,14 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the captcha. Valid values: `&#34;HCAPTCHA&#34;`, `&#34;RECAPTCHA_V2&#34;`.
+     * Captcha type
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the captcha. Valid values: `&#34;HCAPTCHA&#34;`, `&#34;RECAPTCHA_V2&#34;`.
+     * @return Captcha type
      * 
      */
     public Optional<Output<String>> type() {
@@ -103,7 +103,7 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the captcha.
+         * @param name Name of the CAPTCHA
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the captcha.
+         * @param name Name of the CAPTCHA
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretKey Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+         * @param secretKey Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretKey Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+         * @param secretKey Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteKey Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+         * @param siteKey Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteKey Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+         * @param siteKey Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the captcha. Valid values: `&#34;HCAPTCHA&#34;`, `&#34;RECAPTCHA_V2&#34;`.
+         * @param type Captcha type
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class CaptchaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the captcha. Valid values: `&#34;HCAPTCHA&#34;`, `&#34;RECAPTCHA_V2&#34;`.
+         * @param type Captcha type
          * 
          * @return builder
          * 

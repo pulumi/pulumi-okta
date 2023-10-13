@@ -9,40 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
-    /// <summary>
-    /// Verifies the Domain. This is replacement for the `verify` field from the `okta.Domain` resource. The resource won't be
-    /// created if the domain could not be verified. The provider will make several requests to verify the domain until
-    /// the API returns `VERIFIED` verification status.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleDomain = new Okta.Domain("exampleDomain");
-    /// 
-    ///     var exampleDomainVerification = new Okta.DomainVerification("exampleDomainVerification", new()
-    ///     {
-    ///         DomainId = okta_domain.Test.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// This resource does not support importing.
-    /// </summary>
     [OktaResourceType("okta:index/domainVerification:DomainVerification")]
     public partial class DomainVerification : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Domain ID.
+        /// Domain's ID
         /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
@@ -94,7 +65,7 @@ namespace Pulumi.Okta
     public sealed class DomainVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Domain ID.
+        /// Domain's ID
         /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
@@ -108,7 +79,7 @@ namespace Pulumi.Okta
     public sealed class DomainVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Domain ID.
+        /// Domain's ID
         /// </summary>
         [Input("domainId")]
         public Input<string>? DomainId { get; set; }

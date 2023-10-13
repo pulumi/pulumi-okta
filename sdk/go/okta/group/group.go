@@ -12,90 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Creates an Okta Group.
-//
-// This resource allows you to create and configure an Okta Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/group"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := group.NewGroup(ctx, "example", &group.GroupArgs{
-//				Description: pulumi.String("My Example Group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Custom profile attributes
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/group"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"example1": "testing1234",
-//				"example2": true,
-//				"example3": 54321,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = group.NewGroup(ctx, "example", &group.GroupArgs{
-//				Description:             pulumi.String("My Example Group"),
-//				CustomProfileAttributes: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// An Okta Group can be imported via the Okta ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:group/group:Group example &#60;group id&#62;
-//
-// ```
 type Group struct {
 	pulumi.CustomResourceState
 
-	// raw JSON containing all custom profile attributes.
+	// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
 	CustomProfileAttributes pulumi.StringPtrOutput `pulumi:"customProfileAttributes"`
-	// The description of the Okta Group.
+	// Group description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the Okta Group.
+	// Group name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
 	//
@@ -133,11 +57,11 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
-	// raw JSON containing all custom profile attributes.
+	// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
 	CustomProfileAttributes *string `pulumi:"customProfileAttributes"`
-	// The description of the Okta Group.
+	// Group description
 	Description *string `pulumi:"description"`
-	// The name of the Okta Group.
+	// Group name
 	Name *string `pulumi:"name"`
 	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
 	//
@@ -146,11 +70,11 @@ type groupState struct {
 }
 
 type GroupState struct {
-	// raw JSON containing all custom profile attributes.
+	// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
 	CustomProfileAttributes pulumi.StringPtrInput
-	// The description of the Okta Group.
+	// Group description
 	Description pulumi.StringPtrInput
-	// The name of the Okta Group.
+	// Group name
 	Name pulumi.StringPtrInput
 	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
 	//
@@ -163,11 +87,11 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// raw JSON containing all custom profile attributes.
+	// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
 	CustomProfileAttributes *string `pulumi:"customProfileAttributes"`
-	// The description of the Okta Group.
+	// Group description
 	Description *string `pulumi:"description"`
-	// The name of the Okta Group.
+	// Group name
 	Name *string `pulumi:"name"`
 	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
 	//
@@ -177,11 +101,11 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// raw JSON containing all custom profile attributes.
+	// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
 	CustomProfileAttributes pulumi.StringPtrInput
-	// The description of the Okta Group.
+	// Group description
 	Description pulumi.StringPtrInput
-	// The name of the Okta Group.
+	// Group name
 	Name pulumi.StringPtrInput
 	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
 	//
@@ -300,17 +224,17 @@ func (o GroupOutput) ToOutput(ctx context.Context) pulumix.Output[*Group] {
 	}
 }
 
-// raw JSON containing all custom profile attributes.
+// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
 func (o GroupOutput) CustomProfileAttributes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.CustomProfileAttributes }).(pulumi.StringPtrOutput)
 }
 
-// The description of the Okta Group.
+// Group description
 func (o GroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Okta Group.
+// Group name
 func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

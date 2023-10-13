@@ -17,14 +17,14 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
     public static final ServerScopeArgs Empty = new ServerScopeArgs();
 
     /**
-     * Auth Server ID.
+     * Auth server ID
      * 
      */
     @Import(name="authServerId", required=true)
     private Output<String> authServerId;
 
     /**
-     * @return Auth Server ID.
+     * @return Auth server ID
      * 
      */
     public Output<String> authServerId() {
@@ -32,14 +32,14 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether a consent dialog is needed for the scope. It can be set to `&#34;REQUIRED&#34;` or `&#34;IMPLICIT&#34;`.
+     * EA Feature and thus it is simply ignored if the feature is off
      * 
      */
     @Import(name="consent")
     private @Nullable Output<String> consent;
 
     /**
-     * @return Indicates whether a consent dialog is needed for the scope. It can be set to `&#34;REQUIRED&#34;` or `&#34;IMPLICIT&#34;`.
+     * @return EA Feature and thus it is simply ignored if the feature is off
      * 
      */
     public Optional<Output<String>> consent() {
@@ -77,14 +77,14 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the end user displayed in a consent dialog box.
+     * Name of the end user displayed in a consent dialog box
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return Name of the end user displayed in a consent dialog box.
+     * @return Name of the end user displayed in a consent dialog box
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -92,14 +92,14 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to publish metadata or not. It can be set to `&#34;ALL_CLIENTS&#34;` or `&#34;NO_CLIENTS&#34;`.
+     * Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
      * 
      */
     @Import(name="metadataPublish")
     private @Nullable Output<String> metadataPublish;
 
     /**
-     * @return Whether to publish metadata or not. It can be set to `&#34;ALL_CLIENTS&#34;` or `&#34;NO_CLIENTS&#34;`.
+     * @return Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
      * 
      */
     public Optional<Output<String>> metadataPublish() {
@@ -107,14 +107,14 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Auth Server scope name.
+     * Auth server scope name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Auth Server scope name.
+     * @return Auth server scope name
      * 
      */
     public Optional<Output<String>> name() {
@@ -168,7 +168,7 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authServerId Auth Server ID.
+         * @param authServerId Auth server ID
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authServerId Auth Server ID.
+         * @param authServerId Auth server ID
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param consent Indicates whether a consent dialog is needed for the scope. It can be set to `&#34;REQUIRED&#34;` or `&#34;IMPLICIT&#34;`.
+         * @param consent EA Feature and thus it is simply ignored if the feature is off
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param consent Indicates whether a consent dialog is needed for the scope. It can be set to `&#34;REQUIRED&#34;` or `&#34;IMPLICIT&#34;`.
+         * @param consent EA Feature and thus it is simply ignored if the feature is off
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Name of the end user displayed in a consent dialog box.
+         * @param displayName Name of the end user displayed in a consent dialog box
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Name of the end user displayed in a consent dialog box.
+         * @param displayName Name of the end user displayed in a consent dialog box
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadataPublish Whether to publish metadata or not. It can be set to `&#34;ALL_CLIENTS&#34;` or `&#34;NO_CLIENTS&#34;`.
+         * @param metadataPublish Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadataPublish Whether to publish metadata or not. It can be set to `&#34;ALL_CLIENTS&#34;` or `&#34;NO_CLIENTS&#34;`.
+         * @param metadataPublish Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Auth Server scope name.
+         * @param name Auth server scope name
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class ServerScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Auth Server scope name.
+         * @param name Auth server scope name
          * 
          * @return builder
          * 

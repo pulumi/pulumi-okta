@@ -120,33 +120,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to manage redirection URI for use in redirect-based flows.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test_o_auth = okta.app.OAuth("testOAuth",
-            label="testAcc_replace_with_uuid",
-            type="web",
-            grant_types=["authorization_code"],
-            response_types=["code"],
-            redirect_uris=["myapp://callback"])
-        test_o_auth_redirect_uri = okta.app.OAuthRedirectUri("testOAuthRedirectUri",
-            app_id=test_o_auth.id,
-            uri="http://google.com")
-        ```
-
-        ## Import
-
-        A redirect URI can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
-        ```
-
+        Create a OAuthRedirectUri resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: OAuth application ID.
@@ -159,33 +133,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
                  args: OAuthRedirectUriArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to manage redirection URI for use in redirect-based flows.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test_o_auth = okta.app.OAuth("testOAuth",
-            label="testAcc_replace_with_uuid",
-            type="web",
-            grant_types=["authorization_code"],
-            response_types=["code"],
-            redirect_uris=["myapp://callback"])
-        test_o_auth_redirect_uri = okta.app.OAuthRedirectUri("testOAuthRedirectUri",
-            app_id=test_o_auth.id,
-            uri="http://google.com")
-        ```
-
-        ## Import
-
-        A redirect URI can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
-        ```
-
+        Create a OAuthRedirectUri resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OAuthRedirectUriArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

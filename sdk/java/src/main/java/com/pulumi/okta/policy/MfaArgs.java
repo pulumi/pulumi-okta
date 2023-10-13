@@ -20,136 +20,86 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
     public static final MfaArgs Empty = new MfaArgs();
 
     /**
-     * Policy Description.
+     * Policy Description
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Policy Description.
+     * @return Policy Description
      * 
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * DUO MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Import(name="duo")
     private @Nullable Output<Map<String,String>> duo;
 
-    /**
-     * @return DUO MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> duo() {
         return Optional.ofNullable(this.duo);
     }
 
-    /**
-     * External IDP MFA policy settings (✓ OIE).
-     * 
-     */
     @Import(name="externalIdp")
     private @Nullable Output<Map<String,String>> externalIdp;
 
-    /**
-     * @return External IDP MFA policy settings (✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> externalIdp() {
         return Optional.ofNullable(this.externalIdp);
     }
 
-    /**
-     * Fido U2F MFA policy settings (✓ Classic).
-     * 
-     */
     @Import(name="fidoU2f")
     private @Nullable Output<Map<String,String>> fidoU2f;
 
-    /**
-     * @return Fido U2F MFA policy settings (✓ Classic).
-     * 
-     */
     public Optional<Output<Map<String,String>>> fidoU2f() {
         return Optional.ofNullable(this.fidoU2f);
     }
 
-    /**
-     * Fido Web Authn MFA policy settings (✓ Classic).
-     * 
-     */
     @Import(name="fidoWebauthn")
     private @Nullable Output<Map<String,String>> fidoWebauthn;
 
-    /**
-     * @return Fido Web Authn MFA policy settings (✓ Classic).
-     * 
-     */
     public Optional<Output<Map<String,String>>> fidoWebauthn() {
         return Optional.ofNullable(this.fidoWebauthn);
     }
 
-    /**
-     * Google OTP MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Import(name="googleOtp")
     private @Nullable Output<Map<String,String>> googleOtp;
 
-    /**
-     * @return Google OTP MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> googleOtp() {
         return Optional.ofNullable(this.googleOtp);
     }
 
     /**
-     * List of Group IDs to Include.
+     * List of Group IDs to Include
      * 
      */
     @Import(name="groupsIncludeds")
     private @Nullable Output<List<String>> groupsIncludeds;
 
     /**
-     * @return List of Group IDs to Include.
+     * @return List of Group IDs to Include
      * 
      */
     public Optional<Output<List<String>>> groupsIncludeds() {
         return Optional.ofNullable(this.groupsIncludeds);
     }
 
-    /**
-     * HMAC-based One-Time Password MFA policy settings (✓ Classic).
-     * 
-     */
     @Import(name="hotp")
     private @Nullable Output<Map<String,String>> hotp;
 
-    /**
-     * @return HMAC-based One-Time Password MFA policy settings (✓ Classic).
-     * 
-     */
     public Optional<Output<Map<String,String>>> hotp() {
         return Optional.ofNullable(this.hotp);
     }
 
     /**
-     * Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
-     * &gt; **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+     * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
      * 
      */
     @Import(name="isOie")
     private @Nullable Output<Boolean> isOie;
 
     /**
-     * @return Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
-     * &gt; **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+     * @return Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
      * 
      */
     public Optional<Output<Boolean>> isOie() {
@@ -157,271 +107,151 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Name.
+     * Policy Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy Name.
+     * @return Policy Name
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Okta Call MFA policy settings (✓ Classic).
-     * 
-     */
     @Import(name="oktaCall")
     private @Nullable Output<Map<String,String>> oktaCall;
 
-    /**
-     * @return Okta Call MFA policy settings (✓ Classic).
-     * 
-     */
     public Optional<Output<Map<String,String>>> oktaCall() {
         return Optional.ofNullable(this.oktaCall);
     }
 
-    /**
-     * Okta Email MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Import(name="oktaEmail")
     private @Nullable Output<Map<String,String>> oktaEmail;
 
-    /**
-     * @return Okta Email MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> oktaEmail() {
         return Optional.ofNullable(this.oktaEmail);
     }
 
-    /**
-     * Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
-     * 
-     */
     @Import(name="oktaOtp")
     private @Nullable Output<Map<String,String>> oktaOtp;
 
-    /**
-     * @return Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
-     * 
-     */
     public Optional<Output<Map<String,String>>> oktaOtp() {
         return Optional.ofNullable(this.oktaOtp);
     }
 
-    /**
-     * Okta Password MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Import(name="oktaPassword")
     private @Nullable Output<Map<String,String>> oktaPassword;
 
-    /**
-     * @return Okta Password MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> oktaPassword() {
         return Optional.ofNullable(this.oktaPassword);
     }
 
-    /**
-     * Okta Push MFA policy settings (✓ Classic).
-     * 
-     */
     @Import(name="oktaPush")
     private @Nullable Output<Map<String,String>> oktaPush;
 
-    /**
-     * @return Okta Push MFA policy settings (✓ Classic).
-     * 
-     */
     public Optional<Output<Map<String,String>>> oktaPush() {
         return Optional.ofNullable(this.oktaPush);
     }
 
-    /**
-     * Okta Question MFA policy settings (✓ Classic).
-     * 
-     */
     @Import(name="oktaQuestion")
     private @Nullable Output<Map<String,String>> oktaQuestion;
 
-    /**
-     * @return Okta Question MFA policy settings (✓ Classic).
-     * 
-     */
     public Optional<Output<Map<String,String>>> oktaQuestion() {
         return Optional.ofNullable(this.oktaQuestion);
     }
 
-    /**
-     * Okta SMS MFA policy settings (✓ Classic).
-     * 
-     */
     @Import(name="oktaSms")
     private @Nullable Output<Map<String,String>> oktaSms;
 
-    /**
-     * @return Okta SMS MFA policy settings (✓ Classic).
-     * 
-     */
     public Optional<Output<Map<String,String>>> oktaSms() {
         return Optional.ofNullable(this.oktaSms);
     }
 
-    /**
-     * Okta Verify MFA policy settings (✓ OIE).
-     * 
-     */
     @Import(name="oktaVerify")
     private @Nullable Output<Map<String,String>> oktaVerify;
 
-    /**
-     * @return Okta Verify MFA policy settings (✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> oktaVerify() {
         return Optional.ofNullable(this.oktaVerify);
     }
 
-    /**
-     * On-Prem MFA MFA policy settings (✓ OIE).
-     * 
-     */
     @Import(name="onpremMfa")
     private @Nullable Output<Map<String,String>> onpremMfa;
 
-    /**
-     * @return On-Prem MFA MFA policy settings (✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> onpremMfa() {
         return Optional.ofNullable(this.onpremMfa);
     }
 
-    /**
-     * Phone Number MFA policy settings (✓ OIE).
-     * 
-     */
     @Import(name="phoneNumber")
     private @Nullable Output<Map<String,String>> phoneNumber;
 
-    /**
-     * @return Phone Number MFA policy settings (✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> phoneNumber() {
         return Optional.ofNullable(this.phoneNumber);
     }
 
     /**
-     * Priority of the policy.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Priority of the policy.
+     * @return Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      * 
      */
     public Optional<Output<Integer>> priority() {
         return Optional.ofNullable(this.priority);
     }
 
-    /**
-     * RSA Token MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Import(name="rsaToken")
     private @Nullable Output<Map<String,String>> rsaToken;
 
-    /**
-     * @return RSA Token MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> rsaToken() {
         return Optional.ofNullable(this.rsaToken);
     }
 
-    /**
-     * Security Question MFA policy settings (✓ OIE).
-     * 
-     */
     @Import(name="securityQuestion")
     private @Nullable Output<Map<String,String>> securityQuestion;
 
-    /**
-     * @return Security Question MFA policy settings (✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> securityQuestion() {
         return Optional.ofNullable(this.securityQuestion);
     }
 
     /**
-     * Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * Policy Status: ACTIVE or INACTIVE.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * @return Policy Status: ACTIVE or INACTIVE.
      * 
      */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * Symantec VIP MFA policy settings (✓ Classic).
-     * 
-     */
     @Import(name="symantecVip")
     private @Nullable Output<Map<String,String>> symantecVip;
 
-    /**
-     * @return Symantec VIP MFA policy settings (✓ Classic).
-     * 
-     */
     public Optional<Output<Map<String,String>>> symantecVip() {
         return Optional.ofNullable(this.symantecVip);
     }
 
-    /**
-     * FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
-     * 
-     */
     @Import(name="webauthn")
     private @Nullable Output<Map<String,String>> webauthn;
 
-    /**
-     * @return FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> webauthn() {
         return Optional.ofNullable(this.webauthn);
     }
 
-    /**
-     * Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Import(name="yubikeyToken")
     private @Nullable Output<Map<String,String>> yubikeyToken;
 
-    /**
-     * @return Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Optional<Output<Map<String,String>>> yubikeyToken() {
         return Optional.ofNullable(this.yubikeyToken);
     }
@@ -477,7 +307,7 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Policy Description.
+         * @param description Policy Description
          * 
          * @return builder
          * 
@@ -488,7 +318,7 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Policy Description.
+         * @param description Policy Description
          * 
          * @return builder
          * 
@@ -497,113 +327,53 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
-        /**
-         * @param duo DUO MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder duo(@Nullable Output<Map<String,String>> duo) {
             $.duo = duo;
             return this;
         }
 
-        /**
-         * @param duo DUO MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder duo(Map<String,String> duo) {
             return duo(Output.of(duo));
         }
 
-        /**
-         * @param externalIdp External IDP MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalIdp(@Nullable Output<Map<String,String>> externalIdp) {
             $.externalIdp = externalIdp;
             return this;
         }
 
-        /**
-         * @param externalIdp External IDP MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalIdp(Map<String,String> externalIdp) {
             return externalIdp(Output.of(externalIdp));
         }
 
-        /**
-         * @param fidoU2f Fido U2F MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder fidoU2f(@Nullable Output<Map<String,String>> fidoU2f) {
             $.fidoU2f = fidoU2f;
             return this;
         }
 
-        /**
-         * @param fidoU2f Fido U2F MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder fidoU2f(Map<String,String> fidoU2f) {
             return fidoU2f(Output.of(fidoU2f));
         }
 
-        /**
-         * @param fidoWebauthn Fido Web Authn MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder fidoWebauthn(@Nullable Output<Map<String,String>> fidoWebauthn) {
             $.fidoWebauthn = fidoWebauthn;
             return this;
         }
 
-        /**
-         * @param fidoWebauthn Fido Web Authn MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder fidoWebauthn(Map<String,String> fidoWebauthn) {
             return fidoWebauthn(Output.of(fidoWebauthn));
         }
 
-        /**
-         * @param googleOtp Google OTP MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder googleOtp(@Nullable Output<Map<String,String>> googleOtp) {
             $.googleOtp = googleOtp;
             return this;
         }
 
-        /**
-         * @param googleOtp Google OTP MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder googleOtp(Map<String,String> googleOtp) {
             return googleOtp(Output.of(googleOtp));
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include.
+         * @param groupsIncludeds List of Group IDs to Include
          * 
          * @return builder
          * 
@@ -614,7 +384,7 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include.
+         * @param groupsIncludeds List of Group IDs to Include
          * 
          * @return builder
          * 
@@ -624,7 +394,7 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include.
+         * @param groupsIncludeds List of Group IDs to Include
          * 
          * @return builder
          * 
@@ -633,30 +403,17 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
             return groupsIncludeds(List.of(groupsIncludeds));
         }
 
-        /**
-         * @param hotp HMAC-based One-Time Password MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder hotp(@Nullable Output<Map<String,String>> hotp) {
             $.hotp = hotp;
             return this;
         }
 
-        /**
-         * @param hotp HMAC-based One-Time Password MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder hotp(Map<String,String> hotp) {
             return hotp(Output.of(hotp));
         }
 
         /**
-         * @param isOie Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
-         * &gt; **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+         * @param isOie Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
          * 
          * @return builder
          * 
@@ -667,8 +424,7 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isOie Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
-         * &gt; **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+         * @param isOie Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
          * 
          * @return builder
          * 
@@ -678,7 +434,7 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Name.
+         * @param name Policy Name
          * 
          * @return builder
          * 
@@ -689,7 +445,7 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Name.
+         * @param name Policy Name
          * 
          * @return builder
          * 
@@ -698,218 +454,98 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
-        /**
-         * @param oktaCall Okta Call MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaCall(@Nullable Output<Map<String,String>> oktaCall) {
             $.oktaCall = oktaCall;
             return this;
         }
 
-        /**
-         * @param oktaCall Okta Call MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaCall(Map<String,String> oktaCall) {
             return oktaCall(Output.of(oktaCall));
         }
 
-        /**
-         * @param oktaEmail Okta Email MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaEmail(@Nullable Output<Map<String,String>> oktaEmail) {
             $.oktaEmail = oktaEmail;
             return this;
         }
 
-        /**
-         * @param oktaEmail Okta Email MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaEmail(Map<String,String> oktaEmail) {
             return oktaEmail(Output.of(oktaEmail));
         }
 
-        /**
-         * @param oktaOtp Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaOtp(@Nullable Output<Map<String,String>> oktaOtp) {
             $.oktaOtp = oktaOtp;
             return this;
         }
 
-        /**
-         * @param oktaOtp Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaOtp(Map<String,String> oktaOtp) {
             return oktaOtp(Output.of(oktaOtp));
         }
 
-        /**
-         * @param oktaPassword Okta Password MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaPassword(@Nullable Output<Map<String,String>> oktaPassword) {
             $.oktaPassword = oktaPassword;
             return this;
         }
 
-        /**
-         * @param oktaPassword Okta Password MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaPassword(Map<String,String> oktaPassword) {
             return oktaPassword(Output.of(oktaPassword));
         }
 
-        /**
-         * @param oktaPush Okta Push MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaPush(@Nullable Output<Map<String,String>> oktaPush) {
             $.oktaPush = oktaPush;
             return this;
         }
 
-        /**
-         * @param oktaPush Okta Push MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaPush(Map<String,String> oktaPush) {
             return oktaPush(Output.of(oktaPush));
         }
 
-        /**
-         * @param oktaQuestion Okta Question MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaQuestion(@Nullable Output<Map<String,String>> oktaQuestion) {
             $.oktaQuestion = oktaQuestion;
             return this;
         }
 
-        /**
-         * @param oktaQuestion Okta Question MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaQuestion(Map<String,String> oktaQuestion) {
             return oktaQuestion(Output.of(oktaQuestion));
         }
 
-        /**
-         * @param oktaSms Okta SMS MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaSms(@Nullable Output<Map<String,String>> oktaSms) {
             $.oktaSms = oktaSms;
             return this;
         }
 
-        /**
-         * @param oktaSms Okta SMS MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaSms(Map<String,String> oktaSms) {
             return oktaSms(Output.of(oktaSms));
         }
 
-        /**
-         * @param oktaVerify Okta Verify MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaVerify(@Nullable Output<Map<String,String>> oktaVerify) {
             $.oktaVerify = oktaVerify;
             return this;
         }
 
-        /**
-         * @param oktaVerify Okta Verify MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder oktaVerify(Map<String,String> oktaVerify) {
             return oktaVerify(Output.of(oktaVerify));
         }
 
-        /**
-         * @param onpremMfa On-Prem MFA MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder onpremMfa(@Nullable Output<Map<String,String>> onpremMfa) {
             $.onpremMfa = onpremMfa;
             return this;
         }
 
-        /**
-         * @param onpremMfa On-Prem MFA MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder onpremMfa(Map<String,String> onpremMfa) {
             return onpremMfa(Output.of(onpremMfa));
         }
 
-        /**
-         * @param phoneNumber Phone Number MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumber(@Nullable Output<Map<String,String>> phoneNumber) {
             $.phoneNumber = phoneNumber;
             return this;
         }
 
-        /**
-         * @param phoneNumber Phone Number MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumber(Map<String,String> phoneNumber) {
             return phoneNumber(Output.of(phoneNumber));
         }
 
         /**
-         * @param priority Priority of the policy.
+         * @param priority Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
          * 
          * @return builder
          * 
@@ -920,7 +556,7 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Priority of the policy.
+         * @param priority Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
          * 
          * @return builder
          * 
@@ -929,50 +565,26 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param rsaToken RSA Token MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder rsaToken(@Nullable Output<Map<String,String>> rsaToken) {
             $.rsaToken = rsaToken;
             return this;
         }
 
-        /**
-         * @param rsaToken RSA Token MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder rsaToken(Map<String,String> rsaToken) {
             return rsaToken(Output.of(rsaToken));
         }
 
-        /**
-         * @param securityQuestion Security Question MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityQuestion(@Nullable Output<Map<String,String>> securityQuestion) {
             $.securityQuestion = securityQuestion;
             return this;
         }
 
-        /**
-         * @param securityQuestion Security Question MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityQuestion(Map<String,String> securityQuestion) {
             return securityQuestion(Output.of(securityQuestion));
         }
 
         /**
-         * @param status Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Status: ACTIVE or INACTIVE.
          * 
          * @return builder
          * 
@@ -983,7 +595,7 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Status: ACTIVE or INACTIVE.
          * 
          * @return builder
          * 
@@ -992,65 +604,29 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
             return status(Output.of(status));
         }
 
-        /**
-         * @param symantecVip Symantec VIP MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder symantecVip(@Nullable Output<Map<String,String>> symantecVip) {
             $.symantecVip = symantecVip;
             return this;
         }
 
-        /**
-         * @param symantecVip Symantec VIP MFA policy settings (✓ Classic).
-         * 
-         * @return builder
-         * 
-         */
         public Builder symantecVip(Map<String,String> symantecVip) {
             return symantecVip(Output.of(symantecVip));
         }
 
-        /**
-         * @param webauthn FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder webauthn(@Nullable Output<Map<String,String>> webauthn) {
             $.webauthn = webauthn;
             return this;
         }
 
-        /**
-         * @param webauthn FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder webauthn(Map<String,String> webauthn) {
             return webauthn(Output.of(webauthn));
         }
 
-        /**
-         * @param yubikeyToken Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder yubikeyToken(@Nullable Output<Map<String,String>> yubikeyToken) {
             $.yubikeyToken = yubikeyToken;
             return this;
         }
 
-        /**
-         * @param yubikeyToken Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder yubikeyToken(Map<String,String> yubikeyToken) {
             return yubikeyToken(Output.of(yubikeyToken));
         }

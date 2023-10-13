@@ -14,76 +14,6 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Manages API scopes for OAuth applications.
- * 
- * This resource allows you to grant or revoke API scopes for OAuth2 applications within your organization.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *     }
- * }
- * ```
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.AppOauthApiScope;
- * import com.pulumi.okta.AppOauthApiScopeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AppOauthApiScope(&#34;example&#34;, AppOauthApiScopeArgs.builder()        
- *             .appId(&#34;&lt;application_id&gt;&#34;)
- *             .issuer(&#34;&lt;your org domain&gt;&#34;)
- *             .scopes(            
- *                 &#34;okta.users.read&#34;,
- *                 &#34;okta.users.manage&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * OAuth API scopes can be imported via the Okta Application ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &amp;#60;app id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:index/appOauthApiScope:AppOauthApiScope")
 public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
     /**
@@ -115,14 +45,14 @@ public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
         return this.issuer;
     }
     /**
-     * List of scopes for which consent is granted.
+     * Scopes of the application for which consent is granted.
      * 
      */
     @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
-     * @return List of scopes for which consent is granted.
+     * @return Scopes of the application for which consent is granted.
      * 
      */
     public Output<List<String>> scopes() {

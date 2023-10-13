@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetDomainResult {
     /**
-     * @return Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED&#34;
+     * @return Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED
      * 
      */
     private String certificateSourceType;
     /**
-     * @return TXT and CNAME records to be registered for the Domain.
+     * @return TXT and CNAME records to be registered for the Domain
      * 
      */
     private List<GetDomainDnsRecord> dnsRecords;
@@ -27,9 +27,13 @@ public final class GetDomainResult {
      * 
      */
     private String domain;
+    /**
+     * @return Brand ID
+     * 
+     */
     private String domainIdOrName;
     /**
-     * @return Domain ID
+     * @return The ID of the Domain
      * 
      */
     private String id;
@@ -39,21 +43,21 @@ public final class GetDomainResult {
      */
     private Map<String,String> publicCertificate;
     /**
-     * @return Status of the domain. Values: `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED`
+     * @return Status of the domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
      * 
      */
     private String validationStatus;
 
     private GetDomainResult() {}
     /**
-     * @return Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED&#34;
+     * @return Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED
      * 
      */
     public String certificateSourceType() {
         return this.certificateSourceType;
     }
     /**
-     * @return TXT and CNAME records to be registered for the Domain.
+     * @return TXT and CNAME records to be registered for the Domain
      * 
      */
     public List<GetDomainDnsRecord> dnsRecords() {
@@ -66,11 +70,15 @@ public final class GetDomainResult {
     public String domain() {
         return this.domain;
     }
+    /**
+     * @return Brand ID
+     * 
+     */
     public String domainIdOrName() {
         return this.domainIdOrName;
     }
     /**
-     * @return Domain ID
+     * @return The ID of the Domain
      * 
      */
     public String id() {
@@ -84,7 +92,7 @@ public final class GetDomainResult {
         return this.publicCertificate;
     }
     /**
-     * @return Status of the domain. Values: `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED`
+     * @return Status of the domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
      * 
      */
     public String validationStatus() {

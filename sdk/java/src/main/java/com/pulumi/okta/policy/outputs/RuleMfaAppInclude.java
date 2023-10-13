@@ -12,40 +12,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleMfaAppInclude {
     /**
-     * @return Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
+     * @return The ID of this resource.
      * 
      */
     private @Nullable String id;
-    /**
-     * @return Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
-     * 
-     */
     private String type;
 
     private RuleMfaAppInclude() {}
     /**
-     * @return Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
+     * @return The ID of this resource.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
-     * 
-     */
     public String type() {
         return this.type;
     }

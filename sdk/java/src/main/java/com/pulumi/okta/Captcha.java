@@ -14,105 +14,59 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
- * 
- * This resource allows you to create and configure a CAPTCHA.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.Captcha;
- * import com.pulumi.okta.CaptchaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Captcha(&#34;example&#34;, CaptchaArgs.builder()        
- *             .secretKey(&#34;some_secret_key&#34;)
- *             .siteKey(&#34;some_key&#34;)
- *             .type(&#34;HCAPTCHA&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Behavior can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/captcha:Captcha example &amp;#60;captcha id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:index/captcha:Captcha")
 public class Captcha extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the captcha.
+     * Name of the CAPTCHA
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the captcha.
+     * @return Name of the CAPTCHA
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+     * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      * 
      */
     @Export(name="secretKey", refs={String.class}, tree="[0]")
     private Output<String> secretKey;
 
     /**
-     * @return Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
+     * @return Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      * 
      */
     public Output<String> secretKey() {
         return this.secretKey;
     }
     /**
-     * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+     * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      * 
      */
     @Export(name="siteKey", refs={String.class}, tree="[0]")
     private Output<String> siteKey;
 
     /**
-     * @return Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
+     * @return Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      * 
      */
     public Output<String> siteKey() {
         return this.siteKey;
     }
     /**
-     * Type of the captcha. Valid values: `&#34;HCAPTCHA&#34;`, `&#34;RECAPTCHA_V2&#34;`.
+     * Captcha type
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the captcha. Valid values: `&#34;HCAPTCHA&#34;`, `&#34;RECAPTCHA_V2&#34;`.
+     * @return Captcha type
      * 
      */
     public Output<String> type() {

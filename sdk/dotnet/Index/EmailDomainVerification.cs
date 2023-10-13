@@ -9,44 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Index
 {
-    /// <summary>
-    /// Verifies the email domain. The resource won't be created if the email domain could not be verified.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleEmailDomain = new Okta.Index.EmailDomain("exampleEmailDomain", new()
-    ///     {
-    ///         BrandId = "abc123",
-    ///         Domain = "example.com",
-    ///         DisplayName = "test",
-    ///         UserName = "paul_atreides",
-    ///     });
-    /// 
-    ///     var exampleEmailDomainVerification = new Okta.Index.EmailDomainVerification("exampleEmailDomainVerification", new()
-    ///     {
-    ///         EmailDomainId = okta_email_domain.Valid.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// This resource does not support importing.
-    /// </summary>
     [OktaResourceType("okta:Index/emailDomainVerification:EmailDomainVerification")]
     public partial class EmailDomainVerification : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Email domain ID.
+        /// Email domain ID
         /// </summary>
         [Output("emailDomainId")]
         public Output<string> EmailDomainId { get; private set; } = null!;
@@ -98,7 +65,7 @@ namespace Pulumi.Okta.Index
     public sealed class EmailDomainVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Email domain ID.
+        /// Email domain ID
         /// </summary>
         [Input("emailDomainId", required: true)]
         public Input<string> EmailDomainId { get; set; } = null!;
@@ -112,7 +79,7 @@ namespace Pulumi.Okta.Index
     public sealed class EmailDomainVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Email domain ID.
+        /// Email domain ID
         /// </summary>
         [Input("emailDomainId")]
         public Input<string>? EmailDomainId { get; set; }

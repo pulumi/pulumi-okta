@@ -45,14 +45,14 @@ public final class AppOauthApiScopeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * List of scopes for which consent is granted.
+     * Scopes of the application for which consent is granted.
      * 
      */
     @Import(name="scopes", required=true)
     private Output<List<String>> scopes;
 
     /**
-     * @return List of scopes for which consent is granted.
+     * @return Scopes of the application for which consent is granted.
      * 
      */
     public Output<List<String>> scopes() {
@@ -128,7 +128,7 @@ public final class AppOauthApiScopeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scopes List of scopes for which consent is granted.
+         * @param scopes Scopes of the application for which consent is granted.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class AppOauthApiScopeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scopes List of scopes for which consent is granted.
+         * @param scopes Scopes of the application for which consent is granted.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class AppOauthApiScopeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scopes List of scopes for which consent is granted.
+         * @param scopes Scopes of the application for which consent is granted.
          * 
          * @return builder
          * 

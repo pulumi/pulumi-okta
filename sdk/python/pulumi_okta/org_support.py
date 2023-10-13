@@ -17,7 +17,7 @@ class OrgSupportArgs:
                  extend_by: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a OrgSupport resource.
-        :param pulumi.Input[int] extend_by: Number of days the support should be extended by in addition to the standard eight hours.
+        :param pulumi.Input[int] extend_by: Number of days the support should be extended by
         """
         OrgSupportArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -35,7 +35,7 @@ class OrgSupportArgs:
     @pulumi.getter(name="extendBy")
     def extend_by(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of days the support should be extended by in addition to the standard eight hours.
+        Number of days the support should be extended by
         """
         return pulumi.get(self, "extend_by")
 
@@ -53,7 +53,7 @@ class _OrgSupportState:
         """
         Input properties used for looking up and filtering OrgSupport resources.
         :param pulumi.Input[str] expiration: Expiration of Okta Support
-        :param pulumi.Input[int] extend_by: Number of days the support should be extended by in addition to the standard eight hours.
+        :param pulumi.Input[int] extend_by: Number of days the support should be extended by
         :param pulumi.Input[str] status: Status of Okta Support
         """
         _OrgSupportState._configure(
@@ -92,7 +92,7 @@ class _OrgSupportState:
     @pulumi.getter(name="extendBy")
     def extend_by(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of days the support should be extended by in addition to the standard eight hours.
+        Number of days the support should be extended by
         """
         return pulumi.get(self, "extend_by")
 
@@ -121,25 +121,10 @@ class OrgSupport(pulumi.CustomResource):
                  extend_by: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        This resource allows you to temporarily allow Okta Support to access your org as an administrator. By default,
-        access will be granted for eight hours. Removing this resource will revoke Okta Support access to your org.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.OrgSupport("example", extend_by=1)
-        ```
-
-        ## Import
-
-        This resource does not support importing.
-
+        Create a OrgSupport resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] extend_by: Number of days the support should be extended by in addition to the standard eight hours.
+        :param pulumi.Input[int] extend_by: Number of days the support should be extended by
         """
         ...
     @overload
@@ -148,22 +133,7 @@ class OrgSupport(pulumi.CustomResource):
                  args: Optional[OrgSupportArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to temporarily allow Okta Support to access your org as an administrator. By default,
-        access will be granted for eight hours. Removing this resource will revoke Okta Support access to your org.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.OrgSupport("example", extend_by=1)
-        ```
-
-        ## Import
-
-        This resource does not support importing.
-
+        Create a OrgSupport resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OrgSupportArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,7 +187,7 @@ class OrgSupport(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] expiration: Expiration of Okta Support
-        :param pulumi.Input[int] extend_by: Number of days the support should be extended by in addition to the standard eight hours.
+        :param pulumi.Input[int] extend_by: Number of days the support should be extended by
         :param pulumi.Input[str] status: Status of Okta Support
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -241,7 +211,7 @@ class OrgSupport(pulumi.CustomResource):
     @pulumi.getter(name="extendBy")
     def extend_by(self) -> pulumi.Output[Optional[int]]:
         """
-        Number of days the support should be extended by in addition to the standard eight hours.
+        Number of days the support should be extended by
         """
         return pulumi.get(self, "extend_by")
 

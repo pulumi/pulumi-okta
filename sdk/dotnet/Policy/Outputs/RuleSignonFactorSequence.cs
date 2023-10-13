@@ -14,16 +14,13 @@ namespace Pulumi.Okta.Policy.Outputs
     public sealed class RuleSignonFactorSequence
     {
         /// <summary>
-        /// Primary factor type of the auth section.
+        /// Type of a Factor
         /// </summary>
         public readonly string PrimaryCriteriaFactorType;
         /// <summary>
-        /// Primary provider of the auth section.
+        /// Factor provider
         /// </summary>
         public readonly string PrimaryCriteriaProvider;
-        /// <summary>
-        /// Additional authentication steps.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleSignonFactorSequenceSecondaryCriteria> SecondaryCriterias;
 
         [OutputConstructor]

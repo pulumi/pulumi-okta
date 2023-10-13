@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Allows you to manage the time-based one-time password (TOTP) factors. A time-based one-time password (TOTP) is a
- * temporary passcode that is generated for user authentication. Examples of TOTP include hardware authenticators and
- * mobile app authenticators.
- *
- * Once saved, the settings cannot be changed (except for the `name` field). Any other change would force resource
- * recreation.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.FactorTotp("example", {
- *     clockDriftInterval: 10,
- *     hmacAlgorithm: "HMacSHA256",
- *     otpLength: 10,
- *     sharedSecretEncoding: "hexadecimal",
- *     timeStep: 30,
- * });
- * ```
- */
 export class FactorTotp extends pulumi.CustomResource {
     /**
      * Get an existing FactorTotp resource's state with the given name, ID, and optional extra
@@ -56,13 +33,11 @@ export class FactorTotp extends pulumi.CustomResource {
     }
 
     /**
-     * Clock drift interval. This setting allows you to build in tolerance for any
-     * drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
+     * Clock drift interval
      */
     public readonly clockDriftInterval!: pulumi.Output<number | undefined>;
     /**
-     * HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
-     * is `"HMacSHA512"`.
+     * Hash-based message authentication code algorithm
      */
     public readonly hmacAlgorithm!: pulumi.Output<string | undefined>;
     /**
@@ -74,12 +49,11 @@ export class FactorTotp extends pulumi.CustomResource {
      */
     public readonly otpLength!: pulumi.Output<number | undefined>;
     /**
-     * Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
-     * Default is `"base32"`.
+     * Shared secret encoding
      */
     public readonly sharedSecretEncoding!: pulumi.Output<string | undefined>;
     /**
-     * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * Time step in seconds
      */
     public readonly timeStep!: pulumi.Output<number | undefined>;
 
@@ -121,13 +95,11 @@ export class FactorTotp extends pulumi.CustomResource {
  */
 export interface FactorTotpState {
     /**
-     * Clock drift interval. This setting allows you to build in tolerance for any
-     * drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
+     * Clock drift interval
      */
     clockDriftInterval?: pulumi.Input<number>;
     /**
-     * HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
-     * is `"HMacSHA512"`.
+     * Hash-based message authentication code algorithm
      */
     hmacAlgorithm?: pulumi.Input<string>;
     /**
@@ -139,12 +111,11 @@ export interface FactorTotpState {
      */
     otpLength?: pulumi.Input<number>;
     /**
-     * Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
-     * Default is `"base32"`.
+     * Shared secret encoding
      */
     sharedSecretEncoding?: pulumi.Input<string>;
     /**
-     * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * Time step in seconds
      */
     timeStep?: pulumi.Input<number>;
 }
@@ -154,13 +125,11 @@ export interface FactorTotpState {
  */
 export interface FactorTotpArgs {
     /**
-     * Clock drift interval. This setting allows you to build in tolerance for any
-     * drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
+     * Clock drift interval
      */
     clockDriftInterval?: pulumi.Input<number>;
     /**
-     * HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
-     * is `"HMacSHA512"`.
+     * Hash-based message authentication code algorithm
      */
     hmacAlgorithm?: pulumi.Input<string>;
     /**
@@ -172,12 +141,11 @@ export interface FactorTotpArgs {
      */
     otpLength?: pulumi.Input<number>;
     /**
-     * Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
-     * Default is `"base32"`.
+     * Shared secret encoding
      */
     sharedSecretEncoding?: pulumi.Input<string>;
     /**
-     * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+     * Time step in seconds
      */
     timeStep?: pulumi.Input<number>;
 }

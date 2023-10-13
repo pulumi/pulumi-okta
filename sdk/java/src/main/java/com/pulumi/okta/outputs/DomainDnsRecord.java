@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDnsRecord {
-    /**
-     * @return TXT record expiration.
-     * 
-     */
     private @Nullable String expiration;
-    /**
-     * @return DNS record name.
-     * 
-     */
     private @Nullable String fqdn;
-    /**
-     * @return Record type can be TXT or CNAME.
-     * 
-     */
     private @Nullable String recordType;
-    /**
-     * @return DNS verification value
-     * 
-     */
     private @Nullable List<String> values;
 
     private DomainDnsRecord() {}
-    /**
-     * @return TXT record expiration.
-     * 
-     */
     public Optional<String> expiration() {
         return Optional.ofNullable(this.expiration);
     }
-    /**
-     * @return DNS record name.
-     * 
-     */
     public Optional<String> fqdn() {
         return Optional.ofNullable(this.fqdn);
     }
-    /**
-     * @return Record type can be TXT or CNAME.
-     * 
-     */
     public Optional<String> recordType() {
         return Optional.ofNullable(this.recordType);
     }
-    /**
-     * @return DNS verification value
-     * 
-     */
     public List<String> values() {
         return this.values == null ? List.of() : this.values;
     }

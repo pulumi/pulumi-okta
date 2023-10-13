@@ -9,58 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.App
 {
-    /// <summary>
-    /// This resource allows you to manage post logout redirection URI for use in redirect-based flows.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testOAuth = new Okta.App.OAuth("testOAuth", new()
-    ///     {
-    ///         Label = "testAcc_replace_with_uuid",
-    ///         Type = "web",
-    ///         GrantTypes = new[]
-    ///         {
-    ///             "authorization_code",
-    ///         },
-    ///         ResponseTypes = new[]
-    ///         {
-    ///             "code",
-    ///         },
-    ///         RedirectUris = new[]
-    ///         {
-    ///             "myapp://callback",
-    ///         },
-    ///         PostLogoutRedirectUris = new[]
-    ///         {
-    ///             "https://www.example.com",
-    ///         },
-    ///     });
-    /// 
-    ///     var testOAuthPostLogoutRedirectUri = new Okta.App.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri", new()
-    ///     {
-    ///         AppId = testOAuth.Id,
-    ///         Uri = "https://www.example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// A post logout redirect URI can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &amp;#60;app id&amp;#62;/&amp;#60;uri&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri")]
     public partial class OAuthPostLogoutRedirectUri : global::Pulumi.CustomResource
     {

@@ -12,21 +12,12 @@ namespace Pulumi.Okta.Inputs
 
     public sealed class EmailSenderDnsRecordArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// DNS record name.
-        /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 
-        /// <summary>
-        /// Record type can be TXT or CNAME.
-        /// </summary>
         [Input("recordType")]
         public Input<string>? RecordType { get; set; }
 
-        /// <summary>
-        /// DNS verification value
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

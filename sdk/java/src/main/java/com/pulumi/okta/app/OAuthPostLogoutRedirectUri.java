@@ -13,60 +13,6 @@ import com.pulumi.okta.app.inputs.OAuthPostLogoutRedirectUriState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * This resource allows you to manage post logout redirection URI for use in redirect-based flows.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.app.OAuth;
- * import com.pulumi.okta.app.OAuthArgs;
- * import com.pulumi.okta.app.OAuthPostLogoutRedirectUri;
- * import com.pulumi.okta.app.OAuthPostLogoutRedirectUriArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testOAuth = new OAuth(&#34;testOAuth&#34;, OAuthArgs.builder()        
- *             .label(&#34;testAcc_replace_with_uuid&#34;)
- *             .type(&#34;web&#34;)
- *             .grantTypes(&#34;authorization_code&#34;)
- *             .responseTypes(&#34;code&#34;)
- *             .redirectUris(&#34;myapp://callback&#34;)
- *             .postLogoutRedirectUris(&#34;https://www.example.com&#34;)
- *             .build());
- * 
- *         var testOAuthPostLogoutRedirectUri = new OAuthPostLogoutRedirectUri(&#34;testOAuthPostLogoutRedirectUri&#34;, OAuthPostLogoutRedirectUriArgs.builder()        
- *             .appId(testOAuth.id())
- *             .uri(&#34;https://www.example.com&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * A post logout redirect URI can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &amp;#60;app id&amp;#62;/&amp;#60;uri&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri")
 public class OAuthPostLogoutRedirectUri extends com.pulumi.resources.CustomResource {
     /**

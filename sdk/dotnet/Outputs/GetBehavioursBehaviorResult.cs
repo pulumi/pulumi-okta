@@ -13,25 +13,10 @@ namespace Pulumi.Okta.Outputs
     [OutputType]
     public sealed class GetBehavioursBehaviorResult
     {
-        /// <summary>
-        /// Behavior ID.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Behavior name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Map of behavior settings.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Settings;
-        /// <summary>
-        /// Behavior status.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Behavior type.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -26,13 +26,13 @@ class PolicyRuleProfileEnrollmentArgs:
                  ui_schema_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PolicyRuleProfileEnrollment resource.
-        :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default is `true`.
-        :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
-        :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to.
+        :param pulumi.Input[str] policy_id: ID of the policy
+        :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted
+        :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling
+        :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to
         :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
         """
         PolicyRuleProfileEnrollmentArgs._configure(
@@ -77,7 +77,7 @@ class PolicyRuleProfileEnrollmentArgs:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Input[str]:
         """
-        Policy ID.
+        ID of the policy
         """
         return pulumi.get(self, "policy_id")
 
@@ -89,7 +89,7 @@ class PolicyRuleProfileEnrollmentArgs:
     @pulumi.getter(name="unknownUserAction")
     def unknown_user_action(self) -> pulumi.Input[str]:
         """
-        Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+        Which action should be taken if this User is new
         """
         return pulumi.get(self, "unknown_user_action")
 
@@ -101,7 +101,7 @@ class PolicyRuleProfileEnrollmentArgs:
     @pulumi.getter
     def access(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+        Allow or deny access based on the rule conditions: ALLOW or DENY
         """
         return pulumi.get(self, "access")
 
@@ -113,7 +113,7 @@ class PolicyRuleProfileEnrollmentArgs:
     @pulumi.getter(name="emailVerification")
     def email_verification(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether email verification should occur before access is granted. Default is `true`.
+        Indicates whether email verification should occur before access is granted
         """
         return pulumi.get(self, "email_verification")
 
@@ -125,7 +125,7 @@ class PolicyRuleProfileEnrollmentArgs:
     @pulumi.getter(name="inlineHookId")
     def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of a Registration Inline Hook.
+        ID of a Registration Inline Hook
         """
         return pulumi.get(self, "inline_hook_id")
 
@@ -137,7 +137,7 @@ class PolicyRuleProfileEnrollmentArgs:
     @pulumi.getter(name="profileAttributes")
     def profile_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]:
         """
-        A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+        A list of attributes to prompt the user during registration or progressive profiling
         """
         return pulumi.get(self, "profile_attributes")
 
@@ -149,7 +149,7 @@ class PolicyRuleProfileEnrollmentArgs:
     @pulumi.getter(name="targetGroupId")
     def target_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a Group that this User should be added to.
+        The ID of a Group that this User should be added to
         """
         return pulumi.get(self, "target_group_id")
 
@@ -185,16 +185,16 @@ class _PolicyRuleProfileEnrollmentState:
                  unknown_user_action: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PolicyRuleProfileEnrollment resources.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default is `true`.
-        :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted
+        :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[str] name: The name of a User Profile property
-        :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
-        :param pulumi.Input[str] status: Status of the Rule.
-        :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to.
+        :param pulumi.Input[str] policy_id: ID of the policy
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling
+        :param pulumi.Input[str] status: Status of the rule
+        :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to
         :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
-        :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+        :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new
         """
         _PolicyRuleProfileEnrollmentState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -248,7 +248,7 @@ class _PolicyRuleProfileEnrollmentState:
     @pulumi.getter
     def access(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+        Allow or deny access based on the rule conditions: ALLOW or DENY
         """
         return pulumi.get(self, "access")
 
@@ -260,7 +260,7 @@ class _PolicyRuleProfileEnrollmentState:
     @pulumi.getter(name="emailVerification")
     def email_verification(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether email verification should occur before access is granted. Default is `true`.
+        Indicates whether email verification should occur before access is granted
         """
         return pulumi.get(self, "email_verification")
 
@@ -272,7 +272,7 @@ class _PolicyRuleProfileEnrollmentState:
     @pulumi.getter(name="inlineHookId")
     def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of a Registration Inline Hook.
+        ID of a Registration Inline Hook
         """
         return pulumi.get(self, "inline_hook_id")
 
@@ -296,7 +296,7 @@ class _PolicyRuleProfileEnrollmentState:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy ID.
+        ID of the policy
         """
         return pulumi.get(self, "policy_id")
 
@@ -308,7 +308,7 @@ class _PolicyRuleProfileEnrollmentState:
     @pulumi.getter(name="profileAttributes")
     def profile_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]:
         """
-        A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+        A list of attributes to prompt the user during registration or progressive profiling
         """
         return pulumi.get(self, "profile_attributes")
 
@@ -320,7 +320,7 @@ class _PolicyRuleProfileEnrollmentState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of the Rule.
+        Status of the rule
         """
         return pulumi.get(self, "status")
 
@@ -332,7 +332,7 @@ class _PolicyRuleProfileEnrollmentState:
     @pulumi.getter(name="targetGroupId")
     def target_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a Group that this User should be added to.
+        The ID of a Group that this User should be added to
         """
         return pulumi.get(self, "target_group_id")
 
@@ -356,7 +356,7 @@ class _PolicyRuleProfileEnrollmentState:
     @pulumi.getter(name="unknownUserAction")
     def unknown_user_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+        Which action should be taken if this User is new
         """
         return pulumi.get(self, "unknown_user_action")
 
@@ -380,75 +380,17 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  unknown_user_action: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        A [profile enrollment
-        policy](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-policy)
-        is limited to one default rule. This resource does not create a rule for an
-        enrollment policy, it allows the default policy rule to be updated.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_policy_profile_enrollment = okta.PolicyProfileEnrollment("examplePolicyProfileEnrollment")
-        example_hook = okta.inline.Hook("exampleHook",
-            status="ACTIVE",
-            type="com.okta.user.pre-registration",
-            version="1.0.3",
-            channel={
-                "type": "HTTP",
-                "version": "1.0.0",
-                "uri": "https://example.com/test2",
-                "method": "POST",
-            })
-        example_group = okta.group.Group("exampleGroup", description="Group of some users")
-        example_policy_rule_profile_enrollment = okta.PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment",
-            policy_id=example_policy_profile_enrollment.id,
-            inline_hook_id=example_hook.id,
-            target_group_id=example_group.id,
-            unknown_user_action="REGISTER",
-            email_verification=True,
-            access="ALLOW",
-            profile_attributes=[
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="email",
-                    label="Email",
-                    required=True,
-                ),
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="name",
-                    label="Name",
-                    required=True,
-                ),
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="t-shirt",
-                    label="T-Shirt Size",
-                    required=False,
-                ),
-            ])
-        ```
-
-        ## Import
-
-        A Policy Rule can be imported via the Policy and Rule ID.
-
-        ```sh
-         $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
-        ```
-
+        Create a PolicyRuleProfileEnrollment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default is `true`.
-        :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook.
-        :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
-        :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted
+        :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
+        :param pulumi.Input[str] policy_id: ID of the policy
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling
+        :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to
         :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
-        :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+        :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new
         """
         ...
     @overload
@@ -457,65 +399,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  args: PolicyRuleProfileEnrollmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        A [profile enrollment
-        policy](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-policy)
-        is limited to one default rule. This resource does not create a rule for an
-        enrollment policy, it allows the default policy rule to be updated.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_policy_profile_enrollment = okta.PolicyProfileEnrollment("examplePolicyProfileEnrollment")
-        example_hook = okta.inline.Hook("exampleHook",
-            status="ACTIVE",
-            type="com.okta.user.pre-registration",
-            version="1.0.3",
-            channel={
-                "type": "HTTP",
-                "version": "1.0.0",
-                "uri": "https://example.com/test2",
-                "method": "POST",
-            })
-        example_group = okta.group.Group("exampleGroup", description="Group of some users")
-        example_policy_rule_profile_enrollment = okta.PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment",
-            policy_id=example_policy_profile_enrollment.id,
-            inline_hook_id=example_hook.id,
-            target_group_id=example_group.id,
-            unknown_user_action="REGISTER",
-            email_verification=True,
-            access="ALLOW",
-            profile_attributes=[
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="email",
-                    label="Email",
-                    required=True,
-                ),
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="name",
-                    label="Name",
-                    required=True,
-                ),
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="t-shirt",
-                    label="T-Shirt Size",
-                    required=False,
-                ),
-            ])
-        ```
-
-        ## Import
-
-        A Policy Rule can be imported via the Policy and Rule ID.
-
-        ```sh
-         $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
-        ```
-
+        Create a PolicyRuleProfileEnrollment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PolicyRuleProfileEnrollmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -593,16 +477,16 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default is `true`.
-        :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted
+        :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[str] name: The name of a User Profile property
-        :param pulumi.Input[str] policy_id: Policy ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
-        :param pulumi.Input[str] status: Status of the Rule.
-        :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to.
+        :param pulumi.Input[str] policy_id: ID of the policy
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling
+        :param pulumi.Input[str] status: Status of the rule
+        :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to
         :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
-        :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+        :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -624,7 +508,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter
     def access(self) -> pulumi.Output[Optional[str]]:
         """
-        Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+        Allow or deny access based on the rule conditions: ALLOW or DENY
         """
         return pulumi.get(self, "access")
 
@@ -632,7 +516,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter(name="emailVerification")
     def email_verification(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether email verification should occur before access is granted. Default is `true`.
+        Indicates whether email verification should occur before access is granted
         """
         return pulumi.get(self, "email_verification")
 
@@ -640,7 +524,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter(name="inlineHookId")
     def inline_hook_id(self) -> pulumi.Output[Optional[str]]:
         """
-        ID of a Registration Inline Hook.
+        ID of a Registration Inline Hook
         """
         return pulumi.get(self, "inline_hook_id")
 
@@ -656,7 +540,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[str]:
         """
-        Policy ID.
+        ID of the policy
         """
         return pulumi.get(self, "policy_id")
 
@@ -664,7 +548,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter(name="profileAttributes")
     def profile_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.PolicyRuleProfileEnrollmentProfileAttribute']]]:
         """
-        A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+        A list of attributes to prompt the user during registration or progressive profiling
         """
         return pulumi.get(self, "profile_attributes")
 
@@ -672,7 +556,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        Status of the Rule.
+        Status of the rule
         """
         return pulumi.get(self, "status")
 
@@ -680,7 +564,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter(name="targetGroupId")
     def target_group_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of a Group that this User should be added to.
+        The ID of a Group that this User should be added to
         """
         return pulumi.get(self, "target_group_id")
 
@@ -696,7 +580,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter(name="unknownUserAction")
     def unknown_user_action(self) -> pulumi.Output[str]:
         """
-        Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+        Which action should be taken if this User is new
         """
         return pulumi.get(self, "unknown_user_action")
 

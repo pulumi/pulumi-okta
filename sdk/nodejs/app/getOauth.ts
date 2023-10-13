@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve an OIDC application from Okta.
+ * Get a OIDC application from Okta.
  *
  * ## Example Usage
  *
@@ -37,33 +37,37 @@ export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Prom
  */
 export interface GetOauthArgs {
     /**
-     * tells the provider to query for only `ACTIVE` applications.
+     * Search only ACTIVE applications.
      */
     activeOnly?: boolean;
     /**
-     * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+     * Id of application to retrieve, conflicts with label and label_prefix.
      */
     id?: string;
     /**
      * The label of the app to retrieve, conflicts with
-     * `labelPrefix` and `id`. Label uses the `?q=<label>` query parameter exposed by
-     * Okta's List Apps API. The API will search both `name` and `label` using that
-     * query. Therefore similarily named and labeled apps may be returned in the query
-     * and have the unitended result of associating the wrong app with this data
-     * source. See:
-     * https://developer.okta.com/docs/reference/api/apps/#list-applications
+     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			Okta's List Apps API. The API will search both name and label using that
+     * 			query. Therefore similarily named and labeled apps may be returned in the query
+     * 			and have the unitended result of associating the wrong app with this data
+     * 			source. See:
+     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
      */
     label?: string;
     /**
-     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-     * provider to do a `starts with` query as opposed to an `equals` query.
+     * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+     * 			provider to do a starts with query as opposed to an equals query.
      */
     labelPrefix?: string;
     /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     *
      * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      */
     skipGroups?: boolean;
     /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     *
      * @deprecated Because users has been removed, this attribute is a no op and will be removed
      */
     skipUsers?: boolean;
@@ -73,17 +77,20 @@ export interface GetOauthArgs {
  * A collection of values returned by getOauth.
  */
 export interface GetOauthResult {
+    /**
+     * Search only ACTIVE applications.
+     */
     readonly activeOnly?: boolean;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     readonly autoSubmitToolbar: boolean;
     /**
-     * OAuth client ID. If set during creation, app is created with this id.
+     * OAuth client ID
      */
     readonly clientId: string;
     /**
-     * The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * OAuth client secret
      */
     readonly clientSecret: string;
     /**
@@ -91,36 +98,46 @@ export interface GetOauthResult {
      */
     readonly clientUri: string;
     /**
-     * List of OAuth 2.0 grant types.
+     * List of OAuth 2.0 grant types
      */
     readonly grantTypes: string[];
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     readonly hideIos: boolean;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     readonly hideWeb: boolean;
     /**
-     * ID of application.
+     * Id of application to retrieve, conflicts with label and label_prefix.
      */
     readonly id?: string;
     /**
-     * Label of application.
+     * The label of the app to retrieve, conflicts with
+     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			Okta's List Apps API. The API will search both name and label using that
+     * 			query. Therefore similarily named and labeled apps may be returned in the query
+     * 			and have the unitended result of associating the wrong app with this data
+     * 			source. See:
+     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
      */
     readonly label?: string;
+    /**
+     * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+     * 			provider to do a starts with query as opposed to an equals query.
+     */
     readonly labelPrefix?: string;
     /**
-     * generic JSON containing discoverable resources related to the app
+     * Discoverable resources related to the app
      */
     readonly links: string;
     /**
-     * The type of Idp-Initiated login that the client supports, if any.
+     * The type of Idp-Initiated login that the client supports, if any
      */
     readonly loginMode: string;
     /**
-     * List of scopes to use for the request.
+     * List of scopes to use for the request when 'login_mode' == OKTA
      */
     readonly loginScopes: string[];
     /**
@@ -140,7 +157,7 @@ export interface GetOauthResult {
      */
     readonly policyUri: string;
     /**
-     * List of URIs for redirection after logout.
+     * List of URIs for redirection after logout
      */
     readonly postLogoutRedirectUris: string[];
     /**
@@ -152,10 +169,14 @@ export interface GetOauthResult {
      */
     readonly responseTypes: string[];
     /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     *
      * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      */
     readonly skipGroups?: boolean;
     /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     *
      * @deprecated Because users has been removed, this attribute is a no op and will be removed
      */
     readonly skipUsers?: boolean;
@@ -167,10 +188,13 @@ export interface GetOauthResult {
      * The type of OAuth application.
      */
     readonly type: string;
+    /**
+     * Indicates if the client is allowed to use wildcard matching of redirect_uris
+     */
     readonly wildcardRedirect: string;
 }
 /**
- * Use this data source to retrieve an OIDC application from Okta.
+ * Get a OIDC application from Okta.
  *
  * ## Example Usage
  *
@@ -192,33 +216,37 @@ export function getOauthOutput(args?: GetOauthOutputArgs, opts?: pulumi.InvokeOp
  */
 export interface GetOauthOutputArgs {
     /**
-     * tells the provider to query for only `ACTIVE` applications.
+     * Search only ACTIVE applications.
      */
     activeOnly?: pulumi.Input<boolean>;
     /**
-     * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+     * Id of application to retrieve, conflicts with label and label_prefix.
      */
     id?: pulumi.Input<string>;
     /**
      * The label of the app to retrieve, conflicts with
-     * `labelPrefix` and `id`. Label uses the `?q=<label>` query parameter exposed by
-     * Okta's List Apps API. The API will search both `name` and `label` using that
-     * query. Therefore similarily named and labeled apps may be returned in the query
-     * and have the unitended result of associating the wrong app with this data
-     * source. See:
-     * https://developer.okta.com/docs/reference/api/apps/#list-applications
+     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			Okta's List Apps API. The API will search both name and label using that
+     * 			query. Therefore similarily named and labeled apps may be returned in the query
+     * 			and have the unitended result of associating the wrong app with this data
+     * 			source. See:
+     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
      */
     label?: pulumi.Input<string>;
     /**
-     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-     * provider to do a `starts with` query as opposed to an `equals` query.
+     * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+     * 			provider to do a starts with query as opposed to an equals query.
      */
     labelPrefix?: pulumi.Input<string>;
     /**
+     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+     *
      * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      */
     skipGroups?: pulumi.Input<boolean>;
     /**
+     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+     *
      * @deprecated Because users has been removed, this attribute is a no op and will be removed
      */
     skipUsers?: pulumi.Input<boolean>;

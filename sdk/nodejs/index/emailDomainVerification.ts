@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Verifies the email domain. The resource won't be created if the email domain could not be verified.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleEmailDomain = new okta.index.EmailDomain("exampleEmailDomain", {
- *     brandId: "abc123",
- *     domain: "example.com",
- *     displayName: "test",
- *     userName: "paul_atreides",
- * });
- * const exampleEmailDomainVerification = new okta.index.EmailDomainVerification("exampleEmailDomainVerification", {emailDomainId: okta_email_domain.valid.id});
- * ```
- *
- * ## Import
- *
- * This resource does not support importing.
- */
 export class EmailDomainVerification extends pulumi.CustomResource {
     /**
      * Get an existing EmailDomainVerification resource's state with the given name, ID, and optional extra
@@ -55,7 +33,7 @@ export class EmailDomainVerification extends pulumi.CustomResource {
     }
 
     /**
-     * Email domain ID.
+     * Email domain ID
      */
     public readonly emailDomainId!: pulumi.Output<string>;
 
@@ -90,7 +68,7 @@ export class EmailDomainVerification extends pulumi.CustomResource {
  */
 export interface EmailDomainVerificationState {
     /**
-     * Email domain ID.
+     * Email domain ID
      */
     emailDomainId?: pulumi.Input<string>;
 }
@@ -100,7 +78,7 @@ export interface EmailDomainVerificationState {
  */
 export interface EmailDomainVerificationArgs {
     /**
-     * Email domain ID.
+     * Email domain ID
      */
     emailDomainId: pulumi.Input<string>;
 }

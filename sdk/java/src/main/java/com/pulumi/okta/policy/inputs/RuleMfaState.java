@@ -35,14 +35,14 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * Applications to include
      * 
      */
     @Import(name="appIncludes")
     private @Nullable Output<List<RuleMfaAppIncludeArgs>> appIncludes;
 
     /**
-     * @return Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * @return Applications to include
      * 
      */
     public Optional<Output<List<RuleMfaAppIncludeArgs>>> appIncludes() {
@@ -50,14 +50,14 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When a user should be prompted for MFA. It can be `&#34;CHALLENGE&#34;`, `&#34;LOGIN&#34;`, or `&#34;NEVER&#34;`.
+     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
      * 
      */
     @Import(name="enroll")
     private @Nullable Output<String> enroll;
 
     /**
-     * @return When a user should be prompted for MFA. It can be `&#34;CHALLENGE&#34;`, `&#34;LOGIN&#34;`, or `&#34;NEVER&#34;`.
+     * @return Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
      * 
      */
     public Optional<Output<String>> enroll() {
@@ -65,14 +65,14 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+     * Policy Rule Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+     * @return Policy Rule Name
      * 
      */
     public Optional<Output<String>> name() {
@@ -80,14 +80,14 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      * 
      */
     @Import(name="networkConnection")
     private @Nullable Output<String> networkConnection;
 
     /**
-     * @return Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * @return Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      * 
      */
     public Optional<Output<String>> networkConnection() {
@@ -95,14 +95,14 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network zones to exclude. Conflicts with `network_includes`.
+     * The zones to exclude
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return The network zones to exclude. Conflicts with `network_includes`.
+     * @return The zones to exclude
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -110,14 +110,14 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network zones to include. Conflicts with `network_excludes`.
+     * The zones to include
      * 
      */
     @Import(name="networkIncludes")
     private @Nullable Output<List<String>> networkIncludes;
 
     /**
-     * @return The network zones to include. Conflicts with `network_excludes`.
+     * @return The zones to include
      * 
      */
     public Optional<Output<List<String>>> networkIncludes() {
@@ -125,14 +125,14 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy ID.
+     * Policy ID of the Rule
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return Policy ID.
+     * @return Policy ID of the Rule
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -155,14 +155,14 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * Policy Rule Status: ACTIVE or INACTIVE.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * @return Policy Rule Status: ACTIVE or INACTIVE.
      * 
      */
     public Optional<Output<String>> status() {
@@ -250,7 +250,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * @param appIncludes Applications to include
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * @param appIncludes Applications to include
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * @param appIncludes Applications to include
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enroll When a user should be prompted for MFA. It can be `&#34;CHALLENGE&#34;`, `&#34;LOGIN&#34;`, or `&#34;NEVER&#34;`.
+         * @param enroll Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enroll When a user should be prompted for MFA. It can be `&#34;CHALLENGE&#34;`, `&#34;LOGIN&#34;`, or `&#34;NEVER&#34;`.
+         * @param enroll Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+         * @param networkConnection Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+         * @param networkConnection Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes The zones to exclude
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes The zones to exclude
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes The zones to exclude
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes The zones to include
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes The zones to include
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes The zones to include
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId Policy ID of the Rule
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId Policy ID of the Rule
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Rule Status: ACTIVE or INACTIVE.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Rule Status: ACTIVE or INACTIVE.
          * 
          * @return builder
          * 

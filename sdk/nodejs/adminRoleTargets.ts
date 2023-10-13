@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Manages targets for administrator roles.
- *
- * This resource allows you to define permissions for admin roles into a smaller subset of Groups or Apps within your org.
- * You can define admin roles to target Groups, Applications, and Application Instances.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.AdminRoleTargets("example", {
- *     apps: [
- *         "oidc_client.<app_id>",
- *         "facebook",
- *     ],
- *     roleType: "APP_ADMIN",
- *     userId: "<user_id>",
- * });
- * ```
- *
- * ## Import
- *
- * Okta Admin Role Targets can be imported via the Okta ID.
- *
- * ```sh
- *  $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &#60;user id&#62;/&#60;role type&#62;
- * ```
- */
 export class AdminRoleTargets extends pulumi.CustomResource {
     /**
      * Get an existing AdminRoleTargets resource's state with the given name, ID, and optional extra
@@ -63,23 +33,23 @@ export class AdminRoleTargets extends pulumi.CustomResource {
     }
 
     /**
-     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
+     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
      */
     public readonly apps!: pulumi.Output<string[] | undefined>;
     /**
-     * List of group IDs. Conflicts with `apps`.
+     * List of group IDs
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
-     * Role ID.
+     * ID of a role
      */
     public /*out*/ readonly roleId!: pulumi.Output<string>;
     /**
-     * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * Type of the role that is assigned to the user and supports optional targets
      */
     public readonly roleType!: pulumi.Output<string>;
     /**
-     * ID of the user.
+     * User associated with the role
      */
     public readonly userId!: pulumi.Output<string>;
 
@@ -125,23 +95,23 @@ export class AdminRoleTargets extends pulumi.CustomResource {
  */
 export interface AdminRoleTargetsState {
     /**
-     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
+     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
      */
     apps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of group IDs. Conflicts with `apps`.
+     * List of group IDs
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Role ID.
+     * ID of a role
      */
     roleId?: pulumi.Input<string>;
     /**
-     * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * Type of the role that is assigned to the user and supports optional targets
      */
     roleType?: pulumi.Input<string>;
     /**
-     * ID of the user.
+     * User associated with the role
      */
     userId?: pulumi.Input<string>;
 }
@@ -151,19 +121,19 @@ export interface AdminRoleTargetsState {
  */
 export interface AdminRoleTargetsArgs {
     /**
-     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
+     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
      */
     apps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of group IDs. Conflicts with `apps`.
+     * List of group IDs
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * Type of the role that is assigned to the user and supports optional targets
      */
     roleType: pulumi.Input<string>;
     /**
-     * ID of the user.
+     * User associated with the role
      */
     userId: pulumi.Input<string>;
 }

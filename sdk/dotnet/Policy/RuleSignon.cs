@@ -9,225 +9,98 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Policy
 {
-    /// <summary>
-    /// Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `risc_level`
-    /// to an empty string, since this feature is not enabled.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Okta.Policy.Signon("test", new()
-    ///     {
-    ///         Status = "ACTIVE",
-    ///         Description = "Example Policy",
-    ///     });
-    /// 
-    ///     var newCity = Okta.GetBehaviour.Invoke(new()
-    ///     {
-    ///         Name = "New City",
-    ///     });
-    /// 
-    ///     var example = new Okta.Policy.RuleSignon("example", new()
-    ///     {
-    ///         Access = "CHALLENGE",
-    ///         Authtype = "RADIUS",
-    ///         NetworkConnection = "ANYWHERE",
-    ///         PolicyId = okta_policy_signon.Example.Id,
-    ///         Status = "ACTIVE",
-    ///         RiscLevel = "HIGH",
-    ///         Behaviors = new[]
-    ///         {
-    ///             newCity.Apply(getBehaviourResult =&gt; getBehaviourResult.Id),
-    ///         },
-    ///         FactorSequences = new[]
-    ///         {
-    ///             new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs
-    ///             {
-    ///                 PrimaryCriteriaFactorType = "token:hotp",
-    ///                 PrimaryCriteriaProvider = "CUSTOM",
-    ///                 SecondaryCriterias = new[]
-    ///                 {
-    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                     {
-    ///                         FactorType = "token:software:totp",
-    ///                         Provider = "OKTA",
-    ///                     },
-    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                     {
-    ///                         FactorType = "push",
-    ///                         Provider = "OKTA",
-    ///                     },
-    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                     {
-    ///                         FactorType = "password",
-    ///                         Provider = "OKTA",
-    ///                     },
-    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                     {
-    ///                         FactorType = "question",
-    ///                         Provider = "OKTA",
-    ///                     },
-    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                     {
-    ///                         FactorType = "sms",
-    ///                         Provider = "OKTA",
-    ///                     },
-    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                     {
-    ///                         FactorType = "token:software:totp",
-    ///                         Provider = "GOOGLE",
-    ///                     },
-    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                     {
-    ///                         FactorType = "email",
-    ///                         Provider = "OKTA",
-    ///                     },
-    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                     {
-    ///                         FactorType = "call",
-    ///                         Provider = "OKTA",
-    ///                     },
-    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                     {
-    ///                         FactorType = "webauthn",
-    ///                         Provider = "FIDO",
-    ///                     },
-    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                     {
-    ///                         FactorType = "token",
-    ///                         Provider = "RSA",
-    ///                     },
-    ///                     new Okta.Policy.Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs
-    ///                     {
-    ///                         FactorType = "token",
-    ///                         Provider = "SYMANTEC",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Okta.Policy.Inputs.RuleSignonFactorSequenceArgs
-    ///             {
-    ///                 PrimaryCriteriaFactorType = "token:software:totp",
-    ///                 PrimaryCriteriaProvider = "OKTA",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// A Policy Rule can be imported via the Policy and Rule ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:policy/ruleSignon:RuleSignon example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:policy/ruleSignon:RuleSignon")]
     public partial class RuleSignon : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
+        /// Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
         /// </summary>
         [Output("access")]
         public Output<string?> Access { get; private set; } = null!;
 
         /// <summary>
-        /// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
+        /// Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
         /// </summary>
         [Output("authtype")]
         public Output<string?> Authtype { get; private set; } = null!;
 
         /// <summary>
-        /// List of behavior IDs.
+        /// List of behavior IDs
         /// </summary>
         [Output("behaviors")]
         public Output<ImmutableArray<string>> Behaviors { get; private set; } = null!;
 
-        /// <summary>
-        /// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
-        /// </summary>
         [Output("factorSequences")]
         public Output<ImmutableArray<Outputs.RuleSignonFactorSequence>> FactorSequences { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
-        /// 
-        /// &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+        /// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
         /// </summary>
         [Output("identityProvider")]
         public Output<string?> IdentityProvider { get; private set; } = null!;
 
         /// <summary>
-        /// When identity_provider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+        /// When identity*provider is SPECIFIC*IDP then this is the list of IdP IDs to apply the rule on
         /// </summary>
         [Output("identityProviderIds")]
         public Output<ImmutableArray<string>> IdentityProviderIds { get; private set; } = null!;
 
         /// <summary>
-        /// Elapsed time before the next MFA challenge.
+        /// Elapsed time before the next MFA challenge
         /// </summary>
         [Output("mfaLifetime")]
         public Output<int?> MfaLifetime { get; private set; } = null!;
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
         /// </summary>
         [Output("mfaPrompt")]
         public Output<string?> MfaPrompt { get; private set; } = null!;
 
         /// <summary>
-        /// Remember MFA device. The default `false`.
+        /// Remember MFA device.
         /// </summary>
         [Output("mfaRememberDevice")]
         public Output<bool?> MfaRememberDevice { get; private set; } = null!;
 
         /// <summary>
-        /// Require MFA. By default is `false`.
+        /// Require MFA.
         /// </summary>
         [Output("mfaRequired")]
         public Output<bool?> MfaRequired { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Policy Rule Name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         /// </summary>
         [Output("networkConnection")]
         public Output<string?> NetworkConnection { get; private set; } = null!;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// The zones to exclude
         /// </summary>
         [Output("networkExcludes")]
         public Output<ImmutableArray<string>> NetworkExcludes { get; private set; } = null!;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// The zones to include
         /// </summary>
         [Output("networkIncludes")]
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// Policy ID.
+        /// Policy ID of the Rule
         /// </summary>
         [Output("policyId")]
         public Output<string?> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
-        /// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+        /// Primary factor.
         /// </summary>
         [Output("primaryFactor")]
         public Output<string> PrimaryFactor { get; private set; } = null!;
@@ -239,14 +112,13 @@ namespace Pulumi.Okta.Policy
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
-        /// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        /// Risc level: ANY, LOW, MEDIUM or HIGH
         /// </summary>
         [Output("riscLevel")]
         public Output<string?> RiscLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Max minutes a session can be idle.,
+        /// Max minutes a session can be idle.
         /// </summary>
         [Output("sessionIdle")]
         public Output<int?> SessionIdle { get; private set; } = null!;
@@ -264,13 +136,13 @@ namespace Pulumi.Okta.Policy
         public Output<bool?> SessionPersistent { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Rule Status: ACTIVE or INACTIVE.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The list of user IDs that would be excluded when rules are processed.
+        /// Set of User IDs to Exclude
         /// </summary>
         [Output("usersExcludeds")]
         public Output<ImmutableArray<string>> UsersExcludeds { get; private set; } = null!;
@@ -322,13 +194,13 @@ namespace Pulumi.Okta.Policy
     public sealed class RuleSignonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
+        /// Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
 
         /// <summary>
-        /// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
+        /// Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
         /// </summary>
         [Input("authtype")]
         public Input<string>? Authtype { get; set; }
@@ -337,7 +209,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _behaviors;
 
         /// <summary>
-        /// List of behavior IDs.
+        /// List of behavior IDs
         /// </summary>
         public InputList<string> Behaviors
         {
@@ -347,10 +219,6 @@ namespace Pulumi.Okta.Policy
 
         [Input("factorSequences")]
         private InputList<Inputs.RuleSignonFactorSequenceArgs>? _factorSequences;
-
-        /// <summary>
-        /// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
-        /// </summary>
         public InputList<Inputs.RuleSignonFactorSequenceArgs> FactorSequences
         {
             get => _factorSequences ?? (_factorSequences = new InputList<Inputs.RuleSignonFactorSequenceArgs>());
@@ -358,9 +226,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
-        /// 
-        /// &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+        /// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
         /// </summary>
         [Input("identityProvider")]
         public Input<string>? IdentityProvider { get; set; }
@@ -369,7 +235,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _identityProviderIds;
 
         /// <summary>
-        /// When identity_provider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+        /// When identity*provider is SPECIFIC*IDP then this is the list of IdP IDs to apply the rule on
         /// </summary>
         public InputList<string> IdentityProviderIds
         {
@@ -378,37 +244,37 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Elapsed time before the next MFA challenge.
+        /// Elapsed time before the next MFA challenge
         /// </summary>
         [Input("mfaLifetime")]
         public Input<int>? MfaLifetime { get; set; }
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
         /// </summary>
         [Input("mfaPrompt")]
         public Input<string>? MfaPrompt { get; set; }
 
         /// <summary>
-        /// Remember MFA device. The default `false`.
+        /// Remember MFA device.
         /// </summary>
         [Input("mfaRememberDevice")]
         public Input<bool>? MfaRememberDevice { get; set; }
 
         /// <summary>
-        /// Require MFA. By default is `false`.
+        /// Require MFA.
         /// </summary>
         [Input("mfaRequired")]
         public Input<bool>? MfaRequired { get; set; }
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Policy Rule Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -417,7 +283,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// The zones to exclude
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -429,7 +295,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// The zones to include
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -438,14 +304,13 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy ID.
+        /// Policy ID of the Rule
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
-        /// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+        /// Primary factor.
         /// </summary>
         [Input("primaryFactor")]
         public Input<string>? PrimaryFactor { get; set; }
@@ -457,14 +322,13 @@ namespace Pulumi.Okta.Policy
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
-        /// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        /// Risc level: ANY, LOW, MEDIUM or HIGH
         /// </summary>
         [Input("riscLevel")]
         public Input<string>? RiscLevel { get; set; }
 
         /// <summary>
-        /// Max minutes a session can be idle.,
+        /// Max minutes a session can be idle.
         /// </summary>
         [Input("sessionIdle")]
         public Input<int>? SessionIdle { get; set; }
@@ -482,7 +346,7 @@ namespace Pulumi.Okta.Policy
         public Input<bool>? SessionPersistent { get; set; }
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Rule Status: ACTIVE or INACTIVE.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -491,7 +355,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _usersExcludeds;
 
         /// <summary>
-        /// The list of user IDs that would be excluded when rules are processed.
+        /// Set of User IDs to Exclude
         /// </summary>
         public InputList<string> UsersExcludeds
         {
@@ -508,13 +372,13 @@ namespace Pulumi.Okta.Policy
     public sealed class RuleSignonState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
+        /// Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
 
         /// <summary>
-        /// Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
+        /// Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
         /// </summary>
         [Input("authtype")]
         public Input<string>? Authtype { get; set; }
@@ -523,7 +387,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _behaviors;
 
         /// <summary>
-        /// List of behavior IDs.
+        /// List of behavior IDs
         /// </summary>
         public InputList<string> Behaviors
         {
@@ -533,10 +397,6 @@ namespace Pulumi.Okta.Policy
 
         [Input("factorSequences")]
         private InputList<Inputs.RuleSignonFactorSequenceGetArgs>? _factorSequences;
-
-        /// <summary>
-        /// Auth factor sequences. Should be set if `access = "CHALLENGE"`.
-        /// </summary>
         public InputList<Inputs.RuleSignonFactorSequenceGetArgs> FactorSequences
         {
             get => _factorSequences ?? (_factorSequences = new InputList<Inputs.RuleSignonFactorSequenceGetArgs>());
@@ -544,9 +404,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
-        /// 
-        /// &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+        /// Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
         /// </summary>
         [Input("identityProvider")]
         public Input<string>? IdentityProvider { get; set; }
@@ -555,7 +413,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _identityProviderIds;
 
         /// <summary>
-        /// When identity_provider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+        /// When identity*provider is SPECIFIC*IDP then this is the list of IdP IDs to apply the rule on
         /// </summary>
         public InputList<string> IdentityProviderIds
         {
@@ -564,37 +422,37 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Elapsed time before the next MFA challenge.
+        /// Elapsed time before the next MFA challenge
         /// </summary>
         [Input("mfaLifetime")]
         public Input<int>? MfaLifetime { get; set; }
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
         /// </summary>
         [Input("mfaPrompt")]
         public Input<string>? MfaPrompt { get; set; }
 
         /// <summary>
-        /// Remember MFA device. The default `false`.
+        /// Remember MFA device.
         /// </summary>
         [Input("mfaRememberDevice")]
         public Input<bool>? MfaRememberDevice { get; set; }
 
         /// <summary>
-        /// Require MFA. By default is `false`.
+        /// Require MFA.
         /// </summary>
         [Input("mfaRequired")]
         public Input<bool>? MfaRequired { get; set; }
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Policy Rule Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -603,7 +461,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// The zones to exclude
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -615,7 +473,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// The zones to include
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -624,14 +482,13 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy ID.
+        /// Policy ID of the Rule
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
-        /// `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+        /// Primary factor.
         /// </summary>
         [Input("primaryFactor")]
         public Input<string>? PrimaryFactor { get; set; }
@@ -643,14 +500,13 @@ namespace Pulumi.Okta.Policy
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
-        /// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        /// Risc level: ANY, LOW, MEDIUM or HIGH
         /// </summary>
         [Input("riscLevel")]
         public Input<string>? RiscLevel { get; set; }
 
         /// <summary>
-        /// Max minutes a session can be idle.,
+        /// Max minutes a session can be idle.
         /// </summary>
         [Input("sessionIdle")]
         public Input<int>? SessionIdle { get; set; }
@@ -668,7 +524,7 @@ namespace Pulumi.Okta.Policy
         public Input<bool>? SessionPersistent { get; set; }
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Rule Status: ACTIVE or INACTIVE.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -677,7 +533,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _usersExcludeds;
 
         /// <summary>
-        /// The list of user IDs that would be excluded when rules are processed.
+        /// Set of User IDs to Exclude
         /// </summary>
         public InputList<string> UsersExcludeds
         {

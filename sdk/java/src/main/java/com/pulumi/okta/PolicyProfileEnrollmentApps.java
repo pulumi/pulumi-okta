@@ -15,94 +15,31 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
- * 
- * This resource allows you to manage the apps in the Profile Enrollment Policy.
- * 
- * **Important Notes:**
- *  - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
- *  - When re-assigning the app to another policy, please use `depends_on` in the policy to which the app will be assigned. This is necessary to avoid
- *      unexpected behavior, since if the app is unassigned from the policy it is just assigned to the `Default` one.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.policy.PolicyFunctions;
- * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
- * import com.pulumi.okta.app.AppFunctions;
- * import com.pulumi.okta.app.inputs.GetAppArgs;
- * import com.pulumi.okta.PolicyProfileEnrollmentApps;
- * import com.pulumi.okta.PolicyProfileEnrollmentAppsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var examplePolicy = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
- *             .name(&#34;My Policy&#34;)
- *             .type(&#34;PROFILE_ENROLLMENT&#34;)
- *             .build());
- * 
- *         final var test = AppFunctions.getApp(GetAppArgs.builder()
- *             .label(&#34;My App&#34;)
- *             .build());
- * 
- *         var examplePolicyProfileEnrollmentApps = new PolicyProfileEnrollmentApps(&#34;examplePolicyProfileEnrollmentApps&#34;, PolicyProfileEnrollmentAppsArgs.builder()        
- *             .policyId(okta_policy.example().id())
- *             .apps(data.okta_app().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * A Profile Enrollment Policy Apps can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &amp;#60;policy id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps")
 public class PolicyProfileEnrollmentApps extends com.pulumi.resources.CustomResource {
     /**
-     * List of app IDs to be added to this policy.
+     * List of app IDs to be added to this policy
      * 
      */
     @Export(name="apps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> apps;
 
     /**
-     * @return List of app IDs to be added to this policy.
+     * @return List of app IDs to be added to this policy
      * 
      */
     public Output<Optional<List<String>>> apps() {
         return Codegen.optional(this.apps);
     }
     /**
-     * ID of the default enrollment policy.
+     * ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
      * 
      */
     @Export(name="defaultPolicyId", refs={String.class}, tree="[0]")
     private Output<String> defaultPolicyId;
 
     /**
-     * @return ID of the default enrollment policy.
+     * @return ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
      * 
      */
     public Output<String> defaultPolicyId() {

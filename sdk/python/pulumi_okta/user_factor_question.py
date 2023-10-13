@@ -19,9 +19,9 @@ class UserFactorQuestionArgs:
                  user_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a UserFactorQuestion resource.
-        :param pulumi.Input[str] answer: Security question answer. Note here that answer won't be set during the resource import.
-        :param pulumi.Input[str] key: Security question unique key.
-        :param pulumi.Input[str] user_id: ID of the user. Resource will be recreated when `user_id` changes.
+        :param pulumi.Input[str] answer: User password security answer
+        :param pulumi.Input[str] key: Unique key for question
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         UserFactorQuestionArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -44,7 +44,7 @@ class UserFactorQuestionArgs:
     @pulumi.getter
     def answer(self) -> pulumi.Input[str]:
         """
-        Security question answer. Note here that answer won't be set during the resource import.
+        User password security answer
         """
         return pulumi.get(self, "answer")
 
@@ -56,7 +56,7 @@ class UserFactorQuestionArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        Security question unique key.
+        Unique key for question
         """
         return pulumi.get(self, "key")
 
@@ -68,7 +68,7 @@ class UserFactorQuestionArgs:
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[str]:
         """
-        ID of the user. Resource will be recreated when `user_id` changes.
+        ID of a Okta User
         """
         return pulumi.get(self, "user_id")
 
@@ -87,11 +87,11 @@ class _UserFactorQuestionState:
                  user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserFactorQuestion resources.
-        :param pulumi.Input[str] answer: Security question answer. Note here that answer won't be set during the resource import.
-        :param pulumi.Input[str] key: Security question unique key.
-        :param pulumi.Input[str] status: The status of the security question factor.
-        :param pulumi.Input[str] text: Display text for security question.
-        :param pulumi.Input[str] user_id: ID of the user. Resource will be recreated when `user_id` changes.
+        :param pulumi.Input[str] answer: User password security answer
+        :param pulumi.Input[str] key: Unique key for question
+        :param pulumi.Input[str] status: User factor status.
+        :param pulumi.Input[str] text: Display text for question
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         _UserFactorQuestionState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -125,7 +125,7 @@ class _UserFactorQuestionState:
     @pulumi.getter
     def answer(self) -> Optional[pulumi.Input[str]]:
         """
-        Security question answer. Note here that answer won't be set during the resource import.
+        User password security answer
         """
         return pulumi.get(self, "answer")
 
@@ -137,7 +137,7 @@ class _UserFactorQuestionState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        Security question unique key.
+        Unique key for question
         """
         return pulumi.get(self, "key")
 
@@ -149,7 +149,7 @@ class _UserFactorQuestionState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of the security question factor.
+        User factor status.
         """
         return pulumi.get(self, "status")
 
@@ -161,7 +161,7 @@ class _UserFactorQuestionState:
     @pulumi.getter
     def text(self) -> Optional[pulumi.Input[str]]:
         """
-        Display text for security question.
+        Display text for question
         """
         return pulumi.get(self, "text")
 
@@ -173,7 +173,7 @@ class _UserFactorQuestionState:
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the user. Resource will be recreated when `user_id` changes.
+        ID of a Okta User
         """
         return pulumi.get(self, "user_id")
 
@@ -192,45 +192,13 @@ class UserFactorQuestion(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates security question factor for a user.
-
-        This resource allows you to create and configure security question factor for a user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_user = okta.user.User("exampleUser",
-            first_name="John",
-            last_name="Smith",
-            login="john.smith@example.com",
-            email="john.smith@example.com")
-        example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
-        example_factor = okta.factor.Factor("exampleFactor",
-            provider_id="okta_question",
-            active=True)
-        example_user_factor_question = okta.UserFactorQuestion("exampleUserFactorQuestion",
-            user_id=example_user.id,
-            key=example_user_security_questions.questions[0].key,
-            answer="meatball",
-            opts=pulumi.ResourceOptions(depends_on=[example_factor]))
-        ```
-
-        ## Import
-
-        Security question factor for a user can be imported via the `user_id` and the `factor_id`.
-
-        ```sh
-         $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
-        ```
+        Resource to manage a question factor for a user
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] answer: Security question answer. Note here that answer won't be set during the resource import.
-        :param pulumi.Input[str] key: Security question unique key.
-        :param pulumi.Input[str] user_id: ID of the user. Resource will be recreated when `user_id` changes.
+        :param pulumi.Input[str] answer: User password security answer
+        :param pulumi.Input[str] key: Unique key for question
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         ...
     @overload
@@ -239,39 +207,7 @@ class UserFactorQuestion(pulumi.CustomResource):
                  args: UserFactorQuestionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates security question factor for a user.
-
-        This resource allows you to create and configure security question factor for a user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example_user = okta.user.User("exampleUser",
-            first_name="John",
-            last_name="Smith",
-            login="john.smith@example.com",
-            email="john.smith@example.com")
-        example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
-        example_factor = okta.factor.Factor("exampleFactor",
-            provider_id="okta_question",
-            active=True)
-        example_user_factor_question = okta.UserFactorQuestion("exampleUserFactorQuestion",
-            user_id=example_user.id,
-            key=example_user_security_questions.questions[0].key,
-            answer="meatball",
-            opts=pulumi.ResourceOptions(depends_on=[example_factor]))
-        ```
-
-        ## Import
-
-        Security question factor for a user can be imported via the `user_id` and the `factor_id`.
-
-        ```sh
-         $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
-        ```
+        Resource to manage a question factor for a user
 
         :param str resource_name: The name of the resource.
         :param UserFactorQuestionArgs args: The arguments to use to populate this resource's properties.
@@ -339,11 +275,11 @@ class UserFactorQuestion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] answer: Security question answer. Note here that answer won't be set during the resource import.
-        :param pulumi.Input[str] key: Security question unique key.
-        :param pulumi.Input[str] status: The status of the security question factor.
-        :param pulumi.Input[str] text: Display text for security question.
-        :param pulumi.Input[str] user_id: ID of the user. Resource will be recreated when `user_id` changes.
+        :param pulumi.Input[str] answer: User password security answer
+        :param pulumi.Input[str] key: Unique key for question
+        :param pulumi.Input[str] status: User factor status.
+        :param pulumi.Input[str] text: Display text for question
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -360,7 +296,7 @@ class UserFactorQuestion(pulumi.CustomResource):
     @pulumi.getter
     def answer(self) -> pulumi.Output[str]:
         """
-        Security question answer. Note here that answer won't be set during the resource import.
+        User password security answer
         """
         return pulumi.get(self, "answer")
 
@@ -368,7 +304,7 @@ class UserFactorQuestion(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        Security question unique key.
+        Unique key for question
         """
         return pulumi.get(self, "key")
 
@@ -376,7 +312,7 @@ class UserFactorQuestion(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The status of the security question factor.
+        User factor status.
         """
         return pulumi.get(self, "status")
 
@@ -384,7 +320,7 @@ class UserFactorQuestion(pulumi.CustomResource):
     @pulumi.getter
     def text(self) -> pulumi.Output[str]:
         """
-        Display text for security question.
+        Display text for question
         """
         return pulumi.get(self, "text")
 
@@ -392,7 +328,7 @@ class UserFactorQuestion(pulumi.CustomResource):
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
         """
-        ID of the user. Resource will be recreated when `user_id` changes.
+        ID of a Okta User
         """
         return pulumi.get(self, "user_id")
 

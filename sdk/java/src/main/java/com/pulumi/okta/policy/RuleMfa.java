@@ -18,288 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * This resource allows you to create and configure an MFA Policy Rule.
- * 
- * ## Example Usage
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.policy.PolicyFunctions;
- * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
- * import com.pulumi.okta.app.OAuth;
- * import com.pulumi.okta.app.OAuthArgs;
- * import com.pulumi.okta.policy.RuleMfa;
- * import com.pulumi.okta.policy.RuleMfaArgs;
- * import com.pulumi.okta.policy.inputs.RuleMfaAppIncludeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
- *             .build());
- * 
- *         var exampleOAuth = new OAuth(&#34;exampleOAuth&#34;, OAuthArgs.builder()        
- *             .label(&#34;My App&#34;)
- *             .type(&#34;web&#34;)
- *             .grantTypes(&#34;authorization_code&#34;)
- *             .redirectUris(&#34;http://localhost:8000&#34;)
- *             .responseTypes(&#34;code&#34;)
- *             .skipGroups(true)
- *             .build());
- * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
- *             .status(&#34;ACTIVE&#34;)
- *             .enroll(&#34;LOGIN&#34;)
- *             .appIncludes(            
- *                 RuleMfaAppIncludeArgs.builder()
- *                     .id(exampleOAuth.id())
- *                     .type(&#34;APP&#34;)
- *                     .build(),
- *                 RuleMfaAppIncludeArgs.builder()
- *                     .type(&#34;APP_TYPE&#34;)
- *                     .name(&#34;yahoo_mail&#34;)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.policy.PolicyFunctions;
- * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
- * import com.pulumi.okta.policy.RuleMfa;
- * import com.pulumi.okta.policy.RuleMfaArgs;
- * import com.pulumi.okta.policy.inputs.RuleMfaAppExcludeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
- *             .build());
- * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
- *             .appExcludes(RuleMfaAppExcludeArgs.builder()
- *                 .name(&#34;okta&#34;)
- *                 .type(&#34;APP_TYPE&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.policy.PolicyFunctions;
- * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
- * import com.pulumi.okta.policy.RuleMfa;
- * import com.pulumi.okta.policy.RuleMfaArgs;
- * import com.pulumi.okta.policy.inputs.RuleMfaAppExcludeArgs;
- * import com.pulumi.okta.policy.inputs.RuleMfaAppIncludeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
- *             .build());
- * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
- *             .appExcludes(RuleMfaAppExcludeArgs.builder()
- *                 .name(&#34;okta&#34;)
- *                 .type(&#34;APP_TYPE&#34;)
- *                 .build())
- *             .appIncludes(RuleMfaAppIncludeArgs.builder()
- *                 .id(&#34;some_app_id&#34;)
- *                 .type(&#34;APP&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.policy.PolicyFunctions;
- * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
- * import com.pulumi.okta.policy.RuleMfa;
- * import com.pulumi.okta.policy.RuleMfaArgs;
- * import com.pulumi.okta.policy.inputs.RuleMfaAppIncludeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
- *             .build());
- * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
- *             .appIncludes(RuleMfaAppIncludeArgs.builder()
- *                 .name(&#34;okta&#34;)
- *                 .type(&#34;APP_TYPE&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.policy.PolicyFunctions;
- * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
- * import com.pulumi.okta.policy.RuleMfa;
- * import com.pulumi.okta.policy.RuleMfaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
- *             .build());
- * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.policy.PolicyFunctions;
- * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
- * import com.pulumi.okta.policy.RuleMfa;
- * import com.pulumi.okta.policy.RuleMfaArgs;
- * import com.pulumi.okta.policy.inputs.RuleMfaAppIncludeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
- *             .build());
- * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
- *             .appIncludes(            
- *                 RuleMfaAppIncludeArgs.builder()
- *                     .name(&#34;okta&#34;)
- *                     .type(&#34;APP_TYPE&#34;)
- *                     .build(),
- *                 RuleMfaAppIncludeArgs.builder()
- *                     .id(&#34;some_app_id&#34;)
- *                     .type(&#34;APP&#34;)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * A Policy Rule can be imported via the Policy and Rule ID.
- * 
- * ```sh
- *  $ pulumi import okta:policy/ruleMfa:RuleMfa example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:policy/ruleMfa:RuleMfa")
 public class RuleMfa extends com.pulumi.resources.CustomResource {
     /**
@@ -317,98 +35,98 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appExcludes);
     }
     /**
-     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * Applications to include
      * 
      */
     @Export(name="appIncludes", refs={List.class,RuleMfaAppInclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleMfaAppInclude>> appIncludes;
 
     /**
-     * @return Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * @return Applications to include
      * 
      */
     public Output<Optional<List<RuleMfaAppInclude>>> appIncludes() {
         return Codegen.optional(this.appIncludes);
     }
     /**
-     * When a user should be prompted for MFA. It can be `&#34;CHALLENGE&#34;`, `&#34;LOGIN&#34;`, or `&#34;NEVER&#34;`.
+     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
      * 
      */
     @Export(name="enroll", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enroll;
 
     /**
-     * @return When a user should be prompted for MFA. It can be `&#34;CHALLENGE&#34;`, `&#34;LOGIN&#34;`, or `&#34;NEVER&#34;`.
+     * @return Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
      * 
      */
     public Output<Optional<String>> enroll() {
         return Codegen.optional(this.enroll);
     }
     /**
-     * Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+     * Policy Rule Name
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+     * @return Policy Rule Name
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      * 
      */
     @Export(name="networkConnection", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkConnection;
 
     /**
-     * @return Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * @return Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      * 
      */
     public Output<Optional<String>> networkConnection() {
         return Codegen.optional(this.networkConnection);
     }
     /**
-     * The network zones to exclude. Conflicts with `network_includes`.
+     * The zones to exclude
      * 
      */
     @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**
-     * @return The network zones to exclude. Conflicts with `network_includes`.
+     * @return The zones to exclude
      * 
      */
     public Output<Optional<List<String>>> networkExcludes() {
         return Codegen.optional(this.networkExcludes);
     }
     /**
-     * The network zones to include. Conflicts with `network_excludes`.
+     * The zones to include
      * 
      */
     @Export(name="networkIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkIncludes;
 
     /**
-     * @return The network zones to include. Conflicts with `network_excludes`.
+     * @return The zones to include
      * 
      */
     public Output<Optional<List<String>>> networkIncludes() {
         return Codegen.optional(this.networkIncludes);
     }
     /**
-     * Policy ID.
+     * Policy ID of the Rule
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyId;
 
     /**
-     * @return Policy ID.
+     * @return Policy ID of the Rule
      * 
      */
     public Output<Optional<String>> policyId() {
@@ -429,14 +147,14 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.priority);
     }
     /**
-     * Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * Policy Rule Status: ACTIVE or INACTIVE.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * @return Policy Rule Status: ACTIVE or INACTIVE.
      * 
      */
     public Output<Optional<String>> status() {

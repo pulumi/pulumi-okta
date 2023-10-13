@@ -13,46 +13,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// This resource allows you manage org settings, logo, support and communication options.
-//
-// > **IMPORTANT:** You must specify all Org Setting properties when you update an org's profile. Any property not specified in the script will be deleted.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewOrgConfiguration(ctx, "example", &okta.OrgConfigurationArgs{
-//				CompanyName: pulumi.String("Umbrella Corporation"),
-//				Website:     pulumi.String("https://terraform.io"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Okta Org Configuration can be imported even without specifying the Org ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
-//
-// ```
 type OrgConfiguration struct {
 	pulumi.CustomResourceState
 

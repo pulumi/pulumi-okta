@@ -13,51 +13,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Link definition operations allow you to manage the creation and removal of the link definitions. If you remove a link
-// definition, links based on that definition are unavailable. Note that this resource is immutable, thus can not be modified.
-//
-// > **NOTE:** Links reappear if you recreate the definition. However, Okta is likely to change this behavior so that links don't reappear. Don't rely on this behavior in production environments.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewLinkDefinition(ctx, "example", &okta.LinkDefinitionArgs{
-//				AssociatedDescription: pulumi.String("Elite military force member"),
-//				AssociatedName:        pulumi.String("sardaukar"),
-//				AssociatedTitle:       pulumi.String("Sardaukar"),
-//				PrimaryDescription:    pulumi.String("Hereditary ruler of the Imperium and the Known Universe"),
-//				PrimaryName:           pulumi.String("emperor"),
-//				PrimaryTitle:          pulumi.String("Emperor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Okta Link Definition can be imported via the Okta Primary Link Name.
-//
-// ```sh
-//
-//	$ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
-//
-// ```
 type LinkDefinition struct {
 	pulumi.CustomResourceState
 

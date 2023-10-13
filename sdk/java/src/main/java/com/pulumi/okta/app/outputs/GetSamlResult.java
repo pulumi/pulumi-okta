@@ -15,53 +15,53 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSamlResult {
     /**
-     * @return Custom error page URL.
+     * @return Custom error page URL
      * 
      */
     private String accessibilityErrorRedirectUrl;
     /**
-     * @return Custom login page URL.
+     * @return Custom login page URL
      * 
      */
     private String accessibilityLoginRedirectUrl;
     /**
-     * @return Enable self-service.
+     * @return Enable self service
      * 
      */
     private Boolean accessibilitySelfService;
     /**
-     * @return An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+     * @return List of ACS endpoints for this SAML application
      * 
      */
     private List<String> acsEndpoints;
+    /**
+     * @return Search only ACTIVE applications.
+     * 
+     */
     private @Nullable Boolean activeOnly;
     /**
-     * @return Application settings in JSON format.
+     * @return Application settings in JSON format
      * 
      */
     private String appSettingsJson;
     /**
-     * @return Determines whether the SAML assertion is digitally signed.
+     * @return Determines whether the SAML assertion is digitally signed
      * 
      */
     private Boolean assertionSigned;
-    /**
-     * @return List of SAML Attribute statements.
-     * 
-     */
     private List<GetSamlAttributeStatement> attributeStatements;
     /**
-     * @return Audience restriction.
+     * @return Audience Restriction
      * 
      */
     private String audience;
     /**
-     * @return Identifies the SAML authentication context class for the assertion’s authentication statement.
+     * @return Identifies the SAML authentication context class for the assertion’s authentication statement
      * 
      */
     private String authnContextClassRef;
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     private Boolean autoSubmitToolbar;
@@ -71,22 +71,22 @@ public final class GetSamlResult {
      */
     private String defaultRelayState;
     /**
-     * @return Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+     * @return Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      * 
      */
     private String destination;
     /**
-     * @return Determines the digest algorithm used to digitally sign the SAML assertion and response.
+     * @return Determines the digest algorithm used to digitally sign the SAML assertion and response
      * 
      */
     private String digestAlgorithm;
     /**
-     * @return features enabled.
+     * @return features to enable
      * 
      */
     private List<String> features;
     /**
-     * @return List of groups IDs assigned to the application.
+     * @return Groups associated with the application
      * 
      * @deprecated
      * The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
@@ -95,7 +95,7 @@ public final class GetSamlResult {
     @Deprecated /* The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments` */
     private List<String> groups;
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     private Boolean hideIos;
@@ -105,48 +105,55 @@ public final class GetSamlResult {
      */
     private Boolean hideWeb;
     /**
-     * @return Prompt user to re-authenticate if SP asks for it.
+     * @return Prompt user to re-authenticate if SP asks for it
      * 
      */
     private Boolean honorForceAuthn;
     /**
-     * @return id of application.
+     * @return Id of application to retrieve, conflicts with label and label_prefix.
      * 
      */
     private @Nullable String id;
     /**
-     * @return SAML issuer ID.
+     * @return SAML issuer ID
      * 
      */
     private String idpIssuer;
     /**
-     * @return Saml Inline Hook associated with the application.
+     * @return Saml Inline Hook setting
      * 
      */
     private String inlineHookId;
     /**
-     * @return Certificate key ID.
+     * @return Certificate ID
      * 
      */
     private String keyId;
     /**
-     * @return label of application.
+     * @return The label of the app to retrieve, conflicts with label_prefix and id. Label
+     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * 			this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
     private @Nullable String label;
+    /**
+     * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+     * 			provider to do a starts with query as opposed to an equals query.
+     * 
+     */
     private @Nullable String labelPrefix;
     /**
-     * @return Generic JSON containing discoverable resources related to the app.
+     * @return Discoverable resources related to the app
      * 
      */
     private String links;
     /**
-     * @return name of application.
+     * @return Name of application.
      * 
      */
     private String name;
     /**
-     * @return The location where the app may present the SAML assertion.
+     * @return The location where the app may present the SAML assertion
      * 
      */
     private String recipient;
@@ -156,7 +163,7 @@ public final class GetSamlResult {
      */
     private @Nullable Boolean requestCompressed;
     /**
-     * @return Determines whether the SAML auth response message is digitally signed.
+     * @return Determines whether the SAML auth response message is digitally signed
      * 
      */
     private Boolean responseSigned;
@@ -166,26 +173,28 @@ public final class GetSamlResult {
      */
     private Boolean samlSignedRequestEnabled;
     /**
-     * @return Signature algorithm used ot digitally sign the assertion and response.
+     * @return Signature algorithm used ot digitally sign the assertion and response
      * 
      */
     private String signatureAlgorithm;
     /**
-     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests
      * 
      */
     private String singleLogoutCertificate;
     /**
-     * @return The issuer of the Service Provider that generates the Single Logout request.
+     * @return The issuer of the Service Provider that generates the Single Logout request
      * 
      */
     private String singleLogoutIssuer;
     /**
-     * @return The location where the logout response is sent.
+     * @return The location where the logout response is sent
      * 
      */
     private String singleLogoutUrl;
     /**
+     * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because groups has been removed, this attribute is a no op and will be removed
      * 
@@ -193,6 +202,8 @@ public final class GetSamlResult {
     @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
     private @Nullable Boolean skipGroups;
     /**
+     * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because users has been removed, this attribute is a no op and will be removed
      * 
@@ -200,17 +211,17 @@ public final class GetSamlResult {
     @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
     private @Nullable Boolean skipUsers;
     /**
-     * @return SAML service provider issuer.
+     * @return SAML SP issuer ID
      * 
      */
     private String spIssuer;
     /**
-     * @return Single Sign-on Url.
+     * @return Single Sign On URL
      * 
      */
     private String ssoUrl;
     /**
-     * @return status of application.
+     * @return Status of application.
      * 
      */
     private String status;
@@ -220,31 +231,33 @@ public final class GetSamlResult {
      */
     private String subjectNameIdFormat;
     /**
-     * @return Template for app user&#39;s username when a user is assigned to the app.
+     * @return Template for app user&#39;s username when a user is assigned to the app
      * 
      */
     private String subjectNameIdTemplate;
     /**
-     * @return Username template.
+     * @return Username template
      * 
      */
     private String userNameTemplate;
     /**
-     * @return Push username on update.
+     * @return Push username on update
      * 
      */
     private String userNameTemplatePushStatus;
     /**
-     * @return Username template suffix.
+     * @return Username template suffix
      * 
      */
     private String userNameTemplateSuffix;
     /**
-     * @return Username template type.
+     * @return Username template type
      * 
      */
     private String userNameTemplateType;
     /**
+     * @return Users associated with the application
+     * 
      * @deprecated
      * The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
      * 
@@ -254,73 +267,73 @@ public final class GetSamlResult {
 
     private GetSamlResult() {}
     /**
-     * @return Custom error page URL.
+     * @return Custom error page URL
      * 
      */
     public String accessibilityErrorRedirectUrl() {
         return this.accessibilityErrorRedirectUrl;
     }
     /**
-     * @return Custom login page URL.
+     * @return Custom login page URL
      * 
      */
     public String accessibilityLoginRedirectUrl() {
         return this.accessibilityLoginRedirectUrl;
     }
     /**
-     * @return Enable self-service.
+     * @return Enable self service
      * 
      */
     public Boolean accessibilitySelfService() {
         return this.accessibilitySelfService;
     }
     /**
-     * @return An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+     * @return List of ACS endpoints for this SAML application
      * 
      */
     public List<String> acsEndpoints() {
         return this.acsEndpoints;
     }
+    /**
+     * @return Search only ACTIVE applications.
+     * 
+     */
     public Optional<Boolean> activeOnly() {
         return Optional.ofNullable(this.activeOnly);
     }
     /**
-     * @return Application settings in JSON format.
+     * @return Application settings in JSON format
      * 
      */
     public String appSettingsJson() {
         return this.appSettingsJson;
     }
     /**
-     * @return Determines whether the SAML assertion is digitally signed.
+     * @return Determines whether the SAML assertion is digitally signed
      * 
      */
     public Boolean assertionSigned() {
         return this.assertionSigned;
     }
-    /**
-     * @return List of SAML Attribute statements.
-     * 
-     */
     public List<GetSamlAttributeStatement> attributeStatements() {
         return this.attributeStatements;
     }
     /**
-     * @return Audience restriction.
+     * @return Audience Restriction
      * 
      */
     public String audience() {
         return this.audience;
     }
     /**
-     * @return Identifies the SAML authentication context class for the assertion’s authentication statement.
+     * @return Identifies the SAML authentication context class for the assertion’s authentication statement
      * 
      */
     public String authnContextClassRef() {
         return this.authnContextClassRef;
     }
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     public Boolean autoSubmitToolbar() {
@@ -334,28 +347,28 @@ public final class GetSamlResult {
         return this.defaultRelayState;
     }
     /**
-     * @return Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+     * @return Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      * 
      */
     public String destination() {
         return this.destination;
     }
     /**
-     * @return Determines the digest algorithm used to digitally sign the SAML assertion and response.
+     * @return Determines the digest algorithm used to digitally sign the SAML assertion and response
      * 
      */
     public String digestAlgorithm() {
         return this.digestAlgorithm;
     }
     /**
-     * @return features enabled.
+     * @return features to enable
      * 
      */
     public List<String> features() {
         return this.features;
     }
     /**
-     * @return List of groups IDs assigned to the application.
+     * @return Groups associated with the application
      * 
      * @deprecated
      * The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
@@ -366,7 +379,7 @@ public final class GetSamlResult {
         return this.groups;
     }
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     public Boolean hideIos() {
@@ -380,66 +393,73 @@ public final class GetSamlResult {
         return this.hideWeb;
     }
     /**
-     * @return Prompt user to re-authenticate if SP asks for it.
+     * @return Prompt user to re-authenticate if SP asks for it
      * 
      */
     public Boolean honorForceAuthn() {
         return this.honorForceAuthn;
     }
     /**
-     * @return id of application.
+     * @return Id of application to retrieve, conflicts with label and label_prefix.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return SAML issuer ID.
+     * @return SAML issuer ID
      * 
      */
     public String idpIssuer() {
         return this.idpIssuer;
     }
     /**
-     * @return Saml Inline Hook associated with the application.
+     * @return Saml Inline Hook setting
      * 
      */
     public String inlineHookId() {
         return this.inlineHookId;
     }
     /**
-     * @return Certificate key ID.
+     * @return Certificate ID
      * 
      */
     public String keyId() {
         return this.keyId;
     }
     /**
-     * @return label of application.
+     * @return The label of the app to retrieve, conflicts with label_prefix and id. Label
+     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * 			this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
+    /**
+     * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+     * 			provider to do a starts with query as opposed to an equals query.
+     * 
+     */
     public Optional<String> labelPrefix() {
         return Optional.ofNullable(this.labelPrefix);
     }
     /**
-     * @return Generic JSON containing discoverable resources related to the app.
+     * @return Discoverable resources related to the app
      * 
      */
     public String links() {
         return this.links;
     }
     /**
-     * @return name of application.
+     * @return Name of application.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The location where the app may present the SAML assertion.
+     * @return The location where the app may present the SAML assertion
      * 
      */
     public String recipient() {
@@ -453,7 +473,7 @@ public final class GetSamlResult {
         return Optional.ofNullable(this.requestCompressed);
     }
     /**
-     * @return Determines whether the SAML auth response message is digitally signed.
+     * @return Determines whether the SAML auth response message is digitally signed
      * 
      */
     public Boolean responseSigned() {
@@ -467,34 +487,36 @@ public final class GetSamlResult {
         return this.samlSignedRequestEnabled;
     }
     /**
-     * @return Signature algorithm used ot digitally sign the assertion and response.
+     * @return Signature algorithm used ot digitally sign the assertion and response
      * 
      */
     public String signatureAlgorithm() {
         return this.signatureAlgorithm;
     }
     /**
-     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
+     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests
      * 
      */
     public String singleLogoutCertificate() {
         return this.singleLogoutCertificate;
     }
     /**
-     * @return The issuer of the Service Provider that generates the Single Logout request.
+     * @return The issuer of the Service Provider that generates the Single Logout request
      * 
      */
     public String singleLogoutIssuer() {
         return this.singleLogoutIssuer;
     }
     /**
-     * @return The location where the logout response is sent.
+     * @return The location where the logout response is sent
      * 
      */
     public String singleLogoutUrl() {
         return this.singleLogoutUrl;
     }
     /**
+     * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because groups has been removed, this attribute is a no op and will be removed
      * 
@@ -504,6 +526,8 @@ public final class GetSamlResult {
         return Optional.ofNullable(this.skipGroups);
     }
     /**
+     * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because users has been removed, this attribute is a no op and will be removed
      * 
@@ -513,21 +537,21 @@ public final class GetSamlResult {
         return Optional.ofNullable(this.skipUsers);
     }
     /**
-     * @return SAML service provider issuer.
+     * @return SAML SP issuer ID
      * 
      */
     public String spIssuer() {
         return this.spIssuer;
     }
     /**
-     * @return Single Sign-on Url.
+     * @return Single Sign On URL
      * 
      */
     public String ssoUrl() {
         return this.ssoUrl;
     }
     /**
-     * @return status of application.
+     * @return Status of application.
      * 
      */
     public String status() {
@@ -541,41 +565,43 @@ public final class GetSamlResult {
         return this.subjectNameIdFormat;
     }
     /**
-     * @return Template for app user&#39;s username when a user is assigned to the app.
+     * @return Template for app user&#39;s username when a user is assigned to the app
      * 
      */
     public String subjectNameIdTemplate() {
         return this.subjectNameIdTemplate;
     }
     /**
-     * @return Username template.
+     * @return Username template
      * 
      */
     public String userNameTemplate() {
         return this.userNameTemplate;
     }
     /**
-     * @return Push username on update.
+     * @return Push username on update
      * 
      */
     public String userNameTemplatePushStatus() {
         return this.userNameTemplatePushStatus;
     }
     /**
-     * @return Username template suffix.
+     * @return Username template suffix
      * 
      */
     public String userNameTemplateSuffix() {
         return this.userNameTemplateSuffix;
     }
     /**
-     * @return Username template type.
+     * @return Username template type
      * 
      */
     public String userNameTemplateType() {
         return this.userNameTemplateType;
     }
     /**
+     * @return Users associated with the application
+     * 
      * @deprecated
      * The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
      * 

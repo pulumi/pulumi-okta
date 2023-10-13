@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Auth
     public static class GetServer
     {
         /// <summary>
-        /// Use this data source to retrieve an auth server from Okta.
+        /// Get an auth server from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Okta.Auth
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("okta:auth/getServer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve an auth server from Okta.
+        /// Get an auth server from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -102,23 +102,23 @@ namespace Pulumi.Okta.Auth
     public sealed class GetServerResult
     {
         /// <summary>
-        /// array of audiences.
+        /// Description of Authorization server.
         /// </summary>
         public readonly ImmutableArray<string> Audiences;
         /// <summary>
-        /// last time credentials were rotated.
+        /// Last time credentials were rotated.
         /// </summary>
         public readonly string CredentialsLastRotated;
         /// <summary>
-        /// next time credentials will be rotated
+        /// Next time credentials will be rotated
         /// </summary>
         public readonly string CredentialsNextRotation;
         /// <summary>
-        /// mode of credential rotation, auto or manual.
+        /// Mode of credential rotation, auto or manual.
         /// </summary>
         public readonly string CredentialsRotationMode;
         /// <summary>
-        /// description of Authorization server.
+        /// Description of Authorization server.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -130,19 +130,19 @@ namespace Pulumi.Okta.Auth
         /// </summary>
         public readonly string Issuer;
         /// <summary>
-        /// Can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+        /// Can be set to `CUSTOM_URL` or `ORG_URL`
         /// </summary>
         public readonly string IssuerMode;
         /// <summary>
-        /// auth server key id.
+        /// Auth server key id.
         /// </summary>
         public readonly string Kid;
         /// <summary>
-        /// The name of the auth server.
+        /// The name of the auth server to retrieve.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// the activation status of the authorization server.
+        /// The activation status of the authorization server.
         /// </summary>
         public readonly string Status;
 

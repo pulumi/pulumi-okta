@@ -21,14 +21,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     public static final OAuthState Empty = new OAuthState();
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      * 
      */
     @Import(name="accessibilityErrorRedirectUrl")
     private @Nullable Output<String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL.
+     * @return Custom error page URL
      * 
      */
     public Optional<Output<String>> accessibilityErrorRedirectUrl() {
@@ -36,14 +36,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      * 
      */
     @Import(name="accessibilityLoginRedirectUrl")
     private @Nullable Output<String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page for this application.
+     * @return Custom login page URL
      * 
      */
     public Optional<Output<String>> accessibilityLoginRedirectUrl() {
@@ -51,14 +51,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service
      * 
      */
     @Import(name="accessibilitySelfService")
     private @Nullable Output<Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self-service. By default, it is `false`.
+     * @return Enable self service
      * 
      */
     public Optional<Output<Boolean>> accessibilitySelfService() {
@@ -81,14 +81,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Displays specific appLinks for the app. The value for each application link should be boolean.
+     * Displays specific appLinks for the app
      * 
      */
     @Import(name="appLinksJson")
     private @Nullable Output<String> appLinksJson;
 
     /**
-     * @return Displays specific appLinks for the app. The value for each application link should be boolean.
+     * @return Displays specific appLinks for the app
      * 
      */
     public Optional<Output<String>> appLinksJson() {
@@ -96,14 +96,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Application settings in JSON format.
+     * Application settings in JSON format
      * 
      */
     @Import(name="appSettingsJson")
     private @Nullable Output<String> appSettingsJson;
 
     /**
-     * @return Application settings in JSON format.
+     * @return Application settings in JSON format
      * 
      */
     public Optional<Output<String>> appSettingsJson() {
@@ -111,14 +111,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     * Id of this apps authentication policy
      * 
      */
     @Import(name="authenticationPolicy")
     private @Nullable Output<String> authenticationPolicy;
 
     /**
-     * @return The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     * @return Id of this apps authentication policy
      * 
      */
     public Optional<Output<String>> authenticationPolicy() {
@@ -126,22 +126,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Requested key rotation mode.  If
-     * `auto_key_rotation` isn&#39;t specified, the client automatically opts in for Okta&#39;s
-     * key rotation. You can update this property via the API or via the administrator
-     * UI.
-     * See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Requested key rotation mode.
      * 
      */
     @Import(name="autoKeyRotation")
     private @Nullable Output<Boolean> autoKeyRotation;
 
     /**
-     * @return Requested key rotation mode.  If
-     * `auto_key_rotation` isn&#39;t specified, the client automatically opts in for Okta&#39;s
-     * key rotation. You can update this property via the API or via the administrator
-     * UI.
-     * See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * @return Requested key rotation mode.
      * 
      */
     public Optional<Output<Boolean>> autoKeyRotation() {
@@ -149,14 +141,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      * 
      */
     @Import(name="autoSubmitToolbar")
     private @Nullable Output<Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     public Optional<Output<Boolean>> autoSubmitToolbar() {
@@ -164,14 +156,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
+     * OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
      * 
      */
     @Import(name="clientBasicSecret")
     private @Nullable Output<String> clientBasicSecret;
 
     /**
-     * @return OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
+     * @return OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
      * 
      */
     public Optional<Output<String>> clientBasicSecret() {
@@ -179,14 +171,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * OAuth client ID. If set during creation, app is created with this id.
      * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
-     * @return OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * @return OAuth client ID. If set during creation, app is created with this id.
      * 
      */
     public Optional<Output<String>> clientId() {
@@ -194,14 +186,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
      * 
      */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
     /**
-     * @return The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * @return OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
      * 
      */
     public Optional<Output<String>> clientSecret() {
@@ -224,14 +216,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether user consent is required or implicit. Valid values: `&#34;REQUIRED&#34;`, `&#34;TRUSTED&#34;`. Default value is `&#34;TRUSTED&#34;`.
+     * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
      * 
      */
     @Import(name="consentMethod")
     private @Nullable Output<String> consentMethod;
 
     /**
-     * @return Indicates whether user consent is required or implicit. Valid values: `&#34;REQUIRED&#34;`, `&#34;TRUSTED&#34;`. Default value is `&#34;TRUSTED&#34;`.
+     * @return *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
      * 
      */
     public Optional<Output<String>> consentMethod() {
@@ -254,20 +246,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-     * Defaults to minimum requirements per app type. Valid values: `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;refresh_token&#34;`, `&#34;client_credentials&#34;`,
-     * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
-     * `&#34;interaction_code&#34;` (*OIE only*).
+     * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
      * 
      */
     @Import(name="grantTypes")
     private @Nullable Output<List<String>> grantTypes;
 
     /**
-     * @return List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-     * Defaults to minimum requirements per app type. Valid values: `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;refresh_token&#34;`, `&#34;client_credentials&#34;`,
-     * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
-     * `&#34;interaction_code&#34;` (*OIE only*).
+     * @return List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
      * 
      */
     public Optional<Output<List<String>>> grantTypes() {
@@ -275,14 +261,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
+     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
      * 
      */
     @Import(name="groupsClaim")
     private @Nullable Output<OAuthGroupsClaimArgs> groupsClaim;
 
     /**
-     * @return Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
+     * @return Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
      * 
      */
     public Optional<Output<OAuthGroupsClaimArgs>> groupsClaim() {
@@ -290,14 +276,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      * 
      */
     @Import(name="hideIos")
     private @Nullable Output<Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     public Optional<Output<Boolean>> hideIos() {
@@ -305,14 +291,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      * 
      */
     @Import(name="hideWeb")
     private @Nullable Output<Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users.
+     * @return Do not display application icon to users
      * 
      */
     public Optional<Output<Boolean>> hideWeb() {
@@ -320,14 +306,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+     * *Early Access Property*. Enable Federation Broker Mode.
      * 
      */
     @Import(name="implicitAssignment")
     private @Nullable Output<Boolean> implicitAssignment;
 
     /**
-     * @return *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+     * @return *Early Access Property*. Enable Federation Broker Mode.
      * 
      */
     public Optional<Output<Boolean>> implicitAssignment() {
@@ -335,46 +321,36 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-     * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
+     * Issuer mode inherited from OAuth App
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-     * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
+     * @return Issuer mode inherited from OAuth App
      * 
      */
     public Optional<Output<String>> issuerMode() {
         return Optional.ofNullable(this.issuerMode);
     }
 
-    /**
-     * JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
-     * 
-     */
     @Import(name="jwks")
     private @Nullable Output<List<OAuthJwkArgs>> jwks;
 
-    /**
-     * @return JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
-     * 
-     */
     public Optional<Output<List<OAuthJwkArgs>>> jwks() {
         return Optional.ofNullable(this.jwks);
     }
 
     /**
-     * URL of the custom authorization server&#39;s JSON Web Key Set document.
+     * URL reference to JWKS
      * 
      */
     @Import(name="jwksUri")
     private @Nullable Output<String> jwksUri;
 
     /**
-     * @return URL of the custom authorization server&#39;s JSON Web Key Set document.
+     * @return URL reference to JWKS
      * 
      */
     public Optional<Output<String>> jwksUri() {
@@ -382,14 +358,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Application&#39;s display name.
+     * Pretty name of app.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The Application&#39;s display name.
+     * @return Pretty name of app.
      * 
      */
     public Optional<Output<String>> label() {
@@ -397,14 +373,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of Idp-Initiated login that the client supports, if any. Valid values: `&#34;DISABLED&#34;`, `&#34;SPEC&#34;`, `&#34;OKTA&#34;`. Default is `&#34;DISABLED&#34;`.
+     * The type of Idp-Initiated login that the client supports, if any
      * 
      */
     @Import(name="loginMode")
     private @Nullable Output<String> loginMode;
 
     /**
-     * @return The type of Idp-Initiated login that the client supports, if any. Valid values: `&#34;DISABLED&#34;`, `&#34;SPEC&#34;`, `&#34;OKTA&#34;`. Default is `&#34;DISABLED&#34;`.
+     * @return The type of Idp-Initiated login that the client supports, if any
      * 
      */
     public Optional<Output<String>> loginMode() {
@@ -412,14 +388,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of scopes to use for the request. Valid values: `&#34;openid&#34;`, `&#34;profile&#34;`, `&#34;email&#34;`, `&#34;address&#34;`, `&#34;phone&#34;`. Required when `login_mode` is NOT `DISABLED`.
+     * List of scopes to use for the request
      * 
      */
     @Import(name="loginScopes")
     private @Nullable Output<List<String>> loginScopes;
 
     /**
-     * @return List of scopes to use for the request. Valid values: `&#34;openid&#34;`, `&#34;profile&#34;`, `&#34;email&#34;`, `&#34;address&#34;`, `&#34;phone&#34;`. Required when `login_mode` is NOT `DISABLED`.
+     * @return List of scopes to use for the request
      * 
      */
     public Optional<Output<List<String>>> loginScopes() {
@@ -427,14 +403,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
+     * URI that initiates login.
      * 
      */
     @Import(name="loginUri")
     private @Nullable Output<String> loginUri;
 
     /**
-     * @return URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
+     * @return URI that initiates login.
      * 
      */
     public Optional<Output<String>> loginUri() {
@@ -442,14 +418,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to logo of the application.
      * 
      */
     @Import(name="logo")
     private @Nullable Output<String> logo;
 
     /**
-     * @return Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * @return Local path to logo of the application.
      * 
      */
     public Optional<Output<String>> logo() {
@@ -472,14 +448,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Direct link of application logo.
+     * URL of the application&#39;s logo
      * 
      */
     @Import(name="logoUrl")
     private @Nullable Output<String> logoUrl;
 
     /**
-     * @return Direct link of application logo.
+     * @return URL of the application&#39;s logo
      * 
      */
     public Optional<Output<String>> logoUrl() {
@@ -502,14 +478,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
+     * This tells the provider not to persist the application&#39;s secret to state. If this is ever changes from true =&gt; false your app will be recreated.
      * 
      */
     @Import(name="omitSecret")
     private @Nullable Output<Boolean> omitSecret;
 
     /**
-     * @return This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
+     * @return This tells the provider not to persist the application&#39;s secret to state. If this is ever changes from true =&gt; false your app will be recreated.
      * 
      */
     public Optional<Output<Boolean>> omitSecret() {
@@ -517,22 +493,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Require Proof Key for Code Exchange (PKCE) for
-     * additional verification.  If `pkce_required` isn&#39;t specified when adding a new
-     * application, Okta sets it to `true` by default for `&#34;browser&#34;` and `&#34;native&#34;`
-     * application types.
-     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Import(name="pkceRequired")
     private @Nullable Output<Boolean> pkceRequired;
 
     /**
-     * @return Require Proof Key for Code Exchange (PKCE) for
-     * additional verification.  If `pkce_required` isn&#39;t specified when adding a new
-     * application, Okta sets it to `true` by default for `&#34;browser&#34;` and `&#34;native&#34;`
-     * application types.
-     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Optional<Output<Boolean>> pkceRequired() {
@@ -555,14 +523,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of URIs for redirection after logout.
+     * List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
      * 
      */
     @Import(name="postLogoutRedirectUris")
     private @Nullable Output<List<String>> postLogoutRedirectUris;
 
     /**
-     * @return List of URIs for redirection after logout.
+     * @return List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
      * 
      */
     public Optional<Output<List<String>>> postLogoutRedirectUris() {
@@ -570,14 +538,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom JSON that represents an OAuth application&#39;s profile.
+     * Custom JSON that represents an OAuth application&#39;s profile
      * 
      */
     @Import(name="profile")
     private @Nullable Output<String> profile;
 
     /**
-     * @return Custom JSON that represents an OAuth application&#39;s profile.
+     * @return Custom JSON that represents an OAuth application&#39;s profile
      * 
      */
     public Optional<Output<String>> profile() {
@@ -585,14 +553,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of URIs for use in the redirect-based flow. This is required for all application types except service.
+     * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
      * 
      */
     @Import(name="redirectUris")
     private @Nullable Output<List<String>> redirectUris;
 
     /**
-     * @return List of URIs for use in the redirect-based flow. This is required for all application types except service.
+     * @return List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
      * 
      */
     public Optional<Output<List<String>>> redirectUris() {
@@ -600,14 +568,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Grace period for token rotation. Valid values: 0 to 60 seconds.
+     * *Early Access Property* Grace period for token rotation
      * 
      */
     @Import(name="refreshTokenLeeway")
     private @Nullable Output<Integer> refreshTokenLeeway;
 
     /**
-     * @return Grace period for token rotation. Valid values: 0 to 60 seconds.
+     * @return *Early Access Property* Grace period for token rotation
      * 
      */
     public Optional<Output<Integer>> refreshTokenLeeway() {
@@ -615,14 +583,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Refresh token rotation behavior. Valid values: `&#34;STATIC&#34;` or `&#34;ROTATE&#34;`.
+     * *Early Access Property* Refresh token rotation behavior
      * 
      */
     @Import(name="refreshTokenRotation")
     private @Nullable Output<String> refreshTokenRotation;
 
     /**
-     * @return Refresh token rotation behavior. Valid values: `&#34;STATIC&#34;` or `&#34;ROTATE&#34;`.
+     * @return *Early Access Property* Refresh token rotation behavior
      * 
      */
     public Optional<Output<String>> refreshTokenRotation() {
@@ -630,32 +598,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of OAuth 2.0 response type strings. Array
-     * values of `&#34;code&#34;`, `&#34;token&#34;`, `&#34;id_token&#34;`. The `grant_types` and `response_types`
-     * values described are partially orthogonal, as they refer to arguments
-     * passed to different endpoints in the OAuth 2.0 protocol (opens new window).
-     * However, they are related in that the `grant_types` available to a client
-     * influence the `response_types` that the client is allowed to use, and vice versa.
-     * For instance, a grant_types value that includes authorization_code implies a
-     * `response_types` value that includes code, as both values are defined as part of
-     * the OAuth 2.0 authorization code grant.
-     * See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
+     * List of OAuth 2.0 response type strings.
      * 
      */
     @Import(name="responseTypes")
     private @Nullable Output<List<String>> responseTypes;
 
     /**
-     * @return List of OAuth 2.0 response type strings. Array
-     * values of `&#34;code&#34;`, `&#34;token&#34;`, `&#34;id_token&#34;`. The `grant_types` and `response_types`
-     * values described are partially orthogonal, as they refer to arguments
-     * passed to different endpoints in the OAuth 2.0 protocol (opens new window).
-     * However, they are related in that the `grant_types` available to a client
-     * influence the `response_types` that the client is allowed to use, and vice versa.
-     * For instance, a grant_types value that includes authorization_code implies a
-     * `response_types` value that includes code, as both values are defined as part of
-     * the OAuth 2.0 authorization code grant.
-     * See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
+     * @return List of OAuth 2.0 response type strings.
      * 
      */
     public Optional<Output<List<String>>> responseTypes() {
@@ -663,14 +613,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sign-on mode of application.
+     * Sign on mode of application.
      * 
      */
     @Import(name="signOnMode")
     private @Nullable Output<String> signOnMode;
 
     /**
-     * @return Sign-on mode of application.
+     * @return Sign on mode of application.
      * 
      */
     public Optional<Output<String>> signOnMode() {
@@ -678,14 +628,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+     * Status of application.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+     * @return Status of application.
      * 
      */
     public Optional<Output<String>> status() {
@@ -693,30 +643,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Requested authentication method for
-     * the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`,
-     * `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`.  Use
-     * `pkce_required` to require PKCE for your confidential clients using the
-     * Authorization Code flow. If `&#34;token_endpoint_auth_method&#34;` is `&#34;none&#34;`,
-     * `pkce_required` needs to be `true`. If `pkce_required` isn&#39;t specified when
-     * adding a new application, Okta sets it to `true` by default for `&#34;browser&#34;` and
-     * `&#34;native&#34;` application types.
-     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Requested authentication method for the token endpoint.
      * 
      */
     @Import(name="tokenEndpointAuthMethod")
     private @Nullable Output<String> tokenEndpointAuthMethod;
 
     /**
-     * @return Requested authentication method for
-     * the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`,
-     * `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`.  Use
-     * `pkce_required` to require PKCE for your confidential clients using the
-     * Authorization Code flow. If `&#34;token_endpoint_auth_method&#34;` is `&#34;none&#34;`,
-     * `pkce_required` needs to be `true`. If `pkce_required` isn&#39;t specified when
-     * adding a new application, Okta sets it to `true` by default for `&#34;browser&#34;` and
-     * `&#34;native&#34;` application types.
-     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * @return Requested authentication method for the token endpoint.
      * 
      */
     public Optional<Output<String>> tokenEndpointAuthMethod() {
@@ -739,14 +673,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
+     * Groups claim type.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
+     * @return Groups claim type.
      * 
      */
     public Optional<Output<String>> type() {
@@ -754,14 +688,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template. Default: `&#34;${source.login}&#34;`
+     * Username template
      * 
      */
     @Import(name="userNameTemplate")
     private @Nullable Output<String> userNameTemplate;
 
     /**
-     * @return Username template. Default: `&#34;${source.login}&#34;`
+     * @return Username template
      * 
      */
     public Optional<Output<String>> userNameTemplate() {
@@ -769,14 +703,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * Push username on update
      * 
      */
     @Import(name="userNameTemplatePushStatus")
     private @Nullable Output<String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * @return Push username on update
      * 
      */
     public Optional<Output<String>> userNameTemplatePushStatus() {
@@ -784,14 +718,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template suffix.
+     * Username template suffix
      * 
      */
     @Import(name="userNameTemplateSuffix")
     private @Nullable Output<String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix.
+     * @return Username template suffix
      * 
      */
     public Optional<Output<String>> userNameTemplateSuffix() {
@@ -799,14 +733,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * Username template type
      * 
      */
     @Import(name="userNameTemplateType")
     private @Nullable Output<String> userNameTemplateType;
 
     /**
-     * @return Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * @return Username template type
      * 
      */
     public Optional<Output<String>> userNameTemplateType() {
@@ -814,14 +748,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `&#34;DISABLED&#34;`, `&#34;SUBDOMAIN&#34;`. Default value is `&#34;DISABLED&#34;`.
+     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
      * 
      */
     @Import(name="wildcardRedirect")
     private @Nullable Output<String> wildcardRedirect;
 
     /**
-     * @return *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `&#34;DISABLED&#34;`, `&#34;SUBDOMAIN&#34;`. Default value is `&#34;DISABLED&#34;`.
+     * @return *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
      * 
      */
     public Optional<Output<String>> wildcardRedirect() {
@@ -902,7 +836,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -913,7 +847,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -923,7 +857,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -934,7 +868,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -944,7 +878,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service
          * 
          * @return builder
          * 
@@ -955,7 +889,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service
          * 
          * @return builder
          * 
@@ -986,7 +920,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appLinksJson Displays specific appLinks for the app. The value for each application link should be boolean.
+         * @param appLinksJson Displays specific appLinks for the app
          * 
          * @return builder
          * 
@@ -997,7 +931,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appLinksJson Displays specific appLinks for the app. The value for each application link should be boolean.
+         * @param appLinksJson Displays specific appLinks for the app
          * 
          * @return builder
          * 
@@ -1007,7 +941,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appSettingsJson Application settings in JSON format.
+         * @param appSettingsJson Application settings in JSON format
          * 
          * @return builder
          * 
@@ -1018,7 +952,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appSettingsJson Application settings in JSON format.
+         * @param appSettingsJson Application settings in JSON format
          * 
          * @return builder
          * 
@@ -1028,7 +962,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+         * @param authenticationPolicy Id of this apps authentication policy
          * 
          * @return builder
          * 
@@ -1039,7 +973,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+         * @param authenticationPolicy Id of this apps authentication policy
          * 
          * @return builder
          * 
@@ -1049,11 +983,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoKeyRotation Requested key rotation mode.  If
-         * `auto_key_rotation` isn&#39;t specified, the client automatically opts in for Okta&#39;s
-         * key rotation. You can update this property via the API or via the administrator
-         * UI.
-         * See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param autoKeyRotation Requested key rotation mode.
          * 
          * @return builder
          * 
@@ -1064,11 +994,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoKeyRotation Requested key rotation mode.  If
-         * `auto_key_rotation` isn&#39;t specified, the client automatically opts in for Okta&#39;s
-         * key rotation. You can update this property via the API or via the administrator
-         * UI.
-         * See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param autoKeyRotation Requested key rotation mode.
          * 
          * @return builder
          * 
@@ -1078,7 +1004,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -1089,7 +1015,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -1099,7 +1025,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientBasicSecret OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
+         * @param clientBasicSecret OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
          * 
          * @return builder
          * 
@@ -1110,7 +1036,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientBasicSecret OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
+         * @param clientBasicSecret OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
          * 
          * @return builder
          * 
@@ -1120,7 +1046,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientId OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param clientId OAuth client ID. If set during creation, app is created with this id.
          * 
          * @return builder
          * 
@@ -1131,7 +1057,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientId OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param clientId OAuth client ID. If set during creation, app is created with this id.
          * 
          * @return builder
          * 
@@ -1141,7 +1067,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSecret The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param clientSecret OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
          * 
          * @return builder
          * 
@@ -1152,7 +1078,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSecret The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param clientSecret OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
          * 
          * @return builder
          * 
@@ -1183,7 +1109,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param consentMethod Indicates whether user consent is required or implicit. Valid values: `&#34;REQUIRED&#34;`, `&#34;TRUSTED&#34;`. Default value is `&#34;TRUSTED&#34;`.
+         * @param consentMethod *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
          * 
          * @return builder
          * 
@@ -1194,7 +1120,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param consentMethod Indicates whether user consent is required or implicit. Valid values: `&#34;REQUIRED&#34;`, `&#34;TRUSTED&#34;`. Default value is `&#34;TRUSTED&#34;`.
+         * @param consentMethod *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
          * 
          * @return builder
          * 
@@ -1225,10 +1151,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-         * Defaults to minimum requirements per app type. Valid values: `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;refresh_token&#34;`, `&#34;client_credentials&#34;`,
-         * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
-         * `&#34;interaction_code&#34;` (*OIE only*).
+         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
          * 
          * @return builder
          * 
@@ -1239,10 +1162,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-         * Defaults to minimum requirements per app type. Valid values: `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;refresh_token&#34;`, `&#34;client_credentials&#34;`,
-         * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
-         * `&#34;interaction_code&#34;` (*OIE only*).
+         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
          * 
          * @return builder
          * 
@@ -1252,10 +1172,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
-         * Defaults to minimum requirements per app type. Valid values: `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;refresh_token&#34;`, `&#34;client_credentials&#34;`,
-         * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
-         * `&#34;interaction_code&#34;` (*OIE only*).
+         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
          * 
          * @return builder
          * 
@@ -1265,7 +1182,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsClaim Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
+         * @param groupsClaim Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
          * 
          * @return builder
          * 
@@ -1276,7 +1193,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsClaim Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
+         * @param groupsClaim Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
          * 
          * @return builder
          * 
@@ -1286,7 +1203,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -1297,7 +1214,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -1307,7 +1224,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -1318,7 +1235,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -1328,7 +1245,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param implicitAssignment *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+         * @param implicitAssignment *Early Access Property*. Enable Federation Broker Mode.
          * 
          * @return builder
          * 
@@ -1339,7 +1256,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param implicitAssignment *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
+         * @param implicitAssignment *Early Access Property*. Enable Federation Broker Mode.
          * 
          * @return builder
          * 
@@ -1349,8 +1266,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-         * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
+         * @param issuerMode Issuer mode inherited from OAuth App
          * 
          * @return builder
          * 
@@ -1361,8 +1277,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-         * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
+         * @param issuerMode Issuer mode inherited from OAuth App
          * 
          * @return builder
          * 
@@ -1371,39 +1286,21 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
             return issuerMode(Output.of(issuerMode));
         }
 
-        /**
-         * @param jwks JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwks(@Nullable Output<List<OAuthJwkArgs>> jwks) {
             $.jwks = jwks;
             return this;
         }
 
-        /**
-         * @param jwks JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwks(List<OAuthJwkArgs> jwks) {
             return jwks(Output.of(jwks));
         }
 
-        /**
-         * @param jwks JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwks(OAuthJwkArgs... jwks) {
             return jwks(List.of(jwks));
         }
 
         /**
-         * @param jwksUri URL of the custom authorization server&#39;s JSON Web Key Set document.
+         * @param jwksUri URL reference to JWKS
          * 
          * @return builder
          * 
@@ -1414,7 +1311,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwksUri URL of the custom authorization server&#39;s JSON Web Key Set document.
+         * @param jwksUri URL reference to JWKS
          * 
          * @return builder
          * 
@@ -1424,7 +1321,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param label The Application&#39;s display name.
+         * @param label Pretty name of app.
          * 
          * @return builder
          * 
@@ -1435,7 +1332,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param label The Application&#39;s display name.
+         * @param label Pretty name of app.
          * 
          * @return builder
          * 
@@ -1445,7 +1342,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loginMode The type of Idp-Initiated login that the client supports, if any. Valid values: `&#34;DISABLED&#34;`, `&#34;SPEC&#34;`, `&#34;OKTA&#34;`. Default is `&#34;DISABLED&#34;`.
+         * @param loginMode The type of Idp-Initiated login that the client supports, if any
          * 
          * @return builder
          * 
@@ -1456,7 +1353,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loginMode The type of Idp-Initiated login that the client supports, if any. Valid values: `&#34;DISABLED&#34;`, `&#34;SPEC&#34;`, `&#34;OKTA&#34;`. Default is `&#34;DISABLED&#34;`.
+         * @param loginMode The type of Idp-Initiated login that the client supports, if any
          * 
          * @return builder
          * 
@@ -1466,7 +1363,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loginScopes List of scopes to use for the request. Valid values: `&#34;openid&#34;`, `&#34;profile&#34;`, `&#34;email&#34;`, `&#34;address&#34;`, `&#34;phone&#34;`. Required when `login_mode` is NOT `DISABLED`.
+         * @param loginScopes List of scopes to use for the request
          * 
          * @return builder
          * 
@@ -1477,7 +1374,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loginScopes List of scopes to use for the request. Valid values: `&#34;openid&#34;`, `&#34;profile&#34;`, `&#34;email&#34;`, `&#34;address&#34;`, `&#34;phone&#34;`. Required when `login_mode` is NOT `DISABLED`.
+         * @param loginScopes List of scopes to use for the request
          * 
          * @return builder
          * 
@@ -1487,7 +1384,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loginScopes List of scopes to use for the request. Valid values: `&#34;openid&#34;`, `&#34;profile&#34;`, `&#34;email&#34;`, `&#34;address&#34;`, `&#34;phone&#34;`. Required when `login_mode` is NOT `DISABLED`.
+         * @param loginScopes List of scopes to use for the request
          * 
          * @return builder
          * 
@@ -1497,7 +1394,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loginUri URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
+         * @param loginUri URI that initiates login.
          * 
          * @return builder
          * 
@@ -1508,7 +1405,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loginUri URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
+         * @param loginUri URI that initiates login.
          * 
          * @return builder
          * 
@@ -1518,7 +1415,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+         * @param logo Local path to logo of the application.
          * 
          * @return builder
          * 
@@ -1529,7 +1426,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+         * @param logo Local path to logo of the application.
          * 
          * @return builder
          * 
@@ -1560,7 +1457,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logoUrl Direct link of application logo.
+         * @param logoUrl URL of the application&#39;s logo
          * 
          * @return builder
          * 
@@ -1571,7 +1468,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logoUrl Direct link of application logo.
+         * @param logoUrl URL of the application&#39;s logo
          * 
          * @return builder
          * 
@@ -1602,7 +1499,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param omitSecret This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
+         * @param omitSecret This tells the provider not to persist the application&#39;s secret to state. If this is ever changes from true =&gt; false your app will be recreated.
          * 
          * @return builder
          * 
@@ -1613,7 +1510,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param omitSecret This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
+         * @param omitSecret This tells the provider not to persist the application&#39;s secret to state. If this is ever changes from true =&gt; false your app will be recreated.
          * 
          * @return builder
          * 
@@ -1623,11 +1520,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for
-         * additional verification.  If `pkce_required` isn&#39;t specified when adding a new
-         * application, Okta sets it to `true` by default for `&#34;browser&#34;` and `&#34;native&#34;`
-         * application types.
-         * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 
@@ -1638,11 +1531,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for
-         * additional verification.  If `pkce_required` isn&#39;t specified when adding a new
-         * application, Okta sets it to `true` by default for `&#34;browser&#34;` and `&#34;native&#34;`
-         * application types.
-         * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
          * 
          * @return builder
          * 
@@ -1673,7 +1562,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param postLogoutRedirectUris List of URIs for redirection after logout.
+         * @param postLogoutRedirectUris List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
          * 
          * @return builder
          * 
@@ -1684,7 +1573,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param postLogoutRedirectUris List of URIs for redirection after logout.
+         * @param postLogoutRedirectUris List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
          * 
          * @return builder
          * 
@@ -1694,7 +1583,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param postLogoutRedirectUris List of URIs for redirection after logout.
+         * @param postLogoutRedirectUris List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
          * 
          * @return builder
          * 
@@ -1704,7 +1593,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profile Custom JSON that represents an OAuth application&#39;s profile.
+         * @param profile Custom JSON that represents an OAuth application&#39;s profile
          * 
          * @return builder
          * 
@@ -1715,7 +1604,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profile Custom JSON that represents an OAuth application&#39;s profile.
+         * @param profile Custom JSON that represents an OAuth application&#39;s profile
          * 
          * @return builder
          * 
@@ -1725,7 +1614,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectUris List of URIs for use in the redirect-based flow. This is required for all application types except service.
+         * @param redirectUris List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
          * 
          * @return builder
          * 
@@ -1736,7 +1625,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectUris List of URIs for use in the redirect-based flow. This is required for all application types except service.
+         * @param redirectUris List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
          * 
          * @return builder
          * 
@@ -1746,7 +1635,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectUris List of URIs for use in the redirect-based flow. This is required for all application types except service.
+         * @param redirectUris List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
          * 
          * @return builder
          * 
@@ -1756,7 +1645,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshTokenLeeway Grace period for token rotation. Valid values: 0 to 60 seconds.
+         * @param refreshTokenLeeway *Early Access Property* Grace period for token rotation
          * 
          * @return builder
          * 
@@ -1767,7 +1656,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshTokenLeeway Grace period for token rotation. Valid values: 0 to 60 seconds.
+         * @param refreshTokenLeeway *Early Access Property* Grace period for token rotation
          * 
          * @return builder
          * 
@@ -1777,7 +1666,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshTokenRotation Refresh token rotation behavior. Valid values: `&#34;STATIC&#34;` or `&#34;ROTATE&#34;`.
+         * @param refreshTokenRotation *Early Access Property* Refresh token rotation behavior
          * 
          * @return builder
          * 
@@ -1788,7 +1677,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshTokenRotation Refresh token rotation behavior. Valid values: `&#34;STATIC&#34;` or `&#34;ROTATE&#34;`.
+         * @param refreshTokenRotation *Early Access Property* Refresh token rotation behavior
          * 
          * @return builder
          * 
@@ -1798,16 +1687,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTypes List of OAuth 2.0 response type strings. Array
-         * values of `&#34;code&#34;`, `&#34;token&#34;`, `&#34;id_token&#34;`. The `grant_types` and `response_types`
-         * values described are partially orthogonal, as they refer to arguments
-         * passed to different endpoints in the OAuth 2.0 protocol (opens new window).
-         * However, they are related in that the `grant_types` available to a client
-         * influence the `response_types` that the client is allowed to use, and vice versa.
-         * For instance, a grant_types value that includes authorization_code implies a
-         * `response_types` value that includes code, as both values are defined as part of
-         * the OAuth 2.0 authorization code grant.
-         * See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
+         * @param responseTypes List of OAuth 2.0 response type strings.
          * 
          * @return builder
          * 
@@ -1818,16 +1698,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTypes List of OAuth 2.0 response type strings. Array
-         * values of `&#34;code&#34;`, `&#34;token&#34;`, `&#34;id_token&#34;`. The `grant_types` and `response_types`
-         * values described are partially orthogonal, as they refer to arguments
-         * passed to different endpoints in the OAuth 2.0 protocol (opens new window).
-         * However, they are related in that the `grant_types` available to a client
-         * influence the `response_types` that the client is allowed to use, and vice versa.
-         * For instance, a grant_types value that includes authorization_code implies a
-         * `response_types` value that includes code, as both values are defined as part of
-         * the OAuth 2.0 authorization code grant.
-         * See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
+         * @param responseTypes List of OAuth 2.0 response type strings.
          * 
          * @return builder
          * 
@@ -1837,16 +1708,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTypes List of OAuth 2.0 response type strings. Array
-         * values of `&#34;code&#34;`, `&#34;token&#34;`, `&#34;id_token&#34;`. The `grant_types` and `response_types`
-         * values described are partially orthogonal, as they refer to arguments
-         * passed to different endpoints in the OAuth 2.0 protocol (opens new window).
-         * However, they are related in that the `grant_types` available to a client
-         * influence the `response_types` that the client is allowed to use, and vice versa.
-         * For instance, a grant_types value that includes authorization_code implies a
-         * `response_types` value that includes code, as both values are defined as part of
-         * the OAuth 2.0 authorization code grant.
-         * See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
+         * @param responseTypes List of OAuth 2.0 response type strings.
          * 
          * @return builder
          * 
@@ -1856,7 +1718,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signOnMode Sign-on mode of application.
+         * @param signOnMode Sign on mode of application.
          * 
          * @return builder
          * 
@@ -1867,7 +1729,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signOnMode Sign-on mode of application.
+         * @param signOnMode Sign on mode of application.
          * 
          * @return builder
          * 
@@ -1877,7 +1739,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+         * @param status Status of application.
          * 
          * @return builder
          * 
@@ -1888,7 +1750,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+         * @param status Status of application.
          * 
          * @return builder
          * 
@@ -1898,15 +1760,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenEndpointAuthMethod Requested authentication method for
-         * the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`,
-         * `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`.  Use
-         * `pkce_required` to require PKCE for your confidential clients using the
-         * Authorization Code flow. If `&#34;token_endpoint_auth_method&#34;` is `&#34;none&#34;`,
-         * `pkce_required` needs to be `true`. If `pkce_required` isn&#39;t specified when
-         * adding a new application, Okta sets it to `true` by default for `&#34;browser&#34;` and
-         * `&#34;native&#34;` application types.
-         * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param tokenEndpointAuthMethod Requested authentication method for the token endpoint.
          * 
          * @return builder
          * 
@@ -1917,15 +1771,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenEndpointAuthMethod Requested authentication method for
-         * the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`,
-         * `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`.  Use
-         * `pkce_required` to require PKCE for your confidential clients using the
-         * Authorization Code flow. If `&#34;token_endpoint_auth_method&#34;` is `&#34;none&#34;`,
-         * `pkce_required` needs to be `true`. If `pkce_required` isn&#39;t specified when
-         * adding a new application, Okta sets it to `true` by default for `&#34;browser&#34;` and
-         * `&#34;native&#34;` application types.
-         * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param tokenEndpointAuthMethod Requested authentication method for the token endpoint.
          * 
          * @return builder
          * 
@@ -1956,7 +1802,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
+         * @param type Groups claim type.
          * 
          * @return builder
          * 
@@ -1967,7 +1813,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
+         * @param type Groups claim type.
          * 
          * @return builder
          * 
@@ -1977,7 +1823,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
+         * @param userNameTemplate Username template
          * 
          * @return builder
          * 
@@ -1988,7 +1834,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
+         * @param userNameTemplate Username template
          * 
          * @return builder
          * 
@@ -1998,7 +1844,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+         * @param userNameTemplatePushStatus Push username on update
          * 
          * @return builder
          * 
@@ -2009,7 +1855,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+         * @param userNameTemplatePushStatus Push username on update
          * 
          * @return builder
          * 
@@ -2019,7 +1865,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix.
+         * @param userNameTemplateSuffix Username template suffix
          * 
          * @return builder
          * 
@@ -2030,7 +1876,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix.
+         * @param userNameTemplateSuffix Username template suffix
          * 
          * @return builder
          * 
@@ -2040,7 +1886,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
+         * @param userNameTemplateType Username template type
          * 
          * @return builder
          * 
@@ -2051,7 +1897,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
+         * @param userNameTemplateType Username template type
          * 
          * @return builder
          * 
@@ -2061,7 +1907,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wildcardRedirect *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `&#34;DISABLED&#34;`, `&#34;SUBDOMAIN&#34;`. Default value is `&#34;DISABLED&#34;`.
+         * @param wildcardRedirect *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
          * 
          * @return builder
          * 
@@ -2072,7 +1918,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wildcardRedirect *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `&#34;DISABLED&#34;`, `&#34;SUBDOMAIN&#34;`. Default value is `&#34;DISABLED&#34;`.
+         * @param wildcardRedirect *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
          * 
          * @return builder
          * 

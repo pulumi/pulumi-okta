@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Configures default password policy.
- *
- * This resource allows you to configure default password policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const _default = new okta.PolicyPasswordDefault("default", {});
- * ```
- *
- * ## Import
- *
- * Default Password Policy can be imported without providing Okta ID.
- *
- * ```sh
- *  $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
- * ```
- */
 export class PolicyPasswordDefault extends pulumi.CustomResource {
     /**
      * Get an existing PolicyPasswordDefault resource's state with the given name, ID, and optional extra
@@ -55,19 +33,19 @@ export class PolicyPasswordDefault extends pulumi.CustomResource {
     }
 
     /**
-     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+     * Enable or disable voice call recovery: ACTIVE or INACTIVE.
      */
     public readonly callRecovery!: pulumi.Output<string | undefined>;
     /**
-     * Default authentication provider.
+     * Default Authentication Provider
      */
     public /*out*/ readonly defaultAuthProvider!: pulumi.Output<string>;
     /**
-     * ID of the default Okta group.
+     * Default group ID (always included)
      */
     public /*out*/ readonly defaultIncludedGroupId!: pulumi.Output<string>;
     /**
-     * Default policy description.
+     * Default policy description
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
@@ -75,7 +53,7 @@ export class PolicyPasswordDefault extends pulumi.CustomResource {
      */
     public readonly emailRecovery!: pulumi.Output<string | undefined>;
     /**
-     * Default policy name.
+     * Default policy name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -87,15 +65,15 @@ export class PolicyPasswordDefault extends pulumi.CustomResource {
      */
     public readonly passwordDictionaryLookup!: pulumi.Output<boolean | undefined>;
     /**
-     * User firstName attribute must be excluded from the password.
+     * User firstName attribute must be excluded from the password
      */
     public readonly passwordExcludeFirstName!: pulumi.Output<boolean | undefined>;
     /**
-     * User lastName attribute must be excluded from the password.
+     * User lastName attribute must be excluded from the password
      */
     public readonly passwordExcludeLastName!: pulumi.Output<boolean | undefined>;
     /**
-     * If the username must be excluded from the password.
+     * If the user name must be excluded from the password.
      */
     public readonly passwordExcludeUsername!: pulumi.Output<boolean | undefined>;
     /**
@@ -103,22 +81,19 @@ export class PolicyPasswordDefault extends pulumi.CustomResource {
      */
     public readonly passwordExpireWarnDays!: pulumi.Output<number | undefined>;
     /**
-     * Number of distinct passwords that must be created before they can be reused: 0 =
-     * none.
+     * Number of distinct passwords that must be created before they can be reused: 0 = none.
      */
     public readonly passwordHistoryCount!: pulumi.Output<number | undefined>;
     /**
-     * Notification channels to use to notify a user when their account
-     * has been locked.
+     * Notification channels to use to notify a user when their account has been locked.
      */
     public readonly passwordLockoutNotificationChannels!: pulumi.Output<string[] | undefined>;
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.,
+     * Length in days a password is valid before expiry: 0 = no limit.
      */
     public readonly passwordMaxAgeDays!: pulumi.Output<number | undefined>;
     /**
-     * Number of unsuccessful login attempts allowed before lockout: 0 = no
-     * limit.
+     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
      */
     public readonly passwordMaxLockoutAttempts!: pulumi.Output<number | undefined>;
     /**
@@ -126,23 +101,23 @@ export class PolicyPasswordDefault extends pulumi.CustomResource {
      */
     public readonly passwordMinAgeMinutes!: pulumi.Output<number | undefined>;
     /**
-     * Minimum password length. Default is 8.
+     * Minimum password length.
      */
     public readonly passwordMinLength!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of lower case characters in a password.
+     * If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
      */
     public readonly passwordMinLowercase!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of numbers in a password.
+     * If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
      */
     public readonly passwordMinNumber!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of symbols in a password.
+     * If a password must contain at least one symbol (!@#$%^&*): 0 = no, 1 = yes. Default = 1
      */
     public readonly passwordMinSymbol!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of upper case characters in a password.
+     * If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
      */
     public readonly passwordMinUppercase!: pulumi.Output<number | undefined>;
     /**
@@ -150,7 +125,7 @@ export class PolicyPasswordDefault extends pulumi.CustomResource {
      */
     public readonly passwordShowLockoutFailures!: pulumi.Output<boolean | undefined>;
     /**
-     * Default policy priority.
+     * Default policy priority
      */
     public /*out*/ readonly priority!: pulumi.Output<number>;
     /**
@@ -166,8 +141,7 @@ export class PolicyPasswordDefault extends pulumi.CustomResource {
      */
     public readonly recoveryEmailToken!: pulumi.Output<number | undefined>;
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also
-     * attempt to unlock the user's Windows account.
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
      */
     public readonly skipUnlock!: pulumi.Output<boolean | undefined>;
     /**
@@ -175,7 +149,7 @@ export class PolicyPasswordDefault extends pulumi.CustomResource {
      */
     public readonly smsRecovery!: pulumi.Output<string | undefined>;
     /**
-     * Default policy status.
+     * Default policy status
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
@@ -265,19 +239,19 @@ export class PolicyPasswordDefault extends pulumi.CustomResource {
  */
 export interface PolicyPasswordDefaultState {
     /**
-     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+     * Enable or disable voice call recovery: ACTIVE or INACTIVE.
      */
     callRecovery?: pulumi.Input<string>;
     /**
-     * Default authentication provider.
+     * Default Authentication Provider
      */
     defaultAuthProvider?: pulumi.Input<string>;
     /**
-     * ID of the default Okta group.
+     * Default group ID (always included)
      */
     defaultIncludedGroupId?: pulumi.Input<string>;
     /**
-     * Default policy description.
+     * Default policy description
      */
     description?: pulumi.Input<string>;
     /**
@@ -285,7 +259,7 @@ export interface PolicyPasswordDefaultState {
      */
     emailRecovery?: pulumi.Input<string>;
     /**
-     * Default policy name.
+     * Default policy name
      */
     name?: pulumi.Input<string>;
     /**
@@ -297,15 +271,15 @@ export interface PolicyPasswordDefaultState {
      */
     passwordDictionaryLookup?: pulumi.Input<boolean>;
     /**
-     * User firstName attribute must be excluded from the password.
+     * User firstName attribute must be excluded from the password
      */
     passwordExcludeFirstName?: pulumi.Input<boolean>;
     /**
-     * User lastName attribute must be excluded from the password.
+     * User lastName attribute must be excluded from the password
      */
     passwordExcludeLastName?: pulumi.Input<boolean>;
     /**
-     * If the username must be excluded from the password.
+     * If the user name must be excluded from the password.
      */
     passwordExcludeUsername?: pulumi.Input<boolean>;
     /**
@@ -313,22 +287,19 @@ export interface PolicyPasswordDefaultState {
      */
     passwordExpireWarnDays?: pulumi.Input<number>;
     /**
-     * Number of distinct passwords that must be created before they can be reused: 0 =
-     * none.
+     * Number of distinct passwords that must be created before they can be reused: 0 = none.
      */
     passwordHistoryCount?: pulumi.Input<number>;
     /**
-     * Notification channels to use to notify a user when their account
-     * has been locked.
+     * Notification channels to use to notify a user when their account has been locked.
      */
     passwordLockoutNotificationChannels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.,
+     * Length in days a password is valid before expiry: 0 = no limit.
      */
     passwordMaxAgeDays?: pulumi.Input<number>;
     /**
-     * Number of unsuccessful login attempts allowed before lockout: 0 = no
-     * limit.
+     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
      */
     passwordMaxLockoutAttempts?: pulumi.Input<number>;
     /**
@@ -336,23 +307,23 @@ export interface PolicyPasswordDefaultState {
      */
     passwordMinAgeMinutes?: pulumi.Input<number>;
     /**
-     * Minimum password length. Default is 8.
+     * Minimum password length.
      */
     passwordMinLength?: pulumi.Input<number>;
     /**
-     * Minimum number of lower case characters in a password.
+     * If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
      */
     passwordMinLowercase?: pulumi.Input<number>;
     /**
-     * Minimum number of numbers in a password.
+     * If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
      */
     passwordMinNumber?: pulumi.Input<number>;
     /**
-     * Minimum number of symbols in a password.
+     * If a password must contain at least one symbol (!@#$%^&*): 0 = no, 1 = yes. Default = 1
      */
     passwordMinSymbol?: pulumi.Input<number>;
     /**
-     * Minimum number of upper case characters in a password.
+     * If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
      */
     passwordMinUppercase?: pulumi.Input<number>;
     /**
@@ -360,7 +331,7 @@ export interface PolicyPasswordDefaultState {
      */
     passwordShowLockoutFailures?: pulumi.Input<boolean>;
     /**
-     * Default policy priority.
+     * Default policy priority
      */
     priority?: pulumi.Input<number>;
     /**
@@ -376,8 +347,7 @@ export interface PolicyPasswordDefaultState {
      */
     recoveryEmailToken?: pulumi.Input<number>;
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also
-     * attempt to unlock the user's Windows account.
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
      */
     skipUnlock?: pulumi.Input<boolean>;
     /**
@@ -385,7 +355,7 @@ export interface PolicyPasswordDefaultState {
      */
     smsRecovery?: pulumi.Input<string>;
     /**
-     * Default policy status.
+     * Default policy status
      */
     status?: pulumi.Input<string>;
 }
@@ -395,7 +365,7 @@ export interface PolicyPasswordDefaultState {
  */
 export interface PolicyPasswordDefaultArgs {
     /**
-     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+     * Enable or disable voice call recovery: ACTIVE or INACTIVE.
      */
     callRecovery?: pulumi.Input<string>;
     /**
@@ -411,15 +381,15 @@ export interface PolicyPasswordDefaultArgs {
      */
     passwordDictionaryLookup?: pulumi.Input<boolean>;
     /**
-     * User firstName attribute must be excluded from the password.
+     * User firstName attribute must be excluded from the password
      */
     passwordExcludeFirstName?: pulumi.Input<boolean>;
     /**
-     * User lastName attribute must be excluded from the password.
+     * User lastName attribute must be excluded from the password
      */
     passwordExcludeLastName?: pulumi.Input<boolean>;
     /**
-     * If the username must be excluded from the password.
+     * If the user name must be excluded from the password.
      */
     passwordExcludeUsername?: pulumi.Input<boolean>;
     /**
@@ -427,22 +397,19 @@ export interface PolicyPasswordDefaultArgs {
      */
     passwordExpireWarnDays?: pulumi.Input<number>;
     /**
-     * Number of distinct passwords that must be created before they can be reused: 0 =
-     * none.
+     * Number of distinct passwords that must be created before they can be reused: 0 = none.
      */
     passwordHistoryCount?: pulumi.Input<number>;
     /**
-     * Notification channels to use to notify a user when their account
-     * has been locked.
+     * Notification channels to use to notify a user when their account has been locked.
      */
     passwordLockoutNotificationChannels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.,
+     * Length in days a password is valid before expiry: 0 = no limit.
      */
     passwordMaxAgeDays?: pulumi.Input<number>;
     /**
-     * Number of unsuccessful login attempts allowed before lockout: 0 = no
-     * limit.
+     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
      */
     passwordMaxLockoutAttempts?: pulumi.Input<number>;
     /**
@@ -450,23 +417,23 @@ export interface PolicyPasswordDefaultArgs {
      */
     passwordMinAgeMinutes?: pulumi.Input<number>;
     /**
-     * Minimum password length. Default is 8.
+     * Minimum password length.
      */
     passwordMinLength?: pulumi.Input<number>;
     /**
-     * Minimum number of lower case characters in a password.
+     * If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
      */
     passwordMinLowercase?: pulumi.Input<number>;
     /**
-     * Minimum number of numbers in a password.
+     * If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
      */
     passwordMinNumber?: pulumi.Input<number>;
     /**
-     * Minimum number of symbols in a password.
+     * If a password must contain at least one symbol (!@#$%^&*): 0 = no, 1 = yes. Default = 1
      */
     passwordMinSymbol?: pulumi.Input<number>;
     /**
-     * Minimum number of upper case characters in a password.
+     * If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
      */
     passwordMinUppercase?: pulumi.Input<number>;
     /**
@@ -486,8 +453,7 @@ export interface PolicyPasswordDefaultArgs {
      */
     recoveryEmailToken?: pulumi.Input<number>;
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also
-     * attempt to unlock the user's Windows account.
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
      */
     skipUnlock?: pulumi.Input<boolean>;
     /**

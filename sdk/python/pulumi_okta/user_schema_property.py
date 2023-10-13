@@ -39,27 +39,25 @@ class UserSchemaPropertyArgs:
                  user_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserSchemaProperty resource.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] title: display name for the enum value.
-        :param pulumi.Input[str] type: Type of profile source.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to.
-        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
-        :param pulumi.Input[str] description: The description of the user schema property.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
-        :param pulumi.Input[str] external_name: External name of the user schema property.
-        :param pulumi.Input[str] external_namespace: External name of the user schema property.
-        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
-        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyMasterOverridePriorityArgs']]] master_override_priorities: Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
-        :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `"string"`.
-        :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `"string"`.
-        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for these users.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
-        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
-        :param pulumi.Input[str] user_type: User type ID
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] title: Enum title
+        :param pulumi.Input[str] type: Subschema type: string, boolean, number, integer, array, or object
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Custom Subschema enumerated value of a property of type array.
+        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyArrayOneOfArgs']]] array_one_ofs: array of valid JSON schemas for property type array.
+        :param pulumi.Input[str] array_type: Subschema array type: string, number, integer, reference. Type field must be an array.
+        :param pulumi.Input[str] description: Custom Subschema description
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        :param pulumi.Input[str] external_name: Subschema external name
+        :param pulumi.Input[str] external_namespace: Subschema external namespace
+        :param pulumi.Input[str] master: SubSchema profile manager, if not set it will inherit its setting.
+        :param pulumi.Input[int] max_length: Subschema of type string maximum length
+        :param pulumi.Input[int] min_length: Subschema of type string minimum length
+        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyOneOfArgs']]] one_ofs: Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
+        :param pulumi.Input[str] permissions: SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] unique: Subschema unique restriction
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         UserSchemaPropertyArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -154,7 +152,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter
     def index(self) -> pulumi.Input[str]:
         """
-        The property name.
+        Subschema unique string identifier
         """
         return pulumi.get(self, "index")
 
@@ -166,7 +164,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 
@@ -178,7 +176,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of profile source.
+        Subschema type: string, boolean, number, integer, array, or object
         """
         return pulumi.get(self, "type")
 
@@ -190,7 +188,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter(name="arrayEnums")
     def array_enums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values that an array property's items can be set to.
+        Custom Subschema enumerated value of a property of type array.
         """
         return pulumi.get(self, "array_enums")
 
@@ -202,7 +200,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter(name="arrayOneOfs")
     def array_one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyArrayOneOfArgs']]]]:
         """
-        Display name and value an enum array can be set to.
+        array of valid JSON schemas for property type array.
         """
         return pulumi.get(self, "array_one_ofs")
 
@@ -214,7 +212,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter(name="arrayType")
     def array_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the array elements if `type` is set to `"array"`.
+        Subschema array type: string, number, integer, reference. Type field must be an array.
         """
         return pulumi.get(self, "array_type")
 
@@ -226,7 +224,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the user schema property.
+        Custom Subschema description
         """
         return pulumi.get(self, "description")
 
@@ -238,7 +236,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter
     def enums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values a primitive property can be set to. See `array_enum` for arrays.
+        Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
         """
         return pulumi.get(self, "enums")
 
@@ -250,7 +248,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter(name="externalName")
     def external_name(self) -> Optional[pulumi.Input[str]]:
         """
-        External name of the user schema property.
+        Subschema external name
         """
         return pulumi.get(self, "external_name")
 
@@ -262,7 +260,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter(name="externalNamespace")
     def external_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        External name of the user schema property.
+        Subschema external namespace
         """
         return pulumi.get(self, "external_namespace")
 
@@ -274,7 +272,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter
     def master(self) -> Optional[pulumi.Input[str]]:
         """
-        Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+        SubSchema profile manager, if not set it will inherit its setting.
         """
         return pulumi.get(self, "master")
 
@@ -285,9 +283,6 @@ class UserSchemaPropertyArgs:
     @property
     @pulumi.getter(name="masterOverridePriorities")
     def master_override_priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyMasterOverridePriorityArgs']]]]:
-        """
-        Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
-        """
         return pulumi.get(self, "master_override_priorities")
 
     @master_override_priorities.setter
@@ -298,7 +293,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter(name="maxLength")
     def max_length(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum length of the user property value. Only applies to type `"string"`.
+        Subschema of type string maximum length
         """
         return pulumi.get(self, "max_length")
 
@@ -310,7 +305,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter(name="minLength")
     def min_length(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum length of the user property value. Only applies to type `"string"`.
+        Subschema of type string minimum length
         """
         return pulumi.get(self, "min_length")
 
@@ -322,7 +317,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter(name="oneOfs")
     def one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyOneOfArgs']]]]:
         """
-        Array of maps containing a mapping for display name to enum value.
+        Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
         """
         return pulumi.get(self, "one_ofs")
 
@@ -334,7 +329,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+        The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
         """
         return pulumi.get(self, "pattern")
 
@@ -346,7 +341,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
         """
-        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
         """
         return pulumi.get(self, "permissions")
 
@@ -358,7 +353,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the property is required for these users.
+        Whether the subschema is required
         """
         return pulumi.get(self, "required")
 
@@ -369,9 +364,6 @@ class UserSchemaPropertyArgs:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        determines whether an app user attribute can be set at the Individual or Group Level.
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -382,7 +374,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter
     def unique(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        Subschema unique restriction
         """
         return pulumi.get(self, "unique")
 
@@ -394,7 +386,7 @@ class UserSchemaPropertyArgs:
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
         """
-        User type ID
+        Custom subschema user type
         """
         return pulumi.get(self, "user_type")
 
@@ -429,27 +421,25 @@ class _UserSchemaPropertyState:
                  user_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserSchemaProperty resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to.
-        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
-        :param pulumi.Input[str] description: The description of the user schema property.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
-        :param pulumi.Input[str] external_name: External name of the user schema property.
-        :param pulumi.Input[str] external_namespace: External name of the user schema property.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
-        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyMasterOverridePriorityArgs']]] master_override_priorities: Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
-        :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `"string"`.
-        :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `"string"`.
-        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for these users.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
-        :param pulumi.Input[str] title: display name for the enum value.
-        :param pulumi.Input[str] type: Type of profile source.
-        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
-        :param pulumi.Input[str] user_type: User type ID
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Custom Subschema enumerated value of a property of type array.
+        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyArrayOneOfArgs']]] array_one_ofs: array of valid JSON schemas for property type array.
+        :param pulumi.Input[str] array_type: Subschema array type: string, number, integer, reference. Type field must be an array.
+        :param pulumi.Input[str] description: Custom Subschema description
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        :param pulumi.Input[str] external_name: Subschema external name
+        :param pulumi.Input[str] external_namespace: Subschema external namespace
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] master: SubSchema profile manager, if not set it will inherit its setting.
+        :param pulumi.Input[int] max_length: Subschema of type string maximum length
+        :param pulumi.Input[int] min_length: Subschema of type string minimum length
+        :param pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyOneOfArgs']]] one_ofs: Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
+        :param pulumi.Input[str] permissions: SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] title: Enum title
+        :param pulumi.Input[str] type: Subschema type: string, boolean, number, integer, array, or object
+        :param pulumi.Input[str] unique: Subschema unique restriction
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         _UserSchemaPropertyState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -547,7 +537,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter(name="arrayEnums")
     def array_enums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values that an array property's items can be set to.
+        Custom Subschema enumerated value of a property of type array.
         """
         return pulumi.get(self, "array_enums")
 
@@ -559,7 +549,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter(name="arrayOneOfs")
     def array_one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyArrayOneOfArgs']]]]:
         """
-        Display name and value an enum array can be set to.
+        array of valid JSON schemas for property type array.
         """
         return pulumi.get(self, "array_one_ofs")
 
@@ -571,7 +561,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter(name="arrayType")
     def array_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the array elements if `type` is set to `"array"`.
+        Subschema array type: string, number, integer, reference. Type field must be an array.
         """
         return pulumi.get(self, "array_type")
 
@@ -583,7 +573,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the user schema property.
+        Custom Subschema description
         """
         return pulumi.get(self, "description")
 
@@ -595,7 +585,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter
     def enums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values a primitive property can be set to. See `array_enum` for arrays.
+        Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
         """
         return pulumi.get(self, "enums")
 
@@ -607,7 +597,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter(name="externalName")
     def external_name(self) -> Optional[pulumi.Input[str]]:
         """
-        External name of the user schema property.
+        Subschema external name
         """
         return pulumi.get(self, "external_name")
 
@@ -619,7 +609,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter(name="externalNamespace")
     def external_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        External name of the user schema property.
+        Subschema external namespace
         """
         return pulumi.get(self, "external_namespace")
 
@@ -631,7 +621,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter
     def index(self) -> Optional[pulumi.Input[str]]:
         """
-        The property name.
+        Subschema unique string identifier
         """
         return pulumi.get(self, "index")
 
@@ -643,7 +633,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter
     def master(self) -> Optional[pulumi.Input[str]]:
         """
-        Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+        SubSchema profile manager, if not set it will inherit its setting.
         """
         return pulumi.get(self, "master")
 
@@ -654,9 +644,6 @@ class _UserSchemaPropertyState:
     @property
     @pulumi.getter(name="masterOverridePriorities")
     def master_override_priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyMasterOverridePriorityArgs']]]]:
-        """
-        Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
-        """
         return pulumi.get(self, "master_override_priorities")
 
     @master_override_priorities.setter
@@ -667,7 +654,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter(name="maxLength")
     def max_length(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum length of the user property value. Only applies to type `"string"`.
+        Subschema of type string maximum length
         """
         return pulumi.get(self, "max_length")
 
@@ -679,7 +666,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter(name="minLength")
     def min_length(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum length of the user property value. Only applies to type `"string"`.
+        Subschema of type string minimum length
         """
         return pulumi.get(self, "min_length")
 
@@ -691,7 +678,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter(name="oneOfs")
     def one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSchemaPropertyOneOfArgs']]]]:
         """
-        Array of maps containing a mapping for display name to enum value.
+        Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
         """
         return pulumi.get(self, "one_ofs")
 
@@ -703,7 +690,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+        The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
         """
         return pulumi.get(self, "pattern")
 
@@ -715,7 +702,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
         """
-        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
         """
         return pulumi.get(self, "permissions")
 
@@ -727,7 +714,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the property is required for these users.
+        Whether the subschema is required
         """
         return pulumi.get(self, "required")
 
@@ -738,9 +725,6 @@ class _UserSchemaPropertyState:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        determines whether an app user attribute can be set at the Individual or Group Level.
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -751,7 +735,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 
@@ -763,7 +747,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of profile source.
+        Subschema type: string, boolean, number, integer, array, or object
         """
         return pulumi.get(self, "type")
 
@@ -775,7 +759,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter
     def unique(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        Subschema unique restriction
         """
         return pulumi.get(self, "unique")
 
@@ -787,7 +771,7 @@ class _UserSchemaPropertyState:
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
         """
-        User type ID
+        Custom subschema user type
         """
         return pulumi.get(self, "user_type")
 
@@ -824,59 +808,28 @@ class UserSchemaProperty(pulumi.CustomResource):
                  user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.UserSchemaProperty("example",
-            description="My custom property name",
-            index="customPropertyName",
-            master="OKTA",
-            scope="SELF",
-            title="customPropertyName",
-            type="string",
-            user_type=data["okta_user_type"]["example"]["id"])
-        ```
-
-        ## Import
-
-        User schema property of default user type can be imported via the property variableName.
-
-        ```sh
-         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;variableName&#62;
-        ```
-
-         User schema property of custom user type can be imported via user type id and property index
-
-        ```sh
-         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;user type id&#62;.&#60;index&#62;
-        ```
-
+        Create a UserSchemaProperty resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to.
-        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
-        :param pulumi.Input[str] description: The description of the user schema property.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
-        :param pulumi.Input[str] external_name: External name of the user schema property.
-        :param pulumi.Input[str] external_namespace: External name of the user schema property.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyMasterOverridePriorityArgs']]]] master_override_priorities: Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
-        :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `"string"`.
-        :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `"string"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for these users.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
-        :param pulumi.Input[str] title: display name for the enum value.
-        :param pulumi.Input[str] type: Type of profile source.
-        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
-        :param pulumi.Input[str] user_type: User type ID
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Custom Subschema enumerated value of a property of type array.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: array of valid JSON schemas for property type array.
+        :param pulumi.Input[str] array_type: Subschema array type: string, number, integer, reference. Type field must be an array.
+        :param pulumi.Input[str] description: Custom Subschema description
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        :param pulumi.Input[str] external_name: Subschema external name
+        :param pulumi.Input[str] external_namespace: Subschema external namespace
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] master: SubSchema profile manager, if not set it will inherit its setting.
+        :param pulumi.Input[int] max_length: Subschema of type string maximum length
+        :param pulumi.Input[int] min_length: Subschema of type string minimum length
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyOneOfArgs']]]] one_ofs: Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
+        :param pulumi.Input[str] permissions: SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] title: Enum title
+        :param pulumi.Input[str] type: Subschema type: string, boolean, number, integer, array, or object
+        :param pulumi.Input[str] unique: Subschema unique restriction
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         ...
     @overload
@@ -885,36 +838,7 @@ class UserSchemaProperty(pulumi.CustomResource):
                  args: UserSchemaPropertyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.UserSchemaProperty("example",
-            description="My custom property name",
-            index="customPropertyName",
-            master="OKTA",
-            scope="SELF",
-            title="customPropertyName",
-            type="string",
-            user_type=data["okta_user_type"]["example"]["id"])
-        ```
-
-        ## Import
-
-        User schema property of default user type can be imported via the property variableName.
-
-        ```sh
-         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;variableName&#62;
-        ```
-
-         User schema property of custom user type can be imported via user type id and property index
-
-        ```sh
-         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;user type id&#62;.&#60;index&#62;
-        ```
-
+        Create a UserSchemaProperty resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserSchemaPropertyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1029,27 +953,25 @@ class UserSchemaProperty(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to.
-        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
-        :param pulumi.Input[str] description: The description of the user schema property.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
-        :param pulumi.Input[str] external_name: External name of the user schema property.
-        :param pulumi.Input[str] external_namespace: External name of the user schema property.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyMasterOverridePriorityArgs']]]] master_override_priorities: Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
-        :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `"string"`.
-        :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `"string"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for these users.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
-        :param pulumi.Input[str] title: display name for the enum value.
-        :param pulumi.Input[str] type: Type of profile source.
-        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
-        :param pulumi.Input[str] user_type: User type ID
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Custom Subschema enumerated value of a property of type array.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: array of valid JSON schemas for property type array.
+        :param pulumi.Input[str] array_type: Subschema array type: string, number, integer, reference. Type field must be an array.
+        :param pulumi.Input[str] description: Custom Subschema description
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        :param pulumi.Input[str] external_name: Subschema external name
+        :param pulumi.Input[str] external_namespace: Subschema external namespace
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] master: SubSchema profile manager, if not set it will inherit its setting.
+        :param pulumi.Input[int] max_length: Subschema of type string maximum length
+        :param pulumi.Input[int] min_length: Subschema of type string minimum length
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyOneOfArgs']]]] one_ofs: Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
+        :param pulumi.Input[str] permissions: SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] title: Enum title
+        :param pulumi.Input[str] type: Subschema type: string, boolean, number, integer, array, or object
+        :param pulumi.Input[str] unique: Subschema unique restriction
+        :param pulumi.Input[str] user_type: Custom subschema user type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1082,7 +1004,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="arrayEnums")
     def array_enums(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of values that an array property's items can be set to.
+        Custom Subschema enumerated value of a property of type array.
         """
         return pulumi.get(self, "array_enums")
 
@@ -1090,7 +1012,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="arrayOneOfs")
     def array_one_ofs(self) -> pulumi.Output[Optional[Sequence['outputs.UserSchemaPropertyArrayOneOf']]]:
         """
-        Display name and value an enum array can be set to.
+        array of valid JSON schemas for property type array.
         """
         return pulumi.get(self, "array_one_ofs")
 
@@ -1098,7 +1020,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="arrayType")
     def array_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of the array elements if `type` is set to `"array"`.
+        Subschema array type: string, number, integer, reference. Type field must be an array.
         """
         return pulumi.get(self, "array_type")
 
@@ -1106,7 +1028,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the user schema property.
+        Custom Subschema description
         """
         return pulumi.get(self, "description")
 
@@ -1114,7 +1036,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def enums(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of values a primitive property can be set to. See `array_enum` for arrays.
+        Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
         """
         return pulumi.get(self, "enums")
 
@@ -1122,7 +1044,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="externalName")
     def external_name(self) -> pulumi.Output[Optional[str]]:
         """
-        External name of the user schema property.
+        Subschema external name
         """
         return pulumi.get(self, "external_name")
 
@@ -1130,7 +1052,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="externalNamespace")
     def external_namespace(self) -> pulumi.Output[Optional[str]]:
         """
-        External name of the user schema property.
+        Subschema external namespace
         """
         return pulumi.get(self, "external_namespace")
 
@@ -1138,7 +1060,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def index(self) -> pulumi.Output[str]:
         """
-        The property name.
+        Subschema unique string identifier
         """
         return pulumi.get(self, "index")
 
@@ -1146,23 +1068,20 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def master(self) -> pulumi.Output[Optional[str]]:
         """
-        Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+        SubSchema profile manager, if not set it will inherit its setting.
         """
         return pulumi.get(self, "master")
 
     @property
     @pulumi.getter(name="masterOverridePriorities")
     def master_override_priorities(self) -> pulumi.Output[Optional[Sequence['outputs.UserSchemaPropertyMasterOverridePriority']]]:
-        """
-        Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
-        """
         return pulumi.get(self, "master_override_priorities")
 
     @property
     @pulumi.getter(name="maxLength")
     def max_length(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximum length of the user property value. Only applies to type `"string"`.
+        Subschema of type string maximum length
         """
         return pulumi.get(self, "max_length")
 
@@ -1170,7 +1089,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="minLength")
     def min_length(self) -> pulumi.Output[Optional[int]]:
         """
-        The minimum length of the user property value. Only applies to type `"string"`.
+        Subschema of type string minimum length
         """
         return pulumi.get(self, "min_length")
 
@@ -1178,7 +1097,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="oneOfs")
     def one_ofs(self) -> pulumi.Output[Optional[Sequence['outputs.UserSchemaPropertyOneOf']]]:
         """
-        Array of maps containing a mapping for display name to enum value.
+        Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
         """
         return pulumi.get(self, "one_ofs")
 
@@ -1186,7 +1105,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
+        The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
         """
         return pulumi.get(self, "pattern")
 
@@ -1194,7 +1113,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[str]]:
         """
-        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
         """
         return pulumi.get(self, "permissions")
 
@@ -1202,23 +1121,20 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def required(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the property is required for these users.
+        Whether the subschema is required
         """
         return pulumi.get(self, "required")
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional[str]]:
-        """
-        determines whether an app user attribute can be set at the Individual or Group Level.
-        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 
@@ -1226,7 +1142,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of profile source.
+        Subschema type: string, boolean, number, integer, array, or object
         """
         return pulumi.get(self, "type")
 
@@ -1234,7 +1150,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def unique(self) -> pulumi.Output[Optional[str]]:
         """
-        Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        Subschema unique restriction
         """
         return pulumi.get(self, "unique")
 
@@ -1242,7 +1158,7 @@ class UserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="userType")
     def user_type(self) -> pulumi.Output[Optional[str]]:
         """
-        User type ID
+        Custom subschema user type
         """
         return pulumi.get(self, "user_type")
 

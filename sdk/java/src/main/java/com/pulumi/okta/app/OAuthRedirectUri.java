@@ -13,59 +13,6 @@ import com.pulumi.okta.app.inputs.OAuthRedirectUriState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * This resource allows you to manage redirection URI for use in redirect-based flows.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.app.OAuth;
- * import com.pulumi.okta.app.OAuthArgs;
- * import com.pulumi.okta.app.OAuthRedirectUri;
- * import com.pulumi.okta.app.OAuthRedirectUriArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testOAuth = new OAuth(&#34;testOAuth&#34;, OAuthArgs.builder()        
- *             .label(&#34;testAcc_replace_with_uuid&#34;)
- *             .type(&#34;web&#34;)
- *             .grantTypes(&#34;authorization_code&#34;)
- *             .responseTypes(&#34;code&#34;)
- *             .redirectUris(&#34;myapp://callback&#34;)
- *             .build());
- * 
- *         var testOAuthRedirectUri = new OAuthRedirectUri(&#34;testOAuthRedirectUri&#34;, OAuthRedirectUriArgs.builder()        
- *             .appId(testOAuth.id())
- *             .uri(&#34;http://google.com&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * A redirect URI can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &amp;#60;app id&amp;#62;/&amp;#60;uri&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:app/oAuthRedirectUri:OAuthRedirectUri")
 public class OAuthRedirectUri extends com.pulumi.resources.CustomResource {
     /**

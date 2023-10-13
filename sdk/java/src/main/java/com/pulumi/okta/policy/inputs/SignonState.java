@@ -18,14 +18,14 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
     public static final SignonState Empty = new SignonState();
 
     /**
-     * Policy Description.
+     * Policy Description
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Policy Description.
+     * @return Policy Description
      * 
      */
     public Optional<Output<String>> description() {
@@ -33,14 +33,14 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of Group IDs to Include.
+     * List of Group IDs to Include
      * 
      */
     @Import(name="groupsIncludeds")
     private @Nullable Output<List<String>> groupsIncludeds;
 
     /**
-     * @return List of Group IDs to Include.
+     * @return List of Group IDs to Include
      * 
      */
     public Optional<Output<List<String>>> groupsIncludeds() {
@@ -48,14 +48,14 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Name.
+     * Policy Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy Name.
+     * @return Policy Name
      * 
      */
     public Optional<Output<String>> name() {
@@ -63,14 +63,14 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Priority of the policy.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Priority of the policy.
+     * @return Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -78,14 +78,14 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * Policy Status: ACTIVE or INACTIVE.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * @return Policy Status: ACTIVE or INACTIVE.
      * 
      */
     public Optional<Output<String>> status() {
@@ -121,7 +121,7 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Policy Description.
+         * @param description Policy Description
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Policy Description.
+         * @param description Policy Description
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include.
+         * @param groupsIncludeds List of Group IDs to Include
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include.
+         * @param groupsIncludeds List of Group IDs to Include
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include.
+         * @param groupsIncludeds List of Group IDs to Include
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Name.
+         * @param name Policy Name
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Name.
+         * @param name Policy Name
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Priority of the policy.
+         * @param priority Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Priority of the policy.
+         * @param priority Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Status: ACTIVE or INACTIVE.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class SignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Status: ACTIVE or INACTIVE.
          * 
          * @return builder
          * 

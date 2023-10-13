@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Use this data source to retrieve a specific [email
-// template](https://developer.okta.com/docs/reference/api/brands/#email-template)
-// of a brand in an Okta organization.
+// Get a single Email Template for a Brand belonging to an Okta organization.
 func GetTemplate(ctx *pulumi.Context, args *GetTemplateArgs, opts ...pulumi.InvokeOption) (*GetTemplateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTemplateResult
@@ -29,18 +27,20 @@ func GetTemplate(ctx *pulumi.Context, args *GetTemplateArgs, opts ...pulumi.Invo
 type GetTemplateArgs struct {
 	// Brand ID
 	BrandId string `pulumi:"brandId"`
-	// Template Name
+	// The name of the email template
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getTemplate.
 type GetTemplateResult struct {
+	// Brand ID
 	BrandId string `pulumi:"brandId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 	Links string `pulumi:"links"`
-	Name  string `pulumi:"name"`
+	// The name of the email template
+	Name string `pulumi:"name"`
 }
 
 func GetTemplateOutput(ctx *pulumi.Context, args GetTemplateOutputArgs, opts ...pulumi.InvokeOption) GetTemplateResultOutput {
@@ -60,7 +60,7 @@ func GetTemplateOutput(ctx *pulumi.Context, args GetTemplateOutputArgs, opts ...
 type GetTemplateOutputArgs struct {
 	// Brand ID
 	BrandId pulumi.StringInput `pulumi:"brandId"`
-	// Template Name
+	// The name of the email template
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -89,6 +89,7 @@ func (o GetTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[Ge
 	}
 }
 
+// Brand ID
 func (o GetTemplateResultOutput) BrandId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTemplateResult) string { return v.BrandId }).(pulumi.StringOutput)
 }
@@ -103,6 +104,7 @@ func (o GetTemplateResultOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTemplateResult) string { return v.Links }).(pulumi.StringOutput)
 }
 
+// The name of the email template
 func (o GetTemplateResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTemplateResult) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -9,53 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
-    /// <summary>
-    /// Creates an event hook.
-    /// 
-    /// This resource allows you to create and configure an event hook.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.EventHook("example", new()
-    ///     {
-    ///         Auth = 
-    ///         {
-    ///             { "key", "Authorization" },
-    ///             { "type", "HEADER" },
-    ///             { "value", "123" },
-    ///         },
-    ///         Channel = 
-    ///         {
-    ///             { "type", "HTTP" },
-    ///             { "uri", "https://example.com/test" },
-    ///             { "version", "1.0.0" },
-    ///         },
-    ///         Events = new[]
-    ///         {
-    ///             "user.lifecycle.create",
-    ///             "user.lifecycle.delete.initiated",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An event hook can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:index/eventHook:EventHook example &amp;#60;hook id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:index/eventHook:EventHook")]
     public partial class EventHook : global::Pulumi.CustomResource
     {

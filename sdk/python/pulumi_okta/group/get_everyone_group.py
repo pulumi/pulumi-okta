@@ -36,7 +36,7 @@ class GetEveryoneGroupResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        description of group.
+        Description of group.
         """
         return pulumi.get(self, "description")
 
@@ -51,6 +51,9 @@ class GetEveryoneGroupResult:
     @property
     @pulumi.getter(name="includeUsers")
     def include_users(self) -> Optional[bool]:
+        """
+        Fetch group users, having default off cuts down on API calls.
+        """
         return pulumi.get(self, "include_users")
 
 
@@ -68,7 +71,8 @@ class AwaitableGetEveryoneGroupResult(GetEveryoneGroupResult):
 def get_everyone_group(include_users: Optional[bool] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEveryoneGroupResult:
     """
-    Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `group.Group` data
+    Use this data source to retrieve the `Everyone` group from Okta. The
+    same can be achieved with the `group.Group` data
     source with `name = "Everyone"`. This is simply a shortcut.
 
     ## Example Usage
@@ -81,7 +85,7 @@ def get_everyone_group(include_users: Optional[bool] = None,
     ```
 
 
-    :param bool include_users: whether to retrieve all member ids.
+    :param bool include_users: Fetch group users, having default off cuts down on API calls.
     """
     __args__ = dict()
     __args__['includeUsers'] = include_users
@@ -98,7 +102,8 @@ def get_everyone_group(include_users: Optional[bool] = None,
 def get_everyone_group_output(include_users: Optional[pulumi.Input[Optional[bool]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEveryoneGroupResult]:
     """
-    Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `group.Group` data
+    Use this data source to retrieve the `Everyone` group from Okta. The
+    same can be achieved with the `group.Group` data
     source with `name = "Everyone"`. This is simply a shortcut.
 
     ## Example Usage
@@ -111,6 +116,6 @@ def get_everyone_group_output(include_users: Optional[pulumi.Input[Optional[bool
     ```
 
 
-    :param bool include_users: whether to retrieve all member ids.
+    :param bool include_users: Fetch group users, having default off cuts down on API calls.
     """
     ...

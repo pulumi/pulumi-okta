@@ -70,6 +70,9 @@ class GetAuthenticatorResult:
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        A human-readable string that identifies the authenticator.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -84,7 +87,7 @@ class GetAuthenticatorResult:
     @pulumi.getter(name="providerAuthPort")
     def provider_auth_port(self) -> int:
         """
-        (Specific to `security_key`) The provider server port (for example 1812).
+        The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
         """
         return pulumi.get(self, "provider_auth_port")
 
@@ -92,7 +95,7 @@ class GetAuthenticatorResult:
     @pulumi.getter(name="providerHostname")
     def provider_hostname(self) -> str:
         """
-        (Specific to `security_key`) Server host name or IP address.
+        Server host name or IP address
         """
         return pulumi.get(self, "provider_hostname")
 
@@ -107,6 +110,9 @@ class GetAuthenticatorResult:
     @property
     @pulumi.getter(name="providerJson")
     def provider_json(self) -> str:
+        """
+        Authenticator Provider in JSON format
+        """
         return pulumi.get(self, "provider_json")
 
     @property
@@ -129,7 +135,7 @@ class GetAuthenticatorResult:
     @pulumi.getter
     def settings(self) -> str:
         """
-        Settings for the authenticator (expressed in JSON).
+        Authenticator settings in JSON format
         """
         return pulumi.get(self, "settings")
 
@@ -145,7 +151,7 @@ class GetAuthenticatorResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of Authenticator.
+        Type of the authenticator
         """
         return pulumi.get(self, "type")
 
@@ -175,9 +181,11 @@ def get_authenticator(id: Optional[str] = None,
                       name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthenticatorResult:
     """
-    > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+    Get an authenticator by key, name of ID.
 
-    Use this data source to retrieve an authenticator.
+    > **WARNING:** This feature is only available as a part of the
+    Identity Engine. Contact support
+    for further information.
 
     ## Example Usage
 
@@ -185,14 +193,8 @@ def get_authenticator(id: Optional[str] = None,
     import pulumi
     import pulumi_okta as okta
 
-    test = okta.get_authenticator(name="Security Question")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.get_authenticator(key="okta_email")
+    test = okta.get_authenticator(key="security_question")
+    test1 = okta.get_authenticator(name="Okta Verify")
     ```
 
 
@@ -228,9 +230,11 @@ def get_authenticator_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                              name: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthenticatorResult]:
     """
-    > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+    Get an authenticator by key, name of ID.
 
-    Use this data source to retrieve an authenticator.
+    > **WARNING:** This feature is only available as a part of the
+    Identity Engine. Contact support
+    for further information.
 
     ## Example Usage
 
@@ -238,14 +242,8 @@ def get_authenticator_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_okta as okta
 
-    test = okta.get_authenticator(name="Security Question")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.get_authenticator(key="okta_email")
+    test = okta.get_authenticator(key="security_question")
+    test1 = okta.get_authenticator(name="Okta Verify")
     ```
 
 

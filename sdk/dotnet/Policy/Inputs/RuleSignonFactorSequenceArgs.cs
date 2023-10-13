@@ -13,23 +13,19 @@ namespace Pulumi.Okta.Policy.Inputs
     public sealed class RuleSignonFactorSequenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Primary factor type of the auth section.
+        /// Type of a Factor
         /// </summary>
         [Input("primaryCriteriaFactorType", required: true)]
         public Input<string> PrimaryCriteriaFactorType { get; set; } = null!;
 
         /// <summary>
-        /// Primary provider of the auth section.
+        /// Factor provider
         /// </summary>
         [Input("primaryCriteriaProvider", required: true)]
         public Input<string> PrimaryCriteriaProvider { get; set; } = null!;
 
         [Input("secondaryCriterias")]
         private InputList<Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs>? _secondaryCriterias;
-
-        /// <summary>
-        /// Additional authentication steps.
-        /// </summary>
         public InputList<Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs> SecondaryCriterias
         {
             get => _secondaryCriterias ?? (_secondaryCriterias = new InputList<Inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs>());

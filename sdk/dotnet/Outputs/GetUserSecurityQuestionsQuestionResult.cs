@@ -13,13 +13,7 @@ namespace Pulumi.Okta.Outputs
     [OutputType]
     public sealed class GetUserSecurityQuestionsQuestionResult
     {
-        /// <summary>
-        /// Security question unique key.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Display text for security question.
-        /// </summary>
         public readonly string Text;
 
         [OutputConstructor]

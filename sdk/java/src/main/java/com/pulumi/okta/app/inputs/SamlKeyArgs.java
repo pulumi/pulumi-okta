@@ -16,152 +16,72 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SamlKeyArgs Empty = new SamlKeyArgs();
 
-    /**
-     * Date created.
-     * 
-     */
     @Import(name="created")
     private @Nullable Output<String> created;
 
-    /**
-     * @return Date created.
-     * 
-     */
     public Optional<Output<String>> created() {
         return Optional.ofNullable(this.created);
     }
 
-    /**
-     * RSA exponent.
-     * 
-     */
     @Import(name="e")
     private @Nullable Output<String> e;
 
-    /**
-     * @return RSA exponent.
-     * 
-     */
     public Optional<Output<String>> e() {
         return Optional.ofNullable(this.e);
     }
 
-    /**
-     * Date the key expires.
-     * 
-     */
     @Import(name="expiresAt")
     private @Nullable Output<String> expiresAt;
 
-    /**
-     * @return Date the key expires.
-     * 
-     */
     public Optional<Output<String>> expiresAt() {
         return Optional.ofNullable(this.expiresAt);
     }
 
-    /**
-     * Key ID.
-     * 
-     */
     @Import(name="kid")
     private @Nullable Output<String> kid;
 
-    /**
-     * @return Key ID.
-     * 
-     */
     public Optional<Output<String>> kid() {
         return Optional.ofNullable(this.kid);
     }
 
-    /**
-     * Identifies the cryptographic algorithm family used with the key.
-     * 
-     */
     @Import(name="kty")
     private @Nullable Output<String> kty;
 
-    /**
-     * @return Identifies the cryptographic algorithm family used with the key.
-     * 
-     */
     public Optional<Output<String>> kty() {
         return Optional.ofNullable(this.kty);
     }
 
-    /**
-     * Date the key was last updated.
-     * 
-     */
     @Import(name="lastUpdated")
     private @Nullable Output<String> lastUpdated;
 
-    /**
-     * @return Date the key was last updated.
-     * 
-     */
     public Optional<Output<String>> lastUpdated() {
         return Optional.ofNullable(this.lastUpdated);
     }
 
-    /**
-     * RSA modulus.
-     * 
-     */
     @Import(name="n")
     private @Nullable Output<String> n;
 
-    /**
-     * @return RSA modulus.
-     * 
-     */
     public Optional<Output<String>> n() {
         return Optional.ofNullable(this.n);
     }
 
-    /**
-     * Intended use of the public key.
-     * 
-     */
     @Import(name="use")
     private @Nullable Output<String> use;
 
-    /**
-     * @return Intended use of the public key.
-     * 
-     */
     public Optional<Output<String>> use() {
         return Optional.ofNullable(this.use);
     }
 
-    /**
-     * X.509 certificate chain.
-     * 
-     */
     @Import(name="x5cs")
     private @Nullable Output<List<String>> x5cs;
 
-    /**
-     * @return X.509 certificate chain.
-     * 
-     */
     public Optional<Output<List<String>>> x5cs() {
         return Optional.ofNullable(this.x5cs);
     }
 
-    /**
-     * X.509 certificate SHA-256 thumbprint.
-     * 
-     */
     @Import(name="x5tS256")
     private @Nullable Output<String> x5tS256;
 
-    /**
-     * @return X.509 certificate SHA-256 thumbprint.
-     * 
-     */
     public Optional<Output<String>> x5tS256() {
         return Optional.ofNullable(this.x5tS256);
     }
@@ -199,222 +119,96 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SamlKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param created Date created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder created(@Nullable Output<String> created) {
             $.created = created;
             return this;
         }
 
-        /**
-         * @param created Date created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder created(String created) {
             return created(Output.of(created));
         }
 
-        /**
-         * @param e RSA exponent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder e(@Nullable Output<String> e) {
             $.e = e;
             return this;
         }
 
-        /**
-         * @param e RSA exponent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder e(String e) {
             return e(Output.of(e));
         }
 
-        /**
-         * @param expiresAt Date the key expires.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiresAt(@Nullable Output<String> expiresAt) {
             $.expiresAt = expiresAt;
             return this;
         }
 
-        /**
-         * @param expiresAt Date the key expires.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiresAt(String expiresAt) {
             return expiresAt(Output.of(expiresAt));
         }
 
-        /**
-         * @param kid Key ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kid(@Nullable Output<String> kid) {
             $.kid = kid;
             return this;
         }
 
-        /**
-         * @param kid Key ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kid(String kid) {
             return kid(Output.of(kid));
         }
 
-        /**
-         * @param kty Identifies the cryptographic algorithm family used with the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kty(@Nullable Output<String> kty) {
             $.kty = kty;
             return this;
         }
 
-        /**
-         * @param kty Identifies the cryptographic algorithm family used with the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kty(String kty) {
             return kty(Output.of(kty));
         }
 
-        /**
-         * @param lastUpdated Date the key was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastUpdated(@Nullable Output<String> lastUpdated) {
             $.lastUpdated = lastUpdated;
             return this;
         }
 
-        /**
-         * @param lastUpdated Date the key was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastUpdated(String lastUpdated) {
             return lastUpdated(Output.of(lastUpdated));
         }
 
-        /**
-         * @param n RSA modulus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder n(@Nullable Output<String> n) {
             $.n = n;
             return this;
         }
 
-        /**
-         * @param n RSA modulus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder n(String n) {
             return n(Output.of(n));
         }
 
-        /**
-         * @param use Intended use of the public key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder use(@Nullable Output<String> use) {
             $.use = use;
             return this;
         }
 
-        /**
-         * @param use Intended use of the public key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder use(String use) {
             return use(Output.of(use));
         }
 
-        /**
-         * @param x5cs X.509 certificate chain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder x5cs(@Nullable Output<List<String>> x5cs) {
             $.x5cs = x5cs;
             return this;
         }
 
-        /**
-         * @param x5cs X.509 certificate chain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder x5cs(List<String> x5cs) {
             return x5cs(Output.of(x5cs));
         }
 
-        /**
-         * @param x5cs X.509 certificate chain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder x5cs(String... x5cs) {
             return x5cs(List.of(x5cs));
         }
 
-        /**
-         * @param x5tS256 X.509 certificate SHA-256 thumbprint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder x5tS256(@Nullable Output<String> x5tS256) {
             $.x5tS256 = x5tS256;
             return this;
         }
 
-        /**
-         * @param x5tS256 X.509 certificate SHA-256 thumbprint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder x5tS256(String x5tS256) {
             return x5tS256(Output.of(x5tS256));
         }

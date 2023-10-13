@@ -12,10 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Use this data source to retrieve a domain from Okta.
-//
-// - https://developer.okta.com/docs/reference/api/domains/#get-domain
-// - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+// Get a domain from Okta.
 //
 // ## Example Usage
 //
@@ -62,24 +59,25 @@ func GetDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getDomain.
 type GetDomainArgs struct {
-	// The Okta ID of the domain or the domain name itself.
+	// Brand ID
 	DomainIdOrName string `pulumi:"domainIdOrName"`
 }
 
 // A collection of values returned by getDomain.
 type GetDomainResult struct {
-	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED"
+	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED
 	CertificateSourceType string `pulumi:"certificateSourceType"`
-	// TXT and CNAME records to be registered for the Domain.
+	// TXT and CNAME records to be registered for the Domain
 	DnsRecords []GetDomainDnsRecord `pulumi:"dnsRecords"`
 	// Domain name
-	Domain         string `pulumi:"domain"`
+	Domain string `pulumi:"domain"`
+	// Brand ID
 	DomainIdOrName string `pulumi:"domainIdOrName"`
-	// Domain ID
+	// The ID of the Domain
 	Id string `pulumi:"id"`
 	// Certificate metadata for the Domain
 	PublicCertificate map[string]string `pulumi:"publicCertificate"`
-	// Status of the domain. Values: `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED`
+	// Status of the domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
 	ValidationStatus string `pulumi:"validationStatus"`
 }
 
@@ -98,7 +96,7 @@ func GetDomainOutput(ctx *pulumi.Context, args GetDomainOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getDomain.
 type GetDomainOutputArgs struct {
-	// The Okta ID of the domain or the domain name itself.
+	// Brand ID
 	DomainIdOrName pulumi.StringInput `pulumi:"domainIdOrName"`
 }
 
@@ -127,12 +125,12 @@ func (o GetDomainResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetD
 	}
 }
 
-// Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED"
+// Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED
 func (o GetDomainResultOutput) CertificateSourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.CertificateSourceType }).(pulumi.StringOutput)
 }
 
-// TXT and CNAME records to be registered for the Domain.
+// TXT and CNAME records to be registered for the Domain
 func (o GetDomainResultOutput) DnsRecords() GetDomainDnsRecordArrayOutput {
 	return o.ApplyT(func(v GetDomainResult) []GetDomainDnsRecord { return v.DnsRecords }).(GetDomainDnsRecordArrayOutput)
 }
@@ -142,11 +140,12 @@ func (o GetDomainResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// Brand ID
 func (o GetDomainResultOutput) DomainIdOrName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.DomainIdOrName }).(pulumi.StringOutput)
 }
 
-// Domain ID
+// The ID of the Domain
 func (o GetDomainResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -156,7 +155,7 @@ func (o GetDomainResultOutput) PublicCertificate() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDomainResult) map[string]string { return v.PublicCertificate }).(pulumi.StringMapOutput)
 }
 
-// Status of the domain. Values: `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED`
+// Status of the domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
 func (o GetDomainResultOutput) ValidationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.ValidationStatus }).(pulumi.StringOutput)
 }

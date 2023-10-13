@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * This resource allows you to create and configure a Bookmark Application.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.app.Bookmark("example", {
- *     label: "Example",
- *     url: "https://example.com",
- * });
- * ```
- *
- * ## Import
- *
- * A Bookmark App can be imported via the Okta ID.
- *
- * ```sh
- *  $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;
- * ```
- */
 export class Bookmark extends pulumi.CustomResource {
     /**
      * Get an existing Bookmark resource's state with the given name, ID, and optional extra
@@ -56,15 +33,15 @@ export class Bookmark extends pulumi.CustomResource {
     }
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -72,15 +49,15 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
     /**
-     * Displays specific appLinks for the app. The value for each application link should be boolean.
+     * Displays specific appLinks for the app
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     * Id of this apps authentication policy
      */
     public readonly authenticationPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
@@ -88,23 +65,23 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
-     * The Application's display name.
+     * Pretty name of app.
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to logo of the application.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
-     * Direct link of application logo.
+     * URL of the application's logo
      */
     public /*out*/ readonly logoUrl!: pulumi.Output<string>;
     /**
@@ -120,12 +97,9 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+     * Status of application.
      */
     public readonly status!: pulumi.Output<string | undefined>;
-    /**
-     * The URL of the bookmark.
-     */
     public readonly url!: pulumi.Output<string>;
 
     /**
@@ -196,15 +170,15 @@ export class Bookmark extends pulumi.CustomResource {
  */
 export interface BookmarkState {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -212,15 +186,15 @@ export interface BookmarkState {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app. The value for each application link should be boolean.
+     * Displays specific appLinks for the app
      */
     appLinksJson?: pulumi.Input<string>;
     /**
-     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     * Id of this apps authentication policy
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
@@ -228,23 +202,23 @@ export interface BookmarkState {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * The Application's display name.
+     * Pretty name of app.
      */
     label?: pulumi.Input<string>;
     /**
-     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
-     * Direct link of application logo.
+     * URL of the application's logo
      */
     logoUrl?: pulumi.Input<string>;
     /**
@@ -260,12 +234,9 @@ export interface BookmarkState {
      */
     signOnMode?: pulumi.Input<string>;
     /**
-     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+     * Status of application.
      */
     status?: pulumi.Input<string>;
-    /**
-     * The URL of the bookmark.
-     */
     url?: pulumi.Input<string>;
 }
 
@@ -274,15 +245,15 @@ export interface BookmarkState {
  */
 export interface BookmarkArgs {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -290,15 +261,15 @@ export interface BookmarkArgs {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app. The value for each application link should be boolean.
+     * Displays specific appLinks for the app
      */
     appLinksJson?: pulumi.Input<string>;
     /**
-     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     * Id of this apps authentication policy
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
@@ -306,19 +277,19 @@ export interface BookmarkArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * The Application's display name.
+     * Pretty name of app.
      */
     label: pulumi.Input<string>;
     /**
-     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local path to logo of the application.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -326,11 +297,8 @@ export interface BookmarkArgs {
      */
     requestIntegration?: pulumi.Input<boolean>;
     /**
-     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+     * Status of application.
      */
     status?: pulumi.Input<string>;
-    /**
-     * The URL of the bookmark.
-     */
     url: pulumi.Input<string>;
 }

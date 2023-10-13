@@ -15,14 +15,14 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
     public static final SamlKeyArgs Empty = new SamlKeyArgs();
 
     /**
-     * base64-encoded X.509 certificate chain with DER encoding.
+     * base64-encoded X.509 certificate chain with DER encoding
      * 
      */
     @Import(name="x5cs", required=true)
     private Output<List<String>> x5cs;
 
     /**
-     * @return base64-encoded X.509 certificate chain with DER encoding.
+     * @return base64-encoded X.509 certificate chain with DER encoding
      * 
      */
     public Output<List<String>> x5cs() {
@@ -54,7 +54,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5cs base64-encoded X.509 certificate chain with DER encoding.
+         * @param x5cs base64-encoded X.509 certificate chain with DER encoding
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5cs base64-encoded X.509 certificate chain with DER encoding.
+         * @param x5cs base64-encoded X.509 certificate chain with DER encoding
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5cs base64-encoded X.509 certificate chain with DER encoding.
+         * @param x5cs base64-encoded X.509 certificate chain with DER encoding
          * 
          * @return builder
          * 

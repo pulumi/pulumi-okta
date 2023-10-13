@@ -16,14 +16,14 @@ public final class GetTrustedOriginsArgs extends com.pulumi.resources.InvokeArgs
     public static final GetTrustedOriginsArgs Empty = new GetTrustedOriginsArgs();
 
     /**
-     * Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+     * Filter criteria. Filter value will be URL-encoded by the provider
      * 
      */
     @Import(name="filter")
     private @Nullable Output<String> filter;
 
     /**
-     * @return Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+     * @return Filter criteria. Filter value will be URL-encoded by the provider
      * 
      */
     public Optional<Output<String>> filter() {
@@ -55,7 +55,7 @@ public final class GetTrustedOriginsArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param filter Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+         * @param filter Filter criteria. Filter value will be URL-encoded by the provider
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class GetTrustedOriginsArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param filter Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+         * @param filter Filter criteria. Filter value will be URL-encoded by the provider
          * 
          * @return builder
          * 

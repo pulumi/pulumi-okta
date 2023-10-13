@@ -4,25 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Verifies the Domain. This is replacement for the `verify` field from the `okta.Domain` resource. The resource won't be
- * created if the domain could not be verified. The provider will make several requests to verify the domain until
- * the API returns `VERIFIED` verification status.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleDomain = new okta.Domain("exampleDomain", {});
- * const exampleDomainVerification = new okta.DomainVerification("exampleDomainVerification", {domainId: okta_domain.test.id});
- * ```
- *
- * ## Import
- *
- * This resource does not support importing.
- */
 export class DomainVerification extends pulumi.CustomResource {
     /**
      * Get an existing DomainVerification resource's state with the given name, ID, and optional extra
@@ -52,7 +33,7 @@ export class DomainVerification extends pulumi.CustomResource {
     }
 
     /**
-     * Domain ID.
+     * Domain's ID
      */
     public readonly domainId!: pulumi.Output<string>;
 
@@ -87,7 +68,7 @@ export class DomainVerification extends pulumi.CustomResource {
  */
 export interface DomainVerificationState {
     /**
-     * Domain ID.
+     * Domain's ID
      */
     domainId?: pulumi.Input<string>;
 }
@@ -97,7 +78,7 @@ export interface DomainVerificationState {
  */
 export interface DomainVerificationArgs {
     /**
-     * Domain ID.
+     * Domain's ID
      */
     domainId: pulumi.Input<string>;
 }

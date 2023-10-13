@@ -11,41 +11,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MappingMapping {
-    /**
-     * @return Combination or single source properties that will be mapped to the target property.
-     * 
-     */
     private String expression;
     /**
-     * @return Key of mapping.
+     * @return The mapping property key.
      * 
      */
     private String id;
-    /**
-     * @return Whether to update target properties on user create &amp; update or just on create.
-     * 
-     */
     private @Nullable String pushStatus;
 
     private MappingMapping() {}
-    /**
-     * @return Combination or single source properties that will be mapped to the target property.
-     * 
-     */
     public String expression() {
         return this.expression;
     }
     /**
-     * @return Key of mapping.
+     * @return The mapping property key.
      * 
      */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Whether to update target properties on user create &amp; update or just on create.
-     * 
-     */
     public Optional<String> pushStatus() {
         return Optional.ofNullable(this.pushStatus);
     }

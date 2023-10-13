@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Group
     public static class GetRule
     {
         /// <summary>
-        /// Use this data source to retrieve a group rule from Okta.
+        /// Get a group rule from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Okta.Group
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("okta:group/getRule:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a group rule from Okta.
+        /// Get a group rule from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -72,20 +72,17 @@ namespace Pulumi.Okta.Group
     public sealed class GetRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the group rule to retrieve.
+        /// The ID of the Group Rule.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of the Group Rule to retrieve.
+        /// The name of the Group Rule.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// The status of the group rule.
-        /// </summary>
         [Input("status")]
         public string? Status { get; set; }
 
@@ -98,20 +95,17 @@ namespace Pulumi.Okta.Group
     public sealed class GetRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the group rule to retrieve.
+        /// The ID of the Group Rule.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Group Rule to retrieve.
+        /// The name of the Group Rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The status of the group rule.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -145,9 +139,6 @@ namespace Pulumi.Okta.Group
         /// The name of the Group Rule.
         /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// The status of the group rule.
-        /// </summary>
         public readonly string? Status;
         /// <summary>
         /// The list of user IDs that would be excluded when rules are processed.

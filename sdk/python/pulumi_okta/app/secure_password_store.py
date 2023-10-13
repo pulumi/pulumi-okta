@@ -45,35 +45,35 @@ class SecurePasswordStoreArgs:
                  user_name_template_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurePasswordStore resource.
-        :param pulumi.Input[str] label: The display name of the Application.
-        :param pulumi.Input[str] password_field: Login password field.
-        :param pulumi.Input[str] url: Login URL.
-        :param pulumi.Input[str] username_field: Login username field.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] username_field: Login username field
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field1_value: Name of optional value in the login form.
-        :param pulumi.Input[str] optional_field2: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field2_value: Name of optional value in the login form.
-        :param pulumi.Input[str] optional_field3: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field3_value: Name of optional value in the login form.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] logo: Local path to logo of the application.
+        :param pulumi.Input[str] optional_field1: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field1_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field2: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field2_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field3: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field3_value: Name of optional value in login form
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
         """
         SecurePasswordStoreArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -199,7 +199,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter
     def label(self) -> pulumi.Input[str]:
         """
-        The display name of the Application.
+        Pretty name of app.
         """
         return pulumi.get(self, "label")
 
@@ -211,7 +211,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="passwordField")
     def password_field(self) -> pulumi.Input[str]:
         """
-        Login password field.
+        Login password field
         """
         return pulumi.get(self, "password_field")
 
@@ -223,7 +223,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        Login URL.
+        Login URL
         """
         return pulumi.get(self, "url")
 
@@ -235,7 +235,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="usernameField")
     def username_field(self) -> pulumi.Input[str]:
         """
-        Login username field.
+        Login username field
         """
         return pulumi.get(self, "username_field")
 
@@ -247,7 +247,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom error page URL.
+        Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -259,7 +259,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom login page for this application.
+        Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -271,7 +271,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable self-service. By default, it is `false`.
+        Enable self service
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -295,7 +295,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app. The value for each application link should be boolean.
+        Displays specific appLinks for the app
         """
         return pulumi.get(self, "app_links_json")
 
@@ -307,7 +307,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
-        Display auto submit toolbar.
+        Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -319,7 +319,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="credentialsScheme")
     def credentials_scheme(self) -> Optional[pulumi.Input[str]]:
         """
-        Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        Application credentials scheme
         """
         return pulumi.get(self, "credentials_scheme")
 
@@ -343,7 +343,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon on mobile app.
+        Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
@@ -355,7 +355,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon to users.
+        Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
@@ -367,7 +367,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -379,7 +379,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="optionalField1")
     def optional_field1(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional param in the login form.
+        Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field1")
 
@@ -391,7 +391,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="optionalField1Value")
     def optional_field1_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional value in the login form.
+        Name of optional value in login form
         """
         return pulumi.get(self, "optional_field1_value")
 
@@ -403,7 +403,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="optionalField2")
     def optional_field2(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional param in the login form.
+        Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field2")
 
@@ -415,7 +415,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="optionalField2Value")
     def optional_field2_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional value in the login form.
+        Name of optional value in login form
         """
         return pulumi.get(self, "optional_field2_value")
 
@@ -427,7 +427,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="optionalField3")
     def optional_field3(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional param in the login form.
+        Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field3")
 
@@ -439,7 +439,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="optionalField3Value")
     def optional_field3_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional value in the login form.
+        Name of optional value in login form
         """
         return pulumi.get(self, "optional_field3_value")
 
@@ -451,7 +451,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        Allow user to reveal password
         """
         return pulumi.get(self, "reveal_password")
 
@@ -487,7 +487,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of application. By default, it is `"ACTIVE"`.
+        Status of application.
         """
         return pulumi.get(self, "status")
 
@@ -499,7 +499,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template. Default: `"${source.login}"`
+        Username template
         """
         return pulumi.get(self, "user_name_template")
 
@@ -511,7 +511,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        Push username on update
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -523,7 +523,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template suffix.
+        Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -535,7 +535,7 @@ class SecurePasswordStoreArgs:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`.
+        Username template type
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -581,38 +581,38 @@ class _SecurePasswordStoreState:
                  username_field: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SecurePasswordStore resources.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[str] label: The display name of the Application.
-        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_url: URL of the application's logo
-        :param pulumi.Input[str] name: Name assigned to the application by Okta.
-        :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field1_value: Name of optional value in the login form.
-        :param pulumi.Input[str] optional_field2: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field2_value: Name of optional value in the login form.
-        :param pulumi.Input[str] optional_field3: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field3_value: Name of optional value in the login form.
-        :param pulumi.Input[str] password_field: Login password field.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] optional_field1: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field1_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field2: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field2_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field3: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field3_value: Name of optional value in login form
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
-        :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] url: Login URL.
-        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[str] username_field: Login username field.
+        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] username_field: Login username field
         """
         _SecurePasswordStoreState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -754,7 +754,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom error page URL.
+        Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -766,7 +766,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom login page for this application.
+        Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -778,7 +778,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable self-service. By default, it is `false`.
+        Enable self service
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -802,7 +802,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app. The value for each application link should be boolean.
+        Displays specific appLinks for the app
         """
         return pulumi.get(self, "app_links_json")
 
@@ -814,7 +814,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
-        Display auto submit toolbar.
+        Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -826,7 +826,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="credentialsScheme")
     def credentials_scheme(self) -> Optional[pulumi.Input[str]]:
         """
-        Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        Application credentials scheme
         """
         return pulumi.get(self, "credentials_scheme")
 
@@ -850,7 +850,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon on mobile app.
+        Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
@@ -862,7 +862,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon to users.
+        Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
@@ -874,7 +874,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        The display name of the Application.
+        Pretty name of app.
         """
         return pulumi.get(self, "label")
 
@@ -886,7 +886,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -910,7 +910,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name assigned to the application by Okta.
+        Name of the app.
         """
         return pulumi.get(self, "name")
 
@@ -922,7 +922,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="optionalField1")
     def optional_field1(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional param in the login form.
+        Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field1")
 
@@ -934,7 +934,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="optionalField1Value")
     def optional_field1_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional value in the login form.
+        Name of optional value in login form
         """
         return pulumi.get(self, "optional_field1_value")
 
@@ -946,7 +946,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="optionalField2")
     def optional_field2(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional param in the login form.
+        Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field2")
 
@@ -958,7 +958,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="optionalField2Value")
     def optional_field2_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional value in the login form.
+        Name of optional value in login form
         """
         return pulumi.get(self, "optional_field2_value")
 
@@ -970,7 +970,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="optionalField3")
     def optional_field3(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional param in the login form.
+        Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field3")
 
@@ -982,7 +982,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="optionalField3Value")
     def optional_field3_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of optional value in the login form.
+        Name of optional value in login form
         """
         return pulumi.get(self, "optional_field3_value")
 
@@ -994,7 +994,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="passwordField")
     def password_field(self) -> Optional[pulumi.Input[str]]:
         """
-        Login password field.
+        Login password field
         """
         return pulumi.get(self, "password_field")
 
@@ -1006,7 +1006,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        Allow user to reveal password
         """
         return pulumi.get(self, "reveal_password")
 
@@ -1042,7 +1042,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Sign-on mode of application.
+        Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
@@ -1054,7 +1054,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of application. By default, it is `"ACTIVE"`.
+        Status of application.
         """
         return pulumi.get(self, "status")
 
@@ -1066,7 +1066,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        Login URL.
+        Login URL
         """
         return pulumi.get(self, "url")
 
@@ -1078,7 +1078,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template. Default: `"${source.login}"`
+        Username template
         """
         return pulumi.get(self, "user_name_template")
 
@@ -1090,7 +1090,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        Push username on update
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -1102,7 +1102,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template suffix.
+        Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -1114,7 +1114,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`.
+        Username template type
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -1126,7 +1126,7 @@ class _SecurePasswordStoreState:
     @pulumi.getter(name="usernameField")
     def username_field(self) -> Optional[pulumi.Input[str]]:
         """
-        Login username field.
+        Login username field
         """
         return pulumi.get(self, "username_field")
 
@@ -1171,61 +1171,38 @@ class SecurePasswordStore(pulumi.CustomResource):
                  username_field: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and configure a Secure Password Store Application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.app.SecurePasswordStore("example",
-            credentials_scheme="ADMIN_SETS_CREDENTIALS",
-            label="example",
-            password_field="pass",
-            url="https://test.com",
-            username_field="user")
-        ```
-
-        ## Import
-
-        Secure Password Store Application can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;
-        ```
-
+        Create a SecurePasswordStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[str] label: The display name of the Application.
-        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field1_value: Name of optional value in the login form.
-        :param pulumi.Input[str] optional_field2: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field2_value: Name of optional value in the login form.
-        :param pulumi.Input[str] optional_field3: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field3_value: Name of optional value in the login form.
-        :param pulumi.Input[str] password_field: Login password field.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
+        :param pulumi.Input[str] optional_field1: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field1_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field2: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field2_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field3: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field3_value: Name of optional value in login form
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] url: Login URL.
-        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[str] username_field: Login username field.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] username_field: Login username field
         """
         ...
     @overload
@@ -1234,30 +1211,7 @@ class SecurePasswordStore(pulumi.CustomResource):
                  args: SecurePasswordStoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and configure a Secure Password Store Application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.app.SecurePasswordStore("example",
-            credentials_scheme="ADMIN_SETS_CREDENTIALS",
-            label="example",
-            password_field="pass",
-            url="https://test.com",
-            username_field="user")
-        ```
-
-        ## Import
-
-        Secure Password Store Application can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;
-        ```
-
+        Create a SecurePasswordStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SecurePasswordStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1404,38 +1358,38 @@ class SecurePasswordStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] credentials_scheme: Application credentials scheme
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[str] label: The display name of the Application.
-        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] logo_url: URL of the application's logo
-        :param pulumi.Input[str] name: Name assigned to the application by Okta.
-        :param pulumi.Input[str] optional_field1: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field1_value: Name of optional value in the login form.
-        :param pulumi.Input[str] optional_field2: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field2_value: Name of optional value in the login form.
-        :param pulumi.Input[str] optional_field3: Name of optional param in the login form.
-        :param pulumi.Input[str] optional_field3_value: Name of optional value in the login form.
-        :param pulumi.Input[str] password_field: Login password field.
-        :param pulumi.Input[bool] reveal_password: Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] optional_field1: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field1_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field2: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field2_value: Name of optional value in login form
+        :param pulumi.Input[str] optional_field3: Name of optional param in the login form
+        :param pulumi.Input[str] optional_field3_value: Name of optional value in login form
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[bool] reveal_password: Allow user to reveal password
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
-        :param pulumi.Input[str] status: Status of application. By default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] url: Login URL.
-        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[str] username_field: Login username field.
+        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] username_field: Login username field
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1479,7 +1433,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Custom error page URL.
+        Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -1487,7 +1441,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Custom login page for this application.
+        Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -1495,7 +1449,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable self-service. By default, it is `false`.
+        Enable self service
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -1511,7 +1465,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Displays specific appLinks for the app. The value for each application link should be boolean.
+        Displays specific appLinks for the app
         """
         return pulumi.get(self, "app_links_json")
 
@@ -1519,7 +1473,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
-        Display auto submit toolbar.
+        Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -1527,7 +1481,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="credentialsScheme")
     def credentials_scheme(self) -> pulumi.Output[Optional[str]]:
         """
-        Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+        Application credentials scheme
         """
         return pulumi.get(self, "credentials_scheme")
 
@@ -1543,7 +1497,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon on mobile app.
+        Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
@@ -1551,7 +1505,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon to users.
+        Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
@@ -1559,7 +1513,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter
     def label(self) -> pulumi.Output[str]:
         """
-        The display name of the Application.
+        Pretty name of app.
         """
         return pulumi.get(self, "label")
 
@@ -1567,7 +1521,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter
     def logo(self) -> pulumi.Output[Optional[str]]:
         """
-        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -1583,7 +1537,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name assigned to the application by Okta.
+        Name of the app.
         """
         return pulumi.get(self, "name")
 
@@ -1591,7 +1545,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="optionalField1")
     def optional_field1(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of optional param in the login form.
+        Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field1")
 
@@ -1599,7 +1553,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="optionalField1Value")
     def optional_field1_value(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of optional value in the login form.
+        Name of optional value in login form
         """
         return pulumi.get(self, "optional_field1_value")
 
@@ -1607,7 +1561,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="optionalField2")
     def optional_field2(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of optional param in the login form.
+        Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field2")
 
@@ -1615,7 +1569,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="optionalField2Value")
     def optional_field2_value(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of optional value in the login form.
+        Name of optional value in login form
         """
         return pulumi.get(self, "optional_field2_value")
 
@@ -1623,7 +1577,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="optionalField3")
     def optional_field3(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of optional param in the login form.
+        Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field3")
 
@@ -1631,7 +1585,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="optionalField3Value")
     def optional_field3_value(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of optional value in the login form.
+        Name of optional value in login form
         """
         return pulumi.get(self, "optional_field3_value")
 
@@ -1639,7 +1593,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="passwordField")
     def password_field(self) -> pulumi.Output[str]:
         """
-        Login password field.
+        Login password field
         """
         return pulumi.get(self, "password_field")
 
@@ -1647,7 +1601,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> pulumi.Output[Optional[bool]]:
         """
-        Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+        Allow user to reveal password
         """
         return pulumi.get(self, "reveal_password")
 
@@ -1671,7 +1625,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> pulumi.Output[str]:
         """
-        Sign-on mode of application.
+        Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
@@ -1679,7 +1633,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Status of application. By default, it is `"ACTIVE"`.
+        Status of application.
         """
         return pulumi.get(self, "status")
 
@@ -1687,7 +1641,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        Login URL.
+        Login URL
         """
         return pulumi.get(self, "url")
 
@@ -1695,7 +1649,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template. Default: `"${source.login}"`
+        Username template
         """
         return pulumi.get(self, "user_name_template")
 
@@ -1703,7 +1657,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
         """
-        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        Push username on update
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -1711,7 +1665,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template suffix.
+        Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -1719,7 +1673,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`.
+        Username template type
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -1727,7 +1681,7 @@ class SecurePasswordStore(pulumi.CustomResource):
     @pulumi.getter(name="usernameField")
     def username_field(self) -> pulumi.Output[str]:
         """
-        Login username field.
+        Login username field
         """
         return pulumi.get(self, "username_field")
 

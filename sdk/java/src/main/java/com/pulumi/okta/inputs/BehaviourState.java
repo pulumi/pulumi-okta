@@ -18,8 +18,6 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Determines the method and level of detail used to evaluate the behavior.
-     * Required for `&#34;ANOMALOUS_LOCATION&#34;` behavior type. Can be set to `&#34;LAT_LONG&#34;`, `&#34;CITY&#34;`, `&#34;COUNTRY&#34;`
-     * or `&#34;SUBDIVISION&#34;`.
      * 
      */
     @Import(name="locationGranularityType")
@@ -27,8 +25,6 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Determines the method and level of detail used to evaluate the behavior.
-     * Required for `&#34;ANOMALOUS_LOCATION&#34;` behavior type. Can be set to `&#34;LAT_LONG&#34;`, `&#34;CITY&#34;`, `&#34;COUNTRY&#34;`
-     * or `&#34;SUBDIVISION&#34;`.
      * 
      */
     public Optional<Output<String>> locationGranularityType() {
@@ -36,14 +32,14 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the behavior.
+     * Name of the behavior
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the behavior.
+     * @return Name of the behavior
      * 
      */
     public Optional<Output<String>> name() {
@@ -51,16 +47,14 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of recent authentications used to evaluate the behavior. Required
-     * for `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;` and `&#34;ANOMALOUS_IP&#34;` behavior types.
+     * The number of recent authentications used to evaluate the behavior.
      * 
      */
     @Import(name="numberOfAuthentications")
     private @Nullable Output<Integer> numberOfAuthentications;
 
     /**
-     * @return The number of recent authentications used to evaluate the behavior. Required
-     * for `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;` and `&#34;ANOMALOUS_IP&#34;` behavior types.
+     * @return The number of recent authentications used to evaluate the behavior.
      * 
      */
     public Optional<Output<Integer>> numberOfAuthentications() {
@@ -68,16 +62,14 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Radius from location (in kilometers). Should be at least 5. Required
-     * when `location_granularity_type` is set to `&#34;LAT_LONG&#34;`.
+     * Radius from location (in kilometers)
      * 
      */
     @Import(name="radiusFromLocation")
     private @Nullable Output<Integer> radiusFromLocation;
 
     /**
-     * @return Radius from location (in kilometers). Should be at least 5. Required
-     * when `location_granularity_type` is set to `&#34;LAT_LONG&#34;`.
+     * @return Radius from location (in kilometers)
      * 
      */
     public Optional<Output<Integer>> radiusFromLocation() {
@@ -85,14 +77,14 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the behavior. By default, it is`&#34;ACTIVE&#34;`.
+     * Behavior status: ACTIVE or INACTIVE.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the behavior. By default, it is`&#34;ACTIVE&#34;`.
+     * @return Behavior status: ACTIVE or INACTIVE.
      * 
      */
     public Optional<Output<String>> status() {
@@ -100,16 +92,14 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the behavior. Can be set to `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;`, `&#34;ANOMALOUS_IP&#34;`
-     * or `&#34;VELOCITY&#34;`. Resource will be recreated when the type changes.
+     * Behavior type
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the behavior. Can be set to `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;`, `&#34;ANOMALOUS_IP&#34;`
-     * or `&#34;VELOCITY&#34;`. Resource will be recreated when the type changes.
+     * @return Behavior type
      * 
      */
     public Optional<Output<String>> type() {
@@ -117,16 +107,14 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Velocity (in kilometers per hour). Should be at least 1. Required for `&#34;VELOCITY&#34;` behavior
-     * type.
+     * Velocity (in kilometers per hour).
      * 
      */
     @Import(name="velocity")
     private @Nullable Output<Integer> velocity;
 
     /**
-     * @return Velocity (in kilometers per hour). Should be at least 1. Required for `&#34;VELOCITY&#34;` behavior
-     * type.
+     * @return Velocity (in kilometers per hour).
      * 
      */
     public Optional<Output<Integer>> velocity() {
@@ -165,8 +153,6 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param locationGranularityType Determines the method and level of detail used to evaluate the behavior.
-         * Required for `&#34;ANOMALOUS_LOCATION&#34;` behavior type. Can be set to `&#34;LAT_LONG&#34;`, `&#34;CITY&#34;`, `&#34;COUNTRY&#34;`
-         * or `&#34;SUBDIVISION&#34;`.
          * 
          * @return builder
          * 
@@ -178,8 +164,6 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param locationGranularityType Determines the method and level of detail used to evaluate the behavior.
-         * Required for `&#34;ANOMALOUS_LOCATION&#34;` behavior type. Can be set to `&#34;LAT_LONG&#34;`, `&#34;CITY&#34;`, `&#34;COUNTRY&#34;`
-         * or `&#34;SUBDIVISION&#34;`.
          * 
          * @return builder
          * 
@@ -189,7 +173,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the behavior.
+         * @param name Name of the behavior
          * 
          * @return builder
          * 
@@ -200,7 +184,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the behavior.
+         * @param name Name of the behavior
          * 
          * @return builder
          * 
@@ -210,8 +194,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfAuthentications The number of recent authentications used to evaluate the behavior. Required
-         * for `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;` and `&#34;ANOMALOUS_IP&#34;` behavior types.
+         * @param numberOfAuthentications The number of recent authentications used to evaluate the behavior.
          * 
          * @return builder
          * 
@@ -222,8 +205,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfAuthentications The number of recent authentications used to evaluate the behavior. Required
-         * for `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;` and `&#34;ANOMALOUS_IP&#34;` behavior types.
+         * @param numberOfAuthentications The number of recent authentications used to evaluate the behavior.
          * 
          * @return builder
          * 
@@ -233,8 +215,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param radiusFromLocation Radius from location (in kilometers). Should be at least 5. Required
-         * when `location_granularity_type` is set to `&#34;LAT_LONG&#34;`.
+         * @param radiusFromLocation Radius from location (in kilometers)
          * 
          * @return builder
          * 
@@ -245,8 +226,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param radiusFromLocation Radius from location (in kilometers). Should be at least 5. Required
-         * when `location_granularity_type` is set to `&#34;LAT_LONG&#34;`.
+         * @param radiusFromLocation Radius from location (in kilometers)
          * 
          * @return builder
          * 
@@ -256,7 +236,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the behavior. By default, it is`&#34;ACTIVE&#34;`.
+         * @param status Behavior status: ACTIVE or INACTIVE.
          * 
          * @return builder
          * 
@@ -267,7 +247,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the behavior. By default, it is`&#34;ACTIVE&#34;`.
+         * @param status Behavior status: ACTIVE or INACTIVE.
          * 
          * @return builder
          * 
@@ -277,8 +257,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the behavior. Can be set to `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;`, `&#34;ANOMALOUS_IP&#34;`
-         * or `&#34;VELOCITY&#34;`. Resource will be recreated when the type changes.
+         * @param type Behavior type
          * 
          * @return builder
          * 
@@ -289,8 +268,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the behavior. Can be set to `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;`, `&#34;ANOMALOUS_IP&#34;`
-         * or `&#34;VELOCITY&#34;`. Resource will be recreated when the type changes.
+         * @param type Behavior type
          * 
          * @return builder
          * 
@@ -300,8 +278,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param velocity Velocity (in kilometers per hour). Should be at least 1. Required for `&#34;VELOCITY&#34;` behavior
-         * type.
+         * @param velocity Velocity (in kilometers per hour).
          * 
          * @return builder
          * 
@@ -312,8 +289,7 @@ public final class BehaviourState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param velocity Velocity (in kilometers per hour). Should be at least 1. Required for `&#34;VELOCITY&#34;` behavior
-         * type.
+         * @param velocity Velocity (in kilometers per hour).
          * 
          * @return builder
          * 

@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class AppUserSchemaPropertyOneOf {
     /**
-     * @return value mapping to member of `array_enum`.
+     * @return Enum value
      * 
      */
     private String const_;
     /**
-     * @return display name for the enum value.
+     * @return Enum title
      * 
      */
     private String title;
 
     private AppUserSchemaPropertyOneOf() {}
     /**
-     * @return value mapping to member of `array_enum`.
+     * @return Enum value
      * 
      */
     public String const_() {
         return this.const_;
     }
     /**
-     * @return display name for the enum value.
+     * @return Enum title
      * 
      */
     public String title() {

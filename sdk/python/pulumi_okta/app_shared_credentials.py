@@ -42,32 +42,32 @@ class AppSharedCredentialsArgs:
                  username_field: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AppSharedCredentials resource.
-        :param pulumi.Input[str] label: The Application's display name.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
-        :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] button_field: Login button field
+        :param pulumi.Input[str] checkbox: CSS selector for the checkbox
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
-        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
-        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] logo: Local path to logo of the application.
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
+        :param pulumi.Input[str] redirect_url: Secondary URL of the sign-in page for this app
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] url: The URL of the sign-in page for this app.
-        :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
-        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[str] username_field: CSS selector for the username field.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] username_field: Login username field
         """
         AppSharedCredentialsArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -184,7 +184,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter
     def label(self) -> pulumi.Input[str]:
         """
-        The Application's display name.
+        Pretty name of app.
         """
         return pulumi.get(self, "label")
 
@@ -196,7 +196,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom error page URL.
+        Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -208,7 +208,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom login page for this application.
+        Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -220,7 +220,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable self-service. By default, it is `false`.
+        Enable self service
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -244,7 +244,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app. The value for each application link should be boolean.
+        Displays specific appLinks for the app
         """
         return pulumi.get(self, "app_links_json")
 
@@ -256,7 +256,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
-        Display auto submit toolbar.
+        Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -268,7 +268,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="buttonField")
     def button_field(self) -> Optional[pulumi.Input[str]]:
         """
-        CSS selector for the Sign-In button in the sign-in form.
+        Login button field
         """
         return pulumi.get(self, "button_field")
 
@@ -280,7 +280,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter
     def checkbox(self) -> Optional[pulumi.Input[str]]:
         """
-        CSS selector for the checkbox.
+        CSS selector for the checkbox
         """
         return pulumi.get(self, "checkbox")
 
@@ -304,7 +304,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon on mobile app.
+        Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
@@ -316,7 +316,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon to users.
+        Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
@@ -328,7 +328,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -340,7 +340,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="passwordField")
     def password_field(self) -> Optional[pulumi.Input[str]]:
         """
-        CSS selector for the Password field in the sign-in form.
+        Login password field
         """
         return pulumi.get(self, "password_field")
 
@@ -352,7 +352,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> Optional[pulumi.Input[str]]:
         """
-        name of application from the Okta Integration Network, if not included a custom app will be created.
+        Preconfigured app name
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -364,7 +364,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+        Secondary URL of the sign-in page for this app
         """
         return pulumi.get(self, "redirect_url")
 
@@ -400,7 +400,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of the application, by default, it is `"ACTIVE"`.
+        Status of application.
         """
         return pulumi.get(self, "status")
 
@@ -412,7 +412,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the sign-in page for this app.
+        Login URL
         """
         return pulumi.get(self, "url")
 
@@ -424,7 +424,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="urlRegex")
     def url_regex(self) -> Optional[pulumi.Input[str]]:
         """
-        A regular expression that further restricts url to the specified regular expression.
+        A regex that further restricts URL to the specified regex
         """
         return pulumi.get(self, "url_regex")
 
@@ -436,7 +436,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template. Default: `"${source.login}"`
+        Username template
         """
         return pulumi.get(self, "user_name_template")
 
@@ -448,7 +448,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        Push username on update
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -460,7 +460,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template suffix.
+        Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -472,7 +472,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`.
+        Username template type
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -484,7 +484,7 @@ class AppSharedCredentialsArgs:
     @pulumi.getter(name="usernameField")
     def username_field(self) -> Optional[pulumi.Input[str]]:
         """
-        CSS selector for the username field.
+        Login username field
         """
         return pulumi.get(self, "username_field")
 
@@ -527,35 +527,35 @@ class _AppSharedCredentialsState:
                  username_field: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AppSharedCredentials resources.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
-        :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] button_field: Login button field
+        :param pulumi.Input[str] checkbox: CSS selector for the checkbox
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[str] label: The Application's display name.
-        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[str] logo_url: Direct link of application logo.
-        :param pulumi.Input[str] name: Name assigned to the application by Okta.
-        :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
-        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
-        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
+        :param pulumi.Input[str] logo_url: URL of the application's logo
+        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
+        :param pulumi.Input[str] redirect_url: Secondary URL of the sign-in page for this app
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[str] sign_on_mode: Authentication mode of app.
-        :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] url: The URL of the sign-in page for this app.
-        :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
-        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[str] username_field: CSS selector for the username field.
+        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] username_field: Login username field
         """
         _AppSharedCredentialsState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -685,7 +685,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom error page URL.
+        Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -697,7 +697,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom login page for this application.
+        Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -709,7 +709,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable self-service. By default, it is `false`.
+        Enable self service
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -733,7 +733,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app. The value for each application link should be boolean.
+        Displays specific appLinks for the app
         """
         return pulumi.get(self, "app_links_json")
 
@@ -745,7 +745,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
-        Display auto submit toolbar.
+        Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -757,7 +757,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="buttonField")
     def button_field(self) -> Optional[pulumi.Input[str]]:
         """
-        CSS selector for the Sign-In button in the sign-in form.
+        Login button field
         """
         return pulumi.get(self, "button_field")
 
@@ -769,7 +769,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter
     def checkbox(self) -> Optional[pulumi.Input[str]]:
         """
-        CSS selector for the checkbox.
+        CSS selector for the checkbox
         """
         return pulumi.get(self, "checkbox")
 
@@ -793,7 +793,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon on mobile app.
+        Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
@@ -805,7 +805,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon to users.
+        Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
@@ -817,7 +817,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        The Application's display name.
+        Pretty name of app.
         """
         return pulumi.get(self, "label")
 
@@ -829,7 +829,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -841,7 +841,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="logoUrl")
     def logo_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Direct link of application logo.
+        URL of the application's logo
         """
         return pulumi.get(self, "logo_url")
 
@@ -853,7 +853,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name assigned to the application by Okta.
+        Name of the app.
         """
         return pulumi.get(self, "name")
 
@@ -865,7 +865,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="passwordField")
     def password_field(self) -> Optional[pulumi.Input[str]]:
         """
-        CSS selector for the Password field in the sign-in form.
+        Login password field
         """
         return pulumi.get(self, "password_field")
 
@@ -877,7 +877,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> Optional[pulumi.Input[str]]:
         """
-        name of application from the Okta Integration Network, if not included a custom app will be created.
+        Preconfigured app name
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -889,7 +889,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+        Secondary URL of the sign-in page for this app
         """
         return pulumi.get(self, "redirect_url")
 
@@ -925,7 +925,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication mode of app.
+        Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
@@ -937,7 +937,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of the application, by default, it is `"ACTIVE"`.
+        Status of application.
         """
         return pulumi.get(self, "status")
 
@@ -949,7 +949,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the sign-in page for this app.
+        Login URL
         """
         return pulumi.get(self, "url")
 
@@ -961,7 +961,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="urlRegex")
     def url_regex(self) -> Optional[pulumi.Input[str]]:
         """
-        A regular expression that further restricts url to the specified regular expression.
+        A regex that further restricts URL to the specified regex
         """
         return pulumi.get(self, "url_regex")
 
@@ -973,7 +973,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template. Default: `"${source.login}"`
+        Username template
         """
         return pulumi.get(self, "user_name_template")
 
@@ -985,7 +985,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        Push username on update
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -997,7 +997,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template suffix.
+        Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -1009,7 +1009,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`.
+        Username template type
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -1021,7 +1021,7 @@ class _AppSharedCredentialsState:
     @pulumi.getter(name="usernameField")
     def username_field(self) -> Optional[pulumi.Input[str]]:
         """
-        CSS selector for the username field.
+        Login username field
         """
         return pulumi.get(self, "username_field")
 
@@ -1063,71 +1063,35 @@ class AppSharedCredentials(pulumi.CustomResource):
                  username_field: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and configure SWA shared credentials app.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.AppSharedCredentials("example",
-            accessibility_error_redirect_url="https://example.com/redirect_url_1",
-            accessibility_login_redirect_url="https://example.com/redirect_url_2",
-            accessibility_self_service=True,
-            auto_submit_toolbar=True,
-            button_field="btn-login",
-            checkbox="checkbox_red",
-            hide_ios=True,
-            label="Example App",
-            password_field="txtbox-password",
-            redirect_url="https://example.com/redirect_url",
-            shared_password="sharedpass",
-            shared_username="sharedusername",
-            status="ACTIVE",
-            url="https://example.com/login.html",
-            user_name_template="user.firstName",
-            user_name_template_suffix="hello",
-            user_name_template_type="CUSTOM",
-            username_field="txtbox-username")
-        ```
-
-        ## Import
-
-        Okta SWA Shared Credentials App can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;
-        ```
-
+        Create a AppSharedCredentials resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
-        :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] button_field: Login button field
+        :param pulumi.Input[str] checkbox: CSS selector for the checkbox
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[str] label: The Application's display name.
-        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
-        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
-        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
+        :param pulumi.Input[str] redirect_url: Secondary URL of the sign-in page for this app
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] url: The URL of the sign-in page for this app.
-        :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
-        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[str] username_field: CSS selector for the username field.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] username_field: Login username field
         """
         ...
     @overload
@@ -1136,43 +1100,7 @@ class AppSharedCredentials(pulumi.CustomResource):
                  args: AppSharedCredentialsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and configure SWA shared credentials app.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.AppSharedCredentials("example",
-            accessibility_error_redirect_url="https://example.com/redirect_url_1",
-            accessibility_login_redirect_url="https://example.com/redirect_url_2",
-            accessibility_self_service=True,
-            auto_submit_toolbar=True,
-            button_field="btn-login",
-            checkbox="checkbox_red",
-            hide_ios=True,
-            label="Example App",
-            password_field="txtbox-password",
-            redirect_url="https://example.com/redirect_url",
-            shared_password="sharedpass",
-            shared_username="sharedusername",
-            status="ACTIVE",
-            url="https://example.com/login.html",
-            user_name_template="user.firstName",
-            user_name_template_suffix="hello",
-            user_name_template_type="CUSTOM",
-            username_field="txtbox-username")
-        ```
-
-        ## Import
-
-        Okta SWA Shared Credentials App can be imported via the Okta ID.
-
-        ```sh
-         $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;
-        ```
-
+        Create a AppSharedCredentials resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppSharedCredentialsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1304,35 +1232,35 @@ class AppSharedCredentials(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] button_field: CSS selector for the Sign-In button in the sign-in form.
-        :param pulumi.Input[str] checkbox: CSS selector for the checkbox.
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[str] button_field: Login button field
+        :param pulumi.Input[str] checkbox: CSS selector for the checkbox
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
-        :param pulumi.Input[str] label: The Application's display name.
-        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[str] logo_url: Direct link of application logo.
-        :param pulumi.Input[str] name: Name assigned to the application by Okta.
-        :param pulumi.Input[str] password_field: CSS selector for the Password field in the sign-in form.
-        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.
-        :param pulumi.Input[str] redirect_url: Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
+        :param pulumi.Input[str] label: Pretty name of app.
+        :param pulumi.Input[str] logo: Local path to logo of the application.
+        :param pulumi.Input[str] logo_url: URL of the application's logo
+        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] password_field: Login password field
+        :param pulumi.Input[str] preconfigured_app: Preconfigured app name
+        :param pulumi.Input[str] redirect_url: Secondary URL of the sign-in page for this app
         :param pulumi.Input[str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[str] shared_username: Shared username, required for certain schemes.
-        :param pulumi.Input[str] sign_on_mode: Authentication mode of app.
-        :param pulumi.Input[str] status: The status of the application, by default, it is `"ACTIVE"`.
-        :param pulumi.Input[str] url: The URL of the sign-in page for this app.
-        :param pulumi.Input[str] url_regex: A regular expression that further restricts url to the specified regular expression.
-        :param pulumi.Input[str] user_name_template: Username template. Default: `"${source.login}"`
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
-        :param pulumi.Input[str] user_name_template_type: Username template type. Default: `"BUILT_IN"`.
-        :param pulumi.Input[str] username_field: CSS selector for the username field.
+        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] url: Login URL
+        :param pulumi.Input[str] url_regex: A regex that further restricts URL to the specified regex
+        :param pulumi.Input[str] user_name_template: Username template
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] username_field: Login username field
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1373,7 +1301,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Custom error page URL.
+        Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -1381,7 +1309,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Custom login page for this application.
+        Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -1389,7 +1317,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable self-service. By default, it is `false`.
+        Enable self service
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -1405,7 +1333,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Displays specific appLinks for the app. The value for each application link should be boolean.
+        Displays specific appLinks for the app
         """
         return pulumi.get(self, "app_links_json")
 
@@ -1413,7 +1341,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
-        Display auto submit toolbar.
+        Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -1421,7 +1349,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="buttonField")
     def button_field(self) -> pulumi.Output[Optional[str]]:
         """
-        CSS selector for the Sign-In button in the sign-in form.
+        Login button field
         """
         return pulumi.get(self, "button_field")
 
@@ -1429,7 +1357,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter
     def checkbox(self) -> pulumi.Output[Optional[str]]:
         """
-        CSS selector for the checkbox.
+        CSS selector for the checkbox
         """
         return pulumi.get(self, "checkbox")
 
@@ -1445,7 +1373,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon on mobile app.
+        Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
@@ -1453,7 +1381,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon to users.
+        Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
@@ -1461,7 +1389,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter
     def label(self) -> pulumi.Output[str]:
         """
-        The Application's display name.
+        Pretty name of app.
         """
         return pulumi.get(self, "label")
 
@@ -1469,7 +1397,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter
     def logo(self) -> pulumi.Output[Optional[str]]:
         """
-        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        Local path to logo of the application.
         """
         return pulumi.get(self, "logo")
 
@@ -1477,7 +1405,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="logoUrl")
     def logo_url(self) -> pulumi.Output[str]:
         """
-        Direct link of application logo.
+        URL of the application's logo
         """
         return pulumi.get(self, "logo_url")
 
@@ -1485,7 +1413,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name assigned to the application by Okta.
+        Name of the app.
         """
         return pulumi.get(self, "name")
 
@@ -1493,7 +1421,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="passwordField")
     def password_field(self) -> pulumi.Output[Optional[str]]:
         """
-        CSS selector for the Password field in the sign-in form.
+        Login password field
         """
         return pulumi.get(self, "password_field")
 
@@ -1501,7 +1429,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> pulumi.Output[Optional[str]]:
         """
-        name of application from the Okta Integration Network, if not included a custom app will be created.
+        Preconfigured app name
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -1509,7 +1437,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+        Secondary URL of the sign-in page for this app
         """
         return pulumi.get(self, "redirect_url")
 
@@ -1533,7 +1461,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> pulumi.Output[str]:
         """
-        Authentication mode of app.
+        Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
@@ -1541,7 +1469,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        The status of the application, by default, it is `"ACTIVE"`.
+        Status of application.
         """
         return pulumi.get(self, "status")
 
@@ -1549,7 +1477,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[str]]:
         """
-        The URL of the sign-in page for this app.
+        Login URL
         """
         return pulumi.get(self, "url")
 
@@ -1557,7 +1485,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="urlRegex")
     def url_regex(self) -> pulumi.Output[Optional[str]]:
         """
-        A regular expression that further restricts url to the specified regular expression.
+        A regex that further restricts URL to the specified regex
         """
         return pulumi.get(self, "url_regex")
 
@@ -1565,7 +1493,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template. Default: `"${source.login}"`
+        Username template
         """
         return pulumi.get(self, "user_name_template")
 
@@ -1573,7 +1501,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
         """
-        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        Push username on update
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -1581,7 +1509,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template suffix.
+        Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -1589,7 +1517,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template type. Default: `"BUILT_IN"`.
+        Username template type
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -1597,7 +1525,7 @@ class AppSharedCredentials(pulumi.CustomResource):
     @pulumi.getter(name="usernameField")
     def username_field(self) -> pulumi.Output[Optional[str]]:
         """
-        CSS selector for the username field.
+        Login username field
         """
         return pulumi.get(self, "username_field")
 

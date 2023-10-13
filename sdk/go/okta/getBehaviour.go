@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Use this data source to retrieve a behavior from Okta.
+// Get a behavior by name or ID.
 func LookupBehaviour(ctx *pulumi.Context, args *LookupBehaviourArgs, opts ...pulumi.InvokeOption) (*LookupBehaviourResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBehaviourResult
@@ -25,10 +25,9 @@ func LookupBehaviour(ctx *pulumi.Context, args *LookupBehaviourArgs, opts ...pul
 
 // A collection of arguments for invoking getBehaviour.
 type LookupBehaviourArgs struct {
-	// `id` of behavior to retrieve, conflicts with `name`.
+	// Behavior ID.
 	Id *string `pulumi:"id"`
-	// The name of the behavior to retrieve. Name uses the `?q=<name>` query parameter exposed by
-	// Okta's API.
+	// Behavior name.
 	Name *string `pulumi:"name"`
 }
 
@@ -61,10 +60,9 @@ func LookupBehaviourOutput(ctx *pulumi.Context, args LookupBehaviourOutputArgs, 
 
 // A collection of arguments for invoking getBehaviour.
 type LookupBehaviourOutputArgs struct {
-	// `id` of behavior to retrieve, conflicts with `name`.
+	// Behavior ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the behavior to retrieve. Name uses the `?q=<name>` query parameter exposed by
-	// Okta's API.
+	// Behavior name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 

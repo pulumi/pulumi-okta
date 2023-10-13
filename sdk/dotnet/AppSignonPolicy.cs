@@ -9,98 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myAppPolicy = new Okta.AppSignonPolicy("myAppPolicy", new()
-    ///     {
-    ///         Description = "Authentication Policy to be used on my app.",
-    ///     });
-    /// 
-    ///     var myApp = new Okta.App.OAuth("myApp", new()
-    ///     {
-    ///         Label = "My App",
-    ///         Type = "web",
-    ///         GrantTypes = new[]
-    ///         {
-    ///             "authorization_code",
-    ///         },
-    ///         RedirectUris = new[]
-    ///         {
-    ///             "http://localhost:3000",
-    ///         },
-    ///         PostLogoutRedirectUris = new[]
-    ///         {
-    ///             "http://localhost:3000",
-    ///         },
-    ///         ResponseTypes = new[]
-    ///         {
-    ///             "code",
-    ///         },
-    ///         AuthenticationPolicy = myAppPolicy.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// The created policy can be extended using `app_signon_policy_rules`.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myAppPolicy = new Okta.AppSignonPolicy("myAppPolicy", new()
-    ///     {
-    ///         Description = "Authentication Policy to be used on my app.",
-    ///     });
-    /// 
-    ///     var someRule = new Okta.AppSignonPolicyRule("someRule", new()
-    ///     {
-    ///         PolicyId = resource.Okta_app_signon_policy.My_app_policy.Id,
-    ///         FactorMode = "1FA",
-    ///         ReAuthenticationFrequency = "PT43800H",
-    ///         Constraints = new[]
-    ///         {
-    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["knowledge"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["types"] = new[]
-    ///                     {
-    ///                         "password",
-    ///                     },
-    ///                 },
-    ///             }),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:index/appSignonPolicy:AppSignonPolicy")]
     public partial class AppSignonPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Description of the policy.
+        /// Policy Description
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the policy.
+        /// Policy Name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -152,13 +71,13 @@ namespace Pulumi.Okta
     public sealed class AppSignonPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of the policy.
+        /// Policy Description
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// Name of the policy.
+        /// Policy Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -172,13 +91,13 @@ namespace Pulumi.Okta
     public sealed class AppSignonPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of the policy.
+        /// Policy Description
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the policy.
+        /// Policy Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

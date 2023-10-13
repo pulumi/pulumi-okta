@@ -16,69 +16,48 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use
- * Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
- * The `resources` field supports the following:
- *  - Apps
- *  - Groups
- *  - All Users within a Group
- *  - All Users within the org
- *  - All Groups within the org
- *  - All Apps within the org
- *  - All Apps of the same type
- * 
- * &gt; **NOTE:** This an `Early Access` feature.
- * 
- * ## Import
- * 
- * Okta Resource Set can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/resourceSet:ResourceSet example &amp;#60;resource_set_id&amp;#62;
- * ```
+ * Resource to manage administrative Role assignments for a User
  * 
  */
 @ResourceType(type="okta:index/resourceSet:ResourceSet")
 public class ResourceSet extends com.pulumi.resources.CustomResource {
     /**
-     * A description of the Resource Set.
+     * A description of the Resource Set
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return A description of the Resource Set.
+     * @return A description of the Resource Set
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * Unique name given to the Resource Set.
+     * Unique name given to the Resource Set
      * 
      */
     @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
-     * @return Unique name given to the Resource Set.
+     * @return Unique name given to the Resource Set
      * 
      */
     public Output<String> label() {
         return this.label;
     }
     /**
-     * The endpoints that reference the resources to be included in the new Resource Set. At least one
-     * endpoint must be specified when creating resource set.
+     * The endpoints that reference the resources to be included in the new Resource Set
      * 
      */
     @Export(name="resources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resources;
 
     /**
-     * @return The endpoints that reference the resources to be included in the new Resource Set. At least one
-     * endpoint must be specified when creating resource set.
+     * @return The endpoints that reference the resources to be included in the new Resource Set
      * 
      */
     public Output<Optional<List<String>>> resources() {

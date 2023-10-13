@@ -15,143 +15,76 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Creates security question factor for a user.
- * 
- * This resource allows you to create and configure security question factor for a user.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.user.User;
- * import com.pulumi.okta.user.UserArgs;
- * import com.pulumi.okta.OktaFunctions;
- * import com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;
- * import com.pulumi.okta.factor.Factor;
- * import com.pulumi.okta.factor.FactorArgs;
- * import com.pulumi.okta.UserFactorQuestion;
- * import com.pulumi.okta.UserFactorQuestionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .firstName(&#34;John&#34;)
- *             .lastName(&#34;Smith&#34;)
- *             .login(&#34;john.smith@example.com&#34;)
- *             .email(&#34;john.smith@example.com&#34;)
- *             .build());
- * 
- *         final var exampleUserSecurityQuestions = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
- *             .userId(exampleUser.id())
- *             .build());
- * 
- *         var exampleFactor = new Factor(&#34;exampleFactor&#34;, FactorArgs.builder()        
- *             .providerId(&#34;okta_question&#34;)
- *             .active(true)
- *             .build());
- * 
- *         var exampleUserFactorQuestion = new UserFactorQuestion(&#34;exampleUserFactorQuestion&#34;, UserFactorQuestionArgs.builder()        
- *             .userId(exampleUser.id())
- *             .key(exampleUserSecurityQuestions.applyValue(getUserSecurityQuestionsResult -&gt; getUserSecurityQuestionsResult).applyValue(exampleUserSecurityQuestions -&gt; exampleUserSecurityQuestions.applyValue(getUserSecurityQuestionsResult -&gt; getUserSecurityQuestionsResult.questions()[0].key())))
- *             .answer(&#34;meatball&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleFactor)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Security question factor for a user can be imported via the `user_id` and the `factor_id`.
- * 
- * ```sh
- *  $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &amp;#60;user id&amp;#62;/&amp;#60;question factor id&amp;#62;
- * ```
+ * Resource to manage a question factor for a user
  * 
  */
 @ResourceType(type="okta:index/userFactorQuestion:UserFactorQuestion")
 public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
     /**
-     * Security question answer. Note here that answer won&#39;t be set during the resource import.
+     * User password security answer
      * 
      */
     @Export(name="answer", refs={String.class}, tree="[0]")
     private Output<String> answer;
 
     /**
-     * @return Security question answer. Note here that answer won&#39;t be set during the resource import.
+     * @return User password security answer
      * 
      */
     public Output<String> answer() {
         return this.answer;
     }
     /**
-     * Security question unique key.
+     * Unique key for question
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return Security question unique key.
+     * @return Unique key for question
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * The status of the security question factor.
+     * User factor status.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the security question factor.
+     * @return User factor status.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * Display text for security question.
+     * Display text for question
      * 
      */
     @Export(name="text", refs={String.class}, tree="[0]")
     private Output<String> text;
 
     /**
-     * @return Display text for security question.
+     * @return Display text for question
      * 
      */
     public Output<String> text() {
         return this.text;
     }
     /**
-     * ID of the user. Resource will be recreated when `user_id` changes.
+     * ID of a Okta User
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return ID of the user. Resource will be recreated when `user_id` changes.
+     * @return ID of a Okta User
      * 
      */
     public Output<String> userId() {

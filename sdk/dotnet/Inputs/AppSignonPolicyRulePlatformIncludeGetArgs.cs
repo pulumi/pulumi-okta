@@ -13,20 +13,14 @@ namespace Pulumi.Okta.Inputs
     public sealed class AppSignonPolicyRulePlatformIncludeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Only available and required when using `os_type = "OTHER"`
+        /// Only available with OTHER OS type
         /// </summary>
         [Input("osExpression")]
         public Input<string>? OsExpression { get; set; }
 
-        /// <summary>
-        /// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
-        /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
 
-        /// <summary>
-        /// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

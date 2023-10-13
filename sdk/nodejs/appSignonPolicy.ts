@@ -4,44 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const myAppPolicy = new okta.AppSignonPolicy("myAppPolicy", {description: "Authentication Policy to be used on my app."});
- * const myApp = new okta.app.OAuth("myApp", {
- *     label: "My App",
- *     type: "web",
- *     grantTypes: ["authorization_code"],
- *     redirectUris: ["http://localhost:3000"],
- *     postLogoutRedirectUris: ["http://localhost:3000"],
- *     responseTypes: ["code"],
- *     authenticationPolicy: myAppPolicy.id,
- * });
- * ```
- *
- * The created policy can be extended using `appSignonPolicyRules`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const myAppPolicy = new okta.AppSignonPolicy("myAppPolicy", {description: "Authentication Policy to be used on my app."});
- * const someRule = new okta.AppSignonPolicyRule("someRule", {
- *     policyId: resource.okta_app_signon_policy.my_app_policy.id,
- *     factorMode: "1FA",
- *     reAuthenticationFrequency: "PT43800H",
- *     constraints: [JSON.stringify({
- *         knowledge: {
- *             types: ["password"],
- *         },
- *     })],
- * });
- * ```
- */
 export class AppSignonPolicy extends pulumi.CustomResource {
     /**
      * Get an existing AppSignonPolicy resource's state with the given name, ID, and optional extra
@@ -71,11 +33,11 @@ export class AppSignonPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Description of the policy.
+     * Policy Description
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Name of the policy.
+     * Policy Name
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -112,11 +74,11 @@ export class AppSignonPolicy extends pulumi.CustomResource {
  */
 export interface AppSignonPolicyState {
     /**
-     * Description of the policy.
+     * Policy Description
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the policy.
+     * Policy Name
      */
     name?: pulumi.Input<string>;
 }
@@ -126,11 +88,11 @@ export interface AppSignonPolicyState {
  */
 export interface AppSignonPolicyArgs {
     /**
-     * Description of the policy.
+     * Policy Description
      */
     description: pulumi.Input<string>;
     /**
-     * Name of the policy.
+     * Policy Name
      */
     name?: pulumi.Input<string>;
 }

@@ -13,30 +13,14 @@ namespace Pulumi.Okta.Policy.Inputs
     public sealed class RuleIdpDiscoveryPlatformIncludeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Only available when using `os_type = "OTHER"`
+        /// Only available with OTHER OS type
         /// </summary>
         [Input("osExpression")]
         public Input<string>? OsExpression { get; set; }
 
-        /// <summary>
-        /// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
 
-        /// <summary>
-        /// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

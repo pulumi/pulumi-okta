@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates an Authorization Server Scope.
- *
- * This resource allows you to create and configure an Authorization Server Scope.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.auth.ServerScope("example", {
- *     authServerId: "<auth server id>",
- *     consent: "IMPLICIT",
- *     metadataPublish: "NO_CLIENTS",
- * });
- * ```
- *
- * ## Import
- *
- * Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
- *
- * ```sh
- *  $ pulumi import okta:auth/serverScope:ServerScope example &#60;auth server id&#62;/&#60;scope id&#62;
- * ```
- */
 export class ServerScope extends pulumi.CustomResource {
     /**
      * Get an existing ServerScope resource's state with the given name, ID, and optional extra
@@ -59,11 +33,11 @@ export class ServerScope extends pulumi.CustomResource {
     }
 
     /**
-     * Auth Server ID.
+     * Auth server ID
      */
     public readonly authServerId!: pulumi.Output<string>;
     /**
-     * Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
+     * EA Feature and thus it is simply ignored if the feature is off
      */
     public readonly consent!: pulumi.Output<string | undefined>;
     /**
@@ -75,15 +49,15 @@ export class ServerScope extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Name of the end user displayed in a consent dialog box.
+     * Name of the end user displayed in a consent dialog box
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+     * Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
      */
     public readonly metadataPublish!: pulumi.Output<string | undefined>;
     /**
-     * Auth Server scope name.
+     * Auth server scope name
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -142,11 +116,11 @@ export class ServerScope extends pulumi.CustomResource {
  */
 export interface ServerScopeState {
     /**
-     * Auth Server ID.
+     * Auth server ID
      */
     authServerId?: pulumi.Input<string>;
     /**
-     * Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
+     * EA Feature and thus it is simply ignored if the feature is off
      */
     consent?: pulumi.Input<string>;
     /**
@@ -158,15 +132,15 @@ export interface ServerScopeState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the end user displayed in a consent dialog box.
+     * Name of the end user displayed in a consent dialog box
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+     * Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
      */
     metadataPublish?: pulumi.Input<string>;
     /**
-     * Auth Server scope name.
+     * Auth server scope name
      */
     name?: pulumi.Input<string>;
     /**
@@ -184,11 +158,11 @@ export interface ServerScopeState {
  */
 export interface ServerScopeArgs {
     /**
-     * Auth Server ID.
+     * Auth server ID
      */
     authServerId: pulumi.Input<string>;
     /**
-     * Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
+     * EA Feature and thus it is simply ignored if the feature is off
      */
     consent?: pulumi.Input<string>;
     /**
@@ -200,15 +174,15 @@ export interface ServerScopeArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the end user displayed in a consent dialog box.
+     * Name of the end user displayed in a consent dialog box
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+     * Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
      */
     metadataPublish?: pulumi.Input<string>;
     /**
-     * Auth Server scope name.
+     * Auth server scope name
      */
     name?: pulumi.Input<string>;
     /**

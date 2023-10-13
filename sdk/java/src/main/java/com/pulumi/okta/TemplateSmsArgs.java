@@ -18,31 +18,23 @@ public final class TemplateSmsArgs extends com.pulumi.resources.ResourceArgs {
     public static final TemplateSmsArgs Empty = new TemplateSmsArgs();
 
     /**
-     * The SMS message.
+     * SMS default template
      * 
      */
     @Import(name="template", required=true)
     private Output<String> template;
 
     /**
-     * @return The SMS message.
+     * @return SMS default template
      * 
      */
     public Output<String> template() {
         return this.template;
     }
 
-    /**
-     * Set of translations for a particular template.
-     * 
-     */
     @Import(name="translations")
     private @Nullable Output<List<TemplateSmsTranslationArgs>> translations;
 
-    /**
-     * @return Set of translations for a particular template.
-     * 
-     */
     public Optional<Output<List<TemplateSmsTranslationArgs>>> translations() {
         return Optional.ofNullable(this.translations);
     }
@@ -89,7 +81,7 @@ public final class TemplateSmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param template The SMS message.
+         * @param template SMS default template
          * 
          * @return builder
          * 
@@ -100,7 +92,7 @@ public final class TemplateSmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param template The SMS message.
+         * @param template SMS default template
          * 
          * @return builder
          * 
@@ -109,33 +101,15 @@ public final class TemplateSmsArgs extends com.pulumi.resources.ResourceArgs {
             return template(Output.of(template));
         }
 
-        /**
-         * @param translations Set of translations for a particular template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder translations(@Nullable Output<List<TemplateSmsTranslationArgs>> translations) {
             $.translations = translations;
             return this;
         }
 
-        /**
-         * @param translations Set of translations for a particular template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder translations(List<TemplateSmsTranslationArgs> translations) {
             return translations(Output.of(translations));
         }
 
-        /**
-         * @param translations Set of translations for a particular template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder translations(TemplateSmsTranslationArgs... translations) {
             return translations(List.of(translations));
         }

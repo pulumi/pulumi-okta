@@ -15,122 +15,73 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages targets for administrator roles.
- * 
- * This resource allows you to define permissions for admin roles into a smaller subset of Groups or Apps within your org.
- * You can define admin roles to target Groups, Applications, and Application Instances.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.AdminRoleTargets;
- * import com.pulumi.okta.AdminRoleTargetsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AdminRoleTargets(&#34;example&#34;, AdminRoleTargetsArgs.builder()        
- *             .apps(            
- *                 &#34;oidc_client.&lt;app_id&gt;&#34;,
- *                 &#34;facebook&#34;)
- *             .roleType(&#34;APP_ADMIN&#34;)
- *             .userId(&#34;&lt;user_id&gt;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Okta Admin Role Targets can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &amp;#60;user id&amp;#62;/&amp;#60;role type&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:index/adminRoleTargets:AdminRoleTargets")
 public class AdminRoleTargets extends com.pulumi.resources.CustomResource {
     /**
-     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;).
+     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;)
      * 
      */
     @Export(name="apps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> apps;
 
     /**
-     * @return List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;).
+     * @return List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;)
      * 
      */
     public Output<Optional<List<String>>> apps() {
         return Codegen.optional(this.apps);
     }
     /**
-     * List of group IDs. Conflicts with `apps`.
+     * List of group IDs
      * 
      */
     @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groups;
 
     /**
-     * @return List of group IDs. Conflicts with `apps`.
+     * @return List of group IDs
      * 
      */
     public Output<Optional<List<String>>> groups() {
         return Codegen.optional(this.groups);
     }
     /**
-     * Role ID.
+     * ID of a role
      * 
      */
     @Export(name="roleId", refs={String.class}, tree="[0]")
     private Output<String> roleId;
 
     /**
-     * @return Role ID.
+     * @return ID of a role
      * 
      */
     public Output<String> roleId() {
         return this.roleId;
     }
     /**
-     * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * Type of the role that is assigned to the user and supports optional targets
      * 
      */
     @Export(name="roleType", refs={String.class}, tree="[0]")
     private Output<String> roleType;
 
     /**
-     * @return Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * @return Type of the role that is assigned to the user and supports optional targets
      * 
      */
     public Output<String> roleType() {
         return this.roleType;
     }
     /**
-     * ID of the user.
+     * User associated with the role
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return ID of the user.
+     * @return User associated with the role
      * 
      */
     public Output<String> userId() {

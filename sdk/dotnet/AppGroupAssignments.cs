@@ -9,66 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
-    /// <summary>
-    /// Assigns groups to an application.
-    /// 
-    /// This resource allows you to create multiple App Group assignments.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.AppGroupAssignments("example", new()
-    ///     {
-    ///         AppId = "&lt;app id&gt;",
-    ///         Groups = new[]
-    ///         {
-    ///             new Okta.Inputs.AppGroupAssignmentsGroupArgs
-    ///             {
-    ///                 Id = "&lt;group id&gt;",
-    ///                 Priority = 1,
-    ///             },
-    ///             new Okta.Inputs.AppGroupAssignmentsGroupArgs
-    ///             {
-    ///                 Id = "&lt;another group id&gt;",
-    ///                 Priority = 2,
-    ///                 Profile = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["application profile field"] = "application profile value",
-    ///                 }),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// !&gt; **NOTE** It would seem that setting/updating base/custom group schema values
-    /// was the original purpose for setting a `profile` JSON value during the [Assign
-    /// group to
-    /// application](https://developer.okta.com/docs/reference/api/apps/#assign-group-to-application)
-    /// API call that will take place when the `priority` value is changed. We couldn't
-    /// verify this works when writing a new integration test against this old feature
-    /// and were receiving an API 400 error. This feature may work for older orgs, or
-    /// classic orgs, but we can not guarantee for all orgs.
-    /// 
-    /// &gt; **IMPORTANT:** When using `okta.AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
-    /// 
-    /// ## Import
-    /// 
-    /// An application's group assignments can be imported via `app_id`.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &amp;#60;app_id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:index/appGroupAssignments:AppGroupAssignments")]
     public partial class AppGroupAssignments : global::Pulumi.CustomResource
     {
@@ -79,7 +19,7 @@ namespace Pulumi.Okta
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// A group to assign the app to.
+        /// A group to assign to this application
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<Outputs.AppGroupAssignmentsGroup>> Groups { get; private set; } = null!;
@@ -140,7 +80,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppGroupAssignmentsGroupArgs>? _groups;
 
         /// <summary>
-        /// A group to assign the app to.
+        /// A group to assign to this application
         /// </summary>
         public InputList<Inputs.AppGroupAssignmentsGroupArgs> Groups
         {
@@ -166,7 +106,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppGroupAssignmentsGroupGetArgs>? _groups;
 
         /// <summary>
-        /// A group to assign the app to.
+        /// A group to assign to this application
         /// </summary>
         public InputList<Inputs.AppGroupAssignmentsGroupGetArgs> Groups
         {

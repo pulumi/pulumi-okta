@@ -12,9 +12,11 @@ namespace Pulumi.Okta
     public static class GetAppSignonPolicy
     {
         /// <summary>
-        /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+        /// Get a sign-on policy for the application.
         /// 
-        /// Use this data source to retrieve a sign-on policy for the application.
+        /// &gt; **WARNING:** This feature is only available as a part of the 
+        /// Identity Engine. Contact support 
+        /// for further information.
         /// 
         /// &gt; Inside the product a sign-on policy is referenced as an _authentication
         /// policy_, in the public API the policy is of type
@@ -46,9 +48,11 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppSignonPolicyResult>("okta:index/getAppSignonPolicy:getAppSignonPolicy", args ?? new GetAppSignonPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+        /// Get a sign-on policy for the application.
         /// 
-        /// Use this data source to retrieve a sign-on policy for the application.
+        /// &gt; **WARNING:** This feature is only available as a part of the 
+        /// Identity Engine. Contact support 
+        /// for further information.
         /// 
         /// &gt; Inside the product a sign-on policy is referenced as an _authentication
         /// policy_, in the public API the policy is of type
@@ -84,7 +88,7 @@ namespace Pulumi.Okta
     public sealed class GetAppSignonPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The application ID.
+        /// App ID
         /// </summary>
         [Input("appId", required: true)]
         public string AppId { get; set; } = null!;
@@ -98,7 +102,7 @@ namespace Pulumi.Okta
     public sealed class GetAppSignonPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The application ID.
+        /// App ID
         /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
@@ -113,11 +117,17 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetAppSignonPolicyResult
     {
+        /// <summary>
+        /// App ID
+        /// </summary>
         public readonly string AppId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Policy name
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

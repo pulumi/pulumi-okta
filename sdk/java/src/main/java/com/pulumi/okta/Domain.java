@@ -16,116 +16,73 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages custom domain for your organization.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.Domain;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Domain(&#34;example&#34;);
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Okta Admin Role Targets can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/domain:Domain example &amp;#60;domain_id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:index/domain:Domain")
 public class Domain extends com.pulumi.resources.CustomResource {
     /**
-     * The Brand ID of the domain
+     * Brand id of the domain
      * 
      */
     @Export(name="brandId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> brandId;
 
     /**
-     * @return The Brand ID of the domain
+     * @return Brand id of the domain
      * 
      */
     public Output<Optional<String>> brandId() {
         return Codegen.optional(this.brandId);
     }
     /**
-     * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
-     * 
-     * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+     * Optional. Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: MANUAL, OKTA*MANAGED. Warning: Use of OKTA*MANAGED requires a feature flag to be enabled. Default value = MANUAL
      * 
      */
     @Export(name="certificateSourceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateSourceType;
 
     /**
-     * @return Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
-     * 
-     * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+     * @return Optional. Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: MANUAL, OKTA*MANAGED. Warning: Use of OKTA*MANAGED requires a feature flag to be enabled. Default value = MANUAL
      * 
      */
     public Output<Optional<String>> certificateSourceType() {
         return Codegen.optional(this.certificateSourceType);
     }
     /**
-     * TXT and CNAME records to be registered for the Domain.
+     * TXT and CNAME records to be registered for the Domain
      * 
      */
     @Export(name="dnsRecords", refs={List.class,DomainDnsRecord.class}, tree="[0,1]")
     private Output<List<DomainDnsRecord>> dnsRecords;
 
     /**
-     * @return TXT and CNAME records to be registered for the Domain.
+     * @return TXT and CNAME records to be registered for the Domain
      * 
      */
     public Output<List<DomainDnsRecord>> dnsRecords() {
         return this.dnsRecords;
     }
     /**
-     * Custom Domain name.
+     * Custom Domain name
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Custom Domain name.
+     * @return Custom Domain name
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Status of the domain.
+     * Status of the domain
      * 
      */
     @Export(name="validationStatus", refs={String.class}, tree="[0]")
     private Output<String> validationStatus;
 
     /**
-     * @return Status of the domain.
+     * @return Status of the domain
      * 
      */
     public Output<String> validationStatus() {

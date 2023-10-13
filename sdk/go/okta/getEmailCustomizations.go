@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Use this data source to retrieve the [email
-// customizations](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations)
-// of an email template belonging to a brand in an Okta organization.
+// Get the email customizations of an email template belonging to a brand in an Okta organization.
 func GetEmailCustomizations(ctx *pulumi.Context, args *GetEmailCustomizationsArgs, opts ...pulumi.InvokeOption) (*GetEmailCustomizationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEmailCustomizationsResult
@@ -29,17 +27,19 @@ func GetEmailCustomizations(ctx *pulumi.Context, args *GetEmailCustomizationsArg
 type GetEmailCustomizationsArgs struct {
 	// Brand ID
 	BrandId string `pulumi:"brandId"`
-	// Name of an Email Template
+	// Template Name
 	TemplateName string `pulumi:"templateName"`
 }
 
 // A collection of values returned by getEmailCustomizations.
 type GetEmailCustomizationsResult struct {
+	// Brand ID
 	BrandId string `pulumi:"brandId"`
-	// List of `EmailCustomization` belonging to the named email template of the brand
+	// List of `EmailCustomization` belonging to the named email template of the brand in the organization
 	EmailCustomizations []GetEmailCustomizationsEmailCustomization `pulumi:"emailCustomizations"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Template Name
 	TemplateName string `pulumi:"templateName"`
 }
 
@@ -60,7 +60,7 @@ func GetEmailCustomizationsOutput(ctx *pulumi.Context, args GetEmailCustomizatio
 type GetEmailCustomizationsOutputArgs struct {
 	// Brand ID
 	BrandId pulumi.StringInput `pulumi:"brandId"`
-	// Name of an Email Template
+	// Template Name
 	TemplateName pulumi.StringInput `pulumi:"templateName"`
 }
 
@@ -89,11 +89,12 @@ func (o GetEmailCustomizationsResultOutput) ToOutput(ctx context.Context) pulumi
 	}
 }
 
+// Brand ID
 func (o GetEmailCustomizationsResultOutput) BrandId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailCustomizationsResult) string { return v.BrandId }).(pulumi.StringOutput)
 }
 
-// List of `EmailCustomization` belonging to the named email template of the brand
+// List of `EmailCustomization` belonging to the named email template of the brand in the organization
 func (o GetEmailCustomizationsResultOutput) EmailCustomizations() GetEmailCustomizationsEmailCustomizationArrayOutput {
 	return o.ApplyT(func(v GetEmailCustomizationsResult) []GetEmailCustomizationsEmailCustomization {
 		return v.EmailCustomizations
@@ -105,6 +106,7 @@ func (o GetEmailCustomizationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailCustomizationsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Template Name
 func (o GetEmailCustomizationsResultOutput) TemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailCustomizationsResult) string { return v.TemplateName }).(pulumi.StringOutput)
 }

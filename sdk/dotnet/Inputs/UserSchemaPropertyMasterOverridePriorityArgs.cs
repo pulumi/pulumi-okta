@@ -12,15 +12,9 @@ namespace Pulumi.Okta.Inputs
 
     public sealed class UserSchemaPropertyMasterOverridePriorityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of profile source.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// ID of profile source.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

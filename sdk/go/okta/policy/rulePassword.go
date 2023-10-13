@@ -12,43 +12,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Creates a Password Policy Rule.
-//
-// This resource allows you to create and configure a Password Policy Rule.
-//
-// ## Import
-//
-// A Policy Rule can be imported via the Policy and Rule ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:policy/rulePassword:RulePassword example &#60;policy id&#62;/&#60;rule id&#62;
-//
-// ```
 type RulePassword struct {
 	pulumi.CustomResourceState
 
-	// Policy Rule Name. Type `"string"`
+	// Policy Rule Name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
+	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 	NetworkConnection pulumi.StringPtrOutput `pulumi:"networkConnection"`
-	// The network zones to exclude. Conflicts with `networkIncludes`. Type `"list(string)"`
+	// The zones to exclude
 	NetworkExcludes pulumi.StringArrayOutput `pulumi:"networkExcludes"`
-	// The network zones to include. Conflicts with `networkExcludes`. Type `"list(string)"`
+	// The zones to include
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
-	// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+	// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
 	PasswordChange pulumi.StringPtrOutput `pulumi:"passwordChange"`
-	// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+	// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
 	PasswordReset pulumi.StringPtrOutput `pulumi:"passwordReset"`
-	// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
+	// Allow or deny a user to unlock. Default = DENY
 	PasswordUnlock pulumi.StringPtrOutput `pulumi:"passwordUnlock"`
-	// Policy ID.
+	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The users to exclude. Type `"set(string)"`
+	// Set of User IDs to Exclude
 	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
 }
 
@@ -82,52 +69,52 @@ func GetRulePassword(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RulePassword resources.
 type rulePasswordState struct {
-	// Policy Rule Name. Type `"string"`
+	// Policy Rule Name
 	Name *string `pulumi:"name"`
-	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
+	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 	NetworkConnection *string `pulumi:"networkConnection"`
-	// The network zones to exclude. Conflicts with `networkIncludes`. Type `"list(string)"`
+	// The zones to exclude
 	NetworkExcludes []string `pulumi:"networkExcludes"`
-	// The network zones to include. Conflicts with `networkExcludes`. Type `"list(string)"`
+	// The zones to include
 	NetworkIncludes []string `pulumi:"networkIncludes"`
-	// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+	// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
 	PasswordChange *string `pulumi:"passwordChange"`
-	// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+	// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
 	PasswordReset *string `pulumi:"passwordReset"`
-	// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
+	// Allow or deny a user to unlock. Default = DENY
 	PasswordUnlock *string `pulumi:"passwordUnlock"`
-	// Policy ID.
+	// Policy ID of the Rule
 	PolicyId *string `pulumi:"policyId"`
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
-	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status *string `pulumi:"status"`
-	// The users to exclude. Type `"set(string)"`
+	// Set of User IDs to Exclude
 	UsersExcludeds []string `pulumi:"usersExcludeds"`
 }
 
 type RulePasswordState struct {
-	// Policy Rule Name. Type `"string"`
+	// Policy Rule Name
 	Name pulumi.StringPtrInput
-	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
+	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 	NetworkConnection pulumi.StringPtrInput
-	// The network zones to exclude. Conflicts with `networkIncludes`. Type `"list(string)"`
+	// The zones to exclude
 	NetworkExcludes pulumi.StringArrayInput
-	// The network zones to include. Conflicts with `networkExcludes`. Type `"list(string)"`
+	// The zones to include
 	NetworkIncludes pulumi.StringArrayInput
-	// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+	// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
 	PasswordChange pulumi.StringPtrInput
-	// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+	// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
 	PasswordReset pulumi.StringPtrInput
-	// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
+	// Allow or deny a user to unlock. Default = DENY
 	PasswordUnlock pulumi.StringPtrInput
-	// Policy ID.
+	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrInput
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
-	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrInput
-	// The users to exclude. Type `"set(string)"`
+	// Set of User IDs to Exclude
 	UsersExcludeds pulumi.StringArrayInput
 }
 
@@ -136,53 +123,53 @@ func (RulePasswordState) ElementType() reflect.Type {
 }
 
 type rulePasswordArgs struct {
-	// Policy Rule Name. Type `"string"`
+	// Policy Rule Name
 	Name *string `pulumi:"name"`
-	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
+	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 	NetworkConnection *string `pulumi:"networkConnection"`
-	// The network zones to exclude. Conflicts with `networkIncludes`. Type `"list(string)"`
+	// The zones to exclude
 	NetworkExcludes []string `pulumi:"networkExcludes"`
-	// The network zones to include. Conflicts with `networkExcludes`. Type `"list(string)"`
+	// The zones to include
 	NetworkIncludes []string `pulumi:"networkIncludes"`
-	// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+	// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
 	PasswordChange *string `pulumi:"passwordChange"`
-	// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+	// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
 	PasswordReset *string `pulumi:"passwordReset"`
-	// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
+	// Allow or deny a user to unlock. Default = DENY
 	PasswordUnlock *string `pulumi:"passwordUnlock"`
-	// Policy ID.
+	// Policy ID of the Rule
 	PolicyId *string `pulumi:"policyId"`
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
-	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status *string `pulumi:"status"`
-	// The users to exclude. Type `"set(string)"`
+	// Set of User IDs to Exclude
 	UsersExcludeds []string `pulumi:"usersExcludeds"`
 }
 
 // The set of arguments for constructing a RulePassword resource.
 type RulePasswordArgs struct {
-	// Policy Rule Name. Type `"string"`
+	// Policy Rule Name
 	Name pulumi.StringPtrInput
-	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
+	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 	NetworkConnection pulumi.StringPtrInput
-	// The network zones to exclude. Conflicts with `networkIncludes`. Type `"list(string)"`
+	// The zones to exclude
 	NetworkExcludes pulumi.StringArrayInput
-	// The network zones to include. Conflicts with `networkExcludes`. Type `"list(string)"`
+	// The zones to include
 	NetworkIncludes pulumi.StringArrayInput
-	// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+	// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
 	PasswordChange pulumi.StringPtrInput
-	// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+	// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
 	PasswordReset pulumi.StringPtrInput
-	// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
+	// Allow or deny a user to unlock. Default = DENY
 	PasswordUnlock pulumi.StringPtrInput
-	// Policy ID.
+	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrInput
-	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
+	// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
-	// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+	// Policy Rule Status: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrInput
-	// The users to exclude. Type `"set(string)"`
+	// Set of User IDs to Exclude
 	UsersExcludeds pulumi.StringArrayInput
 }
 
@@ -297,57 +284,57 @@ func (o RulePasswordOutput) ToOutput(ctx context.Context) pulumix.Output[*RulePa
 	}
 }
 
-// Policy Rule Name. Type `"string"`
+// Policy Rule Name
 func (o RulePasswordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
+// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
 func (o RulePasswordOutput) NetworkConnection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.NetworkConnection }).(pulumi.StringPtrOutput)
 }
 
-// The network zones to exclude. Conflicts with `networkIncludes`. Type `"list(string)"`
+// The zones to exclude
 func (o RulePasswordOutput) NetworkExcludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
 }
 
-// The network zones to include. Conflicts with `networkExcludes`. Type `"list(string)"`
+// The zones to include
 func (o RulePasswordOutput) NetworkIncludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
 }
 
-// Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+// Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
 func (o RulePasswordOutput) PasswordChange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.PasswordChange }).(pulumi.StringPtrOutput)
 }
 
-// Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+// Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
 func (o RulePasswordOutput) PasswordReset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.PasswordReset }).(pulumi.StringPtrOutput)
 }
 
-// Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
+// Allow or deny a user to unlock. Default = DENY
 func (o RulePasswordOutput) PasswordUnlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.PasswordUnlock }).(pulumi.StringPtrOutput)
 }
 
-// Policy ID.
+// Policy ID of the Rule
 func (o RulePasswordOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
+// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 func (o RulePasswordOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+// Policy Rule Status: ACTIVE or INACTIVE.
 func (o RulePasswordOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The users to exclude. Type `"set(string)"`
+// Set of User IDs to Exclude
 func (o RulePasswordOutput) UsersExcludeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
 }

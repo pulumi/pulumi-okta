@@ -14,16 +14,10 @@ namespace Pulumi.Okta.Outputs
     public sealed class AppSignonPolicyRulePlatformInclude
     {
         /// <summary>
-        /// Only available and required when using `os_type = "OTHER"`
+        /// Only available with OTHER OS type
         /// </summary>
         public readonly string? OsExpression;
-        /// <summary>
-        /// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
-        /// </summary>
         public readonly string? OsType;
-        /// <summary>
-        /// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

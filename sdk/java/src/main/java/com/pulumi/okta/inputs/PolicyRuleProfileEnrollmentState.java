@@ -19,14 +19,14 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     public static final PolicyRuleProfileEnrollmentState Empty = new PolicyRuleProfileEnrollmentState();
 
     /**
-     * Allow or deny access based on the rule conditions. Valid values are: `&#34;ALLOW&#34;`, `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+     * Allow or deny access based on the rule conditions: ALLOW or DENY
      * 
      */
     @Import(name="access")
     private @Nullable Output<String> access;
 
     /**
-     * @return Allow or deny access based on the rule conditions. Valid values are: `&#34;ALLOW&#34;`, `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+     * @return Allow or deny access based on the rule conditions: ALLOW or DENY
      * 
      */
     public Optional<Output<String>> access() {
@@ -34,14 +34,14 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     }
 
     /**
-     * Indicates whether email verification should occur before access is granted. Default is `true`.
+     * Indicates whether email verification should occur before access is granted
      * 
      */
     @Import(name="emailVerification")
     private @Nullable Output<Boolean> emailVerification;
 
     /**
-     * @return Indicates whether email verification should occur before access is granted. Default is `true`.
+     * @return Indicates whether email verification should occur before access is granted
      * 
      */
     public Optional<Output<Boolean>> emailVerification() {
@@ -49,14 +49,14 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     }
 
     /**
-     * ID of a Registration Inline Hook.
+     * ID of a Registration Inline Hook
      * 
      */
     @Import(name="inlineHookId")
     private @Nullable Output<String> inlineHookId;
 
     /**
-     * @return ID of a Registration Inline Hook.
+     * @return ID of a Registration Inline Hook
      * 
      */
     public Optional<Output<String>> inlineHookId() {
@@ -79,14 +79,14 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     }
 
     /**
-     * Policy ID.
+     * ID of the policy
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return Policy ID.
+     * @return ID of the policy
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -94,14 +94,14 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     }
 
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * A list of attributes to prompt the user during registration or progressive profiling
      * 
      */
     @Import(name="profileAttributes")
     private @Nullable Output<List<PolicyRuleProfileEnrollmentProfileAttributeArgs>> profileAttributes;
 
     /**
-     * @return A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * @return A list of attributes to prompt the user during registration or progressive profiling
      * 
      */
     public Optional<Output<List<PolicyRuleProfileEnrollmentProfileAttributeArgs>>> profileAttributes() {
@@ -109,14 +109,14 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     }
 
     /**
-     * Status of the Rule.
+     * Status of the rule
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the Rule.
+     * @return Status of the rule
      * 
      */
     public Optional<Output<String>> status() {
@@ -124,14 +124,14 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     }
 
     /**
-     * The ID of a Group that this User should be added to.
+     * The ID of a Group that this User should be added to
      * 
      */
     @Import(name="targetGroupId")
     private @Nullable Output<String> targetGroupId;
 
     /**
-     * @return The ID of a Group that this User should be added to.
+     * @return The ID of a Group that this User should be added to
      * 
      */
     public Optional<Output<String>> targetGroupId() {
@@ -154,14 +154,14 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     }
 
     /**
-     * Which action should be taken if this User is new. Valid values are: `&#34;DENY&#34;`, `&#34;REGISTER&#34;`.
+     * Which action should be taken if this User is new
      * 
      */
     @Import(name="unknownUserAction")
     private @Nullable Output<String> unknownUserAction;
 
     /**
-     * @return Which action should be taken if this User is new. Valid values are: `&#34;DENY&#34;`, `&#34;REGISTER&#34;`.
+     * @return Which action should be taken if this User is new
      * 
      */
     public Optional<Output<String>> unknownUserAction() {
@@ -202,7 +202,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param access Allow or deny access based on the rule conditions. Valid values are: `&#34;ALLOW&#34;`, `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+         * @param access Allow or deny access based on the rule conditions: ALLOW or DENY
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param access Allow or deny access based on the rule conditions. Valid values are: `&#34;ALLOW&#34;`, `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+         * @param access Allow or deny access based on the rule conditions: ALLOW or DENY
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param emailVerification Indicates whether email verification should occur before access is granted. Default is `true`.
+         * @param emailVerification Indicates whether email verification should occur before access is granted
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param emailVerification Indicates whether email verification should occur before access is granted. Default is `true`.
+         * @param emailVerification Indicates whether email verification should occur before access is granted
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param inlineHookId ID of a Registration Inline Hook.
+         * @param inlineHookId ID of a Registration Inline Hook
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param inlineHookId ID of a Registration Inline Hook.
+         * @param inlineHookId ID of a Registration Inline Hook
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId ID of the policy
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId ID of the policy
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param status Status of the Rule.
+         * @param status Status of the rule
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param status Status of the Rule.
+         * @param status Status of the rule
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param targetGroupId The ID of a Group that this User should be added to.
+         * @param targetGroupId The ID of a Group that this User should be added to
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param targetGroupId The ID of a Group that this User should be added to.
+         * @param targetGroupId The ID of a Group that this User should be added to
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param unknownUserAction Which action should be taken if this User is new. Valid values are: `&#34;DENY&#34;`, `&#34;REGISTER&#34;`.
+         * @param unknownUserAction Which action should be taken if this User is new
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param unknownUserAction Which action should be taken if this User is new. Valid values are: `&#34;DENY&#34;`, `&#34;REGISTER&#34;`.
+         * @param unknownUserAction Which action should be taken if this User is new
          * 
          * @return builder
          * 

@@ -9,57 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Idp
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// A SAML IdP Signing Key can be imported via the key id.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:idp/samlKey:SamlKey example &amp;#60;key id&amp;#62;
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:idp/samlKey:SamlKey")]
     public partial class SamlKey : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Date created.
-        /// </summary>
         [Output("created")]
         public Output<string> Created { get; private set; } = null!;
 
-        /// <summary>
-        /// Date the cert expires.
-        /// </summary>
         [Output("expiresAt")]
         public Output<string> ExpiresAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Key ID.
-        /// </summary>
         [Output("kid")]
         public Output<string> Kid { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifies the cryptographic algorithm family used with the key.
-        /// </summary>
         [Output("kty")]
         public Output<string> Kty { get; private set; } = null!;
 
-        /// <summary>
-        /// Intended use of the public key.
-        /// </summary>
         [Output("use")]
         public Output<string> Use { get; private set; } = null!;
 
         /// <summary>
-        /// base64-encoded X.509 certificate chain with DER encoding.
+        /// base64-encoded X.509 certificate chain with DER encoding
         /// </summary>
         [Output("x5cs")]
         public Output<ImmutableArray<string>> X5cs { get; private set; } = null!;
 
-        /// <summary>
-        /// base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
-        /// </summary>
         [Output("x5tS256")]
         public Output<string> X5tS256 { get; private set; } = null!;
 
@@ -113,7 +86,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _x5cs;
 
         /// <summary>
-        /// base64-encoded X.509 certificate chain with DER encoding.
+        /// base64-encoded X.509 certificate chain with DER encoding
         /// </summary>
         public InputList<string> X5cs
         {
@@ -129,33 +102,18 @@ namespace Pulumi.Okta.Idp
 
     public sealed class SamlKeyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Date created.
-        /// </summary>
         [Input("created")]
         public Input<string>? Created { get; set; }
 
-        /// <summary>
-        /// Date the cert expires.
-        /// </summary>
         [Input("expiresAt")]
         public Input<string>? ExpiresAt { get; set; }
 
-        /// <summary>
-        /// Key ID.
-        /// </summary>
         [Input("kid")]
         public Input<string>? Kid { get; set; }
 
-        /// <summary>
-        /// Identifies the cryptographic algorithm family used with the key.
-        /// </summary>
         [Input("kty")]
         public Input<string>? Kty { get; set; }
 
-        /// <summary>
-        /// Intended use of the public key.
-        /// </summary>
         [Input("use")]
         public Input<string>? Use { get; set; }
 
@@ -163,7 +121,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _x5cs;
 
         /// <summary>
-        /// base64-encoded X.509 certificate chain with DER encoding.
+        /// base64-encoded X.509 certificate chain with DER encoding
         /// </summary>
         public InputList<string> X5cs
         {
@@ -171,9 +129,6 @@ namespace Pulumi.Okta.Idp
             set => _x5cs = value;
         }
 
-        /// <summary>
-        /// base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
-        /// </summary>
         [Input("x5tS256")]
         public Input<string>? X5tS256 { get; set; }
 

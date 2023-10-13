@@ -44,6 +44,9 @@ class GetBrandResult:
     @property
     @pulumi.getter(name="brandId")
     def brand_id(self) -> str:
+        """
+        Brand ID
+        """
         return pulumi.get(self, "brand_id")
 
     @property
@@ -58,7 +61,7 @@ class GetBrandResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Brand ID
+        The ID of the Brand
         """
         return pulumi.get(self, "id")
 
@@ -82,7 +85,7 @@ class GetBrandResult:
     @pulumi.getter(name="removePoweredByOkta")
     def remove_powered_by_okta(self) -> bool:
         """
-        Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         return pulumi.get(self, "remove_powered_by_okta")
 
@@ -104,10 +107,10 @@ class AwaitableGetBrandResult(GetBrandResult):
 def get_brand(brand_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrandResult:
     """
-    Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
+    Get a single Brand from Okta.
 
 
-    :param str brand_id: Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+    :param str brand_id: Brand ID
     """
     __args__ = dict()
     __args__['brandId'] = brand_id
@@ -127,9 +130,9 @@ def get_brand(brand_id: Optional[str] = None,
 def get_brand_output(brand_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrandResult]:
     """
-    Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
+    Get a single Brand from Okta.
 
 
-    :param str brand_id: Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+    :param str brand_id: Brand ID
     """
     ...

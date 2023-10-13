@@ -26,11 +26,10 @@ class OAuthGroupsClaimArgs:
                  issuer_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the claim that will be used in the token.
-        :param pulumi.Input[str] type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+        :param pulumi.Input[str] type: Groups claim type.
         :param pulumi.Input[str] value: Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
-        :param pulumi.Input[str] filter_type: Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
-        :param pulumi.Input[str] issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-               Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        :param pulumi.Input[str] filter_type: Groups claim filter. Can only be set if type is FILTER.
+        :param pulumi.Input[str] issuer_mode: Issuer mode inherited from OAuth App
         """
         OAuthGroupsClaimArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -73,7 +72,7 @@ class OAuthGroupsClaimArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+        Groups claim type.
         """
         return pulumi.get(self, "type")
 
@@ -97,7 +96,7 @@ class OAuthGroupsClaimArgs:
     @pulumi.getter(name="filterType")
     def filter_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+        Groups claim filter. Can only be set if type is FILTER.
         """
         return pulumi.get(self, "filter_type")
 
@@ -109,8 +108,7 @@ class OAuthGroupsClaimArgs:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-        Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        Issuer mode inherited from OAuth App
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -128,6 +126,12 @@ class OAuthJwkArgs:
                  n: Optional[pulumi.Input[str]] = None,
                  x: Optional[pulumi.Input[str]] = None,
                  y: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kid: Key ID
+        :param pulumi.Input[str] kty: Key type
+        :param pulumi.Input[str] e: RSA Exponent
+        :param pulumi.Input[str] n: RSA Modulus
+        """
         OAuthJwkArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             kid=kid,
@@ -161,6 +165,9 @@ class OAuthJwkArgs:
     @property
     @pulumi.getter
     def kid(self) -> pulumi.Input[str]:
+        """
+        Key ID
+        """
         return pulumi.get(self, "kid")
 
     @kid.setter
@@ -170,6 +177,9 @@ class OAuthJwkArgs:
     @property
     @pulumi.getter
     def kty(self) -> pulumi.Input[str]:
+        """
+        Key type
+        """
         return pulumi.get(self, "kty")
 
     @kty.setter
@@ -179,6 +189,9 @@ class OAuthJwkArgs:
     @property
     @pulumi.getter
     def e(self) -> Optional[pulumi.Input[str]]:
+        """
+        RSA Exponent
+        """
         return pulumi.get(self, "e")
 
     @e.setter
@@ -188,6 +201,9 @@ class OAuthJwkArgs:
     @property
     @pulumi.getter
     def n(self) -> Optional[pulumi.Input[str]]:
+        """
+        RSA Modulus
+        """
         return pulumi.get(self, "n")
 
     @n.setter
@@ -223,12 +239,11 @@ class SamlAttributeStatementArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] name: The name of the attribute statement.
-        :param pulumi.Input[str] filter_type: Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
-        :param pulumi.Input[str] filter_value: Filter value to use.
-        :param pulumi.Input[str] namespace: The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
-        :param pulumi.Input[str] type: The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use.
+        :param pulumi.Input[str] name: The reference name of the attribute statement
+        :param pulumi.Input[str] filter_type: Type of group attribute filter
+        :param pulumi.Input[str] filter_value: Filter value to use
+        :param pulumi.Input[str] namespace: The name format of the attribute
+        :param pulumi.Input[str] type: The type of attribute statements object
         """
         SamlAttributeStatementArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -265,7 +280,7 @@ class SamlAttributeStatementArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the attribute statement.
+        The reference name of the attribute statement
         """
         return pulumi.get(self, "name")
 
@@ -277,7 +292,7 @@ class SamlAttributeStatementArgs:
     @pulumi.getter(name="filterType")
     def filter_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
+        Type of group attribute filter
         """
         return pulumi.get(self, "filter_type")
 
@@ -289,7 +304,7 @@ class SamlAttributeStatementArgs:
     @pulumi.getter(name="filterValue")
     def filter_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Filter value to use.
+        Filter value to use
         """
         return pulumi.get(self, "filter_value")
 
@@ -301,7 +316,7 @@ class SamlAttributeStatementArgs:
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+        The name format of the attribute
         """
         return pulumi.get(self, "namespace")
 
@@ -313,7 +328,7 @@ class SamlAttributeStatementArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
+        The type of attribute statements object
         """
         return pulumi.get(self, "type")
 
@@ -324,9 +339,6 @@ class SamlAttributeStatementArgs:
     @property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Array of values to use.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -347,18 +359,6 @@ class SamlKeyArgs:
                  use: Optional[pulumi.Input[str]] = None,
                  x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x5t_s256: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] created: Date created.
-        :param pulumi.Input[str] e: RSA exponent.
-        :param pulumi.Input[str] expires_at: Date the key expires.
-        :param pulumi.Input[str] kid: Key ID.
-        :param pulumi.Input[str] kty: Identifies the cryptographic algorithm family used with the key.
-        :param pulumi.Input[str] last_updated: Date the key was last updated.
-        :param pulumi.Input[str] n: RSA modulus.
-        :param pulumi.Input[str] use: Intended use of the public key.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: X.509 certificate chain.
-        :param pulumi.Input[str] x5t_s256: X.509 certificate SHA-256 thumbprint.
-        """
         SamlKeyArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             created=created,
@@ -410,9 +410,6 @@ class SamlKeyArgs:
     @property
     @pulumi.getter
     def created(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date created.
-        """
         return pulumi.get(self, "created")
 
     @created.setter
@@ -422,9 +419,6 @@ class SamlKeyArgs:
     @property
     @pulumi.getter
     def e(self) -> Optional[pulumi.Input[str]]:
-        """
-        RSA exponent.
-        """
         return pulumi.get(self, "e")
 
     @e.setter
@@ -434,9 +428,6 @@ class SamlKeyArgs:
     @property
     @pulumi.getter(name="expiresAt")
     def expires_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date the key expires.
-        """
         return pulumi.get(self, "expires_at")
 
     @expires_at.setter
@@ -446,9 +437,6 @@ class SamlKeyArgs:
     @property
     @pulumi.getter
     def kid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Key ID.
-        """
         return pulumi.get(self, "kid")
 
     @kid.setter
@@ -458,9 +446,6 @@ class SamlKeyArgs:
     @property
     @pulumi.getter
     def kty(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifies the cryptographic algorithm family used with the key.
-        """
         return pulumi.get(self, "kty")
 
     @kty.setter
@@ -470,9 +455,6 @@ class SamlKeyArgs:
     @property
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date the key was last updated.
-        """
         return pulumi.get(self, "last_updated")
 
     @last_updated.setter
@@ -482,9 +464,6 @@ class SamlKeyArgs:
     @property
     @pulumi.getter
     def n(self) -> Optional[pulumi.Input[str]]:
-        """
-        RSA modulus.
-        """
         return pulumi.get(self, "n")
 
     @n.setter
@@ -494,9 +473,6 @@ class SamlKeyArgs:
     @property
     @pulumi.getter
     def use(self) -> Optional[pulumi.Input[str]]:
-        """
-        Intended use of the public key.
-        """
         return pulumi.get(self, "use")
 
     @use.setter
@@ -506,9 +482,6 @@ class SamlKeyArgs:
     @property
     @pulumi.getter
     def x5cs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        X.509 certificate chain.
-        """
         return pulumi.get(self, "x5cs")
 
     @x5cs.setter
@@ -518,9 +491,6 @@ class SamlKeyArgs:
     @property
     @pulumi.getter(name="x5tS256")
     def x5t_s256(self) -> Optional[pulumi.Input[str]]:
-        """
-        X.509 certificate SHA-256 thumbprint.
-        """
         return pulumi.get(self, "x5t_s256")
 
     @x5t_s256.setter

@@ -22,15 +22,12 @@ class FactorTotpArgs:
                  time_step: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a FactorTotp resource.
-        :param pulumi.Input[int] clock_drift_interval: Clock drift interval. This setting allows you to build in tolerance for any
-               drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
-        :param pulumi.Input[str] hmac_algorithm: HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
-               is `"HMacSHA512"`.
+        :param pulumi.Input[int] clock_drift_interval: Clock drift interval
+        :param pulumi.Input[str] hmac_algorithm: Hash-based message authentication code algorithm
         :param pulumi.Input[str] name: The TOTP name.
         :param pulumi.Input[int] otp_length: Length of the password. Default is `6`.
-        :param pulumi.Input[str] shared_secret_encoding: Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
-               Default is `"base32"`.
-        :param pulumi.Input[int] time_step: Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+        :param pulumi.Input[str] shared_secret_encoding: Shared secret encoding
+        :param pulumi.Input[int] time_step: Time step in seconds
         """
         FactorTotpArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -68,8 +65,7 @@ class FactorTotpArgs:
     @pulumi.getter(name="clockDriftInterval")
     def clock_drift_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Clock drift interval. This setting allows you to build in tolerance for any
-        drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
+        Clock drift interval
         """
         return pulumi.get(self, "clock_drift_interval")
 
@@ -81,8 +77,7 @@ class FactorTotpArgs:
     @pulumi.getter(name="hmacAlgorithm")
     def hmac_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
-        is `"HMacSHA512"`.
+        Hash-based message authentication code algorithm
         """
         return pulumi.get(self, "hmac_algorithm")
 
@@ -118,8 +113,7 @@ class FactorTotpArgs:
     @pulumi.getter(name="sharedSecretEncoding")
     def shared_secret_encoding(self) -> Optional[pulumi.Input[str]]:
         """
-        Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
-        Default is `"base32"`.
+        Shared secret encoding
         """
         return pulumi.get(self, "shared_secret_encoding")
 
@@ -131,7 +125,7 @@ class FactorTotpArgs:
     @pulumi.getter(name="timeStep")
     def time_step(self) -> Optional[pulumi.Input[int]]:
         """
-        Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+        Time step in seconds
         """
         return pulumi.get(self, "time_step")
 
@@ -151,15 +145,12 @@ class _FactorTotpState:
                  time_step: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering FactorTotp resources.
-        :param pulumi.Input[int] clock_drift_interval: Clock drift interval. This setting allows you to build in tolerance for any
-               drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
-        :param pulumi.Input[str] hmac_algorithm: HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
-               is `"HMacSHA512"`.
+        :param pulumi.Input[int] clock_drift_interval: Clock drift interval
+        :param pulumi.Input[str] hmac_algorithm: Hash-based message authentication code algorithm
         :param pulumi.Input[str] name: The TOTP name.
         :param pulumi.Input[int] otp_length: Length of the password. Default is `6`.
-        :param pulumi.Input[str] shared_secret_encoding: Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
-               Default is `"base32"`.
-        :param pulumi.Input[int] time_step: Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+        :param pulumi.Input[str] shared_secret_encoding: Shared secret encoding
+        :param pulumi.Input[int] time_step: Time step in seconds
         """
         _FactorTotpState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -197,8 +188,7 @@ class _FactorTotpState:
     @pulumi.getter(name="clockDriftInterval")
     def clock_drift_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Clock drift interval. This setting allows you to build in tolerance for any
-        drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
+        Clock drift interval
         """
         return pulumi.get(self, "clock_drift_interval")
 
@@ -210,8 +200,7 @@ class _FactorTotpState:
     @pulumi.getter(name="hmacAlgorithm")
     def hmac_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
-        is `"HMacSHA512"`.
+        Hash-based message authentication code algorithm
         """
         return pulumi.get(self, "hmac_algorithm")
 
@@ -247,8 +236,7 @@ class _FactorTotpState:
     @pulumi.getter(name="sharedSecretEncoding")
     def shared_secret_encoding(self) -> Optional[pulumi.Input[str]]:
         """
-        Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
-        Default is `"base32"`.
+        Shared secret encoding
         """
         return pulumi.get(self, "shared_secret_encoding")
 
@@ -260,7 +248,7 @@ class _FactorTotpState:
     @pulumi.getter(name="timeStep")
     def time_step(self) -> Optional[pulumi.Input[int]]:
         """
-        Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+        Time step in seconds
         """
         return pulumi.get(self, "time_step")
 
@@ -282,38 +270,15 @@ class FactorTotp(pulumi.CustomResource):
                  time_step: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Allows you to manage the time-based one-time password (TOTP) factors. A time-based one-time password (TOTP) is a
-        temporary passcode that is generated for user authentication. Examples of TOTP include hardware authenticators and
-        mobile app authenticators.
-
-        Once saved, the settings cannot be changed (except for the `name` field). Any other change would force resource
-        recreation.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.FactorTotp("example",
-            clock_drift_interval=10,
-            hmac_algorithm="HMacSHA256",
-            otp_length=10,
-            shared_secret_encoding="hexadecimal",
-            time_step=30)
-        ```
-
+        Create a FactorTotp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] clock_drift_interval: Clock drift interval. This setting allows you to build in tolerance for any
-               drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
-        :param pulumi.Input[str] hmac_algorithm: HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
-               is `"HMacSHA512"`.
+        :param pulumi.Input[int] clock_drift_interval: Clock drift interval
+        :param pulumi.Input[str] hmac_algorithm: Hash-based message authentication code algorithm
         :param pulumi.Input[str] name: The TOTP name.
         :param pulumi.Input[int] otp_length: Length of the password. Default is `6`.
-        :param pulumi.Input[str] shared_secret_encoding: Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
-               Default is `"base32"`.
-        :param pulumi.Input[int] time_step: Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+        :param pulumi.Input[str] shared_secret_encoding: Shared secret encoding
+        :param pulumi.Input[int] time_step: Time step in seconds
         """
         ...
     @overload
@@ -322,27 +287,7 @@ class FactorTotp(pulumi.CustomResource):
                  args: Optional[FactorTotpArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allows you to manage the time-based one-time password (TOTP) factors. A time-based one-time password (TOTP) is a
-        temporary passcode that is generated for user authentication. Examples of TOTP include hardware authenticators and
-        mobile app authenticators.
-
-        Once saved, the settings cannot be changed (except for the `name` field). Any other change would force resource
-        recreation.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.FactorTotp("example",
-            clock_drift_interval=10,
-            hmac_algorithm="HMacSHA256",
-            otp_length=10,
-            shared_secret_encoding="hexadecimal",
-            time_step=30)
-        ```
-
+        Create a FactorTotp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FactorTotpArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -406,15 +351,12 @@ class FactorTotp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] clock_drift_interval: Clock drift interval. This setting allows you to build in tolerance for any
-               drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
-        :param pulumi.Input[str] hmac_algorithm: HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
-               is `"HMacSHA512"`.
+        :param pulumi.Input[int] clock_drift_interval: Clock drift interval
+        :param pulumi.Input[str] hmac_algorithm: Hash-based message authentication code algorithm
         :param pulumi.Input[str] name: The TOTP name.
         :param pulumi.Input[int] otp_length: Length of the password. Default is `6`.
-        :param pulumi.Input[str] shared_secret_encoding: Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
-               Default is `"base32"`.
-        :param pulumi.Input[int] time_step: Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+        :param pulumi.Input[str] shared_secret_encoding: Shared secret encoding
+        :param pulumi.Input[int] time_step: Time step in seconds
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -432,8 +374,7 @@ class FactorTotp(pulumi.CustomResource):
     @pulumi.getter(name="clockDriftInterval")
     def clock_drift_interval(self) -> pulumi.Output[Optional[int]]:
         """
-        Clock drift interval. This setting allows you to build in tolerance for any
-        drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
+        Clock drift interval
         """
         return pulumi.get(self, "clock_drift_interval")
 
@@ -441,8 +382,7 @@ class FactorTotp(pulumi.CustomResource):
     @pulumi.getter(name="hmacAlgorithm")
     def hmac_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        HMAC Algorithm. Valid values: `"HMacSHA1"`, `"HMacSHA256"`, `"HMacSHA512"`. Default
-        is `"HMacSHA512"`.
+        Hash-based message authentication code algorithm
         """
         return pulumi.get(self, "hmac_algorithm")
 
@@ -466,8 +406,7 @@ class FactorTotp(pulumi.CustomResource):
     @pulumi.getter(name="sharedSecretEncoding")
     def shared_secret_encoding(self) -> pulumi.Output[Optional[str]]:
         """
-        Shared secret encoding. Valid values: `"base32"`, `"base64"`, `"hexadecimal"`.
-        Default is `"base32"`.
+        Shared secret encoding
         """
         return pulumi.get(self, "shared_secret_encoding")
 
@@ -475,7 +414,7 @@ class FactorTotp(pulumi.CustomResource):
     @pulumi.getter(name="timeStep")
     def time_step(self) -> pulumi.Output[Optional[int]]:
         """
-        Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
+        Time step in seconds
         """
         return pulumi.get(self, "time_step")
 

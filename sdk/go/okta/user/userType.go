@@ -13,54 +13,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Creates a User type.
-//
-// This resource allows you to create and configure a User Type.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := user.NewUserType(ctx, "example", &user.UserTypeArgs{
-//				Description: pulumi.String("example"),
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// A User Type can be imported via the Okta ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
-//
-// ```
 type UserType struct {
 	pulumi.CustomResourceState
 
-	// Description of the User Type.
+	// A human-readable description of the User type
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Display Name of the User Type.
+	// The display name of the user type
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Name of the User Type.
+	// Name of the user type
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -100,20 +60,20 @@ func GetUserType(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserType resources.
 type userTypeState struct {
-	// Description of the User Type.
+	// A human-readable description of the User type
 	Description *string `pulumi:"description"`
-	// Display Name of the User Type.
+	// The display name of the user type
 	DisplayName *string `pulumi:"displayName"`
-	// Name of the User Type.
+	// Name of the user type
 	Name *string `pulumi:"name"`
 }
 
 type UserTypeState struct {
-	// Description of the User Type.
+	// A human-readable description of the User type
 	Description pulumi.StringPtrInput
-	// Display Name of the User Type.
+	// The display name of the user type
 	DisplayName pulumi.StringPtrInput
-	// Name of the User Type.
+	// Name of the user type
 	Name pulumi.StringPtrInput
 }
 
@@ -122,21 +82,21 @@ func (UserTypeState) ElementType() reflect.Type {
 }
 
 type userTypeArgs struct {
-	// Description of the User Type.
+	// A human-readable description of the User type
 	Description string `pulumi:"description"`
-	// Display Name of the User Type.
+	// The display name of the user type
 	DisplayName string `pulumi:"displayName"`
-	// Name of the User Type.
+	// Name of the user type
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a UserType resource.
 type UserTypeArgs struct {
-	// Description of the User Type.
+	// A human-readable description of the User type
 	Description pulumi.StringInput
-	// Display Name of the User Type.
+	// The display name of the user type
 	DisplayName pulumi.StringInput
-	// Name of the User Type.
+	// Name of the user type
 	Name pulumi.StringPtrInput
 }
 
@@ -251,17 +211,17 @@ func (o UserTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*UserType] 
 	}
 }
 
-// Description of the User Type.
+// A human-readable description of the User type
 func (o UserTypeOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserType) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Display Name of the User Type.
+// The display name of the user type
 func (o UserTypeOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserType) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Name of the User Type.
+// Name of the user type
 func (o UserTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -15,62 +15,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Configures Default Authorization Server.
- * 
- * This resource allows you to configure Default Authorization Server.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.AuthServerDefault;
- * import com.pulumi.okta.AuthServerDefaultArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AuthServerDefault(&#34;example&#34;, AuthServerDefaultArgs.builder()        
- *             .audiences(&#34;api://default&#34;)
- *             .description(&#34;Default Authorization Server for your Applications&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Authorization Server can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &amp;#60;default&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:index/authServerDefault:AuthServerDefault")
 public class AuthServerDefault extends com.pulumi.resources.CustomResource {
     /**
-     * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+     * Currently Okta only supports a single value here
      * 
      */
     @Export(name="audiences", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> audiences;
 
     /**
-     * @return The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+     * @return Currently Okta only supports a single value here
      * 
      */
     public Output<Optional<List<String>>> audiences() {
@@ -91,28 +46,28 @@ public class AuthServerDefault extends com.pulumi.resources.CustomResource {
         return this.credentialsLastRotated;
     }
     /**
-     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `&#34;AUTO&#34;`.
+     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
      * 
      */
     @Export(name="credentialsNextRotation", refs={String.class}, tree="[0]")
     private Output<String> credentialsNextRotation;
 
     /**
-     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `&#34;AUTO&#34;`.
+     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
      * 
      */
     public Output<String> credentialsNextRotation() {
         return this.credentialsNextRotation;
     }
     /**
-     * The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+     * Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
      * 
      */
     @Export(name="credentialsRotationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialsRotationMode;
 
     /**
-     * @return The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+     * @return Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
      * 
      */
     public Output<Optional<String>> credentialsRotationMode() {
@@ -133,28 +88,28 @@ public class AuthServerDefault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
+     * allows you to use a custom issuer URL
      * 
      */
     @Export(name="issuer", refs={String.class}, tree="[0]")
     private Output<String> issuer;
 
     /**
-     * @return The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
+     * @return allows you to use a custom issuer URL
      * 
      */
     public Output<String> issuer() {
         return this.issuer;
     }
     /**
-     * Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`, `&#34;ORG_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+     * *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
      * 
      */
     @Export(name="issuerMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerMode;
 
     /**
-     * @return Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`, `&#34;ORG_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+     * @return *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
      * 
      */
     public Output<Optional<String>> issuerMode() {
@@ -188,17 +143,9 @@ public class AuthServerDefault extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The status of the auth server.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
-    /**
-     * @return The status of the auth server.
-     * 
-     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }

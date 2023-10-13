@@ -16,14 +16,14 @@ public final class GetBehaviourArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBehaviourArgs Empty = new GetBehaviourArgs();
 
     /**
-     * `id` of behavior to retrieve, conflicts with `name`.
+     * Behavior ID.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return `id` of behavior to retrieve, conflicts with `name`.
+     * @return Behavior ID.
      * 
      */
     public Optional<Output<String>> id() {
@@ -31,16 +31,14 @@ public final class GetBehaviourArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by
-     * Okta&#39;s API.
+     * Behavior name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by
-     * Okta&#39;s API.
+     * @return Behavior name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -73,7 +71,7 @@ public final class GetBehaviourArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id `id` of behavior to retrieve, conflicts with `name`.
+         * @param id Behavior ID.
          * 
          * @return builder
          * 
@@ -84,7 +82,7 @@ public final class GetBehaviourArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id `id` of behavior to retrieve, conflicts with `name`.
+         * @param id Behavior ID.
          * 
          * @return builder
          * 
@@ -94,8 +92,7 @@ public final class GetBehaviourArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by
-         * Okta&#39;s API.
+         * @param name Behavior name.
          * 
          * @return builder
          * 
@@ -106,8 +103,7 @@ public final class GetBehaviourArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by
-         * Okta&#39;s API.
+         * @param name Behavior name.
          * 
          * @return builder
          * 

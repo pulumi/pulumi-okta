@@ -22,14 +22,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     public static final GroupSchemaPropertyArgs Empty = new GroupSchemaPropertyArgs();
 
     /**
-     * Array of values that an array property&#39;s items can be set to.
+     * Custom Subschema enumerated value of a property of type array.
      * 
      */
     @Import(name="arrayEnums")
     private @Nullable Output<List<String>> arrayEnums;
 
     /**
-     * @return Array of values that an array property&#39;s items can be set to.
+     * @return Custom Subschema enumerated value of a property of type array.
      * 
      */
     public Optional<Output<List<String>>> arrayEnums() {
@@ -37,14 +37,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Display name and value an enum array can be set to.
+     * array of valid JSON schemas for property type array.
      * 
      */
     @Import(name="arrayOneOfs")
     private @Nullable Output<List<GroupSchemaPropertyArrayOneOfArgs>> arrayOneOfs;
 
     /**
-     * @return Display name and value an enum array can be set to.
+     * @return array of valid JSON schemas for property type array.
      * 
      */
     public Optional<Output<List<GroupSchemaPropertyArrayOneOfArgs>>> arrayOneOfs() {
@@ -52,14 +52,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of the array elements if `type` is set to `&#34;array&#34;`.
+     * Subschema array type: string, number, integer, reference. Type field must be an array.
      * 
      */
     @Import(name="arrayType")
     private @Nullable Output<String> arrayType;
 
     /**
-     * @return The type of the array elements if `type` is set to `&#34;array&#34;`.
+     * @return Subschema array type: string, number, integer, reference. Type field must be an array.
      * 
      */
     public Optional<Output<String>> arrayType() {
@@ -67,14 +67,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The description of the group schema property.
+     * Custom Subschema description
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the group schema property.
+     * @return Custom Subschema description
      * 
      */
     public Optional<Output<String>> description() {
@@ -82,14 +82,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Array of values a primitive property can be set to. See `array_enum` for arrays.
+     * Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
      * 
      */
     @Import(name="enums")
     private @Nullable Output<List<String>> enums;
 
     /**
-     * @return Array of values a primitive property can be set to. See `array_enum` for arrays.
+     * @return Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
      * 
      */
     public Optional<Output<List<String>>> enums() {
@@ -97,14 +97,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * External name of the group schema property.
+     * Subschema external name
      * 
      */
     @Import(name="externalName")
     private @Nullable Output<String> externalName;
 
     /**
-     * @return External name of the group schema property.
+     * @return Subschema external name
      * 
      */
     public Optional<Output<String>> externalName() {
@@ -112,14 +112,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * External name of the group schema property.
+     * Subschema external namespace
      * 
      */
     @Import(name="externalNamespace")
     private @Nullable Output<String> externalNamespace;
 
     /**
-     * @return External name of the group schema property.
+     * @return Subschema external namespace
      * 
      */
     public Optional<Output<String>> externalNamespace() {
@@ -127,14 +127,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The property name.
+     * Subschema unique string identifier
      * 
      */
     @Import(name="index", required=true)
     private Output<String> index;
 
     /**
-     * @return The property name.
+     * @return Subschema unique string identifier
      * 
      */
     public Output<String> index() {
@@ -142,44 +142,36 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Master priority for the group schema property. It can be set to `&#34;PROFILE_MASTER&#34;`, `&#34;OVERRIDE&#34;` or `&#34;OKTA&#34;`.
+     * SubSchema profile manager, if not set it will inherit its setting.
      * 
      */
     @Import(name="master")
     private @Nullable Output<String> master;
 
     /**
-     * @return Master priority for the group schema property. It can be set to `&#34;PROFILE_MASTER&#34;`, `&#34;OVERRIDE&#34;` or `&#34;OKTA&#34;`.
+     * @return SubSchema profile manager, if not set it will inherit its setting.
      * 
      */
     public Optional<Output<String>> master() {
         return Optional.ofNullable(this.master);
     }
 
-    /**
-     * Prioritized list of profile sources (required when `master` is `&#34;OVERRIDE&#34;`).
-     * 
-     */
     @Import(name="masterOverridePriorities")
     private @Nullable Output<List<GroupSchemaPropertyMasterOverridePriorityArgs>> masterOverridePriorities;
 
-    /**
-     * @return Prioritized list of profile sources (required when `master` is `&#34;OVERRIDE&#34;`).
-     * 
-     */
     public Optional<Output<List<GroupSchemaPropertyMasterOverridePriorityArgs>>> masterOverridePriorities() {
         return Optional.ofNullable(this.masterOverridePriorities);
     }
 
     /**
-     * The maximum length of the group property value. Only applies to type `&#34;string&#34;`.
+     * Subschema of type string maximum length
      * 
      */
     @Import(name="maxLength")
     private @Nullable Output<Integer> maxLength;
 
     /**
-     * @return The maximum length of the group property value. Only applies to type `&#34;string&#34;`.
+     * @return Subschema of type string maximum length
      * 
      */
     public Optional<Output<Integer>> maxLength() {
@@ -187,14 +179,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The minimum length of the group property value. Only applies to type `&#34;string&#34;`.
+     * Subschema of type string minimum length
      * 
      */
     @Import(name="minLength")
     private @Nullable Output<Integer> minLength;
 
     /**
-     * @return The minimum length of the group property value. Only applies to type `&#34;string&#34;`.
+     * @return Subschema of type string minimum length
      * 
      */
     public Optional<Output<Integer>> minLength() {
@@ -202,14 +194,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Array of maps containing a mapping for display name to enum value.
+     * Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
      * 
      */
     @Import(name="oneOfs")
     private @Nullable Output<List<GroupSchemaPropertyOneOfArgs>> oneOfs;
 
     /**
-     * @return Array of maps containing a mapping for display name to enum value.
+     * @return Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
      * 
      */
     public Optional<Output<List<GroupSchemaPropertyOneOfArgs>>> oneOfs() {
@@ -217,14 +209,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<String> permissions;
 
     /**
-     * @return Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * @return SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
      * 
      */
     public Optional<Output<String>> permissions() {
@@ -232,44 +224,36 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Whether the property is required for this group.
+     * Whether the subschema is required
      * 
      */
     @Import(name="required")
     private @Nullable Output<Boolean> required;
 
     /**
-     * @return Whether the property is required for this group.
+     * @return Whether the subschema is required
      * 
      */
     public Optional<Output<Boolean>> required() {
         return Optional.ofNullable(this.required);
     }
 
-    /**
-     * determines whether an app user attribute can be set at the Individual or Group Level.
-     * 
-     */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
-    /**
-     * @return determines whether an app user attribute can be set at the Individual or Group Level.
-     * 
-     */
     public Optional<Output<String>> scope() {
         return Optional.ofNullable(this.scope);
     }
 
     /**
-     * display name for the enum value.
+     * Enum title
      * 
      */
     @Import(name="title", required=true)
     private Output<String> title;
 
     /**
-     * @return display name for the enum value.
+     * @return Enum title
      * 
      */
     public Output<String> title() {
@@ -277,14 +261,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Type of profile source.
+     * Subschema type: string, boolean, number, integer, array, or object
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of profile source.
+     * @return Subschema type: string, boolean, number, integer, array, or object
      * 
      */
     public Output<String> type() {
@@ -292,14 +276,14 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Whether the property should be unique. It can be set to `&#34;UNIQUE_VALIDATED&#34;` or `&#34;NOT_UNIQUE&#34;`.
+     * Subschema unique restriction
      * 
      */
     @Import(name="unique")
     private @Nullable Output<String> unique;
 
     /**
-     * @return Whether the property should be unique. It can be set to `&#34;UNIQUE_VALIDATED&#34;` or `&#34;NOT_UNIQUE&#34;`.
+     * @return Subschema unique restriction
      * 
      */
     public Optional<Output<String>> unique() {
@@ -349,7 +333,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arrayEnums Array of values that an array property&#39;s items can be set to.
+         * @param arrayEnums Custom Subschema enumerated value of a property of type array.
          * 
          * @return builder
          * 
@@ -360,7 +344,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arrayEnums Array of values that an array property&#39;s items can be set to.
+         * @param arrayEnums Custom Subschema enumerated value of a property of type array.
          * 
          * @return builder
          * 
@@ -370,7 +354,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arrayEnums Array of values that an array property&#39;s items can be set to.
+         * @param arrayEnums Custom Subschema enumerated value of a property of type array.
          * 
          * @return builder
          * 
@@ -380,7 +364,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * @param arrayOneOfs array of valid JSON schemas for property type array.
          * 
          * @return builder
          * 
@@ -391,7 +375,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * @param arrayOneOfs array of valid JSON schemas for property type array.
          * 
          * @return builder
          * 
@@ -401,7 +385,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * @param arrayOneOfs array of valid JSON schemas for property type array.
          * 
          * @return builder
          * 
@@ -411,7 +395,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arrayType The type of the array elements if `type` is set to `&#34;array&#34;`.
+         * @param arrayType Subschema array type: string, number, integer, reference. Type field must be an array.
          * 
          * @return builder
          * 
@@ -422,7 +406,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arrayType The type of the array elements if `type` is set to `&#34;array&#34;`.
+         * @param arrayType Subschema array type: string, number, integer, reference. Type field must be an array.
          * 
          * @return builder
          * 
@@ -432,7 +416,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description The description of the group schema property.
+         * @param description Custom Subschema description
          * 
          * @return builder
          * 
@@ -443,7 +427,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description The description of the group schema property.
+         * @param description Custom Subschema description
          * 
          * @return builder
          * 
@@ -453,7 +437,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enums Array of values a primitive property can be set to. See `array_enum` for arrays.
+         * @param enums Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
          * 
          * @return builder
          * 
@@ -464,7 +448,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enums Array of values a primitive property can be set to. See `array_enum` for arrays.
+         * @param enums Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
          * 
          * @return builder
          * 
@@ -474,7 +458,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enums Array of values a primitive property can be set to. See `array_enum` for arrays.
+         * @param enums Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
          * 
          * @return builder
          * 
@@ -484,7 +468,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param externalName External name of the group schema property.
+         * @param externalName Subschema external name
          * 
          * @return builder
          * 
@@ -495,7 +479,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param externalName External name of the group schema property.
+         * @param externalName Subschema external name
          * 
          * @return builder
          * 
@@ -505,7 +489,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param externalNamespace External name of the group schema property.
+         * @param externalNamespace Subschema external namespace
          * 
          * @return builder
          * 
@@ -516,7 +500,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param externalNamespace External name of the group schema property.
+         * @param externalNamespace Subschema external namespace
          * 
          * @return builder
          * 
@@ -526,7 +510,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param index The property name.
+         * @param index Subschema unique string identifier
          * 
          * @return builder
          * 
@@ -537,7 +521,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param index The property name.
+         * @param index Subschema unique string identifier
          * 
          * @return builder
          * 
@@ -547,7 +531,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param master Master priority for the group schema property. It can be set to `&#34;PROFILE_MASTER&#34;`, `&#34;OVERRIDE&#34;` or `&#34;OKTA&#34;`.
+         * @param master SubSchema profile manager, if not set it will inherit its setting.
          * 
          * @return builder
          * 
@@ -558,7 +542,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param master Master priority for the group schema property. It can be set to `&#34;PROFILE_MASTER&#34;`, `&#34;OVERRIDE&#34;` or `&#34;OKTA&#34;`.
+         * @param master SubSchema profile manager, if not set it will inherit its setting.
          * 
          * @return builder
          * 
@@ -567,39 +551,21 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
             return master(Output.of(master));
         }
 
-        /**
-         * @param masterOverridePriorities Prioritized list of profile sources (required when `master` is `&#34;OVERRIDE&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterOverridePriorities(@Nullable Output<List<GroupSchemaPropertyMasterOverridePriorityArgs>> masterOverridePriorities) {
             $.masterOverridePriorities = masterOverridePriorities;
             return this;
         }
 
-        /**
-         * @param masterOverridePriorities Prioritized list of profile sources (required when `master` is `&#34;OVERRIDE&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterOverridePriorities(List<GroupSchemaPropertyMasterOverridePriorityArgs> masterOverridePriorities) {
             return masterOverridePriorities(Output.of(masterOverridePriorities));
         }
 
-        /**
-         * @param masterOverridePriorities Prioritized list of profile sources (required when `master` is `&#34;OVERRIDE&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterOverridePriorities(GroupSchemaPropertyMasterOverridePriorityArgs... masterOverridePriorities) {
             return masterOverridePriorities(List.of(masterOverridePriorities));
         }
 
         /**
-         * @param maxLength The maximum length of the group property value. Only applies to type `&#34;string&#34;`.
+         * @param maxLength Subschema of type string maximum length
          * 
          * @return builder
          * 
@@ -610,7 +576,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maxLength The maximum length of the group property value. Only applies to type `&#34;string&#34;`.
+         * @param maxLength Subschema of type string maximum length
          * 
          * @return builder
          * 
@@ -620,7 +586,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param minLength The minimum length of the group property value. Only applies to type `&#34;string&#34;`.
+         * @param minLength Subschema of type string minimum length
          * 
          * @return builder
          * 
@@ -631,7 +597,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param minLength The minimum length of the group property value. Only applies to type `&#34;string&#34;`.
+         * @param minLength Subschema of type string minimum length
          * 
          * @return builder
          * 
@@ -641,7 +607,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * @param oneOfs Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
          * 
          * @return builder
          * 
@@ -652,7 +618,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * @param oneOfs Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
          * 
          * @return builder
          * 
@@ -662,7 +628,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * @param oneOfs Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
          * 
          * @return builder
          * 
@@ -672,7 +638,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param permissions Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+         * @param permissions SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
          * 
          * @return builder
          * 
@@ -683,7 +649,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param permissions Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+         * @param permissions SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
          * 
          * @return builder
          * 
@@ -693,7 +659,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param required Whether the property is required for this group.
+         * @param required Whether the subschema is required
          * 
          * @return builder
          * 
@@ -704,7 +670,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param required Whether the property is required for this group.
+         * @param required Whether the subschema is required
          * 
          * @return builder
          * 
@@ -713,29 +679,17 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
             return required(Output.of(required));
         }
 
-        /**
-         * @param scope determines whether an app user attribute can be set at the Individual or Group Level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(@Nullable Output<String> scope) {
             $.scope = scope;
             return this;
         }
 
-        /**
-         * @param scope determines whether an app user attribute can be set at the Individual or Group Level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title Enum title
          * 
          * @return builder
          * 
@@ -746,7 +700,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title Enum title
          * 
          * @return builder
          * 
@@ -756,7 +710,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type Type of profile source.
+         * @param type Subschema type: string, boolean, number, integer, array, or object
          * 
          * @return builder
          * 
@@ -767,7 +721,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type Type of profile source.
+         * @param type Subschema type: string, boolean, number, integer, array, or object
          * 
          * @return builder
          * 
@@ -777,7 +731,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param unique Whether the property should be unique. It can be set to `&#34;UNIQUE_VALIDATED&#34;` or `&#34;NOT_UNIQUE&#34;`.
+         * @param unique Subschema unique restriction
          * 
          * @return builder
          * 
@@ -788,7 +742,7 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param unique Whether the property should be unique. It can be set to `&#34;UNIQUE_VALIDATED&#34;` or `&#34;NOT_UNIQUE&#34;`.
+         * @param unique Subschema unique restriction
          * 
          * @return builder
          * 

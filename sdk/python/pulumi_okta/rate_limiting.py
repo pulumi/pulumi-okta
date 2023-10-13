@@ -19,11 +19,9 @@ class RateLimitingArgs:
                  communications_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RateLimiting resource.
-        :param pulumi.Input[str] authorize: Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-               log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
-        :param pulumi.Input[str] login: Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-               log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
-        :param pulumi.Input[bool] communications_enabled: Enable or disable rate limiting communications. By default, it is `true`.
+        :param pulumi.Input[str] authorize: Called during authentication.
+        :param pulumi.Input[str] login: Called when accessing the Okta hosted login page.
+        :param pulumi.Input[bool] communications_enabled: Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
         """
         RateLimitingArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -47,8 +45,7 @@ class RateLimitingArgs:
     @pulumi.getter
     def authorize(self) -> pulumi.Input[str]:
         """
-        Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-        log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        Called during authentication.
         """
         return pulumi.get(self, "authorize")
 
@@ -60,8 +57,7 @@ class RateLimitingArgs:
     @pulumi.getter
     def login(self) -> pulumi.Input[str]:
         """
-        Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-        log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        Called when accessing the Okta hosted login page.
         """
         return pulumi.get(self, "login")
 
@@ -73,7 +69,7 @@ class RateLimitingArgs:
     @pulumi.getter(name="communicationsEnabled")
     def communications_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable rate limiting communications. By default, it is `true`.
+        Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
         """
         return pulumi.get(self, "communications_enabled")
 
@@ -90,11 +86,9 @@ class _RateLimitingState:
                  login: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RateLimiting resources.
-        :param pulumi.Input[str] authorize: Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-               log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
-        :param pulumi.Input[bool] communications_enabled: Enable or disable rate limiting communications. By default, it is `true`.
-        :param pulumi.Input[str] login: Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-               log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        :param pulumi.Input[str] authorize: Called during authentication.
+        :param pulumi.Input[bool] communications_enabled: Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+        :param pulumi.Input[str] login: Called when accessing the Okta hosted login page.
         """
         _RateLimitingState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -120,8 +114,7 @@ class _RateLimitingState:
     @pulumi.getter
     def authorize(self) -> Optional[pulumi.Input[str]]:
         """
-        Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-        log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        Called during authentication.
         """
         return pulumi.get(self, "authorize")
 
@@ -133,7 +126,7 @@ class _RateLimitingState:
     @pulumi.getter(name="communicationsEnabled")
     def communications_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable rate limiting communications. By default, it is `true`.
+        Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
         """
         return pulumi.get(self, "communications_enabled")
 
@@ -145,8 +138,7 @@ class _RateLimitingState:
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input[str]]:
         """
-        Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-        log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        Called when accessing the Okta hosted login page.
         """
         return pulumi.get(self, "login")
 
@@ -165,39 +157,12 @@ class RateLimiting(pulumi.CustomResource):
                  login: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you to configure the client-based rate limit and rate limiting communications settings.
-
-        > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
-
-        > **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.RateLimiting("example",
-            authorize="ENFORCE",
-            communications_enabled=True,
-            login="ENFORCE")
-        ```
-
-        ## Import
-
-        Rate limit settings can be imported without any parameters.
-
-        ```sh
-         $ pulumi import okta:index/rateLimiting:RateLimiting example .
-        ```
-
+        Create a RateLimiting resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] authorize: Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-               log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
-        :param pulumi.Input[bool] communications_enabled: Enable or disable rate limiting communications. By default, it is `true`.
-        :param pulumi.Input[str] login: Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-               log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        :param pulumi.Input[str] authorize: Called during authentication.
+        :param pulumi.Input[bool] communications_enabled: Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+        :param pulumi.Input[str] login: Called when accessing the Okta hosted login page.
         """
         ...
     @overload
@@ -206,32 +171,7 @@ class RateLimiting(pulumi.CustomResource):
                  args: RateLimitingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to configure the client-based rate limit and rate limiting communications settings.
-
-        > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
-
-        > **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.RateLimiting("example",
-            authorize="ENFORCE",
-            communications_enabled=True,
-            login="ENFORCE")
-        ```
-
-        ## Import
-
-        Rate limit settings can be imported without any parameters.
-
-        ```sh
-         $ pulumi import okta:index/rateLimiting:RateLimiting example .
-        ```
-
+        Create a RateLimiting resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RateLimitingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,11 +230,9 @@ class RateLimiting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] authorize: Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-               log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
-        :param pulumi.Input[bool] communications_enabled: Enable or disable rate limiting communications. By default, it is `true`.
-        :param pulumi.Input[str] login: Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-               log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        :param pulumi.Input[str] authorize: Called during authentication.
+        :param pulumi.Input[bool] communications_enabled: Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+        :param pulumi.Input[str] login: Called when accessing the Okta hosted login page.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,8 +247,7 @@ class RateLimiting(pulumi.CustomResource):
     @pulumi.getter
     def authorize(self) -> pulumi.Output[str]:
         """
-        Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-        log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        Called during authentication.
         """
         return pulumi.get(self, "authorize")
 
@@ -318,7 +255,7 @@ class RateLimiting(pulumi.CustomResource):
     @pulumi.getter(name="communicationsEnabled")
     def communications_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable or disable rate limiting communications. By default, it is `true`.
+        Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
         """
         return pulumi.get(self, "communications_enabled")
 
@@ -326,8 +263,7 @@ class RateLimiting(pulumi.CustomResource):
     @pulumi.getter
     def login(self) -> pulumi.Output[str]:
         """
-        Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-        log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        Called when accessing the Okta hosted login page.
         """
         return pulumi.get(self, "login")
 

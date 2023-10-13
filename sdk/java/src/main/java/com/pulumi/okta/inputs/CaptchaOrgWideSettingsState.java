@@ -17,14 +17,14 @@ public final class CaptchaOrgWideSettingsState extends com.pulumi.resources.Reso
     public static final CaptchaOrgWideSettingsState Empty = new CaptchaOrgWideSettingsState();
 
     /**
-     * The ID of the CAPTCHA.
+     * ID of the CAPTCHA
      * 
      */
     @Import(name="captchaId")
     private @Nullable Output<String> captchaId;
 
     /**
-     * @return The ID of the CAPTCHA.
+     * @return ID of the CAPTCHA
      * 
      */
     public Optional<Output<String>> captchaId() {
@@ -32,14 +32,14 @@ public final class CaptchaOrgWideSettingsState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Array of pages that have CAPTCHA enabled. Valid values: `&#34;SSR&#34;`, `&#34;SSPR&#34;` and `&#34;SIGN_IN&#34;`.
+     * Set of pages that have CAPTCHA enabled
      * 
      */
     @Import(name="enabledFors")
     private @Nullable Output<List<String>> enabledFors;
 
     /**
-     * @return Array of pages that have CAPTCHA enabled. Valid values: `&#34;SSR&#34;`, `&#34;SSPR&#34;` and `&#34;SIGN_IN&#34;`.
+     * @return Set of pages that have CAPTCHA enabled
      * 
      */
     public Optional<Output<List<String>>> enabledFors() {
@@ -72,7 +72,7 @@ public final class CaptchaOrgWideSettingsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param captchaId The ID of the CAPTCHA.
+         * @param captchaId ID of the CAPTCHA
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class CaptchaOrgWideSettingsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param captchaId The ID of the CAPTCHA.
+         * @param captchaId ID of the CAPTCHA
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class CaptchaOrgWideSettingsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabledFors Array of pages that have CAPTCHA enabled. Valid values: `&#34;SSR&#34;`, `&#34;SSPR&#34;` and `&#34;SIGN_IN&#34;`.
+         * @param enabledFors Set of pages that have CAPTCHA enabled
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class CaptchaOrgWideSettingsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabledFors Array of pages that have CAPTCHA enabled. Valid values: `&#34;SSR&#34;`, `&#34;SSPR&#34;` and `&#34;SIGN_IN&#34;`.
+         * @param enabledFors Set of pages that have CAPTCHA enabled
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class CaptchaOrgWideSettingsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabledFors Array of pages that have CAPTCHA enabled. Valid values: `&#34;SSR&#34;`, `&#34;SSPR&#34;` and `&#34;SIGN_IN&#34;`.
+         * @param enabledFors Set of pages that have CAPTCHA enabled
          * 
          * @return builder
          * 

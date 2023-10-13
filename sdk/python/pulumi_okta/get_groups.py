@@ -42,9 +42,6 @@ class GetGroupsResult:
     @property
     @pulumi.getter
     def groups(self) -> Sequence['outputs.GetGroupsGroupResult']:
-        """
-        collection of groups retrieved from Okta with the following properties.
-        """
         return pulumi.get(self, "groups")
 
     @property
@@ -58,19 +55,22 @@ class GetGroupsResult:
     @property
     @pulumi.getter
     def q(self) -> Optional[str]:
+        """
+        Searches the name property of groups for matching value
+        """
         return pulumi.get(self, "q")
 
     @property
     @pulumi.getter
     def search(self) -> Optional[str]:
+        """
+        Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
+        """
         return pulumi.get(self, "search")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        Group type.
-        """
         return pulumi.get(self, "type")
 
 
@@ -92,7 +92,7 @@ def get_groups(q: Optional[str] = None,
                type: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupsResult:
     """
-    Use this data source to retrieve a list of groups from Okta.
+    Get a list of groups from Okta.
 
     ## Example Usage
 
@@ -104,13 +104,8 @@ def get_groups(q: Optional[str] = None,
     ```
 
 
-    :param str q: Searches the name property of groups for matching value.
-    :param str search: Searches for groups with a
-           supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
-           all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
-           except for `"_embedded"`, `"_links"`, and `"objectClass"`
-    :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-           (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+    :param str q: Searches the name property of groups for matching value
+    :param str search: Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
     """
     __args__ = dict()
     __args__['q'] = q
@@ -133,7 +128,7 @@ def get_groups_output(q: Optional[pulumi.Input[Optional[str]]] = None,
                       type: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupsResult]:
     """
-    Use this data source to retrieve a list of groups from Okta.
+    Get a list of groups from Okta.
 
     ## Example Usage
 
@@ -145,12 +140,7 @@ def get_groups_output(q: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str q: Searches the name property of groups for matching value.
-    :param str search: Searches for groups with a
-           supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
-           all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
-           except for `"_embedded"`, `"_links"`, and `"objectClass"`
-    :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-           (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+    :param str q: Searches the name property of groups for matching value
+    :param str search: Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
     """
     ...

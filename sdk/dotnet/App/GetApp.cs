@@ -12,7 +12,7 @@ namespace Pulumi.Okta.App
     public static class GetApp
     {
         /// <summary>
-        /// Use this data source to retrieve an application from Okta.
+        /// Get an application of any kind from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Okta.App
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve an application from Okta.
+        /// Get an application of any kind from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -72,37 +72,45 @@ namespace Pulumi.Okta.App
     public sealed class GetAppArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// tells the provider to query for only `ACTIVE` applications.
+        /// Search only ACTIVE applications.
         /// </summary>
         [Input("activeOnly")]
         public bool? ActiveOnly { get; set; }
 
         /// <summary>
-        /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+        /// Id of application to retrieve, conflicts with label and label_prefix.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
-        /// and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
-        /// may result in multiple apps being returned for the query. The data source further inspects the lables looking for
-        /// an exact match.
+        /// The label of the app to retrieve, conflicts with
+        /// 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+        /// 			Okta's List Apps API. The API will search both name and label using that
+        /// 			query. Therefore similarily named and labeled apps may be returned in the query
+        /// 			and have the unitended result of associating the wrong app with this data
+        /// 			source. See:
+        /// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
         /// </summary>
         [Input("label")]
         public string? Label { get; set; }
 
         /// <summary>
-        /// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-        /// provider to do a `starts with` query as opposed to an `equals` query.
+        /// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+        /// 			provider to do a starts with query as opposed to an equals query.
         /// </summary>
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
 
+        /// <summary>
+        /// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        /// </summary>
         [Input("skipGroups")]
         public bool? SkipGroups { get; set; }
 
+        /// <summary>
+        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        /// </summary>
         [Input("skipUsers")]
         public bool? SkipUsers { get; set; }
 
@@ -115,37 +123,45 @@ namespace Pulumi.Okta.App
     public sealed class GetAppInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// tells the provider to query for only `ACTIVE` applications.
+        /// Search only ACTIVE applications.
         /// </summary>
         [Input("activeOnly")]
         public Input<bool>? ActiveOnly { get; set; }
 
         /// <summary>
-        /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+        /// Id of application to retrieve, conflicts with label and label_prefix.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
-        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
-        /// and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
-        /// may result in multiple apps being returned for the query. The data source further inspects the lables looking for
-        /// an exact match.
+        /// The label of the app to retrieve, conflicts with
+        /// 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+        /// 			Okta's List Apps API. The API will search both name and label using that
+        /// 			query. Therefore similarily named and labeled apps may be returned in the query
+        /// 			and have the unitended result of associating the wrong app with this data
+        /// 			source. See:
+        /// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-        /// provider to do a `starts with` query as opposed to an `equals` query.
+        /// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+        /// 			provider to do a starts with query as opposed to an equals query.
         /// </summary>
         [Input("labelPrefix")]
         public Input<string>? LabelPrefix { get; set; }
 
+        /// <summary>
+        /// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        /// </summary>
         [Input("skipGroups")]
         public Input<bool>? SkipGroups { get; set; }
 
+        /// <summary>
+        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        /// </summary>
         [Input("skipUsers")]
         public Input<bool>? SkipUsers { get; set; }
 
@@ -159,31 +175,56 @@ namespace Pulumi.Okta.App
     [OutputType]
     public sealed class GetAppResult
     {
+        /// <summary>
+        /// Search only ACTIVE applications.
+        /// </summary>
         public readonly bool? ActiveOnly;
+        /// <summary>
+        /// Groups associated with the application
+        /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
-        /// Application ID.
+        /// Id of application to retrieve, conflicts with label and label_prefix.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Application label.
+        /// The label of the app to retrieve, conflicts with
+        /// 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+        /// 			Okta's List Apps API. The API will search both name and label using that
+        /// 			query. Therefore similarily named and labeled apps may be returned in the query
+        /// 			and have the unitended result of associating the wrong app with this data
+        /// 			source. See:
+        /// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
         /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+        /// 			provider to do a starts with query as opposed to an equals query.
+        /// </summary>
         public readonly string? LabelPrefix;
         /// <summary>
-        /// Generic JSON containing discoverable resources related to the app.
+        /// Discoverable resources related to the app
         /// </summary>
         public readonly string Links;
         /// <summary>
-        /// Application name.
+        /// Name of application.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        /// </summary>
         public readonly bool? SkipGroups;
+        /// <summary>
+        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        /// </summary>
         public readonly bool? SkipUsers;
         /// <summary>
-        /// Application status.
+        /// Status of application.
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Users associated with the application
+        /// </summary>
         public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]

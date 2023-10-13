@@ -21,7 +21,7 @@ class AppGroupAssignmentsArgs:
         """
         The set of arguments for constructing a AppGroupAssignments resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
-        :param pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]] groups: A group to assign the app to.
+        :param pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]] groups: A group to assign to this application
         """
         AppGroupAssignmentsArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -53,7 +53,7 @@ class AppGroupAssignmentsArgs:
     @pulumi.getter
     def groups(self) -> pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]:
         """
-        A group to assign the app to.
+        A group to assign to this application
         """
         return pulumi.get(self, "groups")
 
@@ -70,7 +70,7 @@ class _AppGroupAssignmentsState:
         """
         Input properties used for looking up and filtering AppGroupAssignments resources.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
-        :param pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]] groups: A group to assign the app to.
+        :param pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]] groups: A group to assign to this application
         """
         _AppGroupAssignmentsState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -104,7 +104,7 @@ class _AppGroupAssignmentsState:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]]:
         """
-        A group to assign the app to.
+        A group to assign to this application
         """
         return pulumi.get(self, "groups")
 
@@ -122,57 +122,11 @@ class AppGroupAssignments(pulumi.CustomResource):
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppGroupAssignmentsGroupArgs']]]]] = None,
                  __props__=None):
         """
-        Assigns groups to an application.
-
-        This resource allows you to create multiple App Group assignments.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        example = okta.AppGroupAssignments("example",
-            app_id="<app id>",
-            groups=[
-                okta.AppGroupAssignmentsGroupArgs(
-                    id="<group id>",
-                    priority=1,
-                ),
-                okta.AppGroupAssignmentsGroupArgs(
-                    id="<another group id>",
-                    priority=2,
-                    profile=json.dumps({
-                        "application profile field": "application profile value",
-                    }),
-                ),
-            ])
-        ```
-
-        !> **NOTE** It would seem that setting/updating base/custom group schema values
-        was the original purpose for setting a `profile` JSON value during the [Assign
-        group to
-        application](https://developer.okta.com/docs/reference/api/apps/#assign-group-to-application)
-        API call that will take place when the `priority` value is changed. We couldn't
-        verify this works when writing a new integration test against this old feature
-        and were receiving an API 400 error. This feature may work for older orgs, or
-        classic orgs, but we can not guarantee for all orgs.
-
-        > **IMPORTANT:** When using `AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
-
-        ## Import
-
-        An application's group assignments can be imported via `app_id`.
-
-        ```sh
-         $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
-        ```
-
+        Create a AppGroupAssignments resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppGroupAssignmentsGroupArgs']]]] groups: A group to assign the app to.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppGroupAssignmentsGroupArgs']]]] groups: A group to assign to this application
         """
         ...
     @overload
@@ -181,53 +135,7 @@ class AppGroupAssignments(pulumi.CustomResource):
                  args: AppGroupAssignmentsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Assigns groups to an application.
-
-        This resource allows you to create multiple App Group assignments.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        example = okta.AppGroupAssignments("example",
-            app_id="<app id>",
-            groups=[
-                okta.AppGroupAssignmentsGroupArgs(
-                    id="<group id>",
-                    priority=1,
-                ),
-                okta.AppGroupAssignmentsGroupArgs(
-                    id="<another group id>",
-                    priority=2,
-                    profile=json.dumps({
-                        "application profile field": "application profile value",
-                    }),
-                ),
-            ])
-        ```
-
-        !> **NOTE** It would seem that setting/updating base/custom group schema values
-        was the original purpose for setting a `profile` JSON value during the [Assign
-        group to
-        application](https://developer.okta.com/docs/reference/api/apps/#assign-group-to-application)
-        API call that will take place when the `priority` value is changed. We couldn't
-        verify this works when writing a new integration test against this old feature
-        and were receiving an API 400 error. This feature may work for older orgs, or
-        classic orgs, but we can not guarantee for all orgs.
-
-        > **IMPORTANT:** When using `AppGroupAssignments` it is expected to manage ALL group assignments for the target application.
-
-        ## Import
-
-        An application's group assignments can be imported via `app_id`.
-
-        ```sh
-         $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
-        ```
-
+        Create a AppGroupAssignments resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppGroupAssignmentsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,7 +192,7 @@ class AppGroupAssignments(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppGroupAssignmentsGroupArgs']]]] groups: A group to assign the app to.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppGroupAssignmentsGroupArgs']]]] groups: A group to assign to this application
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,7 +214,7 @@ class AppGroupAssignments(pulumi.CustomResource):
     @pulumi.getter
     def groups(self) -> pulumi.Output[Sequence['outputs.AppGroupAssignmentsGroup']]:
         """
-        A group to assign the app to.
+        A group to assign to this application
         """
         return pulumi.get(self, "groups")
 

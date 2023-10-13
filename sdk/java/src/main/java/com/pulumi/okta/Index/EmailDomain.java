@@ -15,132 +15,87 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * This resource allows you to create and configure an email domain.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.Index.EmailDomain;
- * import com.pulumi.okta.Index.EmailDomainArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EmailDomain(&#34;example&#34;, EmailDomainArgs.builder()        
- *             .brandId(&#34;abc123&#34;)
- *             .displayName(&#34;test&#34;)
- *             .domain(&#34;example.com&#34;)
- *             .userName(&#34;paul_atreides&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Custom email domain can be imported via the Okta ID.
- * 
- * ```sh
- *  $ pulumi import okta:Index/emailDomain:EmailDomain example &amp;#60;domain id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:Index/emailDomain:EmailDomain")
 public class EmailDomain extends com.pulumi.resources.CustomResource {
     /**
-     * Brand id of the email domain.
+     * Brand id
      * 
      */
     @Export(name="brandId", refs={String.class}, tree="[0]")
     private Output<String> brandId;
 
     /**
-     * @return Brand id of the email domain.
+     * @return Brand id
      * 
      */
     public Output<String> brandId() {
         return this.brandId;
     }
     /**
-     * Display name of the email domain.
+     * Display name
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return Display name of the email domain.
+     * @return Display name
      * 
      */
     public Output<String> displayName() {
         return this.displayName;
     }
     /**
-     * TXT and CNAME records to be registered for the domain.
+     * TXT and cname records to be registered for the email Domain
      * 
      */
     @Export(name="dnsValidationRecords", refs={List.class,EmailDomainDnsValidationRecord.class}, tree="[0,1]")
     private Output<List<EmailDomainDnsValidationRecord>> dnsValidationRecords;
 
     /**
-     * @return TXT and CNAME records to be registered for the domain.
+     * @return TXT and cname records to be registered for the email Domain
      * 
      */
     public Output<List<EmailDomainDnsValidationRecord>> dnsValidationRecords() {
         return this.dnsValidationRecords;
     }
     /**
-     * Mail domain to send from.
+     * Domain name
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
-     * @return Mail domain to send from.
+     * @return Domain name
      * 
      */
     public Output<String> domain() {
         return this.domain;
     }
     /**
-     * User name of the email domain.
+     * User name
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
-     * @return User name of the email domain.
+     * @return User name
      * 
      */
     public Output<String> userName() {
         return this.userName;
     }
     /**
-     * Status of the email domain (shows whether the domain is verified).
+     * Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
      * 
      */
     @Export(name="validationStatus", refs={String.class}, tree="[0]")
     private Output<String> validationStatus;
 
     /**
-     * @return Status of the email domain (shows whether the domain is verified).
+     * @return Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
      * 
      */
     public Output<String> validationStatus() {

@@ -9,60 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
-    /// <summary>
-    /// This resource allows you to configure the client-based rate limit and rate limiting communications settings.
-    /// 
-    /// &gt; **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
-    /// 
-    /// &gt; **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.RateLimiting("example", new()
-    ///     {
-    ///         Authorize = "ENFORCE",
-    ///         CommunicationsEnabled = true,
-    ///         Login = "ENFORCE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Rate limit settings can be imported without any parameters.
-    /// 
-    /// ```sh
-    ///  $ pulumi import okta:index/rateLimiting:RateLimiting example .
-    /// ```
-    /// </summary>
     [OktaResourceType("okta:index/rateLimiting:RateLimiting")]
     public partial class RateLimiting : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-        /// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        /// Called during authentication.
         /// </summary>
         [Output("authorize")]
         public Output<string> Authorize { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable rate limiting communications. By default, it is `true`.
+        /// Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
         /// </summary>
         [Output("communicationsEnabled")]
         public Output<bool?> CommunicationsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-        /// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        /// Called when accessing the Okta hosted login page.
         /// </summary>
         [Output("login")]
         public Output<string> Login { get; private set; } = null!;
@@ -114,21 +77,19 @@ namespace Pulumi.Okta
     public sealed class RateLimitingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-        /// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        /// Called during authentication.
         /// </summary>
         [Input("authorize", required: true)]
         public Input<string> Authorize { get; set; } = null!;
 
         /// <summary>
-        /// Enable or disable rate limiting communications. By default, it is `true`.
+        /// Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
         /// </summary>
         [Input("communicationsEnabled")]
         public Input<bool>? CommunicationsEnabled { get; set; }
 
         /// <summary>
-        /// Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-        /// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        /// Called when accessing the Okta hosted login page.
         /// </summary>
         [Input("login", required: true)]
         public Input<string> Login { get; set; } = null!;
@@ -142,21 +103,19 @@ namespace Pulumi.Okta
     public sealed class RateLimitingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-        /// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        /// Called during authentication.
         /// </summary>
         [Input("authorize")]
         public Input<string>? Authorize { get; set; }
 
         /// <summary>
-        /// Enable or disable rate limiting communications. By default, it is `true`.
+        /// Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
         /// </summary>
         [Input("communicationsEnabled")]
         public Input<bool>? CommunicationsEnabled { get; set; }
 
         /// <summary>
-        /// Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-        /// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+        /// Called when accessing the Okta hosted login page.
         /// </summary>
         [Input("login")]
         public Input<string>? Login { get; set; }

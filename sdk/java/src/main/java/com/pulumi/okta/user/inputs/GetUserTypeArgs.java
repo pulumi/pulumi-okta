@@ -14,14 +14,14 @@ public final class GetUserTypeArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUserTypeArgs Empty = new GetUserTypeArgs();
 
     /**
-     * name of user type to retrieve.
+     * Name of user type to retrieve.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return name of user type to retrieve.
+     * @return Name of user type to retrieve.
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class GetUserTypeArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name name of user type to retrieve.
+         * @param name Name of user type to retrieve.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetUserTypeArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name name of user type to retrieve.
+         * @param name Name of user type to retrieve.
          * 
          * @return builder
          * 

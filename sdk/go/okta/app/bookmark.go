@@ -13,72 +13,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// This resource allows you to create and configure a Bookmark Application.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := app.NewBookmark(ctx, "example", &app.BookmarkArgs{
-//				Label: pulumi.String("Example"),
-//				Url:   pulumi.String("https://example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// A Bookmark App can be imported via the Okta ID.
-//
-// ```sh
-//
-//	$ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;
-//
-// ```
 type Bookmark struct {
 	pulumi.CustomResourceState
 
-	// Custom error page URL.
+	// Custom error page URL
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page for this application.
+	// Custom login page URL
 	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self-service. By default, it is `false`.
+	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app. The value for each application link should be boolean.
+	// Displays specific appLinks for the app
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
-	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	// Id of this apps authentication policy
 	AuthenticationPolicy pulumi.StringPtrOutput `pulumi:"authenticationPolicy"`
-	// Display auto submit toolbar.
+	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app.
+	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
-	// Do not display application icon to users.
+	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
-	// The Application's display name.
+	// Pretty name of app.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
-	// Direct link of application logo.
+	// URL of the application's logo
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name of the app.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -86,10 +48,9 @@ type Bookmark struct {
 	RequestIntegration pulumi.BoolPtrOutput `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+	// Status of application.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The URL of the bookmark.
-	Url pulumi.StringOutput `pulumi:"url"`
+	Url    pulumi.StringOutput    `pulumi:"url"`
 }
 
 // NewBookmark registers a new resource with the given unique name, arguments, and options.
@@ -128,31 +89,31 @@ func GetBookmark(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Bookmark resources.
 type bookmarkState struct {
-	// Custom error page URL.
+	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page for this application.
+	// Custom login page URL
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self-service. By default, it is `false`.
+	// Enable self service
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app. The value for each application link should be boolean.
+	// Displays specific appLinks for the app
 	AppLinksJson *string `pulumi:"appLinksJson"`
-	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	// Id of this apps authentication policy
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
-	// Display auto submit toolbar.
+	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app.
+	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users.
+	// Do not display application icon to users
 	HideWeb *bool `pulumi:"hideWeb"`
-	// The Application's display name.
+	// Pretty name of app.
 	Label *string `pulumi:"label"`
-	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local path to logo of the application.
 	Logo *string `pulumi:"logo"`
-	// Direct link of application logo.
+	// URL of the application's logo
 	LogoUrl *string `pulumi:"logoUrl"`
 	// Name of the app.
 	Name *string `pulumi:"name"`
@@ -160,38 +121,37 @@ type bookmarkState struct {
 	RequestIntegration *bool `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+	// Status of application.
 	Status *string `pulumi:"status"`
-	// The URL of the bookmark.
-	Url *string `pulumi:"url"`
+	Url    *string `pulumi:"url"`
 }
 
 type BookmarkState struct {
-	// Custom error page URL.
+	// Custom error page URL
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page for this application.
+	// Custom login page URL
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self-service. By default, it is `false`.
+	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app. The value for each application link should be boolean.
+	// Displays specific appLinks for the app
 	AppLinksJson pulumi.StringPtrInput
-	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	// Id of this apps authentication policy
 	AuthenticationPolicy pulumi.StringPtrInput
-	// Display auto submit toolbar.
+	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Do not display application icon on mobile app.
+	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users.
+	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrInput
-	// The Application's display name.
+	// Pretty name of app.
 	Label pulumi.StringPtrInput
-	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrInput
-	// Direct link of application logo.
+	// URL of the application's logo
 	LogoUrl pulumi.StringPtrInput
 	// Name of the app.
 	Name pulumi.StringPtrInput
@@ -199,10 +159,9 @@ type BookmarkState struct {
 	RequestIntegration pulumi.BoolPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+	// Status of application.
 	Status pulumi.StringPtrInput
-	// The URL of the bookmark.
-	Url pulumi.StringPtrInput
+	Url    pulumi.StringPtrInput
 }
 
 func (BookmarkState) ElementType() reflect.Type {
@@ -210,70 +169,68 @@ func (BookmarkState) ElementType() reflect.Type {
 }
 
 type bookmarkArgs struct {
-	// Custom error page URL.
+	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page for this application.
+	// Custom login page URL
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self-service. By default, it is `false`.
+	// Enable self service
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app. The value for each application link should be boolean.
+	// Displays specific appLinks for the app
 	AppLinksJson *string `pulumi:"appLinksJson"`
-	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	// Id of this apps authentication policy
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
-	// Display auto submit toolbar.
+	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app.
+	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users.
+	// Do not display application icon to users
 	HideWeb *bool `pulumi:"hideWeb"`
-	// The Application's display name.
+	// Pretty name of app.
 	Label string `pulumi:"label"`
-	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local path to logo of the application.
 	Logo *string `pulumi:"logo"`
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration *bool `pulumi:"requestIntegration"`
-	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+	// Status of application.
 	Status *string `pulumi:"status"`
-	// The URL of the bookmark.
-	Url string `pulumi:"url"`
+	Url    string  `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Bookmark resource.
 type BookmarkArgs struct {
-	// Custom error page URL.
+	// Custom error page URL
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page for this application.
+	// Custom login page URL
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self-service. By default, it is `false`.
+	// Enable self service
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app. The value for each application link should be boolean.
+	// Displays specific appLinks for the app
 	AppLinksJson pulumi.StringPtrInput
-	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+	// Id of this apps authentication policy
 	AuthenticationPolicy pulumi.StringPtrInput
-	// Display auto submit toolbar.
+	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Do not display application icon on mobile app.
+	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users.
+	// Do not display application icon to users
 	HideWeb pulumi.BoolPtrInput
-	// The Application's display name.
+	// Pretty name of app.
 	Label pulumi.StringInput
-	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+	// Local path to logo of the application.
 	Logo pulumi.StringPtrInput
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration pulumi.BoolPtrInput
-	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+	// Status of application.
 	Status pulumi.StringPtrInput
-	// The URL of the bookmark.
-	Url pulumi.StringInput
+	Url    pulumi.StringInput
 }
 
 func (BookmarkArgs) ElementType() reflect.Type {
@@ -387,17 +344,17 @@ func (o BookmarkOutput) ToOutput(ctx context.Context) pulumix.Output[*Bookmark] 
 	}
 }
 
-// Custom error page URL.
+// Custom error page URL
 func (o BookmarkOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Custom login page for this application.
+// Custom login page URL
 func (o BookmarkOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Enable self-service. By default, it is `false`.
+// Enable self service
 func (o BookmarkOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
 }
@@ -407,17 +364,17 @@ func (o BookmarkOutput) AdminNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
 }
 
-// Displays specific appLinks for the app. The value for each application link should be boolean.
+// Displays specific appLinks for the app
 func (o BookmarkOutput) AppLinksJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+// Id of this apps authentication policy
 func (o BookmarkOutput) AuthenticationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.AuthenticationPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Display auto submit toolbar.
+// Display auto submit toolbar
 func (o BookmarkOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
 }
@@ -427,27 +384,27 @@ func (o BookmarkOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
-// Do not display application icon on mobile app.
+// Do not display application icon on mobile app
 func (o BookmarkOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
 }
 
-// Do not display application icon to users.
+// Do not display application icon to users
 func (o BookmarkOutput) HideWeb() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
 }
 
-// The Application's display name.
+// Pretty name of app.
 func (o BookmarkOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
 }
 
-// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+// Local path to logo of the application.
 func (o BookmarkOutput) Logo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
 }
 
-// Direct link of application logo.
+// URL of the application's logo
 func (o BookmarkOutput) LogoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
 }
@@ -467,12 +424,11 @@ func (o BookmarkOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+// Status of application.
 func (o BookmarkOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The URL of the bookmark.
 func (o BookmarkOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

@@ -17,51 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.auth.ServerPolicyRule;
- * import com.pulumi.okta.auth.ServerPolicyRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerPolicyRule(&#34;example&#34;, ServerPolicyRuleArgs.builder()        
- *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
- *             .grantTypeWhitelists(&#34;implicit&#34;)
- *             .groupWhitelists(&#34;&lt;group ids&gt;&#34;)
- *             .policyId(&#34;&lt;auth server policy id&gt;&#34;)
- *             .priority(1)
- *             .status(&#34;ACTIVE&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
- * 
- * ```sh
- *  $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example &amp;#60;auth server id&amp;#62;/&amp;#60;policy id&amp;#62;/&amp;#60;policy rule id&amp;#62;
- * ```
- * 
- */
 @ResourceType(type="okta:auth/serverPolicyRule:ServerPolicyRule")
 public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
     /**
@@ -79,32 +34,28 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accessTokenLifetimeMinutes);
     }
     /**
-     * Auth Server ID.
+     * Auth server ID
      * 
      */
     @Export(name="authServerId", refs={String.class}, tree="[0]")
     private Output<String> authServerId;
 
     /**
-     * @return Auth Server ID.
+     * @return Auth server ID
      * 
      */
     public Output<String> authServerId() {
         return this.authServerId;
     }
     /**
-     * Accepted grant type values, `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;client_credentials&#34;`,
-     * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
-     * `&#34;urn:ietf:params:oauth:grant-type:device_code&#34;` (*Early Access Property*), `&#34;interaction_code&#34;` (*OIE only*). For `&#34;implicit&#34;` value either `user_whitelist` or `group_whitelist` should be set.
+     * Accepted grant type values: authorization*code, implicit, password, client*credentials
      * 
      */
     @Export(name="grantTypeWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> grantTypeWhitelists;
 
     /**
-     * @return Accepted grant type values, `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;client_credentials&#34;`,
-     * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
-     * `&#34;urn:ietf:params:oauth:grant-type:device_code&#34;` (*Early Access Property*), `&#34;interaction_code&#34;` (*OIE only*). For `&#34;implicit&#34;` value either `user_whitelist` or `group_whitelist` should be set.
+     * @return Accepted grant type values: authorization*code, implicit, password, client*credentials
      * 
      */
     public Output<List<String>> grantTypeWhitelists() {
@@ -125,14 +76,14 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.groupBlacklists);
     }
     /**
-     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
+     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
      * 
      */
     @Export(name="groupWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupWhitelists;
 
     /**
-     * @return Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
+     * @return Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
      * 
      */
     public Output<Optional<List<String>>> groupWhitelists() {
@@ -153,42 +104,42 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.inlineHookId);
     }
     /**
-     * Auth Server Policy Rule name.
+     * Auth server policy rule name
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Auth Server Policy Rule name.
+     * @return Auth server policy rule name
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Auth Server Policy ID.
+     * Auth server policy ID
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
-     * @return Auth Server Policy ID.
+     * @return Auth server policy ID
      * 
      */
     public Output<String> policyId() {
         return this.policyId;
     }
     /**
-     * Priority of the auth server policy rule.
+     * Priority of the auth server policy rule
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
-     * @return Priority of the auth server policy rule.
+     * @return Priority of the auth server policy rule
      * 
      */
     public Output<Integer> priority() {
@@ -209,58 +160,48 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.refreshTokenLifetimeMinutes);
     }
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
-     * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
      * 
      */
     @Export(name="refreshTokenWindowMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> refreshTokenWindowMinutes;
 
     /**
-     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
-     * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
+     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
      * 
      */
     public Output<Optional<Integer>> refreshTokenWindowMinutes() {
         return Codegen.optional(this.refreshTokenWindowMinutes);
     }
     /**
-     * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `&#34;*&#34;`.
+     * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
      * 
      */
     @Export(name="scopeWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> scopeWhitelists;
 
     /**
-     * @return Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `&#34;*&#34;`.
+     * @return Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
      * 
      */
     public Output<Optional<List<String>>> scopeWhitelists() {
         return Codegen.optional(this.scopeWhitelists);
     }
-    /**
-     * The status of the Auth Server Policy Rule.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
-    /**
-     * @return The status of the Auth Server Policy Rule.
-     * 
-     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * The type of the Auth Server Policy Rule.
+     * Auth server policy rule type, unlikely this will be anything other then the default
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of the Auth Server Policy Rule.
+     * @return Auth server policy rule type, unlikely this will be anything other then the default
      * 
      */
     public Output<Optional<String>> type() {
