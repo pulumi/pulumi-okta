@@ -40,7 +40,7 @@
             "generateExtraInputTypes": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.4.3",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.5.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
@@ -191,6 +191,53 @@
                 "fqdn",
                 "recordType",
                 "values"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:Index/getOrgMetadataDomains:getOrgMetadataDomains": {
+            "properties": {
+                "alternate": {
+                    "type": "string",
+                    "description": "Custom Domain Org URI\n"
+                },
+                "organization": {
+                    "type": "string",
+                    "description": "Standard Org URI\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "alternate",
+                "organization"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:Index/getOrgMetadataSettings:getOrgMetadataSettings": {
+            "properties": {
+                "analyticsCollectionEnabled": {
+                    "type": "boolean"
+                },
+                "bugReportingEnabled": {
+                    "type": "boolean"
+                },
+                "omEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the legacy Okta Mobile application is enabled for the org\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "analyticsCollectionEnabled",
+                "bugReportingEnabled",
+                "omEnabled"
             ],
             "language": {
                 "nodejs": {
@@ -3378,6 +3425,93 @@
                 "type": "object"
             }
         },
+        "okta:app/oauthRoleAssignment:OauthRoleAssignment": {
+            "description": "Manages assignment of an admin role to an OAuth application.\n\nThis resource allows you to assign an Okta admin role to a OAuth service application. This requires the Okta tenant feature flag for this function to be enabled.\n\n\n## Import\n\nOAuth Role assignment can be imported by passing the Client ID and Role Assignment ID for the specific client role.\n\n```sh\n $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test \u003cclientID\u003e/\u003croleAssignmentID\u003e`\n```\n\n ",
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "Client ID for the role to be assigned to\n"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label of the role assignment\n"
+                },
+                "resourceSet": {
+                    "type": "string",
+                    "description": "Resource set for the custom role to assign, must be the ID of the created resource set.\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Custom Role ID\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.\n"
+                }
+            },
+            "required": [
+                "clientId",
+                "label",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "Client ID for the role to be assigned to\n"
+                },
+                "resourceSet": {
+                    "type": "string",
+                    "description": "Resource set for the custom role to assign, must be the ID of the created resource set.\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Custom Role ID\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.\n"
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OauthRoleAssignment resources.\n",
+                "properties": {
+                    "clientId": {
+                        "type": "string",
+                        "description": "Client ID for the role to be assigned to\n"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label of the role assignment\n"
+                    },
+                    "resourceSet": {
+                        "type": "string",
+                        "description": "Resource set for the custom role to assign, must be the ID of the created resource set.\n"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "Custom Role ID\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:app/saml:Saml": {
             "properties": {
                 "accessibilityErrorRedirectUrl": {
@@ -5692,6 +5826,7 @@
             }
         },
         "okta:auth/serverPolicyClaim:ServerPolicyClaim": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.auth.ServerPolicyRule(\"example\", {\n    authServerId: \"\u003cauth server id\u003e\",\n    grantTypeWhitelists: [\"implicit\"],\n    groupWhitelists: [\"\u003cgroup ids\u003e\"],\n    policyId: \"\u003cauth server policy id\u003e\",\n    priority: 1,\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.auth.ServerPolicyRule(\"example\",\n    auth_server_id=\"\u003cauth server id\u003e\",\n    grant_type_whitelists=[\"implicit\"],\n    group_whitelists=[\"\u003cgroup ids\u003e\"],\n    policy_id=\"\u003cauth server policy id\u003e\",\n    priority=1,\n    status=\"ACTIVE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Auth.ServerPolicyRule(\"example\", new()\n    {\n        AuthServerId = \"\u003cauth server id\u003e\",\n        GrantTypeWhitelists = new[]\n        {\n            \"implicit\",\n        },\n        GroupWhitelists = new[]\n        {\n            \"\u003cgroup ids\u003e\",\n        },\n        PolicyId = \"\u003cauth server policy id\u003e\",\n        Priority = 1,\n        Status = \"ACTIVE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/auth\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := auth.NewServerPolicyRule(ctx, \"example\", \u0026auth.ServerPolicyRuleArgs{\n\t\t\tAuthServerId: pulumi.String(\"\u003cauth server id\u003e\"),\n\t\t\tGrantTypeWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"implicit\"),\n\t\t\t},\n\t\t\tGroupWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"\u003cgroup ids\u003e\"),\n\t\t\t},\n\t\t\tPolicyId: pulumi.String(\"\u003cauth server policy id\u003e\"),\n\t\t\tPriority: pulumi.Int(1),\n\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.auth.ServerPolicyRule;\nimport com.pulumi.okta.auth.ServerPolicyRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new ServerPolicyRule(\"example\", ServerPolicyRuleArgs.builder()        \n            .authServerId(\"\u003cauth server id\u003e\")\n            .grantTypeWhitelists(\"implicit\")\n            .groupWhitelists(\"\u003cgroup ids\u003e\")\n            .policyId(\"\u003cauth server policy id\u003e\")\n            .priority(1)\n            .status(\"ACTIVE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:auth:ServerPolicyRule\n    properties:\n      authServerId: \u003cauth server id\u003e\n      grantTypeWhitelists:\n        - implicit\n      groupWhitelists:\n        - \u003cgroup ids\u003e\n      policyId: \u003cauth server policy id\u003e\n      priority: 1\n      status: ACTIVE\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAuthorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.\n\n```sh\n $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example \u0026#60;auth server id\u0026#62;/\u0026#60;policy id\u0026#62;/\u0026#60;policy rule id\u0026#62;\n```\n\n ",
             "properties": {
                 "accessTokenLifetimeMinutes": {
                     "type": "integer",
@@ -5699,14 +5834,14 @@
                 },
                 "authServerId": {
                     "type": "string",
-                    "description": "Auth server ID\n"
+                    "description": "Auth Server ID.\n"
                 },
                 "grantTypeWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values: authorization_code, implicit, password, client_credentials\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
@@ -5720,7 +5855,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.\n"
+                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `\"EVERYONE\"`.\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -5728,15 +5863,15 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Auth server policy rule name\n"
+                    "description": "Auth Server Policy Rule name.\n"
                 },
                 "policyId": {
                     "type": "string",
-                    "description": "Auth server policy ID\n"
+                    "description": "Auth Server Policy ID.\n"
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "Priority of the auth server policy rule\n"
+                    "description": "Priority of the auth server policy rule.\n"
                 },
                 "refreshTokenLifetimeMinutes": {
                     "type": "integer",
@@ -5744,21 +5879,22 @@
                 },
                 "refreshTokenWindowMinutes": {
                     "type": "integer",
-                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is\n`10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and\n`refresh_token_lifetime_minutes`.\n"
+                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).\n`\"refresh_token_window_minutes\"` must be between `\"access_token_lifetime_minutes\"` and `\"refresh_token_lifetime_minutes\"`.\n"
                 },
                 "scopeWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `\n"
+                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `\"*\"`.\n"
                 },
                 "status": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The status of the Auth Server Policy Rule.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Auth server policy rule type, unlikely this will be anything other then the default\n"
+                    "description": "The type of the Auth Server Policy Rule.\n"
                 },
                 "userBlacklists": {
                     "type": "array",
@@ -5789,14 +5925,14 @@
                 },
                 "authServerId": {
                     "type": "string",
-                    "description": "Auth server ID\n"
+                    "description": "Auth Server ID.\n"
                 },
                 "grantTypeWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values: authorization_code, implicit, password, client_credentials\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
@@ -5810,7 +5946,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.\n"
+                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `\"EVERYONE\"`.\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -5818,15 +5954,15 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Auth server policy rule name\n"
+                    "description": "Auth Server Policy Rule name.\n"
                 },
                 "policyId": {
                     "type": "string",
-                    "description": "Auth server policy ID\n"
+                    "description": "Auth Server Policy ID.\n"
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "Priority of the auth server policy rule\n"
+                    "description": "Priority of the auth server policy rule.\n"
                 },
                 "refreshTokenLifetimeMinutes": {
                     "type": "integer",
@@ -5834,21 +5970,22 @@
                 },
                 "refreshTokenWindowMinutes": {
                     "type": "integer",
-                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is\n`10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and\n`refresh_token_lifetime_minutes`.\n"
+                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).\n`\"refresh_token_window_minutes\"` must be between `\"access_token_lifetime_minutes\"` and `\"refresh_token_lifetime_minutes\"`.\n"
                 },
                 "scopeWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `\n"
+                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `\"*\"`.\n"
                 },
                 "status": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The status of the Auth Server Policy Rule.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Auth server policy rule type, unlikely this will be anything other then the default\n"
+                    "description": "The type of the Auth Server Policy Rule.\n"
                 },
                 "userBlacklists": {
                     "type": "array",
@@ -5880,14 +6017,14 @@
                     },
                     "authServerId": {
                         "type": "string",
-                        "description": "Auth server ID\n"
+                        "description": "Auth Server ID.\n"
                     },
                     "grantTypeWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Accepted grant type values: authorization_code, implicit, password, client_credentials\n"
+                        "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                     },
                     "groupBlacklists": {
                         "type": "array",
@@ -5901,7 +6038,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.\n"
+                        "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `\"EVERYONE\"`.\n"
                     },
                     "inlineHookId": {
                         "type": "string",
@@ -5909,15 +6046,15 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Auth server policy rule name\n"
+                        "description": "Auth Server Policy Rule name.\n"
                     },
                     "policyId": {
                         "type": "string",
-                        "description": "Auth server policy ID\n"
+                        "description": "Auth Server Policy ID.\n"
                     },
                     "priority": {
                         "type": "integer",
-                        "description": "Priority of the auth server policy rule\n"
+                        "description": "Priority of the auth server policy rule.\n"
                     },
                     "refreshTokenLifetimeMinutes": {
                         "type": "integer",
@@ -5925,21 +6062,22 @@
                     },
                     "refreshTokenWindowMinutes": {
                         "type": "integer",
-                        "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is\n`10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and\n`refresh_token_lifetime_minutes`.\n"
+                        "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).\n`\"refresh_token_window_minutes\"` must be between `\"access_token_lifetime_minutes\"` and `\"refresh_token_lifetime_minutes\"`.\n"
                     },
                     "scopeWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `\n"
+                        "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `\"*\"`.\n"
                     },
                     "status": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The status of the Auth Server Policy Rule.\n"
                     },
                     "type": {
                         "type": "string",
-                        "description": "Auth server policy rule type, unlikely this will be anything other then the default\n"
+                        "description": "The type of the Auth Server Policy Rule.\n"
                     },
                     "userBlacklists": {
                         "type": "array",
@@ -8762,6 +8900,10 @@
                     "type": "string",
                     "description": "The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session\n"
                 },
+                "riskScore": {
+                    "type": "string",
+                    "description": "The risk score specifies a particular level of risk to match on.\n"
+                },
                 "status": {
                     "type": "string",
                     "description": "Status of the rule\n"
@@ -8896,6 +9038,10 @@
                 "reAuthenticationFrequency": {
                     "type": "string",
                     "description": "The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session\n"
+                },
+                "riskScore": {
+                    "type": "string",
+                    "description": "The risk score specifies a particular level of risk to match on.\n"
                 },
                 "status": {
                     "type": "string",
@@ -9032,6 +9178,10 @@
                     "reAuthenticationFrequency": {
                         "type": "string",
                         "description": "The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session\n"
+                    },
+                    "riskScore": {
+                        "type": "string",
+                        "description": "The risk score specifies a particular level of risk to match on.\n"
                     },
                     "status": {
                         "type": "string",
@@ -18408,6 +18558,49 @@
                     "id",
                     "publicCertificate",
                     "validationStatus"
+                ]
+            }
+        },
+        "okta:Index/getOrgMetadata:getOrgMetadata": {
+            "description": "Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.\n\n- [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = okta.Index.getOrgMetadata({});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.Index.get_org_metadata()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Okta.Index.GetOrgMetadata.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/Index\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := Index.GetOrgMetadata(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Index.IndexFunctions;\nimport com.pulumi.okta.Index.inputs.GetOrgMetadataArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = IndexFunctions.getOrgMetadata();\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      Function: okta:Index:getOrgMetadata\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getOrgMetadata.\n",
+                "properties": {
+                    "domains": {
+                        "$ref": "#/types/okta:Index/getOrgMetadataDomains:getOrgMetadataDomains",
+                        "description": "The URIs for the org's configured domains.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/okta:Index/getOrgMetadataSettings:getOrgMetadataSettings",
+                        "description": "The wellknown org settings (safe for public consumption).\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getOrgMetadata.\n",
+                "properties": {
+                    "domains": {
+                        "$ref": "#/types/okta:Index/getOrgMetadataDomains:getOrgMetadataDomains",
+                        "description": "The URIs for the org's configured domains.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the Org.\n"
+                    },
+                    "pipeline": {
+                        "type": "string",
+                        "description": "The authentication pipeline of the org. idx means the org is using the Identity Engine, while v1 means the org is using the Classic authentication pipeline.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/okta:Index/getOrgMetadataSettings:getOrgMetadataSettings",
+                        "description": "The wellknown org settings (safe for public consumption).\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "pipeline"
                 ]
             }
         },

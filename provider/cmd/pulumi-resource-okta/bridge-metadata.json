@@ -104,6 +104,10 @@
                 "current": "okta:app/oAuthRedirectUri:OAuthRedirectUri",
                 "majorVersion": 4
             },
+            "okta_app_oauth_role_assignment": {
+                "current": "okta:app/oauthRoleAssignment:OauthRoleAssignment",
+                "majorVersion": 4
+            },
             "okta_app_saml": {
                 "current": "okta:app/saml:Saml",
                 "majorVersion": 4,
@@ -1293,6 +1297,10 @@
                     }
                 }
             },
+            "okta_org_metadata": {
+                "current": "okta:Index/getOrgMetadata:getOrgMetadata",
+                "majorVersion": 4
+            },
             "okta_policy": {
                 "current": "okta:policy/getPolicy:getPolicy",
                 "majorVersion": 4
@@ -1404,6 +1412,7 @@
             "okta:app/oAuth:OAuth": 0,
             "okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri": 0,
             "okta:app/oAuthRedirectUri:OAuthRedirectUri": 0,
+            "okta:app/oauthRoleAssignment:OauthRoleAssignment": 1,
             "okta:app/saml:Saml": 0,
             "okta:app/securePasswordStore:SecurePasswordStore": 0,
             "okta:app/swa:Swa": 0,
@@ -1494,6 +1503,7 @@
         },
         "functions": {
             "okta:Index/getDomain:getDomain": 0,
+            "okta:Index/getOrgMetadata:getOrgMetadata": 1,
             "okta:app/getApp:getApp": 0,
             "okta:app/getMetadataSaml:getMetadataSaml": 0,
             "okta:app/getOauth:getOauth": 0,
@@ -1549,6 +1559,7 @@
             "okta:app/oAuth:OAuth": "okta_app_oauth",
             "okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri": "okta_app_oauth_post_logout_redirect_uri",
             "okta:app/oAuthRedirectUri:OAuthRedirectUri": "okta_app_oauth_redirect_uri",
+            "okta:app/oauthRoleAssignment:OauthRoleAssignment": "okta_app_oauth_role_assignment",
             "okta:app/saml:Saml": "okta_app_saml",
             "okta:app/securePasswordStore:SecurePasswordStore": "okta_app_secure_password_store",
             "okta:app/swa:Swa": "okta_app_swa",
@@ -1639,6 +1650,7 @@
         },
         "functions": {
             "okta:Index/getDomain:getDomain": "okta_domain",
+            "okta:Index/getOrgMetadata:getOrgMetadata": "okta_org_metadata",
             "okta:app/getApp:getApp": "okta_app",
             "okta:app/getMetadataSaml:getMetadataSaml": "okta_app_metadata_saml",
             "okta:app/getOauth:getOauth": "okta_app_oauth",
@@ -1704,6 +1716,11 @@
             },
             "okta:Index/getDomainDnsRecord:getDomainDnsRecord": {
                 "recordType": "record_type"
+            },
+            "okta:Index/getOrgMetadataSettings:getOrgMetadataSettings": {
+                "analyticsCollectionEnabled": "analytics_collection_enabled",
+                "bugReportingEnabled": "bug_reporting_enabled",
+                "omEnabled": "om_enabled"
             },
             "okta:app/OAuthGroupsClaim:OAuthGroupsClaim": {
                 "filterType": "filter_type",
@@ -1910,6 +1927,10 @@
             },
             "okta:app/oAuthRedirectUri:OAuthRedirectUri": {
                 "appId": "app_id"
+            },
+            "okta:app/oauthRoleAssignment:OauthRoleAssignment": {
+                "clientId": "client_id",
+                "resourceSet": "resource_set"
             },
             "okta:app/saml:Saml": {
                 "accessibilityErrorRedirectUrl": "accessibility_error_redirect_url",
@@ -2371,6 +2392,7 @@
                 "platformIncludes": "platform_include",
                 "policyId": "policy_id",
                 "reAuthenticationFrequency": "re_authentication_frequency",
+                "riskScore": "risk_score",
                 "userTypesExcludeds": "user_types_excluded",
                 "userTypesIncludeds": "user_types_included",
                 "usersExcludeds": "users_excluded",
