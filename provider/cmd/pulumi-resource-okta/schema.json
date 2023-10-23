@@ -5692,6 +5692,7 @@
             }
         },
         "okta:auth/serverPolicyClaim:ServerPolicyClaim": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.auth.ServerPolicyRule(\"example\", {\n    authServerId: \"\u003cauth server id\u003e\",\n    grantTypeWhitelists: [\"implicit\"],\n    groupWhitelists: [\"\u003cgroup ids\u003e\"],\n    policyId: \"\u003cauth server policy id\u003e\",\n    priority: 1,\n    status: \"ACTIVE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.auth.ServerPolicyRule(\"example\",\n    auth_server_id=\"\u003cauth server id\u003e\",\n    grant_type_whitelists=[\"implicit\"],\n    group_whitelists=[\"\u003cgroup ids\u003e\"],\n    policy_id=\"\u003cauth server policy id\u003e\",\n    priority=1,\n    status=\"ACTIVE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Auth.ServerPolicyRule(\"example\", new()\n    {\n        AuthServerId = \"\u003cauth server id\u003e\",\n        GrantTypeWhitelists = new[]\n        {\n            \"implicit\",\n        },\n        GroupWhitelists = new[]\n        {\n            \"\u003cgroup ids\u003e\",\n        },\n        PolicyId = \"\u003cauth server policy id\u003e\",\n        Priority = 1,\n        Status = \"ACTIVE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/auth\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := auth.NewServerPolicyRule(ctx, \"example\", \u0026auth.ServerPolicyRuleArgs{\n\t\t\tAuthServerId: pulumi.String(\"\u003cauth server id\u003e\"),\n\t\t\tGrantTypeWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"implicit\"),\n\t\t\t},\n\t\t\tGroupWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"\u003cgroup ids\u003e\"),\n\t\t\t},\n\t\t\tPolicyId: pulumi.String(\"\u003cauth server policy id\u003e\"),\n\t\t\tPriority: pulumi.Int(1),\n\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.auth.ServerPolicyRule;\nimport com.pulumi.okta.auth.ServerPolicyRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new ServerPolicyRule(\"example\", ServerPolicyRuleArgs.builder()        \n            .authServerId(\"\u003cauth server id\u003e\")\n            .grantTypeWhitelists(\"implicit\")\n            .groupWhitelists(\"\u003cgroup ids\u003e\")\n            .policyId(\"\u003cauth server policy id\u003e\")\n            .priority(1)\n            .status(\"ACTIVE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:auth:ServerPolicyRule\n    properties:\n      authServerId: \u003cauth server id\u003e\n      grantTypeWhitelists:\n        - implicit\n      groupWhitelists:\n        - \u003cgroup ids\u003e\n      policyId: \u003cauth server policy id\u003e\n      priority: 1\n      status: ACTIVE\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAuthorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.\n\n```sh\n $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example \u0026#60;auth server id\u0026#62;/\u0026#60;policy id\u0026#62;/\u0026#60;policy rule id\u0026#62;\n```\n\n ",
             "properties": {
                 "accessTokenLifetimeMinutes": {
                     "type": "integer",
@@ -5699,14 +5700,14 @@
                 },
                 "authServerId": {
                     "type": "string",
-                    "description": "Auth server ID\n"
+                    "description": "Auth Server ID.\n"
                 },
                 "grantTypeWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values: authorization_code, implicit, password, client_credentials\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
@@ -5720,7 +5721,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.\n"
+                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `\"EVERYONE\"`.\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -5728,15 +5729,15 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Auth server policy rule name\n"
+                    "description": "Auth Server Policy Rule name.\n"
                 },
                 "policyId": {
                     "type": "string",
-                    "description": "Auth server policy ID\n"
+                    "description": "Auth Server Policy ID.\n"
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "Priority of the auth server policy rule\n"
+                    "description": "Priority of the auth server policy rule.\n"
                 },
                 "refreshTokenLifetimeMinutes": {
                     "type": "integer",
@@ -5744,21 +5745,22 @@
                 },
                 "refreshTokenWindowMinutes": {
                     "type": "integer",
-                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is\n`10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and\n`refresh_token_lifetime_minutes`.\n"
+                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).\n`\"refresh_token_window_minutes\"` must be between `\"access_token_lifetime_minutes\"` and `\"refresh_token_lifetime_minutes\"`.\n"
                 },
                 "scopeWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `\n"
+                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `\"*\"`.\n"
                 },
                 "status": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The status of the Auth Server Policy Rule.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Auth server policy rule type, unlikely this will be anything other then the default\n"
+                    "description": "The type of the Auth Server Policy Rule.\n"
                 },
                 "userBlacklists": {
                     "type": "array",
@@ -5789,14 +5791,14 @@
                 },
                 "authServerId": {
                     "type": "string",
-                    "description": "Auth server ID\n"
+                    "description": "Auth Server ID.\n"
                 },
                 "grantTypeWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Accepted grant type values: authorization_code, implicit, password, client_credentials\n"
+                    "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                 },
                 "groupBlacklists": {
                     "type": "array",
@@ -5810,7 +5812,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.\n"
+                    "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `\"EVERYONE\"`.\n"
                 },
                 "inlineHookId": {
                     "type": "string",
@@ -5818,15 +5820,15 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Auth server policy rule name\n"
+                    "description": "Auth Server Policy Rule name.\n"
                 },
                 "policyId": {
                     "type": "string",
-                    "description": "Auth server policy ID\n"
+                    "description": "Auth Server Policy ID.\n"
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "Priority of the auth server policy rule\n"
+                    "description": "Priority of the auth server policy rule.\n"
                 },
                 "refreshTokenLifetimeMinutes": {
                     "type": "integer",
@@ -5834,21 +5836,22 @@
                 },
                 "refreshTokenWindowMinutes": {
                     "type": "integer",
-                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is\n`10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and\n`refresh_token_lifetime_minutes`.\n"
+                    "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).\n`\"refresh_token_window_minutes\"` must be between `\"access_token_lifetime_minutes\"` and `\"refresh_token_lifetime_minutes\"`.\n"
                 },
                 "scopeWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `\n"
+                    "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `\"*\"`.\n"
                 },
                 "status": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The status of the Auth Server Policy Rule.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Auth server policy rule type, unlikely this will be anything other then the default\n"
+                    "description": "The type of the Auth Server Policy Rule.\n"
                 },
                 "userBlacklists": {
                     "type": "array",
@@ -5880,14 +5883,14 @@
                     },
                     "authServerId": {
                         "type": "string",
-                        "description": "Auth server ID\n"
+                        "description": "Auth Server ID.\n"
                     },
                     "grantTypeWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Accepted grant type values: authorization_code, implicit, password, client_credentials\n"
+                        "description": "Accepted grant type values, `\"authorization_code\"`, `\"implicit\"`, `\"password\"`, `\"client_credentials\"`, \n`\"urn:ietf:params:oauth:grant-type:saml2-bearer\"` (*Early Access Property*), `\"urn:ietf:params:oauth:grant-type:token-exchange\"` (*Early Access Property*),\n`\"urn:ietf:params:oauth:grant-type:device_code\"` (*Early Access Property*), `\"interaction_code\"` (*OIE only*). For `\"implicit\"` value either `user_whitelist` or `group_whitelist` should be set.\n"
                     },
                     "groupBlacklists": {
                         "type": "array",
@@ -5901,7 +5904,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.\n"
+                        "description": "Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `\"EVERYONE\"`.\n"
                     },
                     "inlineHookId": {
                         "type": "string",
@@ -5909,15 +5912,15 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Auth server policy rule name\n"
+                        "description": "Auth Server Policy Rule name.\n"
                     },
                     "policyId": {
                         "type": "string",
-                        "description": "Auth server policy ID\n"
+                        "description": "Auth Server Policy ID.\n"
                     },
                     "priority": {
                         "type": "integer",
-                        "description": "Priority of the auth server policy rule\n"
+                        "description": "Priority of the auth server policy rule.\n"
                     },
                     "refreshTokenLifetimeMinutes": {
                         "type": "integer",
@@ -5925,21 +5928,22 @@
                     },
                     "refreshTokenWindowMinutes": {
                         "type": "integer",
-                        "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is\n`10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and\n`refresh_token_lifetime_minutes`.\n"
+                        "description": "Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).\n`\"refresh_token_window_minutes\"` must be between `\"access_token_lifetime_minutes\"` and `\"refresh_token_lifetime_minutes\"`.\n"
                     },
                     "scopeWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `\n"
+                        "description": "Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `\"*\"`.\n"
                     },
                     "status": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The status of the Auth Server Policy Rule.\n"
                     },
                     "type": {
                         "type": "string",
-                        "description": "Auth server policy rule type, unlikely this will be anything other then the default\n"
+                        "description": "The type of the Auth Server Policy Rule.\n"
                     },
                     "userBlacklists": {
                         "type": "array",
