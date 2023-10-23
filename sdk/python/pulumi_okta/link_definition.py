@@ -41,13 +41,39 @@ class LinkDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             associated_description: pulumi.Input[str],
-             associated_name: pulumi.Input[str],
-             associated_title: pulumi.Input[str],
-             primary_description: pulumi.Input[str],
-             primary_name: pulumi.Input[str],
-             primary_title: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             associated_description: Optional[pulumi.Input[str]] = None,
+             associated_name: Optional[pulumi.Input[str]] = None,
+             associated_title: Optional[pulumi.Input[str]] = None,
+             primary_description: Optional[pulumi.Input[str]] = None,
+             primary_name: Optional[pulumi.Input[str]] = None,
+             primary_title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if associated_description is None and 'associatedDescription' in kwargs:
+            associated_description = kwargs['associatedDescription']
+        if associated_description is None:
+            raise TypeError("Missing 'associated_description' argument")
+        if associated_name is None and 'associatedName' in kwargs:
+            associated_name = kwargs['associatedName']
+        if associated_name is None:
+            raise TypeError("Missing 'associated_name' argument")
+        if associated_title is None and 'associatedTitle' in kwargs:
+            associated_title = kwargs['associatedTitle']
+        if associated_title is None:
+            raise TypeError("Missing 'associated_title' argument")
+        if primary_description is None and 'primaryDescription' in kwargs:
+            primary_description = kwargs['primaryDescription']
+        if primary_description is None:
+            raise TypeError("Missing 'primary_description' argument")
+        if primary_name is None and 'primaryName' in kwargs:
+            primary_name = kwargs['primaryName']
+        if primary_name is None:
+            raise TypeError("Missing 'primary_name' argument")
+        if primary_title is None and 'primaryTitle' in kwargs:
+            primary_title = kwargs['primaryTitle']
+        if primary_title is None:
+            raise TypeError("Missing 'primary_title' argument")
+
         _setter("associated_description", associated_description)
         _setter("associated_name", associated_name)
         _setter("associated_title", associated_title)
@@ -164,7 +190,21 @@ class _LinkDefinitionState:
              primary_description: Optional[pulumi.Input[str]] = None,
              primary_name: Optional[pulumi.Input[str]] = None,
              primary_title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if associated_description is None and 'associatedDescription' in kwargs:
+            associated_description = kwargs['associatedDescription']
+        if associated_name is None and 'associatedName' in kwargs:
+            associated_name = kwargs['associatedName']
+        if associated_title is None and 'associatedTitle' in kwargs:
+            associated_title = kwargs['associatedTitle']
+        if primary_description is None and 'primaryDescription' in kwargs:
+            primary_description = kwargs['primaryDescription']
+        if primary_name is None and 'primaryName' in kwargs:
+            primary_name = kwargs['primaryName']
+        if primary_title is None and 'primaryTitle' in kwargs:
+            primary_title = kwargs['primaryTitle']
+
         if associated_description is not None:
             _setter("associated_description", associated_description)
         if associated_name is not None:

@@ -26,8 +26,14 @@ class EmailDomainVerificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email_domain_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             email_domain_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_domain_id is None and 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+        if email_domain_id is None:
+            raise TypeError("Missing 'email_domain_id' argument")
+
         _setter("email_domain_id", email_domain_id)
 
     @property
@@ -59,7 +65,11 @@ class _EmailDomainVerificationState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              email_domain_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_domain_id is None and 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+
         if email_domain_id is not None:
             _setter("email_domain_id", email_domain_id)
 

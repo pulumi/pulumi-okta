@@ -35,11 +35,23 @@ class CaptchaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_key: pulumi.Input[str],
-             site_key: pulumi.Input[str],
-             type: pulumi.Input[str],
+             secret_key: Optional[pulumi.Input[str]] = None,
+             site_key: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if secret_key is None:
+            raise TypeError("Missing 'secret_key' argument")
+        if site_key is None and 'siteKey' in kwargs:
+            site_key = kwargs['siteKey']
+        if site_key is None:
+            raise TypeError("Missing 'site_key' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("secret_key", secret_key)
         _setter("site_key", site_key)
         _setter("type", type)
@@ -123,7 +135,13 @@ class _CaptchaState:
              secret_key: Optional[pulumi.Input[str]] = None,
              site_key: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if site_key is None and 'siteKey' in kwargs:
+            site_key = kwargs['siteKey']
+
         if name is not None:
             _setter("name", name)
         if secret_key is not None:

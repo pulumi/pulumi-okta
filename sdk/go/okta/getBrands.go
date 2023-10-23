@@ -4,8 +4,12 @@
 package okta
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get the brands belonging to an Okta organization.
@@ -49,4 +53,50 @@ type GetBrandsResult struct {
 	Brands []GetBrandsBrand `pulumi:"brands"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetBrandsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetBrandsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetBrandsResult, error) {
+		r, err := GetBrands(ctx, opts...)
+		var s GetBrandsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetBrandsResultOutput)
+}
+
+// A collection of values returned by getBrands.
+type GetBrandsResultOutput struct{ *pulumi.OutputState }
+
+func (GetBrandsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrandsResult)(nil)).Elem()
+}
+
+func (o GetBrandsResultOutput) ToGetBrandsResultOutput() GetBrandsResultOutput {
+	return o
+}
+
+func (o GetBrandsResultOutput) ToGetBrandsResultOutputWithContext(ctx context.Context) GetBrandsResultOutput {
+	return o
+}
+
+func (o GetBrandsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrandsResult] {
+	return pulumix.Output[GetBrandsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// List of `Brand` belonging to the organization
+func (o GetBrandsResultOutput) Brands() GetBrandsBrandArrayOutput {
+	return o.ApplyT(func(v GetBrandsResult) []GetBrandsBrand { return v.Brands }).(GetBrandsBrandArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetBrandsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrandsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetBrandsResultOutput{})
 }

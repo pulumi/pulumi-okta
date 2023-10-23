@@ -88,10 +88,10 @@ class AppUserSchemaPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             index: pulumi.Input[str],
-             title: pulumi.Input[str],
-             type: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             index: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyArrayOneOfArgs']]]] = None,
              array_type: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,37 @@ class AppUserSchemaPropertyArgs:
              union: Optional[pulumi.Input[bool]] = None,
              unique: Optional[pulumi.Input[str]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if index is None:
+            raise TypeError("Missing 'index' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if array_enums is None and 'arrayEnums' in kwargs:
+            array_enums = kwargs['arrayEnums']
+        if array_one_ofs is None and 'arrayOneOfs' in kwargs:
+            array_one_ofs = kwargs['arrayOneOfs']
+        if array_type is None and 'arrayType' in kwargs:
+            array_type = kwargs['arrayType']
+        if external_name is None and 'externalName' in kwargs:
+            external_name = kwargs['externalName']
+        if external_namespace is None and 'externalNamespace' in kwargs:
+            external_namespace = kwargs['externalNamespace']
+        if max_length is None and 'maxLength' in kwargs:
+            max_length = kwargs['maxLength']
+        if min_length is None and 'minLength' in kwargs:
+            min_length = kwargs['minLength']
+        if one_ofs is None and 'oneOfs' in kwargs:
+            one_ofs = kwargs['oneOfs']
+        if user_type is None and 'userType' in kwargs:
+            user_type = kwargs['userType']
+
         _setter("app_id", app_id)
         _setter("index", index)
         _setter("title", title)
@@ -498,7 +528,29 @@ class _AppUserSchemaPropertyState:
              union: Optional[pulumi.Input[bool]] = None,
              unique: Optional[pulumi.Input[str]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if array_enums is None and 'arrayEnums' in kwargs:
+            array_enums = kwargs['arrayEnums']
+        if array_one_ofs is None and 'arrayOneOfs' in kwargs:
+            array_one_ofs = kwargs['arrayOneOfs']
+        if array_type is None and 'arrayType' in kwargs:
+            array_type = kwargs['arrayType']
+        if external_name is None and 'externalName' in kwargs:
+            external_name = kwargs['externalName']
+        if external_namespace is None and 'externalNamespace' in kwargs:
+            external_namespace = kwargs['externalNamespace']
+        if max_length is None and 'maxLength' in kwargs:
+            max_length = kwargs['maxLength']
+        if min_length is None and 'minLength' in kwargs:
+            min_length = kwargs['minLength']
+        if one_ofs is None and 'oneOfs' in kwargs:
+            one_ofs = kwargs['oneOfs']
+        if user_type is None and 'userType' in kwargs:
+            user_type = kwargs['userType']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if array_enums is not None:

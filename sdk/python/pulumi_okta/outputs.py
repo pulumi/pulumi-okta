@@ -56,10 +56,16 @@ class AppGroupAssignmentsGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             profile: str,
+             id: Optional[str] = None,
+             profile: Optional[str] = None,
              priority: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if profile is None:
+            raise TypeError("Missing 'profile' argument")
+
         _setter("id", id)
         _setter("profile", profile)
         if priority is not None:
@@ -130,7 +136,13 @@ class AppSignonPolicyRulePlatformInclude(dict):
              os_expression: Optional[str] = None,
              os_type: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if os_expression is None and 'osExpression' in kwargs:
+            os_expression = kwargs['osExpression']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+
         if os_expression is not None:
             _setter("os_expression", os_expression)
         if os_type is not None:
@@ -174,9 +186,15 @@ class AppUserSchemaPropertyArrayOneOf(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             const: str,
-             title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             const: Optional[str] = None,
+             title: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if const is None:
+            raise TypeError("Missing 'const' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+
         _setter("const", const)
         _setter("title", title)
 
@@ -214,9 +232,15 @@ class AppUserSchemaPropertyOneOf(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             const: str,
-             title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             const: Optional[str] = None,
+             title: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if const is None:
+            raise TypeError("Missing 'const' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+
         _setter("const", const)
         _setter("title", title)
 
@@ -275,7 +299,11 @@ class DomainDnsRecord(dict):
              fqdn: Optional[str] = None,
              record_type: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if record_type is None and 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+
         if expiration is not None:
             _setter("expiration", expiration)
         if fqdn is not None:
@@ -341,7 +369,11 @@ class EmailSenderDnsRecord(dict):
              fqdn: Optional[str] = None,
              record_type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if record_type is None and 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+
         if fqdn is not None:
             _setter("fqdn", fqdn)
         if record_type is not None:
@@ -380,7 +412,9 @@ class EventHookHeader(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -414,9 +448,15 @@ class GroupSchemaPropertyArrayOneOf(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             const: str,
-             title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             const: Optional[str] = None,
+             title: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if const is None:
+            raise TypeError("Missing 'const' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+
         _setter("const", const)
         _setter("title", title)
 
@@ -450,9 +490,13 @@ class GroupSchemaPropertyMasterOverridePriority(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: str,
+             value: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
         if type is not None:
             _setter("type", type)
@@ -485,9 +529,15 @@ class GroupSchemaPropertyOneOf(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             const: str,
-             title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             const: Optional[str] = None,
+             title: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if const is None:
+            raise TypeError("Missing 'const' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+
         _setter("const", const)
         _setter("title", title)
 
@@ -528,10 +578,16 @@ class PolicyRuleProfileEnrollmentProfileAttribute(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             label: str,
-             name: str,
+             label: Optional[str] = None,
+             name: Optional[str] = None,
              required: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("label", label)
         _setter("name", name)
         if required is not None:
@@ -575,9 +631,15 @@ class TemplateSmsTranslation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             language: str,
-             template: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             language: Optional[str] = None,
+             template: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if language is None:
+            raise TypeError("Missing 'language' argument")
+        if template is None:
+            raise TypeError("Missing 'template' argument")
+
         _setter("language", language)
         _setter("template", template)
 
@@ -609,9 +671,15 @@ class UserSchemaPropertyArrayOneOf(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             const: str,
-             title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             const: Optional[str] = None,
+             title: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if const is None:
+            raise TypeError("Missing 'const' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+
         _setter("const", const)
         _setter("title", title)
 
@@ -645,9 +713,13 @@ class UserSchemaPropertyMasterOverridePriority(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: str,
+             value: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
         if type is not None:
             _setter("type", type)
@@ -680,9 +752,15 @@ class UserSchemaPropertyOneOf(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             const: str,
-             title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             const: Optional[str] = None,
+             title: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if const is None:
+            raise TypeError("Missing 'const' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+
         _setter("const", const)
         _setter("title", title)
 
@@ -728,15 +806,39 @@ class GetAuthServerClaimsClaimResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             always_include_in_token: bool,
-             claim_type: str,
-             id: str,
-             name: str,
-             scopes: Sequence[str],
-             status: str,
-             value: str,
-             value_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             always_include_in_token: Optional[bool] = None,
+             claim_type: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             scopes: Optional[Sequence[str]] = None,
+             status: Optional[str] = None,
+             value: Optional[str] = None,
+             value_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if always_include_in_token is None and 'alwaysIncludeInToken' in kwargs:
+            always_include_in_token = kwargs['alwaysIncludeInToken']
+        if always_include_in_token is None:
+            raise TypeError("Missing 'always_include_in_token' argument")
+        if claim_type is None and 'claimType' in kwargs:
+            claim_type = kwargs['claimType']
+        if claim_type is None:
+            raise TypeError("Missing 'claim_type' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if value_type is None and 'valueType' in kwargs:
+            value_type = kwargs['valueType']
+        if value_type is None:
+            raise TypeError("Missing 'value_type' argument")
+
         _setter("always_include_in_token", always_include_in_token)
         _setter("claim_type", claim_type)
         _setter("id", id)
@@ -806,12 +908,24 @@ class GetBehavioursBehaviorResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             name: str,
-             settings: Mapping[str, str],
-             status: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             settings: Optional[Mapping[str, str]] = None,
+             status: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if settings is None:
+            raise TypeError("Missing 'settings' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("id", id)
         _setter("name", name)
         _setter("settings", settings)
@@ -863,12 +977,28 @@ class GetBrandsBrandResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom_privacy_policy_url: str,
-             id: str,
-             links: str,
-             name: str,
-             remove_powered_by_okta: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             custom_privacy_policy_url: Optional[str] = None,
+             id: Optional[str] = None,
+             links: Optional[str] = None,
+             name: Optional[str] = None,
+             remove_powered_by_okta: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_privacy_policy_url is None and 'customPrivacyPolicyUrl' in kwargs:
+            custom_privacy_policy_url = kwargs['customPrivacyPolicyUrl']
+        if custom_privacy_policy_url is None:
+            raise TypeError("Missing 'custom_privacy_policy_url' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if links is None:
+            raise TypeError("Missing 'links' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if remove_powered_by_okta is None and 'removePoweredByOkta' in kwargs:
+            remove_powered_by_okta = kwargs['removePoweredByOkta']
+        if remove_powered_by_okta is None:
+            raise TypeError("Missing 'remove_powered_by_okta' argument")
+
         _setter("custom_privacy_policy_url", custom_privacy_policy_url)
         _setter("id", id)
         _setter("links", links)
@@ -922,13 +1052,29 @@ class GetEmailCustomizationsEmailCustomizationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             body: str,
-             id: str,
-             is_default: bool,
-             language: str,
-             links: str,
-             subject: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             body: Optional[str] = None,
+             id: Optional[str] = None,
+             is_default: Optional[bool] = None,
+             language: Optional[str] = None,
+             links: Optional[str] = None,
+             subject: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if is_default is None and 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if is_default is None:
+            raise TypeError("Missing 'is_default' argument")
+        if language is None:
+            raise TypeError("Missing 'language' argument")
+        if links is None:
+            raise TypeError("Missing 'links' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+
         _setter("body", body)
         _setter("id", id)
         _setter("is_default", is_default)
@@ -986,12 +1132,26 @@ class GetGroupsGroupResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom_profile_attributes: str,
-             description: str,
-             id: str,
-             name: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             custom_profile_attributes: Optional[str] = None,
+             description: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_profile_attributes is None and 'customProfileAttributes' in kwargs:
+            custom_profile_attributes = kwargs['customProfileAttributes']
+        if custom_profile_attributes is None:
+            raise TypeError("Missing 'custom_profile_attributes' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("custom_profile_attributes", custom_profile_attributes)
         _setter("description", description)
         _setter("id", id)
@@ -1037,9 +1197,15 @@ class GetTemplatesEmailTemplateResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             links: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             links: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if links is None:
+            raise TypeError("Missing 'links' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("links", links)
         _setter("name", name)
 
@@ -1089,20 +1255,70 @@ class GetThemesThemeResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             background_image_url: str,
-             email_template_touch_point_variant: str,
-             end_user_dashboard_touch_point_variant: str,
-             error_page_touch_point_variant: str,
-             favicon_url: str,
-             id: str,
-             links: str,
-             logo_url: str,
-             primary_color_contrast_hex: str,
-             primary_color_hex: str,
-             secondary_color_contrast_hex: str,
-             secondary_color_hex: str,
-             sign_in_page_touch_point_variant: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             background_image_url: Optional[str] = None,
+             email_template_touch_point_variant: Optional[str] = None,
+             end_user_dashboard_touch_point_variant: Optional[str] = None,
+             error_page_touch_point_variant: Optional[str] = None,
+             favicon_url: Optional[str] = None,
+             id: Optional[str] = None,
+             links: Optional[str] = None,
+             logo_url: Optional[str] = None,
+             primary_color_contrast_hex: Optional[str] = None,
+             primary_color_hex: Optional[str] = None,
+             secondary_color_contrast_hex: Optional[str] = None,
+             secondary_color_hex: Optional[str] = None,
+             sign_in_page_touch_point_variant: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if background_image_url is None and 'backgroundImageUrl' in kwargs:
+            background_image_url = kwargs['backgroundImageUrl']
+        if background_image_url is None:
+            raise TypeError("Missing 'background_image_url' argument")
+        if email_template_touch_point_variant is None and 'emailTemplateTouchPointVariant' in kwargs:
+            email_template_touch_point_variant = kwargs['emailTemplateTouchPointVariant']
+        if email_template_touch_point_variant is None:
+            raise TypeError("Missing 'email_template_touch_point_variant' argument")
+        if end_user_dashboard_touch_point_variant is None and 'endUserDashboardTouchPointVariant' in kwargs:
+            end_user_dashboard_touch_point_variant = kwargs['endUserDashboardTouchPointVariant']
+        if end_user_dashboard_touch_point_variant is None:
+            raise TypeError("Missing 'end_user_dashboard_touch_point_variant' argument")
+        if error_page_touch_point_variant is None and 'errorPageTouchPointVariant' in kwargs:
+            error_page_touch_point_variant = kwargs['errorPageTouchPointVariant']
+        if error_page_touch_point_variant is None:
+            raise TypeError("Missing 'error_page_touch_point_variant' argument")
+        if favicon_url is None and 'faviconUrl' in kwargs:
+            favicon_url = kwargs['faviconUrl']
+        if favicon_url is None:
+            raise TypeError("Missing 'favicon_url' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if links is None:
+            raise TypeError("Missing 'links' argument")
+        if logo_url is None and 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if logo_url is None:
+            raise TypeError("Missing 'logo_url' argument")
+        if primary_color_contrast_hex is None and 'primaryColorContrastHex' in kwargs:
+            primary_color_contrast_hex = kwargs['primaryColorContrastHex']
+        if primary_color_contrast_hex is None:
+            raise TypeError("Missing 'primary_color_contrast_hex' argument")
+        if primary_color_hex is None and 'primaryColorHex' in kwargs:
+            primary_color_hex = kwargs['primaryColorHex']
+        if primary_color_hex is None:
+            raise TypeError("Missing 'primary_color_hex' argument")
+        if secondary_color_contrast_hex is None and 'secondaryColorContrastHex' in kwargs:
+            secondary_color_contrast_hex = kwargs['secondaryColorContrastHex']
+        if secondary_color_contrast_hex is None:
+            raise TypeError("Missing 'secondary_color_contrast_hex' argument")
+        if secondary_color_hex is None and 'secondaryColorHex' in kwargs:
+            secondary_color_hex = kwargs['secondaryColorHex']
+        if secondary_color_hex is None:
+            raise TypeError("Missing 'secondary_color_hex' argument")
+        if sign_in_page_touch_point_variant is None and 'signInPageTouchPointVariant' in kwargs:
+            sign_in_page_touch_point_variant = kwargs['signInPageTouchPointVariant']
+        if sign_in_page_touch_point_variant is None:
+            raise TypeError("Missing 'sign_in_page_touch_point_variant' argument")
+
         _setter("background_image_url", background_image_url)
         _setter("email_template_touch_point_variant", email_template_touch_point_variant)
         _setter("end_user_dashboard_touch_point_variant", end_user_dashboard_touch_point_variant)
@@ -1202,12 +1418,24 @@ class GetTrustedOriginsTrustedOriginResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             active: bool,
-             id: str,
-             name: str,
-             origin: str,
-             scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             active: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             origin: Optional[str] = None,
+             scopes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if active is None:
+            raise TypeError("Missing 'active' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if origin is None:
+            raise TypeError("Missing 'origin' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+
         _setter("active", active)
         _setter("id", id)
         _setter("name", name)
@@ -1253,9 +1481,15 @@ class GetUserSecurityQuestionsQuestionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             text: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             text: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+
         _setter("key", key)
         _setter("text", text)
 

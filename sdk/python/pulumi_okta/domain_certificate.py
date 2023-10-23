@@ -38,12 +38,30 @@ class DomainCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate: pulumi.Input[str],
-             certificate_chain: pulumi.Input[str],
-             domain_id: pulumi.Input[str],
-             private_key: pulumi.Input[str],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             certificate: Optional[pulumi.Input[str]] = None,
+             certificate_chain: Optional[pulumi.Input[str]] = None,
+             domain_id: Optional[pulumi.Input[str]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate is None:
+            raise TypeError("Missing 'certificate' argument")
+        if certificate_chain is None and 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if certificate_chain is None:
+            raise TypeError("Missing 'certificate_chain' argument")
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if domain_id is None:
+            raise TypeError("Missing 'domain_id' argument")
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("certificate", certificate)
         _setter("certificate_chain", certificate_chain)
         _setter("domain_id", domain_id)
@@ -143,7 +161,15 @@ class _DomainCertificateState:
              domain_id: Optional[pulumi.Input[str]] = None,
              private_key: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate_chain is None and 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+
         if certificate is not None:
             _setter("certificate", certificate)
         if certificate_chain is not None:

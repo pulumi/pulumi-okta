@@ -35,11 +35,19 @@ class AuthServerClaimDefaultArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_server_id: pulumi.Input[str],
+             auth_server_id: Optional[pulumi.Input[str]] = None,
              always_include_in_token: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auth_server_id is None and 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if auth_server_id is None:
+            raise TypeError("Missing 'auth_server_id' argument")
+        if always_include_in_token is None and 'alwaysIncludeInToken' in kwargs:
+            always_include_in_token = kwargs['alwaysIncludeInToken']
+
         _setter("auth_server_id", auth_server_id)
         if always_include_in_token is not None:
             _setter("always_include_in_token", always_include_in_token)
@@ -141,7 +149,17 @@ class _AuthServerClaimDefaultState:
              status: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
              value_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if always_include_in_token is None and 'alwaysIncludeInToken' in kwargs:
+            always_include_in_token = kwargs['alwaysIncludeInToken']
+        if auth_server_id is None and 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if claim_type is None and 'claimType' in kwargs:
+            claim_type = kwargs['claimType']
+        if value_type is None and 'valueType' in kwargs:
+            value_type = kwargs['valueType']
+
         if always_include_in_token is not None:
             _setter("always_include_in_token", always_include_in_token)
         if auth_server_id is not None:

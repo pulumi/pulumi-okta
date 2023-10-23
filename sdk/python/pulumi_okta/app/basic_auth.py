@@ -65,9 +65,9 @@ class BasicAuthArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_url: pulumi.Input[str],
-             label: pulumi.Input[str],
-             url: pulumi.Input[str],
+             auth_url: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
              accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
              accessibility_self_service: Optional[pulumi.Input[bool]] = None,
@@ -79,7 +79,35 @@ class BasicAuthArgs:
              hide_web: Optional[pulumi.Input[bool]] = None,
              logo: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auth_url is None and 'authUrl' in kwargs:
+            auth_url = kwargs['authUrl']
+        if auth_url is None:
+            raise TypeError("Missing 'auth_url' argument")
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if admin_note is None and 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if app_links_json is None and 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if enduser_note is None and 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if hide_ios is None and 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if hide_web is None and 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+
         _setter("auth_url", auth_url)
         _setter("label", label)
         _setter("url", url)
@@ -355,7 +383,33 @@ class _BasicAuthState:
              sign_on_mode: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if admin_note is None and 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if app_links_json is None and 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if auth_url is None and 'authUrl' in kwargs:
+            auth_url = kwargs['authUrl']
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if enduser_note is None and 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if hide_ios is None and 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if hide_web is None and 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if logo_url is None and 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if sign_on_mode is None and 'signOnMode' in kwargs:
+            sign_on_mode = kwargs['signOnMode']
+
         if accessibility_error_redirect_url is not None:
             _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:

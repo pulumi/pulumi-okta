@@ -4,8 +4,12 @@
 package user
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get the base user Profile Mapping source or target from Okta.
@@ -54,4 +58,55 @@ type GetUserProfileMappingSourceResult struct {
 	Name string `pulumi:"name"`
 	// Type of source.
 	Type string `pulumi:"type"`
+}
+
+func GetUserProfileMappingSourceOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetUserProfileMappingSourceResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetUserProfileMappingSourceResult, error) {
+		r, err := GetUserProfileMappingSource(ctx, opts...)
+		var s GetUserProfileMappingSourceResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetUserProfileMappingSourceResultOutput)
+}
+
+// A collection of values returned by getUserProfileMappingSource.
+type GetUserProfileMappingSourceResultOutput struct{ *pulumi.OutputState }
+
+func (GetUserProfileMappingSourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserProfileMappingSourceResult)(nil)).Elem()
+}
+
+func (o GetUserProfileMappingSourceResultOutput) ToGetUserProfileMappingSourceResultOutput() GetUserProfileMappingSourceResultOutput {
+	return o
+}
+
+func (o GetUserProfileMappingSourceResultOutput) ToGetUserProfileMappingSourceResultOutputWithContext(ctx context.Context) GetUserProfileMappingSourceResultOutput {
+	return o
+}
+
+func (o GetUserProfileMappingSourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserProfileMappingSourceResult] {
+	return pulumix.Output[GetUserProfileMappingSourceResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// ID of the source
+func (o GetUserProfileMappingSourceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProfileMappingSourceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of source.
+func (o GetUserProfileMappingSourceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProfileMappingSourceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of source.
+func (o GetUserProfileMappingSourceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProfileMappingSourceResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetUserProfileMappingSourceResultOutput{})
 }

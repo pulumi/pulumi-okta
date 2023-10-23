@@ -62,7 +62,7 @@ class ThemeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             brand_id: pulumi.Input[str],
+             brand_id: Optional[pulumi.Input[str]] = None,
              background_image: Optional[pulumi.Input[str]] = None,
              email_template_touch_point_variant: Optional[pulumi.Input[str]] = None,
              end_user_dashboard_touch_point_variant: Optional[pulumi.Input[str]] = None,
@@ -75,7 +75,33 @@ class ThemeArgs:
              secondary_color_hex: Optional[pulumi.Input[str]] = None,
              sign_in_page_touch_point_variant: Optional[pulumi.Input[str]] = None,
              theme_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if brand_id is None and 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if brand_id is None:
+            raise TypeError("Missing 'brand_id' argument")
+        if background_image is None and 'backgroundImage' in kwargs:
+            background_image = kwargs['backgroundImage']
+        if email_template_touch_point_variant is None and 'emailTemplateTouchPointVariant' in kwargs:
+            email_template_touch_point_variant = kwargs['emailTemplateTouchPointVariant']
+        if end_user_dashboard_touch_point_variant is None and 'endUserDashboardTouchPointVariant' in kwargs:
+            end_user_dashboard_touch_point_variant = kwargs['endUserDashboardTouchPointVariant']
+        if error_page_touch_point_variant is None and 'errorPageTouchPointVariant' in kwargs:
+            error_page_touch_point_variant = kwargs['errorPageTouchPointVariant']
+        if primary_color_contrast_hex is None and 'primaryColorContrastHex' in kwargs:
+            primary_color_contrast_hex = kwargs['primaryColorContrastHex']
+        if primary_color_hex is None and 'primaryColorHex' in kwargs:
+            primary_color_hex = kwargs['primaryColorHex']
+        if secondary_color_contrast_hex is None and 'secondaryColorContrastHex' in kwargs:
+            secondary_color_contrast_hex = kwargs['secondaryColorContrastHex']
+        if secondary_color_hex is None and 'secondaryColorHex' in kwargs:
+            secondary_color_hex = kwargs['secondaryColorHex']
+        if sign_in_page_touch_point_variant is None and 'signInPageTouchPointVariant' in kwargs:
+            sign_in_page_touch_point_variant = kwargs['signInPageTouchPointVariant']
+        if theme_id is None and 'themeId' in kwargs:
+            theme_id = kwargs['themeId']
+
         _setter("brand_id", brand_id)
         if background_image is not None:
             _setter("background_image", background_image)
@@ -339,7 +365,37 @@ class _ThemeState:
              secondary_color_hex: Optional[pulumi.Input[str]] = None,
              sign_in_page_touch_point_variant: Optional[pulumi.Input[str]] = None,
              theme_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if background_image is None and 'backgroundImage' in kwargs:
+            background_image = kwargs['backgroundImage']
+        if background_image_url is None and 'backgroundImageUrl' in kwargs:
+            background_image_url = kwargs['backgroundImageUrl']
+        if brand_id is None and 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if email_template_touch_point_variant is None and 'emailTemplateTouchPointVariant' in kwargs:
+            email_template_touch_point_variant = kwargs['emailTemplateTouchPointVariant']
+        if end_user_dashboard_touch_point_variant is None and 'endUserDashboardTouchPointVariant' in kwargs:
+            end_user_dashboard_touch_point_variant = kwargs['endUserDashboardTouchPointVariant']
+        if error_page_touch_point_variant is None and 'errorPageTouchPointVariant' in kwargs:
+            error_page_touch_point_variant = kwargs['errorPageTouchPointVariant']
+        if favicon_url is None and 'faviconUrl' in kwargs:
+            favicon_url = kwargs['faviconUrl']
+        if logo_url is None and 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if primary_color_contrast_hex is None and 'primaryColorContrastHex' in kwargs:
+            primary_color_contrast_hex = kwargs['primaryColorContrastHex']
+        if primary_color_hex is None and 'primaryColorHex' in kwargs:
+            primary_color_hex = kwargs['primaryColorHex']
+        if secondary_color_contrast_hex is None and 'secondaryColorContrastHex' in kwargs:
+            secondary_color_contrast_hex = kwargs['secondaryColorContrastHex']
+        if secondary_color_hex is None and 'secondaryColorHex' in kwargs:
+            secondary_color_hex = kwargs['secondaryColorHex']
+        if sign_in_page_touch_point_variant is None and 'signInPageTouchPointVariant' in kwargs:
+            sign_in_page_touch_point_variant = kwargs['signInPageTouchPointVariant']
+        if theme_id is None and 'themeId' in kwargs:
+            theme_id = kwargs['themeId']
+
         if background_image is not None:
             _setter("background_image", background_image)
         if background_image_url is not None:

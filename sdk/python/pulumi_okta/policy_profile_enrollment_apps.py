@@ -29,9 +29,15 @@ class PolicyProfileEnrollmentAppsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_id: pulumi.Input[str],
+             policy_id: Optional[pulumi.Input[str]] = None,
              apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+
         _setter("policy_id", policy_id)
         if apps is not None:
             _setter("apps", apps)
@@ -85,7 +91,13 @@ class _PolicyProfileEnrollmentAppsState:
              apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              default_policy_id: Optional[pulumi.Input[str]] = None,
              policy_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_policy_id is None and 'defaultPolicyId' in kwargs:
+            default_policy_id = kwargs['defaultPolicyId']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+
         if apps is not None:
             _setter("apps", apps)
         if default_policy_id is not None:

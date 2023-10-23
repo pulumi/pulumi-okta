@@ -67,7 +67,25 @@ class RulePasswordArgs:
              priority: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_connection is None and 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if network_excludes is None and 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if network_includes is None and 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if password_change is None and 'passwordChange' in kwargs:
+            password_change = kwargs['passwordChange']
+        if password_reset is None and 'passwordReset' in kwargs:
+            password_reset = kwargs['passwordReset']
+        if password_unlock is None and 'passwordUnlock' in kwargs:
+            password_unlock = kwargs['passwordUnlock']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+
         if name is not None:
             _setter("name", name)
         if network_connection is not None:
@@ -280,7 +298,25 @@ class _RulePasswordState:
              priority: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_connection is None and 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if network_excludes is None and 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if network_includes is None and 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if password_change is None and 'passwordChange' in kwargs:
+            password_change = kwargs['passwordChange']
+        if password_reset is None and 'passwordReset' in kwargs:
+            password_reset = kwargs['passwordReset']
+        if password_unlock is None and 'passwordUnlock' in kwargs:
+            password_unlock = kwargs['passwordUnlock']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+
         if name is not None:
             _setter("name", name)
         if network_connection is not None:

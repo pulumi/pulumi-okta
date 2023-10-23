@@ -63,7 +63,25 @@ class BrandArgs:
              locale: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              remove_powered_by_okta: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if agree_to_custom_privacy_policy is None and 'agreeToCustomPrivacyPolicy' in kwargs:
+            agree_to_custom_privacy_policy = kwargs['agreeToCustomPrivacyPolicy']
+        if brand_id is None and 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if custom_privacy_policy_url is None and 'customPrivacyPolicyUrl' in kwargs:
+            custom_privacy_policy_url = kwargs['customPrivacyPolicyUrl']
+        if default_app_app_instance_id is None and 'defaultAppAppInstanceId' in kwargs:
+            default_app_app_instance_id = kwargs['defaultAppAppInstanceId']
+        if default_app_app_link_name is None and 'defaultAppAppLinkName' in kwargs:
+            default_app_app_link_name = kwargs['defaultAppAppLinkName']
+        if default_app_classic_application_uri is None and 'defaultAppClassicApplicationUri' in kwargs:
+            default_app_classic_application_uri = kwargs['defaultAppClassicApplicationUri']
+        if email_domain_id is None and 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+        if remove_powered_by_okta is None and 'removePoweredByOkta' in kwargs:
+            remove_powered_by_okta = kwargs['removePoweredByOkta']
+
         if agree_to_custom_privacy_policy is not None:
             _setter("agree_to_custom_privacy_policy", agree_to_custom_privacy_policy)
         if brand_id is not None:
@@ -272,7 +290,27 @@ class _BrandState:
              locale: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              remove_powered_by_okta: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if agree_to_custom_privacy_policy is None and 'agreeToCustomPrivacyPolicy' in kwargs:
+            agree_to_custom_privacy_policy = kwargs['agreeToCustomPrivacyPolicy']
+        if brand_id is None and 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if custom_privacy_policy_url is None and 'customPrivacyPolicyUrl' in kwargs:
+            custom_privacy_policy_url = kwargs['customPrivacyPolicyUrl']
+        if default_app_app_instance_id is None and 'defaultAppAppInstanceId' in kwargs:
+            default_app_app_instance_id = kwargs['defaultAppAppInstanceId']
+        if default_app_app_link_name is None and 'defaultAppAppLinkName' in kwargs:
+            default_app_app_link_name = kwargs['defaultAppAppLinkName']
+        if default_app_classic_application_uri is None and 'defaultAppClassicApplicationUri' in kwargs:
+            default_app_classic_application_uri = kwargs['defaultAppClassicApplicationUri']
+        if email_domain_id is None and 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+        if is_default is None and 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if remove_powered_by_okta is None and 'removePoweredByOkta' in kwargs:
+            remove_powered_by_okta = kwargs['removePoweredByOkta']
+
         if agree_to_custom_privacy_policy is not None:
             _setter("agree_to_custom_privacy_policy", agree_to_custom_privacy_policy)
         if brand_id is not None:

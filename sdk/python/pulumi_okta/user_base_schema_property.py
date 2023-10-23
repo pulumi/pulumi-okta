@@ -47,15 +47,25 @@ class UserBaseSchemaPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             index: pulumi.Input[str],
-             title: pulumi.Input[str],
-             type: pulumi.Input[str],
+             index: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              master: Optional[pulumi.Input[str]] = None,
              pattern: Optional[pulumi.Input[str]] = None,
              permissions: Optional[pulumi.Input[str]] = None,
              required: Optional[pulumi.Input[bool]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if index is None:
+            raise TypeError("Missing 'index' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_type is None and 'userType' in kwargs:
+            user_type = kwargs['userType']
+
         _setter("index", index)
         _setter("title", title)
         _setter("type", type)
@@ -211,7 +221,11 @@ class _UserBaseSchemaPropertyState:
              title: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if user_type is None and 'userType' in kwargs:
+            user_type = kwargs['userType']
+
         if index is not None:
             _setter("index", index)
         if master is not None:

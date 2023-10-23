@@ -32,10 +32,22 @@ class LinkValueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             primary_name: pulumi.Input[str],
-             primary_user_id: pulumi.Input[str],
+             primary_name: Optional[pulumi.Input[str]] = None,
+             primary_user_id: Optional[pulumi.Input[str]] = None,
              associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if primary_name is None and 'primaryName' in kwargs:
+            primary_name = kwargs['primaryName']
+        if primary_name is None:
+            raise TypeError("Missing 'primary_name' argument")
+        if primary_user_id is None and 'primaryUserId' in kwargs:
+            primary_user_id = kwargs['primaryUserId']
+        if primary_user_id is None:
+            raise TypeError("Missing 'primary_user_id' argument")
+        if associated_user_ids is None and 'associatedUserIds' in kwargs:
+            associated_user_ids = kwargs['associatedUserIds']
+
         _setter("primary_name", primary_name)
         _setter("primary_user_id", primary_user_id)
         if associated_user_ids is not None:
@@ -102,7 +114,15 @@ class _LinkValueState:
              associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              primary_name: Optional[pulumi.Input[str]] = None,
              primary_user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if associated_user_ids is None and 'associatedUserIds' in kwargs:
+            associated_user_ids = kwargs['associatedUserIds']
+        if primary_name is None and 'primaryName' in kwargs:
+            primary_name = kwargs['primaryName']
+        if primary_user_id is None and 'primaryUserId' in kwargs:
+            primary_user_id = kwargs['primaryUserId']
+
         if associated_user_ids is not None:
             _setter("associated_user_ids", associated_user_ids)
         if primary_name is not None:

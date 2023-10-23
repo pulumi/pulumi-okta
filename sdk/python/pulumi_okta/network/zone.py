@@ -50,7 +50,7 @@ class ZoneArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
@@ -59,7 +59,15 @@ class ZoneArgs:
              proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              status: Optional[pulumi.Input[str]] = None,
              usage: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if dynamic_locations is None and 'dynamicLocations' in kwargs:
+            dynamic_locations = kwargs['dynamicLocations']
+        if dynamic_proxy_type is None and 'dynamicProxyType' in kwargs:
+            dynamic_proxy_type = kwargs['dynamicProxyType']
+
         _setter("type", type)
         if asns is not None:
             _setter("asns", asns)
@@ -235,7 +243,13 @@ class _ZoneState:
              status: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              usage: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dynamic_locations is None and 'dynamicLocations' in kwargs:
+            dynamic_locations = kwargs['dynamicLocations']
+        if dynamic_proxy_type is None and 'dynamicProxyType' in kwargs:
+            dynamic_proxy_type = kwargs['dynamicProxyType']
+
         if asns is not None:
             _setter("asns", asns)
         if dynamic_locations is not None:

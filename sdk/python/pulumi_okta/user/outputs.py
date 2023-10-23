@@ -61,12 +61,22 @@ class UserPasswordHash(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: str,
-             value: str,
+             algorithm: Optional[str] = None,
+             value: Optional[str] = None,
              salt: Optional[str] = None,
              salt_order: Optional[str] = None,
              work_factor: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if salt_order is None and 'saltOrder' in kwargs:
+            salt_order = kwargs['saltOrder']
+        if work_factor is None and 'workFactor' in kwargs:
+            work_factor = kwargs['workFactor']
+
         _setter("algorithm", algorithm)
         _setter("value", value)
         if salt is not None:
@@ -142,7 +152,9 @@ class GetUserSearchResult(dict):
              expression: Optional[str] = None,
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comparison is not None:
             _setter("comparison", comparison)
         if expression is not None:
@@ -204,7 +216,9 @@ class GetUsersSearchResult(dict):
              expression: Optional[str] = None,
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comparison is not None:
             _setter("comparison", comparison)
         if expression is not None:
@@ -324,44 +338,166 @@ class GetUsersUserResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_roles: Sequence[str],
-             city: str,
-             cost_center: str,
-             country_code: str,
-             custom_profile_attributes: str,
-             department: str,
-             display_name: str,
-             division: str,
-             email: str,
-             employee_number: str,
-             first_name: str,
-             group_memberships: Sequence[str],
-             honorific_prefix: str,
-             honorific_suffix: str,
-             id: str,
-             last_name: str,
-             locale: str,
-             login: str,
-             manager: str,
-             manager_id: str,
-             middle_name: str,
-             mobile_phone: str,
-             nick_name: str,
-             organization: str,
-             postal_address: str,
-             preferred_language: str,
-             primary_phone: str,
-             profile_url: str,
-             roles: Sequence[str],
-             second_email: str,
-             state: str,
-             status: str,
-             street_address: str,
-             timezone: str,
-             title: str,
-             user_type: str,
-             zip_code: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             admin_roles: Optional[Sequence[str]] = None,
+             city: Optional[str] = None,
+             cost_center: Optional[str] = None,
+             country_code: Optional[str] = None,
+             custom_profile_attributes: Optional[str] = None,
+             department: Optional[str] = None,
+             display_name: Optional[str] = None,
+             division: Optional[str] = None,
+             email: Optional[str] = None,
+             employee_number: Optional[str] = None,
+             first_name: Optional[str] = None,
+             group_memberships: Optional[Sequence[str]] = None,
+             honorific_prefix: Optional[str] = None,
+             honorific_suffix: Optional[str] = None,
+             id: Optional[str] = None,
+             last_name: Optional[str] = None,
+             locale: Optional[str] = None,
+             login: Optional[str] = None,
+             manager: Optional[str] = None,
+             manager_id: Optional[str] = None,
+             middle_name: Optional[str] = None,
+             mobile_phone: Optional[str] = None,
+             nick_name: Optional[str] = None,
+             organization: Optional[str] = None,
+             postal_address: Optional[str] = None,
+             preferred_language: Optional[str] = None,
+             primary_phone: Optional[str] = None,
+             profile_url: Optional[str] = None,
+             roles: Optional[Sequence[str]] = None,
+             second_email: Optional[str] = None,
+             state: Optional[str] = None,
+             status: Optional[str] = None,
+             street_address: Optional[str] = None,
+             timezone: Optional[str] = None,
+             title: Optional[str] = None,
+             user_type: Optional[str] = None,
+             zip_code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if admin_roles is None and 'adminRoles' in kwargs:
+            admin_roles = kwargs['adminRoles']
+        if admin_roles is None:
+            raise TypeError("Missing 'admin_roles' argument")
+        if city is None:
+            raise TypeError("Missing 'city' argument")
+        if cost_center is None and 'costCenter' in kwargs:
+            cost_center = kwargs['costCenter']
+        if cost_center is None:
+            raise TypeError("Missing 'cost_center' argument")
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if country_code is None:
+            raise TypeError("Missing 'country_code' argument")
+        if custom_profile_attributes is None and 'customProfileAttributes' in kwargs:
+            custom_profile_attributes = kwargs['customProfileAttributes']
+        if custom_profile_attributes is None:
+            raise TypeError("Missing 'custom_profile_attributes' argument")
+        if department is None:
+            raise TypeError("Missing 'department' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if division is None:
+            raise TypeError("Missing 'division' argument")
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if employee_number is None and 'employeeNumber' in kwargs:
+            employee_number = kwargs['employeeNumber']
+        if employee_number is None:
+            raise TypeError("Missing 'employee_number' argument")
+        if first_name is None and 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if first_name is None:
+            raise TypeError("Missing 'first_name' argument")
+        if group_memberships is None and 'groupMemberships' in kwargs:
+            group_memberships = kwargs['groupMemberships']
+        if group_memberships is None:
+            raise TypeError("Missing 'group_memberships' argument")
+        if honorific_prefix is None and 'honorificPrefix' in kwargs:
+            honorific_prefix = kwargs['honorificPrefix']
+        if honorific_prefix is None:
+            raise TypeError("Missing 'honorific_prefix' argument")
+        if honorific_suffix is None and 'honorificSuffix' in kwargs:
+            honorific_suffix = kwargs['honorificSuffix']
+        if honorific_suffix is None:
+            raise TypeError("Missing 'honorific_suffix' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_name is None and 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if last_name is None:
+            raise TypeError("Missing 'last_name' argument")
+        if locale is None:
+            raise TypeError("Missing 'locale' argument")
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if manager is None:
+            raise TypeError("Missing 'manager' argument")
+        if manager_id is None and 'managerId' in kwargs:
+            manager_id = kwargs['managerId']
+        if manager_id is None:
+            raise TypeError("Missing 'manager_id' argument")
+        if middle_name is None and 'middleName' in kwargs:
+            middle_name = kwargs['middleName']
+        if middle_name is None:
+            raise TypeError("Missing 'middle_name' argument")
+        if mobile_phone is None and 'mobilePhone' in kwargs:
+            mobile_phone = kwargs['mobilePhone']
+        if mobile_phone is None:
+            raise TypeError("Missing 'mobile_phone' argument")
+        if nick_name is None and 'nickName' in kwargs:
+            nick_name = kwargs['nickName']
+        if nick_name is None:
+            raise TypeError("Missing 'nick_name' argument")
+        if organization is None:
+            raise TypeError("Missing 'organization' argument")
+        if postal_address is None and 'postalAddress' in kwargs:
+            postal_address = kwargs['postalAddress']
+        if postal_address is None:
+            raise TypeError("Missing 'postal_address' argument")
+        if preferred_language is None and 'preferredLanguage' in kwargs:
+            preferred_language = kwargs['preferredLanguage']
+        if preferred_language is None:
+            raise TypeError("Missing 'preferred_language' argument")
+        if primary_phone is None and 'primaryPhone' in kwargs:
+            primary_phone = kwargs['primaryPhone']
+        if primary_phone is None:
+            raise TypeError("Missing 'primary_phone' argument")
+        if profile_url is None and 'profileUrl' in kwargs:
+            profile_url = kwargs['profileUrl']
+        if profile_url is None:
+            raise TypeError("Missing 'profile_url' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if second_email is None and 'secondEmail' in kwargs:
+            second_email = kwargs['secondEmail']
+        if second_email is None:
+            raise TypeError("Missing 'second_email' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if street_address is None and 'streetAddress' in kwargs:
+            street_address = kwargs['streetAddress']
+        if street_address is None:
+            raise TypeError("Missing 'street_address' argument")
+        if timezone is None:
+            raise TypeError("Missing 'timezone' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if user_type is None and 'userType' in kwargs:
+            user_type = kwargs['userType']
+        if user_type is None:
+            raise TypeError("Missing 'user_type' argument")
+        if zip_code is None and 'zipCode' in kwargs:
+            zip_code = kwargs['zipCode']
+        if zip_code is None:
+            raise TypeError("Missing 'zip_code' argument")
+
         _setter("admin_roles", admin_roles)
         _setter("city", city)
         _setter("cost_center", cost_center)

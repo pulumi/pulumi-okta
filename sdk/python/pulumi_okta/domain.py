@@ -37,7 +37,13 @@ class DomainArgs:
              brand_id: Optional[pulumi.Input[str]] = None,
              certificate_source_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if brand_id is None and 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if certificate_source_type is None and 'certificateSourceType' in kwargs:
+            certificate_source_type = kwargs['certificateSourceType']
+
         if brand_id is not None:
             _setter("brand_id", brand_id)
         if certificate_source_type is not None:
@@ -114,7 +120,17 @@ class _DomainState:
              dns_records: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDnsRecordArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              validation_status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if brand_id is None and 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if certificate_source_type is None and 'certificateSourceType' in kwargs:
+            certificate_source_type = kwargs['certificateSourceType']
+        if dns_records is None and 'dnsRecords' in kwargs:
+            dns_records = kwargs['dnsRecords']
+        if validation_status is None and 'validationStatus' in kwargs:
+            validation_status = kwargs['validationStatus']
+
         if brand_id is not None:
             _setter("brand_id", brand_id)
         if certificate_source_type is not None:

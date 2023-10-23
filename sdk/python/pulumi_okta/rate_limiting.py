@@ -32,10 +32,18 @@ class RateLimitingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authorize: pulumi.Input[str],
-             login: pulumi.Input[str],
+             authorize: Optional[pulumi.Input[str]] = None,
+             login: Optional[pulumi.Input[str]] = None,
              communications_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authorize is None:
+            raise TypeError("Missing 'authorize' argument")
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if communications_enabled is None and 'communicationsEnabled' in kwargs:
+            communications_enabled = kwargs['communicationsEnabled']
+
         _setter("authorize", authorize)
         _setter("login", login)
         if communications_enabled is not None:
@@ -102,7 +110,11 @@ class _RateLimitingState:
              authorize: Optional[pulumi.Input[str]] = None,
              communications_enabled: Optional[pulumi.Input[bool]] = None,
              login: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if communications_enabled is None and 'communicationsEnabled' in kwargs:
+            communications_enabled = kwargs['communicationsEnabled']
+
         if authorize is not None:
             _setter("authorize", authorize)
         if communications_enabled is not None:

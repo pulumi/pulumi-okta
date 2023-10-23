@@ -49,15 +49,35 @@ class PolicyRuleProfileEnrollmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_id: pulumi.Input[str],
-             unknown_user_action: pulumi.Input[str],
+             policy_id: Optional[pulumi.Input[str]] = None,
+             unknown_user_action: Optional[pulumi.Input[str]] = None,
              access: Optional[pulumi.Input[str]] = None,
              email_verification: Optional[pulumi.Input[bool]] = None,
              inline_hook_id: Optional[pulumi.Input[str]] = None,
              profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
              target_group_id: Optional[pulumi.Input[str]] = None,
              ui_schema_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if unknown_user_action is None and 'unknownUserAction' in kwargs:
+            unknown_user_action = kwargs['unknownUserAction']
+        if unknown_user_action is None:
+            raise TypeError("Missing 'unknown_user_action' argument")
+        if email_verification is None and 'emailVerification' in kwargs:
+            email_verification = kwargs['emailVerification']
+        if inline_hook_id is None and 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if profile_attributes is None and 'profileAttributes' in kwargs:
+            profile_attributes = kwargs['profileAttributes']
+        if target_group_id is None and 'targetGroupId' in kwargs:
+            target_group_id = kwargs['targetGroupId']
+        if ui_schema_id is None and 'uiSchemaId' in kwargs:
+            ui_schema_id = kwargs['uiSchemaId']
+
         _setter("policy_id", policy_id)
         _setter("unknown_user_action", unknown_user_action)
         if access is not None:
@@ -222,7 +242,23 @@ class _PolicyRuleProfileEnrollmentState:
              target_group_id: Optional[pulumi.Input[str]] = None,
              ui_schema_id: Optional[pulumi.Input[str]] = None,
              unknown_user_action: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_verification is None and 'emailVerification' in kwargs:
+            email_verification = kwargs['emailVerification']
+        if inline_hook_id is None and 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if profile_attributes is None and 'profileAttributes' in kwargs:
+            profile_attributes = kwargs['profileAttributes']
+        if target_group_id is None and 'targetGroupId' in kwargs:
+            target_group_id = kwargs['targetGroupId']
+        if ui_schema_id is None and 'uiSchemaId' in kwargs:
+            ui_schema_id = kwargs['uiSchemaId']
+        if unknown_user_action is None and 'unknownUserAction' in kwargs:
+            unknown_user_action = kwargs['unknownUserAction']
+
         if access is not None:
             _setter("access", access)
         if email_verification is not None:

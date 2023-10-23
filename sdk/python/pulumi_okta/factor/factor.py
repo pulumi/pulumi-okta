@@ -29,9 +29,15 @@ class FactorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             provider_id: pulumi.Input[str],
+             provider_id: Optional[pulumi.Input[str]] = None,
              active: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if provider_id is None and 'providerId' in kwargs:
+            provider_id = kwargs['providerId']
+        if provider_id is None:
+            raise TypeError("Missing 'provider_id' argument")
+
         _setter("provider_id", provider_id)
         if active is not None:
             _setter("active", active)
@@ -81,7 +87,11 @@ class _FactorState:
              _setter: Callable[[Any, Any], None],
              active: Optional[pulumi.Input[bool]] = None,
              provider_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if provider_id is None and 'providerId' in kwargs:
+            provider_id = kwargs['providerId']
+
         if active is not None:
             _setter("active", active)
         if provider_id is not None:

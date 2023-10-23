@@ -47,7 +47,17 @@ class DeviceAssuranceAndroidArgs:
              os_version: Optional[pulumi.Input[str]] = None,
              screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              secure_hardware_present: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if disk_encryption_types is None and 'diskEncryptionTypes' in kwargs:
+            disk_encryption_types = kwargs['diskEncryptionTypes']
+        if os_version is None and 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if screenlock_types is None and 'screenlockTypes' in kwargs:
+            screenlock_types = kwargs['screenlockTypes']
+        if secure_hardware_present is None and 'secureHardwarePresent' in kwargs:
+            secure_hardware_present = kwargs['secureHardwarePresent']
+
         if disk_encryption_types is not None:
             _setter("disk_encryption_types", disk_encryption_types)
         if jailbreak is not None:
@@ -190,7 +200,25 @@ class _DeviceAssuranceAndroidState:
              platform: Optional[pulumi.Input[str]] = None,
              screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              secure_hardware_present: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if disk_encryption_types is None and 'diskEncryptionTypes' in kwargs:
+            disk_encryption_types = kwargs['diskEncryptionTypes']
+        if last_update is None and 'lastUpdate' in kwargs:
+            last_update = kwargs['lastUpdate']
+        if last_updated_by is None and 'lastUpdatedBy' in kwargs:
+            last_updated_by = kwargs['lastUpdatedBy']
+        if os_version is None and 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if screenlock_types is None and 'screenlockTypes' in kwargs:
+            screenlock_types = kwargs['screenlockTypes']
+        if secure_hardware_present is None and 'secureHardwarePresent' in kwargs:
+            secure_hardware_present = kwargs['secureHardwarePresent']
+
         if created_by is not None:
             _setter("created_by", created_by)
         if created_date is not None:
