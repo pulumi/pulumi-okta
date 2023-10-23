@@ -51,6 +51,8 @@ type AppSignonPolicyRule struct {
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 	ReAuthenticationFrequency pulumi.StringPtrOutput `pulumi:"reAuthenticationFrequency"`
+	// The risk score specifies a particular level of risk to match on.
+	RiskScore pulumi.StringPtrOutput `pulumi:"riskScore"`
 	// Status of the rule
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The Verification Method type
@@ -133,6 +135,8 @@ type appSignonPolicyRuleState struct {
 	Priority *int `pulumi:"priority"`
 	// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 	ReAuthenticationFrequency *string `pulumi:"reAuthenticationFrequency"`
+	// The risk score specifies a particular level of risk to match on.
+	RiskScore *string `pulumi:"riskScore"`
 	// Status of the rule
 	Status *string `pulumi:"status"`
 	// The Verification Method type
@@ -183,6 +187,8 @@ type AppSignonPolicyRuleState struct {
 	Priority pulumi.IntPtrInput
 	// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 	ReAuthenticationFrequency pulumi.StringPtrInput
+	// The risk score specifies a particular level of risk to match on.
+	RiskScore pulumi.StringPtrInput
 	// Status of the rule
 	Status pulumi.StringPtrInput
 	// The Verification Method type
@@ -237,6 +243,8 @@ type appSignonPolicyRuleArgs struct {
 	Priority *int `pulumi:"priority"`
 	// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 	ReAuthenticationFrequency *string `pulumi:"reAuthenticationFrequency"`
+	// The risk score specifies a particular level of risk to match on.
+	RiskScore *string `pulumi:"riskScore"`
 	// Status of the rule
 	Status *string `pulumi:"status"`
 	// The Verification Method type
@@ -288,6 +296,8 @@ type AppSignonPolicyRuleArgs struct {
 	Priority pulumi.IntPtrInput
 	// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 	ReAuthenticationFrequency pulumi.StringPtrInput
+	// The risk score specifies a particular level of risk to match on.
+	RiskScore pulumi.StringPtrInput
 	// Status of the rule
 	Status pulumi.StringPtrInput
 	// The Verification Method type
@@ -500,6 +510,11 @@ func (o AppSignonPolicyRuleOutput) Priority() pulumi.IntPtrOutput {
 // The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 func (o AppSignonPolicyRuleOutput) ReAuthenticationFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.ReAuthenticationFrequency }).(pulumi.StringPtrOutput)
+}
+
+// The risk score specifies a particular level of risk to match on.
+func (o AppSignonPolicyRuleOutput) RiskScore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.RiskScore }).(pulumi.StringPtrOutput)
 }
 
 // Status of the rule

@@ -139,7 +139,59 @@ class SecurePasswordStoreArgs:
              user_name_template_push_status: Optional[pulumi.Input[str]] = None,
              user_name_template_suffix: Optional[pulumi.Input[str]] = None,
              user_name_template_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordField' in kwargs:
+            password_field = kwargs['passwordField']
+        if 'usernameField' in kwargs:
+            username_field = kwargs['usernameField']
+        if 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if 'credentialsScheme' in kwargs:
+            credentials_scheme = kwargs['credentialsScheme']
+        if 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if 'optionalField1' in kwargs:
+            optional_field1 = kwargs['optionalField1']
+        if 'optionalField1Value' in kwargs:
+            optional_field1_value = kwargs['optionalField1Value']
+        if 'optionalField2' in kwargs:
+            optional_field2 = kwargs['optionalField2']
+        if 'optionalField2Value' in kwargs:
+            optional_field2_value = kwargs['optionalField2Value']
+        if 'optionalField3' in kwargs:
+            optional_field3 = kwargs['optionalField3']
+        if 'optionalField3Value' in kwargs:
+            optional_field3_value = kwargs['optionalField3Value']
+        if 'revealPassword' in kwargs:
+            reveal_password = kwargs['revealPassword']
+        if 'sharedPassword' in kwargs:
+            shared_password = kwargs['sharedPassword']
+        if 'sharedUsername' in kwargs:
+            shared_username = kwargs['sharedUsername']
+        if 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+
         _setter("label", label)
         _setter("password_field", password_field)
         _setter("url", url)
@@ -684,7 +736,63 @@ class _SecurePasswordStoreState:
              user_name_template_suffix: Optional[pulumi.Input[str]] = None,
              user_name_template_type: Optional[pulumi.Input[str]] = None,
              username_field: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if 'credentialsScheme' in kwargs:
+            credentials_scheme = kwargs['credentialsScheme']
+        if 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if 'optionalField1' in kwargs:
+            optional_field1 = kwargs['optionalField1']
+        if 'optionalField1Value' in kwargs:
+            optional_field1_value = kwargs['optionalField1Value']
+        if 'optionalField2' in kwargs:
+            optional_field2 = kwargs['optionalField2']
+        if 'optionalField2Value' in kwargs:
+            optional_field2_value = kwargs['optionalField2Value']
+        if 'optionalField3' in kwargs:
+            optional_field3 = kwargs['optionalField3']
+        if 'optionalField3Value' in kwargs:
+            optional_field3_value = kwargs['optionalField3Value']
+        if 'passwordField' in kwargs:
+            password_field = kwargs['passwordField']
+        if 'revealPassword' in kwargs:
+            reveal_password = kwargs['revealPassword']
+        if 'sharedPassword' in kwargs:
+            shared_password = kwargs['sharedPassword']
+        if 'sharedUsername' in kwargs:
+            shared_username = kwargs['sharedUsername']
+        if 'signOnMode' in kwargs:
+            sign_on_mode = kwargs['signOnMode']
+        if 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+        if 'usernameField' in kwargs:
+            username_field = kwargs['usernameField']
+
         if accessibility_error_redirect_url is not None:
             _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:

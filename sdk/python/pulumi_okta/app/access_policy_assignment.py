@@ -31,7 +31,13 @@ class AccessPolicyAssignmentArgs:
              _setter: Callable[[Any, Any], None],
              app_id: pulumi.Input[str],
              policy_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+
         _setter("app_id", app_id)
         _setter("policy_id", policy_id)
 
@@ -80,7 +86,13 @@ class _AccessPolicyAssignmentState:
              _setter: Callable[[Any, Any], None],
              app_id: Optional[pulumi.Input[str]] = None,
              policy_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if policy_id is not None:

@@ -27,7 +27,11 @@ class EmailDomainVerificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              email_domain_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+
         _setter("email_domain_id", email_domain_id)
 
     @property
@@ -59,7 +63,11 @@ class _EmailDomainVerificationState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              email_domain_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+
         if email_domain_id is not None:
             _setter("email_domain_id", email_domain_id)
 

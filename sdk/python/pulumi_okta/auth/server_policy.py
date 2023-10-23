@@ -46,7 +46,13 @@ class ServerPolicyArgs:
              priority: pulumi.Input[int],
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if 'clientWhitelists' in kwargs:
+            client_whitelists = kwargs['clientWhitelists']
+
         _setter("auth_server_id", auth_server_id)
         _setter("client_whitelists", client_whitelists)
         _setter("description", description)
@@ -161,7 +167,13 @@ class _ServerPolicyState:
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if 'clientWhitelists' in kwargs:
+            client_whitelists = kwargs['clientWhitelists']
+
         if auth_server_id is not None:
             _setter("auth_server_id", auth_server_id)
         if client_whitelists is not None:

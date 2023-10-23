@@ -27,7 +27,11 @@ class EmailSenderVerificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sender_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'senderId' in kwargs:
+            sender_id = kwargs['senderId']
+
         _setter("sender_id", sender_id)
 
     @property
@@ -59,7 +63,11 @@ class _EmailSenderVerificationState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sender_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'senderId' in kwargs:
+            sender_id = kwargs['senderId']
+
         if sender_id is not None:
             _setter("sender_id", sender_id)
 

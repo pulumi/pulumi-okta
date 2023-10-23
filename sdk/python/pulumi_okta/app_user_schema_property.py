@@ -109,7 +109,29 @@ class AppUserSchemaPropertyArgs:
              union: Optional[pulumi.Input[bool]] = None,
              unique: Optional[pulumi.Input[str]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'arrayEnums' in kwargs:
+            array_enums = kwargs['arrayEnums']
+        if 'arrayOneOfs' in kwargs:
+            array_one_ofs = kwargs['arrayOneOfs']
+        if 'arrayType' in kwargs:
+            array_type = kwargs['arrayType']
+        if 'externalName' in kwargs:
+            external_name = kwargs['externalName']
+        if 'externalNamespace' in kwargs:
+            external_namespace = kwargs['externalNamespace']
+        if 'maxLength' in kwargs:
+            max_length = kwargs['maxLength']
+        if 'minLength' in kwargs:
+            min_length = kwargs['minLength']
+        if 'oneOfs' in kwargs:
+            one_ofs = kwargs['oneOfs']
+        if 'userType' in kwargs:
+            user_type = kwargs['userType']
+
         _setter("app_id", app_id)
         _setter("index", index)
         _setter("title", title)
@@ -498,7 +520,29 @@ class _AppUserSchemaPropertyState:
              union: Optional[pulumi.Input[bool]] = None,
              unique: Optional[pulumi.Input[str]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'arrayEnums' in kwargs:
+            array_enums = kwargs['arrayEnums']
+        if 'arrayOneOfs' in kwargs:
+            array_one_ofs = kwargs['arrayOneOfs']
+        if 'arrayType' in kwargs:
+            array_type = kwargs['arrayType']
+        if 'externalName' in kwargs:
+            external_name = kwargs['externalName']
+        if 'externalNamespace' in kwargs:
+            external_namespace = kwargs['externalNamespace']
+        if 'maxLength' in kwargs:
+            max_length = kwargs['maxLength']
+        if 'minLength' in kwargs:
+            min_length = kwargs['minLength']
+        if 'oneOfs' in kwargs:
+            one_ofs = kwargs['oneOfs']
+        if 'userType' in kwargs:
+            user_type = kwargs['userType']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if array_enums is not None:

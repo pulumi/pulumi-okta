@@ -35,7 +35,13 @@ class AdminRoleCustomAssignmentsArgs:
              custom_role_id: pulumi.Input[str],
              resource_set_id: pulumi.Input[str],
              members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRoleId' in kwargs:
+            custom_role_id = kwargs['customRoleId']
+        if 'resourceSetId' in kwargs:
+            resource_set_id = kwargs['resourceSetId']
+
         _setter("custom_role_id", custom_role_id)
         _setter("resource_set_id", resource_set_id)
         if members is not None:
@@ -102,7 +108,13 @@ class _AdminRoleCustomAssignmentsState:
              custom_role_id: Optional[pulumi.Input[str]] = None,
              members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resource_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRoleId' in kwargs:
+            custom_role_id = kwargs['customRoleId']
+        if 'resourceSetId' in kwargs:
+            resource_set_id = kwargs['resourceSetId']
+
         if custom_role_id is not None:
             _setter("custom_role_id", custom_role_id)
         if members is not None:

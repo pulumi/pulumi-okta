@@ -51,7 +51,11 @@ class MappingMapping(dict):
              expression: str,
              id: str,
              push_status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pushStatus' in kwargs:
+            push_status = kwargs['pushStatus']
+
         _setter("expression", expression)
         _setter("id", id)
         if push_status is not None:

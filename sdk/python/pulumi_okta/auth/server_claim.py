@@ -58,7 +58,19 @@ class ServerClaimArgs:
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              status: Optional[pulumi.Input[str]] = None,
              value_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if 'claimType' in kwargs:
+            claim_type = kwargs['claimType']
+        if 'alwaysIncludeInToken' in kwargs:
+            always_include_in_token = kwargs['alwaysIncludeInToken']
+        if 'groupFilterType' in kwargs:
+            group_filter_type = kwargs['groupFilterType']
+        if 'valueType' in kwargs:
+            value_type = kwargs['valueType']
+
         _setter("auth_server_id", auth_server_id)
         _setter("claim_type", claim_type)
         _setter("value", value)
@@ -228,7 +240,19 @@ class _ServerClaimState:
              status: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
              value_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysIncludeInToken' in kwargs:
+            always_include_in_token = kwargs['alwaysIncludeInToken']
+        if 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if 'claimType' in kwargs:
+            claim_type = kwargs['claimType']
+        if 'groupFilterType' in kwargs:
+            group_filter_type = kwargs['groupFilterType']
+        if 'valueType' in kwargs:
+            value_type = kwargs['valueType']
+
         if always_include_in_token is not None:
             _setter("always_include_in_token", always_include_in_token)
         if auth_server_id is not None:

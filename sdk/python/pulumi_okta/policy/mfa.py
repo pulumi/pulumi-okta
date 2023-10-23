@@ -110,7 +110,49 @@ class MfaArgs:
              symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalIdp' in kwargs:
+            external_idp = kwargs['externalIdp']
+        if 'fidoU2f' in kwargs:
+            fido_u2f = kwargs['fidoU2f']
+        if 'fidoWebauthn' in kwargs:
+            fido_webauthn = kwargs['fidoWebauthn']
+        if 'googleOtp' in kwargs:
+            google_otp = kwargs['googleOtp']
+        if 'groupsIncludeds' in kwargs:
+            groups_includeds = kwargs['groupsIncludeds']
+        if 'isOie' in kwargs:
+            is_oie = kwargs['isOie']
+        if 'oktaCall' in kwargs:
+            okta_call = kwargs['oktaCall']
+        if 'oktaEmail' in kwargs:
+            okta_email = kwargs['oktaEmail']
+        if 'oktaOtp' in kwargs:
+            okta_otp = kwargs['oktaOtp']
+        if 'oktaPassword' in kwargs:
+            okta_password = kwargs['oktaPassword']
+        if 'oktaPush' in kwargs:
+            okta_push = kwargs['oktaPush']
+        if 'oktaQuestion' in kwargs:
+            okta_question = kwargs['oktaQuestion']
+        if 'oktaSms' in kwargs:
+            okta_sms = kwargs['oktaSms']
+        if 'oktaVerify' in kwargs:
+            okta_verify = kwargs['oktaVerify']
+        if 'onpremMfa' in kwargs:
+            onprem_mfa = kwargs['onpremMfa']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if 'rsaToken' in kwargs:
+            rsa_token = kwargs['rsaToken']
+        if 'securityQuestion' in kwargs:
+            security_question = kwargs['securityQuestion']
+        if 'symantecVip' in kwargs:
+            symantec_vip = kwargs['symantecVip']
+        if 'yubikeyToken' in kwargs:
+            yubikey_token = kwargs['yubikeyToken']
+
         if description is not None:
             _setter("description", description)
         if duo is not None:
@@ -527,7 +569,49 @@ class _MfaState:
              symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalIdp' in kwargs:
+            external_idp = kwargs['externalIdp']
+        if 'fidoU2f' in kwargs:
+            fido_u2f = kwargs['fidoU2f']
+        if 'fidoWebauthn' in kwargs:
+            fido_webauthn = kwargs['fidoWebauthn']
+        if 'googleOtp' in kwargs:
+            google_otp = kwargs['googleOtp']
+        if 'groupsIncludeds' in kwargs:
+            groups_includeds = kwargs['groupsIncludeds']
+        if 'isOie' in kwargs:
+            is_oie = kwargs['isOie']
+        if 'oktaCall' in kwargs:
+            okta_call = kwargs['oktaCall']
+        if 'oktaEmail' in kwargs:
+            okta_email = kwargs['oktaEmail']
+        if 'oktaOtp' in kwargs:
+            okta_otp = kwargs['oktaOtp']
+        if 'oktaPassword' in kwargs:
+            okta_password = kwargs['oktaPassword']
+        if 'oktaPush' in kwargs:
+            okta_push = kwargs['oktaPush']
+        if 'oktaQuestion' in kwargs:
+            okta_question = kwargs['oktaQuestion']
+        if 'oktaSms' in kwargs:
+            okta_sms = kwargs['oktaSms']
+        if 'oktaVerify' in kwargs:
+            okta_verify = kwargs['oktaVerify']
+        if 'onpremMfa' in kwargs:
+            onprem_mfa = kwargs['onpremMfa']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if 'rsaToken' in kwargs:
+            rsa_token = kwargs['rsaToken']
+        if 'securityQuestion' in kwargs:
+            security_question = kwargs['securityQuestion']
+        if 'symantecVip' in kwargs:
+            symantec_vip = kwargs['symantecVip']
+        if 'yubikeyToken' in kwargs:
+            yubikey_token = kwargs['yubikeyToken']
+
         if description is not None:
             _setter("description", description)
         if duo is not None:

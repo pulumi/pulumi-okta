@@ -265,6 +265,20 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.reAuthenticationFrequency);
     }
     /**
+     * The risk score specifies a particular level of risk to match on.
+     * 
+     */
+    @Export(name="riskScore", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> riskScore;
+
+    /**
+     * @return The risk score specifies a particular level of risk to match on.
+     * 
+     */
+    public Output<Optional<String>> riskScore() {
+        return Codegen.optional(this.riskScore);
+    }
+    /**
      * Status of the rule
      * 
      */

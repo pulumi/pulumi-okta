@@ -31,7 +31,11 @@ class ThreatInsightSettingsArgs:
              _setter: Callable[[Any, Any], None],
              action: pulumi.Input[str],
              network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+
         _setter("action", action)
         if network_excludes is not None:
             _setter("network_excludes", network_excludes)
@@ -81,7 +85,11 @@ class _ThreatInsightSettingsState:
              _setter: Callable[[Any, Any], None],
              action: Optional[pulumi.Input[str]] = None,
              network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+
         if action is not None:
             _setter("action", action)
         if network_excludes is not None:

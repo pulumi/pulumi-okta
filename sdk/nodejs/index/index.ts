@@ -20,6 +20,11 @@ export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
+export { GetOrgMetadataArgs, GetOrgMetadataResult, GetOrgMetadataOutputArgs } from "./getOrgMetadata";
+export const getOrgMetadata: typeof import("./getOrgMetadata").getOrgMetadata = null as any;
+export const getOrgMetadataOutput: typeof import("./getOrgMetadata").getOrgMetadataOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgMetadata","getOrgMetadataOutput"], () => require("./getOrgMetadata"));
+
 
 const _module = {
     version: utilities.getVersion(),

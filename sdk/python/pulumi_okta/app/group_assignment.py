@@ -43,7 +43,15 @@ class GroupAssignmentArgs:
              priority: Optional[pulumi.Input[int]] = None,
              profile: Optional[pulumi.Input[str]] = None,
              retain_assignment: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+
         _setter("app_id", app_id)
         _setter("group_id", group_id)
         if priority is not None:
@@ -146,7 +154,15 @@ class _GroupAssignmentState:
              priority: Optional[pulumi.Input[int]] = None,
              profile: Optional[pulumi.Input[str]] = None,
              retain_assignment: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if group_id is not None:

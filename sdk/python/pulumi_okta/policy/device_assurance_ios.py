@@ -39,7 +39,13 @@ class DeviceAssuranceIosArgs:
              name: Optional[pulumi.Input[str]] = None,
              os_version: Optional[pulumi.Input[str]] = None,
              screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if 'screenlockTypes' in kwargs:
+            screenlock_types = kwargs['screenlockTypes']
+
         if jailbreak is not None:
             _setter("jailbreak", jailbreak)
         if name is not None:
@@ -146,7 +152,21 @@ class _DeviceAssuranceIosState:
              os_version: Optional[pulumi.Input[str]] = None,
              platform: Optional[pulumi.Input[str]] = None,
              screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if 'lastUpdate' in kwargs:
+            last_update = kwargs['lastUpdate']
+        if 'lastUpdatedBy' in kwargs:
+            last_updated_by = kwargs['lastUpdatedBy']
+        if 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if 'screenlockTypes' in kwargs:
+            screenlock_types = kwargs['screenlockTypes']
+
         if created_by is not None:
             _setter("created_by", created_by)
         if created_date is not None:

@@ -31,7 +31,11 @@ class UserGroupMembershipsArgs:
              _setter: Callable[[Any, Any], None],
              groups: pulumi.Input[Sequence[pulumi.Input[str]]],
              user_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("groups", groups)
         _setter("user_id", user_id)
 
@@ -80,7 +84,11 @@ class _UserGroupMembershipsState:
              _setter: Callable[[Any, Any], None],
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if groups is not None:
             _setter("groups", groups)
         if user_id is not None:

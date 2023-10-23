@@ -67,7 +67,13 @@ class OAuthGroupsClaim(dict):
              value: str,
              filter_type: Optional[str] = None,
              issuer_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -150,7 +156,9 @@ class OAuthJwk(dict):
              n: Optional[str] = None,
              x: Optional[str] = None,
              y: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("kid", kid)
         _setter("kty", kty)
         if e is not None:
@@ -258,7 +266,13 @@ class SamlAttributeStatement(dict):
              namespace: Optional[str] = None,
              type: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+
         _setter("name", name)
         if filter_type is not None:
             _setter("filter_type", filter_type)
@@ -377,7 +391,15 @@ class SamlKey(dict):
              use: Optional[str] = None,
              x5cs: Optional[Sequence[str]] = None,
              x5t_s256: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+        if 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+        if 'x5tS256' in kwargs:
+            x5t_s256 = kwargs['x5tS256']
+
         if created is not None:
             _setter("created", created)
         if e is not None:
@@ -477,7 +499,13 @@ class GetSamlAttributeStatementResult(dict):
              namespace: str,
              type: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+
         _setter("filter_type", filter_type)
         _setter("filter_value", filter_value)
         _setter("name", name)

@@ -47,7 +47,13 @@ class OAuthGroupsClaimArgs:
              value: pulumi.Input[str],
              filter_type: Optional[pulumi.Input[str]] = None,
              issuer_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -150,7 +156,9 @@ class OAuthJwkArgs:
              n: Optional[pulumi.Input[str]] = None,
              x: Optional[pulumi.Input[str]] = None,
              y: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("kid", kid)
         _setter("kty", kty)
         if e is not None:
@@ -263,7 +271,13 @@ class SamlAttributeStatementArgs:
              namespace: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+
         _setter("name", name)
         if filter_type is not None:
             _setter("filter_type", filter_type)
@@ -385,7 +399,15 @@ class SamlKeyArgs:
              use: Optional[pulumi.Input[str]] = None,
              x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              x5t_s256: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+        if 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+        if 'x5tS256' in kwargs:
+            x5t_s256 = kwargs['x5tS256']
+
         if created is not None:
             _setter("created", created)
         if e is not None:

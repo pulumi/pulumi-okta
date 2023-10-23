@@ -50,7 +50,9 @@ class AppGroupAssignmentsGroupArgs:
              id: pulumi.Input[str],
              profile: pulumi.Input[str],
              priority: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("profile", profile)
         if priority is not None:
@@ -114,7 +116,13 @@ class AppSignonPolicyRulePlatformIncludeArgs:
              os_expression: Optional[pulumi.Input[str]] = None,
              os_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osExpression' in kwargs:
+            os_expression = kwargs['osExpression']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+
         if os_expression is not None:
             _setter("os_expression", os_expression)
         if os_type is not None:
@@ -172,7 +180,9 @@ class AppUserSchemaPropertyArrayOneOfArgs:
              _setter: Callable[[Any, Any], None],
              const: pulumi.Input[str],
              title: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 
@@ -220,7 +230,9 @@ class AppUserSchemaPropertyOneOfArgs:
              _setter: Callable[[Any, Any], None],
              const: pulumi.Input[str],
              title: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 
@@ -270,7 +282,11 @@ class DomainDnsRecordArgs:
              fqdn: Optional[pulumi.Input[str]] = None,
              record_type: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+
         if expiration is not None:
             _setter("expiration", expiration)
         if fqdn is not None:
@@ -335,7 +351,11 @@ class EmailSenderDnsRecordArgs:
              fqdn: Optional[pulumi.Input[str]] = None,
              record_type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+
         if fqdn is not None:
             _setter("fqdn", fqdn)
         if record_type is not None:
@@ -386,7 +406,9 @@ class EventHookHeaderArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -430,7 +452,9 @@ class GroupSchemaPropertyArrayOneOfArgs:
              _setter: Callable[[Any, Any], None],
              const: pulumi.Input[str],
              title: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 
@@ -474,7 +498,9 @@ class GroupSchemaPropertyMasterOverridePriorityArgs:
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if type is not None:
             _setter("type", type)
@@ -517,7 +543,9 @@ class GroupSchemaPropertyOneOfArgs:
              _setter: Callable[[Any, Any], None],
              const: pulumi.Input[str],
              title: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 
@@ -569,7 +597,9 @@ class PolicyRuleProfileEnrollmentProfileAttributeArgs:
              label: pulumi.Input[str],
              name: pulumi.Input[str],
              required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("label", label)
         _setter("name", name)
         if required is not None:
@@ -627,7 +657,9 @@ class TemplateSmsTranslationArgs:
              _setter: Callable[[Any, Any], None],
              language: pulumi.Input[str],
              template: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("language", language)
         _setter("template", template)
 
@@ -669,7 +701,9 @@ class UserSchemaPropertyArrayOneOfArgs:
              _setter: Callable[[Any, Any], None],
              const: pulumi.Input[str],
              title: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 
@@ -713,7 +747,9 @@ class UserSchemaPropertyMasterOverridePriorityArgs:
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if type is not None:
             _setter("type", type)
@@ -756,7 +792,9 @@ class UserSchemaPropertyOneOfArgs:
              _setter: Callable[[Any, Any], None],
              const: pulumi.Input[str],
              title: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 

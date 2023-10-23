@@ -55,7 +55,11 @@ class UserBaseSchemaPropertyArgs:
              permissions: Optional[pulumi.Input[str]] = None,
              required: Optional[pulumi.Input[bool]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userType' in kwargs:
+            user_type = kwargs['userType']
+
         _setter("index", index)
         _setter("title", title)
         _setter("type", type)
@@ -211,7 +215,11 @@ class _UserBaseSchemaPropertyState:
              title: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userType' in kwargs:
+            user_type = kwargs['userType']
+
         if index is not None:
             _setter("index", index)
         if master is not None:

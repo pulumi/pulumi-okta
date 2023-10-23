@@ -9,7 +9,10 @@ import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.okta.Index.inputs.GetDomainArgs;
 import com.pulumi.okta.Index.inputs.GetDomainPlainArgs;
+import com.pulumi.okta.Index.inputs.GetOrgMetadataArgs;
+import com.pulumi.okta.Index.inputs.GetOrgMetadataPlainArgs;
 import com.pulumi.okta.Index.outputs.GetDomainResult;
+import com.pulumi.okta.Index.outputs.GetOrgMetadataResult;
 import com.pulumi.okta.Utilities;
 import java.util.concurrent.CompletableFuture;
 
@@ -189,5 +192,227 @@ public final class IndexFunctions {
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:Index/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Index.IndexFunctions;
+     * import com.pulumi.okta.Index.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = IndexFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrgMetadataResult> getOrgMetadata() {
+        return getOrgMetadata(GetOrgMetadataArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Index.IndexFunctions;
+     * import com.pulumi.okta.Index.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = IndexFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrgMetadataResult> getOrgMetadataPlain() {
+        return getOrgMetadataPlain(GetOrgMetadataPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Index.IndexFunctions;
+     * import com.pulumi.okta.Index.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = IndexFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrgMetadataResult> getOrgMetadata(GetOrgMetadataArgs args) {
+        return getOrgMetadata(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Index.IndexFunctions;
+     * import com.pulumi.okta.Index.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = IndexFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrgMetadataResult> getOrgMetadataPlain(GetOrgMetadataPlainArgs args) {
+        return getOrgMetadataPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Index.IndexFunctions;
+     * import com.pulumi.okta.Index.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = IndexFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrgMetadataResult> getOrgMetadata(GetOrgMetadataArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:Index/getOrgMetadata:getOrgMetadata", TypeShape.of(GetOrgMetadataResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Index.IndexFunctions;
+     * import com.pulumi.okta.Index.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = IndexFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrgMetadataResult> getOrgMetadataPlain(GetOrgMetadataPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:Index/getOrgMetadata:getOrgMetadata", TypeShape.of(GetOrgMetadataResult.class), args, Utilities.withVersion(options));
     }
 }

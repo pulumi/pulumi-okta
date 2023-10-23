@@ -69,7 +69,23 @@ class RuleMfaArgs:
              priority: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appExcludes' in kwargs:
+            app_excludes = kwargs['appExcludes']
+        if 'appIncludes' in kwargs:
+            app_includes = kwargs['appIncludes']
+        if 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+
         if app_excludes is not None:
             _setter("app_excludes", app_excludes)
         if app_includes is not None:
@@ -282,7 +298,23 @@ class _RuleMfaState:
              priority: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appExcludes' in kwargs:
+            app_excludes = kwargs['appExcludes']
+        if 'appIncludes' in kwargs:
+            app_includes = kwargs['appIncludes']
+        if 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+
         if app_excludes is not None:
             _setter("app_excludes", app_excludes)
         if app_includes is not None:

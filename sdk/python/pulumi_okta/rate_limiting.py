@@ -35,7 +35,11 @@ class RateLimitingArgs:
              authorize: pulumi.Input[str],
              login: pulumi.Input[str],
              communications_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'communicationsEnabled' in kwargs:
+            communications_enabled = kwargs['communicationsEnabled']
+
         _setter("authorize", authorize)
         _setter("login", login)
         if communications_enabled is not None:
@@ -102,7 +106,11 @@ class _RateLimitingState:
              authorize: Optional[pulumi.Input[str]] = None,
              communications_enabled: Optional[pulumi.Input[bool]] = None,
              login: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'communicationsEnabled' in kwargs:
+            communications_enabled = kwargs['communicationsEnabled']
+
         if authorize is not None:
             _setter("authorize", authorize)
         if communications_enabled is not None:

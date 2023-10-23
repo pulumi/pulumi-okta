@@ -153,6 +153,45 @@ export namespace Index {
         value?: pulumi.Input<string>;
     }
 
+    export interface GetOrgMetadataDomains {
+        /**
+         * Custom Domain Org URI
+         */
+        alternate?: string;
+        /**
+         * Standard Org URI
+         */
+        organization?: string;
+    }
+
+    export interface GetOrgMetadataDomainsArgs {
+        /**
+         * Custom Domain Org URI
+         */
+        alternate?: pulumi.Input<string>;
+        /**
+         * Standard Org URI
+         */
+        organization?: pulumi.Input<string>;
+    }
+
+    export interface GetOrgMetadataSettings {
+        analyticsCollectionEnabled?: boolean;
+        bugReportingEnabled?: boolean;
+        /**
+         * Whether the legacy Okta Mobile application is enabled for the org
+         */
+        omEnabled?: boolean;
+    }
+
+    export interface GetOrgMetadataSettingsArgs {
+        analyticsCollectionEnabled?: pulumi.Input<boolean>;
+        bugReportingEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether the legacy Okta Mobile application is enabled for the org
+         */
+        omEnabled?: pulumi.Input<boolean>;
+    }
 }
 
 export namespace app {

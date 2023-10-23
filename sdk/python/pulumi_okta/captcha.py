@@ -39,7 +39,13 @@ class CaptchaArgs:
              site_key: pulumi.Input[str],
              type: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if 'siteKey' in kwargs:
+            site_key = kwargs['siteKey']
+
         _setter("secret_key", secret_key)
         _setter("site_key", site_key)
         _setter("type", type)
@@ -123,7 +129,13 @@ class _CaptchaState:
              secret_key: Optional[pulumi.Input[str]] = None,
              site_key: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if 'siteKey' in kwargs:
+            site_key = kwargs['siteKey']
+
         if name is not None:
             _setter("name", name)
         if secret_key is not None:

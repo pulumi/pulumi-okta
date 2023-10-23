@@ -35,7 +35,15 @@ class LinkValueArgs:
              primary_name: pulumi.Input[str],
              primary_user_id: pulumi.Input[str],
              associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryName' in kwargs:
+            primary_name = kwargs['primaryName']
+        if 'primaryUserId' in kwargs:
+            primary_user_id = kwargs['primaryUserId']
+        if 'associatedUserIds' in kwargs:
+            associated_user_ids = kwargs['associatedUserIds']
+
         _setter("primary_name", primary_name)
         _setter("primary_user_id", primary_user_id)
         if associated_user_ids is not None:
@@ -102,7 +110,15 @@ class _LinkValueState:
              associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              primary_name: Optional[pulumi.Input[str]] = None,
              primary_user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedUserIds' in kwargs:
+            associated_user_ids = kwargs['associatedUserIds']
+        if 'primaryName' in kwargs:
+            primary_name = kwargs['primaryName']
+        if 'primaryUserId' in kwargs:
+            primary_user_id = kwargs['primaryUserId']
+
         if associated_user_ids is not None:
             _setter("associated_user_ids", associated_user_ids)
         if primary_name is not None:

@@ -104,6 +104,10 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     public readonly reAuthenticationFrequency!: pulumi.Output<string | undefined>;
     /**
+     * The risk score specifies a particular level of risk to match on.
+     */
+    public readonly riskScore!: pulumi.Output<string | undefined>;
+    /**
      * Status of the rule
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -159,6 +163,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["policyId"] = state ? state.policyId : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["reAuthenticationFrequency"] = state ? state.reAuthenticationFrequency : undefined;
+            resourceInputs["riskScore"] = state ? state.riskScore : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["userTypesExcludeds"] = state ? state.userTypesExcludeds : undefined;
@@ -188,6 +193,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["policyId"] = args ? args.policyId : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["reAuthenticationFrequency"] = args ? args.reAuthenticationFrequency : undefined;
+            resourceInputs["riskScore"] = args ? args.riskScore : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["userTypesExcludeds"] = args ? args.userTypesExcludeds : undefined;
@@ -273,6 +279,10 @@ export interface AppSignonPolicyRuleState {
      * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
      */
     reAuthenticationFrequency?: pulumi.Input<string>;
+    /**
+     * The risk score specifies a particular level of risk to match on.
+     */
+    riskScore?: pulumi.Input<string>;
     /**
      * Status of the rule
      */
@@ -372,6 +382,10 @@ export interface AppSignonPolicyRuleArgs {
      * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
      */
     reAuthenticationFrequency?: pulumi.Input<string>;
+    /**
+     * The risk score specifies a particular level of risk to match on.
+     */
+    riskScore?: pulumi.Input<string>;
     /**
      * Status of the rule
      */

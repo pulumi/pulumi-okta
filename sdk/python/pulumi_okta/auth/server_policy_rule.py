@@ -86,7 +86,33 @@ class ServerPolicyRuleArgs:
              type: Optional[pulumi.Input[str]] = None,
              user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if 'grantTypeWhitelists' in kwargs:
+            grant_type_whitelists = kwargs['grantTypeWhitelists']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'accessTokenLifetimeMinutes' in kwargs:
+            access_token_lifetime_minutes = kwargs['accessTokenLifetimeMinutes']
+        if 'groupBlacklists' in kwargs:
+            group_blacklists = kwargs['groupBlacklists']
+        if 'groupWhitelists' in kwargs:
+            group_whitelists = kwargs['groupWhitelists']
+        if 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if 'refreshTokenLifetimeMinutes' in kwargs:
+            refresh_token_lifetime_minutes = kwargs['refreshTokenLifetimeMinutes']
+        if 'refreshTokenWindowMinutes' in kwargs:
+            refresh_token_window_minutes = kwargs['refreshTokenWindowMinutes']
+        if 'scopeWhitelists' in kwargs:
+            scope_whitelists = kwargs['scopeWhitelists']
+        if 'userBlacklists' in kwargs:
+            user_blacklists = kwargs['userBlacklists']
+        if 'userWhitelists' in kwargs:
+            user_whitelists = kwargs['userWhitelists']
+
         _setter("auth_server_id", auth_server_id)
         _setter("grant_type_whitelists", grant_type_whitelists)
         _setter("policy_id", policy_id)
@@ -381,7 +407,33 @@ class _ServerPolicyRuleState:
              type: Optional[pulumi.Input[str]] = None,
              user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessTokenLifetimeMinutes' in kwargs:
+            access_token_lifetime_minutes = kwargs['accessTokenLifetimeMinutes']
+        if 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if 'grantTypeWhitelists' in kwargs:
+            grant_type_whitelists = kwargs['grantTypeWhitelists']
+        if 'groupBlacklists' in kwargs:
+            group_blacklists = kwargs['groupBlacklists']
+        if 'groupWhitelists' in kwargs:
+            group_whitelists = kwargs['groupWhitelists']
+        if 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'refreshTokenLifetimeMinutes' in kwargs:
+            refresh_token_lifetime_minutes = kwargs['refreshTokenLifetimeMinutes']
+        if 'refreshTokenWindowMinutes' in kwargs:
+            refresh_token_window_minutes = kwargs['refreshTokenWindowMinutes']
+        if 'scopeWhitelists' in kwargs:
+            scope_whitelists = kwargs['scopeWhitelists']
+        if 'userBlacklists' in kwargs:
+            user_blacklists = kwargs['userBlacklists']
+        if 'userWhitelists' in kwargs:
+            user_whitelists = kwargs['userWhitelists']
+
         if access_token_lifetime_minutes is not None:
             _setter("access_token_lifetime_minutes", access_token_lifetime_minutes)
         if auth_server_id is not None:

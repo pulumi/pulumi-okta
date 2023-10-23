@@ -79,7 +79,29 @@ class BasicAuthArgs:
              hide_web: Optional[pulumi.Input[bool]] = None,
              logo: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authUrl' in kwargs:
+            auth_url = kwargs['authUrl']
+        if 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+
         _setter("auth_url", auth_url)
         _setter("label", label)
         _setter("url", url)
@@ -355,7 +377,33 @@ class _BasicAuthState:
              sign_on_mode: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if 'authUrl' in kwargs:
+            auth_url = kwargs['authUrl']
+        if 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if 'signOnMode' in kwargs:
+            sign_on_mode = kwargs['signOnMode']
+
         if accessibility_error_redirect_url is not None:
             _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:

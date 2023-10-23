@@ -35,7 +35,11 @@ class AppOauthApiScopeArgs:
              app_id: pulumi.Input[str],
              issuer: pulumi.Input[str],
              scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+
         _setter("app_id", app_id)
         _setter("issuer", issuer)
         _setter("scopes", scopes)
@@ -101,7 +105,11 @@ class _AppOauthApiScopeState:
              app_id: Optional[pulumi.Input[str]] = None,
              issuer: Optional[pulumi.Input[str]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if issuer is not None:

@@ -49,7 +49,13 @@ class GetServerScopesScopeResult(dict):
              name: str,
              optional: bool,
              system: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'metadataPublish' in kwargs:
+            metadata_publish = kwargs['metadataPublish']
+
         _setter("consent", consent)
         _setter("default", default)
         _setter("description", description)

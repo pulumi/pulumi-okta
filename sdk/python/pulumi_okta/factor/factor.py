@@ -31,7 +31,11 @@ class FactorArgs:
              _setter: Callable[[Any, Any], None],
              provider_id: pulumi.Input[str],
              active: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'providerId' in kwargs:
+            provider_id = kwargs['providerId']
+
         _setter("provider_id", provider_id)
         if active is not None:
             _setter("active", active)
@@ -81,7 +85,11 @@ class _FactorState:
              _setter: Callable[[Any, Any], None],
              active: Optional[pulumi.Input[bool]] = None,
              provider_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'providerId' in kwargs:
+            provider_id = kwargs['providerId']
+
         if active is not None:
             _setter("active", active)
         if provider_id is not None:

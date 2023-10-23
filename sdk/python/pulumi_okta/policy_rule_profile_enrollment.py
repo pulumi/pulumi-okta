@@ -57,7 +57,23 @@ class PolicyRuleProfileEnrollmentArgs:
              profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
              target_group_id: Optional[pulumi.Input[str]] = None,
              ui_schema_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'unknownUserAction' in kwargs:
+            unknown_user_action = kwargs['unknownUserAction']
+        if 'emailVerification' in kwargs:
+            email_verification = kwargs['emailVerification']
+        if 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if 'profileAttributes' in kwargs:
+            profile_attributes = kwargs['profileAttributes']
+        if 'targetGroupId' in kwargs:
+            target_group_id = kwargs['targetGroupId']
+        if 'uiSchemaId' in kwargs:
+            ui_schema_id = kwargs['uiSchemaId']
+
         _setter("policy_id", policy_id)
         _setter("unknown_user_action", unknown_user_action)
         if access is not None:
@@ -222,7 +238,23 @@ class _PolicyRuleProfileEnrollmentState:
              target_group_id: Optional[pulumi.Input[str]] = None,
              ui_schema_id: Optional[pulumi.Input[str]] = None,
              unknown_user_action: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailVerification' in kwargs:
+            email_verification = kwargs['emailVerification']
+        if 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'profileAttributes' in kwargs:
+            profile_attributes = kwargs['profileAttributes']
+        if 'targetGroupId' in kwargs:
+            target_group_id = kwargs['targetGroupId']
+        if 'uiSchemaId' in kwargs:
+            ui_schema_id = kwargs['uiSchemaId']
+        if 'unknownUserAction' in kwargs:
+            unknown_user_action = kwargs['unknownUserAction']
+
         if access is not None:
             _setter("access", access)
         if email_verification is not None:

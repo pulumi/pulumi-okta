@@ -239,6 +239,26 @@ export namespace Index {
         values: string[];
     }
 
+    export interface GetOrgMetadataDomains {
+        /**
+         * Custom Domain Org URI
+         */
+        alternate: string;
+        /**
+         * Standard Org URI
+         */
+        organization: string;
+    }
+
+    export interface GetOrgMetadataSettings {
+        analyticsCollectionEnabled: boolean;
+        bugReportingEnabled: boolean;
+        /**
+         * Whether the legacy Okta Mobile application is enabled for the org
+         */
+        omEnabled: boolean;
+    }
+
 }
 
 export namespace app {

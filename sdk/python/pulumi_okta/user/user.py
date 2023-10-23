@@ -193,7 +193,67 @@ class UserArgs:
              title: Optional[pulumi.Input[str]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
              zip_code: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'costCenter' in kwargs:
+            cost_center = kwargs['costCenter']
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'customProfileAttributes' in kwargs:
+            custom_profile_attributes = kwargs['customProfileAttributes']
+        if 'customProfileAttributesToIgnores' in kwargs:
+            custom_profile_attributes_to_ignores = kwargs['customProfileAttributesToIgnores']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'employeeNumber' in kwargs:
+            employee_number = kwargs['employeeNumber']
+        if 'expirePasswordOnCreate' in kwargs:
+            expire_password_on_create = kwargs['expirePasswordOnCreate']
+        if 'honorificPrefix' in kwargs:
+            honorific_prefix = kwargs['honorificPrefix']
+        if 'honorificSuffix' in kwargs:
+            honorific_suffix = kwargs['honorificSuffix']
+        if 'managerId' in kwargs:
+            manager_id = kwargs['managerId']
+        if 'middleName' in kwargs:
+            middle_name = kwargs['middleName']
+        if 'mobilePhone' in kwargs:
+            mobile_phone = kwargs['mobilePhone']
+        if 'nickName' in kwargs:
+            nick_name = kwargs['nickName']
+        if 'oldPassword' in kwargs:
+            old_password = kwargs['oldPassword']
+        if 'passwordHash' in kwargs:
+            password_hash = kwargs['passwordHash']
+        if 'passwordInlineHook' in kwargs:
+            password_inline_hook = kwargs['passwordInlineHook']
+        if 'postalAddress' in kwargs:
+            postal_address = kwargs['postalAddress']
+        if 'preferredLanguage' in kwargs:
+            preferred_language = kwargs['preferredLanguage']
+        if 'primaryPhone' in kwargs:
+            primary_phone = kwargs['primaryPhone']
+        if 'profileUrl' in kwargs:
+            profile_url = kwargs['profileUrl']
+        if 'recoveryAnswer' in kwargs:
+            recovery_answer = kwargs['recoveryAnswer']
+        if 'recoveryQuestion' in kwargs:
+            recovery_question = kwargs['recoveryQuestion']
+        if 'secondEmail' in kwargs:
+            second_email = kwargs['secondEmail']
+        if 'skipRoles' in kwargs:
+            skip_roles = kwargs['skipRoles']
+        if 'streetAddress' in kwargs:
+            street_address = kwargs['streetAddress']
+        if 'userType' in kwargs:
+            user_type = kwargs['userType']
+        if 'zipCode' in kwargs:
+            zip_code = kwargs['zipCode']
+
         _setter("email", email)
         _setter("first_name", first_name)
         _setter("last_name", last_name)
@@ -970,7 +1030,69 @@ class _UserState:
              title: Optional[pulumi.Input[str]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
              zip_code: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'costCenter' in kwargs:
+            cost_center = kwargs['costCenter']
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'customProfileAttributes' in kwargs:
+            custom_profile_attributes = kwargs['customProfileAttributes']
+        if 'customProfileAttributesToIgnores' in kwargs:
+            custom_profile_attributes_to_ignores = kwargs['customProfileAttributesToIgnores']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'employeeNumber' in kwargs:
+            employee_number = kwargs['employeeNumber']
+        if 'expirePasswordOnCreate' in kwargs:
+            expire_password_on_create = kwargs['expirePasswordOnCreate']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'honorificPrefix' in kwargs:
+            honorific_prefix = kwargs['honorificPrefix']
+        if 'honorificSuffix' in kwargs:
+            honorific_suffix = kwargs['honorificSuffix']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'managerId' in kwargs:
+            manager_id = kwargs['managerId']
+        if 'middleName' in kwargs:
+            middle_name = kwargs['middleName']
+        if 'mobilePhone' in kwargs:
+            mobile_phone = kwargs['mobilePhone']
+        if 'nickName' in kwargs:
+            nick_name = kwargs['nickName']
+        if 'oldPassword' in kwargs:
+            old_password = kwargs['oldPassword']
+        if 'passwordHash' in kwargs:
+            password_hash = kwargs['passwordHash']
+        if 'passwordInlineHook' in kwargs:
+            password_inline_hook = kwargs['passwordInlineHook']
+        if 'postalAddress' in kwargs:
+            postal_address = kwargs['postalAddress']
+        if 'preferredLanguage' in kwargs:
+            preferred_language = kwargs['preferredLanguage']
+        if 'primaryPhone' in kwargs:
+            primary_phone = kwargs['primaryPhone']
+        if 'profileUrl' in kwargs:
+            profile_url = kwargs['profileUrl']
+        if 'rawStatus' in kwargs:
+            raw_status = kwargs['rawStatus']
+        if 'recoveryAnswer' in kwargs:
+            recovery_answer = kwargs['recoveryAnswer']
+        if 'recoveryQuestion' in kwargs:
+            recovery_question = kwargs['recoveryQuestion']
+        if 'secondEmail' in kwargs:
+            second_email = kwargs['secondEmail']
+        if 'skipRoles' in kwargs:
+            skip_roles = kwargs['skipRoles']
+        if 'streetAddress' in kwargs:
+            street_address = kwargs['streetAddress']
+        if 'userType' in kwargs:
+            user_type = kwargs['userType']
+        if 'zipCode' in kwargs:
+            zip_code = kwargs['zipCode']
+
         if city is not None:
             _setter("city", city)
         if cost_center is not None:

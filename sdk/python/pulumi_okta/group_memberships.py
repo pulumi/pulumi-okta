@@ -35,7 +35,13 @@ class GroupMembershipsArgs:
              group_id: pulumi.Input[str],
              users: pulumi.Input[Sequence[pulumi.Input[str]]],
              track_all_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'trackAllUsers' in kwargs:
+            track_all_users = kwargs['trackAllUsers']
+
         _setter("group_id", group_id)
         _setter("users", users)
         if track_all_users is not None:
@@ -102,7 +108,13 @@ class _GroupMembershipsState:
              group_id: Optional[pulumi.Input[str]] = None,
              track_all_users: Optional[pulumi.Input[bool]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'trackAllUsers' in kwargs:
+            track_all_users = kwargs['trackAllUsers']
+
         if group_id is not None:
             _setter("group_id", group_id)
         if track_all_users is not None:

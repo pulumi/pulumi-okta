@@ -31,7 +31,11 @@ class PolicyProfileEnrollmentAppsArgs:
              _setter: Callable[[Any, Any], None],
              policy_id: pulumi.Input[str],
              apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+
         _setter("policy_id", policy_id)
         if apps is not None:
             _setter("apps", apps)
@@ -85,7 +89,13 @@ class _PolicyProfileEnrollmentAppsState:
              apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              default_policy_id: Optional[pulumi.Input[str]] = None,
              policy_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultPolicyId' in kwargs:
+            default_policy_id = kwargs['defaultPolicyId']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+
         if apps is not None:
             _setter("apps", apps)
         if default_policy_id is not None:

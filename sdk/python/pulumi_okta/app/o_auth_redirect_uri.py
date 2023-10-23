@@ -31,7 +31,11 @@ class OAuthRedirectUriArgs:
              _setter: Callable[[Any, Any], None],
              app_id: pulumi.Input[str],
              uri: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+
         _setter("app_id", app_id)
         _setter("uri", uri)
 
@@ -80,7 +84,11 @@ class _OAuthRedirectUriState:
              _setter: Callable[[Any, Any], None],
              app_id: Optional[pulumi.Input[str]] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if uri is not None:

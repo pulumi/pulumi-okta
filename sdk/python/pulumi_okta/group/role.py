@@ -43,7 +43,19 @@ class RoleArgs:
              disable_notifications: Optional[pulumi.Input[bool]] = None,
              target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+        if 'disableNotifications' in kwargs:
+            disable_notifications = kwargs['disableNotifications']
+        if 'targetAppLists' in kwargs:
+            target_app_lists = kwargs['targetAppLists']
+        if 'targetGroupLists' in kwargs:
+            target_group_lists = kwargs['targetGroupLists']
+
         _setter("group_id", group_id)
         _setter("role_type", role_type)
         if disable_notifications is not None:
@@ -146,7 +158,19 @@ class _RoleState:
              role_type: Optional[pulumi.Input[str]] = None,
              target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disableNotifications' in kwargs:
+            disable_notifications = kwargs['disableNotifications']
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+        if 'targetAppLists' in kwargs:
+            target_app_lists = kwargs['targetAppLists']
+        if 'targetGroupLists' in kwargs:
+            target_group_lists = kwargs['targetGroupLists']
+
         if disable_notifications is not None:
             _setter("disable_notifications", disable_notifications)
         if group_id is not None:

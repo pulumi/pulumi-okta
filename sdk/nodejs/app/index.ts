@@ -65,6 +65,11 @@ export type OAuthRedirectUri = import("./oauthRedirectUri").OAuthRedirectUri;
 export const OAuthRedirectUri: typeof import("./oauthRedirectUri").OAuthRedirectUri = null as any;
 utilities.lazyLoad(exports, ["OAuthRedirectUri"], () => require("./oauthRedirectUri"));
 
+export { OauthRoleAssignmentArgs, OauthRoleAssignmentState } from "./oauthRoleAssignment";
+export type OauthRoleAssignment = import("./oauthRoleAssignment").OauthRoleAssignment;
+export const OauthRoleAssignment: typeof import("./oauthRoleAssignment").OauthRoleAssignment = null as any;
+utilities.lazyLoad(exports, ["OauthRoleAssignment"], () => require("./oauthRoleAssignment"));
+
 export { SamlArgs, SamlState } from "./saml";
 export type Saml = import("./saml").Saml;
 export const Saml: typeof import("./saml").Saml = null as any;
@@ -111,6 +116,8 @@ const _module = {
                 return new OAuthPostLogoutRedirectUri(name, <any>undefined, { urn })
             case "okta:app/oAuthRedirectUri:OAuthRedirectUri":
                 return new OAuthRedirectUri(name, <any>undefined, { urn })
+            case "okta:app/oauthRoleAssignment:OauthRoleAssignment":
+                return new OauthRoleAssignment(name, <any>undefined, { urn })
             case "okta:app/saml:Saml":
                 return new Saml(name, <any>undefined, { urn })
             case "okta:app/securePasswordStore:SecurePasswordStore":
@@ -134,6 +141,7 @@ pulumi.runtime.registerResourceModule("okta", "app/groupAssignment", _module)
 pulumi.runtime.registerResourceModule("okta", "app/oAuth", _module)
 pulumi.runtime.registerResourceModule("okta", "app/oAuthPostLogoutRedirectUri", _module)
 pulumi.runtime.registerResourceModule("okta", "app/oAuthRedirectUri", _module)
+pulumi.runtime.registerResourceModule("okta", "app/oauthRoleAssignment", _module)
 pulumi.runtime.registerResourceModule("okta", "app/saml", _module)
 pulumi.runtime.registerResourceModule("okta", "app/securePasswordStore", _module)
 pulumi.runtime.registerResourceModule("okta", "app/swa", _module)

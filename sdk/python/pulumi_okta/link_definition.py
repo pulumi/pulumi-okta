@@ -47,7 +47,21 @@ class LinkDefinitionArgs:
              primary_description: pulumi.Input[str],
              primary_name: pulumi.Input[str],
              primary_title: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedDescription' in kwargs:
+            associated_description = kwargs['associatedDescription']
+        if 'associatedName' in kwargs:
+            associated_name = kwargs['associatedName']
+        if 'associatedTitle' in kwargs:
+            associated_title = kwargs['associatedTitle']
+        if 'primaryDescription' in kwargs:
+            primary_description = kwargs['primaryDescription']
+        if 'primaryName' in kwargs:
+            primary_name = kwargs['primaryName']
+        if 'primaryTitle' in kwargs:
+            primary_title = kwargs['primaryTitle']
+
         _setter("associated_description", associated_description)
         _setter("associated_name", associated_name)
         _setter("associated_title", associated_title)
@@ -164,7 +178,21 @@ class _LinkDefinitionState:
              primary_description: Optional[pulumi.Input[str]] = None,
              primary_name: Optional[pulumi.Input[str]] = None,
              primary_title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedDescription' in kwargs:
+            associated_description = kwargs['associatedDescription']
+        if 'associatedName' in kwargs:
+            associated_name = kwargs['associatedName']
+        if 'associatedTitle' in kwargs:
+            associated_title = kwargs['associatedTitle']
+        if 'primaryDescription' in kwargs:
+            primary_description = kwargs['primaryDescription']
+        if 'primaryName' in kwargs:
+            primary_name = kwargs['primaryName']
+        if 'primaryTitle' in kwargs:
+            primary_title = kwargs['primaryTitle']
+
         if associated_description is not None:
             _setter("associated_description", associated_description)
         if associated_name is not None:

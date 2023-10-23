@@ -208,6 +208,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "app/oauthRoleAssignment",
+  "fqn": "pulumi_okta.app",
+  "classes": {
+   "okta:app/oauthRoleAssignment:OauthRoleAssignment": "OauthRoleAssignment"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "app/saml",
   "fqn": "pulumi_okta.app",
   "classes": {

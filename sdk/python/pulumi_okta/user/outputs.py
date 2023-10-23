@@ -66,7 +66,13 @@ class UserPasswordHash(dict):
              salt: Optional[str] = None,
              salt_order: Optional[str] = None,
              work_factor: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'saltOrder' in kwargs:
+            salt_order = kwargs['saltOrder']
+        if 'workFactor' in kwargs:
+            work_factor = kwargs['workFactor']
+
         _setter("algorithm", algorithm)
         _setter("value", value)
         if salt is not None:
@@ -142,7 +148,9 @@ class GetUserSearchResult(dict):
              expression: Optional[str] = None,
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comparison is not None:
             _setter("comparison", comparison)
         if expression is not None:
@@ -204,7 +212,9 @@ class GetUsersSearchResult(dict):
              expression: Optional[str] = None,
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comparison is not None:
             _setter("comparison", comparison)
         if expression is not None:
@@ -361,7 +371,55 @@ class GetUsersUserResult(dict):
              title: str,
              user_type: str,
              zip_code: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminRoles' in kwargs:
+            admin_roles = kwargs['adminRoles']
+        if 'costCenter' in kwargs:
+            cost_center = kwargs['costCenter']
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'customProfileAttributes' in kwargs:
+            custom_profile_attributes = kwargs['customProfileAttributes']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'employeeNumber' in kwargs:
+            employee_number = kwargs['employeeNumber']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'groupMemberships' in kwargs:
+            group_memberships = kwargs['groupMemberships']
+        if 'honorificPrefix' in kwargs:
+            honorific_prefix = kwargs['honorificPrefix']
+        if 'honorificSuffix' in kwargs:
+            honorific_suffix = kwargs['honorificSuffix']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'managerId' in kwargs:
+            manager_id = kwargs['managerId']
+        if 'middleName' in kwargs:
+            middle_name = kwargs['middleName']
+        if 'mobilePhone' in kwargs:
+            mobile_phone = kwargs['mobilePhone']
+        if 'nickName' in kwargs:
+            nick_name = kwargs['nickName']
+        if 'postalAddress' in kwargs:
+            postal_address = kwargs['postalAddress']
+        if 'preferredLanguage' in kwargs:
+            preferred_language = kwargs['preferredLanguage']
+        if 'primaryPhone' in kwargs:
+            primary_phone = kwargs['primaryPhone']
+        if 'profileUrl' in kwargs:
+            profile_url = kwargs['profileUrl']
+        if 'secondEmail' in kwargs:
+            second_email = kwargs['secondEmail']
+        if 'streetAddress' in kwargs:
+            street_address = kwargs['streetAddress']
+        if 'userType' in kwargs:
+            user_type = kwargs['userType']
+        if 'zipCode' in kwargs:
+            zip_code = kwargs['zipCode']
+
         _setter("admin_roles", admin_roles)
         _setter("city", city)
         _setter("cost_center", cost_center)

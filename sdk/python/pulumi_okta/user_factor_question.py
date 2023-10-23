@@ -35,7 +35,11 @@ class UserFactorQuestionArgs:
              answer: pulumi.Input[str],
              key: pulumi.Input[str],
              user_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("answer", answer)
         _setter("key", key)
         _setter("user_id", user_id)
@@ -109,7 +113,11 @@ class _UserFactorQuestionState:
              status: Optional[pulumi.Input[str]] = None,
              text: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if answer is not None:
             _setter("answer", answer)
         if key is not None:

@@ -51,7 +51,15 @@ class BehaviourArgs:
              radius_from_location: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
              velocity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'locationGranularityType' in kwargs:
+            location_granularity_type = kwargs['locationGranularityType']
+        if 'numberOfAuthentications' in kwargs:
+            number_of_authentications = kwargs['numberOfAuthentications']
+        if 'radiusFromLocation' in kwargs:
+            radius_from_location = kwargs['radiusFromLocation']
+
         _setter("type", type)
         if location_granularity_type is not None:
             _setter("location_granularity_type", location_granularity_type)
@@ -191,7 +199,15 @@ class _BehaviourState:
              status: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              velocity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'locationGranularityType' in kwargs:
+            location_granularity_type = kwargs['locationGranularityType']
+        if 'numberOfAuthentications' in kwargs:
+            number_of_authentications = kwargs['numberOfAuthentications']
+        if 'radiusFromLocation' in kwargs:
+            radius_from_location = kwargs['radiusFromLocation']
+
         if location_granularity_type is not None:
             _setter("location_granularity_type", location_granularity_type)
         if name is not None:

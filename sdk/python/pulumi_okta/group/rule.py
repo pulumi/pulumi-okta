@@ -46,7 +46,19 @@ class RuleArgs:
              remove_assigned_users: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expressionValue' in kwargs:
+            expression_value = kwargs['expressionValue']
+        if 'groupAssignments' in kwargs:
+            group_assignments = kwargs['groupAssignments']
+        if 'expressionType' in kwargs:
+            expression_type = kwargs['expressionType']
+        if 'removeAssignedUsers' in kwargs:
+            remove_assigned_users = kwargs['removeAssignedUsers']
+        if 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+
         _setter("expression_value", expression_value)
         _setter("group_assignments", group_assignments)
         if expression_type is not None:
@@ -165,7 +177,19 @@ class _RuleState:
              remove_assigned_users: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expressionType' in kwargs:
+            expression_type = kwargs['expressionType']
+        if 'expressionValue' in kwargs:
+            expression_value = kwargs['expressionValue']
+        if 'groupAssignments' in kwargs:
+            group_assignments = kwargs['groupAssignments']
+        if 'removeAssignedUsers' in kwargs:
+            remove_assigned_users = kwargs['removeAssignedUsers']
+        if 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+
         if expression_type is not None:
             _setter("expression_type", expression_type)
         if expression_value is not None:

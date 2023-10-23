@@ -44,7 +44,17 @@ class MappingArgs:
              always_apply: Optional[pulumi.Input[bool]] = None,
              delete_when_absent: Optional[pulumi.Input[bool]] = None,
              mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if 'alwaysApply' in kwargs:
+            always_apply = kwargs['alwaysApply']
+        if 'deleteWhenAbsent' in kwargs:
+            delete_when_absent = kwargs['deleteWhenAbsent']
+
         _setter("source_id", source_id)
         _setter("target_id", target_id)
         if always_apply is not None:
@@ -155,7 +165,25 @@ class _MappingState:
              target_id: Optional[pulumi.Input[str]] = None,
              target_name: Optional[pulumi.Input[str]] = None,
              target_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysApply' in kwargs:
+            always_apply = kwargs['alwaysApply']
+        if 'deleteWhenAbsent' in kwargs:
+            delete_when_absent = kwargs['deleteWhenAbsent']
+        if 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+        if 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+
         if always_apply is not None:
             _setter("always_apply", always_apply)
         if delete_when_absent is not None:
