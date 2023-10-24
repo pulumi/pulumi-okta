@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OAuthPostLogoutRedirectUri{}
 	case "okta:app/oAuthRedirectUri:OAuthRedirectUri":
 		r = &OAuthRedirectUri{}
+	case "okta:app/oauthRoleAssignment:OauthRoleAssignment":
+		r = &OauthRoleAssignment{}
 	case "okta:app/saml:Saml":
 		r = &Saml{}
 	case "okta:app/securePasswordStore:SecurePasswordStore":
@@ -98,6 +100,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"app/oAuthRedirectUri",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"app/oauthRoleAssignment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

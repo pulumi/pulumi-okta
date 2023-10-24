@@ -119,7 +119,61 @@ class SamlArgs:
              subject_match_type: Optional[pulumi.Input[str]] = None,
              suspended_action: Optional[pulumi.Input[str]] = None,
              username_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ssoUrl' in kwargs:
+            sso_url = kwargs['ssoUrl']
+        if 'accountLinkAction' in kwargs:
+            account_link_action = kwargs['accountLinkAction']
+        if 'accountLinkGroupIncludes' in kwargs:
+            account_link_group_includes = kwargs['accountLinkGroupIncludes']
+        if 'acsType' in kwargs:
+            acs_type = kwargs['acsType']
+        if 'deprovisionedAction' in kwargs:
+            deprovisioned_action = kwargs['deprovisionedAction']
+        if 'groupsAction' in kwargs:
+            groups_action = kwargs['groupsAction']
+        if 'groupsAssignments' in kwargs:
+            groups_assignments = kwargs['groupsAssignments']
+        if 'groupsAttribute' in kwargs:
+            groups_attribute = kwargs['groupsAttribute']
+        if 'groupsFilters' in kwargs:
+            groups_filters = kwargs['groupsFilters']
+        if 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+        if 'maxClockSkew' in kwargs:
+            max_clock_skew = kwargs['maxClockSkew']
+        if 'nameFormat' in kwargs:
+            name_format = kwargs['nameFormat']
+        if 'profileMaster' in kwargs:
+            profile_master = kwargs['profileMaster']
+        if 'provisioningAction' in kwargs:
+            provisioning_action = kwargs['provisioningAction']
+        if 'requestSignatureAlgorithm' in kwargs:
+            request_signature_algorithm = kwargs['requestSignatureAlgorithm']
+        if 'requestSignatureScope' in kwargs:
+            request_signature_scope = kwargs['requestSignatureScope']
+        if 'responseSignatureAlgorithm' in kwargs:
+            response_signature_algorithm = kwargs['responseSignatureAlgorithm']
+        if 'responseSignatureScope' in kwargs:
+            response_signature_scope = kwargs['responseSignatureScope']
+        if 'ssoBinding' in kwargs:
+            sso_binding = kwargs['ssoBinding']
+        if 'ssoDestination' in kwargs:
+            sso_destination = kwargs['ssoDestination']
+        if 'subjectFilter' in kwargs:
+            subject_filter = kwargs['subjectFilter']
+        if 'subjectFormats' in kwargs:
+            subject_formats = kwargs['subjectFormats']
+        if 'subjectMatchAttribute' in kwargs:
+            subject_match_attribute = kwargs['subjectMatchAttribute']
+        if 'subjectMatchType' in kwargs:
+            subject_match_type = kwargs['subjectMatchType']
+        if 'suspendedAction' in kwargs:
+            suspended_action = kwargs['suspendedAction']
+        if 'usernameTemplate' in kwargs:
+            username_template = kwargs['usernameTemplate']
+
         _setter("issuer", issuer)
         _setter("kid", kid)
         _setter("sso_url", sso_url)
@@ -587,7 +641,65 @@ class _SamlState:
              type: Optional[pulumi.Input[str]] = None,
              user_type_id: Optional[pulumi.Input[str]] = None,
              username_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountLinkAction' in kwargs:
+            account_link_action = kwargs['accountLinkAction']
+        if 'accountLinkGroupIncludes' in kwargs:
+            account_link_group_includes = kwargs['accountLinkGroupIncludes']
+        if 'acsBinding' in kwargs:
+            acs_binding = kwargs['acsBinding']
+        if 'acsType' in kwargs:
+            acs_type = kwargs['acsType']
+        if 'deprovisionedAction' in kwargs:
+            deprovisioned_action = kwargs['deprovisionedAction']
+        if 'groupsAction' in kwargs:
+            groups_action = kwargs['groupsAction']
+        if 'groupsAssignments' in kwargs:
+            groups_assignments = kwargs['groupsAssignments']
+        if 'groupsAttribute' in kwargs:
+            groups_attribute = kwargs['groupsAttribute']
+        if 'groupsFilters' in kwargs:
+            groups_filters = kwargs['groupsFilters']
+        if 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+        if 'maxClockSkew' in kwargs:
+            max_clock_skew = kwargs['maxClockSkew']
+        if 'nameFormat' in kwargs:
+            name_format = kwargs['nameFormat']
+        if 'profileMaster' in kwargs:
+            profile_master = kwargs['profileMaster']
+        if 'provisioningAction' in kwargs:
+            provisioning_action = kwargs['provisioningAction']
+        if 'requestSignatureAlgorithm' in kwargs:
+            request_signature_algorithm = kwargs['requestSignatureAlgorithm']
+        if 'requestSignatureScope' in kwargs:
+            request_signature_scope = kwargs['requestSignatureScope']
+        if 'responseSignatureAlgorithm' in kwargs:
+            response_signature_algorithm = kwargs['responseSignatureAlgorithm']
+        if 'responseSignatureScope' in kwargs:
+            response_signature_scope = kwargs['responseSignatureScope']
+        if 'ssoBinding' in kwargs:
+            sso_binding = kwargs['ssoBinding']
+        if 'ssoDestination' in kwargs:
+            sso_destination = kwargs['ssoDestination']
+        if 'ssoUrl' in kwargs:
+            sso_url = kwargs['ssoUrl']
+        if 'subjectFilter' in kwargs:
+            subject_filter = kwargs['subjectFilter']
+        if 'subjectFormats' in kwargs:
+            subject_formats = kwargs['subjectFormats']
+        if 'subjectMatchAttribute' in kwargs:
+            subject_match_attribute = kwargs['subjectMatchAttribute']
+        if 'subjectMatchType' in kwargs:
+            subject_match_type = kwargs['subjectMatchType']
+        if 'suspendedAction' in kwargs:
+            suspended_action = kwargs['suspendedAction']
+        if 'userTypeId' in kwargs:
+            user_type_id = kwargs['userTypeId']
+        if 'usernameTemplate' in kwargs:
+            username_template = kwargs['usernameTemplate']
+
         if account_link_action is not None:
             _setter("account_link_action", account_link_action)
         if account_link_group_includes is not None:

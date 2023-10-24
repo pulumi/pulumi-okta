@@ -46,7 +46,13 @@ class UserPasswordHashArgs:
              salt: Optional[pulumi.Input[str]] = None,
              salt_order: Optional[pulumi.Input[str]] = None,
              work_factor: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'saltOrder' in kwargs:
+            salt_order = kwargs['saltOrder']
+        if 'workFactor' in kwargs:
+            work_factor = kwargs['workFactor']
+
         _setter("algorithm", algorithm)
         _setter("value", value)
         if salt is not None:
@@ -142,7 +148,9 @@ class GetUserSearchArgs:
              expression: Optional[str] = None,
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comparison is not None:
             _setter("comparison", comparison)
         if expression is not None:
@@ -220,7 +228,9 @@ class GetUsersSearchArgs:
              expression: Optional[str] = None,
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comparison is not None:
             _setter("comparison", comparison)
         if expression is not None:

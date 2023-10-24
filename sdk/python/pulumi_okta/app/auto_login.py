@@ -119,7 +119,51 @@ class AutoLoginArgs:
              user_name_template_push_status: Optional[pulumi.Input[str]] = None,
              user_name_template_suffix: Optional[pulumi.Input[str]] = None,
              user_name_template_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if 'appSettingsJson' in kwargs:
+            app_settings_json = kwargs['appSettingsJson']
+        if 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if 'credentialsScheme' in kwargs:
+            credentials_scheme = kwargs['credentialsScheme']
+        if 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if 'preconfiguredApp' in kwargs:
+            preconfigured_app = kwargs['preconfiguredApp']
+        if 'revealPassword' in kwargs:
+            reveal_password = kwargs['revealPassword']
+        if 'sharedPassword' in kwargs:
+            shared_password = kwargs['sharedPassword']
+        if 'sharedUsername' in kwargs:
+            shared_username = kwargs['sharedUsername']
+        if 'signOnRedirectUrl' in kwargs:
+            sign_on_redirect_url = kwargs['signOnRedirectUrl']
+        if 'signOnUrl' in kwargs:
+            sign_on_url = kwargs['signOnUrl']
+        if 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+
         _setter("label", label)
         if accessibility_error_redirect_url is not None:
             _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -577,7 +621,55 @@ class _AutoLoginState:
              user_name_template_push_status: Optional[pulumi.Input[str]] = None,
              user_name_template_suffix: Optional[pulumi.Input[str]] = None,
              user_name_template_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if 'appSettingsJson' in kwargs:
+            app_settings_json = kwargs['appSettingsJson']
+        if 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if 'credentialsScheme' in kwargs:
+            credentials_scheme = kwargs['credentialsScheme']
+        if 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if 'preconfiguredApp' in kwargs:
+            preconfigured_app = kwargs['preconfiguredApp']
+        if 'revealPassword' in kwargs:
+            reveal_password = kwargs['revealPassword']
+        if 'sharedPassword' in kwargs:
+            shared_password = kwargs['sharedPassword']
+        if 'sharedUsername' in kwargs:
+            shared_username = kwargs['sharedUsername']
+        if 'signOnMode' in kwargs:
+            sign_on_mode = kwargs['signOnMode']
+        if 'signOnRedirectUrl' in kwargs:
+            sign_on_redirect_url = kwargs['signOnRedirectUrl']
+        if 'signOnUrl' in kwargs:
+            sign_on_url = kwargs['signOnUrl']
+        if 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+
         if accessibility_error_redirect_url is not None:
             _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:

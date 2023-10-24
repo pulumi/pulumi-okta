@@ -116,7 +116,43 @@ class RuleSignonArgs:
              session_persistent: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'factorSequences' in kwargs:
+            factor_sequences = kwargs['factorSequences']
+        if 'identityProvider' in kwargs:
+            identity_provider = kwargs['identityProvider']
+        if 'identityProviderIds' in kwargs:
+            identity_provider_ids = kwargs['identityProviderIds']
+        if 'mfaLifetime' in kwargs:
+            mfa_lifetime = kwargs['mfaLifetime']
+        if 'mfaPrompt' in kwargs:
+            mfa_prompt = kwargs['mfaPrompt']
+        if 'mfaRememberDevice' in kwargs:
+            mfa_remember_device = kwargs['mfaRememberDevice']
+        if 'mfaRequired' in kwargs:
+            mfa_required = kwargs['mfaRequired']
+        if 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'primaryFactor' in kwargs:
+            primary_factor = kwargs['primaryFactor']
+        if 'riscLevel' in kwargs:
+            risc_level = kwargs['riscLevel']
+        if 'sessionIdle' in kwargs:
+            session_idle = kwargs['sessionIdle']
+        if 'sessionLifetime' in kwargs:
+            session_lifetime = kwargs['sessionLifetime']
+        if 'sessionPersistent' in kwargs:
+            session_persistent = kwargs['sessionPersistent']
+        if 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+
         if access is not None:
             _setter("access", access)
         if authtype is not None:
@@ -541,7 +577,43 @@ class _RuleSignonState:
              session_persistent: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'factorSequences' in kwargs:
+            factor_sequences = kwargs['factorSequences']
+        if 'identityProvider' in kwargs:
+            identity_provider = kwargs['identityProvider']
+        if 'identityProviderIds' in kwargs:
+            identity_provider_ids = kwargs['identityProviderIds']
+        if 'mfaLifetime' in kwargs:
+            mfa_lifetime = kwargs['mfaLifetime']
+        if 'mfaPrompt' in kwargs:
+            mfa_prompt = kwargs['mfaPrompt']
+        if 'mfaRememberDevice' in kwargs:
+            mfa_remember_device = kwargs['mfaRememberDevice']
+        if 'mfaRequired' in kwargs:
+            mfa_required = kwargs['mfaRequired']
+        if 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'primaryFactor' in kwargs:
+            primary_factor = kwargs['primaryFactor']
+        if 'riscLevel' in kwargs:
+            risc_level = kwargs['riscLevel']
+        if 'sessionIdle' in kwargs:
+            session_idle = kwargs['sessionIdle']
+        if 'sessionLifetime' in kwargs:
+            session_lifetime = kwargs['sessionLifetime']
+        if 'sessionPersistent' in kwargs:
+            session_persistent = kwargs['sessionPersistent']
+        if 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+
         if access is not None:
             _setter("access", access)
         if authtype is not None:

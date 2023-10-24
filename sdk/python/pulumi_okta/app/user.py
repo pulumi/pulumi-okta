@@ -47,7 +47,15 @@ class UserArgs:
              profile: Optional[pulumi.Input[str]] = None,
              retain_assignment: Optional[pulumi.Input[bool]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+
         _setter("app_id", app_id)
         _setter("user_id", user_id)
         if password is not None:
@@ -171,7 +179,17 @@ class _UserState:
              retain_assignment: Optional[pulumi.Input[bool]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'hasSharedUsername' in kwargs:
+            has_shared_username = kwargs['hasSharedUsername']
+        if 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if has_shared_username is not None:

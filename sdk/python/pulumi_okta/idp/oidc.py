@@ -123,7 +123,67 @@ class OidcArgs:
              user_info_binding: Optional[pulumi.Input[str]] = None,
              user_info_url: Optional[pulumi.Input[str]] = None,
              username_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationBinding' in kwargs:
+            authorization_binding = kwargs['authorizationBinding']
+        if 'authorizationUrl' in kwargs:
+            authorization_url = kwargs['authorizationUrl']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'issuerUrl' in kwargs:
+            issuer_url = kwargs['issuerUrl']
+        if 'jwksBinding' in kwargs:
+            jwks_binding = kwargs['jwksBinding']
+        if 'jwksUrl' in kwargs:
+            jwks_url = kwargs['jwksUrl']
+        if 'tokenBinding' in kwargs:
+            token_binding = kwargs['tokenBinding']
+        if 'tokenUrl' in kwargs:
+            token_url = kwargs['tokenUrl']
+        if 'accountLinkAction' in kwargs:
+            account_link_action = kwargs['accountLinkAction']
+        if 'accountLinkGroupIncludes' in kwargs:
+            account_link_group_includes = kwargs['accountLinkGroupIncludes']
+        if 'deprovisionedAction' in kwargs:
+            deprovisioned_action = kwargs['deprovisionedAction']
+        if 'groupsAction' in kwargs:
+            groups_action = kwargs['groupsAction']
+        if 'groupsAssignments' in kwargs:
+            groups_assignments = kwargs['groupsAssignments']
+        if 'groupsAttribute' in kwargs:
+            groups_attribute = kwargs['groupsAttribute']
+        if 'groupsFilters' in kwargs:
+            groups_filters = kwargs['groupsFilters']
+        if 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+        if 'maxClockSkew' in kwargs:
+            max_clock_skew = kwargs['maxClockSkew']
+        if 'profileMaster' in kwargs:
+            profile_master = kwargs['profileMaster']
+        if 'protocolType' in kwargs:
+            protocol_type = kwargs['protocolType']
+        if 'provisioningAction' in kwargs:
+            provisioning_action = kwargs['provisioningAction']
+        if 'requestSignatureAlgorithm' in kwargs:
+            request_signature_algorithm = kwargs['requestSignatureAlgorithm']
+        if 'requestSignatureScope' in kwargs:
+            request_signature_scope = kwargs['requestSignatureScope']
+        if 'subjectMatchAttribute' in kwargs:
+            subject_match_attribute = kwargs['subjectMatchAttribute']
+        if 'subjectMatchType' in kwargs:
+            subject_match_type = kwargs['subjectMatchType']
+        if 'suspendedAction' in kwargs:
+            suspended_action = kwargs['suspendedAction']
+        if 'userInfoBinding' in kwargs:
+            user_info_binding = kwargs['userInfoBinding']
+        if 'userInfoUrl' in kwargs:
+            user_info_url = kwargs['userInfoUrl']
+        if 'usernameTemplate' in kwargs:
+            username_template = kwargs['usernameTemplate']
+
         _setter("authorization_binding", authorization_binding)
         _setter("authorization_url", authorization_url)
         _setter("client_id", client_id)
@@ -599,7 +659,69 @@ class _OidcState:
              user_info_url: Optional[pulumi.Input[str]] = None,
              user_type_id: Optional[pulumi.Input[str]] = None,
              username_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountLinkAction' in kwargs:
+            account_link_action = kwargs['accountLinkAction']
+        if 'accountLinkGroupIncludes' in kwargs:
+            account_link_group_includes = kwargs['accountLinkGroupIncludes']
+        if 'authorizationBinding' in kwargs:
+            authorization_binding = kwargs['authorizationBinding']
+        if 'authorizationUrl' in kwargs:
+            authorization_url = kwargs['authorizationUrl']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'deprovisionedAction' in kwargs:
+            deprovisioned_action = kwargs['deprovisionedAction']
+        if 'groupsAction' in kwargs:
+            groups_action = kwargs['groupsAction']
+        if 'groupsAssignments' in kwargs:
+            groups_assignments = kwargs['groupsAssignments']
+        if 'groupsAttribute' in kwargs:
+            groups_attribute = kwargs['groupsAttribute']
+        if 'groupsFilters' in kwargs:
+            groups_filters = kwargs['groupsFilters']
+        if 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+        if 'issuerUrl' in kwargs:
+            issuer_url = kwargs['issuerUrl']
+        if 'jwksBinding' in kwargs:
+            jwks_binding = kwargs['jwksBinding']
+        if 'jwksUrl' in kwargs:
+            jwks_url = kwargs['jwksUrl']
+        if 'maxClockSkew' in kwargs:
+            max_clock_skew = kwargs['maxClockSkew']
+        if 'profileMaster' in kwargs:
+            profile_master = kwargs['profileMaster']
+        if 'protocolType' in kwargs:
+            protocol_type = kwargs['protocolType']
+        if 'provisioningAction' in kwargs:
+            provisioning_action = kwargs['provisioningAction']
+        if 'requestSignatureAlgorithm' in kwargs:
+            request_signature_algorithm = kwargs['requestSignatureAlgorithm']
+        if 'requestSignatureScope' in kwargs:
+            request_signature_scope = kwargs['requestSignatureScope']
+        if 'subjectMatchAttribute' in kwargs:
+            subject_match_attribute = kwargs['subjectMatchAttribute']
+        if 'subjectMatchType' in kwargs:
+            subject_match_type = kwargs['subjectMatchType']
+        if 'suspendedAction' in kwargs:
+            suspended_action = kwargs['suspendedAction']
+        if 'tokenBinding' in kwargs:
+            token_binding = kwargs['tokenBinding']
+        if 'tokenUrl' in kwargs:
+            token_url = kwargs['tokenUrl']
+        if 'userInfoBinding' in kwargs:
+            user_info_binding = kwargs['userInfoBinding']
+        if 'userInfoUrl' in kwargs:
+            user_info_url = kwargs['userInfoUrl']
+        if 'userTypeId' in kwargs:
+            user_type_id = kwargs['userTypeId']
+        if 'usernameTemplate' in kwargs:
+            username_template = kwargs['usernameTemplate']
+
         if account_link_action is not None:
             _setter("account_link_action", account_link_action)
         if account_link_group_includes is not None:

@@ -35,7 +35,9 @@ class ResourceSetArgs:
              description: pulumi.Input[str],
              label: pulumi.Input[str],
              resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         _setter("label", label)
         if resources is not None:
@@ -102,7 +104,9 @@ class _ResourceSetState:
              description: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
              resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if label is not None:

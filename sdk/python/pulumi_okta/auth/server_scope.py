@@ -55,7 +55,15 @@ class ServerScopeArgs:
              metadata_publish: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              optional: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'metadataPublish' in kwargs:
+            metadata_publish = kwargs['metadataPublish']
+
         _setter("auth_server_id", auth_server_id)
         if consent is not None:
             _setter("consent", consent)
@@ -217,7 +225,15 @@ class _ServerScopeState:
              name: Optional[pulumi.Input[str]] = None,
              optional: Optional[pulumi.Input[bool]] = None,
              system: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'metadataPublish' in kwargs:
+            metadata_publish = kwargs['metadataPublish']
+
         if auth_server_id is not None:
             _setter("auth_server_id", auth_server_id)
         if consent is not None:

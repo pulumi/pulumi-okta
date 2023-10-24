@@ -63,7 +63,25 @@ class BrandArgs:
              locale: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              remove_powered_by_okta: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agreeToCustomPrivacyPolicy' in kwargs:
+            agree_to_custom_privacy_policy = kwargs['agreeToCustomPrivacyPolicy']
+        if 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if 'customPrivacyPolicyUrl' in kwargs:
+            custom_privacy_policy_url = kwargs['customPrivacyPolicyUrl']
+        if 'defaultAppAppInstanceId' in kwargs:
+            default_app_app_instance_id = kwargs['defaultAppAppInstanceId']
+        if 'defaultAppAppLinkName' in kwargs:
+            default_app_app_link_name = kwargs['defaultAppAppLinkName']
+        if 'defaultAppClassicApplicationUri' in kwargs:
+            default_app_classic_application_uri = kwargs['defaultAppClassicApplicationUri']
+        if 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+        if 'removePoweredByOkta' in kwargs:
+            remove_powered_by_okta = kwargs['removePoweredByOkta']
+
         if agree_to_custom_privacy_policy is not None:
             _setter("agree_to_custom_privacy_policy", agree_to_custom_privacy_policy)
         if brand_id is not None:
@@ -272,7 +290,27 @@ class _BrandState:
              locale: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              remove_powered_by_okta: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agreeToCustomPrivacyPolicy' in kwargs:
+            agree_to_custom_privacy_policy = kwargs['agreeToCustomPrivacyPolicy']
+        if 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if 'customPrivacyPolicyUrl' in kwargs:
+            custom_privacy_policy_url = kwargs['customPrivacyPolicyUrl']
+        if 'defaultAppAppInstanceId' in kwargs:
+            default_app_app_instance_id = kwargs['defaultAppAppInstanceId']
+        if 'defaultAppAppLinkName' in kwargs:
+            default_app_app_link_name = kwargs['defaultAppAppLinkName']
+        if 'defaultAppClassicApplicationUri' in kwargs:
+            default_app_classic_application_uri = kwargs['defaultAppClassicApplicationUri']
+        if 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'removePoweredByOkta' in kwargs:
+            remove_powered_by_okta = kwargs['removePoweredByOkta']
+
         if agree_to_custom_privacy_policy is not None:
             _setter("agree_to_custom_privacy_policy", agree_to_custom_privacy_policy)
         if brand_id is not None:

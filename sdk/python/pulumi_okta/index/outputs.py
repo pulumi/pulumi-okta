@@ -12,6 +12,8 @@ from .. import _utilities
 __all__ = [
     'EmailDomainDnsValidationRecord',
     'GetDomainDnsRecordResult',
+    'GetOrgMetadataDomainsResult',
+    'GetOrgMetadataSettingsResult',
 ]
 
 @pulumi.output_type
@@ -52,7 +54,11 @@ class EmailDomainDnsValidationRecord(dict):
              fqdn: Optional[str] = None,
              record_type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+
         if expiration is not None:
             _setter("expiration", expiration)
         if fqdn is not None:
@@ -107,7 +113,11 @@ class GetDomainDnsRecordResult(dict):
              fqdn: str,
              record_type: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+
         _setter("expiration", expiration)
         _setter("fqdn", fqdn)
         _setter("record_type", record_type)
@@ -132,5 +142,100 @@ class GetDomainDnsRecordResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetOrgMetadataDomainsResult(dict):
+    def __init__(__self__, *,
+                 alternate: str,
+                 organization: str):
+        """
+        :param str alternate: Custom Domain Org URI
+        :param str organization: Standard Org URI
+        """
+        GetOrgMetadataDomainsResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alternate=alternate,
+            organization=organization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alternate: str,
+             organization: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("alternate", alternate)
+        _setter("organization", organization)
+
+    @property
+    @pulumi.getter
+    def alternate(self) -> str:
+        """
+        Custom Domain Org URI
+        """
+        return pulumi.get(self, "alternate")
+
+    @property
+    @pulumi.getter
+    def organization(self) -> str:
+        """
+        Standard Org URI
+        """
+        return pulumi.get(self, "organization")
+
+
+@pulumi.output_type
+class GetOrgMetadataSettingsResult(dict):
+    def __init__(__self__, *,
+                 analytics_collection_enabled: bool,
+                 bug_reporting_enabled: bool,
+                 om_enabled: bool):
+        """
+        :param bool om_enabled: Whether the legacy Okta Mobile application is enabled for the org
+        """
+        GetOrgMetadataSettingsResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            analytics_collection_enabled=analytics_collection_enabled,
+            bug_reporting_enabled=bug_reporting_enabled,
+            om_enabled=om_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             analytics_collection_enabled: bool,
+             bug_reporting_enabled: bool,
+             om_enabled: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'analyticsCollectionEnabled' in kwargs:
+            analytics_collection_enabled = kwargs['analyticsCollectionEnabled']
+        if 'bugReportingEnabled' in kwargs:
+            bug_reporting_enabled = kwargs['bugReportingEnabled']
+        if 'omEnabled' in kwargs:
+            om_enabled = kwargs['omEnabled']
+
+        _setter("analytics_collection_enabled", analytics_collection_enabled)
+        _setter("bug_reporting_enabled", bug_reporting_enabled)
+        _setter("om_enabled", om_enabled)
+
+    @property
+    @pulumi.getter(name="analyticsCollectionEnabled")
+    def analytics_collection_enabled(self) -> bool:
+        return pulumi.get(self, "analytics_collection_enabled")
+
+    @property
+    @pulumi.getter(name="bugReportingEnabled")
+    def bug_reporting_enabled(self) -> bool:
+        return pulumi.get(self, "bug_reporting_enabled")
+
+    @property
+    @pulumi.getter(name="omEnabled")
+    def om_enabled(self) -> bool:
+        """
+        Whether the legacy Okta Mobile application is enabled for the org
+        """
+        return pulumi.get(self, "om_enabled")
 
 

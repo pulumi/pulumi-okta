@@ -46,7 +46,13 @@ class ServerArgs:
              issuer_mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'credentialsRotationMode' in kwargs:
+            credentials_rotation_mode = kwargs['credentialsRotationMode']
+        if 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+
         _setter("audiences", audiences)
         if credentials_rotation_mode is not None:
             _setter("credentials_rotation_mode", credentials_rotation_mode)
@@ -180,7 +186,17 @@ class _ServerState:
              kid: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'credentialsLastRotated' in kwargs:
+            credentials_last_rotated = kwargs['credentialsLastRotated']
+        if 'credentialsNextRotation' in kwargs:
+            credentials_next_rotation = kwargs['credentialsNextRotation']
+        if 'credentialsRotationMode' in kwargs:
+            credentials_rotation_mode = kwargs['credentialsRotationMode']
+        if 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+
         if audiences is not None:
             _setter("audiences", audiences)
         if credentials_last_rotated is not None:

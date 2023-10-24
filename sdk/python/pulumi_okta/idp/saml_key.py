@@ -27,7 +27,9 @@ class SamlKeyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              x5cs: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("x5cs", x5cs)
 
     @property
@@ -77,7 +79,13 @@ class _SamlKeyState:
              use: Optional[pulumi.Input[str]] = None,
              x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              x5t_s256: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+        if 'x5tS256' in kwargs:
+            x5t_s256 = kwargs['x5tS256']
+
         if created is not None:
             _setter("created", created)
         if expires_at is not None:

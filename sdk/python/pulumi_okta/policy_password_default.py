@@ -119,7 +119,57 @@ class PolicyPasswordDefaultArgs:
              recovery_email_token: Optional[pulumi.Input[int]] = None,
              skip_unlock: Optional[pulumi.Input[bool]] = None,
              sms_recovery: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'callRecovery' in kwargs:
+            call_recovery = kwargs['callRecovery']
+        if 'emailRecovery' in kwargs:
+            email_recovery = kwargs['emailRecovery']
+        if 'passwordAutoUnlockMinutes' in kwargs:
+            password_auto_unlock_minutes = kwargs['passwordAutoUnlockMinutes']
+        if 'passwordDictionaryLookup' in kwargs:
+            password_dictionary_lookup = kwargs['passwordDictionaryLookup']
+        if 'passwordExcludeFirstName' in kwargs:
+            password_exclude_first_name = kwargs['passwordExcludeFirstName']
+        if 'passwordExcludeLastName' in kwargs:
+            password_exclude_last_name = kwargs['passwordExcludeLastName']
+        if 'passwordExcludeUsername' in kwargs:
+            password_exclude_username = kwargs['passwordExcludeUsername']
+        if 'passwordExpireWarnDays' in kwargs:
+            password_expire_warn_days = kwargs['passwordExpireWarnDays']
+        if 'passwordHistoryCount' in kwargs:
+            password_history_count = kwargs['passwordHistoryCount']
+        if 'passwordLockoutNotificationChannels' in kwargs:
+            password_lockout_notification_channels = kwargs['passwordLockoutNotificationChannels']
+        if 'passwordMaxAgeDays' in kwargs:
+            password_max_age_days = kwargs['passwordMaxAgeDays']
+        if 'passwordMaxLockoutAttempts' in kwargs:
+            password_max_lockout_attempts = kwargs['passwordMaxLockoutAttempts']
+        if 'passwordMinAgeMinutes' in kwargs:
+            password_min_age_minutes = kwargs['passwordMinAgeMinutes']
+        if 'passwordMinLength' in kwargs:
+            password_min_length = kwargs['passwordMinLength']
+        if 'passwordMinLowercase' in kwargs:
+            password_min_lowercase = kwargs['passwordMinLowercase']
+        if 'passwordMinNumber' in kwargs:
+            password_min_number = kwargs['passwordMinNumber']
+        if 'passwordMinSymbol' in kwargs:
+            password_min_symbol = kwargs['passwordMinSymbol']
+        if 'passwordMinUppercase' in kwargs:
+            password_min_uppercase = kwargs['passwordMinUppercase']
+        if 'passwordShowLockoutFailures' in kwargs:
+            password_show_lockout_failures = kwargs['passwordShowLockoutFailures']
+        if 'questionMinLength' in kwargs:
+            question_min_length = kwargs['questionMinLength']
+        if 'questionRecovery' in kwargs:
+            question_recovery = kwargs['questionRecovery']
+        if 'recoveryEmailToken' in kwargs:
+            recovery_email_token = kwargs['recoveryEmailToken']
+        if 'skipUnlock' in kwargs:
+            skip_unlock = kwargs['skipUnlock']
+        if 'smsRecovery' in kwargs:
+            sms_recovery = kwargs['smsRecovery']
+
         if call_recovery is not None:
             _setter("call_recovery", call_recovery)
         if email_recovery is not None:
@@ -590,7 +640,61 @@ class _PolicyPasswordDefaultState:
              skip_unlock: Optional[pulumi.Input[bool]] = None,
              sms_recovery: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'callRecovery' in kwargs:
+            call_recovery = kwargs['callRecovery']
+        if 'defaultAuthProvider' in kwargs:
+            default_auth_provider = kwargs['defaultAuthProvider']
+        if 'defaultIncludedGroupId' in kwargs:
+            default_included_group_id = kwargs['defaultIncludedGroupId']
+        if 'emailRecovery' in kwargs:
+            email_recovery = kwargs['emailRecovery']
+        if 'passwordAutoUnlockMinutes' in kwargs:
+            password_auto_unlock_minutes = kwargs['passwordAutoUnlockMinutes']
+        if 'passwordDictionaryLookup' in kwargs:
+            password_dictionary_lookup = kwargs['passwordDictionaryLookup']
+        if 'passwordExcludeFirstName' in kwargs:
+            password_exclude_first_name = kwargs['passwordExcludeFirstName']
+        if 'passwordExcludeLastName' in kwargs:
+            password_exclude_last_name = kwargs['passwordExcludeLastName']
+        if 'passwordExcludeUsername' in kwargs:
+            password_exclude_username = kwargs['passwordExcludeUsername']
+        if 'passwordExpireWarnDays' in kwargs:
+            password_expire_warn_days = kwargs['passwordExpireWarnDays']
+        if 'passwordHistoryCount' in kwargs:
+            password_history_count = kwargs['passwordHistoryCount']
+        if 'passwordLockoutNotificationChannels' in kwargs:
+            password_lockout_notification_channels = kwargs['passwordLockoutNotificationChannels']
+        if 'passwordMaxAgeDays' in kwargs:
+            password_max_age_days = kwargs['passwordMaxAgeDays']
+        if 'passwordMaxLockoutAttempts' in kwargs:
+            password_max_lockout_attempts = kwargs['passwordMaxLockoutAttempts']
+        if 'passwordMinAgeMinutes' in kwargs:
+            password_min_age_minutes = kwargs['passwordMinAgeMinutes']
+        if 'passwordMinLength' in kwargs:
+            password_min_length = kwargs['passwordMinLength']
+        if 'passwordMinLowercase' in kwargs:
+            password_min_lowercase = kwargs['passwordMinLowercase']
+        if 'passwordMinNumber' in kwargs:
+            password_min_number = kwargs['passwordMinNumber']
+        if 'passwordMinSymbol' in kwargs:
+            password_min_symbol = kwargs['passwordMinSymbol']
+        if 'passwordMinUppercase' in kwargs:
+            password_min_uppercase = kwargs['passwordMinUppercase']
+        if 'passwordShowLockoutFailures' in kwargs:
+            password_show_lockout_failures = kwargs['passwordShowLockoutFailures']
+        if 'questionMinLength' in kwargs:
+            question_min_length = kwargs['questionMinLength']
+        if 'questionRecovery' in kwargs:
+            question_recovery = kwargs['questionRecovery']
+        if 'recoveryEmailToken' in kwargs:
+            recovery_email_token = kwargs['recoveryEmailToken']
+        if 'skipUnlock' in kwargs:
+            skip_unlock = kwargs['skipUnlock']
+        if 'smsRecovery' in kwargs:
+            sms_recovery = kwargs['smsRecovery']
+
         if call_recovery is not None:
             _setter("call_recovery", call_recovery)
         if default_auth_provider is not None:

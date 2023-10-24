@@ -35,7 +35,15 @@ class UserAdminRolesArgs:
              admin_roles: pulumi.Input[Sequence[pulumi.Input[str]]],
              user_id: pulumi.Input[str],
              disable_notifications: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminRoles' in kwargs:
+            admin_roles = kwargs['adminRoles']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if 'disableNotifications' in kwargs:
+            disable_notifications = kwargs['disableNotifications']
+
         _setter("admin_roles", admin_roles)
         _setter("user_id", user_id)
         if disable_notifications is not None:
@@ -102,7 +110,15 @@ class _UserAdminRolesState:
              admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              disable_notifications: Optional[pulumi.Input[bool]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminRoles' in kwargs:
+            admin_roles = kwargs['adminRoles']
+        if 'disableNotifications' in kwargs:
+            disable_notifications = kwargs['disableNotifications']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if admin_roles is not None:
             _setter("admin_roles", admin_roles)
         if disable_notifications is not None:

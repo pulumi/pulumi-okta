@@ -47,7 +47,19 @@ class FactorTotpArgs:
              otp_length: Optional[pulumi.Input[int]] = None,
              shared_secret_encoding: Optional[pulumi.Input[str]] = None,
              time_step: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clockDriftInterval' in kwargs:
+            clock_drift_interval = kwargs['clockDriftInterval']
+        if 'hmacAlgorithm' in kwargs:
+            hmac_algorithm = kwargs['hmacAlgorithm']
+        if 'otpLength' in kwargs:
+            otp_length = kwargs['otpLength']
+        if 'sharedSecretEncoding' in kwargs:
+            shared_secret_encoding = kwargs['sharedSecretEncoding']
+        if 'timeStep' in kwargs:
+            time_step = kwargs['timeStep']
+
         if clock_drift_interval is not None:
             _setter("clock_drift_interval", clock_drift_interval)
         if hmac_algorithm is not None:
@@ -170,7 +182,19 @@ class _FactorTotpState:
              otp_length: Optional[pulumi.Input[int]] = None,
              shared_secret_encoding: Optional[pulumi.Input[str]] = None,
              time_step: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clockDriftInterval' in kwargs:
+            clock_drift_interval = kwargs['clockDriftInterval']
+        if 'hmacAlgorithm' in kwargs:
+            hmac_algorithm = kwargs['hmacAlgorithm']
+        if 'otpLength' in kwargs:
+            otp_length = kwargs['otpLength']
+        if 'sharedSecretEncoding' in kwargs:
+            shared_secret_encoding = kwargs['sharedSecretEncoding']
+        if 'timeStep' in kwargs:
+            time_step = kwargs['timeStep']
+
         if clock_drift_interval is not None:
             _setter("clock_drift_interval", clock_drift_interval)
         if hmac_algorithm is not None:

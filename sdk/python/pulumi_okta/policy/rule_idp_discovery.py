@@ -79,7 +79,33 @@ class RuleIdpDiscoveryArgs:
              user_identifier_attribute: Optional[pulumi.Input[str]] = None,
              user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
              user_identifier_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appExcludes' in kwargs:
+            app_excludes = kwargs['appExcludes']
+        if 'appIncludes' in kwargs:
+            app_includes = kwargs['appIncludes']
+        if 'idpId' in kwargs:
+            idp_id = kwargs['idpId']
+        if 'idpType' in kwargs:
+            idp_type = kwargs['idpType']
+        if 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if 'platformIncludes' in kwargs:
+            platform_includes = kwargs['platformIncludes']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'userIdentifierAttribute' in kwargs:
+            user_identifier_attribute = kwargs['userIdentifierAttribute']
+        if 'userIdentifierPatterns' in kwargs:
+            user_identifier_patterns = kwargs['userIdentifierPatterns']
+        if 'userIdentifierType' in kwargs:
+            user_identifier_type = kwargs['userIdentifierType']
+
         if app_excludes is not None:
             _setter("app_excludes", app_excludes)
         if app_includes is not None:
@@ -340,7 +366,33 @@ class _RuleIdpDiscoveryState:
              user_identifier_attribute: Optional[pulumi.Input[str]] = None,
              user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
              user_identifier_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appExcludes' in kwargs:
+            app_excludes = kwargs['appExcludes']
+        if 'appIncludes' in kwargs:
+            app_includes = kwargs['appIncludes']
+        if 'idpId' in kwargs:
+            idp_id = kwargs['idpId']
+        if 'idpType' in kwargs:
+            idp_type = kwargs['idpType']
+        if 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if 'platformIncludes' in kwargs:
+            platform_includes = kwargs['platformIncludes']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'userIdentifierAttribute' in kwargs:
+            user_identifier_attribute = kwargs['userIdentifierAttribute']
+        if 'userIdentifierPatterns' in kwargs:
+            user_identifier_patterns = kwargs['userIdentifierPatterns']
+        if 'userIdentifierType' in kwargs:
+            user_identifier_type = kwargs['userIdentifierType']
+
         if app_excludes is not None:
             _setter("app_excludes", app_excludes)
         if app_includes is not None:

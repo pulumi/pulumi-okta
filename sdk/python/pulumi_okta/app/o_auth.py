@@ -208,7 +208,89 @@ class OAuthArgs:
              user_name_template_suffix: Optional[pulumi.Input[str]] = None,
              user_name_template_type: Optional[pulumi.Input[str]] = None,
              wildcard_redirect: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if 'appSettingsJson' in kwargs:
+            app_settings_json = kwargs['appSettingsJson']
+        if 'authenticationPolicy' in kwargs:
+            authentication_policy = kwargs['authenticationPolicy']
+        if 'autoKeyRotation' in kwargs:
+            auto_key_rotation = kwargs['autoKeyRotation']
+        if 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if 'clientBasicSecret' in kwargs:
+            client_basic_secret = kwargs['clientBasicSecret']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientUri' in kwargs:
+            client_uri = kwargs['clientUri']
+        if 'consentMethod' in kwargs:
+            consent_method = kwargs['consentMethod']
+        if 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if 'grantTypes' in kwargs:
+            grant_types = kwargs['grantTypes']
+        if 'groupsClaim' in kwargs:
+            groups_claim = kwargs['groupsClaim']
+        if 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if 'implicitAssignment' in kwargs:
+            implicit_assignment = kwargs['implicitAssignment']
+        if 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+        if 'jwksUri' in kwargs:
+            jwks_uri = kwargs['jwksUri']
+        if 'loginMode' in kwargs:
+            login_mode = kwargs['loginMode']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+        if 'loginUri' in kwargs:
+            login_uri = kwargs['loginUri']
+        if 'logoUri' in kwargs:
+            logo_uri = kwargs['logoUri']
+        if 'omitSecret' in kwargs:
+            omit_secret = kwargs['omitSecret']
+        if 'pkceRequired' in kwargs:
+            pkce_required = kwargs['pkceRequired']
+        if 'policyUri' in kwargs:
+            policy_uri = kwargs['policyUri']
+        if 'postLogoutRedirectUris' in kwargs:
+            post_logout_redirect_uris = kwargs['postLogoutRedirectUris']
+        if 'redirectUris' in kwargs:
+            redirect_uris = kwargs['redirectUris']
+        if 'refreshTokenLeeway' in kwargs:
+            refresh_token_leeway = kwargs['refreshTokenLeeway']
+        if 'refreshTokenRotation' in kwargs:
+            refresh_token_rotation = kwargs['refreshTokenRotation']
+        if 'responseTypes' in kwargs:
+            response_types = kwargs['responseTypes']
+        if 'tokenEndpointAuthMethod' in kwargs:
+            token_endpoint_auth_method = kwargs['tokenEndpointAuthMethod']
+        if 'tosUri' in kwargs:
+            tos_uri = kwargs['tosUri']
+        if 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+        if 'wildcardRedirect' in kwargs:
+            wildcard_redirect = kwargs['wildcardRedirect']
+
         _setter("label", label)
         _setter("type", type)
         if accessibility_error_redirect_url is not None:
@@ -1061,7 +1143,95 @@ class _OAuthState:
              user_name_template_suffix: Optional[pulumi.Input[str]] = None,
              user_name_template_type: Optional[pulumi.Input[str]] = None,
              wildcard_redirect: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if 'appSettingsJson' in kwargs:
+            app_settings_json = kwargs['appSettingsJson']
+        if 'authenticationPolicy' in kwargs:
+            authentication_policy = kwargs['authenticationPolicy']
+        if 'autoKeyRotation' in kwargs:
+            auto_key_rotation = kwargs['autoKeyRotation']
+        if 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if 'clientBasicSecret' in kwargs:
+            client_basic_secret = kwargs['clientBasicSecret']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientUri' in kwargs:
+            client_uri = kwargs['clientUri']
+        if 'consentMethod' in kwargs:
+            consent_method = kwargs['consentMethod']
+        if 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if 'grantTypes' in kwargs:
+            grant_types = kwargs['grantTypes']
+        if 'groupsClaim' in kwargs:
+            groups_claim = kwargs['groupsClaim']
+        if 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if 'implicitAssignment' in kwargs:
+            implicit_assignment = kwargs['implicitAssignment']
+        if 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+        if 'jwksUri' in kwargs:
+            jwks_uri = kwargs['jwksUri']
+        if 'loginMode' in kwargs:
+            login_mode = kwargs['loginMode']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+        if 'loginUri' in kwargs:
+            login_uri = kwargs['loginUri']
+        if 'logoUri' in kwargs:
+            logo_uri = kwargs['logoUri']
+        if 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if 'omitSecret' in kwargs:
+            omit_secret = kwargs['omitSecret']
+        if 'pkceRequired' in kwargs:
+            pkce_required = kwargs['pkceRequired']
+        if 'policyUri' in kwargs:
+            policy_uri = kwargs['policyUri']
+        if 'postLogoutRedirectUris' in kwargs:
+            post_logout_redirect_uris = kwargs['postLogoutRedirectUris']
+        if 'redirectUris' in kwargs:
+            redirect_uris = kwargs['redirectUris']
+        if 'refreshTokenLeeway' in kwargs:
+            refresh_token_leeway = kwargs['refreshTokenLeeway']
+        if 'refreshTokenRotation' in kwargs:
+            refresh_token_rotation = kwargs['refreshTokenRotation']
+        if 'responseTypes' in kwargs:
+            response_types = kwargs['responseTypes']
+        if 'signOnMode' in kwargs:
+            sign_on_mode = kwargs['signOnMode']
+        if 'tokenEndpointAuthMethod' in kwargs:
+            token_endpoint_auth_method = kwargs['tokenEndpointAuthMethod']
+        if 'tosUri' in kwargs:
+            tos_uri = kwargs['tosUri']
+        if 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+        if 'wildcardRedirect' in kwargs:
+            wildcard_redirect = kwargs['wildcardRedirect']
+
         if accessibility_error_redirect_url is not None:
             _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:

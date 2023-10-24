@@ -51,7 +51,17 @@ class EmailCustomizationArgs:
              is_default: Optional[pulumi.Input[bool]] = None,
              language: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if 'forceIsDefault' in kwargs:
+            force_is_default = kwargs['forceIsDefault']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+
         _setter("brand_id", brand_id)
         _setter("template_name", template_name)
         if body is not None:
@@ -200,7 +210,17 @@ class _EmailCustomizationState:
              links: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              template_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if 'forceIsDefault' in kwargs:
+            force_is_default = kwargs['forceIsDefault']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+
         if body is not None:
             _setter("body", body)
         if brand_id is not None:

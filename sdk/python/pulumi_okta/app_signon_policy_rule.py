@@ -34,6 +34,7 @@ class AppSignonPolicyRuleArgs:
                  platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  re_authentication_frequency: Optional[pulumi.Input[str]] = None,
+                 risk_score: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -59,6 +60,7 @@ class AppSignonPolicyRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
         :param pulumi.Input[int] priority: Priority of the rule.
         :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on.
         :param pulumi.Input[str] status: Status of the rule
         :param pulumi.Input[str] type: The Verification Method type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
@@ -86,6 +88,7 @@ class AppSignonPolicyRuleArgs:
             platform_includes=platform_includes,
             priority=priority,
             re_authentication_frequency=re_authentication_frequency,
+            risk_score=risk_score,
             status=status,
             type=type,
             user_types_excludeds=user_types_excludeds,
@@ -114,13 +117,54 @@ class AppSignonPolicyRuleArgs:
              platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              re_authentication_frequency: Optional[pulumi.Input[str]] = None,
+             risk_score: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_types_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'customExpression' in kwargs:
+            custom_expression = kwargs['customExpression']
+        if 'deviceAssurancesIncludeds' in kwargs:
+            device_assurances_includeds = kwargs['deviceAssurancesIncludeds']
+        if 'deviceIsManaged' in kwargs:
+            device_is_managed = kwargs['deviceIsManaged']
+        if 'deviceIsRegistered' in kwargs:
+            device_is_registered = kwargs['deviceIsRegistered']
+        if 'factorMode' in kwargs:
+            factor_mode = kwargs['factorMode']
+        if 'groupsExcludeds' in kwargs:
+            groups_excludeds = kwargs['groupsExcludeds']
+        if 'groupsIncludeds' in kwargs:
+            groups_includeds = kwargs['groupsIncludeds']
+        if 'inactivityPeriod' in kwargs:
+            inactivity_period = kwargs['inactivityPeriod']
+        if 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if 'platformIncludes' in kwargs:
+            platform_includes = kwargs['platformIncludes']
+        if 'reAuthenticationFrequency' in kwargs:
+            re_authentication_frequency = kwargs['reAuthenticationFrequency']
+        if 'riskScore' in kwargs:
+            risk_score = kwargs['riskScore']
+        if 'userTypesExcludeds' in kwargs:
+            user_types_excludeds = kwargs['userTypesExcludeds']
+        if 'userTypesIncludeds' in kwargs:
+            user_types_includeds = kwargs['userTypesIncludeds']
+        if 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+        if 'usersIncludeds' in kwargs:
+            users_includeds = kwargs['usersIncludeds']
+
         _setter("policy_id", policy_id)
         if access is not None:
             _setter("access", access)
@@ -156,6 +200,8 @@ class AppSignonPolicyRuleArgs:
             _setter("priority", priority)
         if re_authentication_frequency is not None:
             _setter("re_authentication_frequency", re_authentication_frequency)
+        if risk_score is not None:
+            _setter("risk_score", risk_score)
         if status is not None:
             _setter("status", status)
         if type is not None:
@@ -383,6 +429,18 @@ class AppSignonPolicyRuleArgs:
         pulumi.set(self, "re_authentication_frequency", value)
 
     @property
+    @pulumi.getter(name="riskScore")
+    def risk_score(self) -> Optional[pulumi.Input[str]]:
+        """
+        The risk score specifies a particular level of risk to match on.
+        """
+        return pulumi.get(self, "risk_score")
+
+    @risk_score.setter
+    def risk_score(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "risk_score", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -476,6 +534,7 @@ class _AppSignonPolicyRuleState:
                  policy_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  re_authentication_frequency: Optional[pulumi.Input[str]] = None,
+                 risk_score: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -501,6 +560,7 @@ class _AppSignonPolicyRuleState:
         :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[int] priority: Priority of the rule.
         :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on.
         :param pulumi.Input[str] status: Status of the rule
         :param pulumi.Input[str] type: The Verification Method type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
@@ -528,6 +588,7 @@ class _AppSignonPolicyRuleState:
             policy_id=policy_id,
             priority=priority,
             re_authentication_frequency=re_authentication_frequency,
+            risk_score=risk_score,
             status=status,
             type=type,
             user_types_excludeds=user_types_excludeds,
@@ -556,13 +617,54 @@ class _AppSignonPolicyRuleState:
              policy_id: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              re_authentication_frequency: Optional[pulumi.Input[str]] = None,
+             risk_score: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_types_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customExpression' in kwargs:
+            custom_expression = kwargs['customExpression']
+        if 'deviceAssurancesIncludeds' in kwargs:
+            device_assurances_includeds = kwargs['deviceAssurancesIncludeds']
+        if 'deviceIsManaged' in kwargs:
+            device_is_managed = kwargs['deviceIsManaged']
+        if 'deviceIsRegistered' in kwargs:
+            device_is_registered = kwargs['deviceIsRegistered']
+        if 'factorMode' in kwargs:
+            factor_mode = kwargs['factorMode']
+        if 'groupsExcludeds' in kwargs:
+            groups_excludeds = kwargs['groupsExcludeds']
+        if 'groupsIncludeds' in kwargs:
+            groups_includeds = kwargs['groupsIncludeds']
+        if 'inactivityPeriod' in kwargs:
+            inactivity_period = kwargs['inactivityPeriod']
+        if 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if 'platformIncludes' in kwargs:
+            platform_includes = kwargs['platformIncludes']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'reAuthenticationFrequency' in kwargs:
+            re_authentication_frequency = kwargs['reAuthenticationFrequency']
+        if 'riskScore' in kwargs:
+            risk_score = kwargs['riskScore']
+        if 'userTypesExcludeds' in kwargs:
+            user_types_excludeds = kwargs['userTypesExcludeds']
+        if 'userTypesIncludeds' in kwargs:
+            user_types_includeds = kwargs['userTypesIncludeds']
+        if 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+        if 'usersIncludeds' in kwargs:
+            users_includeds = kwargs['usersIncludeds']
+
         if access is not None:
             _setter("access", access)
         if constraints is not None:
@@ -599,6 +701,8 @@ class _AppSignonPolicyRuleState:
             _setter("priority", priority)
         if re_authentication_frequency is not None:
             _setter("re_authentication_frequency", re_authentication_frequency)
+        if risk_score is not None:
+            _setter("risk_score", risk_score)
         if status is not None:
             _setter("status", status)
         if type is not None:
@@ -826,6 +930,18 @@ class _AppSignonPolicyRuleState:
         pulumi.set(self, "re_authentication_frequency", value)
 
     @property
+    @pulumi.getter(name="riskScore")
+    def risk_score(self) -> Optional[pulumi.Input[str]]:
+        """
+        The risk score specifies a particular level of risk to match on.
+        """
+        return pulumi.get(self, "risk_score")
+
+    @risk_score.setter
+    def risk_score(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "risk_score", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -921,6 +1037,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  policy_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  re_authentication_frequency: Optional[pulumi.Input[str]] = None,
+                 risk_score: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -949,6 +1066,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[int] priority: Priority of the rule.
         :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on.
         :param pulumi.Input[str] status: Status of the rule
         :param pulumi.Input[str] type: The Verification Method type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
@@ -1001,6 +1119,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  policy_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  re_authentication_frequency: Optional[pulumi.Input[str]] = None,
+                 risk_score: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1036,6 +1155,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["priority"] = priority
             __props__.__dict__["re_authentication_frequency"] = re_authentication_frequency
+            __props__.__dict__["risk_score"] = risk_score
             __props__.__dict__["status"] = status
             __props__.__dict__["type"] = type
             __props__.__dict__["user_types_excludeds"] = user_types_excludeds
@@ -1070,6 +1190,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             policy_id: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             re_authentication_frequency: Optional[pulumi.Input[str]] = None,
+            risk_score: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
             user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1100,6 +1221,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[int] priority: Priority of the rule.
         :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on.
         :param pulumi.Input[str] status: Status of the rule
         :param pulumi.Input[str] type: The Verification Method type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
@@ -1129,6 +1251,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["priority"] = priority
         __props__.__dict__["re_authentication_frequency"] = re_authentication_frequency
+        __props__.__dict__["risk_score"] = risk_score
         __props__.__dict__["status"] = status
         __props__.__dict__["type"] = type
         __props__.__dict__["user_types_excludeds"] = user_types_excludeds
@@ -1277,6 +1400,14 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
         """
         return pulumi.get(self, "re_authentication_frequency")
+
+    @property
+    @pulumi.getter(name="riskScore")
+    def risk_score(self) -> pulumi.Output[Optional[str]]:
+        """
+        The risk score specifies a particular level of risk to match on.
+        """
+        return pulumi.get(self, "risk_score")
 
     @property
     @pulumi.getter

@@ -118,6 +118,12 @@ namespace Pulumi.Okta
         public Output<string?> ReAuthenticationFrequency { get; private set; } = null!;
 
         /// <summary>
+        /// The risk score specifies a particular level of risk to match on.
+        /// </summary>
+        [Output("riskScore")]
+        public Output<string?> RiskScore { get; private set; } = null!;
+
+        /// <summary>
         /// Status of the rule
         /// </summary>
         [Output("status")]
@@ -346,6 +352,12 @@ namespace Pulumi.Okta
         public Input<string>? ReAuthenticationFrequency { get; set; }
 
         /// <summary>
+        /// The risk score specifies a particular level of risk to match on.
+        /// </summary>
+        [Input("riskScore")]
+        public Input<string>? RiskScore { get; set; }
+
+        /// <summary>
         /// Status of the rule
         /// </summary>
         [Input("status")]
@@ -558,6 +570,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("reAuthenticationFrequency")]
         public Input<string>? ReAuthenticationFrequency { get; set; }
+
+        /// <summary>
+        /// The risk score specifies a particular level of risk to match on.
+        /// </summary>
+        [Input("riskScore")]
+        public Input<string>? RiskScore { get; set; }
 
         /// <summary>
         /// Status of the rule

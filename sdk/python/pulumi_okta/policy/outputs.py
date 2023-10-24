@@ -42,7 +42,9 @@ class RuleIdpDiscoveryAppExclude(dict):
              type: str,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -89,7 +91,9 @@ class RuleIdpDiscoveryAppInclude(dict):
              type: str,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -155,7 +159,13 @@ class RuleIdpDiscoveryPlatformInclude(dict):
              os_expression: Optional[str] = None,
              os_type: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osExpression' in kwargs:
+            os_expression = kwargs['osExpression']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+
         if os_expression is not None:
             _setter("os_expression", os_expression)
         if os_type is not None:
@@ -214,7 +224,11 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
              _setter: Callable[[Any, Any], None],
              match_type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+
         if match_type is not None:
             _setter("match_type", match_type)
         if value is not None:
@@ -252,7 +266,9 @@ class RuleMfaAppExclude(dict):
              type: str,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -299,7 +315,9 @@ class RuleMfaAppInclude(dict):
              type: str,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -368,7 +386,15 @@ class RuleSignonFactorSequence(dict):
              primary_criteria_factor_type: str,
              primary_criteria_provider: str,
              secondary_criterias: Optional[Sequence['outputs.RuleSignonFactorSequenceSecondaryCriteria']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryCriteriaFactorType' in kwargs:
+            primary_criteria_factor_type = kwargs['primaryCriteriaFactorType']
+        if 'primaryCriteriaProvider' in kwargs:
+            primary_criteria_provider = kwargs['primaryCriteriaProvider']
+        if 'secondaryCriterias' in kwargs:
+            secondary_criterias = kwargs['secondaryCriterias']
+
         _setter("primary_criteria_factor_type", primary_criteria_factor_type)
         _setter("primary_criteria_provider", primary_criteria_provider)
         if secondary_criterias is not None:
@@ -432,7 +458,11 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
              _setter: Callable[[Any, Any], None],
              factor_type: str,
              provider: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'factorType' in kwargs:
+            factor_type = kwargs['factorType']
+
         _setter("factor_type", factor_type)
         _setter("provider", provider)
 

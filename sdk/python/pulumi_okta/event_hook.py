@@ -48,7 +48,9 @@ class EventHookArgs:
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("channel", channel)
         _setter("events", events)
         if auth is not None:
@@ -165,7 +167,9 @@ class _EventHookState:
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if auth is not None:
             _setter("auth", auth)
         if channel is not None:

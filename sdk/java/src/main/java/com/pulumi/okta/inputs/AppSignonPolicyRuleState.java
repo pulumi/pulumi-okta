@@ -282,6 +282,21 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The risk score specifies a particular level of risk to match on.
+     * 
+     */
+    @Import(name="riskScore")
+    private @Nullable Output<String> riskScore;
+
+    /**
+     * @return The risk score specifies a particular level of risk to match on.
+     * 
+     */
+    public Optional<Output<String>> riskScore() {
+        return Optional.ofNullable(this.riskScore);
+    }
+
+    /**
      * Status of the rule
      * 
      */
@@ -392,6 +407,7 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         this.policyId = $.policyId;
         this.priority = $.priority;
         this.reAuthenticationFrequency = $.reAuthenticationFrequency;
+        this.riskScore = $.riskScore;
         this.status = $.status;
         this.type = $.type;
         this.userTypesExcludeds = $.userTypesExcludeds;
@@ -846,6 +862,27 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
          */
         public Builder reAuthenticationFrequency(String reAuthenticationFrequency) {
             return reAuthenticationFrequency(Output.of(reAuthenticationFrequency));
+        }
+
+        /**
+         * @param riskScore The risk score specifies a particular level of risk to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder riskScore(@Nullable Output<String> riskScore) {
+            $.riskScore = riskScore;
+            return this;
+        }
+
+        /**
+         * @param riskScore The risk score specifies a particular level of risk to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder riskScore(String riskScore) {
+            return riskScore(Output.of(riskScore));
         }
 
         /**

@@ -35,7 +35,13 @@ class RoleSubscriptionArgs:
              notification_type: pulumi.Input[str],
              role_type: pulumi.Input[str],
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+
         _setter("notification_type", notification_type)
         _setter("role_type", role_type)
         if status is not None:
@@ -102,7 +108,13 @@ class _RoleSubscriptionState:
              notification_type: Optional[pulumi.Input[str]] = None,
              role_type: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+
         if notification_type is not None:
             _setter("notification_type", notification_type)
         if role_type is not None:

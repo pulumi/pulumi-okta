@@ -71,7 +71,25 @@ class AuthenticatorArgs:
              provider_user_name_template: Optional[pulumi.Input[str]] = None,
              settings: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'providerAuthPort' in kwargs:
+            provider_auth_port = kwargs['providerAuthPort']
+        if 'providerHost' in kwargs:
+            provider_host = kwargs['providerHost']
+        if 'providerHostname' in kwargs:
+            provider_hostname = kwargs['providerHostname']
+        if 'providerIntegrationKey' in kwargs:
+            provider_integration_key = kwargs['providerIntegrationKey']
+        if 'providerJson' in kwargs:
+            provider_json = kwargs['providerJson']
+        if 'providerSecretKey' in kwargs:
+            provider_secret_key = kwargs['providerSecretKey']
+        if 'providerSharedSecret' in kwargs:
+            provider_shared_secret = kwargs['providerSharedSecret']
+        if 'providerUserNameTemplate' in kwargs:
+            provider_user_name_template = kwargs['providerUserNameTemplate']
+
         _setter("key", key)
         if name is not None:
             _setter("name", name)
@@ -313,7 +331,29 @@ class _AuthenticatorState:
              settings: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'providerAuthPort' in kwargs:
+            provider_auth_port = kwargs['providerAuthPort']
+        if 'providerHost' in kwargs:
+            provider_host = kwargs['providerHost']
+        if 'providerHostname' in kwargs:
+            provider_hostname = kwargs['providerHostname']
+        if 'providerInstanceId' in kwargs:
+            provider_instance_id = kwargs['providerInstanceId']
+        if 'providerIntegrationKey' in kwargs:
+            provider_integration_key = kwargs['providerIntegrationKey']
+        if 'providerJson' in kwargs:
+            provider_json = kwargs['providerJson']
+        if 'providerSecretKey' in kwargs:
+            provider_secret_key = kwargs['providerSecretKey']
+        if 'providerSharedSecret' in kwargs:
+            provider_shared_secret = kwargs['providerSharedSecret']
+        if 'providerType' in kwargs:
+            provider_type = kwargs['providerType']
+        if 'providerUserNameTemplate' in kwargs:
+            provider_user_name_template = kwargs['providerUserNameTemplate']
+
         if key is not None:
             _setter("key", key)
         if name is not None:

@@ -83,7 +83,25 @@ class OrgConfigurationArgs:
              support_phone_number: Optional[pulumi.Input[str]] = None,
              technical_contact_user: Optional[pulumi.Input[str]] = None,
              website: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if 'billingContactUser' in kwargs:
+            billing_contact_user = kwargs['billingContactUser']
+        if 'endUserSupportHelpUrl' in kwargs:
+            end_user_support_help_url = kwargs['endUserSupportHelpUrl']
+        if 'optOutCommunicationEmails' in kwargs:
+            opt_out_communication_emails = kwargs['optOutCommunicationEmails']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+        if 'supportPhoneNumber' in kwargs:
+            support_phone_number = kwargs['supportPhoneNumber']
+        if 'technicalContactUser' in kwargs:
+            technical_contact_user = kwargs['technicalContactUser']
+
         _setter("company_name", company_name)
         if address1 is not None:
             _setter("address1", address1)
@@ -375,7 +393,27 @@ class _OrgConfigurationState:
              support_phone_number: Optional[pulumi.Input[str]] = None,
              technical_contact_user: Optional[pulumi.Input[str]] = None,
              website: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingContactUser' in kwargs:
+            billing_contact_user = kwargs['billingContactUser']
+        if 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if 'endUserSupportHelpUrl' in kwargs:
+            end_user_support_help_url = kwargs['endUserSupportHelpUrl']
+        if 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+        if 'optOutCommunicationEmails' in kwargs:
+            opt_out_communication_emails = kwargs['optOutCommunicationEmails']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+        if 'supportPhoneNumber' in kwargs:
+            support_phone_number = kwargs['supportPhoneNumber']
+        if 'technicalContactUser' in kwargs:
+            technical_contact_user = kwargs['technicalContactUser']
+
         if address1 is not None:
             _setter("address1", address1)
         if address2 is not None:

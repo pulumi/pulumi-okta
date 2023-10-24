@@ -17,6 +17,7 @@ from .group_assignment import *
 from .o_auth import *
 from .o_auth_post_logout_redirect_uri import *
 from .o_auth_redirect_uri import *
+from .oauth_role_assignment import *
 from .saml import *
 from .secure_password_store import *
 from .swa import *

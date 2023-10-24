@@ -59,7 +59,9 @@ class AppGroupAssignmentsGroup(dict):
              id: str,
              profile: str,
              priority: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("profile", profile)
         if priority is not None:
@@ -130,7 +132,13 @@ class AppSignonPolicyRulePlatformInclude(dict):
              os_expression: Optional[str] = None,
              os_type: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osExpression' in kwargs:
+            os_expression = kwargs['osExpression']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+
         if os_expression is not None:
             _setter("os_expression", os_expression)
         if os_type is not None:
@@ -176,7 +184,9 @@ class AppUserSchemaPropertyArrayOneOf(dict):
              _setter: Callable[[Any, Any], None],
              const: str,
              title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 
@@ -216,7 +226,9 @@ class AppUserSchemaPropertyOneOf(dict):
              _setter: Callable[[Any, Any], None],
              const: str,
              title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 
@@ -275,7 +287,11 @@ class DomainDnsRecord(dict):
              fqdn: Optional[str] = None,
              record_type: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+
         if expiration is not None:
             _setter("expiration", expiration)
         if fqdn is not None:
@@ -341,7 +357,11 @@ class EmailSenderDnsRecord(dict):
              fqdn: Optional[str] = None,
              record_type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+
         if fqdn is not None:
             _setter("fqdn", fqdn)
         if record_type is not None:
@@ -380,7 +400,9 @@ class EventHookHeader(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -416,7 +438,9 @@ class GroupSchemaPropertyArrayOneOf(dict):
              _setter: Callable[[Any, Any], None],
              const: str,
              title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 
@@ -452,7 +476,9 @@ class GroupSchemaPropertyMasterOverridePriority(dict):
              _setter: Callable[[Any, Any], None],
              value: str,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if type is not None:
             _setter("type", type)
@@ -487,7 +513,9 @@ class GroupSchemaPropertyOneOf(dict):
              _setter: Callable[[Any, Any], None],
              const: str,
              title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 
@@ -531,7 +559,9 @@ class PolicyRuleProfileEnrollmentProfileAttribute(dict):
              label: str,
              name: str,
              required: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("label", label)
         _setter("name", name)
         if required is not None:
@@ -577,7 +607,9 @@ class TemplateSmsTranslation(dict):
              _setter: Callable[[Any, Any], None],
              language: str,
              template: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("language", language)
         _setter("template", template)
 
@@ -611,7 +643,9 @@ class UserSchemaPropertyArrayOneOf(dict):
              _setter: Callable[[Any, Any], None],
              const: str,
              title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 
@@ -647,7 +681,9 @@ class UserSchemaPropertyMasterOverridePriority(dict):
              _setter: Callable[[Any, Any], None],
              value: str,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if type is not None:
             _setter("type", type)
@@ -682,7 +718,9 @@ class UserSchemaPropertyOneOf(dict):
              _setter: Callable[[Any, Any], None],
              const: str,
              title: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("const", const)
         _setter("title", title)
 
@@ -736,7 +774,15 @@ class GetAuthServerClaimsClaimResult(dict):
              status: str,
              value: str,
              value_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysIncludeInToken' in kwargs:
+            always_include_in_token = kwargs['alwaysIncludeInToken']
+        if 'claimType' in kwargs:
+            claim_type = kwargs['claimType']
+        if 'valueType' in kwargs:
+            value_type = kwargs['valueType']
+
         _setter("always_include_in_token", always_include_in_token)
         _setter("claim_type", claim_type)
         _setter("id", id)
@@ -811,7 +857,9 @@ class GetBehavioursBehaviorResult(dict):
              settings: Mapping[str, str],
              status: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("name", name)
         _setter("settings", settings)
@@ -868,7 +916,13 @@ class GetBrandsBrandResult(dict):
              links: str,
              name: str,
              remove_powered_by_okta: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customPrivacyPolicyUrl' in kwargs:
+            custom_privacy_policy_url = kwargs['customPrivacyPolicyUrl']
+        if 'removePoweredByOkta' in kwargs:
+            remove_powered_by_okta = kwargs['removePoweredByOkta']
+
         _setter("custom_privacy_policy_url", custom_privacy_policy_url)
         _setter("id", id)
         _setter("links", links)
@@ -928,7 +982,11 @@ class GetEmailCustomizationsEmailCustomizationResult(dict):
              language: str,
              links: str,
              subject: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+
         _setter("body", body)
         _setter("id", id)
         _setter("is_default", is_default)
@@ -991,7 +1049,11 @@ class GetGroupsGroupResult(dict):
              id: str,
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customProfileAttributes' in kwargs:
+            custom_profile_attributes = kwargs['customProfileAttributes']
+
         _setter("custom_profile_attributes", custom_profile_attributes)
         _setter("description", description)
         _setter("id", id)
@@ -1039,7 +1101,9 @@ class GetTemplatesEmailTemplateResult(dict):
              _setter: Callable[[Any, Any], None],
              links: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("links", links)
         _setter("name", name)
 
@@ -1102,7 +1166,31 @@ class GetThemesThemeResult(dict):
              secondary_color_contrast_hex: str,
              secondary_color_hex: str,
              sign_in_page_touch_point_variant: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backgroundImageUrl' in kwargs:
+            background_image_url = kwargs['backgroundImageUrl']
+        if 'emailTemplateTouchPointVariant' in kwargs:
+            email_template_touch_point_variant = kwargs['emailTemplateTouchPointVariant']
+        if 'endUserDashboardTouchPointVariant' in kwargs:
+            end_user_dashboard_touch_point_variant = kwargs['endUserDashboardTouchPointVariant']
+        if 'errorPageTouchPointVariant' in kwargs:
+            error_page_touch_point_variant = kwargs['errorPageTouchPointVariant']
+        if 'faviconUrl' in kwargs:
+            favicon_url = kwargs['faviconUrl']
+        if 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if 'primaryColorContrastHex' in kwargs:
+            primary_color_contrast_hex = kwargs['primaryColorContrastHex']
+        if 'primaryColorHex' in kwargs:
+            primary_color_hex = kwargs['primaryColorHex']
+        if 'secondaryColorContrastHex' in kwargs:
+            secondary_color_contrast_hex = kwargs['secondaryColorContrastHex']
+        if 'secondaryColorHex' in kwargs:
+            secondary_color_hex = kwargs['secondaryColorHex']
+        if 'signInPageTouchPointVariant' in kwargs:
+            sign_in_page_touch_point_variant = kwargs['signInPageTouchPointVariant']
+
         _setter("background_image_url", background_image_url)
         _setter("email_template_touch_point_variant", email_template_touch_point_variant)
         _setter("end_user_dashboard_touch_point_variant", end_user_dashboard_touch_point_variant)
@@ -1207,7 +1295,9 @@ class GetTrustedOriginsTrustedOriginResult(dict):
              name: str,
              origin: str,
              scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("active", active)
         _setter("id", id)
         _setter("name", name)
@@ -1255,7 +1345,9 @@ class GetUserSecurityQuestionsQuestionResult(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              text: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("text", text)
 

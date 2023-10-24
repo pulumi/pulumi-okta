@@ -289,13 +289,392 @@ func (o GetDomainDnsRecordArrayOutput) Index(i pulumi.IntInput) GetDomainDnsReco
 	}).(GetDomainDnsRecordOutput)
 }
 
+type GetOrgMetadataDomains struct {
+	// Custom Domain Org URI
+	Alternate string `pulumi:"alternate"`
+	// Standard Org URI
+	Organization string `pulumi:"organization"`
+}
+
+// GetOrgMetadataDomainsInput is an input type that accepts GetOrgMetadataDomainsArgs and GetOrgMetadataDomainsOutput values.
+// You can construct a concrete instance of `GetOrgMetadataDomainsInput` via:
+//
+//	GetOrgMetadataDomainsArgs{...}
+type GetOrgMetadataDomainsInput interface {
+	pulumi.Input
+
+	ToGetOrgMetadataDomainsOutput() GetOrgMetadataDomainsOutput
+	ToGetOrgMetadataDomainsOutputWithContext(context.Context) GetOrgMetadataDomainsOutput
+}
+
+type GetOrgMetadataDomainsArgs struct {
+	// Custom Domain Org URI
+	Alternate pulumi.StringInput `pulumi:"alternate"`
+	// Standard Org URI
+	Organization pulumi.StringInput `pulumi:"organization"`
+}
+
+func (GetOrgMetadataDomainsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrgMetadataDomains)(nil)).Elem()
+}
+
+func (i GetOrgMetadataDomainsArgs) ToGetOrgMetadataDomainsOutput() GetOrgMetadataDomainsOutput {
+	return i.ToGetOrgMetadataDomainsOutputWithContext(context.Background())
+}
+
+func (i GetOrgMetadataDomainsArgs) ToGetOrgMetadataDomainsOutputWithContext(ctx context.Context) GetOrgMetadataDomainsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataDomainsOutput)
+}
+
+func (i GetOrgMetadataDomainsArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrgMetadataDomains] {
+	return pulumix.Output[GetOrgMetadataDomains]{
+		OutputState: i.ToGetOrgMetadataDomainsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i GetOrgMetadataDomainsArgs) ToGetOrgMetadataDomainsPtrOutput() GetOrgMetadataDomainsPtrOutput {
+	return i.ToGetOrgMetadataDomainsPtrOutputWithContext(context.Background())
+}
+
+func (i GetOrgMetadataDomainsArgs) ToGetOrgMetadataDomainsPtrOutputWithContext(ctx context.Context) GetOrgMetadataDomainsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataDomainsOutput).ToGetOrgMetadataDomainsPtrOutputWithContext(ctx)
+}
+
+// GetOrgMetadataDomainsPtrInput is an input type that accepts GetOrgMetadataDomainsArgs, GetOrgMetadataDomainsPtr and GetOrgMetadataDomainsPtrOutput values.
+// You can construct a concrete instance of `GetOrgMetadataDomainsPtrInput` via:
+//
+//	        GetOrgMetadataDomainsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetOrgMetadataDomainsPtrInput interface {
+	pulumi.Input
+
+	ToGetOrgMetadataDomainsPtrOutput() GetOrgMetadataDomainsPtrOutput
+	ToGetOrgMetadataDomainsPtrOutputWithContext(context.Context) GetOrgMetadataDomainsPtrOutput
+}
+
+type getOrgMetadataDomainsPtrType GetOrgMetadataDomainsArgs
+
+func GetOrgMetadataDomainsPtr(v *GetOrgMetadataDomainsArgs) GetOrgMetadataDomainsPtrInput {
+	return (*getOrgMetadataDomainsPtrType)(v)
+}
+
+func (*getOrgMetadataDomainsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOrgMetadataDomains)(nil)).Elem()
+}
+
+func (i *getOrgMetadataDomainsPtrType) ToGetOrgMetadataDomainsPtrOutput() GetOrgMetadataDomainsPtrOutput {
+	return i.ToGetOrgMetadataDomainsPtrOutputWithContext(context.Background())
+}
+
+func (i *getOrgMetadataDomainsPtrType) ToGetOrgMetadataDomainsPtrOutputWithContext(ctx context.Context) GetOrgMetadataDomainsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataDomainsPtrOutput)
+}
+
+func (i *getOrgMetadataDomainsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetOrgMetadataDomains] {
+	return pulumix.Output[*GetOrgMetadataDomains]{
+		OutputState: i.ToGetOrgMetadataDomainsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetOrgMetadataDomainsOutput struct{ *pulumi.OutputState }
+
+func (GetOrgMetadataDomainsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrgMetadataDomains)(nil)).Elem()
+}
+
+func (o GetOrgMetadataDomainsOutput) ToGetOrgMetadataDomainsOutput() GetOrgMetadataDomainsOutput {
+	return o
+}
+
+func (o GetOrgMetadataDomainsOutput) ToGetOrgMetadataDomainsOutputWithContext(ctx context.Context) GetOrgMetadataDomainsOutput {
+	return o
+}
+
+func (o GetOrgMetadataDomainsOutput) ToGetOrgMetadataDomainsPtrOutput() GetOrgMetadataDomainsPtrOutput {
+	return o.ToGetOrgMetadataDomainsPtrOutputWithContext(context.Background())
+}
+
+func (o GetOrgMetadataDomainsOutput) ToGetOrgMetadataDomainsPtrOutputWithContext(ctx context.Context) GetOrgMetadataDomainsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetOrgMetadataDomains) *GetOrgMetadataDomains {
+		return &v
+	}).(GetOrgMetadataDomainsPtrOutput)
+}
+
+func (o GetOrgMetadataDomainsOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrgMetadataDomains] {
+	return pulumix.Output[GetOrgMetadataDomains]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Custom Domain Org URI
+func (o GetOrgMetadataDomainsOutput) Alternate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrgMetadataDomains) string { return v.Alternate }).(pulumi.StringOutput)
+}
+
+// Standard Org URI
+func (o GetOrgMetadataDomainsOutput) Organization() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrgMetadataDomains) string { return v.Organization }).(pulumi.StringOutput)
+}
+
+type GetOrgMetadataDomainsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetOrgMetadataDomainsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOrgMetadataDomains)(nil)).Elem()
+}
+
+func (o GetOrgMetadataDomainsPtrOutput) ToGetOrgMetadataDomainsPtrOutput() GetOrgMetadataDomainsPtrOutput {
+	return o
+}
+
+func (o GetOrgMetadataDomainsPtrOutput) ToGetOrgMetadataDomainsPtrOutputWithContext(ctx context.Context) GetOrgMetadataDomainsPtrOutput {
+	return o
+}
+
+func (o GetOrgMetadataDomainsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetOrgMetadataDomains] {
+	return pulumix.Output[*GetOrgMetadataDomains]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetOrgMetadataDomainsPtrOutput) Elem() GetOrgMetadataDomainsOutput {
+	return o.ApplyT(func(v *GetOrgMetadataDomains) GetOrgMetadataDomains {
+		if v != nil {
+			return *v
+		}
+		var ret GetOrgMetadataDomains
+		return ret
+	}).(GetOrgMetadataDomainsOutput)
+}
+
+// Custom Domain Org URI
+func (o GetOrgMetadataDomainsPtrOutput) Alternate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOrgMetadataDomains) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Alternate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Standard Org URI
+func (o GetOrgMetadataDomainsPtrOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOrgMetadataDomains) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Organization
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetOrgMetadataSettings struct {
+	AnalyticsCollectionEnabled bool `pulumi:"analyticsCollectionEnabled"`
+	BugReportingEnabled        bool `pulumi:"bugReportingEnabled"`
+	// Whether the legacy Okta Mobile application is enabled for the org
+	OmEnabled bool `pulumi:"omEnabled"`
+}
+
+// GetOrgMetadataSettingsInput is an input type that accepts GetOrgMetadataSettingsArgs and GetOrgMetadataSettingsOutput values.
+// You can construct a concrete instance of `GetOrgMetadataSettingsInput` via:
+//
+//	GetOrgMetadataSettingsArgs{...}
+type GetOrgMetadataSettingsInput interface {
+	pulumi.Input
+
+	ToGetOrgMetadataSettingsOutput() GetOrgMetadataSettingsOutput
+	ToGetOrgMetadataSettingsOutputWithContext(context.Context) GetOrgMetadataSettingsOutput
+}
+
+type GetOrgMetadataSettingsArgs struct {
+	AnalyticsCollectionEnabled pulumi.BoolInput `pulumi:"analyticsCollectionEnabled"`
+	BugReportingEnabled        pulumi.BoolInput `pulumi:"bugReportingEnabled"`
+	// Whether the legacy Okta Mobile application is enabled for the org
+	OmEnabled pulumi.BoolInput `pulumi:"omEnabled"`
+}
+
+func (GetOrgMetadataSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrgMetadataSettings)(nil)).Elem()
+}
+
+func (i GetOrgMetadataSettingsArgs) ToGetOrgMetadataSettingsOutput() GetOrgMetadataSettingsOutput {
+	return i.ToGetOrgMetadataSettingsOutputWithContext(context.Background())
+}
+
+func (i GetOrgMetadataSettingsArgs) ToGetOrgMetadataSettingsOutputWithContext(ctx context.Context) GetOrgMetadataSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataSettingsOutput)
+}
+
+func (i GetOrgMetadataSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrgMetadataSettings] {
+	return pulumix.Output[GetOrgMetadataSettings]{
+		OutputState: i.ToGetOrgMetadataSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i GetOrgMetadataSettingsArgs) ToGetOrgMetadataSettingsPtrOutput() GetOrgMetadataSettingsPtrOutput {
+	return i.ToGetOrgMetadataSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetOrgMetadataSettingsArgs) ToGetOrgMetadataSettingsPtrOutputWithContext(ctx context.Context) GetOrgMetadataSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataSettingsOutput).ToGetOrgMetadataSettingsPtrOutputWithContext(ctx)
+}
+
+// GetOrgMetadataSettingsPtrInput is an input type that accepts GetOrgMetadataSettingsArgs, GetOrgMetadataSettingsPtr and GetOrgMetadataSettingsPtrOutput values.
+// You can construct a concrete instance of `GetOrgMetadataSettingsPtrInput` via:
+//
+//	        GetOrgMetadataSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetOrgMetadataSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetOrgMetadataSettingsPtrOutput() GetOrgMetadataSettingsPtrOutput
+	ToGetOrgMetadataSettingsPtrOutputWithContext(context.Context) GetOrgMetadataSettingsPtrOutput
+}
+
+type getOrgMetadataSettingsPtrType GetOrgMetadataSettingsArgs
+
+func GetOrgMetadataSettingsPtr(v *GetOrgMetadataSettingsArgs) GetOrgMetadataSettingsPtrInput {
+	return (*getOrgMetadataSettingsPtrType)(v)
+}
+
+func (*getOrgMetadataSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOrgMetadataSettings)(nil)).Elem()
+}
+
+func (i *getOrgMetadataSettingsPtrType) ToGetOrgMetadataSettingsPtrOutput() GetOrgMetadataSettingsPtrOutput {
+	return i.ToGetOrgMetadataSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getOrgMetadataSettingsPtrType) ToGetOrgMetadataSettingsPtrOutputWithContext(ctx context.Context) GetOrgMetadataSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataSettingsPtrOutput)
+}
+
+func (i *getOrgMetadataSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetOrgMetadataSettings] {
+	return pulumix.Output[*GetOrgMetadataSettings]{
+		OutputState: i.ToGetOrgMetadataSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetOrgMetadataSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetOrgMetadataSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrgMetadataSettings)(nil)).Elem()
+}
+
+func (o GetOrgMetadataSettingsOutput) ToGetOrgMetadataSettingsOutput() GetOrgMetadataSettingsOutput {
+	return o
+}
+
+func (o GetOrgMetadataSettingsOutput) ToGetOrgMetadataSettingsOutputWithContext(ctx context.Context) GetOrgMetadataSettingsOutput {
+	return o
+}
+
+func (o GetOrgMetadataSettingsOutput) ToGetOrgMetadataSettingsPtrOutput() GetOrgMetadataSettingsPtrOutput {
+	return o.ToGetOrgMetadataSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetOrgMetadataSettingsOutput) ToGetOrgMetadataSettingsPtrOutputWithContext(ctx context.Context) GetOrgMetadataSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetOrgMetadataSettings) *GetOrgMetadataSettings {
+		return &v
+	}).(GetOrgMetadataSettingsPtrOutput)
+}
+
+func (o GetOrgMetadataSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrgMetadataSettings] {
+	return pulumix.Output[GetOrgMetadataSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetOrgMetadataSettingsOutput) AnalyticsCollectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrgMetadataSettings) bool { return v.AnalyticsCollectionEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetOrgMetadataSettingsOutput) BugReportingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrgMetadataSettings) bool { return v.BugReportingEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the legacy Okta Mobile application is enabled for the org
+func (o GetOrgMetadataSettingsOutput) OmEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrgMetadataSettings) bool { return v.OmEnabled }).(pulumi.BoolOutput)
+}
+
+type GetOrgMetadataSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetOrgMetadataSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOrgMetadataSettings)(nil)).Elem()
+}
+
+func (o GetOrgMetadataSettingsPtrOutput) ToGetOrgMetadataSettingsPtrOutput() GetOrgMetadataSettingsPtrOutput {
+	return o
+}
+
+func (o GetOrgMetadataSettingsPtrOutput) ToGetOrgMetadataSettingsPtrOutputWithContext(ctx context.Context) GetOrgMetadataSettingsPtrOutput {
+	return o
+}
+
+func (o GetOrgMetadataSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetOrgMetadataSettings] {
+	return pulumix.Output[*GetOrgMetadataSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetOrgMetadataSettingsPtrOutput) Elem() GetOrgMetadataSettingsOutput {
+	return o.ApplyT(func(v *GetOrgMetadataSettings) GetOrgMetadataSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetOrgMetadataSettings
+		return ret
+	}).(GetOrgMetadataSettingsOutput)
+}
+
+func (o GetOrgMetadataSettingsPtrOutput) AnalyticsCollectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetOrgMetadataSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnalyticsCollectionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetOrgMetadataSettingsPtrOutput) BugReportingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetOrgMetadataSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.BugReportingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the legacy Okta Mobile application is enabled for the org
+func (o GetOrgMetadataSettingsPtrOutput) OmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetOrgMetadataSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OmEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailDomainDnsValidationRecordInput)(nil)).Elem(), EmailDomainDnsValidationRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailDomainDnsValidationRecordArrayInput)(nil)).Elem(), EmailDomainDnsValidationRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordInput)(nil)).Elem(), GetDomainDnsRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordArrayInput)(nil)).Elem(), GetDomainDnsRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataDomainsInput)(nil)).Elem(), GetOrgMetadataDomainsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataDomainsPtrInput)(nil)).Elem(), GetOrgMetadataDomainsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataSettingsInput)(nil)).Elem(), GetOrgMetadataSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataSettingsPtrInput)(nil)).Elem(), GetOrgMetadataSettingsArgs{})
 	pulumi.RegisterOutputType(EmailDomainDnsValidationRecordOutput{})
 	pulumi.RegisterOutputType(EmailDomainDnsValidationRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainDnsRecordOutput{})
 	pulumi.RegisterOutputType(GetDomainDnsRecordArrayOutput{})
+	pulumi.RegisterOutputType(GetOrgMetadataDomainsOutput{})
+	pulumi.RegisterOutputType(GetOrgMetadataDomainsPtrOutput{})
+	pulumi.RegisterOutputType(GetOrgMetadataSettingsOutput{})
+	pulumi.RegisterOutputType(GetOrgMetadataSettingsPtrOutput{})
 }

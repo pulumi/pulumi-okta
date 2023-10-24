@@ -27,7 +27,11 @@ class EventHookVerificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              event_hook_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHookId' in kwargs:
+            event_hook_id = kwargs['eventHookId']
+
         _setter("event_hook_id", event_hook_id)
 
     @property
@@ -59,7 +63,11 @@ class _EventHookVerificationState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              event_hook_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHookId' in kwargs:
+            event_hook_id = kwargs['eventHookId']
+
         if event_hook_id is not None:
             _setter("event_hook_id", event_hook_id)
 

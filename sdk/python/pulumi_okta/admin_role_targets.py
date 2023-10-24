@@ -39,7 +39,13 @@ class AdminRoleTargetsArgs:
              user_id: pulumi.Input[str],
              apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("role_type", role_type)
         _setter("user_id", user_id)
         if apps is not None:
@@ -128,7 +134,15 @@ class _AdminRoleTargetsState:
              role_id: Optional[pulumi.Input[str]] = None,
              role_type: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleId' in kwargs:
+            role_id = kwargs['roleId']
+        if 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if apps is not None:
             _setter("apps", apps)
         if groups is not None:

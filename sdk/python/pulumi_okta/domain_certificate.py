@@ -43,7 +43,15 @@ class DomainCertificateArgs:
              domain_id: pulumi.Input[str],
              private_key: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+
         _setter("certificate", certificate)
         _setter("certificate_chain", certificate_chain)
         _setter("domain_id", domain_id)
@@ -143,7 +151,15 @@ class _DomainCertificateState:
              domain_id: Optional[pulumi.Input[str]] = None,
              private_key: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+
         if certificate is not None:
             _setter("certificate", certificate)
         if certificate_chain is not None:

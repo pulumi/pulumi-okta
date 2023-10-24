@@ -59,7 +59,13 @@ class ZoneArgs:
              proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              status: Optional[pulumi.Input[str]] = None,
              usage: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dynamicLocations' in kwargs:
+            dynamic_locations = kwargs['dynamicLocations']
+        if 'dynamicProxyType' in kwargs:
+            dynamic_proxy_type = kwargs['dynamicProxyType']
+
         _setter("type", type)
         if asns is not None:
             _setter("asns", asns)
@@ -235,7 +241,13 @@ class _ZoneState:
              status: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              usage: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dynamicLocations' in kwargs:
+            dynamic_locations = kwargs['dynamicLocations']
+        if 'dynamicProxyType' in kwargs:
+            dynamic_proxy_type = kwargs['dynamicProxyType']
+
         if asns is not None:
             _setter("asns", asns)
         if dynamic_locations is not None:

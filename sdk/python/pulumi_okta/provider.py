@@ -95,7 +95,37 @@ class ProviderArgs:
              private_key_id: Optional[pulumi.Input[str]] = None,
              request_timeout: Optional[pulumi.Input[int]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'apiToken' in kwargs:
+            api_token = kwargs['apiToken']
+        if 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'httpProxy' in kwargs:
+            http_proxy = kwargs['httpProxy']
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if 'maxApiCapacity' in kwargs:
+            max_api_capacity = kwargs['maxApiCapacity']
+        if 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if 'maxWaitSeconds' in kwargs:
+            max_wait_seconds = kwargs['maxWaitSeconds']
+        if 'minWaitSeconds' in kwargs:
+            min_wait_seconds = kwargs['minWaitSeconds']
+        if 'orgName' in kwargs:
+            org_name = kwargs['orgName']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if 'privateKeyId' in kwargs:
+            private_key_id = kwargs['privateKeyId']
+        if 'requestTimeout' in kwargs:
+            request_timeout = kwargs['requestTimeout']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if api_token is not None:

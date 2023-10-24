@@ -41,7 +41,9 @@ class RuleIdpDiscoveryAppExcludeArgs:
              type: pulumi.Input[str],
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -100,7 +102,9 @@ class RuleIdpDiscoveryAppIncludeArgs:
              type: pulumi.Input[str],
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -159,7 +163,13 @@ class RuleIdpDiscoveryPlatformIncludeArgs:
              os_expression: Optional[pulumi.Input[str]] = None,
              os_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osExpression' in kwargs:
+            os_expression = kwargs['osExpression']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+
         if os_expression is not None:
             _setter("os_expression", os_expression)
         if os_type is not None:
@@ -213,7 +223,11 @@ class RuleIdpDiscoveryUserIdentifierPatternArgs:
              _setter: Callable[[Any, Any], None],
              match_type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+
         if match_type is not None:
             _setter("match_type", match_type)
         if value is not None:
@@ -259,7 +273,9 @@ class RuleMfaAppExcludeArgs:
              type: pulumi.Input[str],
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -318,7 +334,9 @@ class RuleMfaAppIncludeArgs:
              type: pulumi.Input[str],
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -378,7 +396,15 @@ class RuleSignonFactorSequenceArgs:
              primary_criteria_factor_type: pulumi.Input[str],
              primary_criteria_provider: pulumi.Input[str],
              secondary_criterias: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryCriteriaFactorType' in kwargs:
+            primary_criteria_factor_type = kwargs['primaryCriteriaFactorType']
+        if 'primaryCriteriaProvider' in kwargs:
+            primary_criteria_provider = kwargs['primaryCriteriaProvider']
+        if 'secondaryCriterias' in kwargs:
+            secondary_criterias = kwargs['secondaryCriterias']
+
         _setter("primary_criteria_factor_type", primary_criteria_factor_type)
         _setter("primary_criteria_provider", primary_criteria_provider)
         if secondary_criterias is not None:
@@ -437,7 +463,11 @@ class RuleSignonFactorSequenceSecondaryCriteriaArgs:
              _setter: Callable[[Any, Any], None],
              factor_type: pulumi.Input[str],
              provider: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'factorType' in kwargs:
+            factor_type = kwargs['factorType']
+
         _setter("factor_type", factor_type)
         _setter("provider", provider)
 
