@@ -42,12 +42,24 @@ class OAuthGroupsClaimArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              filter_type: Optional[pulumi.Input[str]] = None,
              issuer_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if issuer_mode is None and 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -144,13 +156,19 @@ class OAuthJwkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kid: pulumi.Input[str],
-             kty: pulumi.Input[str],
+             kid: Optional[pulumi.Input[str]] = None,
+             kty: Optional[pulumi.Input[str]] = None,
              e: Optional[pulumi.Input[str]] = None,
              n: Optional[pulumi.Input[str]] = None,
              x: Optional[pulumi.Input[str]] = None,
              y: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kid is None:
+            raise TypeError("Missing 'kid' argument")
+        if kty is None:
+            raise TypeError("Missing 'kty' argument")
+
         _setter("kid", kid)
         _setter("kty", kty)
         if e is not None:
@@ -257,13 +275,21 @@ class SamlAttributeStatementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              filter_type: Optional[pulumi.Input[str]] = None,
              filter_value: Optional[pulumi.Input[str]] = None,
              namespace: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if filter_value is None and 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+
         _setter("name", name)
         if filter_type is not None:
             _setter("filter_type", filter_type)
@@ -385,7 +411,15 @@ class SamlKeyArgs:
              use: Optional[pulumi.Input[str]] = None,
              x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              x5t_s256: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expires_at is None and 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+        if last_updated is None and 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+        if x5t_s256 is None and 'x5tS256' in kwargs:
+            x5t_s256 = kwargs['x5tS256']
+
         if created is not None:
             _setter("created", created)
         if e is not None:

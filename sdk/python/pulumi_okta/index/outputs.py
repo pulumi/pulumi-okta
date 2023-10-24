@@ -52,7 +52,11 @@ class EmailDomainDnsValidationRecord(dict):
              fqdn: Optional[str] = None,
              record_type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_type is None and 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+
         if expiration is not None:
             _setter("expiration", expiration)
         if fqdn is not None:
@@ -103,11 +107,23 @@ class GetDomainDnsRecordResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expiration: str,
-             fqdn: str,
-             record_type: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             expiration: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             record_type: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expiration is None:
+            raise TypeError("Missing 'expiration' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if record_type is None and 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+        if record_type is None:
+            raise TypeError("Missing 'record_type' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("expiration", expiration)
         _setter("fqdn", fqdn)
         _setter("record_type", record_type)

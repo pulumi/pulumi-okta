@@ -620,15 +620,6 @@ def get_saml(active_only: Optional[bool] = None,
     """
     Get a SAML application from Okta.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.app.get_saml(label="Example App")
-    ```
-
 
     :param bool active_only: Search only ACTIVE applications.
     :param str id: Id of application to retrieve, conflicts with label and label_prefix.
@@ -713,15 +704,6 @@ def get_saml_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlResult]:
     """
     Get a SAML application from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.app.get_saml(label="Example App")
-    ```
 
 
     :param bool active_only: Search only ACTIVE applications.

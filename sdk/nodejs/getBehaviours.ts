@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Get a behaviors by search criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.getBehaviours({
- *     q: "New",
- * });
- * ```
  */
 export function getBehaviours(args?: GetBehavioursArgs, opts?: pulumi.InvokeOptions): Promise<GetBehavioursResult> {
     args = args || {};
@@ -55,17 +44,6 @@ export interface GetBehavioursResult {
 }
 /**
  * Get a behaviors by search criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.getBehaviours({
- *     q: "New",
- * });
- * ```
  */
 export function getBehavioursOutput(args?: GetBehavioursOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBehavioursResult> {
     return pulumi.output(args).apply((a: any) => getBehaviours(a, opts))

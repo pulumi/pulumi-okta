@@ -35,11 +35,17 @@ class OriginArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             origin: pulumi.Input[str],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             origin: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              active: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if origin is None:
+            raise TypeError("Missing 'origin' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+
         _setter("origin", origin)
         _setter("scopes", scopes)
         if active is not None:
@@ -124,7 +130,9 @@ class _OriginState:
              name: Optional[pulumi.Input[str]] = None,
              origin: Optional[pulumi.Input[str]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if active is not None:
             _setter("active", active)
         if name is not None:

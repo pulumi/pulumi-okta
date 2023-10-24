@@ -40,13 +40,21 @@ class ServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             audiences: pulumi.Input[Sequence[pulumi.Input[str]]],
+             audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              issuer_mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if audiences is None:
+            raise TypeError("Missing 'audiences' argument")
+        if credentials_rotation_mode is None and 'credentialsRotationMode' in kwargs:
+            credentials_rotation_mode = kwargs['credentialsRotationMode']
+        if issuer_mode is None and 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+
         _setter("audiences", audiences)
         if credentials_rotation_mode is not None:
             _setter("credentials_rotation_mode", credentials_rotation_mode)
@@ -180,7 +188,17 @@ class _ServerState:
              kid: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credentials_last_rotated is None and 'credentialsLastRotated' in kwargs:
+            credentials_last_rotated = kwargs['credentialsLastRotated']
+        if credentials_next_rotation is None and 'credentialsNextRotation' in kwargs:
+            credentials_next_rotation = kwargs['credentialsNextRotation']
+        if credentials_rotation_mode is None and 'credentialsRotationMode' in kwargs:
+            credentials_rotation_mode = kwargs['credentialsRotationMode']
+        if issuer_mode is None and 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+
         if audiences is not None:
             _setter("audiences", audiences)
         if credentials_last_rotated is not None:

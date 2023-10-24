@@ -13,33 +13,6 @@ import (
 )
 
 // Get subscriptions of a Role with a specific type
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupRoleSubscription(ctx, &okta.LookupRoleSubscriptionArgs{
-//				NotificationType: "APP_IMPORT",
-//				RoleType:         "SUPER_ADMIN",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRoleSubscription(ctx *pulumi.Context, args *LookupRoleSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupRoleSubscriptionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoleSubscriptionResult

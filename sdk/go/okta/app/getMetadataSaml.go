@@ -13,33 +13,6 @@ import (
 )
 
 // Get a SAML application's metadata from Okta.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := app.GetMetadataSaml(ctx, &app.GetMetadataSamlArgs{
-//				AppId: "<app id>",
-//				KeyId: pulumi.StringRef("<cert key id>"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetMetadataSaml(ctx *pulumi.Context, args *GetMetadataSamlArgs, opts ...pulumi.InvokeOption) (*GetMetadataSamlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMetadataSamlResult

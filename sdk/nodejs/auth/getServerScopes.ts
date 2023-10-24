@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get a list of authorization server scopes from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.auth.getServerScopes({
- *     authServerId: "default",
- * });
- * ```
  */
 export function getServerScopes(args: GetServerScopesArgs, opts?: pulumi.InvokeOptions): Promise<GetServerScopesResult> {
 
@@ -57,17 +46,6 @@ export interface GetServerScopesResult {
 }
 /**
  * Get a list of authorization server scopes from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.auth.getServerScopes({
- *     authServerId: "default",
- * });
- * ```
  */
 export function getServerScopesOutput(args: GetServerScopesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerScopesResult> {
     return pulumi.output(args).apply((a: any) => getServerScopes(a, opts))

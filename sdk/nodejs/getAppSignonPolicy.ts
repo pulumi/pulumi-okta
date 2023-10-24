@@ -14,17 +14,6 @@ import * as utilities from "./utilities";
  * > Inside the product a sign-on policy is referenced as an _authentication
  * policy_, in the public API the policy is of type
  * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.getAppSignonPolicy({
- *     appId: "app_id",
- * });
- * ```
  */
 export function getAppSignonPolicy(args: GetAppSignonPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAppSignonPolicyResult> {
 
@@ -71,17 +60,6 @@ export interface GetAppSignonPolicyResult {
  * > Inside the product a sign-on policy is referenced as an _authentication
  * policy_, in the public API the policy is of type
  * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.getAppSignonPolicy({
- *     appId: "app_id",
- * });
- * ```
  */
 export function getAppSignonPolicyOutput(args: GetAppSignonPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppSignonPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAppSignonPolicy(a, opts))

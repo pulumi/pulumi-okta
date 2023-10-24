@@ -6,18 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Get authorization server claim from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getAuthServerClaim({
- *     authServerId: "default",
- *     name: "birthdate",
- * });
- * ```
  */
 export function getAuthServerClaim(args: GetAuthServerClaimArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthServerClaimResult> {
 
@@ -90,18 +78,6 @@ export interface GetAuthServerClaimResult {
 }
 /**
  * Get authorization server claim from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getAuthServerClaim({
- *     authServerId: "default",
- *     name: "birthdate",
- * });
- * ```
  */
 export function getAuthServerClaimOutput(args: GetAuthServerClaimOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthServerClaimResult> {
     return pulumi.output(args).apply((a: any) => getAuthServerClaim(a, opts))

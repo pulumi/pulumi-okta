@@ -33,10 +33,16 @@ class TemplateSmsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             template: pulumi.Input[str],
-             type: pulumi.Input[str],
+             template: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              translations: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSmsTranslationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if template is None:
+            raise TypeError("Missing 'template' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("template", template)
         _setter("type", type)
         if translations is not None:
@@ -99,7 +105,9 @@ class _TemplateSmsState:
              template: Optional[pulumi.Input[str]] = None,
              translations: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSmsTranslationArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if template is not None:
             _setter("template", template)
         if translations is not None:

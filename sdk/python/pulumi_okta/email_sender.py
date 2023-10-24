@@ -34,10 +34,22 @@ class EmailSenderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_address: pulumi.Input[str],
-             from_name: pulumi.Input[str],
-             subdomain: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             from_address: Optional[pulumi.Input[str]] = None,
+             from_name: Optional[pulumi.Input[str]] = None,
+             subdomain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_address is None and 'fromAddress' in kwargs:
+            from_address = kwargs['fromAddress']
+        if from_address is None:
+            raise TypeError("Missing 'from_address' argument")
+        if from_name is None and 'fromName' in kwargs:
+            from_name = kwargs['fromName']
+        if from_name is None:
+            raise TypeError("Missing 'from_name' argument")
+        if subdomain is None:
+            raise TypeError("Missing 'subdomain' argument")
+
         _setter("from_address", from_address)
         _setter("from_name", from_name)
         _setter("subdomain", subdomain)
@@ -111,7 +123,15 @@ class _EmailSenderState:
              from_name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              subdomain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_records is None and 'dnsRecords' in kwargs:
+            dns_records = kwargs['dnsRecords']
+        if from_address is None and 'fromAddress' in kwargs:
+            from_address = kwargs['fromAddress']
+        if from_name is None and 'fromName' in kwargs:
+            from_name = kwargs['fromName']
+
         if dns_records is not None:
             _setter("dns_records", dns_records)
         if from_address is not None:

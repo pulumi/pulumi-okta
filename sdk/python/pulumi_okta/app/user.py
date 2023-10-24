@@ -41,13 +41,25 @@ class UserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             user_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              profile: Optional[pulumi.Input[str]] = None,
              retain_assignment: Optional[pulumi.Input[bool]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+        if retain_assignment is None and 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+
         _setter("app_id", app_id)
         _setter("user_id", user_id)
         if password is not None:
@@ -171,7 +183,17 @@ class _UserState:
              retain_assignment: Optional[pulumi.Input[bool]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if has_shared_username is None and 'hasSharedUsername' in kwargs:
+            has_shared_username = kwargs['hasSharedUsername']
+        if retain_assignment is None and 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if has_shared_username is not None:

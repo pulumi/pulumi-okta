@@ -39,12 +39,26 @@ class MappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_id: pulumi.Input[str],
-             target_id: pulumi.Input[str],
+             source_id: Optional[pulumi.Input[str]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
              always_apply: Optional[pulumi.Input[bool]] = None,
              delete_when_absent: Optional[pulumi.Input[bool]] = None,
              mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if source_id is None:
+            raise TypeError("Missing 'source_id' argument")
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if target_id is None:
+            raise TypeError("Missing 'target_id' argument")
+        if always_apply is None and 'alwaysApply' in kwargs:
+            always_apply = kwargs['alwaysApply']
+        if delete_when_absent is None and 'deleteWhenAbsent' in kwargs:
+            delete_when_absent = kwargs['deleteWhenAbsent']
+
         _setter("source_id", source_id)
         _setter("target_id", target_id)
         if always_apply is not None:
@@ -155,7 +169,25 @@ class _MappingState:
              target_id: Optional[pulumi.Input[str]] = None,
              target_name: Optional[pulumi.Input[str]] = None,
              target_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if always_apply is None and 'alwaysApply' in kwargs:
+            always_apply = kwargs['alwaysApply']
+        if delete_when_absent is None and 'deleteWhenAbsent' in kwargs:
+            delete_when_absent = kwargs['deleteWhenAbsent']
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if source_name is None and 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if target_name is None and 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+
         if always_apply is not None:
             _setter("always_apply", always_apply)
         if delete_when_absent is not None:

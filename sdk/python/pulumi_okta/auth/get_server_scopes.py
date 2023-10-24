@@ -74,15 +74,6 @@ def get_server_scopes(auth_server_id: Optional[str] = None,
     """
     Get a list of authorization server scopes from Okta.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.auth.get_server_scopes(auth_server_id="default")
-    ```
-
 
     :param str auth_server_id: Auth server ID
     """
@@ -102,15 +93,6 @@ def get_server_scopes_output(auth_server_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerScopesResult]:
     """
     Get a list of authorization server scopes from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.auth.get_server_scopes(auth_server_id="default")
-    ```
 
 
     :param str auth_server_id: Auth server ID

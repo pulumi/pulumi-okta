@@ -39,10 +39,14 @@ class RuleIdpDiscoveryAppExclude(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -86,10 +90,14 @@ class RuleIdpDiscoveryAppInclude(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -155,7 +163,13 @@ class RuleIdpDiscoveryPlatformInclude(dict):
              os_expression: Optional[str] = None,
              os_type: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if os_expression is None and 'osExpression' in kwargs:
+            os_expression = kwargs['osExpression']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+
         if os_expression is not None:
             _setter("os_expression", os_expression)
         if os_type is not None:
@@ -214,7 +228,11 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
              _setter: Callable[[Any, Any], None],
              match_type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_type is None and 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+
         if match_type is not None:
             _setter("match_type", match_type)
         if value is not None:
@@ -249,10 +267,14 @@ class RuleMfaAppExclude(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -296,10 +318,14 @@ class RuleMfaAppInclude(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -365,10 +391,22 @@ class RuleSignonFactorSequence(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             primary_criteria_factor_type: str,
-             primary_criteria_provider: str,
+             primary_criteria_factor_type: Optional[str] = None,
+             primary_criteria_provider: Optional[str] = None,
              secondary_criterias: Optional[Sequence['outputs.RuleSignonFactorSequenceSecondaryCriteria']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if primary_criteria_factor_type is None and 'primaryCriteriaFactorType' in kwargs:
+            primary_criteria_factor_type = kwargs['primaryCriteriaFactorType']
+        if primary_criteria_factor_type is None:
+            raise TypeError("Missing 'primary_criteria_factor_type' argument")
+        if primary_criteria_provider is None and 'primaryCriteriaProvider' in kwargs:
+            primary_criteria_provider = kwargs['primaryCriteriaProvider']
+        if primary_criteria_provider is None:
+            raise TypeError("Missing 'primary_criteria_provider' argument")
+        if secondary_criterias is None and 'secondaryCriterias' in kwargs:
+            secondary_criterias = kwargs['secondaryCriterias']
+
         _setter("primary_criteria_factor_type", primary_criteria_factor_type)
         _setter("primary_criteria_provider", primary_criteria_provider)
         if secondary_criterias is not None:
@@ -430,9 +468,17 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             factor_type: str,
-             provider: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             factor_type: Optional[str] = None,
+             provider: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if factor_type is None and 'factorType' in kwargs:
+            factor_type = kwargs['factorType']
+        if factor_type is None:
+            raise TypeError("Missing 'factor_type' argument")
+        if provider is None:
+            raise TypeError("Missing 'provider' argument")
+
         _setter("factor_type", factor_type)
         _setter("provider", provider)
 

@@ -32,10 +32,20 @@ class AppOauthApiScopeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             issuer: pulumi.Input[str],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             app_id: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if issuer is None:
+            raise TypeError("Missing 'issuer' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+
         _setter("app_id", app_id)
         _setter("issuer", issuer)
         _setter("scopes", scopes)
@@ -101,7 +111,11 @@ class _AppOauthApiScopeState:
              app_id: Optional[pulumi.Input[str]] = None,
              issuer: Optional[pulumi.Input[str]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if issuer is not None:

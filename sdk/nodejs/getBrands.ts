@@ -8,15 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Get the brands belonging to an Okta organization.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getBrands({});
- * ```
  */
 export function getBrands(opts?: pulumi.InvokeOptions): Promise<GetBrandsResult> {
 
@@ -40,15 +31,6 @@ export interface GetBrandsResult {
 }
 /**
  * Get the brands belonging to an Okta organization.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getBrands({});
- * ```
  */
 export function getBrandsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetBrandsResult> {
     return pulumi.output(getBrands(opts))

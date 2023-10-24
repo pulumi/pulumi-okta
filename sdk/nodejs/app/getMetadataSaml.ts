@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SAML application's metadata from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.app.getMetadataSaml({
- *     appId: "<app id>",
- *     keyId: "<cert key id>",
- * });
- * ```
  */
 export function getMetadataSaml(args: GetMetadataSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSamlResult> {
 
@@ -85,18 +73,6 @@ export interface GetMetadataSamlResult {
 }
 /**
  * Get a SAML application's metadata from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.app.getMetadataSaml({
- *     appId: "<app id>",
- *     keyId: "<cert key id>",
- * });
- * ```
  */
 export function getMetadataSamlOutput(args: GetMetadataSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSamlResult> {
     return pulumi.output(args).apply((a: any) => getMetadataSaml(a, opts))

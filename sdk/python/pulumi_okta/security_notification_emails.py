@@ -43,7 +43,19 @@ class SecurityNotificationEmailsArgs:
              send_email_for_factor_reset_enabled: Optional[pulumi.Input[bool]] = None,
              send_email_for_new_device_enabled: Optional[pulumi.Input[bool]] = None,
              send_email_for_password_changed_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if report_suspicious_activity_enabled is None and 'reportSuspiciousActivityEnabled' in kwargs:
+            report_suspicious_activity_enabled = kwargs['reportSuspiciousActivityEnabled']
+        if send_email_for_factor_enrollment_enabled is None and 'sendEmailForFactorEnrollmentEnabled' in kwargs:
+            send_email_for_factor_enrollment_enabled = kwargs['sendEmailForFactorEnrollmentEnabled']
+        if send_email_for_factor_reset_enabled is None and 'sendEmailForFactorResetEnabled' in kwargs:
+            send_email_for_factor_reset_enabled = kwargs['sendEmailForFactorResetEnabled']
+        if send_email_for_new_device_enabled is None and 'sendEmailForNewDeviceEnabled' in kwargs:
+            send_email_for_new_device_enabled = kwargs['sendEmailForNewDeviceEnabled']
+        if send_email_for_password_changed_enabled is None and 'sendEmailForPasswordChangedEnabled' in kwargs:
+            send_email_for_password_changed_enabled = kwargs['sendEmailForPasswordChangedEnabled']
+
         if report_suspicious_activity_enabled is not None:
             _setter("report_suspicious_activity_enabled", report_suspicious_activity_enabled)
         if send_email_for_factor_enrollment_enabled is not None:
@@ -148,7 +160,19 @@ class _SecurityNotificationEmailsState:
              send_email_for_factor_reset_enabled: Optional[pulumi.Input[bool]] = None,
              send_email_for_new_device_enabled: Optional[pulumi.Input[bool]] = None,
              send_email_for_password_changed_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if report_suspicious_activity_enabled is None and 'reportSuspiciousActivityEnabled' in kwargs:
+            report_suspicious_activity_enabled = kwargs['reportSuspiciousActivityEnabled']
+        if send_email_for_factor_enrollment_enabled is None and 'sendEmailForFactorEnrollmentEnabled' in kwargs:
+            send_email_for_factor_enrollment_enabled = kwargs['sendEmailForFactorEnrollmentEnabled']
+        if send_email_for_factor_reset_enabled is None and 'sendEmailForFactorResetEnabled' in kwargs:
+            send_email_for_factor_reset_enabled = kwargs['sendEmailForFactorResetEnabled']
+        if send_email_for_new_device_enabled is None and 'sendEmailForNewDeviceEnabled' in kwargs:
+            send_email_for_new_device_enabled = kwargs['sendEmailForNewDeviceEnabled']
+        if send_email_for_password_changed_enabled is None and 'sendEmailForPasswordChangedEnabled' in kwargs:
+            send_email_for_password_changed_enabled = kwargs['sendEmailForPasswordChangedEnabled']
+
         if report_suspicious_activity_enabled is not None:
             _setter("report_suspicious_activity_enabled", report_suspicious_activity_enabled)
         if send_email_for_factor_enrollment_enabled is not None:

@@ -110,16 +110,6 @@ def get_server_policy(auth_server_id: Optional[str] = None,
     """
     Get an authorization server policy from Okta.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.auth.get_server_policy(auth_server_id="<auth server id>",
-        name="staff")
-    ```
-
 
     :param str auth_server_id: Auth server ID
     :param str name: Name of the policy
@@ -145,16 +135,6 @@ def get_server_policy_output(auth_server_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerPolicyResult]:
     """
     Get an authorization server policy from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.auth.get_server_policy(auth_server_id="<auth server id>",
-        name="staff")
-    ```
 
 
     :param str auth_server_id: Auth server ID

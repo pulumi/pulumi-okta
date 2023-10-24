@@ -34,7 +34,11 @@ class EmailDomainDnsValidationRecordArgs:
              fqdn: Optional[pulumi.Input[str]] = None,
              record_type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_type is None and 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+
         if expiration is not None:
             warnings.warn("""This field has been removed in the newest go sdk version and has become noop""", DeprecationWarning)
             pulumi.log.warn("""expiration is deprecated: This field has been removed in the newest go sdk version and has become noop""")

@@ -254,15 +254,6 @@ def get_oidc(id: Optional[str] = None,
     """
     Get a OIDC IdP from Okta.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.idp.get_oidc(name="Example Provider")
-    ```
-
 
     :param str id: Id of idp.
     :param str name: Name of the idp.
@@ -300,15 +291,6 @@ def get_oidc_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOidcResult]:
     """
     Get a OIDC IdP from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.idp.get_oidc(name="Example Provider")
-    ```
 
 
     :param str id: Id of idp.

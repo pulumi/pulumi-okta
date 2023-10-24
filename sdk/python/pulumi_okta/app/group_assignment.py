@@ -38,12 +38,24 @@ class GroupAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             group_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             group_id: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              profile: Optional[pulumi.Input[str]] = None,
              retain_assignment: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if retain_assignment is None and 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+
         _setter("app_id", app_id)
         _setter("group_id", group_id)
         if priority is not None:
@@ -146,7 +158,15 @@ class _GroupAssignmentState:
              priority: Optional[pulumi.Input[int]] = None,
              profile: Optional[pulumi.Input[str]] = None,
              retain_assignment: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if retain_assignment is None and 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if group_id is not None:

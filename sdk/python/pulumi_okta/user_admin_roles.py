@@ -32,10 +32,22 @@ class UserAdminRolesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_roles: pulumi.Input[Sequence[pulumi.Input[str]]],
-             user_id: pulumi.Input[str],
+             admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
              disable_notifications: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_roles is None and 'adminRoles' in kwargs:
+            admin_roles = kwargs['adminRoles']
+        if admin_roles is None:
+            raise TypeError("Missing 'admin_roles' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+        if disable_notifications is None and 'disableNotifications' in kwargs:
+            disable_notifications = kwargs['disableNotifications']
+
         _setter("admin_roles", admin_roles)
         _setter("user_id", user_id)
         if disable_notifications is not None:
@@ -102,7 +114,15 @@ class _UserAdminRolesState:
              admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              disable_notifications: Optional[pulumi.Input[bool]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_roles is None and 'adminRoles' in kwargs:
+            admin_roles = kwargs['adminRoles']
+        if disable_notifications is None and 'disableNotifications' in kwargs:
+            disable_notifications = kwargs['disableNotifications']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if admin_roles is not None:
             _setter("admin_roles", admin_roles)
         if disable_notifications is not None:

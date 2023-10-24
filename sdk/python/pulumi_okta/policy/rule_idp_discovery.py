@@ -79,7 +79,33 @@ class RuleIdpDiscoveryArgs:
              user_identifier_attribute: Optional[pulumi.Input[str]] = None,
              user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
              user_identifier_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_excludes is None and 'appExcludes' in kwargs:
+            app_excludes = kwargs['appExcludes']
+        if app_includes is None and 'appIncludes' in kwargs:
+            app_includes = kwargs['appIncludes']
+        if idp_id is None and 'idpId' in kwargs:
+            idp_id = kwargs['idpId']
+        if idp_type is None and 'idpType' in kwargs:
+            idp_type = kwargs['idpType']
+        if network_connection is None and 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if network_excludes is None and 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if network_includes is None and 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if platform_includes is None and 'platformIncludes' in kwargs:
+            platform_includes = kwargs['platformIncludes']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if user_identifier_attribute is None and 'userIdentifierAttribute' in kwargs:
+            user_identifier_attribute = kwargs['userIdentifierAttribute']
+        if user_identifier_patterns is None and 'userIdentifierPatterns' in kwargs:
+            user_identifier_patterns = kwargs['userIdentifierPatterns']
+        if user_identifier_type is None and 'userIdentifierType' in kwargs:
+            user_identifier_type = kwargs['userIdentifierType']
+
         if app_excludes is not None:
             _setter("app_excludes", app_excludes)
         if app_includes is not None:
@@ -340,7 +366,33 @@ class _RuleIdpDiscoveryState:
              user_identifier_attribute: Optional[pulumi.Input[str]] = None,
              user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
              user_identifier_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_excludes is None and 'appExcludes' in kwargs:
+            app_excludes = kwargs['appExcludes']
+        if app_includes is None and 'appIncludes' in kwargs:
+            app_includes = kwargs['appIncludes']
+        if idp_id is None and 'idpId' in kwargs:
+            idp_id = kwargs['idpId']
+        if idp_type is None and 'idpType' in kwargs:
+            idp_type = kwargs['idpType']
+        if network_connection is None and 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if network_excludes is None and 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if network_includes is None and 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if platform_includes is None and 'platformIncludes' in kwargs:
+            platform_includes = kwargs['platformIncludes']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if user_identifier_attribute is None and 'userIdentifierAttribute' in kwargs:
+            user_identifier_attribute = kwargs['userIdentifierAttribute']
+        if user_identifier_patterns is None and 'userIdentifierPatterns' in kwargs:
+            user_identifier_patterns = kwargs['userIdentifierPatterns']
+        if user_identifier_type is None and 'userIdentifierType' in kwargs:
+            user_identifier_type = kwargs['userIdentifierType']
+
         if app_excludes is not None:
             _setter("app_excludes", app_excludes)
         if app_includes is not None:

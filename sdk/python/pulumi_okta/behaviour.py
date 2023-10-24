@@ -44,14 +44,24 @@ class BehaviourArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              location_granularity_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              number_of_authentications: Optional[pulumi.Input[int]] = None,
              radius_from_location: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
              velocity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if location_granularity_type is None and 'locationGranularityType' in kwargs:
+            location_granularity_type = kwargs['locationGranularityType']
+        if number_of_authentications is None and 'numberOfAuthentications' in kwargs:
+            number_of_authentications = kwargs['numberOfAuthentications']
+        if radius_from_location is None and 'radiusFromLocation' in kwargs:
+            radius_from_location = kwargs['radiusFromLocation']
+
         _setter("type", type)
         if location_granularity_type is not None:
             _setter("location_granularity_type", location_granularity_type)
@@ -191,7 +201,15 @@ class _BehaviourState:
              status: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              velocity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location_granularity_type is None and 'locationGranularityType' in kwargs:
+            location_granularity_type = kwargs['locationGranularityType']
+        if number_of_authentications is None and 'numberOfAuthentications' in kwargs:
+            number_of_authentications = kwargs['numberOfAuthentications']
+        if radius_from_location is None and 'radiusFromLocation' in kwargs:
+            radius_from_location = kwargs['radiusFromLocation']
+
         if location_granularity_type is not None:
             _setter("location_granularity_type", location_granularity_type)
         if name is not None:

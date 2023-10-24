@@ -39,14 +39,22 @@ class HookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-             type: pulumi.Input[str],
-             version: pulumi.Input[str],
+             channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel is None:
+            raise TypeError("Missing 'channel' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
         _setter("channel", channel)
         _setter("type", type)
         _setter("version", version)
@@ -156,7 +164,9 @@ class _HookState:
              status: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if auth is not None:
             _setter("auth", auth)
         if channel is not None:

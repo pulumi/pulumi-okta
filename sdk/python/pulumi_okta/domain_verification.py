@@ -26,8 +26,14 @@ class DomainVerificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             domain_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if domain_id is None:
+            raise TypeError("Missing 'domain_id' argument")
+
         _setter("domain_id", domain_id)
 
     @property
@@ -59,7 +65,11 @@ class _DomainVerificationState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              domain_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+
         if domain_id is not None:
             _setter("domain_id", domain_id)
 

@@ -31,7 +31,13 @@ class CaptchaOrgWideSettingsArgs:
              _setter: Callable[[Any, Any], None],
              captcha_id: Optional[pulumi.Input[str]] = None,
              enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if captcha_id is None and 'captchaId' in kwargs:
+            captcha_id = kwargs['captchaId']
+        if enabled_fors is None and 'enabledFors' in kwargs:
+            enabled_fors = kwargs['enabledFors']
+
         if captcha_id is not None:
             _setter("captcha_id", captcha_id)
         if enabled_fors is not None:
@@ -82,7 +88,13 @@ class _CaptchaOrgWideSettingsState:
              _setter: Callable[[Any, Any], None],
              captcha_id: Optional[pulumi.Input[str]] = None,
              enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if captcha_id is None and 'captchaId' in kwargs:
+            captcha_id = kwargs['captchaId']
+        if enabled_fors is None and 'enabledFors' in kwargs:
+            enabled_fors = kwargs['enabledFors']
+
         if captcha_id is not None:
             _setter("captcha_id", captcha_id)
         if enabled_fors is not None:

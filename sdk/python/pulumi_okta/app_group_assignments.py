@@ -31,9 +31,17 @@ class AppGroupAssignmentsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             groups: pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             app_id: Optional[pulumi.Input[str]] = None,
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if groups is None:
+            raise TypeError("Missing 'groups' argument")
+
         _setter("app_id", app_id)
         _setter("groups", groups)
 
@@ -82,7 +90,11 @@ class _AppGroupAssignmentsState:
              _setter: Callable[[Any, Any], None],
              app_id: Optional[pulumi.Input[str]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if groups is not None:

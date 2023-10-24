@@ -68,7 +68,7 @@ class OrgConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             company_name: pulumi.Input[str],
+             company_name: Optional[pulumi.Input[str]] = None,
              address1: Optional[pulumi.Input[str]] = None,
              address2: Optional[pulumi.Input[str]] = None,
              billing_contact_user: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,27 @@ class OrgConfigurationArgs:
              support_phone_number: Optional[pulumi.Input[str]] = None,
              technical_contact_user: Optional[pulumi.Input[str]] = None,
              website: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if company_name is None and 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if company_name is None:
+            raise TypeError("Missing 'company_name' argument")
+        if billing_contact_user is None and 'billingContactUser' in kwargs:
+            billing_contact_user = kwargs['billingContactUser']
+        if end_user_support_help_url is None and 'endUserSupportHelpUrl' in kwargs:
+            end_user_support_help_url = kwargs['endUserSupportHelpUrl']
+        if opt_out_communication_emails is None and 'optOutCommunicationEmails' in kwargs:
+            opt_out_communication_emails = kwargs['optOutCommunicationEmails']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if postal_code is None and 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+        if support_phone_number is None and 'supportPhoneNumber' in kwargs:
+            support_phone_number = kwargs['supportPhoneNumber']
+        if technical_contact_user is None and 'technicalContactUser' in kwargs:
+            technical_contact_user = kwargs['technicalContactUser']
+
         _setter("company_name", company_name)
         if address1 is not None:
             _setter("address1", address1)
@@ -375,7 +395,27 @@ class _OrgConfigurationState:
              support_phone_number: Optional[pulumi.Input[str]] = None,
              technical_contact_user: Optional[pulumi.Input[str]] = None,
              website: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_contact_user is None and 'billingContactUser' in kwargs:
+            billing_contact_user = kwargs['billingContactUser']
+        if company_name is None and 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if end_user_support_help_url is None and 'endUserSupportHelpUrl' in kwargs:
+            end_user_support_help_url = kwargs['endUserSupportHelpUrl']
+        if expires_at is None and 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+        if opt_out_communication_emails is None and 'optOutCommunicationEmails' in kwargs:
+            opt_out_communication_emails = kwargs['optOutCommunicationEmails']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if postal_code is None and 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+        if support_phone_number is None and 'supportPhoneNumber' in kwargs:
+            support_phone_number = kwargs['supportPhoneNumber']
+        if technical_contact_user is None and 'technicalContactUser' in kwargs:
+            technical_contact_user = kwargs['technicalContactUser']
+
         if address1 is not None:
             _setter("address1", address1)
         if address2 is not None:

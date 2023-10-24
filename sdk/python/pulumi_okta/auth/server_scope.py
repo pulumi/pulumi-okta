@@ -47,7 +47,7 @@ class ServerScopeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_server_id: pulumi.Input[str],
+             auth_server_id: Optional[pulumi.Input[str]] = None,
              consent: Optional[pulumi.Input[str]] = None,
              default: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -55,7 +55,17 @@ class ServerScopeArgs:
              metadata_publish: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              optional: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_server_id is None and 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if auth_server_id is None:
+            raise TypeError("Missing 'auth_server_id' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if metadata_publish is None and 'metadataPublish' in kwargs:
+            metadata_publish = kwargs['metadataPublish']
+
         _setter("auth_server_id", auth_server_id)
         if consent is not None:
             _setter("consent", consent)
@@ -217,7 +227,15 @@ class _ServerScopeState:
              name: Optional[pulumi.Input[str]] = None,
              optional: Optional[pulumi.Input[bool]] = None,
              system: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_server_id is None and 'authServerId' in kwargs:
+            auth_server_id = kwargs['authServerId']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if metadata_publish is None and 'metadataPublish' in kwargs:
+            metadata_publish = kwargs['metadataPublish']
+
         if auth_server_id is not None:
             _setter("auth_server_id", auth_server_id)
         if consent is not None:

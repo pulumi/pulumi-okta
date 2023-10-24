@@ -62,12 +62,24 @@ class OAuthGroupsClaim(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
-             value: str,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             value: Optional[str] = None,
              filter_type: Optional[str] = None,
              issuer_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if issuer_mode is None and 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -144,13 +156,19 @@ class OAuthJwk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kid: str,
-             kty: str,
+             kid: Optional[str] = None,
+             kty: Optional[str] = None,
              e: Optional[str] = None,
              n: Optional[str] = None,
              x: Optional[str] = None,
              y: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kid is None:
+            raise TypeError("Missing 'kid' argument")
+        if kty is None:
+            raise TypeError("Missing 'kty' argument")
+
         _setter("kid", kid)
         _setter("kty", kty)
         if e is not None:
@@ -252,13 +270,21 @@ class SamlAttributeStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              filter_type: Optional[str] = None,
              filter_value: Optional[str] = None,
              namespace: Optional[str] = None,
              type: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if filter_value is None and 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+
         _setter("name", name)
         if filter_type is not None:
             _setter("filter_type", filter_type)
@@ -377,7 +403,15 @@ class SamlKey(dict):
              use: Optional[str] = None,
              x5cs: Optional[Sequence[str]] = None,
              x5t_s256: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expires_at is None and 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+        if last_updated is None and 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+        if x5t_s256 is None and 'x5tS256' in kwargs:
+            x5t_s256 = kwargs['x5tS256']
+
         if created is not None:
             _setter("created", created)
         if e is not None:
@@ -471,13 +505,31 @@ class GetSamlAttributeStatementResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter_type: str,
-             filter_value: str,
-             name: str,
-             namespace: str,
-             type: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             filter_type: Optional[str] = None,
+             filter_value: Optional[str] = None,
+             name: Optional[str] = None,
+             namespace: Optional[str] = None,
+             type: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if filter_type is None:
+            raise TypeError("Missing 'filter_type' argument")
+        if filter_value is None and 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+        if filter_value is None:
+            raise TypeError("Missing 'filter_value' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("filter_type", filter_type)
         _setter("filter_value", filter_value)
         _setter("name", name)

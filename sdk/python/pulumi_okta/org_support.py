@@ -27,7 +27,11 @@ class OrgSupportArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              extend_by: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extend_by is None and 'extendBy' in kwargs:
+            extend_by = kwargs['extendBy']
+
         if extend_by is not None:
             _setter("extend_by", extend_by)
 
@@ -68,7 +72,11 @@ class _OrgSupportState:
              expiration: Optional[pulumi.Input[str]] = None,
              extend_by: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extend_by is None and 'extendBy' in kwargs:
+            extend_by = kwargs['extendBy']
+
         if expiration is not None:
             _setter("expiration", expiration)
         if extend_by is not None:

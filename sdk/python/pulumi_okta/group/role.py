@@ -38,12 +38,28 @@ class RoleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_id: pulumi.Input[str],
-             role_type: pulumi.Input[str],
+             group_id: Optional[pulumi.Input[str]] = None,
+             role_type: Optional[pulumi.Input[str]] = None,
              disable_notifications: Optional[pulumi.Input[bool]] = None,
              target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if role_type is None and 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+        if role_type is None:
+            raise TypeError("Missing 'role_type' argument")
+        if disable_notifications is None and 'disableNotifications' in kwargs:
+            disable_notifications = kwargs['disableNotifications']
+        if target_app_lists is None and 'targetAppLists' in kwargs:
+            target_app_lists = kwargs['targetAppLists']
+        if target_group_lists is None and 'targetGroupLists' in kwargs:
+            target_group_lists = kwargs['targetGroupLists']
+
         _setter("group_id", group_id)
         _setter("role_type", role_type)
         if disable_notifications is not None:
@@ -146,7 +162,19 @@ class _RoleState:
              role_type: Optional[pulumi.Input[str]] = None,
              target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disable_notifications is None and 'disableNotifications' in kwargs:
+            disable_notifications = kwargs['disableNotifications']
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if role_type is None and 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+        if target_app_lists is None and 'targetAppLists' in kwargs:
+            target_app_lists = kwargs['targetAppLists']
+        if target_group_lists is None and 'targetGroupLists' in kwargs:
+            target_group_lists = kwargs['targetGroupLists']
+
         if disable_notifications is not None:
             _setter("disable_notifications", disable_notifications)
         if group_id is not None:

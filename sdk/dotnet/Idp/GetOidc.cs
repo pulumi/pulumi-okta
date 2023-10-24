@@ -13,56 +13,12 @@ namespace Pulumi.Okta.Idp
     {
         /// <summary>
         /// Get a OIDC IdP from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.Idp.GetOidc.Invoke(new()
-        ///     {
-        ///         Name = "Example Provider",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetOidcResult> InvokeAsync(GetOidcArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOidcResult>("okta:idp/getOidc:getOidc", args ?? new GetOidcArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a OIDC IdP from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.Idp.GetOidc.Invoke(new()
-        ///     {
-        ///         Name = "Example Provider",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetOidcResult> Invoke(GetOidcInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOidcResult>("okta:idp/getOidc:getOidc", args ?? new GetOidcInvokeArgs(), options.WithDefaults());

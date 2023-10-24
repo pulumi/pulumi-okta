@@ -15,28 +15,6 @@ namespace Pulumi.Okta.Policy
         /// Use this data source to retrieve a default policy from Okta. This 
         /// same thing can be achieved using the `okta.policy.getPolicy` with default 
         /// names, this is simply a shortcut.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.Policy.GetDefaultPolicy.Invoke(new()
-        ///     {
-        ///         Type = "PASSWORD",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDefaultPolicyResult> InvokeAsync(GetDefaultPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPolicyResult>("okta:policy/getDefaultPolicy:getDefaultPolicy", args ?? new GetDefaultPolicyArgs(), options.WithDefaults());
@@ -45,28 +23,6 @@ namespace Pulumi.Okta.Policy
         /// Use this data source to retrieve a default policy from Okta. This 
         /// same thing can be achieved using the `okta.policy.getPolicy` with default 
         /// names, this is simply a shortcut.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.Policy.GetDefaultPolicy.Invoke(new()
-        ///     {
-        ///         Type = "PASSWORD",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDefaultPolicyResult> Invoke(GetDefaultPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultPolicyResult>("okta:policy/getDefaultPolicy:getDefaultPolicy", args ?? new GetDefaultPolicyInvokeArgs(), options.WithDefaults());

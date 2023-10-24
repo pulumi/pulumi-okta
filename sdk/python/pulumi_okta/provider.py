@@ -95,7 +95,37 @@ class ProviderArgs:
              private_key_id: Optional[pulumi.Input[str]] = None,
              request_timeout: Optional[pulumi.Input[int]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_token is None and 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if api_token is None and 'apiToken' in kwargs:
+            api_token = kwargs['apiToken']
+        if base_url is None and 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if http_proxy is None and 'httpProxy' in kwargs:
+            http_proxy = kwargs['httpProxy']
+        if log_level is None and 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if max_api_capacity is None and 'maxApiCapacity' in kwargs:
+            max_api_capacity = kwargs['maxApiCapacity']
+        if max_retries is None and 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if max_wait_seconds is None and 'maxWaitSeconds' in kwargs:
+            max_wait_seconds = kwargs['maxWaitSeconds']
+        if min_wait_seconds is None and 'minWaitSeconds' in kwargs:
+            min_wait_seconds = kwargs['minWaitSeconds']
+        if org_name is None and 'orgName' in kwargs:
+            org_name = kwargs['orgName']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key_id is None and 'privateKeyId' in kwargs:
+            private_key_id = kwargs['privateKeyId']
+        if request_timeout is None and 'requestTimeout' in kwargs:
+            request_timeout = kwargs['requestTimeout']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if api_token is not None:

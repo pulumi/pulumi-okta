@@ -40,16 +40,40 @@ class GetServerScopesScopeResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consent: str,
-             default: bool,
-             description: str,
-             display_name: str,
-             id: str,
-             metadata_publish: str,
-             name: str,
-             optional: bool,
-             system: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             consent: Optional[str] = None,
+             default: Optional[bool] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             metadata_publish: Optional[str] = None,
+             name: Optional[str] = None,
+             optional: Optional[bool] = None,
+             system: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consent is None:
+            raise TypeError("Missing 'consent' argument")
+        if default is None:
+            raise TypeError("Missing 'default' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if metadata_publish is None and 'metadataPublish' in kwargs:
+            metadata_publish = kwargs['metadataPublish']
+        if metadata_publish is None:
+            raise TypeError("Missing 'metadata_publish' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if optional is None:
+            raise TypeError("Missing 'optional' argument")
+        if system is None:
+            raise TypeError("Missing 'system' argument")
+
         _setter("consent", consent)
         _setter("default", default)
         _setter("description", description)

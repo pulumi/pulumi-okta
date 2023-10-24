@@ -162,7 +162,7 @@ class SamlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             label: pulumi.Input[str],
+             label: Optional[pulumi.Input[str]] = None,
              accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
              accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
              accessibility_self_service: Optional[pulumi.Input[bool]] = None,
@@ -208,7 +208,91 @@ class SamlArgs:
              user_name_template_push_status: Optional[pulumi.Input[str]] = None,
              user_name_template_suffix: Optional[pulumi.Input[str]] = None,
              user_name_template_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if acs_endpoints is None and 'acsEndpoints' in kwargs:
+            acs_endpoints = kwargs['acsEndpoints']
+        if admin_note is None and 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if app_links_json is None and 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if app_settings_json is None and 'appSettingsJson' in kwargs:
+            app_settings_json = kwargs['appSettingsJson']
+        if assertion_signed is None and 'assertionSigned' in kwargs:
+            assertion_signed = kwargs['assertionSigned']
+        if attribute_statements is None and 'attributeStatements' in kwargs:
+            attribute_statements = kwargs['attributeStatements']
+        if authentication_policy is None and 'authenticationPolicy' in kwargs:
+            authentication_policy = kwargs['authenticationPolicy']
+        if authn_context_class_ref is None and 'authnContextClassRef' in kwargs:
+            authn_context_class_ref = kwargs['authnContextClassRef']
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if default_relay_state is None and 'defaultRelayState' in kwargs:
+            default_relay_state = kwargs['defaultRelayState']
+        if digest_algorithm is None and 'digestAlgorithm' in kwargs:
+            digest_algorithm = kwargs['digestAlgorithm']
+        if enduser_note is None and 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if hide_ios is None and 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if hide_web is None and 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if honor_force_authn is None and 'honorForceAuthn' in kwargs:
+            honor_force_authn = kwargs['honorForceAuthn']
+        if idp_issuer is None and 'idpIssuer' in kwargs:
+            idp_issuer = kwargs['idpIssuer']
+        if implicit_assignment is None and 'implicitAssignment' in kwargs:
+            implicit_assignment = kwargs['implicitAssignment']
+        if inline_hook_id is None and 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_years_valid is None and 'keyYearsValid' in kwargs:
+            key_years_valid = kwargs['keyYearsValid']
+        if preconfigured_app is None and 'preconfiguredApp' in kwargs:
+            preconfigured_app = kwargs['preconfiguredApp']
+        if request_compressed is None and 'requestCompressed' in kwargs:
+            request_compressed = kwargs['requestCompressed']
+        if response_signed is None and 'responseSigned' in kwargs:
+            response_signed = kwargs['responseSigned']
+        if saml_signed_request_enabled is None and 'samlSignedRequestEnabled' in kwargs:
+            saml_signed_request_enabled = kwargs['samlSignedRequestEnabled']
+        if saml_version is None and 'samlVersion' in kwargs:
+            saml_version = kwargs['samlVersion']
+        if signature_algorithm is None and 'signatureAlgorithm' in kwargs:
+            signature_algorithm = kwargs['signatureAlgorithm']
+        if single_logout_certificate is None and 'singleLogoutCertificate' in kwargs:
+            single_logout_certificate = kwargs['singleLogoutCertificate']
+        if single_logout_issuer is None and 'singleLogoutIssuer' in kwargs:
+            single_logout_issuer = kwargs['singleLogoutIssuer']
+        if single_logout_url is None and 'singleLogoutUrl' in kwargs:
+            single_logout_url = kwargs['singleLogoutUrl']
+        if sp_issuer is None and 'spIssuer' in kwargs:
+            sp_issuer = kwargs['spIssuer']
+        if sso_url is None and 'ssoUrl' in kwargs:
+            sso_url = kwargs['ssoUrl']
+        if subject_name_id_format is None and 'subjectNameIdFormat' in kwargs:
+            subject_name_id_format = kwargs['subjectNameIdFormat']
+        if subject_name_id_template is None and 'subjectNameIdTemplate' in kwargs:
+            subject_name_id_template = kwargs['subjectNameIdTemplate']
+        if user_name_template is None and 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if user_name_template_push_status is None and 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if user_name_template_suffix is None and 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if user_name_template_type is None and 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+
         _setter("label", label)
         if accessibility_error_redirect_url is not None:
             _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -1102,7 +1186,107 @@ class _SamlState:
              user_name_template_push_status: Optional[pulumi.Input[str]] = None,
              user_name_template_suffix: Optional[pulumi.Input[str]] = None,
              user_name_template_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if acs_endpoints is None and 'acsEndpoints' in kwargs:
+            acs_endpoints = kwargs['acsEndpoints']
+        if admin_note is None and 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if app_links_json is None and 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if app_settings_json is None and 'appSettingsJson' in kwargs:
+            app_settings_json = kwargs['appSettingsJson']
+        if assertion_signed is None and 'assertionSigned' in kwargs:
+            assertion_signed = kwargs['assertionSigned']
+        if attribute_statements is None and 'attributeStatements' in kwargs:
+            attribute_statements = kwargs['attributeStatements']
+        if authentication_policy is None and 'authenticationPolicy' in kwargs:
+            authentication_policy = kwargs['authenticationPolicy']
+        if authn_context_class_ref is None and 'authnContextClassRef' in kwargs:
+            authn_context_class_ref = kwargs['authnContextClassRef']
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if default_relay_state is None and 'defaultRelayState' in kwargs:
+            default_relay_state = kwargs['defaultRelayState']
+        if digest_algorithm is None and 'digestAlgorithm' in kwargs:
+            digest_algorithm = kwargs['digestAlgorithm']
+        if embed_url is None and 'embedUrl' in kwargs:
+            embed_url = kwargs['embedUrl']
+        if enduser_note is None and 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if entity_key is None and 'entityKey' in kwargs:
+            entity_key = kwargs['entityKey']
+        if entity_url is None and 'entityUrl' in kwargs:
+            entity_url = kwargs['entityUrl']
+        if hide_ios is None and 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if hide_web is None and 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if honor_force_authn is None and 'honorForceAuthn' in kwargs:
+            honor_force_authn = kwargs['honorForceAuthn']
+        if http_post_binding is None and 'httpPostBinding' in kwargs:
+            http_post_binding = kwargs['httpPostBinding']
+        if http_redirect_binding is None and 'httpRedirectBinding' in kwargs:
+            http_redirect_binding = kwargs['httpRedirectBinding']
+        if idp_issuer is None and 'idpIssuer' in kwargs:
+            idp_issuer = kwargs['idpIssuer']
+        if implicit_assignment is None and 'implicitAssignment' in kwargs:
+            implicit_assignment = kwargs['implicitAssignment']
+        if inline_hook_id is None and 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_years_valid is None and 'keyYearsValid' in kwargs:
+            key_years_valid = kwargs['keyYearsValid']
+        if logo_url is None and 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if metadata_url is None and 'metadataUrl' in kwargs:
+            metadata_url = kwargs['metadataUrl']
+        if preconfigured_app is None and 'preconfiguredApp' in kwargs:
+            preconfigured_app = kwargs['preconfiguredApp']
+        if request_compressed is None and 'requestCompressed' in kwargs:
+            request_compressed = kwargs['requestCompressed']
+        if response_signed is None and 'responseSigned' in kwargs:
+            response_signed = kwargs['responseSigned']
+        if saml_signed_request_enabled is None and 'samlSignedRequestEnabled' in kwargs:
+            saml_signed_request_enabled = kwargs['samlSignedRequestEnabled']
+        if saml_version is None and 'samlVersion' in kwargs:
+            saml_version = kwargs['samlVersion']
+        if sign_on_mode is None and 'signOnMode' in kwargs:
+            sign_on_mode = kwargs['signOnMode']
+        if signature_algorithm is None and 'signatureAlgorithm' in kwargs:
+            signature_algorithm = kwargs['signatureAlgorithm']
+        if single_logout_certificate is None and 'singleLogoutCertificate' in kwargs:
+            single_logout_certificate = kwargs['singleLogoutCertificate']
+        if single_logout_issuer is None and 'singleLogoutIssuer' in kwargs:
+            single_logout_issuer = kwargs['singleLogoutIssuer']
+        if single_logout_url is None and 'singleLogoutUrl' in kwargs:
+            single_logout_url = kwargs['singleLogoutUrl']
+        if sp_issuer is None and 'spIssuer' in kwargs:
+            sp_issuer = kwargs['spIssuer']
+        if sso_url is None and 'ssoUrl' in kwargs:
+            sso_url = kwargs['ssoUrl']
+        if subject_name_id_format is None and 'subjectNameIdFormat' in kwargs:
+            subject_name_id_format = kwargs['subjectNameIdFormat']
+        if subject_name_id_template is None and 'subjectNameIdTemplate' in kwargs:
+            subject_name_id_template = kwargs['subjectNameIdTemplate']
+        if user_name_template is None and 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if user_name_template_push_status is None and 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if user_name_template_suffix is None and 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if user_name_template_type is None and 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+
         if accessibility_error_redirect_url is not None:
             _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:

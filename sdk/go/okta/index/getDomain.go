@@ -13,40 +13,6 @@ import (
 )
 
 // Get a domain from Okta.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/Index"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := okta.NewDomain(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = Index.GetDomain(ctx, &index.GetDomainArgs{
-//				DomainIdOrName: "www.example.com",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_ = Index.GetDomainOutput(ctx, index.GetDomainOutputArgs{
-//				DomainIdOrName: example.ID(),
-//			}, nil)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOption) (*GetDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDomainResult
