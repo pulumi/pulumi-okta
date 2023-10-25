@@ -13,6 +13,32 @@ import (
 )
 
 // Get a list of authorization server claims from Okta.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetAuthServerClaims(ctx, &okta.GetAuthServerClaimsArgs{
+//				AuthServerId: "default",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetAuthServerClaims(ctx *pulumi.Context, args *GetAuthServerClaimsArgs, opts ...pulumi.InvokeOption) (*GetAuthServerClaimsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthServerClaimsResult

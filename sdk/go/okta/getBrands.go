@@ -13,6 +13,30 @@ import (
 )
 
 // Get the brands belonging to an Okta organization.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetBrands(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetBrands(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetBrandsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBrandsResult

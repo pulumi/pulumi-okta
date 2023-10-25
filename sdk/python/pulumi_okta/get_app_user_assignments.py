@@ -61,6 +61,15 @@ def get_app_user_assignments(id: Optional[str] = None,
     """
     Get a set of users assigned to an Okta application.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_app_user_assignments(id=okta_app_oauth["test"]["id"])
+    ```
+
 
     :param str id: ID of the Okta App being queried for groups
     """
@@ -79,6 +88,15 @@ def get_app_user_assignments_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppUserAssignmentsResult]:
     """
     Get a set of users assigned to an Okta application.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_app_user_assignments(id=okta_app_oauth["test"]["id"])
+    ```
 
 
     :param str id: ID of the Okta App being queried for groups

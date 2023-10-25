@@ -8,6 +8,21 @@ import * as utilities from "../utilities";
 
 /**
  * Get a domain from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.Domain("example", {});
+ * const by-name = okta.Index.getDomain({
+ *     domainIdOrName: "www.example.com",
+ * });
+ * const by-id = okta.Index.getDomainOutput({
+ *     domainIdOrName: example.id,
+ * });
+ * ```
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
 
@@ -62,6 +77,21 @@ export interface GetDomainResult {
 }
 /**
  * Get a domain from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.Domain("example", {});
+ * const by-name = okta.Index.getDomain({
+ *     domainIdOrName: "www.example.com",
+ * });
+ * const by-id = okta.Index.getDomainOutput({
+ *     domainIdOrName: example.id,
+ * });
+ * ```
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))

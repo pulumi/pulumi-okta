@@ -13,12 +13,56 @@ namespace Pulumi.Okta.App
     {
         /// <summary>
         /// Get a OIDC application from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.App.GetOauth.Invoke(new()
+        ///     {
+        ///         Label = "Example App",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetOauthResult> InvokeAsync(GetOauthArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a OIDC application from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.App.GetOauth.Invoke(new()
+        ///     {
+        ///         Label = "Example App",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetOauthResult> Invoke(GetOauthInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthInvokeArgs(), options.WithDefaults());

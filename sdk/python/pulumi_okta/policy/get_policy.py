@@ -86,6 +86,16 @@ def get_policy(name: Optional[str] = None,
     """
     Get a policy from Okta.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.policy.get_policy(name="Password Policy Example",
+        type="PASSWORD")
+    ```
+
 
     :param str name: Name of the policy
     :param str type: Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
@@ -109,6 +119,16 @@ def get_policy_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Get a policy from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.policy.get_policy(name="Password Policy Example",
+        type="PASSWORD")
+    ```
 
 
     :param str name: Name of the policy

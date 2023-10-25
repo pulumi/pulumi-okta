@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Get an application of any kind from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.app.getApp({
+ *     label: "Example App",
+ * });
+ * ```
  */
 export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
     args = args || {};
@@ -128,6 +139,17 @@ export interface GetAppResult {
 }
 /**
  * Get an application of any kind from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.app.getApp({
+ *     label: "Example App",
+ * });
+ * ```
  */
 export function getAppOutput(args?: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
     return pulumi.output(args).apply((a: any) => getApp(a, opts))

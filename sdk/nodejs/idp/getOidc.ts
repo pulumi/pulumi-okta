@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Get a OIDC IdP from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.idp.getOidc({
+ *     name: "Example Provider",
+ * });
+ * ```
  */
 export function getOidc(args?: GetOidcArgs, opts?: pulumi.InvokeOptions): Promise<GetOidcResult> {
     args = args || {};
@@ -110,6 +121,17 @@ export interface GetOidcResult {
 }
 /**
  * Get a OIDC IdP from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.idp.getOidc({
+ *     name: "Example Provider",
+ * });
+ * ```
  */
 export function getOidcOutput(args?: GetOidcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOidcResult> {
     return pulumi.output(args).apply((a: any) => getOidc(a, opts))

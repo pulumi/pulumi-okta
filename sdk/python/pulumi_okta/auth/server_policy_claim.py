@@ -713,6 +713,21 @@ class ServerPolicyClaim(pulumi.CustomResource):
                  user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.auth.ServerPolicyRule("example",
+            auth_server_id="<auth server id>",
+            grant_type_whitelists=["implicit"],
+            group_whitelists=["<group ids>"],
+            policy_id="<auth server policy id>",
+            priority=1,
+            status="ACTIVE")
+        ```
+
         ## Import
 
         Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
@@ -750,6 +765,21 @@ class ServerPolicyClaim(pulumi.CustomResource):
                  args: ServerPolicyClaimArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.auth.ServerPolicyRule("example",
+            auth_server_id="<auth server id>",
+            grant_type_whitelists=["implicit"],
+            group_whitelists=["<group ids>"],
+            policy_id="<auth server policy id>",
+            priority=1,
+            status="ACTIVE")
+        ```
+
         ## Import
 
         Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.

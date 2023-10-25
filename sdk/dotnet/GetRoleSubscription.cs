@@ -13,12 +13,58 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get subscriptions of a Role with a specific type
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetRoleSubscription.Invoke(new()
+        ///     {
+        ///         NotificationType = "APP_IMPORT",
+        ///         RoleType = "SUPER_ADMIN",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRoleSubscriptionResult> InvokeAsync(GetRoleSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleSubscriptionResult>("okta:index/getRoleSubscription:getRoleSubscription", args ?? new GetRoleSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get subscriptions of a Role with a specific type
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetRoleSubscription.Invoke(new()
+        ///     {
+        ///         NotificationType = "APP_IMPORT",
+        ///         RoleType = "SUPER_ADMIN",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRoleSubscriptionResult> Invoke(GetRoleSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleSubscriptionResult>("okta:index/getRoleSubscription:getRoleSubscription", args ?? new GetRoleSubscriptionInvokeArgs(), options.WithDefaults());

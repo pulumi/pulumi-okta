@@ -13,12 +13,56 @@ namespace Pulumi.Okta.Idp
     {
         /// <summary>
         /// Get a social IdP from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Idp.GetSocial.Invoke(new()
+        ///     {
+        ///         Name = "My Facebook IdP",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSocialResult> InvokeAsync(GetSocialArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a social IdP from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Idp.GetSocial.Invoke(new()
+        ///     {
+        ///         Name = "My Facebook IdP",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSocialResult> Invoke(GetSocialInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialInvokeArgs(), options.WithDefaults());

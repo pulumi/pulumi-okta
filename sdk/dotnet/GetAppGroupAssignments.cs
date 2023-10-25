@@ -13,12 +13,56 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get a set of groups assigned to an Okta application.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetAppGroupAssignments.Invoke(new()
+        ///     {
+        ///         Id = okta_app_oauth.Test.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppGroupAssignmentsResult> InvokeAsync(GetAppGroupAssignmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppGroupAssignmentsResult>("okta:index/getAppGroupAssignments:getAppGroupAssignments", args ?? new GetAppGroupAssignmentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a set of groups assigned to an Okta application.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetAppGroupAssignments.Invoke(new()
+        ///     {
+        ///         Id = okta_app_oauth.Test.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppGroupAssignmentsResult> Invoke(GetAppGroupAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppGroupAssignmentsResult>("okta:index/getAppGroupAssignments:getAppGroupAssignments", args ?? new GetAppGroupAssignmentsInvokeArgs(), options.WithDefaults());

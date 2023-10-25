@@ -13,12 +13,58 @@ namespace Pulumi.Okta.App
     {
         /// <summary>
         /// Get a SAML application's metadata from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.App.GetMetadataSaml.Invoke(new()
+        ///     {
+        ///         AppId = "&lt;app id&gt;",
+        ///         KeyId = "&lt;cert key id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMetadataSamlResult> InvokeAsync(GetMetadataSamlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SAML application's metadata from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.App.GetMetadataSaml.Invoke(new()
+        ///     {
+        ///         AppId = "&lt;app id&gt;",
+        ///         KeyId = "&lt;cert key id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetMetadataSamlResult> Invoke(GetMetadataSamlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlInvokeArgs(), options.WithDefaults());

@@ -17,6 +17,33 @@ namespace Pulumi.Okta
         /// &gt; **WARNING:** This feature is only available as a part of the 
         /// Identity Engine. Contact support 
         /// for further information.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetAuthenticator.Invoke(new()
+        ///     {
+        ///         Key = "security_question",
+        ///     });
+        /// 
+        ///     var test1 = Okta.GetAuthenticator.Invoke(new()
+        ///     {
+        ///         Name = "Okta Verify",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAuthenticatorResult> InvokeAsync(GetAuthenticatorArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorArgs(), options.WithDefaults());
@@ -27,6 +54,33 @@ namespace Pulumi.Okta
         /// &gt; **WARNING:** This feature is only available as a part of the 
         /// Identity Engine. Contact support 
         /// for further information.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetAuthenticator.Invoke(new()
+        ///     {
+        ///         Key = "security_question",
+        ///     });
+        /// 
+        ///     var test1 = Okta.GetAuthenticator.Invoke(new()
+        ///     {
+        ///         Name = "Okta Verify",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAuthenticatorResult> Invoke(GetAuthenticatorInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorInvokeArgs(), options.WithDefaults());

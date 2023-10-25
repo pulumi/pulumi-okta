@@ -146,6 +146,16 @@ def get_metadata_saml(app_id: Optional[str] = None,
     """
     Get a SAML application's metadata from Okta.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.app.get_metadata_saml(app_id="<app id>",
+        key_id="<cert key id>")
+    ```
+
 
     :param str app_id: The application ID.
     :param str key_id: Certificate Key ID.
@@ -174,6 +184,16 @@ def get_metadata_saml_output(app_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetadataSamlResult]:
     """
     Get a SAML application's metadata from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.app.get_metadata_saml(app_id="<app id>",
+        key_id="<cert key id>")
+    ```
 
 
     :param str app_id: The application ID.

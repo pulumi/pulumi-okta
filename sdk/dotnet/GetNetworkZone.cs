@@ -13,12 +13,56 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Gets Okta Network Zone.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetNetworkZone.Invoke(new()
+        ///     {
+        ///         Name = "Block Antarctica",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkZoneResult> InvokeAsync(GetNetworkZoneArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkZoneResult>("okta:index/getNetworkZone:getNetworkZone", args ?? new GetNetworkZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets Okta Network Zone.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetNetworkZone.Invoke(new()
+        ///     {
+        ///         Name = "Block Antarctica",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkZoneResult> Invoke(GetNetworkZoneInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkZoneResult>("okta:index/getNetworkZone:getNetworkZone", args ?? new GetNetworkZoneInvokeArgs(), options.WithDefaults());

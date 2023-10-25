@@ -13,6 +13,32 @@ import (
 )
 
 // Get a behaviors by search criteria.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetBehaviours(ctx, &okta.GetBehavioursArgs{
+//				Q: pulumi.StringRef("New"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetBehaviours(ctx *pulumi.Context, args *GetBehavioursArgs, opts ...pulumi.InvokeOption) (*GetBehavioursResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBehavioursResult

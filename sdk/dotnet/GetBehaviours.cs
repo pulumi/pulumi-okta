@@ -13,12 +13,56 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get a behaviors by search criteria.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetBehaviours.Invoke(new()
+        ///     {
+        ///         Q = "New",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetBehavioursResult> InvokeAsync(GetBehavioursArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBehavioursResult>("okta:index/getBehaviours:getBehaviours", args ?? new GetBehavioursArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a behaviors by search criteria.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetBehaviours.Invoke(new()
+        ///     {
+        ///         Q = "New",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetBehavioursResult> Invoke(GetBehavioursInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBehavioursResult>("okta:index/getBehaviours:getBehaviours", args ?? new GetBehavioursInvokeArgs(), options.WithDefaults());

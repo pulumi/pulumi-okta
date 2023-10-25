@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Get a social IdP from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.idp.getSocial({
+ *     name: "My Facebook IdP",
+ * });
+ * ```
  */
 export function getSocial(args?: GetSocialArgs, opts?: pulumi.InvokeOptions): Promise<GetSocialResult> {
     args = args || {};
@@ -146,6 +157,17 @@ export interface GetSocialResult {
 }
 /**
  * Get a social IdP from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.idp.getSocial({
+ *     name: "My Facebook IdP",
+ * });
+ * ```
  */
 export function getSocialOutput(args?: GetSocialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSocialResult> {
     return pulumi.output(args).apply((a: any) => getSocial(a, opts))

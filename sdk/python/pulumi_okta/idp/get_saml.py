@@ -206,6 +206,15 @@ def get_saml(id: Optional[str] = None,
     """
     Get a SAML IdP from Okta.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.idp.get_saml(name="Example App")
+    ```
+
 
     :param str id: Id of idp.
     :param str name: Name of the idp.
@@ -239,6 +248,15 @@ def get_saml_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlResult]:
     """
     Get a SAML IdP from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.idp.get_saml(name="Example App")
+    ```
 
 
     :param str id: Id of idp.
