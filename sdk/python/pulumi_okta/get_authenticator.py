@@ -187,6 +187,16 @@ def get_authenticator(id: Optional[str] = None,
     Identity Engine. Contact support
     for further information.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_authenticator(key="security_question")
+    test1 = okta.get_authenticator(name="Okta Verify")
+    ```
+
 
     :param str id: ID of the authenticator.
     :param str key: A human-readable string that identifies the authenticator.
@@ -225,6 +235,16 @@ def get_authenticator_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     > **WARNING:** This feature is only available as a part of the
     Identity Engine. Contact support
     for further information.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_authenticator(key="security_question")
+    test1 = okta.get_authenticator(name="Okta Verify")
+    ```
 
 
     :param str id: ID of the authenticator.

@@ -6,6 +6,17 @@ import * as utilities from "./utilities";
 
 /**
  * Get a set of users assigned to an Okta application.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getAppUserAssignments({
+ *     id: okta_app_oauth.test.id,
+ * });
+ * ```
  */
 export function getAppUserAssignments(args: GetAppUserAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAppUserAssignmentsResult> {
 
@@ -40,6 +51,17 @@ export interface GetAppUserAssignmentsResult {
 }
 /**
  * Get a set of users assigned to an Okta application.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getAppUserAssignments({
+ *     id: okta_app_oauth.test.id,
+ * });
+ * ```
  */
 export function getAppUserAssignmentsOutput(args: GetAppUserAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppUserAssignmentsResult> {
     return pulumi.output(args).apply((a: any) => getAppUserAssignments(a, opts))

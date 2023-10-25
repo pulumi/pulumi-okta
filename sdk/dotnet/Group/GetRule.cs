@@ -13,12 +13,56 @@ namespace Pulumi.Okta.Group
     {
         /// <summary>
         /// Get a group rule from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.Group.GetRule.Invoke(new()
+        ///     {
+        ///         Id = okta_group_rule.Example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("okta:group/getRule:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a group rule from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.Group.GetRule.Invoke(new()
+        ///     {
+        ///         Id = okta_group_rule.Example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("okta:group/getRule:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());

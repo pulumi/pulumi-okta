@@ -452,6 +452,17 @@ def get_user(compound_search_operator: Optional[str] = None,
     """
     Get a single users from Okta.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.user.get_user(searches=[okta.user.GetUserSearchArgs(
+        expression="profile.firstName eq \\"John\\"",
+    )])
+    ```
+
 
     :param str compound_search_operator: Search operator used when joining mulitple search clauses
     :param str delay_read_seconds: Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
@@ -526,6 +537,17 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Get a single users from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.user.get_user(searches=[okta.user.GetUserSearchArgs(
+        expression="profile.firstName eq \\"John\\"",
+    )])
+    ```
 
 
     :param str compound_search_operator: Search operator used when joining mulitple search clauses

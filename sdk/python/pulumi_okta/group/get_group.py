@@ -122,6 +122,15 @@ def get_group(delay_read_seconds: Optional[str] = None,
     """
     Get a group from Okta.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.group.get_group(name="Example App")
+    ```
+
 
     :param str delay_read_seconds: Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
     :param str id: ID of group.
@@ -156,6 +165,15 @@ def get_group_output(delay_read_seconds: Optional[pulumi.Input[Optional[str]]] =
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
     Get a group from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.group.get_group(name="Example App")
+    ```
 
 
     :param str delay_read_seconds: Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.

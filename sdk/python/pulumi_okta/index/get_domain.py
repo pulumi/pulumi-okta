@@ -122,6 +122,17 @@ def get_domain(domain_id_or_name: Optional[str] = None,
     """
     Get a domain from Okta.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.Domain("example")
+    by_name = okta.Index.get_domain(domain_id_or_name="www.example.com")
+    by_id = okta.Index.get_domain_output(domain_id_or_name=example.id)
+    ```
+
 
     :param str domain_id_or_name: Brand ID
     """
@@ -145,6 +156,17 @@ def get_domain_output(domain_id_or_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     Get a domain from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.Domain("example")
+    by_name = okta.Index.get_domain(domain_id_or_name="www.example.com")
+    by_id = okta.Index.get_domain_output(domain_id_or_name=example.id)
+    ```
 
 
     :param str domain_id_or_name: Brand ID

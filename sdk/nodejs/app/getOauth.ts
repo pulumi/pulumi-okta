@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Get a OIDC application from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.app.getOauth({
+ *     label: "Example App",
+ * });
+ * ```
  */
 export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Promise<GetOauthResult> {
     args = args || {};
@@ -184,6 +195,17 @@ export interface GetOauthResult {
 }
 /**
  * Get a OIDC application from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.app.getOauth({
+ *     label: "Example App",
+ * });
+ * ```
  */
 export function getOauthOutput(args?: GetOauthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOauthResult> {
     return pulumi.output(args).apply((a: any) => getOauth(a, opts))

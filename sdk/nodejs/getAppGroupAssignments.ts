@@ -6,6 +6,17 @@ import * as utilities from "./utilities";
 
 /**
  * Get a set of groups assigned to an Okta application.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getAppGroupAssignments({
+ *     id: okta_app_oauth.test.id,
+ * });
+ * ```
  */
 export function getAppGroupAssignments(args: GetAppGroupAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAppGroupAssignmentsResult> {
 
@@ -40,6 +51,17 @@ export interface GetAppGroupAssignmentsResult {
 }
 /**
  * Get a set of groups assigned to an Okta application.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getAppGroupAssignments({
+ *     id: okta_app_oauth.test.id,
+ * });
+ * ```
  */
 export function getAppGroupAssignmentsOutput(args: GetAppGroupAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppGroupAssignmentsResult> {
     return pulumi.output(args).apply((a: any) => getAppGroupAssignments(a, opts))

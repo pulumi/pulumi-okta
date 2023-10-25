@@ -90,6 +90,15 @@ def get_org_metadata(domains: Optional[pulumi.InputType['GetOrgMetadataDomainsAr
 
     - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.Index.get_org_metadata()
+    ```
+
 
     :param pulumi.InputType['GetOrgMetadataDomainsArgs'] domains: The URIs for the org's configured domains.
     :param pulumi.InputType['GetOrgMetadataSettingsArgs'] settings: The wellknown org settings (safe for public consumption).
@@ -115,6 +124,15 @@ def get_org_metadata_output(domains: Optional[pulumi.Input[Optional[pulumi.Input
     Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
 
     - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.Index.get_org_metadata()
+    ```
 
 
     :param pulumi.InputType['GetOrgMetadataDomainsArgs'] domains: The URIs for the org's configured domains.

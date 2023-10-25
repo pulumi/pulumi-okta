@@ -13,6 +13,32 @@ import (
 )
 
 // Gets Okta Network Zone.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetNetworkZone(ctx, &okta.GetNetworkZoneArgs{
+//				Name: pulumi.StringRef("Block Antarctica"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetNetworkZone(ctx *pulumi.Context, args *GetNetworkZoneArgs, opts ...pulumi.InvokeOption) (*GetNetworkZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkZoneResult

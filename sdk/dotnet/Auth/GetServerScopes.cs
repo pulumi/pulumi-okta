@@ -13,12 +13,56 @@ namespace Pulumi.Okta.Auth
     {
         /// <summary>
         /// Get a list of authorization server scopes from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.Auth.GetServerScopes.Invoke(new()
+        ///     {
+        ///         AuthServerId = "default",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerScopesResult> InvokeAsync(GetServerScopesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a list of authorization server scopes from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.Auth.GetServerScopes.Invoke(new()
+        ///     {
+        ///         AuthServerId = "default",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetServerScopesResult> Invoke(GetServerScopesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesInvokeArgs(), options.WithDefaults());

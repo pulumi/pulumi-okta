@@ -13,6 +13,30 @@ import (
 )
 
 // Get List of Trusted Origins using filters.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetTrustedOrigins(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetTrustedOrigins(ctx *pulumi.Context, args *GetTrustedOriginsArgs, opts ...pulumi.InvokeOption) (*GetTrustedOriginsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrustedOriginsResult

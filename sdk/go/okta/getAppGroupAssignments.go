@@ -13,6 +13,32 @@ import (
 )
 
 // Get a set of groups assigned to an Okta application.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.LookupAppGroupAssignments(ctx, &okta.LookupAppGroupAssignmentsArgs{
+//				Id: okta_app_oauth.Test.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupAppGroupAssignments(ctx *pulumi.Context, args *LookupAppGroupAssignmentsArgs, opts ...pulumi.InvokeOption) (*LookupAppGroupAssignmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppGroupAssignmentsResult

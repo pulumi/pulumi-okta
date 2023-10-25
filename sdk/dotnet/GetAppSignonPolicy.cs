@@ -21,6 +21,28 @@ namespace Pulumi.Okta
         /// &gt; Inside the product a sign-on policy is referenced as an _authentication
         /// policy_, in the public API the policy is of type
         /// [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetAppSignonPolicy.Invoke(new()
+        ///     {
+        ///         AppId = "app_id",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppSignonPolicyResult> InvokeAsync(GetAppSignonPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppSignonPolicyResult>("okta:index/getAppSignonPolicy:getAppSignonPolicy", args ?? new GetAppSignonPolicyArgs(), options.WithDefaults());
@@ -35,6 +57,28 @@ namespace Pulumi.Okta
         /// &gt; Inside the product a sign-on policy is referenced as an _authentication
         /// policy_, in the public API the policy is of type
         /// [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetAppSignonPolicy.Invoke(new()
+        ///     {
+        ///         AppId = "app_id",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppSignonPolicyResult> Invoke(GetAppSignonPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppSignonPolicyResult>("okta:index/getAppSignonPolicy:getAppSignonPolicy", args ?? new GetAppSignonPolicyInvokeArgs(), options.WithDefaults());

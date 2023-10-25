@@ -13,12 +13,50 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get List of Trusted Origins using filters.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Okta.GetTrustedOrigins.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrustedOriginsResult> InvokeAsync(GetTrustedOriginsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustedOriginsResult>("okta:index/getTrustedOrigins:getTrustedOrigins", args ?? new GetTrustedOriginsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get List of Trusted Origins using filters.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Okta.GetTrustedOrigins.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetTrustedOriginsResult> Invoke(GetTrustedOriginsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustedOriginsResult>("okta:index/getTrustedOrigins:getTrustedOrigins", args ?? new GetTrustedOriginsInvokeArgs(), options.WithDefaults());

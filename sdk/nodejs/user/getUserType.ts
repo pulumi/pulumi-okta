@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Get a user type from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.user.getUserType({
+ *     name: "example",
+ * });
+ * ```
  */
 export function getUserType(args: GetUserTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetUserTypeResult> {
 
@@ -48,6 +59,17 @@ export interface GetUserTypeResult {
 }
 /**
  * Get a user type from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.user.getUserType({
+ *     name: "example",
+ * });
+ * ```
  */
 export function getUserTypeOutput(args: GetUserTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserTypeResult> {
     return pulumi.output(args).apply((a: any) => getUserType(a, opts))

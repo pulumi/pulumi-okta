@@ -13,12 +13,56 @@ namespace Pulumi.Okta.App
     {
         /// <summary>
         /// Get an application of any kind from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.App.GetApp.Invoke(new()
+        ///     {
+        ///         Label = "Example App",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("okta:app/getApp:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an application of any kind from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.App.GetApp.Invoke(new()
+        ///     {
+        ///         Label = "Example App",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("okta:app/getApp:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());

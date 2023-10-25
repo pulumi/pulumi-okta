@@ -13,12 +13,56 @@ namespace Pulumi.Okta.Idp
     {
         /// <summary>
         /// Get SAML IdP metadata from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Idp.GetMetadataSaml.Invoke(new()
+        ///     {
+        ///         IdpId = "&lt;idp id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMetadataSamlResult> InvokeAsync(GetMetadataSamlArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:idp/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get SAML IdP metadata from Okta.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Idp.GetMetadataSaml.Invoke(new()
+        ///     {
+        ///         IdpId = "&lt;idp id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetMetadataSamlResult> Invoke(GetMetadataSamlInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetadataSamlResult>("okta:idp/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlInvokeArgs(), options.WithDefaults());

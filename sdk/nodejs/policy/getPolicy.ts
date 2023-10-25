@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Get a policy from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.policy.getPolicy({
+ *     name: "Password Policy Example",
+ *     type: "PASSWORD",
+ * });
+ * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
 
@@ -53,6 +65,18 @@ export interface GetPolicyResult {
 }
 /**
  * Get a policy from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.policy.getPolicy({
+ *     name: "Password Policy Example",
+ *     type: "PASSWORD",
+ * });
+ * ```
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
