@@ -69,21 +69,21 @@ class RuleMfaArgs:
              priority: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appExcludes' in kwargs:
+        if app_excludes is None and 'appExcludes' in kwargs:
             app_excludes = kwargs['appExcludes']
-        if 'appIncludes' in kwargs:
+        if app_includes is None and 'appIncludes' in kwargs:
             app_includes = kwargs['appIncludes']
-        if 'networkConnection' in kwargs:
+        if network_connection is None and 'networkConnection' in kwargs:
             network_connection = kwargs['networkConnection']
-        if 'networkExcludes' in kwargs:
+        if network_excludes is None and 'networkExcludes' in kwargs:
             network_excludes = kwargs['networkExcludes']
-        if 'networkIncludes' in kwargs:
+        if network_includes is None and 'networkIncludes' in kwargs:
             network_includes = kwargs['networkIncludes']
-        if 'policyId' in kwargs:
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
-        if 'usersExcludeds' in kwargs:
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
             users_excludeds = kwargs['usersExcludeds']
 
         if app_excludes is not None:
@@ -298,21 +298,21 @@ class _RuleMfaState:
              priority: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appExcludes' in kwargs:
+        if app_excludes is None and 'appExcludes' in kwargs:
             app_excludes = kwargs['appExcludes']
-        if 'appIncludes' in kwargs:
+        if app_includes is None and 'appIncludes' in kwargs:
             app_includes = kwargs['appIncludes']
-        if 'networkConnection' in kwargs:
+        if network_connection is None and 'networkConnection' in kwargs:
             network_connection = kwargs['networkConnection']
-        if 'networkExcludes' in kwargs:
+        if network_excludes is None and 'networkExcludes' in kwargs:
             network_excludes = kwargs['networkExcludes']
-        if 'networkIncludes' in kwargs:
+        if network_includes is None and 'networkIncludes' in kwargs:
             network_includes = kwargs['networkIncludes']
-        if 'policyId' in kwargs:
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
-        if 'usersExcludeds' in kwargs:
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
             users_excludeds = kwargs['usersExcludeds']
 
         if app_excludes is not None:

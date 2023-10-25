@@ -38,11 +38,13 @@ class RuleIdpDiscoveryAppExcludeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
         if id is not None:
@@ -99,11 +101,13 @@ class RuleIdpDiscoveryAppIncludeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
         if id is not None:
@@ -163,11 +167,11 @@ class RuleIdpDiscoveryPlatformIncludeArgs:
              os_expression: Optional[pulumi.Input[str]] = None,
              os_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'osExpression' in kwargs:
+        if os_expression is None and 'osExpression' in kwargs:
             os_expression = kwargs['osExpression']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
 
         if os_expression is not None:
@@ -223,9 +227,9 @@ class RuleIdpDiscoveryUserIdentifierPatternArgs:
              _setter: Callable[[Any, Any], None],
              match_type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchType' in kwargs:
+        if match_type is None and 'matchType' in kwargs:
             match_type = kwargs['matchType']
 
         if match_type is not None:
@@ -270,11 +274,13 @@ class RuleMfaAppExcludeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
         if id is not None:
@@ -331,11 +337,13 @@ class RuleMfaAppIncludeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
         if id is not None:
@@ -393,16 +401,20 @@ class RuleSignonFactorSequenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             primary_criteria_factor_type: pulumi.Input[str],
-             primary_criteria_provider: pulumi.Input[str],
+             primary_criteria_factor_type: Optional[pulumi.Input[str]] = None,
+             primary_criteria_provider: Optional[pulumi.Input[str]] = None,
              secondary_criterias: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'primaryCriteriaFactorType' in kwargs:
+        if primary_criteria_factor_type is None and 'primaryCriteriaFactorType' in kwargs:
             primary_criteria_factor_type = kwargs['primaryCriteriaFactorType']
-        if 'primaryCriteriaProvider' in kwargs:
+        if primary_criteria_factor_type is None:
+            raise TypeError("Missing 'primary_criteria_factor_type' argument")
+        if primary_criteria_provider is None and 'primaryCriteriaProvider' in kwargs:
             primary_criteria_provider = kwargs['primaryCriteriaProvider']
-        if 'secondaryCriterias' in kwargs:
+        if primary_criteria_provider is None:
+            raise TypeError("Missing 'primary_criteria_provider' argument")
+        if secondary_criterias is None and 'secondaryCriterias' in kwargs:
             secondary_criterias = kwargs['secondaryCriterias']
 
         _setter("primary_criteria_factor_type", primary_criteria_factor_type)
@@ -461,12 +473,16 @@ class RuleSignonFactorSequenceSecondaryCriteriaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             factor_type: pulumi.Input[str],
-             provider: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             factor_type: Optional[pulumi.Input[str]] = None,
+             provider: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'factorType' in kwargs:
+        if factor_type is None and 'factorType' in kwargs:
             factor_type = kwargs['factorType']
+        if factor_type is None:
+            raise TypeError("Missing 'factor_type' argument")
+        if provider is None:
+            raise TypeError("Missing 'provider' argument")
 
         _setter("factor_type", factor_type)
         _setter("provider", provider)

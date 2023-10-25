@@ -83,35 +83,35 @@ class DeviceAssuranceChromeosArgs:
              tpsp_safe_browsing_protection_level: Optional[pulumi.Input[str]] = None,
              tpsp_screen_lock_secured: Optional[pulumi.Input[bool]] = None,
              tpsp_site_isolation_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'tpspAllowScreenLock' in kwargs:
+        if tpsp_allow_screen_lock is None and 'tpspAllowScreenLock' in kwargs:
             tpsp_allow_screen_lock = kwargs['tpspAllowScreenLock']
-        if 'tpspBrowserVersion' in kwargs:
+        if tpsp_browser_version is None and 'tpspBrowserVersion' in kwargs:
             tpsp_browser_version = kwargs['tpspBrowserVersion']
-        if 'tpspBuiltinDnsClientEnabled' in kwargs:
+        if tpsp_builtin_dns_client_enabled is None and 'tpspBuiltinDnsClientEnabled' in kwargs:
             tpsp_builtin_dns_client_enabled = kwargs['tpspBuiltinDnsClientEnabled']
-        if 'tpspChromeRemoteDesktopAppBlocked' in kwargs:
+        if tpsp_chrome_remote_desktop_app_blocked is None and 'tpspChromeRemoteDesktopAppBlocked' in kwargs:
             tpsp_chrome_remote_desktop_app_blocked = kwargs['tpspChromeRemoteDesktopAppBlocked']
-        if 'tpspDeviceEnrollmentDomain' in kwargs:
+        if tpsp_device_enrollment_domain is None and 'tpspDeviceEnrollmentDomain' in kwargs:
             tpsp_device_enrollment_domain = kwargs['tpspDeviceEnrollmentDomain']
-        if 'tpspDiskEncrypted' in kwargs:
+        if tpsp_disk_encrypted is None and 'tpspDiskEncrypted' in kwargs:
             tpsp_disk_encrypted = kwargs['tpspDiskEncrypted']
-        if 'tpspKeyTrustLevel' in kwargs:
+        if tpsp_key_trust_level is None and 'tpspKeyTrustLevel' in kwargs:
             tpsp_key_trust_level = kwargs['tpspKeyTrustLevel']
-        if 'tpspOsFirewall' in kwargs:
+        if tpsp_os_firewall is None and 'tpspOsFirewall' in kwargs:
             tpsp_os_firewall = kwargs['tpspOsFirewall']
-        if 'tpspOsVersion' in kwargs:
+        if tpsp_os_version is None and 'tpspOsVersion' in kwargs:
             tpsp_os_version = kwargs['tpspOsVersion']
-        if 'tpspPasswordProctectionWarningTrigger' in kwargs:
+        if tpsp_password_proctection_warning_trigger is None and 'tpspPasswordProctectionWarningTrigger' in kwargs:
             tpsp_password_proctection_warning_trigger = kwargs['tpspPasswordProctectionWarningTrigger']
-        if 'tpspRealtimeUrlCheckMode' in kwargs:
+        if tpsp_realtime_url_check_mode is None and 'tpspRealtimeUrlCheckMode' in kwargs:
             tpsp_realtime_url_check_mode = kwargs['tpspRealtimeUrlCheckMode']
-        if 'tpspSafeBrowsingProtectionLevel' in kwargs:
+        if tpsp_safe_browsing_protection_level is None and 'tpspSafeBrowsingProtectionLevel' in kwargs:
             tpsp_safe_browsing_protection_level = kwargs['tpspSafeBrowsingProtectionLevel']
-        if 'tpspScreenLockSecured' in kwargs:
+        if tpsp_screen_lock_secured is None and 'tpspScreenLockSecured' in kwargs:
             tpsp_screen_lock_secured = kwargs['tpspScreenLockSecured']
-        if 'tpspSiteIsolationEnabled' in kwargs:
+        if tpsp_site_isolation_enabled is None and 'tpspSiteIsolationEnabled' in kwargs:
             tpsp_site_isolation_enabled = kwargs['tpspSiteIsolationEnabled']
 
         if name is not None:
@@ -418,43 +418,43 @@ class _DeviceAssuranceChromeosState:
              tpsp_safe_browsing_protection_level: Optional[pulumi.Input[str]] = None,
              tpsp_screen_lock_secured: Optional[pulumi.Input[bool]] = None,
              tpsp_site_isolation_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createdBy' in kwargs:
+        if created_by is None and 'createdBy' in kwargs:
             created_by = kwargs['createdBy']
-        if 'createdDate' in kwargs:
+        if created_date is None and 'createdDate' in kwargs:
             created_date = kwargs['createdDate']
-        if 'lastUpdate' in kwargs:
+        if last_update is None and 'lastUpdate' in kwargs:
             last_update = kwargs['lastUpdate']
-        if 'lastUpdatedBy' in kwargs:
+        if last_updated_by is None and 'lastUpdatedBy' in kwargs:
             last_updated_by = kwargs['lastUpdatedBy']
-        if 'tpspAllowScreenLock' in kwargs:
+        if tpsp_allow_screen_lock is None and 'tpspAllowScreenLock' in kwargs:
             tpsp_allow_screen_lock = kwargs['tpspAllowScreenLock']
-        if 'tpspBrowserVersion' in kwargs:
+        if tpsp_browser_version is None and 'tpspBrowserVersion' in kwargs:
             tpsp_browser_version = kwargs['tpspBrowserVersion']
-        if 'tpspBuiltinDnsClientEnabled' in kwargs:
+        if tpsp_builtin_dns_client_enabled is None and 'tpspBuiltinDnsClientEnabled' in kwargs:
             tpsp_builtin_dns_client_enabled = kwargs['tpspBuiltinDnsClientEnabled']
-        if 'tpspChromeRemoteDesktopAppBlocked' in kwargs:
+        if tpsp_chrome_remote_desktop_app_blocked is None and 'tpspChromeRemoteDesktopAppBlocked' in kwargs:
             tpsp_chrome_remote_desktop_app_blocked = kwargs['tpspChromeRemoteDesktopAppBlocked']
-        if 'tpspDeviceEnrollmentDomain' in kwargs:
+        if tpsp_device_enrollment_domain is None and 'tpspDeviceEnrollmentDomain' in kwargs:
             tpsp_device_enrollment_domain = kwargs['tpspDeviceEnrollmentDomain']
-        if 'tpspDiskEncrypted' in kwargs:
+        if tpsp_disk_encrypted is None and 'tpspDiskEncrypted' in kwargs:
             tpsp_disk_encrypted = kwargs['tpspDiskEncrypted']
-        if 'tpspKeyTrustLevel' in kwargs:
+        if tpsp_key_trust_level is None and 'tpspKeyTrustLevel' in kwargs:
             tpsp_key_trust_level = kwargs['tpspKeyTrustLevel']
-        if 'tpspOsFirewall' in kwargs:
+        if tpsp_os_firewall is None and 'tpspOsFirewall' in kwargs:
             tpsp_os_firewall = kwargs['tpspOsFirewall']
-        if 'tpspOsVersion' in kwargs:
+        if tpsp_os_version is None and 'tpspOsVersion' in kwargs:
             tpsp_os_version = kwargs['tpspOsVersion']
-        if 'tpspPasswordProctectionWarningTrigger' in kwargs:
+        if tpsp_password_proctection_warning_trigger is None and 'tpspPasswordProctectionWarningTrigger' in kwargs:
             tpsp_password_proctection_warning_trigger = kwargs['tpspPasswordProctectionWarningTrigger']
-        if 'tpspRealtimeUrlCheckMode' in kwargs:
+        if tpsp_realtime_url_check_mode is None and 'tpspRealtimeUrlCheckMode' in kwargs:
             tpsp_realtime_url_check_mode = kwargs['tpspRealtimeUrlCheckMode']
-        if 'tpspSafeBrowsingProtectionLevel' in kwargs:
+        if tpsp_safe_browsing_protection_level is None and 'tpspSafeBrowsingProtectionLevel' in kwargs:
             tpsp_safe_browsing_protection_level = kwargs['tpspSafeBrowsingProtectionLevel']
-        if 'tpspScreenLockSecured' in kwargs:
+        if tpsp_screen_lock_secured is None and 'tpspScreenLockSecured' in kwargs:
             tpsp_screen_lock_secured = kwargs['tpspScreenLockSecured']
-        if 'tpspSiteIsolationEnabled' in kwargs:
+        if tpsp_site_isolation_enabled is None and 'tpspSiteIsolationEnabled' in kwargs:
             tpsp_site_isolation_enabled = kwargs['tpspSiteIsolationEnabled']
 
         if created_by is not None:

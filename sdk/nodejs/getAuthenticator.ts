@@ -10,20 +10,6 @@ import * as utilities from "./utilities";
  * > **WARNING:** This feature is only available as a part of the
  * Identity Engine. Contact support
  * for further information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getAuthenticator({
- *     key: "security_question",
- * });
- * const test1 = okta.getAuthenticator({
- *     name: "Okta Verify",
- * });
- * ```
  */
 export function getAuthenticator(args?: GetAuthenticatorArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthenticatorResult> {
     args = args || {};
@@ -113,20 +99,6 @@ export interface GetAuthenticatorResult {
  * > **WARNING:** This feature is only available as a part of the
  * Identity Engine. Contact support
  * for further information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getAuthenticator({
- *     key: "security_question",
- * });
- * const test1 = okta.getAuthenticator({
- *     name: "Okta Verify",
- * });
- * ```
  */
 export function getAuthenticatorOutput(args?: GetAuthenticatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthenticatorResult> {
     return pulumi.output(args).apply((a: any) => getAuthenticator(a, opts))

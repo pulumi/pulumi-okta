@@ -26,11 +26,13 @@ class EmailSenderVerificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sender_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             sender_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'senderId' in kwargs:
+        if sender_id is None and 'senderId' in kwargs:
             sender_id = kwargs['senderId']
+        if sender_id is None:
+            raise TypeError("Missing 'sender_id' argument")
 
         _setter("sender_id", sender_id)
 
@@ -63,9 +65,9 @@ class _EmailSenderVerificationState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sender_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'senderId' in kwargs:
+        if sender_id is None and 'senderId' in kwargs:
             sender_id = kwargs['senderId']
 
         if sender_id is not None:

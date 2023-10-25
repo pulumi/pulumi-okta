@@ -13,58 +13,12 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get authorization server claim from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Okta.GetAuthServerClaim.Invoke(new()
-        ///     {
-        ///         AuthServerId = "default",
-        ///         Name = "birthdate",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAuthServerClaimResult> InvokeAsync(GetAuthServerClaimArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthServerClaimResult>("okta:index/getAuthServerClaim:getAuthServerClaim", args ?? new GetAuthServerClaimArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get authorization server claim from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Okta.GetAuthServerClaim.Invoke(new()
-        ///     {
-        ///         AuthServerId = "default",
-        ///         Name = "birthdate",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAuthServerClaimResult> Invoke(GetAuthServerClaimInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthServerClaimResult>("okta:index/getAuthServerClaim:getAuthServerClaim", args ?? new GetAuthServerClaimInvokeArgs(), options.WithDefaults());

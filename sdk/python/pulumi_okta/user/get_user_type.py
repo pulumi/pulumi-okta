@@ -85,15 +85,6 @@ def get_user_type(name: Optional[str] = None,
     """
     Get a user type from Okta.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.user.get_user_type(name="example")
-    ```
-
 
     :param str name: Name of user type to retrieve.
     """
@@ -114,15 +105,6 @@ def get_user_type_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserTypeResult]:
     """
     Get a user type from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.user.get_user_type(name="example")
-    ```
 
 
     :param str name: Name of user type to retrieve.

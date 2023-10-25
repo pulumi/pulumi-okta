@@ -37,18 +37,26 @@ class EmailDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             brand_id: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             domain: pulumi.Input[str],
-             user_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             brand_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'brandId' in kwargs:
+        if brand_id is None and 'brandId' in kwargs:
             brand_id = kwargs['brandId']
-        if 'displayName' in kwargs:
+        if brand_id is None:
+            raise TypeError("Missing 'brand_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'userName' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if user_name is None and 'userName' in kwargs:
             user_name = kwargs['userName']
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
 
         _setter("brand_id", brand_id)
         _setter("display_name", display_name)
@@ -140,17 +148,17 @@ class _EmailDomainState:
              domain: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
              validation_status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'brandId' in kwargs:
+        if brand_id is None and 'brandId' in kwargs:
             brand_id = kwargs['brandId']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'dnsValidationRecords' in kwargs:
+        if dns_validation_records is None and 'dnsValidationRecords' in kwargs:
             dns_validation_records = kwargs['dnsValidationRecords']
-        if 'userName' in kwargs:
+        if user_name is None and 'userName' in kwargs:
             user_name = kwargs['userName']
-        if 'validationStatus' in kwargs:
+        if validation_status is None and 'validationStatus' in kwargs:
             validation_status = kwargs['validationStatus']
 
         if brand_id is not None:

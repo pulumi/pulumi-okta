@@ -49,26 +49,32 @@ class ServerClaimArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_server_id: pulumi.Input[str],
-             claim_type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             auth_server_id: Optional[pulumi.Input[str]] = None,
+             claim_type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              always_include_in_token: Optional[pulumi.Input[bool]] = None,
              group_filter_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              status: Optional[pulumi.Input[str]] = None,
              value_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authServerId' in kwargs:
+        if auth_server_id is None and 'authServerId' in kwargs:
             auth_server_id = kwargs['authServerId']
-        if 'claimType' in kwargs:
+        if auth_server_id is None:
+            raise TypeError("Missing 'auth_server_id' argument")
+        if claim_type is None and 'claimType' in kwargs:
             claim_type = kwargs['claimType']
-        if 'alwaysIncludeInToken' in kwargs:
+        if claim_type is None:
+            raise TypeError("Missing 'claim_type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if always_include_in_token is None and 'alwaysIncludeInToken' in kwargs:
             always_include_in_token = kwargs['alwaysIncludeInToken']
-        if 'groupFilterType' in kwargs:
+        if group_filter_type is None and 'groupFilterType' in kwargs:
             group_filter_type = kwargs['groupFilterType']
-        if 'valueType' in kwargs:
+        if value_type is None and 'valueType' in kwargs:
             value_type = kwargs['valueType']
 
         _setter("auth_server_id", auth_server_id)
@@ -240,17 +246,17 @@ class _ServerClaimState:
              status: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
              value_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alwaysIncludeInToken' in kwargs:
+        if always_include_in_token is None and 'alwaysIncludeInToken' in kwargs:
             always_include_in_token = kwargs['alwaysIncludeInToken']
-        if 'authServerId' in kwargs:
+        if auth_server_id is None and 'authServerId' in kwargs:
             auth_server_id = kwargs['authServerId']
-        if 'claimType' in kwargs:
+        if claim_type is None and 'claimType' in kwargs:
             claim_type = kwargs['claimType']
-        if 'groupFilterType' in kwargs:
+        if group_filter_type is None and 'groupFilterType' in kwargs:
             group_filter_type = kwargs['groupFilterType']
-        if 'valueType' in kwargs:
+        if value_type is None and 'valueType' in kwargs:
             value_type = kwargs['valueType']
 
         if always_include_in_token is not None:

@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get a group rule from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.group.getRule({
- *     id: okta_group_rule.example.id,
- * });
- * ```
  */
 export function getRule(args?: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
     args = args || {};
@@ -76,17 +65,6 @@ export interface GetRuleResult {
 }
 /**
  * Get a group rule from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.group.getRule({
- *     id: okta_group_rule.example.id,
- * });
- * ```
  */
 export function getRuleOutput(args?: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
     return pulumi.output(args).apply((a: any) => getRule(a, opts))

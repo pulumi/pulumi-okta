@@ -74,10 +74,10 @@ class ServerPolicyClaimArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_server_id: pulumi.Input[str],
-             grant_type_whitelists: pulumi.Input[Sequence[pulumi.Input[str]]],
-             policy_id: pulumi.Input[str],
-             priority: pulumi.Input[int],
+             auth_server_id: Optional[pulumi.Input[str]] = None,
+             grant_type_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
              access_token_lifetime_minutes: Optional[pulumi.Input[int]] = None,
              group_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              group_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -90,31 +90,39 @@ class ServerPolicyClaimArgs:
              type: Optional[pulumi.Input[str]] = None,
              user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authServerId' in kwargs:
+        if auth_server_id is None and 'authServerId' in kwargs:
             auth_server_id = kwargs['authServerId']
-        if 'grantTypeWhitelists' in kwargs:
+        if auth_server_id is None:
+            raise TypeError("Missing 'auth_server_id' argument")
+        if grant_type_whitelists is None and 'grantTypeWhitelists' in kwargs:
             grant_type_whitelists = kwargs['grantTypeWhitelists']
-        if 'policyId' in kwargs:
+        if grant_type_whitelists is None:
+            raise TypeError("Missing 'grant_type_whitelists' argument")
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
-        if 'accessTokenLifetimeMinutes' in kwargs:
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if access_token_lifetime_minutes is None and 'accessTokenLifetimeMinutes' in kwargs:
             access_token_lifetime_minutes = kwargs['accessTokenLifetimeMinutes']
-        if 'groupBlacklists' in kwargs:
+        if group_blacklists is None and 'groupBlacklists' in kwargs:
             group_blacklists = kwargs['groupBlacklists']
-        if 'groupWhitelists' in kwargs:
+        if group_whitelists is None and 'groupWhitelists' in kwargs:
             group_whitelists = kwargs['groupWhitelists']
-        if 'inlineHookId' in kwargs:
+        if inline_hook_id is None and 'inlineHookId' in kwargs:
             inline_hook_id = kwargs['inlineHookId']
-        if 'refreshTokenLifetimeMinutes' in kwargs:
+        if refresh_token_lifetime_minutes is None and 'refreshTokenLifetimeMinutes' in kwargs:
             refresh_token_lifetime_minutes = kwargs['refreshTokenLifetimeMinutes']
-        if 'refreshTokenWindowMinutes' in kwargs:
+        if refresh_token_window_minutes is None and 'refreshTokenWindowMinutes' in kwargs:
             refresh_token_window_minutes = kwargs['refreshTokenWindowMinutes']
-        if 'scopeWhitelists' in kwargs:
+        if scope_whitelists is None and 'scopeWhitelists' in kwargs:
             scope_whitelists = kwargs['scopeWhitelists']
-        if 'userBlacklists' in kwargs:
+        if user_blacklists is None and 'userBlacklists' in kwargs:
             user_blacklists = kwargs['userBlacklists']
-        if 'userWhitelists' in kwargs:
+        if user_whitelists is None and 'userWhitelists' in kwargs:
             user_whitelists = kwargs['userWhitelists']
 
         _setter("auth_server_id", auth_server_id)
@@ -421,31 +429,31 @@ class _ServerPolicyClaimState:
              type: Optional[pulumi.Input[str]] = None,
              user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessTokenLifetimeMinutes' in kwargs:
+        if access_token_lifetime_minutes is None and 'accessTokenLifetimeMinutes' in kwargs:
             access_token_lifetime_minutes = kwargs['accessTokenLifetimeMinutes']
-        if 'authServerId' in kwargs:
+        if auth_server_id is None and 'authServerId' in kwargs:
             auth_server_id = kwargs['authServerId']
-        if 'grantTypeWhitelists' in kwargs:
+        if grant_type_whitelists is None and 'grantTypeWhitelists' in kwargs:
             grant_type_whitelists = kwargs['grantTypeWhitelists']
-        if 'groupBlacklists' in kwargs:
+        if group_blacklists is None and 'groupBlacklists' in kwargs:
             group_blacklists = kwargs['groupBlacklists']
-        if 'groupWhitelists' in kwargs:
+        if group_whitelists is None and 'groupWhitelists' in kwargs:
             group_whitelists = kwargs['groupWhitelists']
-        if 'inlineHookId' in kwargs:
+        if inline_hook_id is None and 'inlineHookId' in kwargs:
             inline_hook_id = kwargs['inlineHookId']
-        if 'policyId' in kwargs:
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
-        if 'refreshTokenLifetimeMinutes' in kwargs:
+        if refresh_token_lifetime_minutes is None and 'refreshTokenLifetimeMinutes' in kwargs:
             refresh_token_lifetime_minutes = kwargs['refreshTokenLifetimeMinutes']
-        if 'refreshTokenWindowMinutes' in kwargs:
+        if refresh_token_window_minutes is None and 'refreshTokenWindowMinutes' in kwargs:
             refresh_token_window_minutes = kwargs['refreshTokenWindowMinutes']
-        if 'scopeWhitelists' in kwargs:
+        if scope_whitelists is None and 'scopeWhitelists' in kwargs:
             scope_whitelists = kwargs['scopeWhitelists']
-        if 'userBlacklists' in kwargs:
+        if user_blacklists is None and 'userBlacklists' in kwargs:
             user_blacklists = kwargs['userBlacklists']
-        if 'userWhitelists' in kwargs:
+        if user_whitelists is None and 'userWhitelists' in kwargs:
             user_whitelists = kwargs['userWhitelists']
 
         if access_token_lifetime_minutes is not None:
@@ -705,21 +713,6 @@ class ServerPolicyClaim(pulumi.CustomResource):
                  user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.auth.ServerPolicyRule("example",
-            auth_server_id="<auth server id>",
-            grant_type_whitelists=["implicit"],
-            group_whitelists=["<group ids>"],
-            policy_id="<auth server policy id>",
-            priority=1,
-            status="ACTIVE")
-        ```
-
         ## Import
 
         Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
@@ -757,21 +750,6 @@ class ServerPolicyClaim(pulumi.CustomResource):
                  args: ServerPolicyClaimArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.auth.ServerPolicyRule("example",
-            auth_server_id="<auth server id>",
-            grant_type_whitelists=["implicit"],
-            group_whitelists=["<group ids>"],
-            policy_id="<auth server policy id>",
-            priority=1,
-            status="ACTIVE")
-        ```
-
         ## Import
 
         Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.

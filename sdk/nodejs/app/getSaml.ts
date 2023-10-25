@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SAML application from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.app.getSaml({
- *     label: "Example App",
- * });
- * ```
  */
 export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> {
     args = args || {};
@@ -279,17 +268,6 @@ export interface GetSamlResult {
 }
 /**
  * Get a SAML application from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.app.getSaml({
- *     label: "Example App",
- * });
- * ```
  */
 export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlResult> {
     return pulumi.output(args).apply((a: any) => getSaml(a, opts))

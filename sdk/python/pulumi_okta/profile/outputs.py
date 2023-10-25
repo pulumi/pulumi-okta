@@ -48,12 +48,16 @@ class MappingMapping(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expression: str,
-             id: str,
+             expression: Optional[str] = None,
+             id: Optional[str] = None,
              push_status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'pushStatus' in kwargs:
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if push_status is None and 'pushStatus' in kwargs:
             push_status = kwargs['pushStatus']
 
         _setter("expression", expression)

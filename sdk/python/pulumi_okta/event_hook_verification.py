@@ -26,11 +26,13 @@ class EventHookVerificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_hook_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             event_hook_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventHookId' in kwargs:
+        if event_hook_id is None and 'eventHookId' in kwargs:
             event_hook_id = kwargs['eventHookId']
+        if event_hook_id is None:
+            raise TypeError("Missing 'event_hook_id' argument")
 
         _setter("event_hook_id", event_hook_id)
 
@@ -63,9 +65,9 @@ class _EventHookVerificationState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              event_hook_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventHookId' in kwargs:
+        if event_hook_id is None and 'eventHookId' in kwargs:
             event_hook_id = kwargs['eventHookId']
 
         if event_hook_id is not None:

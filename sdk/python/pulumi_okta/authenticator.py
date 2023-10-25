@@ -59,7 +59,7 @@ class AuthenticatorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              provider_auth_port: Optional[pulumi.Input[int]] = None,
              provider_host: Optional[pulumi.Input[str]] = None,
@@ -71,23 +71,25 @@ class AuthenticatorArgs:
              provider_user_name_template: Optional[pulumi.Input[str]] = None,
              settings: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'providerAuthPort' in kwargs:
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if provider_auth_port is None and 'providerAuthPort' in kwargs:
             provider_auth_port = kwargs['providerAuthPort']
-        if 'providerHost' in kwargs:
+        if provider_host is None and 'providerHost' in kwargs:
             provider_host = kwargs['providerHost']
-        if 'providerHostname' in kwargs:
+        if provider_hostname is None and 'providerHostname' in kwargs:
             provider_hostname = kwargs['providerHostname']
-        if 'providerIntegrationKey' in kwargs:
+        if provider_integration_key is None and 'providerIntegrationKey' in kwargs:
             provider_integration_key = kwargs['providerIntegrationKey']
-        if 'providerJson' in kwargs:
+        if provider_json is None and 'providerJson' in kwargs:
             provider_json = kwargs['providerJson']
-        if 'providerSecretKey' in kwargs:
+        if provider_secret_key is None and 'providerSecretKey' in kwargs:
             provider_secret_key = kwargs['providerSecretKey']
-        if 'providerSharedSecret' in kwargs:
+        if provider_shared_secret is None and 'providerSharedSecret' in kwargs:
             provider_shared_secret = kwargs['providerSharedSecret']
-        if 'providerUserNameTemplate' in kwargs:
+        if provider_user_name_template is None and 'providerUserNameTemplate' in kwargs:
             provider_user_name_template = kwargs['providerUserNameTemplate']
 
         _setter("key", key)
@@ -331,27 +333,27 @@ class _AuthenticatorState:
              settings: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'providerAuthPort' in kwargs:
+        if provider_auth_port is None and 'providerAuthPort' in kwargs:
             provider_auth_port = kwargs['providerAuthPort']
-        if 'providerHost' in kwargs:
+        if provider_host is None and 'providerHost' in kwargs:
             provider_host = kwargs['providerHost']
-        if 'providerHostname' in kwargs:
+        if provider_hostname is None and 'providerHostname' in kwargs:
             provider_hostname = kwargs['providerHostname']
-        if 'providerInstanceId' in kwargs:
+        if provider_instance_id is None and 'providerInstanceId' in kwargs:
             provider_instance_id = kwargs['providerInstanceId']
-        if 'providerIntegrationKey' in kwargs:
+        if provider_integration_key is None and 'providerIntegrationKey' in kwargs:
             provider_integration_key = kwargs['providerIntegrationKey']
-        if 'providerJson' in kwargs:
+        if provider_json is None and 'providerJson' in kwargs:
             provider_json = kwargs['providerJson']
-        if 'providerSecretKey' in kwargs:
+        if provider_secret_key is None and 'providerSecretKey' in kwargs:
             provider_secret_key = kwargs['providerSecretKey']
-        if 'providerSharedSecret' in kwargs:
+        if provider_shared_secret is None and 'providerSharedSecret' in kwargs:
             provider_shared_secret = kwargs['providerSharedSecret']
-        if 'providerType' in kwargs:
+        if provider_type is None and 'providerType' in kwargs:
             provider_type = kwargs['providerType']
-        if 'providerUserNameTemplate' in kwargs:
+        if provider_user_name_template is None and 'providerUserNameTemplate' in kwargs:
             provider_user_name_template = kwargs['providerUserNameTemplate']
 
         if key is not None:

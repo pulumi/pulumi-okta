@@ -43,17 +43,17 @@ class SecurityNotificationEmailsArgs:
              send_email_for_factor_reset_enabled: Optional[pulumi.Input[bool]] = None,
              send_email_for_new_device_enabled: Optional[pulumi.Input[bool]] = None,
              send_email_for_password_changed_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'reportSuspiciousActivityEnabled' in kwargs:
+        if report_suspicious_activity_enabled is None and 'reportSuspiciousActivityEnabled' in kwargs:
             report_suspicious_activity_enabled = kwargs['reportSuspiciousActivityEnabled']
-        if 'sendEmailForFactorEnrollmentEnabled' in kwargs:
+        if send_email_for_factor_enrollment_enabled is None and 'sendEmailForFactorEnrollmentEnabled' in kwargs:
             send_email_for_factor_enrollment_enabled = kwargs['sendEmailForFactorEnrollmentEnabled']
-        if 'sendEmailForFactorResetEnabled' in kwargs:
+        if send_email_for_factor_reset_enabled is None and 'sendEmailForFactorResetEnabled' in kwargs:
             send_email_for_factor_reset_enabled = kwargs['sendEmailForFactorResetEnabled']
-        if 'sendEmailForNewDeviceEnabled' in kwargs:
+        if send_email_for_new_device_enabled is None and 'sendEmailForNewDeviceEnabled' in kwargs:
             send_email_for_new_device_enabled = kwargs['sendEmailForNewDeviceEnabled']
-        if 'sendEmailForPasswordChangedEnabled' in kwargs:
+        if send_email_for_password_changed_enabled is None and 'sendEmailForPasswordChangedEnabled' in kwargs:
             send_email_for_password_changed_enabled = kwargs['sendEmailForPasswordChangedEnabled']
 
         if report_suspicious_activity_enabled is not None:
@@ -160,17 +160,17 @@ class _SecurityNotificationEmailsState:
              send_email_for_factor_reset_enabled: Optional[pulumi.Input[bool]] = None,
              send_email_for_new_device_enabled: Optional[pulumi.Input[bool]] = None,
              send_email_for_password_changed_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'reportSuspiciousActivityEnabled' in kwargs:
+        if report_suspicious_activity_enabled is None and 'reportSuspiciousActivityEnabled' in kwargs:
             report_suspicious_activity_enabled = kwargs['reportSuspiciousActivityEnabled']
-        if 'sendEmailForFactorEnrollmentEnabled' in kwargs:
+        if send_email_for_factor_enrollment_enabled is None and 'sendEmailForFactorEnrollmentEnabled' in kwargs:
             send_email_for_factor_enrollment_enabled = kwargs['sendEmailForFactorEnrollmentEnabled']
-        if 'sendEmailForFactorResetEnabled' in kwargs:
+        if send_email_for_factor_reset_enabled is None and 'sendEmailForFactorResetEnabled' in kwargs:
             send_email_for_factor_reset_enabled = kwargs['sendEmailForFactorResetEnabled']
-        if 'sendEmailForNewDeviceEnabled' in kwargs:
+        if send_email_for_new_device_enabled is None and 'sendEmailForNewDeviceEnabled' in kwargs:
             send_email_for_new_device_enabled = kwargs['sendEmailForNewDeviceEnabled']
-        if 'sendEmailForPasswordChangedEnabled' in kwargs:
+        if send_email_for_password_changed_enabled is None and 'sendEmailForPasswordChangedEnabled' in kwargs:
             send_email_for_password_changed_enabled = kwargs['sendEmailForPasswordChangedEnabled']
 
         if report_suspicious_activity_enabled is not None:

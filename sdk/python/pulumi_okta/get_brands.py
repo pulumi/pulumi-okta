@@ -60,15 +60,6 @@ class AwaitableGetBrandsResult(GetBrandsResult):
 def get_brands(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrandsResult:
     """
     Get the brands belonging to an Okta organization.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.get_brands()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -83,14 +74,5 @@ def get_brands(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrand
 def get_brands_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrandsResult]:
     """
     Get the brands belonging to an Okta organization.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.get_brands()
-    ```
     """
     ...

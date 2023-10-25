@@ -44,22 +44,26 @@ class EmailCustomizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             brand_id: pulumi.Input[str],
-             template_name: pulumi.Input[str],
+             brand_id: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
              body: Optional[pulumi.Input[str]] = None,
              force_is_default: Optional[pulumi.Input[str]] = None,
              is_default: Optional[pulumi.Input[bool]] = None,
              language: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'brandId' in kwargs:
+        if brand_id is None and 'brandId' in kwargs:
             brand_id = kwargs['brandId']
-        if 'templateName' in kwargs:
+        if brand_id is None:
+            raise TypeError("Missing 'brand_id' argument")
+        if template_name is None and 'templateName' in kwargs:
             template_name = kwargs['templateName']
-        if 'forceIsDefault' in kwargs:
+        if template_name is None:
+            raise TypeError("Missing 'template_name' argument")
+        if force_is_default is None and 'forceIsDefault' in kwargs:
             force_is_default = kwargs['forceIsDefault']
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
 
         _setter("brand_id", brand_id)
@@ -210,15 +214,15 @@ class _EmailCustomizationState:
              links: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              template_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'brandId' in kwargs:
+        if brand_id is None and 'brandId' in kwargs:
             brand_id = kwargs['brandId']
-        if 'forceIsDefault' in kwargs:
+        if force_is_default is None and 'forceIsDefault' in kwargs:
             force_is_default = kwargs['forceIsDefault']
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'templateName' in kwargs:
+        if template_name is None and 'templateName' in kwargs:
             template_name = kwargs['templateName']
 
         if body is not None:

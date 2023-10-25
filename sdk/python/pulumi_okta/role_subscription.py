@@ -32,15 +32,19 @@ class RoleSubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             notification_type: pulumi.Input[str],
-             role_type: pulumi.Input[str],
+             notification_type: Optional[pulumi.Input[str]] = None,
+             role_type: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'notificationType' in kwargs:
+        if notification_type is None and 'notificationType' in kwargs:
             notification_type = kwargs['notificationType']
-        if 'roleType' in kwargs:
+        if notification_type is None:
+            raise TypeError("Missing 'notification_type' argument")
+        if role_type is None and 'roleType' in kwargs:
             role_type = kwargs['roleType']
+        if role_type is None:
+            raise TypeError("Missing 'role_type' argument")
 
         _setter("notification_type", notification_type)
         _setter("role_type", role_type)
@@ -108,11 +112,11 @@ class _RoleSubscriptionState:
              notification_type: Optional[pulumi.Input[str]] = None,
              role_type: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'notificationType' in kwargs:
+        if notification_type is None and 'notificationType' in kwargs:
             notification_type = kwargs['notificationType']
-        if 'roleType' in kwargs:
+        if role_type is None and 'roleType' in kwargs:
             role_type = kwargs['roleType']
 
         if notification_type is not None:

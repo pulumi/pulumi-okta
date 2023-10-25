@@ -5,22 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.auth.ServerPolicyRule("example", {
- *     authServerId: "<auth server id>",
- *     grantTypeWhitelists: ["implicit"],
- *     groupWhitelists: ["<group ids>"],
- *     policyId: "<auth server policy id>",
- *     priority: 1,
- *     status: "ACTIVE",
- * });
- * ```
- *
  * ## Import
  *
  * Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.

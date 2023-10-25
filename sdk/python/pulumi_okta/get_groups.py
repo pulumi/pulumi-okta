@@ -94,15 +94,6 @@ def get_groups(q: Optional[str] = None,
     """
     Get a list of groups from Okta.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.get_groups(q="Engineering - ")
-    ```
-
 
     :param str q: Searches the name property of groups for matching value
     :param str search: Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
@@ -129,15 +120,6 @@ def get_groups_output(q: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupsResult]:
     """
     Get a list of groups from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.get_groups(q="Engineering - ")
-    ```
 
 
     :param str q: Searches the name property of groups for matching value

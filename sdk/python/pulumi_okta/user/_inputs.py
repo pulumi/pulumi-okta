@@ -41,16 +41,20 @@ class UserPasswordHashArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: pulumi.Input[str],
-             value: pulumi.Input[str],
+             algorithm: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              salt: Optional[pulumi.Input[str]] = None,
              salt_order: Optional[pulumi.Input[str]] = None,
              work_factor: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'saltOrder' in kwargs:
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if salt_order is None and 'saltOrder' in kwargs:
             salt_order = kwargs['saltOrder']
-        if 'workFactor' in kwargs:
+        if work_factor is None and 'workFactor' in kwargs:
             work_factor = kwargs['workFactor']
 
         _setter("algorithm", algorithm)
@@ -148,7 +152,7 @@ class GetUserSearchArgs:
              expression: Optional[str] = None,
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if comparison is not None:
@@ -228,7 +232,7 @@ class GetUsersSearchArgs:
              expression: Optional[str] = None,
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if comparison is not None:

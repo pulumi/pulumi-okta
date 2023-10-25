@@ -39,11 +39,13 @@ class RuleIdpDiscoveryAppExclude(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
         if id is not None:
@@ -88,11 +90,13 @@ class RuleIdpDiscoveryAppInclude(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
         if id is not None:
@@ -159,11 +163,11 @@ class RuleIdpDiscoveryPlatformInclude(dict):
              os_expression: Optional[str] = None,
              os_type: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'osExpression' in kwargs:
+        if os_expression is None and 'osExpression' in kwargs:
             os_expression = kwargs['osExpression']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
 
         if os_expression is not None:
@@ -224,9 +228,9 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
              _setter: Callable[[Any, Any], None],
              match_type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'matchType' in kwargs:
+        if match_type is None and 'matchType' in kwargs:
             match_type = kwargs['matchType']
 
         if match_type is not None:
@@ -263,11 +267,13 @@ class RuleMfaAppExclude(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
         if id is not None:
@@ -312,11 +318,13 @@ class RuleMfaAppInclude(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
         if id is not None:
@@ -383,16 +391,20 @@ class RuleSignonFactorSequence(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             primary_criteria_factor_type: str,
-             primary_criteria_provider: str,
+             primary_criteria_factor_type: Optional[str] = None,
+             primary_criteria_provider: Optional[str] = None,
              secondary_criterias: Optional[Sequence['outputs.RuleSignonFactorSequenceSecondaryCriteria']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'primaryCriteriaFactorType' in kwargs:
+        if primary_criteria_factor_type is None and 'primaryCriteriaFactorType' in kwargs:
             primary_criteria_factor_type = kwargs['primaryCriteriaFactorType']
-        if 'primaryCriteriaProvider' in kwargs:
+        if primary_criteria_factor_type is None:
+            raise TypeError("Missing 'primary_criteria_factor_type' argument")
+        if primary_criteria_provider is None and 'primaryCriteriaProvider' in kwargs:
             primary_criteria_provider = kwargs['primaryCriteriaProvider']
-        if 'secondaryCriterias' in kwargs:
+        if primary_criteria_provider is None:
+            raise TypeError("Missing 'primary_criteria_provider' argument")
+        if secondary_criterias is None and 'secondaryCriterias' in kwargs:
             secondary_criterias = kwargs['secondaryCriterias']
 
         _setter("primary_criteria_factor_type", primary_criteria_factor_type)
@@ -456,12 +468,16 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             factor_type: str,
-             provider: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             factor_type: Optional[str] = None,
+             provider: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'factorType' in kwargs:
+        if factor_type is None and 'factorType' in kwargs:
             factor_type = kwargs['factorType']
+        if factor_type is None:
+            raise TypeError("Missing 'factor_type' argument")
+        if provider is None:
+            raise TypeError("Missing 'provider' argument")
 
         _setter("factor_type", factor_type)
         _setter("provider", provider)

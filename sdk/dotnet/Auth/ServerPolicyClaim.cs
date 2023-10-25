@@ -10,35 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Auth
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Auth.ServerPolicyRule("example", new()
-    ///     {
-    ///         AuthServerId = "&lt;auth server id&gt;",
-    ///         GrantTypeWhitelists = new[]
-    ///         {
-    ///             "implicit",
-    ///         },
-    ///         GroupWhitelists = new[]
-    ///         {
-    ///             "&lt;group ids&gt;",
-    ///         },
-    ///         PolicyId = "&lt;auth server policy id&gt;",
-    ///         Priority = 1,
-    ///         Status = "ACTIVE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.

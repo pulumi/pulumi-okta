@@ -43,9 +43,9 @@ class SignonArgs:
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'groupsIncludeds' in kwargs:
+        if groups_includeds is None and 'groupsIncludeds' in kwargs:
             groups_includeds = kwargs['groupsIncludeds']
 
         if description is not None:
@@ -152,9 +152,9 @@ class _SignonState:
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'groupsIncludeds' in kwargs:
+        if groups_includeds is None and 'groupsIncludeds' in kwargs:
             groups_includeds = kwargs['groupsIncludeds']
 
         if description is not None:

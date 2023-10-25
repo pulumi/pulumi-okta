@@ -42,14 +42,18 @@ class EventHookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-             events: pulumi.Input[Sequence[pulumi.Input[str]]],
+             channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if channel is None:
+            raise TypeError("Missing 'channel' argument")
+        if events is None:
+            raise TypeError("Missing 'events' argument")
 
         _setter("channel", channel)
         _setter("events", events)
@@ -167,7 +171,7 @@ class _EventHookState:
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if auth is not None:

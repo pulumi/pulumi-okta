@@ -68,7 +68,7 @@ class OrgConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             company_name: pulumi.Input[str],
+             company_name: Optional[pulumi.Input[str]] = None,
              address1: Optional[pulumi.Input[str]] = None,
              address2: Optional[pulumi.Input[str]] = None,
              billing_contact_user: Optional[pulumi.Input[str]] = None,
@@ -83,23 +83,25 @@ class OrgConfigurationArgs:
              support_phone_number: Optional[pulumi.Input[str]] = None,
              technical_contact_user: Optional[pulumi.Input[str]] = None,
              website: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'companyName' in kwargs:
+        if company_name is None and 'companyName' in kwargs:
             company_name = kwargs['companyName']
-        if 'billingContactUser' in kwargs:
+        if company_name is None:
+            raise TypeError("Missing 'company_name' argument")
+        if billing_contact_user is None and 'billingContactUser' in kwargs:
             billing_contact_user = kwargs['billingContactUser']
-        if 'endUserSupportHelpUrl' in kwargs:
+        if end_user_support_help_url is None and 'endUserSupportHelpUrl' in kwargs:
             end_user_support_help_url = kwargs['endUserSupportHelpUrl']
-        if 'optOutCommunicationEmails' in kwargs:
+        if opt_out_communication_emails is None and 'optOutCommunicationEmails' in kwargs:
             opt_out_communication_emails = kwargs['optOutCommunicationEmails']
-        if 'phoneNumber' in kwargs:
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
-        if 'postalCode' in kwargs:
+        if postal_code is None and 'postalCode' in kwargs:
             postal_code = kwargs['postalCode']
-        if 'supportPhoneNumber' in kwargs:
+        if support_phone_number is None and 'supportPhoneNumber' in kwargs:
             support_phone_number = kwargs['supportPhoneNumber']
-        if 'technicalContactUser' in kwargs:
+        if technical_contact_user is None and 'technicalContactUser' in kwargs:
             technical_contact_user = kwargs['technicalContactUser']
 
         _setter("company_name", company_name)
@@ -393,25 +395,25 @@ class _OrgConfigurationState:
              support_phone_number: Optional[pulumi.Input[str]] = None,
              technical_contact_user: Optional[pulumi.Input[str]] = None,
              website: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'billingContactUser' in kwargs:
+        if billing_contact_user is None and 'billingContactUser' in kwargs:
             billing_contact_user = kwargs['billingContactUser']
-        if 'companyName' in kwargs:
+        if company_name is None and 'companyName' in kwargs:
             company_name = kwargs['companyName']
-        if 'endUserSupportHelpUrl' in kwargs:
+        if end_user_support_help_url is None and 'endUserSupportHelpUrl' in kwargs:
             end_user_support_help_url = kwargs['endUserSupportHelpUrl']
-        if 'expiresAt' in kwargs:
+        if expires_at is None and 'expiresAt' in kwargs:
             expires_at = kwargs['expiresAt']
-        if 'optOutCommunicationEmails' in kwargs:
+        if opt_out_communication_emails is None and 'optOutCommunicationEmails' in kwargs:
             opt_out_communication_emails = kwargs['optOutCommunicationEmails']
-        if 'phoneNumber' in kwargs:
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
-        if 'postalCode' in kwargs:
+        if postal_code is None and 'postalCode' in kwargs:
             postal_code = kwargs['postalCode']
-        if 'supportPhoneNumber' in kwargs:
+        if support_phone_number is None and 'supportPhoneNumber' in kwargs:
             support_phone_number = kwargs['supportPhoneNumber']
-        if 'technicalContactUser' in kwargs:
+        if technical_contact_user is None and 'technicalContactUser' in kwargs:
             technical_contact_user = kwargs['technicalContactUser']
 
         if address1 is not None:

@@ -26,9 +26,11 @@ class SamlKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             x5cs: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if x5cs is None:
+            raise TypeError("Missing 'x5cs' argument")
 
         _setter("x5cs", x5cs)
 
@@ -79,11 +81,11 @@ class _SamlKeyState:
              use: Optional[pulumi.Input[str]] = None,
              x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              x5t_s256: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expiresAt' in kwargs:
+        if expires_at is None and 'expiresAt' in kwargs:
             expires_at = kwargs['expiresAt']
-        if 'x5tS256' in kwargs:
+        if x5t_s256 is None and 'x5tS256' in kwargs:
             x5t_s256 = kwargs['x5tS256']
 
         if created is not None:

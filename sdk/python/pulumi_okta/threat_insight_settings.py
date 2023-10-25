@@ -29,11 +29,13 @@ class ThreatInsightSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
              network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkExcludes' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if network_excludes is None and 'networkExcludes' in kwargs:
             network_excludes = kwargs['networkExcludes']
 
         _setter("action", action)
@@ -85,9 +87,9 @@ class _ThreatInsightSettingsState:
              _setter: Callable[[Any, Any], None],
              action: Optional[pulumi.Input[str]] = None,
              network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkExcludes' in kwargs:
+        if network_excludes is None and 'networkExcludes' in kwargs:
             network_excludes = kwargs['networkExcludes']
 
         if action is not None:

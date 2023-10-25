@@ -13,32 +13,6 @@ import (
 )
 
 // Get a set of users assigned to an Okta application.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.GetAppUserAssignments(ctx, &okta.GetAppUserAssignmentsArgs{
-//				Id: okta_app_oauth.Test.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAppUserAssignments(ctx *pulumi.Context, args *GetAppUserAssignmentsArgs, opts ...pulumi.InvokeOption) (*GetAppUserAssignmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAppUserAssignmentsResult

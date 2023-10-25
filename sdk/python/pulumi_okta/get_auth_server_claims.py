@@ -74,15 +74,6 @@ def get_auth_server_claims(auth_server_id: Optional[str] = None,
     """
     Get a list of authorization server claims from Okta.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.get_auth_server_claims(auth_server_id="default")
-    ```
-
 
     :param str auth_server_id: Auth server ID
     """
@@ -102,15 +93,6 @@ def get_auth_server_claims_output(auth_server_id: Optional[pulumi.Input[str]] = 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthServerClaimsResult]:
     """
     Get a list of authorization server claims from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.get_auth_server_claims(auth_server_id="default")
-    ```
 
 
     :param str auth_server_id: Auth server ID

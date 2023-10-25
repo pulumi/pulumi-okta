@@ -39,24 +39,28 @@ class RuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expression_value: pulumi.Input[str],
-             group_assignments: pulumi.Input[Sequence[pulumi.Input[str]]],
+             expression_value: Optional[pulumi.Input[str]] = None,
+             group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              expression_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              remove_assigned_users: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expressionValue' in kwargs:
+        if expression_value is None and 'expressionValue' in kwargs:
             expression_value = kwargs['expressionValue']
-        if 'groupAssignments' in kwargs:
+        if expression_value is None:
+            raise TypeError("Missing 'expression_value' argument")
+        if group_assignments is None and 'groupAssignments' in kwargs:
             group_assignments = kwargs['groupAssignments']
-        if 'expressionType' in kwargs:
+        if group_assignments is None:
+            raise TypeError("Missing 'group_assignments' argument")
+        if expression_type is None and 'expressionType' in kwargs:
             expression_type = kwargs['expressionType']
-        if 'removeAssignedUsers' in kwargs:
+        if remove_assigned_users is None and 'removeAssignedUsers' in kwargs:
             remove_assigned_users = kwargs['removeAssignedUsers']
-        if 'usersExcludeds' in kwargs:
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
             users_excludeds = kwargs['usersExcludeds']
 
         _setter("expression_value", expression_value)
@@ -177,17 +181,17 @@ class _RuleState:
              remove_assigned_users: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expressionType' in kwargs:
+        if expression_type is None and 'expressionType' in kwargs:
             expression_type = kwargs['expressionType']
-        if 'expressionValue' in kwargs:
+        if expression_value is None and 'expressionValue' in kwargs:
             expression_value = kwargs['expressionValue']
-        if 'groupAssignments' in kwargs:
+        if group_assignments is None and 'groupAssignments' in kwargs:
             group_assignments = kwargs['groupAssignments']
-        if 'removeAssignedUsers' in kwargs:
+        if remove_assigned_users is None and 'removeAssignedUsers' in kwargs:
             remove_assigned_users = kwargs['removeAssignedUsers']
-        if 'usersExcludeds' in kwargs:
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
             users_excludeds = kwargs['usersExcludeds']
 
         if expression_type is not None:

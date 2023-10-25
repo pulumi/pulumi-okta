@@ -158,15 +158,6 @@ def get_network_zone(id: Optional[str] = None,
     """
     Gets Okta Network Zone.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.get_network_zone(name="Block Antarctica")
-    ```
-
 
     :param str id: ID of the network zone to retrieve, conflicts with `name`.
     :param str name: Name of the network zone to retrieve, conflicts with `id`.
@@ -196,15 +187,6 @@ def get_network_zone_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkZoneResult]:
     """
     Gets Okta Network Zone.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.get_network_zone(name="Block Antarctica")
-    ```
 
 
     :param str id: ID of the network zone to retrieve, conflicts with `name`.

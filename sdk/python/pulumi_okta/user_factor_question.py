@@ -32,13 +32,19 @@ class UserFactorQuestionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             answer: pulumi.Input[str],
-             key: pulumi.Input[str],
-             user_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             answer: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'userId' in kwargs:
+        if answer is None:
+            raise TypeError("Missing 'answer' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
 
         _setter("answer", answer)
         _setter("key", key)
@@ -113,9 +119,9 @@ class _UserFactorQuestionState:
              status: Optional[pulumi.Input[str]] = None,
              text: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         if answer is not None:

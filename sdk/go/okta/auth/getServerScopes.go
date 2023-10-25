@@ -13,32 +13,6 @@ import (
 )
 
 // Get a list of authorization server scopes from Okta.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/auth"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auth.GetServerScopes(ctx, &auth.GetServerScopesArgs{
-//				AuthServerId: "default",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetServerScopes(ctx *pulumi.Context, args *GetServerScopesArgs, opts ...pulumi.InvokeOption) (*GetServerScopesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServerScopesResult
