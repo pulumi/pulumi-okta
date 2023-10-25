@@ -39,11 +39,11 @@ class GroupArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              skip_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customProfileAttributes' in kwargs:
+        if custom_profile_attributes is None and 'customProfileAttributes' in kwargs:
             custom_profile_attributes = kwargs['customProfileAttributes']
-        if 'skipUsers' in kwargs:
+        if skip_users is None and 'skipUsers' in kwargs:
             skip_users = kwargs['skipUsers']
 
         if custom_profile_attributes is not None:
@@ -138,11 +138,11 @@ class _GroupState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              skip_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customProfileAttributes' in kwargs:
+        if custom_profile_attributes is None and 'customProfileAttributes' in kwargs:
             custom_profile_attributes = kwargs['customProfileAttributes']
-        if 'skipUsers' in kwargs:
+        if skip_users is None and 'skipUsers' in kwargs:
             skip_users = kwargs['skipUsers']
 
         if custom_profile_attributes is not None:

@@ -95,35 +95,35 @@ class ProviderArgs:
              private_key_id: Optional[pulumi.Input[str]] = None,
              request_timeout: Optional[pulumi.Input[int]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessToken' in kwargs:
+        if access_token is None and 'accessToken' in kwargs:
             access_token = kwargs['accessToken']
-        if 'apiToken' in kwargs:
+        if api_token is None and 'apiToken' in kwargs:
             api_token = kwargs['apiToken']
-        if 'baseUrl' in kwargs:
+        if base_url is None and 'baseUrl' in kwargs:
             base_url = kwargs['baseUrl']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'httpProxy' in kwargs:
+        if http_proxy is None and 'httpProxy' in kwargs:
             http_proxy = kwargs['httpProxy']
-        if 'logLevel' in kwargs:
+        if log_level is None and 'logLevel' in kwargs:
             log_level = kwargs['logLevel']
-        if 'maxApiCapacity' in kwargs:
+        if max_api_capacity is None and 'maxApiCapacity' in kwargs:
             max_api_capacity = kwargs['maxApiCapacity']
-        if 'maxRetries' in kwargs:
+        if max_retries is None and 'maxRetries' in kwargs:
             max_retries = kwargs['maxRetries']
-        if 'maxWaitSeconds' in kwargs:
+        if max_wait_seconds is None and 'maxWaitSeconds' in kwargs:
             max_wait_seconds = kwargs['maxWaitSeconds']
-        if 'minWaitSeconds' in kwargs:
+        if min_wait_seconds is None and 'minWaitSeconds' in kwargs:
             min_wait_seconds = kwargs['minWaitSeconds']
-        if 'orgName' in kwargs:
+        if org_name is None and 'orgName' in kwargs:
             org_name = kwargs['orgName']
-        if 'privateKey' in kwargs:
+        if private_key is None and 'privateKey' in kwargs:
             private_key = kwargs['privateKey']
-        if 'privateKeyId' in kwargs:
+        if private_key_id is None and 'privateKeyId' in kwargs:
             private_key_id = kwargs['privateKeyId']
-        if 'requestTimeout' in kwargs:
+        if request_timeout is None and 'requestTimeout' in kwargs:
             request_timeout = kwargs['requestTimeout']
 
         if access_token is not None:

@@ -147,16 +147,6 @@ def get_auth_server_claim(auth_server_id: Optional[str] = None,
     """
     Get authorization server claim from Okta.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.get_auth_server_claim(auth_server_id="default",
-        name="birthdate")
-    ```
-
 
     :param str auth_server_id: Auth server ID
     :param str id: Name of the claim. Conflicts with `name`.
@@ -188,16 +178,6 @@ def get_auth_server_claim_output(auth_server_id: Optional[pulumi.Input[str]] = N
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthServerClaimResult]:
     """
     Get authorization server claim from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.get_auth_server_claim(auth_server_id="default",
-        name="birthdate")
-    ```
 
 
     :param str auth_server_id: Auth server ID

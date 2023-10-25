@@ -8,15 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Get List of Trusted Origins using filters.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const all = okta.getTrustedOrigins({});
- * ```
  */
 export function getTrustedOrigins(args?: GetTrustedOriginsArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedOriginsResult> {
     args = args || {};
@@ -53,15 +44,6 @@ export interface GetTrustedOriginsResult {
 }
 /**
  * Get List of Trusted Origins using filters.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const all = okta.getTrustedOrigins({});
- * ```
  */
 export function getTrustedOriginsOutput(args?: GetTrustedOriginsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedOriginsResult> {
     return pulumi.output(args).apply((a: any) => getTrustedOrigins(a, opts))

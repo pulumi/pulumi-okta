@@ -120,15 +120,6 @@ def get_rule(id: Optional[str] = None,
     """
     Get a group rule from Okta.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.group.get_rule(id=okta_group_rule["example"]["id"])
-    ```
-
 
     :param str id: The ID of the Group Rule.
     :param str name: The name of the Group Rule.
@@ -157,15 +148,6 @@ def get_rule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
     Get a group rule from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    test = okta.group.get_rule(id=okta_group_rule["example"]["id"])
-    ```
 
 
     :param str id: The ID of the Group Rule.

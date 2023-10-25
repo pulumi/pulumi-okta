@@ -63,15 +63,6 @@ def get_default_policy(type: Optional[str] = None,
     same thing can be achieved using the `policy_get_policy` with default
     names, this is simply a shortcut.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.policy.get_default_policy(type="PASSWORD")
-    ```
-
 
     :param str type: Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
     """
@@ -92,15 +83,6 @@ def get_default_policy_output(type: Optional[pulumi.Input[str]] = None,
     Use this data source to retrieve a default policy from Okta. This
     same thing can be achieved using the `policy_get_policy` with default
     names, this is simply a shortcut.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.policy.get_default_policy(type="PASSWORD")
-    ```
 
 
     :param str type: Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY

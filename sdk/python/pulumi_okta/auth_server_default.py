@@ -46,11 +46,11 @@ class AuthServerDefaultArgs:
              issuer_mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'credentialsRotationMode' in kwargs:
+        if credentials_rotation_mode is None and 'credentialsRotationMode' in kwargs:
             credentials_rotation_mode = kwargs['credentialsRotationMode']
-        if 'issuerMode' in kwargs:
+        if issuer_mode is None and 'issuerMode' in kwargs:
             issuer_mode = kwargs['issuerMode']
 
         if audiences is not None:
@@ -187,15 +187,15 @@ class _AuthServerDefaultState:
              kid: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'credentialsLastRotated' in kwargs:
+        if credentials_last_rotated is None and 'credentialsLastRotated' in kwargs:
             credentials_last_rotated = kwargs['credentialsLastRotated']
-        if 'credentialsNextRotation' in kwargs:
+        if credentials_next_rotation is None and 'credentialsNextRotation' in kwargs:
             credentials_next_rotation = kwargs['credentialsNextRotation']
-        if 'credentialsRotationMode' in kwargs:
+        if credentials_rotation_mode is None and 'credentialsRotationMode' in kwargs:
             credentials_rotation_mode = kwargs['credentialsRotationMode']
-        if 'issuerMode' in kwargs:
+        if issuer_mode is None and 'issuerMode' in kwargs:
             issuer_mode = kwargs['issuerMode']
 
         if audiences is not None:

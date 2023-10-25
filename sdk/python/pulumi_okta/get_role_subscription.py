@@ -86,16 +86,6 @@ def get_role_subscription(notification_type: Optional[str] = None,
     """
     Get subscriptions of a Role with a specific type
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.get_role_subscription(notification_type="APP_IMPORT",
-        role_type="SUPER_ADMIN")
-    ```
-
 
     :param str notification_type: Type of the notification
     :param str role_type: Type of the role
@@ -119,16 +109,6 @@ def get_role_subscription_output(notification_type: Optional[pulumi.Input[str]] 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleSubscriptionResult]:
     """
     Get subscriptions of a Role with a specific type
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.get_role_subscription(notification_type="APP_IMPORT",
-        role_type="SUPER_ADMIN")
-    ```
 
 
     :param str notification_type: Type of the notification

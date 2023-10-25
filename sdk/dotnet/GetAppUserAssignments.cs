@@ -13,56 +13,12 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get a set of users assigned to an Okta application.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Okta.GetAppUserAssignments.Invoke(new()
-        ///     {
-        ///         Id = okta_app_oauth.Test.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppUserAssignmentsResult> InvokeAsync(GetAppUserAssignmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppUserAssignmentsResult>("okta:index/getAppUserAssignments:getAppUserAssignments", args ?? new GetAppUserAssignmentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a set of users assigned to an Okta application.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Okta.GetAppUserAssignments.Invoke(new()
-        ///     {
-        ///         Id = okta_app_oauth.Test.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppUserAssignmentsResult> Invoke(GetAppUserAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppUserAssignmentsResult>("okta:index/getAppUserAssignments:getAppUserAssignments", args ?? new GetAppUserAssignmentsInvokeArgs(), options.WithDefaults());

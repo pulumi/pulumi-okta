@@ -99,7 +99,7 @@ class AppSignonPolicyRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_id: pulumi.Input[str],
+             policy_id: Optional[pulumi.Input[str]] = None,
              access: Optional[pulumi.Input[str]] = None,
              constraints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              custom_expression: Optional[pulumi.Input[str]] = None,
@@ -124,45 +124,47 @@ class AppSignonPolicyRuleArgs:
              user_types_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'policyId' in kwargs:
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
-        if 'customExpression' in kwargs:
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if custom_expression is None and 'customExpression' in kwargs:
             custom_expression = kwargs['customExpression']
-        if 'deviceAssurancesIncludeds' in kwargs:
+        if device_assurances_includeds is None and 'deviceAssurancesIncludeds' in kwargs:
             device_assurances_includeds = kwargs['deviceAssurancesIncludeds']
-        if 'deviceIsManaged' in kwargs:
+        if device_is_managed is None and 'deviceIsManaged' in kwargs:
             device_is_managed = kwargs['deviceIsManaged']
-        if 'deviceIsRegistered' in kwargs:
+        if device_is_registered is None and 'deviceIsRegistered' in kwargs:
             device_is_registered = kwargs['deviceIsRegistered']
-        if 'factorMode' in kwargs:
+        if factor_mode is None and 'factorMode' in kwargs:
             factor_mode = kwargs['factorMode']
-        if 'groupsExcludeds' in kwargs:
+        if groups_excludeds is None and 'groupsExcludeds' in kwargs:
             groups_excludeds = kwargs['groupsExcludeds']
-        if 'groupsIncludeds' in kwargs:
+        if groups_includeds is None and 'groupsIncludeds' in kwargs:
             groups_includeds = kwargs['groupsIncludeds']
-        if 'inactivityPeriod' in kwargs:
+        if inactivity_period is None and 'inactivityPeriod' in kwargs:
             inactivity_period = kwargs['inactivityPeriod']
-        if 'networkConnection' in kwargs:
+        if network_connection is None and 'networkConnection' in kwargs:
             network_connection = kwargs['networkConnection']
-        if 'networkExcludes' in kwargs:
+        if network_excludes is None and 'networkExcludes' in kwargs:
             network_excludes = kwargs['networkExcludes']
-        if 'networkIncludes' in kwargs:
+        if network_includes is None and 'networkIncludes' in kwargs:
             network_includes = kwargs['networkIncludes']
-        if 'platformIncludes' in kwargs:
+        if platform_includes is None and 'platformIncludes' in kwargs:
             platform_includes = kwargs['platformIncludes']
-        if 'reAuthenticationFrequency' in kwargs:
+        if re_authentication_frequency is None and 'reAuthenticationFrequency' in kwargs:
             re_authentication_frequency = kwargs['reAuthenticationFrequency']
-        if 'riskScore' in kwargs:
+        if risk_score is None and 'riskScore' in kwargs:
             risk_score = kwargs['riskScore']
-        if 'userTypesExcludeds' in kwargs:
+        if user_types_excludeds is None and 'userTypesExcludeds' in kwargs:
             user_types_excludeds = kwargs['userTypesExcludeds']
-        if 'userTypesIncludeds' in kwargs:
+        if user_types_includeds is None and 'userTypesIncludeds' in kwargs:
             user_types_includeds = kwargs['userTypesIncludeds']
-        if 'usersExcludeds' in kwargs:
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
             users_excludeds = kwargs['usersExcludeds']
-        if 'usersIncludeds' in kwargs:
+        if users_includeds is None and 'usersIncludeds' in kwargs:
             users_includeds = kwargs['usersIncludeds']
 
         _setter("policy_id", policy_id)
@@ -624,45 +626,45 @@ class _AppSignonPolicyRuleState:
              user_types_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customExpression' in kwargs:
+        if custom_expression is None and 'customExpression' in kwargs:
             custom_expression = kwargs['customExpression']
-        if 'deviceAssurancesIncludeds' in kwargs:
+        if device_assurances_includeds is None and 'deviceAssurancesIncludeds' in kwargs:
             device_assurances_includeds = kwargs['deviceAssurancesIncludeds']
-        if 'deviceIsManaged' in kwargs:
+        if device_is_managed is None and 'deviceIsManaged' in kwargs:
             device_is_managed = kwargs['deviceIsManaged']
-        if 'deviceIsRegistered' in kwargs:
+        if device_is_registered is None and 'deviceIsRegistered' in kwargs:
             device_is_registered = kwargs['deviceIsRegistered']
-        if 'factorMode' in kwargs:
+        if factor_mode is None and 'factorMode' in kwargs:
             factor_mode = kwargs['factorMode']
-        if 'groupsExcludeds' in kwargs:
+        if groups_excludeds is None and 'groupsExcludeds' in kwargs:
             groups_excludeds = kwargs['groupsExcludeds']
-        if 'groupsIncludeds' in kwargs:
+        if groups_includeds is None and 'groupsIncludeds' in kwargs:
             groups_includeds = kwargs['groupsIncludeds']
-        if 'inactivityPeriod' in kwargs:
+        if inactivity_period is None and 'inactivityPeriod' in kwargs:
             inactivity_period = kwargs['inactivityPeriod']
-        if 'networkConnection' in kwargs:
+        if network_connection is None and 'networkConnection' in kwargs:
             network_connection = kwargs['networkConnection']
-        if 'networkExcludes' in kwargs:
+        if network_excludes is None and 'networkExcludes' in kwargs:
             network_excludes = kwargs['networkExcludes']
-        if 'networkIncludes' in kwargs:
+        if network_includes is None and 'networkIncludes' in kwargs:
             network_includes = kwargs['networkIncludes']
-        if 'platformIncludes' in kwargs:
+        if platform_includes is None and 'platformIncludes' in kwargs:
             platform_includes = kwargs['platformIncludes']
-        if 'policyId' in kwargs:
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
-        if 'reAuthenticationFrequency' in kwargs:
+        if re_authentication_frequency is None and 'reAuthenticationFrequency' in kwargs:
             re_authentication_frequency = kwargs['reAuthenticationFrequency']
-        if 'riskScore' in kwargs:
+        if risk_score is None and 'riskScore' in kwargs:
             risk_score = kwargs['riskScore']
-        if 'userTypesExcludeds' in kwargs:
+        if user_types_excludeds is None and 'userTypesExcludeds' in kwargs:
             user_types_excludeds = kwargs['userTypesExcludeds']
-        if 'userTypesIncludeds' in kwargs:
+        if user_types_includeds is None and 'userTypesIncludeds' in kwargs:
             user_types_includeds = kwargs['userTypesIncludeds']
-        if 'usersExcludeds' in kwargs:
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
             users_excludeds = kwargs['usersExcludeds']
-        if 'usersIncludeds' in kwargs:
+        if users_includeds is None and 'usersIncludeds' in kwargs:
             users_includeds = kwargs['usersIncludeds']
 
         if access is not None:

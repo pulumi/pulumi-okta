@@ -6,24 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleUser = new okta.user.User("exampleUser", {
- *     firstName: "John",
- *     lastName: "Smith",
- *     login: "john.smith@example.com",
- *     email: "john.smith@example.com",
- * });
- * const exampleUserSecurityQuestions = okta.getUserSecurityQuestionsOutput({
- *     userId: exampleUser.id,
- * });
- * ```
- */
 export function getUserSecurityQuestions(args: GetUserSecurityQuestionsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSecurityQuestionsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,24 +38,6 @@ export interface GetUserSecurityQuestionsResult {
      */
     readonly userId: string;
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const exampleUser = new okta.user.User("exampleUser", {
- *     firstName: "John",
- *     lastName: "Smith",
- *     login: "john.smith@example.com",
- *     email: "john.smith@example.com",
- * });
- * const exampleUserSecurityQuestions = okta.getUserSecurityQuestionsOutput({
- *     userId: exampleUser.id,
- * });
- * ```
- */
 export function getUserSecurityQuestionsOutput(args: GetUserSecurityQuestionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSecurityQuestionsResult> {
     return pulumi.output(args).apply((a: any) => getUserSecurityQuestions(a, opts))
 }

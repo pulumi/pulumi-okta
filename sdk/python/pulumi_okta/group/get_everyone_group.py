@@ -75,15 +75,6 @@ def get_everyone_group(include_users: Optional[bool] = None,
     same can be achieved with the `group.Group` data
     source with `name = "Everyone"`. This is simply a shortcut.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.group.get_everyone_group()
-    ```
-
 
     :param bool include_users: Fetch group users, having default off cuts down on API calls.
     """
@@ -105,15 +96,6 @@ def get_everyone_group_output(include_users: Optional[pulumi.Input[Optional[bool
     Use this data source to retrieve the `Everyone` group from Okta. The
     same can be achieved with the `group.Group` data
     source with `name = "Everyone"`. This is simply a shortcut.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.group.get_everyone_group()
-    ```
 
 
     :param bool include_users: Fetch group users, having default off cuts down on API calls.

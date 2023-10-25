@@ -50,20 +50,28 @@ class AppUserBaseSchemaPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             index: pulumi.Input[str],
-             title: pulumi.Input[str],
-             type: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             index: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              master: Optional[pulumi.Input[str]] = None,
              pattern: Optional[pulumi.Input[str]] = None,
              permissions: Optional[pulumi.Input[str]] = None,
              required: Optional[pulumi.Input[bool]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'userType' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if index is None:
+            raise TypeError("Missing 'index' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_type is None and 'userType' in kwargs:
             user_type = kwargs['userType']
 
         _setter("app_id", app_id)
@@ -238,11 +246,11 @@ class _AppUserBaseSchemaPropertyState:
              title: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              user_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'userType' in kwargs:
+        if user_type is None and 'userType' in kwargs:
             user_type = kwargs['userType']
 
         if app_id is not None:

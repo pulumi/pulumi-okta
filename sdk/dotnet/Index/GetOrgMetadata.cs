@@ -15,25 +15,6 @@ namespace Pulumi.Okta.Index
         /// Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
         /// 
         /// - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Okta.Index.GetOrgMetadata.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrgMetadataResult> InvokeAsync(GetOrgMetadataArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrgMetadataResult>("okta:Index/getOrgMetadata:getOrgMetadata", args ?? new GetOrgMetadataArgs(), options.WithDefaults());
@@ -42,25 +23,6 @@ namespace Pulumi.Okta.Index
         /// Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
         /// 
         /// - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Okta.Index.GetOrgMetadata.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetOrgMetadataResult> Invoke(GetOrgMetadataInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrgMetadataResult>("okta:Index/getOrgMetadata:getOrgMetadata", args ?? new GetOrgMetadataInvokeArgs(), options.WithDefaults());

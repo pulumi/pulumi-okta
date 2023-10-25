@@ -71,15 +71,6 @@ def get_behaviours(q: Optional[str] = None,
     """
     Get a behaviors by search criteria.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.get_behaviours(q="New")
-    ```
-
 
     :param str q: Searches the name property of behaviors for matching value
     """
@@ -99,15 +90,6 @@ def get_behaviours_output(q: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBehavioursResult]:
     """
     Get a behaviors by search criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.get_behaviours(q="New")
-    ```
 
 
     :param str q: Searches the name property of behaviors for matching value

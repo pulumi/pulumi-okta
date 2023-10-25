@@ -32,11 +32,15 @@ class ResourceSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
-             label: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
              resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if label is None:
+            raise TypeError("Missing 'label' argument")
 
         _setter("description", description)
         _setter("label", label)
@@ -104,7 +108,7 @@ class _ResourceSetState:
              description: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
              resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if description is not None:

@@ -69,20 +69,7 @@ class AwaitableGetUserSecurityQuestionsResult(GetUserSecurityQuestionsResult):
 def get_user_security_questions(user_id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSecurityQuestionsResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example_user = okta.user.User("exampleUser",
-        first_name="John",
-        last_name="Smith",
-        login="john.smith@example.com",
-        email="john.smith@example.com")
-    example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str user_id: ID of a Okta User
     """
@@ -101,20 +88,7 @@ def get_user_security_questions(user_id: Optional[str] = None,
 def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSecurityQuestionsResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example_user = okta.user.User("exampleUser",
-        first_name="John",
-        last_name="Smith",
-        login="john.smith@example.com",
-        email="john.smith@example.com")
-    example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str user_id: ID of a Okta User
     """

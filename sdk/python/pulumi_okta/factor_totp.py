@@ -47,17 +47,17 @@ class FactorTotpArgs:
              otp_length: Optional[pulumi.Input[int]] = None,
              shared_secret_encoding: Optional[pulumi.Input[str]] = None,
              time_step: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clockDriftInterval' in kwargs:
+        if clock_drift_interval is None and 'clockDriftInterval' in kwargs:
             clock_drift_interval = kwargs['clockDriftInterval']
-        if 'hmacAlgorithm' in kwargs:
+        if hmac_algorithm is None and 'hmacAlgorithm' in kwargs:
             hmac_algorithm = kwargs['hmacAlgorithm']
-        if 'otpLength' in kwargs:
+        if otp_length is None and 'otpLength' in kwargs:
             otp_length = kwargs['otpLength']
-        if 'sharedSecretEncoding' in kwargs:
+        if shared_secret_encoding is None and 'sharedSecretEncoding' in kwargs:
             shared_secret_encoding = kwargs['sharedSecretEncoding']
-        if 'timeStep' in kwargs:
+        if time_step is None and 'timeStep' in kwargs:
             time_step = kwargs['timeStep']
 
         if clock_drift_interval is not None:
@@ -182,17 +182,17 @@ class _FactorTotpState:
              otp_length: Optional[pulumi.Input[int]] = None,
              shared_secret_encoding: Optional[pulumi.Input[str]] = None,
              time_step: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clockDriftInterval' in kwargs:
+        if clock_drift_interval is None and 'clockDriftInterval' in kwargs:
             clock_drift_interval = kwargs['clockDriftInterval']
-        if 'hmacAlgorithm' in kwargs:
+        if hmac_algorithm is None and 'hmacAlgorithm' in kwargs:
             hmac_algorithm = kwargs['hmacAlgorithm']
-        if 'otpLength' in kwargs:
+        if otp_length is None and 'otpLength' in kwargs:
             otp_length = kwargs['otpLength']
-        if 'sharedSecretEncoding' in kwargs:
+        if shared_secret_encoding is None and 'sharedSecretEncoding' in kwargs:
             shared_secret_encoding = kwargs['sharedSecretEncoding']
-        if 'timeStep' in kwargs:
+        if time_step is None and 'timeStep' in kwargs:
             time_step = kwargs['timeStep']
 
         if clock_drift_interval is not None:

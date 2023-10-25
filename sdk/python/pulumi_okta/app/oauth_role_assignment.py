@@ -35,15 +35,19 @@ class OauthRoleAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             type: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              resource_set: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'resourceSet' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if resource_set is None and 'resourceSet' in kwargs:
             resource_set = kwargs['resourceSet']
 
         _setter("client_id", client_id)
@@ -138,11 +142,11 @@ class _OauthRoleAssignmentState:
              role: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'resourceSet' in kwargs:
+        if resource_set is None and 'resourceSet' in kwargs:
             resource_set = kwargs['resourceSet']
 
         if client_id is not None:

@@ -16,30 +16,6 @@ import (
 //
 // > **NOTE:** If using this resource with OAuth2 scopes, this resource
 // requires `okta.profileMappings.read` scope.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := user.GetUserProfileMappingSource(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetUserProfileMappingSource(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetUserProfileMappingSourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserProfileMappingSourceResult

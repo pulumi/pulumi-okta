@@ -13,41 +13,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/auth"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auth.NewServerPolicyRule(ctx, "example", &auth.ServerPolicyRuleArgs{
-//				AuthServerId: pulumi.String("<auth server id>"),
-//				GrantTypeWhitelists: pulumi.StringArray{
-//					pulumi.String("implicit"),
-//				},
-//				GroupWhitelists: pulumi.StringArray{
-//					pulumi.String("<group ids>"),
-//				},
-//				PolicyId: pulumi.String("<auth server policy id>"),
-//				Priority: pulumi.Int(1),
-//				Status:   pulumi.String("ACTIVE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.

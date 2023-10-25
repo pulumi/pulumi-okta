@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** If using this resource with OAuth2 scopes, this resource
  * requires `okta.profileMappings.read` scope.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.user.getUserProfileMappingSource({});
- * ```
  */
 export function getUserProfileMappingSource(opts?: pulumi.InvokeOptions): Promise<GetUserProfileMappingSourceResult> {
 
@@ -48,15 +39,6 @@ export interface GetUserProfileMappingSourceResult {
  *
  * > **NOTE:** If using this resource with OAuth2 scopes, this resource
  * requires `okta.profileMappings.read` scope.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.user.getUserProfileMappingSource({});
- * ```
  */
 export function getUserProfileMappingSourceOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetUserProfileMappingSourceResult> {
     return pulumi.output(getUserProfileMappingSource(opts))

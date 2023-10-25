@@ -6,18 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Get subscriptions of a Role with a specific type
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.getRoleSubscription({
- *     notificationType: "APP_IMPORT",
- *     roleType: "SUPER_ADMIN",
- * });
- * ```
  */
 export function getRoleSubscription(args: GetRoleSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleSubscriptionResult> {
 
@@ -65,18 +53,6 @@ export interface GetRoleSubscriptionResult {
 }
 /**
  * Get subscriptions of a Role with a specific type
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.getRoleSubscription({
- *     notificationType: "APP_IMPORT",
- *     roleType: "SUPER_ADMIN",
- * });
- * ```
  */
 export function getRoleSubscriptionOutput(args: GetRoleSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getRoleSubscription(a, opts))

@@ -71,15 +71,6 @@ def get_trusted_origins(filter: Optional[str] = None,
     """
     Get List of Trusted Origins using filters.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    all = okta.get_trusted_origins()
-    ```
-
 
     :param str filter: Filter criteria. Filter value will be URL-encoded by the provider
     """
@@ -99,15 +90,6 @@ def get_trusted_origins_output(filter: Optional[pulumi.Input[Optional[str]]] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustedOriginsResult]:
     """
     Get List of Trusted Origins using filters.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    all = okta.get_trusted_origins()
-    ```
 
 
     :param str filter: Filter criteria. Filter value will be URL-encoded by the provider

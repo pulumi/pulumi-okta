@@ -101,7 +101,7 @@ class AppSharedCredentialsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             label: pulumi.Input[str],
+             label: Optional[pulumi.Input[str]] = None,
              accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
              accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
              accessibility_self_service: Optional[pulumi.Input[bool]] = None,
@@ -127,49 +127,51 @@ class AppSharedCredentialsArgs:
              user_name_template_suffix: Optional[pulumi.Input[str]] = None,
              user_name_template_type: Optional[pulumi.Input[str]] = None,
              username_field: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessibilityErrorRedirectUrl' in kwargs:
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
             accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
-        if 'accessibilityLoginRedirectUrl' in kwargs:
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
             accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
-        if 'accessibilitySelfService' in kwargs:
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
             accessibility_self_service = kwargs['accessibilitySelfService']
-        if 'adminNote' in kwargs:
+        if admin_note is None and 'adminNote' in kwargs:
             admin_note = kwargs['adminNote']
-        if 'appLinksJson' in kwargs:
+        if app_links_json is None and 'appLinksJson' in kwargs:
             app_links_json = kwargs['appLinksJson']
-        if 'autoSubmitToolbar' in kwargs:
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
             auto_submit_toolbar = kwargs['autoSubmitToolbar']
-        if 'buttonField' in kwargs:
+        if button_field is None and 'buttonField' in kwargs:
             button_field = kwargs['buttonField']
-        if 'enduserNote' in kwargs:
+        if enduser_note is None and 'enduserNote' in kwargs:
             enduser_note = kwargs['enduserNote']
-        if 'hideIos' in kwargs:
+        if hide_ios is None and 'hideIos' in kwargs:
             hide_ios = kwargs['hideIos']
-        if 'hideWeb' in kwargs:
+        if hide_web is None and 'hideWeb' in kwargs:
             hide_web = kwargs['hideWeb']
-        if 'passwordField' in kwargs:
+        if password_field is None and 'passwordField' in kwargs:
             password_field = kwargs['passwordField']
-        if 'preconfiguredApp' in kwargs:
+        if preconfigured_app is None and 'preconfiguredApp' in kwargs:
             preconfigured_app = kwargs['preconfiguredApp']
-        if 'redirectUrl' in kwargs:
+        if redirect_url is None and 'redirectUrl' in kwargs:
             redirect_url = kwargs['redirectUrl']
-        if 'sharedPassword' in kwargs:
+        if shared_password is None and 'sharedPassword' in kwargs:
             shared_password = kwargs['sharedPassword']
-        if 'sharedUsername' in kwargs:
+        if shared_username is None and 'sharedUsername' in kwargs:
             shared_username = kwargs['sharedUsername']
-        if 'urlRegex' in kwargs:
+        if url_regex is None and 'urlRegex' in kwargs:
             url_regex = kwargs['urlRegex']
-        if 'userNameTemplate' in kwargs:
+        if user_name_template is None and 'userNameTemplate' in kwargs:
             user_name_template = kwargs['userNameTemplate']
-        if 'userNameTemplatePushStatus' in kwargs:
+        if user_name_template_push_status is None and 'userNameTemplatePushStatus' in kwargs:
             user_name_template_push_status = kwargs['userNameTemplatePushStatus']
-        if 'userNameTemplateSuffix' in kwargs:
+        if user_name_template_suffix is None and 'userNameTemplateSuffix' in kwargs:
             user_name_template_suffix = kwargs['userNameTemplateSuffix']
-        if 'userNameTemplateType' in kwargs:
+        if user_name_template_type is None and 'userNameTemplateType' in kwargs:
             user_name_template_type = kwargs['userNameTemplateType']
-        if 'usernameField' in kwargs:
+        if username_field is None and 'usernameField' in kwargs:
             username_field = kwargs['usernameField']
 
         _setter("label", label)
@@ -665,53 +667,53 @@ class _AppSharedCredentialsState:
              user_name_template_suffix: Optional[pulumi.Input[str]] = None,
              user_name_template_type: Optional[pulumi.Input[str]] = None,
              username_field: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessibilityErrorRedirectUrl' in kwargs:
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
             accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
-        if 'accessibilityLoginRedirectUrl' in kwargs:
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
             accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
-        if 'accessibilitySelfService' in kwargs:
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
             accessibility_self_service = kwargs['accessibilitySelfService']
-        if 'adminNote' in kwargs:
+        if admin_note is None and 'adminNote' in kwargs:
             admin_note = kwargs['adminNote']
-        if 'appLinksJson' in kwargs:
+        if app_links_json is None and 'appLinksJson' in kwargs:
             app_links_json = kwargs['appLinksJson']
-        if 'autoSubmitToolbar' in kwargs:
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
             auto_submit_toolbar = kwargs['autoSubmitToolbar']
-        if 'buttonField' in kwargs:
+        if button_field is None and 'buttonField' in kwargs:
             button_field = kwargs['buttonField']
-        if 'enduserNote' in kwargs:
+        if enduser_note is None and 'enduserNote' in kwargs:
             enduser_note = kwargs['enduserNote']
-        if 'hideIos' in kwargs:
+        if hide_ios is None and 'hideIos' in kwargs:
             hide_ios = kwargs['hideIos']
-        if 'hideWeb' in kwargs:
+        if hide_web is None and 'hideWeb' in kwargs:
             hide_web = kwargs['hideWeb']
-        if 'logoUrl' in kwargs:
+        if logo_url is None and 'logoUrl' in kwargs:
             logo_url = kwargs['logoUrl']
-        if 'passwordField' in kwargs:
+        if password_field is None and 'passwordField' in kwargs:
             password_field = kwargs['passwordField']
-        if 'preconfiguredApp' in kwargs:
+        if preconfigured_app is None and 'preconfiguredApp' in kwargs:
             preconfigured_app = kwargs['preconfiguredApp']
-        if 'redirectUrl' in kwargs:
+        if redirect_url is None and 'redirectUrl' in kwargs:
             redirect_url = kwargs['redirectUrl']
-        if 'sharedPassword' in kwargs:
+        if shared_password is None and 'sharedPassword' in kwargs:
             shared_password = kwargs['sharedPassword']
-        if 'sharedUsername' in kwargs:
+        if shared_username is None and 'sharedUsername' in kwargs:
             shared_username = kwargs['sharedUsername']
-        if 'signOnMode' in kwargs:
+        if sign_on_mode is None and 'signOnMode' in kwargs:
             sign_on_mode = kwargs['signOnMode']
-        if 'urlRegex' in kwargs:
+        if url_regex is None and 'urlRegex' in kwargs:
             url_regex = kwargs['urlRegex']
-        if 'userNameTemplate' in kwargs:
+        if user_name_template is None and 'userNameTemplate' in kwargs:
             user_name_template = kwargs['userNameTemplate']
-        if 'userNameTemplatePushStatus' in kwargs:
+        if user_name_template_push_status is None and 'userNameTemplatePushStatus' in kwargs:
             user_name_template_push_status = kwargs['userNameTemplatePushStatus']
-        if 'userNameTemplateSuffix' in kwargs:
+        if user_name_template_suffix is None and 'userNameTemplateSuffix' in kwargs:
             user_name_template_suffix = kwargs['userNameTemplateSuffix']
-        if 'userNameTemplateType' in kwargs:
+        if user_name_template_type is None and 'userNameTemplateType' in kwargs:
             user_name_template_type = kwargs['userNameTemplateType']
-        if 'usernameField' in kwargs:
+        if username_field is None and 'usernameField' in kwargs:
             username_field = kwargs['usernameField']
 
         if accessibility_error_redirect_url is not None:

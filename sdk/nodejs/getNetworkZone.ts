@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Gets Okta Network Zone.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.getNetworkZone({
- *     name: "Block Antarctica",
- * });
- * ```
  */
 export function getNetworkZone(args?: GetNetworkZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkZoneResult> {
     args = args || {};
@@ -89,17 +78,6 @@ export interface GetNetworkZoneResult {
 }
 /**
  * Gets Okta Network Zone.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.getNetworkZone({
- *     name: "Block Antarctica",
- * });
- * ```
  */
 export function getNetworkZoneOutput(args?: GetNetworkZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkZoneResult> {
     return pulumi.output(args).apply((a: any) => getNetworkZone(a, opts))

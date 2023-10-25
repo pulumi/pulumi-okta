@@ -13,32 +13,6 @@ import (
 )
 
 // Get a OIDC application from Okta.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := app.GetOauth(ctx, &app.GetOauthArgs{
-//				Label: pulumi.StringRef("Example App"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOauth(ctx *pulumi.Context, args *GetOauthArgs, opts ...pulumi.InvokeOption) (*GetOauthResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOauthResult

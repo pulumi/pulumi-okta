@@ -362,15 +362,6 @@ def get_social(id: Optional[str] = None,
     """
     Get a social IdP from Okta.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.idp.get_social(name="My Facebook IdP")
-    ```
-
 
     :param str id: The id of the social idp to retrieve, conflicts with `name`.
     :param str name: The name of the social idp to retrieve, conflicts with `id`.
@@ -417,15 +408,6 @@ def get_social_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSocialResult]:
     """
     Get a social IdP from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.idp.get_social(name="My Facebook IdP")
-    ```
 
 
     :param str id: The id of the social idp to retrieve, conflicts with `name`.

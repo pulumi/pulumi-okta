@@ -40,18 +40,26 @@ class ServerPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_server_id: pulumi.Input[str],
-             client_whitelists: pulumi.Input[Sequence[pulumi.Input[str]]],
-             description: pulumi.Input[str],
-             priority: pulumi.Input[int],
+             auth_server_id: Optional[pulumi.Input[str]] = None,
+             client_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authServerId' in kwargs:
+        if auth_server_id is None and 'authServerId' in kwargs:
             auth_server_id = kwargs['authServerId']
-        if 'clientWhitelists' in kwargs:
+        if auth_server_id is None:
+            raise TypeError("Missing 'auth_server_id' argument")
+        if client_whitelists is None and 'clientWhitelists' in kwargs:
             client_whitelists = kwargs['clientWhitelists']
+        if client_whitelists is None:
+            raise TypeError("Missing 'client_whitelists' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
 
         _setter("auth_server_id", auth_server_id)
         _setter("client_whitelists", client_whitelists)
@@ -167,11 +175,11 @@ class _ServerPolicyState:
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authServerId' in kwargs:
+        if auth_server_id is None and 'authServerId' in kwargs:
             auth_server_id = kwargs['authServerId']
-        if 'clientWhitelists' in kwargs:
+        if client_whitelists is None and 'clientWhitelists' in kwargs:
             client_whitelists = kwargs['clientWhitelists']
 
         if auth_server_id is not None:

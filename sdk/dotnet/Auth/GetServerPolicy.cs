@@ -13,58 +13,12 @@ namespace Pulumi.Okta.Auth
     {
         /// <summary>
         /// Get an authorization server policy from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.Auth.GetServerPolicy.Invoke(new()
-        ///     {
-        ///         AuthServerId = "&lt;auth server id&gt;",
-        ///         Name = "staff",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerPolicyResult> InvokeAsync(GetServerPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerPolicyResult>("okta:auth/getServerPolicy:getServerPolicy", args ?? new GetServerPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an authorization server policy from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.Auth.GetServerPolicy.Invoke(new()
-        ///     {
-        ///         AuthServerId = "&lt;auth server id&gt;",
-        ///         Name = "staff",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetServerPolicyResult> Invoke(GetServerPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerPolicyResult>("okta:auth/getServerPolicy:getServerPolicy", args ?? new GetServerPolicyInvokeArgs(), options.WithDefaults());

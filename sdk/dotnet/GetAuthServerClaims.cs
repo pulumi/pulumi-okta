@@ -13,56 +13,12 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get a list of authorization server claims from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Okta.GetAuthServerClaims.Invoke(new()
-        ///     {
-        ///         AuthServerId = "default",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAuthServerClaimsResult> InvokeAsync(GetAuthServerClaimsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthServerClaimsResult>("okta:index/getAuthServerClaims:getAuthServerClaims", args ?? new GetAuthServerClaimsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a list of authorization server claims from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Okta.GetAuthServerClaims.Invoke(new()
-        ///     {
-        ///         AuthServerId = "default",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAuthServerClaimsResult> Invoke(GetAuthServerClaimsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthServerClaimsResult>("okta:index/getAuthServerClaims:getAuthServerClaims", args ?? new GetAuthServerClaimsInvokeArgs(), options.WithDefaults());

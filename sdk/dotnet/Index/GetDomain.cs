@@ -13,70 +13,12 @@ namespace Pulumi.Okta.Index
     {
         /// <summary>
         /// Get a domain from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Okta.Domain("example");
-        /// 
-        ///     var by_name = Okta.Index.GetDomain.Invoke(new()
-        ///     {
-        ///         DomainIdOrName = "www.example.com",
-        ///     });
-        /// 
-        ///     var by_id = Okta.Index.GetDomain.Invoke(new()
-        ///     {
-        ///         DomainIdOrName = example.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("okta:Index/getDomain:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a domain from Okta.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Okta.Domain("example");
-        /// 
-        ///     var by_name = Okta.Index.GetDomain.Invoke(new()
-        ///     {
-        ///         DomainIdOrName = "www.example.com",
-        ///     });
-        /// 
-        ///     var by_id = Okta.Index.GetDomain.Invoke(new()
-        ///     {
-        ///         DomainIdOrName = example.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("okta:Index/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());

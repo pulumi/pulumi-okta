@@ -54,9 +54,9 @@ class EmailDomainDnsValidationRecord(dict):
              fqdn: Optional[str] = None,
              record_type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recordType' in kwargs:
+        if record_type is None and 'recordType' in kwargs:
             record_type = kwargs['recordType']
 
         if expiration is not None:
@@ -109,14 +109,22 @@ class GetDomainDnsRecordResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expiration: str,
-             fqdn: str,
-             record_type: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             expiration: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             record_type: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recordType' in kwargs:
+        if expiration is None:
+            raise TypeError("Missing 'expiration' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if record_type is None and 'recordType' in kwargs:
             record_type = kwargs['recordType']
+        if record_type is None:
+            raise TypeError("Missing 'record_type' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("expiration", expiration)
         _setter("fqdn", fqdn)
@@ -161,10 +169,14 @@ class GetOrgMetadataDomainsResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alternate: str,
-             organization: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             alternate: Optional[str] = None,
+             organization: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if alternate is None:
+            raise TypeError("Missing 'alternate' argument")
+        if organization is None:
+            raise TypeError("Missing 'organization' argument")
 
         _setter("alternate", alternate)
         _setter("organization", organization)
@@ -204,17 +216,23 @@ class GetOrgMetadataSettingsResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             analytics_collection_enabled: bool,
-             bug_reporting_enabled: bool,
-             om_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             analytics_collection_enabled: Optional[bool] = None,
+             bug_reporting_enabled: Optional[bool] = None,
+             om_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'analyticsCollectionEnabled' in kwargs:
+        if analytics_collection_enabled is None and 'analyticsCollectionEnabled' in kwargs:
             analytics_collection_enabled = kwargs['analyticsCollectionEnabled']
-        if 'bugReportingEnabled' in kwargs:
+        if analytics_collection_enabled is None:
+            raise TypeError("Missing 'analytics_collection_enabled' argument")
+        if bug_reporting_enabled is None and 'bugReportingEnabled' in kwargs:
             bug_reporting_enabled = kwargs['bugReportingEnabled']
-        if 'omEnabled' in kwargs:
+        if bug_reporting_enabled is None:
+            raise TypeError("Missing 'bug_reporting_enabled' argument")
+        if om_enabled is None and 'omEnabled' in kwargs:
             om_enabled = kwargs['omEnabled']
+        if om_enabled is None:
+            raise TypeError("Missing 'om_enabled' argument")
 
         _setter("analytics_collection_enabled", analytics_collection_enabled)
         _setter("bug_reporting_enabled", bug_reporting_enabled)

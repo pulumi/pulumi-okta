@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to retrieve a default policy from Okta. This
  * same thing can be achieved using the `okta.policy.getPolicy` with default
  * names, this is simply a shortcut.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.policy.getDefaultPolicy({
- *     type: "PASSWORD",
- * });
- * ```
  */
 export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultPolicyResult> {
 
@@ -55,17 +44,6 @@ export interface GetDefaultPolicyResult {
  * Use this data source to retrieve a default policy from Okta. This
  * same thing can be achieved using the `okta.policy.getPolicy` with default
  * names, this is simply a shortcut.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.policy.getDefaultPolicy({
- *     type: "PASSWORD",
- * });
- * ```
  */
 export function getDefaultPolicyOutput(args: GetDefaultPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDefaultPolicy(a, opts))
