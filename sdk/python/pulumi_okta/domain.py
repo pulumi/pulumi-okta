@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,31 +25,12 @@ class DomainArgs:
         :param pulumi.Input[str] certificate_source_type: Optional. Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: MANUAL, OKTA*MANAGED. Warning: Use of OKTA*MANAGED requires a feature flag to be enabled. Default value = MANUAL
         :param pulumi.Input[str] name: Custom Domain name
         """
-        DomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            brand_id=brand_id,
-            certificate_source_type=certificate_source_type,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             brand_id: Optional[pulumi.Input[str]] = None,
-             certificate_source_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if brand_id is None and 'brandId' in kwargs:
-            brand_id = kwargs['brandId']
-        if certificate_source_type is None and 'certificateSourceType' in kwargs:
-            certificate_source_type = kwargs['certificateSourceType']
-
         if brand_id is not None:
-            _setter("brand_id", brand_id)
+            pulumi.set(__self__, "brand_id", brand_id)
         if certificate_source_type is not None:
-            _setter("certificate_source_type", certificate_source_type)
+            pulumi.set(__self__, "certificate_source_type", certificate_source_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="brandId")
@@ -104,43 +85,16 @@ class _DomainState:
         :param pulumi.Input[str] name: Custom Domain name
         :param pulumi.Input[str] validation_status: Status of the domain
         """
-        _DomainState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            brand_id=brand_id,
-            certificate_source_type=certificate_source_type,
-            dns_records=dns_records,
-            name=name,
-            validation_status=validation_status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             brand_id: Optional[pulumi.Input[str]] = None,
-             certificate_source_type: Optional[pulumi.Input[str]] = None,
-             dns_records: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDnsRecordArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             validation_status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if brand_id is None and 'brandId' in kwargs:
-            brand_id = kwargs['brandId']
-        if certificate_source_type is None and 'certificateSourceType' in kwargs:
-            certificate_source_type = kwargs['certificateSourceType']
-        if dns_records is None and 'dnsRecords' in kwargs:
-            dns_records = kwargs['dnsRecords']
-        if validation_status is None and 'validationStatus' in kwargs:
-            validation_status = kwargs['validationStatus']
-
         if brand_id is not None:
-            _setter("brand_id", brand_id)
+            pulumi.set(__self__, "brand_id", brand_id)
         if certificate_source_type is not None:
-            _setter("certificate_source_type", certificate_source_type)
+            pulumi.set(__self__, "certificate_source_type", certificate_source_type)
         if dns_records is not None:
-            _setter("dns_records", dns_records)
+            pulumi.set(__self__, "dns_records", dns_records)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if validation_status is not None:
-            _setter("validation_status", validation_status)
+            pulumi.set(__self__, "validation_status", validation_status)
 
     @property
     @pulumi.getter(name="brandId")
@@ -238,10 +192,6 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

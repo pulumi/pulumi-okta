@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ZoneArgs', 'Zone']
@@ -35,56 +35,23 @@ class ZoneArgs:
         :param pulumi.Input[str] status: Network Status - can either be ACTIVE or INACTIVE only
         :param pulumi.Input[str] usage: Zone's purpose: POLICY or BLOCKLIST
         """
-        ZoneArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            asns=asns,
-            dynamic_locations=dynamic_locations,
-            dynamic_proxy_type=dynamic_proxy_type,
-            gateways=gateways,
-            name=name,
-            proxies=proxies,
-            status=status,
-            usage=usage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[pulumi.Input[str]] = None,
-             asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
-             gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             usage: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if dynamic_locations is None and 'dynamicLocations' in kwargs:
-            dynamic_locations = kwargs['dynamicLocations']
-        if dynamic_proxy_type is None and 'dynamicProxyType' in kwargs:
-            dynamic_proxy_type = kwargs['dynamicProxyType']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if asns is not None:
-            _setter("asns", asns)
+            pulumi.set(__self__, "asns", asns)
         if dynamic_locations is not None:
-            _setter("dynamic_locations", dynamic_locations)
+            pulumi.set(__self__, "dynamic_locations", dynamic_locations)
         if dynamic_proxy_type is not None:
-            _setter("dynamic_proxy_type", dynamic_proxy_type)
+            pulumi.set(__self__, "dynamic_proxy_type", dynamic_proxy_type)
         if gateways is not None:
-            _setter("gateways", gateways)
+            pulumi.set(__self__, "gateways", gateways)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if proxies is not None:
-            _setter("proxies", proxies)
+            pulumi.set(__self__, "proxies", proxies)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if usage is not None:
-            _setter("usage", usage)
+            pulumi.set(__self__, "usage", usage)
 
     @property
     @pulumi.getter
@@ -219,55 +186,24 @@ class _ZoneState:
         :param pulumi.Input[str] type: Type of the Network Zone - can either be IP or DYNAMIC only
         :param pulumi.Input[str] usage: Zone's purpose: POLICY or BLOCKLIST
         """
-        _ZoneState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            asns=asns,
-            dynamic_locations=dynamic_locations,
-            dynamic_proxy_type=dynamic_proxy_type,
-            gateways=gateways,
-            name=name,
-            proxies=proxies,
-            status=status,
-            type=type,
-            usage=usage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
-             gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             usage: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if dynamic_locations is None and 'dynamicLocations' in kwargs:
-            dynamic_locations = kwargs['dynamicLocations']
-        if dynamic_proxy_type is None and 'dynamicProxyType' in kwargs:
-            dynamic_proxy_type = kwargs['dynamicProxyType']
-
         if asns is not None:
-            _setter("asns", asns)
+            pulumi.set(__self__, "asns", asns)
         if dynamic_locations is not None:
-            _setter("dynamic_locations", dynamic_locations)
+            pulumi.set(__self__, "dynamic_locations", dynamic_locations)
         if dynamic_proxy_type is not None:
-            _setter("dynamic_proxy_type", dynamic_proxy_type)
+            pulumi.set(__self__, "dynamic_proxy_type", dynamic_proxy_type)
         if gateways is not None:
-            _setter("gateways", gateways)
+            pulumi.set(__self__, "gateways", gateways)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if proxies is not None:
-            _setter("proxies", proxies)
+            pulumi.set(__self__, "proxies", proxies)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if usage is not None:
-            _setter("usage", usage)
+            pulumi.set(__self__, "usage", usage)
 
     @property
     @pulumi.getter
@@ -425,10 +361,6 @@ class Zone(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ZoneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

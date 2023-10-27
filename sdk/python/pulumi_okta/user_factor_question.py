@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserFactorQuestionArgs', 'UserFactorQuestion']
@@ -23,32 +23,9 @@ class UserFactorQuestionArgs:
         :param pulumi.Input[str] key: Unique key for question
         :param pulumi.Input[str] user_id: ID of a Okta User
         """
-        UserFactorQuestionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            answer=answer,
-            key=key,
-            user_id=user_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             answer: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if answer is None:
-            raise TypeError("Missing 'answer' argument")
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if user_id is None and 'userId' in kwargs:
-            user_id = kwargs['userId']
-        if user_id is None:
-            raise TypeError("Missing 'user_id' argument")
-
-        _setter("answer", answer)
-        _setter("key", key)
-        _setter("user_id", user_id)
+        pulumi.set(__self__, "answer", answer)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "user_id", user_id)
 
     @property
     @pulumi.getter
@@ -103,37 +80,16 @@ class _UserFactorQuestionState:
         :param pulumi.Input[str] text: Display text for question
         :param pulumi.Input[str] user_id: ID of a Okta User
         """
-        _UserFactorQuestionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            answer=answer,
-            key=key,
-            status=status,
-            text=text,
-            user_id=user_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             answer: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             text: Optional[pulumi.Input[str]] = None,
-             user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if user_id is None and 'userId' in kwargs:
-            user_id = kwargs['userId']
-
         if answer is not None:
-            _setter("answer", answer)
+            pulumi.set(__self__, "answer", answer)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if text is not None:
-            _setter("text", text)
+            pulumi.set(__self__, "text", text)
         if user_id is not None:
-            _setter("user_id", user_id)
+            pulumi.set(__self__, "user_id", user_id)
 
     @property
     @pulumi.getter
@@ -233,10 +189,6 @@ class UserFactorQuestion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserFactorQuestionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

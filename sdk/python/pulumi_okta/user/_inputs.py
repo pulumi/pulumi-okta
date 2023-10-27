@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -30,41 +30,14 @@ class UserPasswordHashArgs:
         :param pulumi.Input[str] salt_order: Specifies whether salt was pre- or postfixed to the password before hashing
         :param pulumi.Input[int] work_factor: Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
         """
-        UserPasswordHashArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            algorithm=algorithm,
-            value=value,
-            salt=salt,
-            salt_order=salt_order,
-            work_factor=work_factor,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             algorithm: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             salt: Optional[pulumi.Input[str]] = None,
-             salt_order: Optional[pulumi.Input[str]] = None,
-             work_factor: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if algorithm is None:
-            raise TypeError("Missing 'algorithm' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-        if salt_order is None and 'saltOrder' in kwargs:
-            salt_order = kwargs['saltOrder']
-        if work_factor is None and 'workFactor' in kwargs:
-            work_factor = kwargs['workFactor']
-
-        _setter("algorithm", algorithm)
-        _setter("value", value)
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "value", value)
         if salt is not None:
-            _setter("salt", salt)
+            pulumi.set(__self__, "salt", salt)
         if salt_order is not None:
-            _setter("salt_order", salt_order)
+            pulumi.set(__self__, "salt_order", salt_order)
         if work_factor is not None:
-            _setter("work_factor", work_factor)
+            pulumi.set(__self__, "work_factor", work_factor)
 
     @property
     @pulumi.getter
@@ -138,31 +111,14 @@ class GetUserSearchArgs:
         :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
-        GetUserSearchArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            expression=expression,
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[str] = None,
-             expression: Optional[str] = None,
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if comparison is not None:
-            _setter("comparison", comparison)
+            pulumi.set(__self__, "comparison", comparison)
         if expression is not None:
-            _setter("expression", expression)
+            pulumi.set(__self__, "expression", expression)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -218,31 +174,14 @@ class GetUsersSearchArgs:
         :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
-        GetUsersSearchArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            expression=expression,
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[str] = None,
-             expression: Optional[str] = None,
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if comparison is not None:
-            _setter("comparison", comparison)
+            pulumi.set(__self__, "comparison", comparison)
         if expression is not None:
-            _setter("expression", expression)
+            pulumi.set(__self__, "expression", expression)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

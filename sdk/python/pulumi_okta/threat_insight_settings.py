@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ThreatInsightSettingsArgs', 'ThreatInsightSettings']
@@ -21,26 +21,9 @@ class ThreatInsightSettingsArgs:
         :param pulumi.Input[str] action: Specifies how Okta responds to authentication requests from suspicious IPs
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: List of Network Zone IDs to exclude to be not logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation
         """
-        ThreatInsightSettingsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            network_excludes=network_excludes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if network_excludes is None and 'networkExcludes' in kwargs:
-            network_excludes = kwargs['networkExcludes']
-
-        _setter("action", action)
+        pulumi.set(__self__, "action", action)
         if network_excludes is not None:
-            _setter("network_excludes", network_excludes)
+            pulumi.set(__self__, "network_excludes", network_excludes)
 
     @property
     @pulumi.getter
@@ -77,25 +60,10 @@ class _ThreatInsightSettingsState:
         :param pulumi.Input[str] action: Specifies how Okta responds to authentication requests from suspicious IPs
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: List of Network Zone IDs to exclude to be not logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation
         """
-        _ThreatInsightSettingsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            network_excludes=network_excludes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if network_excludes is None and 'networkExcludes' in kwargs:
-            network_excludes = kwargs['networkExcludes']
-
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if network_excludes is not None:
-            _setter("network_excludes", network_excludes)
+            pulumi.set(__self__, "network_excludes", network_excludes)
 
     @property
     @pulumi.getter
@@ -155,10 +123,6 @@ class ThreatInsightSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ThreatInsightSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
