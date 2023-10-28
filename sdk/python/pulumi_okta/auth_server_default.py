@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AuthServerDefaultArgs', 'AuthServerDefault']
@@ -28,43 +28,18 @@ class AuthServerDefaultArgs:
         :param pulumi.Input[str] issuer_mode: *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
         :param pulumi.Input[str] name: The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         """
-        AuthServerDefaultArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audiences=audiences,
-            credentials_rotation_mode=credentials_rotation_mode,
-            description=description,
-            issuer_mode=issuer_mode,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             issuer_mode: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if credentials_rotation_mode is None and 'credentialsRotationMode' in kwargs:
-            credentials_rotation_mode = kwargs['credentialsRotationMode']
-        if issuer_mode is None and 'issuerMode' in kwargs:
-            issuer_mode = kwargs['issuerMode']
-
         if audiences is not None:
-            _setter("audiences", audiences)
+            pulumi.set(__self__, "audiences", audiences)
         if credentials_rotation_mode is not None:
-            _setter("credentials_rotation_mode", credentials_rotation_mode)
+            pulumi.set(__self__, "credentials_rotation_mode", credentials_rotation_mode)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if issuer_mode is not None:
-            _setter("issuer_mode", issuer_mode)
+            pulumi.set(__self__, "issuer_mode", issuer_mode)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -161,63 +136,26 @@ class _AuthServerDefaultState:
         :param pulumi.Input[str] kid: The ID of the JSON Web Key used for signing tokens issued by the authorization server.
         :param pulumi.Input[str] name: The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         """
-        _AuthServerDefaultState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audiences=audiences,
-            credentials_last_rotated=credentials_last_rotated,
-            credentials_next_rotation=credentials_next_rotation,
-            credentials_rotation_mode=credentials_rotation_mode,
-            description=description,
-            issuer=issuer,
-            issuer_mode=issuer_mode,
-            kid=kid,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             credentials_last_rotated: Optional[pulumi.Input[str]] = None,
-             credentials_next_rotation: Optional[pulumi.Input[str]] = None,
-             credentials_rotation_mode: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             issuer: Optional[pulumi.Input[str]] = None,
-             issuer_mode: Optional[pulumi.Input[str]] = None,
-             kid: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if credentials_last_rotated is None and 'credentialsLastRotated' in kwargs:
-            credentials_last_rotated = kwargs['credentialsLastRotated']
-        if credentials_next_rotation is None and 'credentialsNextRotation' in kwargs:
-            credentials_next_rotation = kwargs['credentialsNextRotation']
-        if credentials_rotation_mode is None and 'credentialsRotationMode' in kwargs:
-            credentials_rotation_mode = kwargs['credentialsRotationMode']
-        if issuer_mode is None and 'issuerMode' in kwargs:
-            issuer_mode = kwargs['issuerMode']
-
         if audiences is not None:
-            _setter("audiences", audiences)
+            pulumi.set(__self__, "audiences", audiences)
         if credentials_last_rotated is not None:
-            _setter("credentials_last_rotated", credentials_last_rotated)
+            pulumi.set(__self__, "credentials_last_rotated", credentials_last_rotated)
         if credentials_next_rotation is not None:
-            _setter("credentials_next_rotation", credentials_next_rotation)
+            pulumi.set(__self__, "credentials_next_rotation", credentials_next_rotation)
         if credentials_rotation_mode is not None:
-            _setter("credentials_rotation_mode", credentials_rotation_mode)
+            pulumi.set(__self__, "credentials_rotation_mode", credentials_rotation_mode)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if issuer is not None:
-            _setter("issuer", issuer)
+            pulumi.set(__self__, "issuer", issuer)
         if issuer_mode is not None:
-            _setter("issuer_mode", issuer_mode)
+            pulumi.set(__self__, "issuer_mode", issuer_mode)
         if kid is not None:
-            _setter("kid", kid)
+            pulumi.set(__self__, "kid", kid)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -377,10 +315,6 @@ class AuthServerDefault(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AuthServerDefaultArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

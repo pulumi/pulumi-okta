@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FactorTotpArgs', 'FactorTotp']
@@ -29,49 +29,18 @@ class FactorTotpArgs:
         :param pulumi.Input[str] shared_secret_encoding: Shared secret encoding
         :param pulumi.Input[int] time_step: Time step in seconds
         """
-        FactorTotpArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            clock_drift_interval=clock_drift_interval,
-            hmac_algorithm=hmac_algorithm,
-            name=name,
-            otp_length=otp_length,
-            shared_secret_encoding=shared_secret_encoding,
-            time_step=time_step,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             clock_drift_interval: Optional[pulumi.Input[int]] = None,
-             hmac_algorithm: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             otp_length: Optional[pulumi.Input[int]] = None,
-             shared_secret_encoding: Optional[pulumi.Input[str]] = None,
-             time_step: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if clock_drift_interval is None and 'clockDriftInterval' in kwargs:
-            clock_drift_interval = kwargs['clockDriftInterval']
-        if hmac_algorithm is None and 'hmacAlgorithm' in kwargs:
-            hmac_algorithm = kwargs['hmacAlgorithm']
-        if otp_length is None and 'otpLength' in kwargs:
-            otp_length = kwargs['otpLength']
-        if shared_secret_encoding is None and 'sharedSecretEncoding' in kwargs:
-            shared_secret_encoding = kwargs['sharedSecretEncoding']
-        if time_step is None and 'timeStep' in kwargs:
-            time_step = kwargs['timeStep']
-
         if clock_drift_interval is not None:
-            _setter("clock_drift_interval", clock_drift_interval)
+            pulumi.set(__self__, "clock_drift_interval", clock_drift_interval)
         if hmac_algorithm is not None:
-            _setter("hmac_algorithm", hmac_algorithm)
+            pulumi.set(__self__, "hmac_algorithm", hmac_algorithm)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if otp_length is not None:
-            _setter("otp_length", otp_length)
+            pulumi.set(__self__, "otp_length", otp_length)
         if shared_secret_encoding is not None:
-            _setter("shared_secret_encoding", shared_secret_encoding)
+            pulumi.set(__self__, "shared_secret_encoding", shared_secret_encoding)
         if time_step is not None:
-            _setter("time_step", time_step)
+            pulumi.set(__self__, "time_step", time_step)
 
     @property
     @pulumi.getter(name="clockDriftInterval")
@@ -164,49 +133,18 @@ class _FactorTotpState:
         :param pulumi.Input[str] shared_secret_encoding: Shared secret encoding
         :param pulumi.Input[int] time_step: Time step in seconds
         """
-        _FactorTotpState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            clock_drift_interval=clock_drift_interval,
-            hmac_algorithm=hmac_algorithm,
-            name=name,
-            otp_length=otp_length,
-            shared_secret_encoding=shared_secret_encoding,
-            time_step=time_step,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             clock_drift_interval: Optional[pulumi.Input[int]] = None,
-             hmac_algorithm: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             otp_length: Optional[pulumi.Input[int]] = None,
-             shared_secret_encoding: Optional[pulumi.Input[str]] = None,
-             time_step: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if clock_drift_interval is None and 'clockDriftInterval' in kwargs:
-            clock_drift_interval = kwargs['clockDriftInterval']
-        if hmac_algorithm is None and 'hmacAlgorithm' in kwargs:
-            hmac_algorithm = kwargs['hmacAlgorithm']
-        if otp_length is None and 'otpLength' in kwargs:
-            otp_length = kwargs['otpLength']
-        if shared_secret_encoding is None and 'sharedSecretEncoding' in kwargs:
-            shared_secret_encoding = kwargs['sharedSecretEncoding']
-        if time_step is None and 'timeStep' in kwargs:
-            time_step = kwargs['timeStep']
-
         if clock_drift_interval is not None:
-            _setter("clock_drift_interval", clock_drift_interval)
+            pulumi.set(__self__, "clock_drift_interval", clock_drift_interval)
         if hmac_algorithm is not None:
-            _setter("hmac_algorithm", hmac_algorithm)
+            pulumi.set(__self__, "hmac_algorithm", hmac_algorithm)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if otp_length is not None:
-            _setter("otp_length", otp_length)
+            pulumi.set(__self__, "otp_length", otp_length)
         if shared_secret_encoding is not None:
-            _setter("shared_secret_encoding", shared_secret_encoding)
+            pulumi.set(__self__, "shared_secret_encoding", shared_secret_encoding)
         if time_step is not None:
-            _setter("time_step", time_step)
+            pulumi.set(__self__, "time_step", time_step)
 
     @property
     @pulumi.getter(name="clockDriftInterval")
@@ -322,10 +260,6 @@ class FactorTotp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FactorTotpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

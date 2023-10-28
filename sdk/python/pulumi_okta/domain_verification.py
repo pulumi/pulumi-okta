@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['DomainVerificationArgs', 'DomainVerification']
@@ -19,22 +19,7 @@ class DomainVerificationArgs:
         The set of arguments for constructing a DomainVerification resource.
         :param pulumi.Input[str] domain_id: Domain's ID
         """
-        DomainVerificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_id=domain_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_id is None and 'domainId' in kwargs:
-            domain_id = kwargs['domainId']
-        if domain_id is None:
-            raise TypeError("Missing 'domain_id' argument")
-
-        _setter("domain_id", domain_id)
+        pulumi.set(__self__, "domain_id", domain_id)
 
     @property
     @pulumi.getter(name="domainId")
@@ -57,21 +42,8 @@ class _DomainVerificationState:
         Input properties used for looking up and filtering DomainVerification resources.
         :param pulumi.Input[str] domain_id: Domain's ID
         """
-        _DomainVerificationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_id=domain_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_id is None and 'domainId' in kwargs:
-            domain_id = kwargs['domainId']
-
         if domain_id is not None:
-            _setter("domain_id", domain_id)
+            pulumi.set(__self__, "domain_id", domain_id)
 
     @property
     @pulumi.getter(name="domainId")
@@ -117,10 +89,6 @@ class DomainVerification(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DomainVerificationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

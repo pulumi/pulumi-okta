@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LinkValueArgs', 'LinkValue']
@@ -23,35 +23,10 @@ class LinkValueArgs:
         :param pulumi.Input[str] primary_user_id: User ID to be assigned to 'primary' for the 'associated' user in the specified relationship.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the 'associated' relationship.
         """
-        LinkValueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            primary_name=primary_name,
-            primary_user_id=primary_user_id,
-            associated_user_ids=associated_user_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             primary_name: Optional[pulumi.Input[str]] = None,
-             primary_user_id: Optional[pulumi.Input[str]] = None,
-             associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if primary_name is None and 'primaryName' in kwargs:
-            primary_name = kwargs['primaryName']
-        if primary_name is None:
-            raise TypeError("Missing 'primary_name' argument")
-        if primary_user_id is None and 'primaryUserId' in kwargs:
-            primary_user_id = kwargs['primaryUserId']
-        if primary_user_id is None:
-            raise TypeError("Missing 'primary_user_id' argument")
-        if associated_user_ids is None and 'associatedUserIds' in kwargs:
-            associated_user_ids = kwargs['associatedUserIds']
-
-        _setter("primary_name", primary_name)
-        _setter("primary_user_id", primary_user_id)
+        pulumi.set(__self__, "primary_name", primary_name)
+        pulumi.set(__self__, "primary_user_id", primary_user_id)
         if associated_user_ids is not None:
-            _setter("associated_user_ids", associated_user_ids)
+            pulumi.set(__self__, "associated_user_ids", associated_user_ids)
 
     @property
     @pulumi.getter(name="primaryName")
@@ -102,33 +77,12 @@ class _LinkValueState:
         :param pulumi.Input[str] primary_name: Name of the 'primary' relationship being assigned.
         :param pulumi.Input[str] primary_user_id: User ID to be assigned to 'primary' for the 'associated' user in the specified relationship.
         """
-        _LinkValueState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            associated_user_ids=associated_user_ids,
-            primary_name=primary_name,
-            primary_user_id=primary_user_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             primary_name: Optional[pulumi.Input[str]] = None,
-             primary_user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if associated_user_ids is None and 'associatedUserIds' in kwargs:
-            associated_user_ids = kwargs['associatedUserIds']
-        if primary_name is None and 'primaryName' in kwargs:
-            primary_name = kwargs['primaryName']
-        if primary_user_id is None and 'primaryUserId' in kwargs:
-            primary_user_id = kwargs['primaryUserId']
-
         if associated_user_ids is not None:
-            _setter("associated_user_ids", associated_user_ids)
+            pulumi.set(__self__, "associated_user_ids", associated_user_ids)
         if primary_name is not None:
-            _setter("primary_name", primary_name)
+            pulumi.set(__self__, "primary_name", primary_name)
         if primary_user_id is not None:
-            _setter("primary_user_id", primary_user_id)
+            pulumi.set(__self__, "primary_user_id", primary_user_id)
 
     @property
     @pulumi.getter(name="associatedUserIds")
@@ -202,10 +156,6 @@ class LinkValue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LinkValueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

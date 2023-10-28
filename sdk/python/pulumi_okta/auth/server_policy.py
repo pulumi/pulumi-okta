@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerPolicyArgs', 'ServerPolicy']
@@ -28,47 +28,14 @@ class ServerPolicyArgs:
         :param pulumi.Input[int] priority: Priority of the auth server policy
         :param pulumi.Input[str] name: The name of the Auth Server Policy.
         """
-        ServerPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auth_server_id=auth_server_id,
-            client_whitelists=client_whitelists,
-            description=description,
-            priority=priority,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auth_server_id: Optional[pulumi.Input[str]] = None,
-             client_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auth_server_id is None and 'authServerId' in kwargs:
-            auth_server_id = kwargs['authServerId']
-        if auth_server_id is None:
-            raise TypeError("Missing 'auth_server_id' argument")
-        if client_whitelists is None and 'clientWhitelists' in kwargs:
-            client_whitelists = kwargs['clientWhitelists']
-        if client_whitelists is None:
-            raise TypeError("Missing 'client_whitelists' argument")
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-
-        _setter("auth_server_id", auth_server_id)
-        _setter("client_whitelists", client_whitelists)
-        _setter("description", description)
-        _setter("priority", priority)
+        pulumi.set(__self__, "auth_server_id", auth_server_id)
+        pulumi.set(__self__, "client_whitelists", client_whitelists)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "priority", priority)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -157,43 +124,18 @@ class _ServerPolicyState:
         :param pulumi.Input[str] name: The name of the Auth Server Policy.
         :param pulumi.Input[int] priority: Priority of the auth server policy
         """
-        _ServerPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auth_server_id=auth_server_id,
-            client_whitelists=client_whitelists,
-            description=description,
-            name=name,
-            priority=priority,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auth_server_id: Optional[pulumi.Input[str]] = None,
-             client_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auth_server_id is None and 'authServerId' in kwargs:
-            auth_server_id = kwargs['authServerId']
-        if client_whitelists is None and 'clientWhitelists' in kwargs:
-            client_whitelists = kwargs['clientWhitelists']
-
         if auth_server_id is not None:
-            _setter("auth_server_id", auth_server_id)
+            pulumi.set(__self__, "auth_server_id", auth_server_id)
         if client_whitelists is not None:
-            _setter("client_whitelists", client_whitelists)
+            pulumi.set(__self__, "client_whitelists", client_whitelists)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="authServerId")
@@ -305,10 +247,6 @@ class ServerPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServerPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

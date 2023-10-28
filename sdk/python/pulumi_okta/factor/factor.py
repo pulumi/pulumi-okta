@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FactorArgs', 'Factor']
@@ -21,26 +21,9 @@ class FactorArgs:
         :param pulumi.Input[str] provider_id: Factor provider ID
         :param pulumi.Input[bool] active: Is this provider active?
         """
-        FactorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provider_id=provider_id,
-            active=active,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provider_id: Optional[pulumi.Input[str]] = None,
-             active: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if provider_id is None and 'providerId' in kwargs:
-            provider_id = kwargs['providerId']
-        if provider_id is None:
-            raise TypeError("Missing 'provider_id' argument")
-
-        _setter("provider_id", provider_id)
+        pulumi.set(__self__, "provider_id", provider_id)
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
 
     @property
     @pulumi.getter(name="providerId")
@@ -77,25 +60,10 @@ class _FactorState:
         :param pulumi.Input[bool] active: Is this provider active?
         :param pulumi.Input[str] provider_id: Factor provider ID
         """
-        _FactorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            provider_id=provider_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             provider_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if provider_id is None and 'providerId' in kwargs:
-            provider_id = kwargs['providerId']
-
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if provider_id is not None:
-            _setter("provider_id", provider_id)
+            pulumi.set(__self__, "provider_id", provider_id)
 
     @property
     @pulumi.getter
@@ -155,10 +123,6 @@ class Factor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FactorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

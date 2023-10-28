@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DeviceAssuranceIosArgs', 'DeviceAssuranceIos']
@@ -25,35 +25,14 @@ class DeviceAssuranceIosArgs:
         :param pulumi.Input[str] os_version: The device os minimum version
         :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
         """
-        DeviceAssuranceIosArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            jailbreak=jailbreak,
-            name=name,
-            os_version=os_version,
-            screenlock_types=screenlock_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             jailbreak: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             os_version: Optional[pulumi.Input[str]] = None,
-             screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if os_version is None and 'osVersion' in kwargs:
-            os_version = kwargs['osVersion']
-        if screenlock_types is None and 'screenlockTypes' in kwargs:
-            screenlock_types = kwargs['screenlockTypes']
-
         if jailbreak is not None:
-            _setter("jailbreak", jailbreak)
+            pulumi.set(__self__, "jailbreak", jailbreak)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if os_version is not None:
-            _setter("os_version", os_version)
+            pulumi.set(__self__, "os_version", os_version)
         if screenlock_types is not None:
-            _setter("screenlock_types", screenlock_types)
+            pulumi.set(__self__, "screenlock_types", screenlock_types)
 
     @property
     @pulumi.getter
@@ -128,63 +107,24 @@ class _DeviceAssuranceIosState:
         :param pulumi.Input[str] platform: Policy device assurance platform
         :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
         """
-        _DeviceAssuranceIosState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            created_by=created_by,
-            created_date=created_date,
-            jailbreak=jailbreak,
-            last_update=last_update,
-            last_updated_by=last_updated_by,
-            name=name,
-            os_version=os_version,
-            platform=platform,
-            screenlock_types=screenlock_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             created_by: Optional[pulumi.Input[str]] = None,
-             created_date: Optional[pulumi.Input[str]] = None,
-             jailbreak: Optional[pulumi.Input[bool]] = None,
-             last_update: Optional[pulumi.Input[str]] = None,
-             last_updated_by: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             os_version: Optional[pulumi.Input[str]] = None,
-             platform: Optional[pulumi.Input[str]] = None,
-             screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_by is None and 'createdBy' in kwargs:
-            created_by = kwargs['createdBy']
-        if created_date is None and 'createdDate' in kwargs:
-            created_date = kwargs['createdDate']
-        if last_update is None and 'lastUpdate' in kwargs:
-            last_update = kwargs['lastUpdate']
-        if last_updated_by is None and 'lastUpdatedBy' in kwargs:
-            last_updated_by = kwargs['lastUpdatedBy']
-        if os_version is None and 'osVersion' in kwargs:
-            os_version = kwargs['osVersion']
-        if screenlock_types is None and 'screenlockTypes' in kwargs:
-            screenlock_types = kwargs['screenlockTypes']
-
         if created_by is not None:
-            _setter("created_by", created_by)
+            pulumi.set(__self__, "created_by", created_by)
         if created_date is not None:
-            _setter("created_date", created_date)
+            pulumi.set(__self__, "created_date", created_date)
         if jailbreak is not None:
-            _setter("jailbreak", jailbreak)
+            pulumi.set(__self__, "jailbreak", jailbreak)
         if last_update is not None:
-            _setter("last_update", last_update)
+            pulumi.set(__self__, "last_update", last_update)
         if last_updated_by is not None:
-            _setter("last_updated_by", last_updated_by)
+            pulumi.set(__self__, "last_updated_by", last_updated_by)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if os_version is not None:
-            _setter("os_version", os_version)
+            pulumi.set(__self__, "os_version", os_version)
         if platform is not None:
-            _setter("platform", platform)
+            pulumi.set(__self__, "platform", platform)
         if screenlock_types is not None:
-            _setter("screenlock_types", screenlock_types)
+            pulumi.set(__self__, "screenlock_types", screenlock_types)
 
     @property
     @pulumi.getter(name="createdBy")
@@ -332,10 +272,6 @@ class DeviceAssuranceIos(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DeviceAssuranceIosArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
