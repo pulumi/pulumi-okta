@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['OrgSupportArgs', 'OrgSupport']
@@ -19,21 +19,8 @@ class OrgSupportArgs:
         The set of arguments for constructing a OrgSupport resource.
         :param pulumi.Input[int] extend_by: Number of days the support should be extended by
         """
-        OrgSupportArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            extend_by=extend_by,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             extend_by: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if extend_by is None and 'extendBy' in kwargs:
-            extend_by = kwargs['extendBy']
-
         if extend_by is not None:
-            _setter("extend_by", extend_by)
+            pulumi.set(__self__, "extend_by", extend_by)
 
     @property
     @pulumi.getter(name="extendBy")
@@ -60,29 +47,12 @@ class _OrgSupportState:
         :param pulumi.Input[int] extend_by: Number of days the support should be extended by
         :param pulumi.Input[str] status: Status of Okta Support
         """
-        _OrgSupportState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            expiration=expiration,
-            extend_by=extend_by,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             expiration: Optional[pulumi.Input[str]] = None,
-             extend_by: Optional[pulumi.Input[int]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if extend_by is None and 'extendBy' in kwargs:
-            extend_by = kwargs['extendBy']
-
         if expiration is not None:
-            _setter("expiration", expiration)
+            pulumi.set(__self__, "expiration", expiration)
         if extend_by is not None:
-            _setter("extend_by", extend_by)
+            pulumi.set(__self__, "extend_by", extend_by)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -152,10 +122,6 @@ class OrgSupport(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OrgSupportArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

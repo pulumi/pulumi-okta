@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RateLimitingArgs', 'RateLimiting']
@@ -23,31 +23,10 @@ class RateLimitingArgs:
         :param pulumi.Input[str] login: Called when accessing the Okta hosted login page.
         :param pulumi.Input[bool] communications_enabled: Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
         """
-        RateLimitingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorize=authorize,
-            login=login,
-            communications_enabled=communications_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorize: Optional[pulumi.Input[str]] = None,
-             login: Optional[pulumi.Input[str]] = None,
-             communications_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authorize is None:
-            raise TypeError("Missing 'authorize' argument")
-        if login is None:
-            raise TypeError("Missing 'login' argument")
-        if communications_enabled is None and 'communicationsEnabled' in kwargs:
-            communications_enabled = kwargs['communicationsEnabled']
-
-        _setter("authorize", authorize)
-        _setter("login", login)
+        pulumi.set(__self__, "authorize", authorize)
+        pulumi.set(__self__, "login", login)
         if communications_enabled is not None:
-            _setter("communications_enabled", communications_enabled)
+            pulumi.set(__self__, "communications_enabled", communications_enabled)
 
     @property
     @pulumi.getter
@@ -98,29 +77,12 @@ class _RateLimitingState:
         :param pulumi.Input[bool] communications_enabled: Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
         :param pulumi.Input[str] login: Called when accessing the Okta hosted login page.
         """
-        _RateLimitingState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorize=authorize,
-            communications_enabled=communications_enabled,
-            login=login,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorize: Optional[pulumi.Input[str]] = None,
-             communications_enabled: Optional[pulumi.Input[bool]] = None,
-             login: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if communications_enabled is None and 'communicationsEnabled' in kwargs:
-            communications_enabled = kwargs['communicationsEnabled']
-
         if authorize is not None:
-            _setter("authorize", authorize)
+            pulumi.set(__self__, "authorize", authorize)
         if communications_enabled is not None:
-            _setter("communications_enabled", communications_enabled)
+            pulumi.set(__self__, "communications_enabled", communications_enabled)
         if login is not None:
-            _setter("login", login)
+            pulumi.set(__self__, "login", login)
 
     @property
     @pulumi.getter
@@ -194,10 +156,6 @@ class RateLimiting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RateLimitingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

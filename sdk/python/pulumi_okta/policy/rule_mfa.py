@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,73 +41,28 @@ class RuleMfaArgs:
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
-        RuleMfaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_excludes=app_excludes,
-            app_includes=app_includes,
-            enroll=enroll,
-            name=name,
-            network_connection=network_connection,
-            network_excludes=network_excludes,
-            network_includes=network_includes,
-            policy_id=policy_id,
-            priority=priority,
-            status=status,
-            users_excludeds=users_excludeds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]] = None,
-             app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]] = None,
-             enroll: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_connection: Optional[pulumi.Input[str]] = None,
-             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             policy_id: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_excludes is None and 'appExcludes' in kwargs:
-            app_excludes = kwargs['appExcludes']
-        if app_includes is None and 'appIncludes' in kwargs:
-            app_includes = kwargs['appIncludes']
-        if network_connection is None and 'networkConnection' in kwargs:
-            network_connection = kwargs['networkConnection']
-        if network_excludes is None and 'networkExcludes' in kwargs:
-            network_excludes = kwargs['networkExcludes']
-        if network_includes is None and 'networkIncludes' in kwargs:
-            network_includes = kwargs['networkIncludes']
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if users_excludeds is None and 'usersExcludeds' in kwargs:
-            users_excludeds = kwargs['usersExcludeds']
-
         if app_excludes is not None:
-            _setter("app_excludes", app_excludes)
+            pulumi.set(__self__, "app_excludes", app_excludes)
         if app_includes is not None:
-            _setter("app_includes", app_includes)
+            pulumi.set(__self__, "app_includes", app_includes)
         if enroll is not None:
-            _setter("enroll", enroll)
+            pulumi.set(__self__, "enroll", enroll)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_connection is not None:
-            _setter("network_connection", network_connection)
+            pulumi.set(__self__, "network_connection", network_connection)
         if network_excludes is not None:
-            _setter("network_excludes", network_excludes)
+            pulumi.set(__self__, "network_excludes", network_excludes)
         if network_includes is not None:
-            _setter("network_includes", network_includes)
+            pulumi.set(__self__, "network_includes", network_includes)
         if policy_id is not None:
-            _setter("policy_id", policy_id)
+            pulumi.set(__self__, "policy_id", policy_id)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if users_excludeds is not None:
-            _setter("users_excludeds", users_excludeds)
+            pulumi.set(__self__, "users_excludeds", users_excludeds)
 
     @property
     @pulumi.getter(name="appExcludes")
@@ -270,73 +225,28 @@ class _RuleMfaState:
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
         """
-        _RuleMfaState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_excludes=app_excludes,
-            app_includes=app_includes,
-            enroll=enroll,
-            name=name,
-            network_connection=network_connection,
-            network_excludes=network_excludes,
-            network_includes=network_includes,
-            policy_id=policy_id,
-            priority=priority,
-            status=status,
-            users_excludeds=users_excludeds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]] = None,
-             app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]] = None,
-             enroll: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_connection: Optional[pulumi.Input[str]] = None,
-             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             policy_id: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_excludes is None and 'appExcludes' in kwargs:
-            app_excludes = kwargs['appExcludes']
-        if app_includes is None and 'appIncludes' in kwargs:
-            app_includes = kwargs['appIncludes']
-        if network_connection is None and 'networkConnection' in kwargs:
-            network_connection = kwargs['networkConnection']
-        if network_excludes is None and 'networkExcludes' in kwargs:
-            network_excludes = kwargs['networkExcludes']
-        if network_includes is None and 'networkIncludes' in kwargs:
-            network_includes = kwargs['networkIncludes']
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if users_excludeds is None and 'usersExcludeds' in kwargs:
-            users_excludeds = kwargs['usersExcludeds']
-
         if app_excludes is not None:
-            _setter("app_excludes", app_excludes)
+            pulumi.set(__self__, "app_excludes", app_excludes)
         if app_includes is not None:
-            _setter("app_includes", app_includes)
+            pulumi.set(__self__, "app_includes", app_includes)
         if enroll is not None:
-            _setter("enroll", enroll)
+            pulumi.set(__self__, "enroll", enroll)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_connection is not None:
-            _setter("network_connection", network_connection)
+            pulumi.set(__self__, "network_connection", network_connection)
         if network_excludes is not None:
-            _setter("network_excludes", network_excludes)
+            pulumi.set(__self__, "network_excludes", network_excludes)
         if network_includes is not None:
-            _setter("network_includes", network_includes)
+            pulumi.set(__self__, "network_includes", network_includes)
         if policy_id is not None:
-            _setter("policy_id", policy_id)
+            pulumi.set(__self__, "policy_id", policy_id)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if users_excludeds is not None:
-            _setter("users_excludeds", users_excludeds)
+            pulumi.set(__self__, "users_excludeds", users_excludeds)
 
     @property
     @pulumi.getter(name="appExcludes")
@@ -522,10 +432,6 @@ class RuleMfa(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RuleMfaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

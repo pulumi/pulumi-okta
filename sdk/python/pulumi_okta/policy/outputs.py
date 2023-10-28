@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,28 +30,11 @@ class RuleIdpDiscoveryAppExclude(dict):
         """
         :param str id: The ID of this resource.
         """
-        RuleIdpDiscoveryAppExclude._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -81,28 +64,11 @@ class RuleIdpDiscoveryAppInclude(dict):
         """
         :param str id: The ID of this resource.
         """
-        RuleIdpDiscoveryAppInclude._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -151,31 +117,12 @@ class RuleIdpDiscoveryPlatformInclude(dict):
         """
         :param str os_expression: Only available with OTHER OS type
         """
-        RuleIdpDiscoveryPlatformInclude._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            os_expression=os_expression,
-            os_type=os_type,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             os_expression: Optional[str] = None,
-             os_type: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if os_expression is None and 'osExpression' in kwargs:
-            os_expression = kwargs['osExpression']
-        if os_type is None and 'osType' in kwargs:
-            os_type = kwargs['osType']
-
         if os_expression is not None:
-            _setter("os_expression", os_expression)
+            pulumi.set(__self__, "os_expression", os_expression)
         if os_type is not None:
-            _setter("os_type", os_type)
+            pulumi.set(__self__, "os_type", os_type)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="osExpression")
@@ -218,25 +165,10 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  value: Optional[str] = None):
-        RuleIdpDiscoveryUserIdentifierPattern._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match_type=match_type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match_type: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if match_type is None and 'matchType' in kwargs:
-            match_type = kwargs['matchType']
-
         if match_type is not None:
-            _setter("match_type", match_type)
+            pulumi.set(__self__, "match_type", match_type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="matchType")
@@ -258,28 +190,11 @@ class RuleMfaAppExclude(dict):
         """
         :param str id: The ID of this resource.
         """
-        RuleMfaAppExclude._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -309,28 +224,11 @@ class RuleMfaAppInclude(dict):
         """
         :param str id: The ID of this resource.
         """
-        RuleMfaAppInclude._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -382,35 +280,10 @@ class RuleSignonFactorSequence(dict):
         :param str primary_criteria_factor_type: Type of a Factor
         :param str primary_criteria_provider: Factor provider
         """
-        RuleSignonFactorSequence._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            primary_criteria_factor_type=primary_criteria_factor_type,
-            primary_criteria_provider=primary_criteria_provider,
-            secondary_criterias=secondary_criterias,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             primary_criteria_factor_type: Optional[str] = None,
-             primary_criteria_provider: Optional[str] = None,
-             secondary_criterias: Optional[Sequence['outputs.RuleSignonFactorSequenceSecondaryCriteria']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if primary_criteria_factor_type is None and 'primaryCriteriaFactorType' in kwargs:
-            primary_criteria_factor_type = kwargs['primaryCriteriaFactorType']
-        if primary_criteria_factor_type is None:
-            raise TypeError("Missing 'primary_criteria_factor_type' argument")
-        if primary_criteria_provider is None and 'primaryCriteriaProvider' in kwargs:
-            primary_criteria_provider = kwargs['primaryCriteriaProvider']
-        if primary_criteria_provider is None:
-            raise TypeError("Missing 'primary_criteria_provider' argument")
-        if secondary_criterias is None and 'secondaryCriterias' in kwargs:
-            secondary_criterias = kwargs['secondaryCriterias']
-
-        _setter("primary_criteria_factor_type", primary_criteria_factor_type)
-        _setter("primary_criteria_provider", primary_criteria_provider)
+        pulumi.set(__self__, "primary_criteria_factor_type", primary_criteria_factor_type)
+        pulumi.set(__self__, "primary_criteria_provider", primary_criteria_provider)
         if secondary_criterias is not None:
-            _setter("secondary_criterias", secondary_criterias)
+            pulumi.set(__self__, "secondary_criterias", secondary_criterias)
 
     @property
     @pulumi.getter(name="primaryCriteriaFactorType")
@@ -460,27 +333,8 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
         :param str factor_type: Type of a Factor
         :param str provider: Factor provider
         """
-        RuleSignonFactorSequenceSecondaryCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            factor_type=factor_type,
-            provider=provider,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             factor_type: Optional[str] = None,
-             provider: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if factor_type is None and 'factorType' in kwargs:
-            factor_type = kwargs['factorType']
-        if factor_type is None:
-            raise TypeError("Missing 'factor_type' argument")
-        if provider is None:
-            raise TypeError("Missing 'provider' argument")
-
-        _setter("factor_type", factor_type)
-        _setter("provider", provider)
+        pulumi.set(__self__, "factor_type", factor_type)
+        pulumi.set(__self__, "provider", provider)
 
     @property
     @pulumi.getter(name="factorType")

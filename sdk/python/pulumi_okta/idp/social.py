@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SocialArgs', 'Social']
@@ -48,159 +48,54 @@ class SocialArgs:
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] name: Name of the IdP
         """
-        SocialArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            scopes=scopes,
-            type=type,
-            account_link_action=account_link_action,
-            account_link_group_includes=account_link_group_includes,
-            apple_kid=apple_kid,
-            apple_private_key=apple_private_key,
-            apple_team_id=apple_team_id,
-            client_id=client_id,
-            client_secret=client_secret,
-            deprovisioned_action=deprovisioned_action,
-            groups_action=groups_action,
-            groups_assignments=groups_assignments,
-            groups_attribute=groups_attribute,
-            groups_filters=groups_filters,
-            issuer_mode=issuer_mode,
-            max_clock_skew=max_clock_skew,
-            name=name,
-            profile_master=profile_master,
-            protocol_type=protocol_type,
-            provisioning_action=provisioning_action,
-            status=status,
-            subject_match_attribute=subject_match_attribute,
-            subject_match_type=subject_match_type,
-            suspended_action=suspended_action,
-            username_template=username_template,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             account_link_action: Optional[pulumi.Input[str]] = None,
-             account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             apple_kid: Optional[pulumi.Input[str]] = None,
-             apple_private_key: Optional[pulumi.Input[str]] = None,
-             apple_team_id: Optional[pulumi.Input[str]] = None,
-             client_id: Optional[pulumi.Input[str]] = None,
-             client_secret: Optional[pulumi.Input[str]] = None,
-             deprovisioned_action: Optional[pulumi.Input[str]] = None,
-             groups_action: Optional[pulumi.Input[str]] = None,
-             groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             groups_attribute: Optional[pulumi.Input[str]] = None,
-             groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             issuer_mode: Optional[pulumi.Input[str]] = None,
-             max_clock_skew: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             profile_master: Optional[pulumi.Input[bool]] = None,
-             protocol_type: Optional[pulumi.Input[str]] = None,
-             provisioning_action: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             subject_match_attribute: Optional[pulumi.Input[str]] = None,
-             subject_match_type: Optional[pulumi.Input[str]] = None,
-             suspended_action: Optional[pulumi.Input[str]] = None,
-             username_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if scopes is None:
-            raise TypeError("Missing 'scopes' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if account_link_action is None and 'accountLinkAction' in kwargs:
-            account_link_action = kwargs['accountLinkAction']
-        if account_link_group_includes is None and 'accountLinkGroupIncludes' in kwargs:
-            account_link_group_includes = kwargs['accountLinkGroupIncludes']
-        if apple_kid is None and 'appleKid' in kwargs:
-            apple_kid = kwargs['appleKid']
-        if apple_private_key is None and 'applePrivateKey' in kwargs:
-            apple_private_key = kwargs['applePrivateKey']
-        if apple_team_id is None and 'appleTeamId' in kwargs:
-            apple_team_id = kwargs['appleTeamId']
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if client_secret is None and 'clientSecret' in kwargs:
-            client_secret = kwargs['clientSecret']
-        if deprovisioned_action is None and 'deprovisionedAction' in kwargs:
-            deprovisioned_action = kwargs['deprovisionedAction']
-        if groups_action is None and 'groupsAction' in kwargs:
-            groups_action = kwargs['groupsAction']
-        if groups_assignments is None and 'groupsAssignments' in kwargs:
-            groups_assignments = kwargs['groupsAssignments']
-        if groups_attribute is None and 'groupsAttribute' in kwargs:
-            groups_attribute = kwargs['groupsAttribute']
-        if groups_filters is None and 'groupsFilters' in kwargs:
-            groups_filters = kwargs['groupsFilters']
-        if issuer_mode is None and 'issuerMode' in kwargs:
-            issuer_mode = kwargs['issuerMode']
-        if max_clock_skew is None and 'maxClockSkew' in kwargs:
-            max_clock_skew = kwargs['maxClockSkew']
-        if profile_master is None and 'profileMaster' in kwargs:
-            profile_master = kwargs['profileMaster']
-        if protocol_type is None and 'protocolType' in kwargs:
-            protocol_type = kwargs['protocolType']
-        if provisioning_action is None and 'provisioningAction' in kwargs:
-            provisioning_action = kwargs['provisioningAction']
-        if subject_match_attribute is None and 'subjectMatchAttribute' in kwargs:
-            subject_match_attribute = kwargs['subjectMatchAttribute']
-        if subject_match_type is None and 'subjectMatchType' in kwargs:
-            subject_match_type = kwargs['subjectMatchType']
-        if suspended_action is None and 'suspendedAction' in kwargs:
-            suspended_action = kwargs['suspendedAction']
-        if username_template is None and 'usernameTemplate' in kwargs:
-            username_template = kwargs['usernameTemplate']
-
-        _setter("scopes", scopes)
-        _setter("type", type)
+        pulumi.set(__self__, "scopes", scopes)
+        pulumi.set(__self__, "type", type)
         if account_link_action is not None:
-            _setter("account_link_action", account_link_action)
+            pulumi.set(__self__, "account_link_action", account_link_action)
         if account_link_group_includes is not None:
-            _setter("account_link_group_includes", account_link_group_includes)
+            pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
         if apple_kid is not None:
-            _setter("apple_kid", apple_kid)
+            pulumi.set(__self__, "apple_kid", apple_kid)
         if apple_private_key is not None:
-            _setter("apple_private_key", apple_private_key)
+            pulumi.set(__self__, "apple_private_key", apple_private_key)
         if apple_team_id is not None:
-            _setter("apple_team_id", apple_team_id)
+            pulumi.set(__self__, "apple_team_id", apple_team_id)
         if client_id is not None:
-            _setter("client_id", client_id)
+            pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
-            _setter("client_secret", client_secret)
+            pulumi.set(__self__, "client_secret", client_secret)
         if deprovisioned_action is not None:
-            _setter("deprovisioned_action", deprovisioned_action)
+            pulumi.set(__self__, "deprovisioned_action", deprovisioned_action)
         if groups_action is not None:
-            _setter("groups_action", groups_action)
+            pulumi.set(__self__, "groups_action", groups_action)
         if groups_assignments is not None:
-            _setter("groups_assignments", groups_assignments)
+            pulumi.set(__self__, "groups_assignments", groups_assignments)
         if groups_attribute is not None:
-            _setter("groups_attribute", groups_attribute)
+            pulumi.set(__self__, "groups_attribute", groups_attribute)
         if groups_filters is not None:
-            _setter("groups_filters", groups_filters)
+            pulumi.set(__self__, "groups_filters", groups_filters)
         if issuer_mode is not None:
-            _setter("issuer_mode", issuer_mode)
+            pulumi.set(__self__, "issuer_mode", issuer_mode)
         if max_clock_skew is not None:
-            _setter("max_clock_skew", max_clock_skew)
+            pulumi.set(__self__, "max_clock_skew", max_clock_skew)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if profile_master is not None:
-            _setter("profile_master", profile_master)
+            pulumi.set(__self__, "profile_master", profile_master)
         if protocol_type is not None:
-            _setter("protocol_type", protocol_type)
+            pulumi.set(__self__, "protocol_type", protocol_type)
         if provisioning_action is not None:
-            _setter("provisioning_action", provisioning_action)
+            pulumi.set(__self__, "provisioning_action", provisioning_action)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if subject_match_attribute is not None:
-            _setter("subject_match_attribute", subject_match_attribute)
+            pulumi.set(__self__, "subject_match_attribute", subject_match_attribute)
         if subject_match_type is not None:
-            _setter("subject_match_type", subject_match_type)
+            pulumi.set(__self__, "subject_match_type", subject_match_type)
         if suspended_action is not None:
-            _setter("suspended_action", suspended_action)
+            pulumi.set(__self__, "suspended_action", suspended_action)
         if username_template is not None:
-            _setter("username_template", username_template)
+            pulumi.set(__self__, "username_template", username_template)
 
     @property
     @pulumi.getter
@@ -487,181 +382,64 @@ class _SocialState:
         :param pulumi.Input[str] name: Name of the IdP
         :param pulumi.Input[str] type: Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
         """
-        _SocialState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_link_action=account_link_action,
-            account_link_group_includes=account_link_group_includes,
-            apple_kid=apple_kid,
-            apple_private_key=apple_private_key,
-            apple_team_id=apple_team_id,
-            authorization_binding=authorization_binding,
-            authorization_url=authorization_url,
-            client_id=client_id,
-            client_secret=client_secret,
-            deprovisioned_action=deprovisioned_action,
-            groups_action=groups_action,
-            groups_assignments=groups_assignments,
-            groups_attribute=groups_attribute,
-            groups_filters=groups_filters,
-            issuer_mode=issuer_mode,
-            max_clock_skew=max_clock_skew,
-            name=name,
-            profile_master=profile_master,
-            protocol_type=protocol_type,
-            provisioning_action=provisioning_action,
-            scopes=scopes,
-            status=status,
-            subject_match_attribute=subject_match_attribute,
-            subject_match_type=subject_match_type,
-            suspended_action=suspended_action,
-            token_binding=token_binding,
-            token_url=token_url,
-            type=type,
-            username_template=username_template,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_link_action: Optional[pulumi.Input[str]] = None,
-             account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             apple_kid: Optional[pulumi.Input[str]] = None,
-             apple_private_key: Optional[pulumi.Input[str]] = None,
-             apple_team_id: Optional[pulumi.Input[str]] = None,
-             authorization_binding: Optional[pulumi.Input[str]] = None,
-             authorization_url: Optional[pulumi.Input[str]] = None,
-             client_id: Optional[pulumi.Input[str]] = None,
-             client_secret: Optional[pulumi.Input[str]] = None,
-             deprovisioned_action: Optional[pulumi.Input[str]] = None,
-             groups_action: Optional[pulumi.Input[str]] = None,
-             groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             groups_attribute: Optional[pulumi.Input[str]] = None,
-             groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             issuer_mode: Optional[pulumi.Input[str]] = None,
-             max_clock_skew: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             profile_master: Optional[pulumi.Input[bool]] = None,
-             protocol_type: Optional[pulumi.Input[str]] = None,
-             provisioning_action: Optional[pulumi.Input[str]] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             subject_match_attribute: Optional[pulumi.Input[str]] = None,
-             subject_match_type: Optional[pulumi.Input[str]] = None,
-             suspended_action: Optional[pulumi.Input[str]] = None,
-             token_binding: Optional[pulumi.Input[str]] = None,
-             token_url: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             username_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_link_action is None and 'accountLinkAction' in kwargs:
-            account_link_action = kwargs['accountLinkAction']
-        if account_link_group_includes is None and 'accountLinkGroupIncludes' in kwargs:
-            account_link_group_includes = kwargs['accountLinkGroupIncludes']
-        if apple_kid is None and 'appleKid' in kwargs:
-            apple_kid = kwargs['appleKid']
-        if apple_private_key is None and 'applePrivateKey' in kwargs:
-            apple_private_key = kwargs['applePrivateKey']
-        if apple_team_id is None and 'appleTeamId' in kwargs:
-            apple_team_id = kwargs['appleTeamId']
-        if authorization_binding is None and 'authorizationBinding' in kwargs:
-            authorization_binding = kwargs['authorizationBinding']
-        if authorization_url is None and 'authorizationUrl' in kwargs:
-            authorization_url = kwargs['authorizationUrl']
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if client_secret is None and 'clientSecret' in kwargs:
-            client_secret = kwargs['clientSecret']
-        if deprovisioned_action is None and 'deprovisionedAction' in kwargs:
-            deprovisioned_action = kwargs['deprovisionedAction']
-        if groups_action is None and 'groupsAction' in kwargs:
-            groups_action = kwargs['groupsAction']
-        if groups_assignments is None and 'groupsAssignments' in kwargs:
-            groups_assignments = kwargs['groupsAssignments']
-        if groups_attribute is None and 'groupsAttribute' in kwargs:
-            groups_attribute = kwargs['groupsAttribute']
-        if groups_filters is None and 'groupsFilters' in kwargs:
-            groups_filters = kwargs['groupsFilters']
-        if issuer_mode is None and 'issuerMode' in kwargs:
-            issuer_mode = kwargs['issuerMode']
-        if max_clock_skew is None and 'maxClockSkew' in kwargs:
-            max_clock_skew = kwargs['maxClockSkew']
-        if profile_master is None and 'profileMaster' in kwargs:
-            profile_master = kwargs['profileMaster']
-        if protocol_type is None and 'protocolType' in kwargs:
-            protocol_type = kwargs['protocolType']
-        if provisioning_action is None and 'provisioningAction' in kwargs:
-            provisioning_action = kwargs['provisioningAction']
-        if subject_match_attribute is None and 'subjectMatchAttribute' in kwargs:
-            subject_match_attribute = kwargs['subjectMatchAttribute']
-        if subject_match_type is None and 'subjectMatchType' in kwargs:
-            subject_match_type = kwargs['subjectMatchType']
-        if suspended_action is None and 'suspendedAction' in kwargs:
-            suspended_action = kwargs['suspendedAction']
-        if token_binding is None and 'tokenBinding' in kwargs:
-            token_binding = kwargs['tokenBinding']
-        if token_url is None and 'tokenUrl' in kwargs:
-            token_url = kwargs['tokenUrl']
-        if username_template is None and 'usernameTemplate' in kwargs:
-            username_template = kwargs['usernameTemplate']
-
         if account_link_action is not None:
-            _setter("account_link_action", account_link_action)
+            pulumi.set(__self__, "account_link_action", account_link_action)
         if account_link_group_includes is not None:
-            _setter("account_link_group_includes", account_link_group_includes)
+            pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
         if apple_kid is not None:
-            _setter("apple_kid", apple_kid)
+            pulumi.set(__self__, "apple_kid", apple_kid)
         if apple_private_key is not None:
-            _setter("apple_private_key", apple_private_key)
+            pulumi.set(__self__, "apple_private_key", apple_private_key)
         if apple_team_id is not None:
-            _setter("apple_team_id", apple_team_id)
+            pulumi.set(__self__, "apple_team_id", apple_team_id)
         if authorization_binding is not None:
-            _setter("authorization_binding", authorization_binding)
+            pulumi.set(__self__, "authorization_binding", authorization_binding)
         if authorization_url is not None:
-            _setter("authorization_url", authorization_url)
+            pulumi.set(__self__, "authorization_url", authorization_url)
         if client_id is not None:
-            _setter("client_id", client_id)
+            pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
-            _setter("client_secret", client_secret)
+            pulumi.set(__self__, "client_secret", client_secret)
         if deprovisioned_action is not None:
-            _setter("deprovisioned_action", deprovisioned_action)
+            pulumi.set(__self__, "deprovisioned_action", deprovisioned_action)
         if groups_action is not None:
-            _setter("groups_action", groups_action)
+            pulumi.set(__self__, "groups_action", groups_action)
         if groups_assignments is not None:
-            _setter("groups_assignments", groups_assignments)
+            pulumi.set(__self__, "groups_assignments", groups_assignments)
         if groups_attribute is not None:
-            _setter("groups_attribute", groups_attribute)
+            pulumi.set(__self__, "groups_attribute", groups_attribute)
         if groups_filters is not None:
-            _setter("groups_filters", groups_filters)
+            pulumi.set(__self__, "groups_filters", groups_filters)
         if issuer_mode is not None:
-            _setter("issuer_mode", issuer_mode)
+            pulumi.set(__self__, "issuer_mode", issuer_mode)
         if max_clock_skew is not None:
-            _setter("max_clock_skew", max_clock_skew)
+            pulumi.set(__self__, "max_clock_skew", max_clock_skew)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if profile_master is not None:
-            _setter("profile_master", profile_master)
+            pulumi.set(__self__, "profile_master", profile_master)
         if protocol_type is not None:
-            _setter("protocol_type", protocol_type)
+            pulumi.set(__self__, "protocol_type", protocol_type)
         if provisioning_action is not None:
-            _setter("provisioning_action", provisioning_action)
+            pulumi.set(__self__, "provisioning_action", provisioning_action)
         if scopes is not None:
-            _setter("scopes", scopes)
+            pulumi.set(__self__, "scopes", scopes)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if subject_match_attribute is not None:
-            _setter("subject_match_attribute", subject_match_attribute)
+            pulumi.set(__self__, "subject_match_attribute", subject_match_attribute)
         if subject_match_type is not None:
-            _setter("subject_match_type", subject_match_type)
+            pulumi.set(__self__, "subject_match_type", subject_match_type)
         if suspended_action is not None:
-            _setter("suspended_action", suspended_action)
+            pulumi.set(__self__, "suspended_action", suspended_action)
         if token_binding is not None:
-            _setter("token_binding", token_binding)
+            pulumi.set(__self__, "token_binding", token_binding)
         if token_url is not None:
-            _setter("token_url", token_url)
+            pulumi.set(__self__, "token_url", token_url)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if username_template is not None:
-            _setter("username_template", username_template)
+            pulumi.set(__self__, "username_template", username_template)
 
     @property
     @pulumi.getter(name="accountLinkAction")
@@ -1003,10 +781,6 @@ class Social(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SocialArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,29 +24,10 @@ class TemplateSmsArgs:
         :param pulumi.Input[str] template: SMS default template
         :param pulumi.Input[str] type: SMS template type
         """
-        TemplateSmsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            template=template,
-            type=type,
-            translations=translations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             template: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             translations: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSmsTranslationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if template is None:
-            raise TypeError("Missing 'template' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("template", template)
-        _setter("type", type)
+        pulumi.set(__self__, "template", template)
+        pulumi.set(__self__, "type", type)
         if translations is not None:
-            _setter("translations", translations)
+            pulumi.set(__self__, "translations", translations)
 
     @property
     @pulumi.getter
@@ -93,27 +74,12 @@ class _TemplateSmsState:
         :param pulumi.Input[str] template: SMS default template
         :param pulumi.Input[str] type: SMS template type
         """
-        _TemplateSmsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            template=template,
-            translations=translations,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             template: Optional[pulumi.Input[str]] = None,
-             translations: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSmsTranslationArgs']]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if template is not None:
-            _setter("template", template)
+            pulumi.set(__self__, "template", template)
         if translations is not None:
-            _setter("translations", translations)
+            pulumi.set(__self__, "translations", translations)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -183,10 +149,6 @@ class TemplateSms(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TemplateSmsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

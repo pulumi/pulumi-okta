@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['PolicyProfileEnrollmentAppsArgs', 'PolicyProfileEnrollmentApps']
@@ -21,26 +21,9 @@ class PolicyProfileEnrollmentAppsArgs:
         :param pulumi.Input[str] policy_id: ID of the enrollment policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app IDs to be added to this policy
         """
-        PolicyProfileEnrollmentAppsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_id=policy_id,
-            apps=apps,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_id: Optional[pulumi.Input[str]] = None,
-             apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-        if policy_id is None:
-            raise TypeError("Missing 'policy_id' argument")
-
-        _setter("policy_id", policy_id)
+        pulumi.set(__self__, "policy_id", policy_id)
         if apps is not None:
-            _setter("apps", apps)
+            pulumi.set(__self__, "apps", apps)
 
     @property
     @pulumi.getter(name="policyId")
@@ -79,31 +62,12 @@ class _PolicyProfileEnrollmentAppsState:
         :param pulumi.Input[str] default_policy_id: ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
         :param pulumi.Input[str] policy_id: ID of the enrollment policy.
         """
-        _PolicyProfileEnrollmentAppsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apps=apps,
-            default_policy_id=default_policy_id,
-            policy_id=policy_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             default_policy_id: Optional[pulumi.Input[str]] = None,
-             policy_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_policy_id is None and 'defaultPolicyId' in kwargs:
-            default_policy_id = kwargs['defaultPolicyId']
-        if policy_id is None and 'policyId' in kwargs:
-            policy_id = kwargs['policyId']
-
         if apps is not None:
-            _setter("apps", apps)
+            pulumi.set(__self__, "apps", apps)
         if default_policy_id is not None:
-            _setter("default_policy_id", default_policy_id)
+            pulumi.set(__self__, "default_policy_id", default_policy_id)
         if policy_id is not None:
-            _setter("policy_id", policy_id)
+            pulumi.set(__self__, "policy_id", policy_id)
 
     @property
     @pulumi.getter
@@ -175,10 +139,6 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PolicyProfileEnrollmentAppsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

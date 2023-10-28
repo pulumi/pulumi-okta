@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -25,64 +25,15 @@ class GetServerScopesScopeResult(dict):
                  name: str,
                  optional: bool,
                  system: bool):
-        GetServerScopesScopeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            consent=consent,
-            default=default,
-            description=description,
-            display_name=display_name,
-            id=id,
-            metadata_publish=metadata_publish,
-            name=name,
-            optional=optional,
-            system=system,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             consent: Optional[str] = None,
-             default: Optional[bool] = None,
-             description: Optional[str] = None,
-             display_name: Optional[str] = None,
-             id: Optional[str] = None,
-             metadata_publish: Optional[str] = None,
-             name: Optional[str] = None,
-             optional: Optional[bool] = None,
-             system: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if consent is None:
-            raise TypeError("Missing 'consent' argument")
-        if default is None:
-            raise TypeError("Missing 'default' argument")
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if display_name is None:
-            raise TypeError("Missing 'display_name' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if metadata_publish is None and 'metadataPublish' in kwargs:
-            metadata_publish = kwargs['metadataPublish']
-        if metadata_publish is None:
-            raise TypeError("Missing 'metadata_publish' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if optional is None:
-            raise TypeError("Missing 'optional' argument")
-        if system is None:
-            raise TypeError("Missing 'system' argument")
-
-        _setter("consent", consent)
-        _setter("default", default)
-        _setter("description", description)
-        _setter("display_name", display_name)
-        _setter("id", id)
-        _setter("metadata_publish", metadata_publish)
-        _setter("name", name)
-        _setter("optional", optional)
-        _setter("system", system)
+        pulumi.set(__self__, "consent", consent)
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "metadata_publish", metadata_publish)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "optional", optional)
+        pulumi.set(__self__, "system", system)
 
     @property
     @pulumi.getter

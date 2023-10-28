@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -38,29 +38,10 @@ class AppGroupAssignmentsGroupArgs:
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param pulumi.Input[int] priority: Priority of group assignment
         """
-        AppGroupAssignmentsGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            profile=profile,
-            priority=priority,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[pulumi.Input[str]] = None,
-             profile: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if profile is None:
-            raise TypeError("Missing 'profile' argument")
-
-        _setter("id", id)
-        _setter("profile", profile)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "profile", profile)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter
@@ -108,31 +89,12 @@ class AppSignonPolicyRulePlatformIncludeArgs:
         """
         :param pulumi.Input[str] os_expression: Only available with OTHER OS type
         """
-        AppSignonPolicyRulePlatformIncludeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            os_expression=os_expression,
-            os_type=os_type,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             os_expression: Optional[pulumi.Input[str]] = None,
-             os_type: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if os_expression is None and 'osExpression' in kwargs:
-            os_expression = kwargs['osExpression']
-        if os_type is None and 'osType' in kwargs:
-            os_type = kwargs['osType']
-
         if os_expression is not None:
-            _setter("os_expression", os_expression)
+            pulumi.set(__self__, "os_expression", os_expression)
         if os_type is not None:
-            _setter("os_type", os_type)
+            pulumi.set(__self__, "os_type", os_type)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="osExpression")
@@ -174,25 +136,8 @@ class AppUserSchemaPropertyArrayOneOfArgs:
         :param pulumi.Input[str] const: Enum value
         :param pulumi.Input[str] title: Enum title
         """
-        AppUserSchemaPropertyArrayOneOfArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            const=const,
-            title=title,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             const: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if const is None:
-            raise TypeError("Missing 'const' argument")
-        if title is None:
-            raise TypeError("Missing 'title' argument")
-
-        _setter("const", const)
-        _setter("title", title)
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter
@@ -228,25 +173,8 @@ class AppUserSchemaPropertyOneOfArgs:
         :param pulumi.Input[str] const: Enum value
         :param pulumi.Input[str] title: Enum title
         """
-        AppUserSchemaPropertyOneOfArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            const=const,
-            title=title,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             const: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if const is None:
-            raise TypeError("Missing 'const' argument")
-        if title is None:
-            raise TypeError("Missing 'title' argument")
-
-        _setter("const", const)
-        _setter("title", title)
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter
@@ -280,33 +208,14 @@ class DomainDnsRecordArgs:
                  fqdn: Optional[pulumi.Input[str]] = None,
                  record_type: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        DomainDnsRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            expiration=expiration,
-            fqdn=fqdn,
-            record_type=record_type,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             expiration: Optional[pulumi.Input[str]] = None,
-             fqdn: Optional[pulumi.Input[str]] = None,
-             record_type: Optional[pulumi.Input[str]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if record_type is None and 'recordType' in kwargs:
-            record_type = kwargs['recordType']
-
         if expiration is not None:
-            _setter("expiration", expiration)
+            pulumi.set(__self__, "expiration", expiration)
         if fqdn is not None:
-            _setter("fqdn", fqdn)
+            pulumi.set(__self__, "fqdn", fqdn)
         if record_type is not None:
-            _setter("record_type", record_type)
+            pulumi.set(__self__, "record_type", record_type)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -351,29 +260,12 @@ class EmailSenderDnsRecordArgs:
                  fqdn: Optional[pulumi.Input[str]] = None,
                  record_type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        EmailSenderDnsRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fqdn=fqdn,
-            record_type=record_type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fqdn: Optional[pulumi.Input[str]] = None,
-             record_type: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if record_type is None and 'recordType' in kwargs:
-            record_type = kwargs['recordType']
-
         if fqdn is not None:
-            _setter("fqdn", fqdn)
+            pulumi.set(__self__, "fqdn", fqdn)
         if record_type is not None:
-            _setter("record_type", record_type)
+            pulumi.set(__self__, "record_type", record_type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -408,23 +300,10 @@ class EventHookHeaderArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        EventHookHeaderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -454,25 +333,8 @@ class GroupSchemaPropertyArrayOneOfArgs:
         :param pulumi.Input[str] const: Enum value
         :param pulumi.Input[str] title: Enum title
         """
-        GroupSchemaPropertyArrayOneOfArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            const=const,
-            title=title,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             const: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if const is None:
-            raise TypeError("Missing 'const' argument")
-        if title is None:
-            raise TypeError("Missing 'title' argument")
-
-        _setter("const", const)
-        _setter("title", title)
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter
@@ -504,24 +366,9 @@ class GroupSchemaPropertyMasterOverridePriorityArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
-        GroupSchemaPropertyMasterOverridePriorityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -551,25 +398,8 @@ class GroupSchemaPropertyOneOfArgs:
         :param pulumi.Input[str] const: Enum value
         :param pulumi.Input[str] title: Enum title
         """
-        GroupSchemaPropertyOneOfArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            const=const,
-            title=title,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             const: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if const is None:
-            raise TypeError("Missing 'const' argument")
-        if title is None:
-            raise TypeError("Missing 'title' argument")
-
-        _setter("const", const)
-        _setter("title", title)
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter
@@ -607,29 +437,10 @@ class PolicyRuleProfileEnrollmentProfileAttributeArgs:
         :param pulumi.Input[str] name: The name of a User Profile property
         :param pulumi.Input[bool] required: Indicates if this property is required for enrollment
         """
-        PolicyRuleProfileEnrollmentProfileAttributeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            label=label,
-            name=name,
-            required=required,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             label: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if label is None:
-            raise TypeError("Missing 'label' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("label", label)
-        _setter("name", name)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "name", name)
         if required is not None:
-            _setter("required", required)
+            pulumi.set(__self__, "required", required)
 
     @property
     @pulumi.getter
@@ -673,25 +484,8 @@ class TemplateSmsTranslationArgs:
     def __init__(__self__, *,
                  language: pulumi.Input[str],
                  template: pulumi.Input[str]):
-        TemplateSmsTranslationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            language=language,
-            template=template,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             language: Optional[pulumi.Input[str]] = None,
-             template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if language is None:
-            raise TypeError("Missing 'language' argument")
-        if template is None:
-            raise TypeError("Missing 'template' argument")
-
-        _setter("language", language)
-        _setter("template", template)
+        pulumi.set(__self__, "language", language)
+        pulumi.set(__self__, "template", template)
 
     @property
     @pulumi.getter
@@ -721,25 +515,8 @@ class UserSchemaPropertyArrayOneOfArgs:
         :param pulumi.Input[str] const: Enum value
         :param pulumi.Input[str] title: Enum title
         """
-        UserSchemaPropertyArrayOneOfArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            const=const,
-            title=title,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             const: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if const is None:
-            raise TypeError("Missing 'const' argument")
-        if title is None:
-            raise TypeError("Missing 'title' argument")
-
-        _setter("const", const)
-        _setter("title", title)
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter
@@ -771,24 +548,9 @@ class UserSchemaPropertyMasterOverridePriorityArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
-        UserSchemaPropertyMasterOverridePriorityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -818,25 +580,8 @@ class UserSchemaPropertyOneOfArgs:
         :param pulumi.Input[str] const: Enum value
         :param pulumi.Input[str] title: Enum title
         """
-        UserSchemaPropertyOneOfArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            const=const,
-            title=title,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             const: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if const is None:
-            raise TypeError("Missing 'const' argument")
-        if title is None:
-            raise TypeError("Missing 'title' argument")
-
-        _setter("const", const)
-        _setter("title", title)
+        pulumi.set(__self__, "const", const)
+        pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter

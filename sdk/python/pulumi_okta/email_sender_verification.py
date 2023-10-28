@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['EmailSenderVerificationArgs', 'EmailSenderVerification']
@@ -19,22 +19,7 @@ class EmailSenderVerificationArgs:
         The set of arguments for constructing a EmailSenderVerification resource.
         :param pulumi.Input[str] sender_id: Email sender ID
         """
-        EmailSenderVerificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sender_id=sender_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sender_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if sender_id is None and 'senderId' in kwargs:
-            sender_id = kwargs['senderId']
-        if sender_id is None:
-            raise TypeError("Missing 'sender_id' argument")
-
-        _setter("sender_id", sender_id)
+        pulumi.set(__self__, "sender_id", sender_id)
 
     @property
     @pulumi.getter(name="senderId")
@@ -57,21 +42,8 @@ class _EmailSenderVerificationState:
         Input properties used for looking up and filtering EmailSenderVerification resources.
         :param pulumi.Input[str] sender_id: Email sender ID
         """
-        _EmailSenderVerificationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sender_id=sender_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sender_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if sender_id is None and 'senderId' in kwargs:
-            sender_id = kwargs['senderId']
-
         if sender_id is not None:
-            _setter("sender_id", sender_id)
+            pulumi.set(__self__, "sender_id", sender_id)
 
     @property
     @pulumi.getter(name="senderId")
@@ -117,10 +89,6 @@ class EmailSenderVerification(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EmailSenderVerificationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

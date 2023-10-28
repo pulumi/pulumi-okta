@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupArgs', 'Group']
@@ -25,38 +25,17 @@ class GroupArgs:
         :param pulumi.Input[str] name: Group name
         :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
-        GroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_profile_attributes=custom_profile_attributes,
-            description=description,
-            name=name,
-            skip_users=skip_users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_profile_attributes: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             skip_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if custom_profile_attributes is None and 'customProfileAttributes' in kwargs:
-            custom_profile_attributes = kwargs['customProfileAttributes']
-        if skip_users is None and 'skipUsers' in kwargs:
-            skip_users = kwargs['skipUsers']
-
         if custom_profile_attributes is not None:
-            _setter("custom_profile_attributes", custom_profile_attributes)
+            pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if skip_users is not None:
             warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
             pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
         if skip_users is not None:
-            _setter("skip_users", skip_users)
+            pulumi.set(__self__, "skip_users", skip_users)
 
     @property
     @pulumi.getter(name="customProfileAttributes")
@@ -124,38 +103,17 @@ class _GroupState:
         :param pulumi.Input[str] name: Group name
         :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
-        _GroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_profile_attributes=custom_profile_attributes,
-            description=description,
-            name=name,
-            skip_users=skip_users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_profile_attributes: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             skip_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if custom_profile_attributes is None and 'customProfileAttributes' in kwargs:
-            custom_profile_attributes = kwargs['customProfileAttributes']
-        if skip_users is None and 'skipUsers' in kwargs:
-            skip_users = kwargs['skipUsers']
-
         if custom_profile_attributes is not None:
-            _setter("custom_profile_attributes", custom_profile_attributes)
+            pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if skip_users is not None:
             warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
             pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
         if skip_users is not None:
-            _setter("skip_users", skip_users)
+            pulumi.set(__self__, "skip_users", skip_users)
 
     @property
     @pulumi.getter(name="customProfileAttributes")
@@ -246,10 +204,6 @@ class Group(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
