@@ -2708,6 +2708,7 @@
                 "inlineHookId": "inline_hook_id",
                 "policyId": "policy_id",
                 "profileAttributes": "profile_attributes",
+                "progressiveProfilingAction": "progressive_profiling_action",
                 "targetGroupId": "target_group_id",
                 "uiSchemaId": "ui_schema_id",
                 "unknownUserAction": "unknown_user_action"
