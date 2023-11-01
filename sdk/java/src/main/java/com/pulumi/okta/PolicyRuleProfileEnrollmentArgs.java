@@ -94,6 +94,21 @@ public final class PolicyRuleProfileEnrollmentArgs extends com.pulumi.resources.
     }
 
     /**
+     * Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+     * 
+     */
+    @Import(name="progressiveProfilingAction")
+    private @Nullable Output<String> progressiveProfilingAction;
+
+    /**
+     * @return Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+     * 
+     */
+    public Optional<Output<String>> progressiveProfilingAction() {
+        return Optional.ofNullable(this.progressiveProfilingAction);
+    }
+
+    /**
      * The ID of a Group that this User should be added to
      * 
      */
@@ -146,6 +161,7 @@ public final class PolicyRuleProfileEnrollmentArgs extends com.pulumi.resources.
         this.inlineHookId = $.inlineHookId;
         this.policyId = $.policyId;
         this.profileAttributes = $.profileAttributes;
+        this.progressiveProfilingAction = $.progressiveProfilingAction;
         this.targetGroupId = $.targetGroupId;
         this.uiSchemaId = $.uiSchemaId;
         this.unknownUserAction = $.unknownUserAction;
@@ -282,6 +298,27 @@ public final class PolicyRuleProfileEnrollmentArgs extends com.pulumi.resources.
          */
         public Builder profileAttributes(PolicyRuleProfileEnrollmentProfileAttributeArgs... profileAttributes) {
             return profileAttributes(List.of(profileAttributes));
+        }
+
+        /**
+         * @param progressiveProfilingAction Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+         * 
+         * @return builder
+         * 
+         */
+        public Builder progressiveProfilingAction(@Nullable Output<String> progressiveProfilingAction) {
+            $.progressiveProfilingAction = progressiveProfilingAction;
+            return this;
+        }
+
+        /**
+         * @param progressiveProfilingAction Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+         * 
+         * @return builder
+         * 
+         */
+        public Builder progressiveProfilingAction(String progressiveProfilingAction) {
+            return progressiveProfilingAction(Output.of(progressiveProfilingAction));
         }
 
         /**

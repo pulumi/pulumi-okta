@@ -28,6 +28,8 @@ type PolicyRuleProfileEnrollment struct {
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// A list of attributes to prompt the user during registration or progressive profiling
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayOutput `pulumi:"profileAttributes"`
+	// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+	ProgressiveProfilingAction pulumi.StringPtrOutput `pulumi:"progressiveProfilingAction"`
 	// Status of the rule
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The ID of a Group that this User should be added to
@@ -86,6 +88,8 @@ type policyRuleProfileEnrollmentState struct {
 	PolicyId *string `pulumi:"policyId"`
 	// A list of attributes to prompt the user during registration or progressive profiling
 	ProfileAttributes []PolicyRuleProfileEnrollmentProfileAttribute `pulumi:"profileAttributes"`
+	// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+	ProgressiveProfilingAction *string `pulumi:"progressiveProfilingAction"`
 	// Status of the rule
 	Status *string `pulumi:"status"`
 	// The ID of a Group that this User should be added to
@@ -109,6 +113,8 @@ type PolicyRuleProfileEnrollmentState struct {
 	PolicyId pulumi.StringPtrInput
 	// A list of attributes to prompt the user during registration or progressive profiling
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayInput
+	// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+	ProgressiveProfilingAction pulumi.StringPtrInput
 	// Status of the rule
 	Status pulumi.StringPtrInput
 	// The ID of a Group that this User should be added to
@@ -134,6 +140,8 @@ type policyRuleProfileEnrollmentArgs struct {
 	PolicyId string `pulumi:"policyId"`
 	// A list of attributes to prompt the user during registration or progressive profiling
 	ProfileAttributes []PolicyRuleProfileEnrollmentProfileAttribute `pulumi:"profileAttributes"`
+	// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+	ProgressiveProfilingAction *string `pulumi:"progressiveProfilingAction"`
 	// The ID of a Group that this User should be added to
 	TargetGroupId *string `pulumi:"targetGroupId"`
 	// Value created by the backend. If present all policy updates must include this attribute/value.
@@ -154,6 +162,8 @@ type PolicyRuleProfileEnrollmentArgs struct {
 	PolicyId pulumi.StringInput
 	// A list of attributes to prompt the user during registration or progressive profiling
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayInput
+	// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+	ProgressiveProfilingAction pulumi.StringPtrInput
 	// The ID of a Group that this User should be added to
 	TargetGroupId pulumi.StringPtrInput
 	// Value created by the backend. If present all policy updates must include this attribute/value.
@@ -303,6 +313,11 @@ func (o PolicyRuleProfileEnrollmentOutput) ProfileAttributes() PolicyRuleProfile
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
 		return v.ProfileAttributes
 	}).(PolicyRuleProfileEnrollmentProfileAttributeArrayOutput)
+}
+
+// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+func (o PolicyRuleProfileEnrollmentOutput) ProgressiveProfilingAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.ProgressiveProfilingAction }).(pulumi.StringPtrOutput)
 }
 
 // Status of the rule

@@ -88,6 +88,12 @@ namespace Pulumi.Okta.Auth
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
+        /// The rule is the system (default) rule for its associated policy
+        /// </summary>
+        [Output("system")]
+        public Output<bool> System { get; private set; } = null!;
+
+        /// <summary>
         /// Auth server policy rule type, unlikely this will be anything other then the default
         /// </summary>
         [Output("type")]
@@ -390,6 +396,12 @@ namespace Pulumi.Okta.Auth
 
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// The rule is the system (default) rule for its associated policy
+        /// </summary>
+        [Input("system")]
+        public Input<bool>? System { get; set; }
 
         /// <summary>
         /// Auth server policy rule type, unlikely this will be anything other then the default

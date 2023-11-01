@@ -51,10 +51,12 @@ type AppSignonPolicyRule struct {
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 	ReAuthenticationFrequency pulumi.StringPtrOutput `pulumi:"reAuthenticationFrequency"`
-	// The risk score specifies a particular level of risk to match on.
+	// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
 	RiskScore pulumi.StringPtrOutput `pulumi:"riskScore"`
 	// Status of the rule
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+	System pulumi.BoolOutput `pulumi:"system"`
 	// The Verification Method type
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Set of User Type IDs to exclude
@@ -135,10 +137,12 @@ type appSignonPolicyRuleState struct {
 	Priority *int `pulumi:"priority"`
 	// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 	ReAuthenticationFrequency *string `pulumi:"reAuthenticationFrequency"`
-	// The risk score specifies a particular level of risk to match on.
+	// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
 	RiskScore *string `pulumi:"riskScore"`
 	// Status of the rule
 	Status *string `pulumi:"status"`
+	// Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+	System *bool `pulumi:"system"`
 	// The Verification Method type
 	Type *string `pulumi:"type"`
 	// Set of User Type IDs to exclude
@@ -187,10 +191,12 @@ type AppSignonPolicyRuleState struct {
 	Priority pulumi.IntPtrInput
 	// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 	ReAuthenticationFrequency pulumi.StringPtrInput
-	// The risk score specifies a particular level of risk to match on.
+	// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
 	RiskScore pulumi.StringPtrInput
 	// Status of the rule
 	Status pulumi.StringPtrInput
+	// Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+	System pulumi.BoolPtrInput
 	// The Verification Method type
 	Type pulumi.StringPtrInput
 	// Set of User Type IDs to exclude
@@ -243,7 +249,7 @@ type appSignonPolicyRuleArgs struct {
 	Priority *int `pulumi:"priority"`
 	// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 	ReAuthenticationFrequency *string `pulumi:"reAuthenticationFrequency"`
-	// The risk score specifies a particular level of risk to match on.
+	// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
 	RiskScore *string `pulumi:"riskScore"`
 	// Status of the rule
 	Status *string `pulumi:"status"`
@@ -296,7 +302,7 @@ type AppSignonPolicyRuleArgs struct {
 	Priority pulumi.IntPtrInput
 	// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 	ReAuthenticationFrequency pulumi.StringPtrInput
-	// The risk score specifies a particular level of risk to match on.
+	// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
 	RiskScore pulumi.StringPtrInput
 	// Status of the rule
 	Status pulumi.StringPtrInput
@@ -512,7 +518,7 @@ func (o AppSignonPolicyRuleOutput) ReAuthenticationFrequency() pulumi.StringPtrO
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.ReAuthenticationFrequency }).(pulumi.StringPtrOutput)
 }
 
-// The risk score specifies a particular level of risk to match on.
+// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
 func (o AppSignonPolicyRuleOutput) RiskScore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.RiskScore }).(pulumi.StringPtrOutput)
 }
@@ -520,6 +526,11 @@ func (o AppSignonPolicyRuleOutput) RiskScore() pulumi.StringPtrOutput {
 // Status of the rule
 func (o AppSignonPolicyRuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+func (o AppSignonPolicyRuleOutput) System() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.BoolOutput { return v.System }).(pulumi.BoolOutput)
 }
 
 // The Verification Method type

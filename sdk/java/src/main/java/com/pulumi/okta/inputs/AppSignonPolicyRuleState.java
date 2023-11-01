@@ -282,14 +282,14 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The risk score specifies a particular level of risk to match on.
+     * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      * 
      */
     @Import(name="riskScore")
     private @Nullable Output<String> riskScore;
 
     /**
-     * @return The risk score specifies a particular level of risk to match on.
+     * @return The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      * 
      */
     public Optional<Output<String>> riskScore() {
@@ -309,6 +309,21 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
      */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
+    }
+
+    /**
+     * Often the &#34;Catch-all Rule&#34; this rule is the system (default) rule for its associated policy
+     * 
+     */
+    @Import(name="system")
+    private @Nullable Output<Boolean> system;
+
+    /**
+     * @return Often the &#34;Catch-all Rule&#34; this rule is the system (default) rule for its associated policy
+     * 
+     */
+    public Optional<Output<Boolean>> system() {
+        return Optional.ofNullable(this.system);
     }
 
     /**
@@ -409,6 +424,7 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         this.reAuthenticationFrequency = $.reAuthenticationFrequency;
         this.riskScore = $.riskScore;
         this.status = $.status;
+        this.system = $.system;
         this.type = $.type;
         this.userTypesExcludeds = $.userTypesExcludeds;
         this.userTypesIncludeds = $.userTypesIncludeds;
@@ -865,7 +881,7 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param riskScore The risk score specifies a particular level of risk to match on.
+         * @param riskScore The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
          * 
          * @return builder
          * 
@@ -876,7 +892,7 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param riskScore The risk score specifies a particular level of risk to match on.
+         * @param riskScore The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
          * 
          * @return builder
          * 
@@ -904,6 +920,27 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
          */
         public Builder status(String status) {
             return status(Output.of(status));
+        }
+
+        /**
+         * @param system Often the &#34;Catch-all Rule&#34; this rule is the system (default) rule for its associated policy
+         * 
+         * @return builder
+         * 
+         */
+        public Builder system(@Nullable Output<Boolean> system) {
+            $.system = system;
+            return this;
+        }
+
+        /**
+         * @param system Often the &#34;Catch-all Rule&#34; this rule is the system (default) rule for its associated policy
+         * 
+         * @return builder
+         * 
+         */
+        public Builder system(Boolean system) {
+            return system(Output.of(system));
         }
 
         /**

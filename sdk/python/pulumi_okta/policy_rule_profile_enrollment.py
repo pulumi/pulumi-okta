@@ -22,6 +22,7 @@ class PolicyRuleProfileEnrollmentArgs:
                  email_verification: Optional[pulumi.Input[bool]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
+                 progressive_profiling_action: Optional[pulumi.Input[str]] = None,
                  target_group_id: Optional[pulumi.Input[str]] = None,
                  ui_schema_id: Optional[pulumi.Input[str]] = None):
         """
@@ -32,6 +33,7 @@ class PolicyRuleProfileEnrollmentArgs:
         :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling
+        :param pulumi.Input[str] progressive_profiling_action: Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
         :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to
         :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
         """
@@ -45,6 +47,8 @@ class PolicyRuleProfileEnrollmentArgs:
             pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if profile_attributes is not None:
             pulumi.set(__self__, "profile_attributes", profile_attributes)
+        if progressive_profiling_action is not None:
+            pulumi.set(__self__, "progressive_profiling_action", progressive_profiling_action)
         if target_group_id is not None:
             pulumi.set(__self__, "target_group_id", target_group_id)
         if ui_schema_id is not None:
@@ -123,6 +127,18 @@ class PolicyRuleProfileEnrollmentArgs:
         pulumi.set(self, "profile_attributes", value)
 
     @property
+    @pulumi.getter(name="progressiveProfilingAction")
+    def progressive_profiling_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+        """
+        return pulumi.get(self, "progressive_profiling_action")
+
+    @progressive_profiling_action.setter
+    def progressive_profiling_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "progressive_profiling_action", value)
+
+    @property
     @pulumi.getter(name="targetGroupId")
     def target_group_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -156,6 +172,7 @@ class _PolicyRuleProfileEnrollmentState:
                  name: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
+                 progressive_profiling_action: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  target_group_id: Optional[pulumi.Input[str]] = None,
                  ui_schema_id: Optional[pulumi.Input[str]] = None,
@@ -168,6 +185,7 @@ class _PolicyRuleProfileEnrollmentState:
         :param pulumi.Input[str] name: The name of a User Profile property
         :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling
+        :param pulumi.Input[str] progressive_profiling_action: Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
         :param pulumi.Input[str] status: Status of the rule
         :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to
         :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
@@ -185,6 +203,8 @@ class _PolicyRuleProfileEnrollmentState:
             pulumi.set(__self__, "policy_id", policy_id)
         if profile_attributes is not None:
             pulumi.set(__self__, "profile_attributes", profile_attributes)
+        if progressive_profiling_action is not None:
+            pulumi.set(__self__, "progressive_profiling_action", progressive_profiling_action)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if target_group_id is not None:
@@ -267,6 +287,18 @@ class _PolicyRuleProfileEnrollmentState:
         pulumi.set(self, "profile_attributes", value)
 
     @property
+    @pulumi.getter(name="progressiveProfilingAction")
+    def progressive_profiling_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+        """
+        return pulumi.get(self, "progressive_profiling_action")
+
+    @progressive_profiling_action.setter
+    def progressive_profiling_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "progressive_profiling_action", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -325,6 +357,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]] = None,
+                 progressive_profiling_action: Optional[pulumi.Input[str]] = None,
                  target_group_id: Optional[pulumi.Input[str]] = None,
                  ui_schema_id: Optional[pulumi.Input[str]] = None,
                  unknown_user_action: Optional[pulumi.Input[str]] = None,
@@ -338,6 +371,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling
+        :param pulumi.Input[str] progressive_profiling_action: Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
         :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to
         :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
         :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new
@@ -370,6 +404,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]] = None,
+                 progressive_profiling_action: Optional[pulumi.Input[str]] = None,
                  target_group_id: Optional[pulumi.Input[str]] = None,
                  ui_schema_id: Optional[pulumi.Input[str]] = None,
                  unknown_user_action: Optional[pulumi.Input[str]] = None,
@@ -389,6 +424,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_id'")
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["profile_attributes"] = profile_attributes
+            __props__.__dict__["progressive_profiling_action"] = progressive_profiling_action
             __props__.__dict__["target_group_id"] = target_group_id
             __props__.__dict__["ui_schema_id"] = ui_schema_id
             if unknown_user_action is None and not opts.urn:
@@ -412,6 +448,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
             profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]] = None,
+            progressive_profiling_action: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             target_group_id: Optional[pulumi.Input[str]] = None,
             ui_schema_id: Optional[pulumi.Input[str]] = None,
@@ -429,6 +466,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of a User Profile property
         :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling
+        :param pulumi.Input[str] progressive_profiling_action: Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
         :param pulumi.Input[str] status: Status of the rule
         :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to
         :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
@@ -444,6 +482,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["profile_attributes"] = profile_attributes
+        __props__.__dict__["progressive_profiling_action"] = progressive_profiling_action
         __props__.__dict__["status"] = status
         __props__.__dict__["target_group_id"] = target_group_id
         __props__.__dict__["ui_schema_id"] = ui_schema_id
@@ -497,6 +536,14 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         A list of attributes to prompt the user during registration or progressive profiling
         """
         return pulumi.get(self, "profile_attributes")
+
+    @property
+    @pulumi.getter(name="progressiveProfilingAction")
+    def progressive_profiling_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+        """
+        return pulumi.get(self, "progressive_profiling_action")
 
     @property
     @pulumi.getter

@@ -265,14 +265,14 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.reAuthenticationFrequency);
     }
     /**
-     * The risk score specifies a particular level of risk to match on.
+     * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      * 
      */
     @Export(name="riskScore", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> riskScore;
 
     /**
-     * @return The risk score specifies a particular level of risk to match on.
+     * @return The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      * 
      */
     public Output<Optional<String>> riskScore() {
@@ -291,6 +291,20 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
+    }
+    /**
+     * Often the &#34;Catch-all Rule&#34; this rule is the system (default) rule for its associated policy
+     * 
+     */
+    @Export(name="system", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> system;
+
+    /**
+     * @return Often the &#34;Catch-all Rule&#34; this rule is the system (default) rule for its associated policy
+     * 
+     */
+    public Output<Boolean> system() {
+        return this.system;
     }
     /**
      * The Verification Method type

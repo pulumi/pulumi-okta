@@ -293,6 +293,7 @@ class _ServerPolicyClaimState:
                  refresh_token_window_minutes: Optional[pulumi.Input[int]] = None,
                  scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 system: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -314,6 +315,7 @@ class _ServerPolicyClaimState:
                `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
+        :param pulumi.Input[bool] system: The rule is the system (default) rule for its associated policy.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included.
@@ -344,6 +346,8 @@ class _ServerPolicyClaimState:
             pulumi.set(__self__, "scope_whitelists", scope_whitelists)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_blacklists is not None:
@@ -509,6 +513,18 @@ class _ServerPolicyClaimState:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def system(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The rule is the system (default) rule for its associated policy.
+        """
+        return pulumi.get(self, "system")
+
+    @system.setter
+    def system(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "system", value)
 
     @property
     @pulumi.getter
@@ -715,6 +731,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["user_blacklists"] = user_blacklists
             __props__.__dict__["user_whitelists"] = user_whitelists
+            __props__.__dict__["system"] = None
         super(ServerPolicyClaim, __self__).__init__(
             'okta:auth/serverPolicyClaim:ServerPolicyClaim',
             resource_name,
@@ -738,6 +755,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
             refresh_token_window_minutes: Optional[pulumi.Input[int]] = None,
             scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
+            system: Optional[pulumi.Input[bool]] = None,
             type: Optional[pulumi.Input[str]] = None,
             user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ServerPolicyClaim':
@@ -764,6 +782,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
                `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
+        :param pulumi.Input[bool] system: The rule is the system (default) rule for its associated policy.
         :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included.
@@ -785,6 +804,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         __props__.__dict__["refresh_token_window_minutes"] = refresh_token_window_minutes
         __props__.__dict__["scope_whitelists"] = scope_whitelists
         __props__.__dict__["status"] = status
+        __props__.__dict__["system"] = system
         __props__.__dict__["type"] = type
         __props__.__dict__["user_blacklists"] = user_blacklists
         __props__.__dict__["user_whitelists"] = user_whitelists
@@ -896,6 +916,14 @@ class ServerPolicyClaim(pulumi.CustomResource):
         The status of the Auth Server Policy Rule.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def system(self) -> pulumi.Output[bool]:
+        """
+        The rule is the system (default) rule for its associated policy.
+        """
+        return pulumi.get(self, "system")
 
     @property
     @pulumi.getter

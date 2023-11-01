@@ -118,7 +118,7 @@ namespace Pulumi.Okta
         public Output<string?> ReAuthenticationFrequency { get; private set; } = null!;
 
         /// <summary>
-        /// The risk score specifies a particular level of risk to match on.
+        /// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         /// </summary>
         [Output("riskScore")]
         public Output<string?> RiskScore { get; private set; } = null!;
@@ -128,6 +128,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+        /// </summary>
+        [Output("system")]
+        public Output<bool> System { get; private set; } = null!;
 
         /// <summary>
         /// The Verification Method type
@@ -352,7 +358,7 @@ namespace Pulumi.Okta
         public Input<string>? ReAuthenticationFrequency { get; set; }
 
         /// <summary>
-        /// The risk score specifies a particular level of risk to match on.
+        /// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         /// </summary>
         [Input("riskScore")]
         public Input<string>? RiskScore { get; set; }
@@ -572,7 +578,7 @@ namespace Pulumi.Okta
         public Input<string>? ReAuthenticationFrequency { get; set; }
 
         /// <summary>
-        /// The risk score specifies a particular level of risk to match on.
+        /// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         /// </summary>
         [Input("riskScore")]
         public Input<string>? RiskScore { get; set; }
@@ -582,6 +588,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+        /// </summary>
+        [Input("system")]
+        public Input<bool>? System { get; set; }
 
         /// <summary>
         /// The Verification Method type
