@@ -60,7 +60,7 @@ class AppSignonPolicyRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
         :param pulumi.Input[int] priority: Priority of the rule.
         :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
-        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on.
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[str] status: Status of the rule
         :param pulumi.Input[str] type: The Verification Method type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
@@ -335,7 +335,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="riskScore")
     def risk_score(self) -> Optional[pulumi.Input[str]]:
         """
-        The risk score specifies a particular level of risk to match on.
+        The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         """
         return pulumi.get(self, "risk_score")
 
@@ -439,6 +439,7 @@ class _AppSignonPolicyRuleState:
                  re_authentication_frequency: Optional[pulumi.Input[str]] = None,
                  risk_score: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 system: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_types_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -463,8 +464,9 @@ class _AppSignonPolicyRuleState:
         :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[int] priority: Priority of the rule.
         :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
-        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on.
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[str] status: Status of the rule
+        :param pulumi.Input[bool] system: Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
         :param pulumi.Input[str] type: The Verification Method type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_includeds: Set of User Type IDs to include
@@ -511,6 +513,8 @@ class _AppSignonPolicyRuleState:
             pulumi.set(__self__, "risk_score", risk_score)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_types_excludeds is not None:
@@ -739,7 +743,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="riskScore")
     def risk_score(self) -> Optional[pulumi.Input[str]]:
         """
-        The risk score specifies a particular level of risk to match on.
+        The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         """
         return pulumi.get(self, "risk_score")
 
@@ -758,6 +762,18 @@ class _AppSignonPolicyRuleState:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def system(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+        """
+        return pulumi.get(self, "system")
+
+    @system.setter
+    def system(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "system", value)
 
     @property
     @pulumi.getter
@@ -872,7 +888,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[int] priority: Priority of the rule.
         :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
-        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on.
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[str] status: Status of the rule
         :param pulumi.Input[str] type: The Verification Method type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
@@ -964,6 +980,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             __props__.__dict__["user_types_includeds"] = user_types_includeds
             __props__.__dict__["users_excludeds"] = users_excludeds
             __props__.__dict__["users_includeds"] = users_includeds
+            __props__.__dict__["system"] = None
         super(AppSignonPolicyRule, __self__).__init__(
             'okta:index/appSignonPolicyRule:AppSignonPolicyRule',
             resource_name,
@@ -994,6 +1011,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             re_authentication_frequency: Optional[pulumi.Input[str]] = None,
             risk_score: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
+            system: Optional[pulumi.Input[bool]] = None,
             type: Optional[pulumi.Input[str]] = None,
             user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             user_types_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1023,8 +1041,9 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[int] priority: Priority of the rule.
         :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
-        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on.
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[str] status: Status of the rule
+        :param pulumi.Input[bool] system: Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
         :param pulumi.Input[str] type: The Verification Method type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_includeds: Set of User Type IDs to include
@@ -1055,6 +1074,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         __props__.__dict__["re_authentication_frequency"] = re_authentication_frequency
         __props__.__dict__["risk_score"] = risk_score
         __props__.__dict__["status"] = status
+        __props__.__dict__["system"] = system
         __props__.__dict__["type"] = type
         __props__.__dict__["user_types_excludeds"] = user_types_excludeds
         __props__.__dict__["user_types_includeds"] = user_types_includeds
@@ -1207,7 +1227,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="riskScore")
     def risk_score(self) -> pulumi.Output[Optional[str]]:
         """
-        The risk score specifies a particular level of risk to match on.
+        The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         """
         return pulumi.get(self, "risk_score")
 
@@ -1218,6 +1238,14 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         Status of the rule
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def system(self) -> pulumi.Output[bool]:
+        """
+        Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+        """
+        return pulumi.get(self, "system")
 
     @property
     @pulumi.getter

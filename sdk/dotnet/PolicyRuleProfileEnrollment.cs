@@ -49,6 +49,12 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<Outputs.PolicyRuleProfileEnrollmentProfileAttribute>> ProfileAttributes { get; private set; } = null!;
 
         /// <summary>
+        /// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+        /// </summary>
+        [Output("progressiveProfilingAction")]
+        public Output<string?> ProgressiveProfilingAction { get; private set; } = null!;
+
+        /// <summary>
         /// Status of the rule
         /// </summary>
         [Output("status")]
@@ -155,6 +161,12 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
+        /// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+        /// </summary>
+        [Input("progressiveProfilingAction")]
+        public Input<string>? ProgressiveProfilingAction { get; set; }
+
+        /// <summary>
         /// The ID of a Group that this User should be added to
         /// </summary>
         [Input("targetGroupId")]
@@ -221,6 +233,12 @@ namespace Pulumi.Okta
             get => _profileAttributes ?? (_profileAttributes = new InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeGetArgs>());
             set => _profileAttributes = value;
         }
+
+        /// <summary>
+        /// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+        /// </summary>
+        [Input("progressiveProfilingAction")]
+        public Input<string>? ProgressiveProfilingAction { get; set; }
 
         /// <summary>
         /// Status of the rule

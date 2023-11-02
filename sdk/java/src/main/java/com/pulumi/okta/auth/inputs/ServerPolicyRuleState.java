@@ -5,6 +5,7 @@ package com.pulumi.okta.auth.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -205,6 +206,21 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The rule is the system (default) rule for its associated policy
+     * 
+     */
+    @Import(name="system")
+    private @Nullable Output<Boolean> system;
+
+    /**
+     * @return The rule is the system (default) rule for its associated policy
+     * 
+     */
+    public Optional<Output<Boolean>> system() {
+        return Optional.ofNullable(this.system);
+    }
+
+    /**
      * Auth server policy rule type, unlikely this will be anything other then the default
      * 
      */
@@ -265,6 +281,7 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
         this.refreshTokenWindowMinutes = $.refreshTokenWindowMinutes;
         this.scopeWhitelists = $.scopeWhitelists;
         this.status = $.status;
+        this.system = $.system;
         this.type = $.type;
         this.userBlacklists = $.userBlacklists;
         this.userWhitelists = $.userWhitelists;
@@ -587,6 +604,27 @@ public final class ServerPolicyRuleState extends com.pulumi.resources.ResourceAr
 
         public Builder status(String status) {
             return status(Output.of(status));
+        }
+
+        /**
+         * @param system The rule is the system (default) rule for its associated policy
+         * 
+         * @return builder
+         * 
+         */
+        public Builder system(@Nullable Output<Boolean> system) {
+            $.system = system;
+            return this;
+        }
+
+        /**
+         * @param system The rule is the system (default) rule for its associated policy
+         * 
+         * @return builder
+         * 
+         */
+        public Builder system(Boolean system) {
+            return system(Output.of(system));
         }
 
         /**

@@ -40,7 +40,7 @@
             "generateExtraInputTypes": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.5.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.6.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
@@ -5892,6 +5892,10 @@
                     "type": "string",
                     "description": "The status of the Auth Server Policy Rule.\n"
                 },
+                "system": {
+                    "type": "boolean",
+                    "description": "The rule is the system (default) rule for its associated policy.\n"
+                },
                 "type": {
                     "type": "string",
                     "description": "The type of the Auth Server Policy Rule.\n"
@@ -5916,7 +5920,8 @@
                 "grantTypeWhitelists",
                 "name",
                 "policyId",
-                "priority"
+                "priority",
+                "system"
             ],
             "inputProperties": {
                 "accessTokenLifetimeMinutes": {
@@ -6075,6 +6080,10 @@
                         "type": "string",
                         "description": "The status of the Auth Server Policy Rule.\n"
                     },
+                    "system": {
+                        "type": "boolean",
+                        "description": "The rule is the system (default) rule for its associated policy.\n"
+                    },
                     "type": {
                         "type": "string",
                         "description": "The type of the Auth Server Policy Rule.\n"
@@ -6163,6 +6172,10 @@
                 "status": {
                     "type": "string"
                 },
+                "system": {
+                    "type": "boolean",
+                    "description": "The rule is the system (default) rule for its associated policy\n"
+                },
                 "type": {
                     "type": "string",
                     "description": "Auth server policy rule type, unlikely this will be anything other then the default\n"
@@ -6187,7 +6200,8 @@
                 "grantTypeWhitelists",
                 "name",
                 "policyId",
-                "priority"
+                "priority",
+                "system"
             ],
             "inputProperties": {
                 "accessTokenLifetimeMinutes": {
@@ -6343,6 +6357,10 @@
                     },
                     "status": {
                         "type": "string"
+                    },
+                    "system": {
+                        "type": "boolean",
+                        "description": "The rule is the system (default) rule for its associated policy\n"
                     },
                     "type": {
                         "type": "string",
@@ -8902,11 +8920,15 @@
                 },
                 "riskScore": {
                     "type": "string",
-                    "description": "The risk score specifies a particular level of risk to match on.\n"
+                    "description": "The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH\n"
                 },
                 "status": {
                     "type": "string",
                     "description": "Status of the rule\n"
+                },
+                "system": {
+                    "type": "boolean",
+                    "description": "Often the \"Catch-all Rule\" this rule is the system (default) rule for its associated policy\n"
                 },
                 "type": {
                     "type": "string",
@@ -8943,7 +8965,8 @@
             },
             "required": [
                 "name",
-                "policyId"
+                "policyId",
+                "system"
             ],
             "inputProperties": {
                 "access": {
@@ -9041,7 +9064,7 @@
                 },
                 "riskScore": {
                     "type": "string",
-                    "description": "The risk score specifies a particular level of risk to match on.\n"
+                    "description": "The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH\n"
                 },
                 "status": {
                     "type": "string",
@@ -9181,11 +9204,15 @@
                     },
                     "riskScore": {
                         "type": "string",
-                        "description": "The risk score specifies a particular level of risk to match on.\n"
+                        "description": "The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH\n"
                     },
                     "status": {
                         "type": "string",
                         "description": "Status of the rule\n"
+                    },
+                    "system": {
+                        "type": "boolean",
+                        "description": "Often the \"Catch-all Rule\" this rule is the system (default) rule for its associated policy\n"
                     },
                     "type": {
                         "type": "string",
@@ -12949,6 +12976,10 @@
                     },
                     "description": "A list of attributes to prompt the user during registration or progressive profiling\n"
                 },
+                "progressiveProfilingAction": {
+                    "type": "string",
+                    "description": "Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED\n"
+                },
                 "status": {
                     "type": "string",
                     "description": "Status of the rule\n"
@@ -12997,6 +13028,10 @@
                     },
                     "description": "A list of attributes to prompt the user during registration or progressive profiling\n"
                 },
+                "progressiveProfilingAction": {
+                    "type": "string",
+                    "description": "Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED\n"
+                },
                 "targetGroupId": {
                     "type": "string",
                     "description": "The ID of a Group that this User should be added to\n"
@@ -13044,6 +13079,10 @@
                             "$ref": "#/types/okta:index/PolicyRuleProfileEnrollmentProfileAttribute:PolicyRuleProfileEnrollmentProfileAttribute"
                         },
                         "description": "A list of attributes to prompt the user during registration or progressive profiling\n"
+                    },
+                    "progressiveProfilingAction": {
+                        "type": "string",
+                        "description": "Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED\n"
                     },
                     "status": {
                         "type": "string",

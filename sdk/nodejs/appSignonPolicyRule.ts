@@ -104,13 +104,17 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     public readonly reAuthenticationFrequency!: pulumi.Output<string | undefined>;
     /**
-     * The risk score specifies a particular level of risk to match on.
+     * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      */
     public readonly riskScore!: pulumi.Output<string | undefined>;
     /**
      * Status of the rule
      */
     public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+     */
+    public /*out*/ readonly system!: pulumi.Output<boolean>;
     /**
      * The Verification Method type
      */
@@ -165,6 +169,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["reAuthenticationFrequency"] = state ? state.reAuthenticationFrequency : undefined;
             resourceInputs["riskScore"] = state ? state.riskScore : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["system"] = state ? state.system : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["userTypesExcludeds"] = state ? state.userTypesExcludeds : undefined;
             resourceInputs["userTypesIncludeds"] = state ? state.userTypesIncludeds : undefined;
@@ -200,6 +205,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["userTypesIncludeds"] = args ? args.userTypesIncludeds : undefined;
             resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
             resourceInputs["usersIncludeds"] = args ? args.usersIncludeds : undefined;
+            resourceInputs["system"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppSignonPolicyRule.__pulumiType, name, resourceInputs, opts);
@@ -280,13 +286,17 @@ export interface AppSignonPolicyRuleState {
      */
     reAuthenticationFrequency?: pulumi.Input<string>;
     /**
-     * The risk score specifies a particular level of risk to match on.
+     * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      */
     riskScore?: pulumi.Input<string>;
     /**
      * Status of the rule
      */
     status?: pulumi.Input<string>;
+    /**
+     * Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+     */
+    system?: pulumi.Input<boolean>;
     /**
      * The Verification Method type
      */
@@ -383,7 +393,7 @@ export interface AppSignonPolicyRuleArgs {
      */
     reAuthenticationFrequency?: pulumi.Input<string>;
     /**
-     * The risk score specifies a particular level of risk to match on.
+     * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      */
     riskScore?: pulumi.Input<string>;
     /**

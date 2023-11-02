@@ -116,6 +116,10 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
+     * The rule is the system (default) rule for its associated policy.
+     */
+    public /*out*/ readonly system!: pulumi.Output<boolean>;
+    /**
      * The type of the Auth Server Policy Rule.
      */
     public readonly type!: pulumi.Output<string | undefined>;
@@ -157,6 +161,7 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
             resourceInputs["refreshTokenWindowMinutes"] = state ? state.refreshTokenWindowMinutes : undefined;
             resourceInputs["scopeWhitelists"] = state ? state.scopeWhitelists : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["system"] = state ? state.system : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["userBlacklists"] = state ? state.userBlacklists : undefined;
             resourceInputs["userWhitelists"] = state ? state.userWhitelists : undefined;
@@ -190,6 +195,7 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["userBlacklists"] = args ? args.userBlacklists : undefined;
             resourceInputs["userWhitelists"] = args ? args.userWhitelists : undefined;
+            resourceInputs["system"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServerPolicyClaim.__pulumiType, name, resourceInputs, opts);
@@ -255,6 +261,10 @@ export interface ServerPolicyClaimState {
      * The status of the Auth Server Policy Rule.
      */
     status?: pulumi.Input<string>;
+    /**
+     * The rule is the system (default) rule for its associated policy.
+     */
+    system?: pulumi.Input<boolean>;
     /**
      * The type of the Auth Server Policy Rule.
      */

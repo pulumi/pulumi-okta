@@ -282,14 +282,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The risk score specifies a particular level of risk to match on.
+     * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      * 
      */
     @Import(name="riskScore")
     private @Nullable Output<String> riskScore;
 
     /**
-     * @return The risk score specifies a particular level of risk to match on.
+     * @return The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      * 
      */
     public Optional<Output<String>> riskScore() {
@@ -865,7 +865,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param riskScore The risk score specifies a particular level of risk to match on.
+         * @param riskScore The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
          * 
          * @return builder
          * 
@@ -876,7 +876,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param riskScore The risk score specifies a particular level of risk to match on.
+         * @param riskScore The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
          * 
          * @return builder
          * 

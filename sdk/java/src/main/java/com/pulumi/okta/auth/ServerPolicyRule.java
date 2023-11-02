@@ -11,6 +11,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.auth.ServerPolicyRuleArgs;
 import com.pulumi.okta.auth.inputs.ServerPolicyRuleState;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -192,6 +193,20 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
+    }
+    /**
+     * The rule is the system (default) rule for its associated policy
+     * 
+     */
+    @Export(name="system", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> system;
+
+    /**
+     * @return The rule is the system (default) rule for its associated policy
+     * 
+     */
+    public Output<Boolean> system() {
+        return this.system;
     }
     /**
      * Auth server policy rule type, unlikely this will be anything other then the default

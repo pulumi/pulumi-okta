@@ -104,6 +104,20 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.profileAttributes);
     }
     /**
+     * Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+     * 
+     */
+    @Export(name="progressiveProfilingAction", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> progressiveProfilingAction;
+
+    /**
+     * @return Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+     * 
+     */
+    public Output<Optional<String>> progressiveProfilingAction() {
+        return Codegen.optional(this.progressiveProfilingAction);
+    }
+    /**
      * Status of the rule
      * 
      */

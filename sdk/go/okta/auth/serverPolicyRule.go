@@ -41,6 +41,8 @@ type ServerPolicyRule struct {
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
 	ScopeWhitelists pulumi.StringArrayOutput `pulumi:"scopeWhitelists"`
 	Status          pulumi.StringPtrOutput   `pulumi:"status"`
+	// The rule is the system (default) rule for its associated policy
+	System pulumi.BoolOutput `pulumi:"system"`
 	// Auth server policy rule type, unlikely this will be anything other then the default
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Specifies a set of Users to be excluded.
@@ -122,6 +124,8 @@ type serverPolicyRuleState struct {
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
 	ScopeWhitelists []string `pulumi:"scopeWhitelists"`
 	Status          *string  `pulumi:"status"`
+	// The rule is the system (default) rule for its associated policy
+	System *bool `pulumi:"system"`
 	// Auth server policy rule type, unlikely this will be anything other then the default
 	Type *string `pulumi:"type"`
 	// Specifies a set of Users to be excluded.
@@ -156,6 +160,8 @@ type ServerPolicyRuleState struct {
 	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
 	ScopeWhitelists pulumi.StringArrayInput
 	Status          pulumi.StringPtrInput
+	// The rule is the system (default) rule for its associated policy
+	System pulumi.BoolPtrInput
 	// Auth server policy rule type, unlikely this will be anything other then the default
 	Type pulumi.StringPtrInput
 	// Specifies a set of Users to be excluded.
@@ -410,6 +416,11 @@ func (o ServerPolicyRuleOutput) ScopeWhitelists() pulumi.StringArrayOutput {
 
 func (o ServerPolicyRuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The rule is the system (default) rule for its associated policy
+func (o ServerPolicyRuleOutput) System() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ServerPolicyRule) pulumi.BoolOutput { return v.System }).(pulumi.BoolOutput)
 }
 
 // Auth server policy rule type, unlikely this will be anything other then the default

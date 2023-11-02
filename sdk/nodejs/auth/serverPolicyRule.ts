@@ -82,6 +82,10 @@ export class ServerPolicyRule extends pulumi.CustomResource {
     public readonly scopeWhitelists!: pulumi.Output<string[] | undefined>;
     public readonly status!: pulumi.Output<string | undefined>;
     /**
+     * The rule is the system (default) rule for its associated policy
+     */
+    public /*out*/ readonly system!: pulumi.Output<boolean>;
+    /**
      * Auth server policy rule type, unlikely this will be anything other then the default
      */
     public readonly type!: pulumi.Output<string | undefined>;
@@ -120,6 +124,7 @@ export class ServerPolicyRule extends pulumi.CustomResource {
             resourceInputs["refreshTokenWindowMinutes"] = state ? state.refreshTokenWindowMinutes : undefined;
             resourceInputs["scopeWhitelists"] = state ? state.scopeWhitelists : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["system"] = state ? state.system : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["userBlacklists"] = state ? state.userBlacklists : undefined;
             resourceInputs["userWhitelists"] = state ? state.userWhitelists : undefined;
@@ -153,6 +158,7 @@ export class ServerPolicyRule extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["userBlacklists"] = args ? args.userBlacklists : undefined;
             resourceInputs["userWhitelists"] = args ? args.userWhitelists : undefined;
+            resourceInputs["system"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "okta:auth/serverPolicyClaim:ServerPolicyClaim" }] };
@@ -214,6 +220,10 @@ export interface ServerPolicyRuleState {
      */
     scopeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     status?: pulumi.Input<string>;
+    /**
+     * The rule is the system (default) rule for its associated policy
+     */
+    system?: pulumi.Input<boolean>;
     /**
      * Auth server policy rule type, unlikely this will be anything other then the default
      */

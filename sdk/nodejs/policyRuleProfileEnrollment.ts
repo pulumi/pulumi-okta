@@ -59,6 +59,10 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
      */
     public readonly profileAttributes!: pulumi.Output<outputs.PolicyRuleProfileEnrollmentProfileAttribute[] | undefined>;
     /**
+     * Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+     */
+    public readonly progressiveProfilingAction!: pulumi.Output<string | undefined>;
+    /**
      * Status of the rule
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -94,6 +98,7 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
             resourceInputs["profileAttributes"] = state ? state.profileAttributes : undefined;
+            resourceInputs["progressiveProfilingAction"] = state ? state.progressiveProfilingAction : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["targetGroupId"] = state ? state.targetGroupId : undefined;
             resourceInputs["uiSchemaId"] = state ? state.uiSchemaId : undefined;
@@ -111,6 +116,7 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
             resourceInputs["inlineHookId"] = args ? args.inlineHookId : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
             resourceInputs["profileAttributes"] = args ? args.profileAttributes : undefined;
+            resourceInputs["progressiveProfilingAction"] = args ? args.progressiveProfilingAction : undefined;
             resourceInputs["targetGroupId"] = args ? args.targetGroupId : undefined;
             resourceInputs["uiSchemaId"] = args ? args.uiSchemaId : undefined;
             resourceInputs["unknownUserAction"] = args ? args.unknownUserAction : undefined;
@@ -150,6 +156,10 @@ export interface PolicyRuleProfileEnrollmentState {
      * A list of attributes to prompt the user during registration or progressive profiling
      */
     profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[]>;
+    /**
+     * Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+     */
+    progressiveProfilingAction?: pulumi.Input<string>;
     /**
      * Status of the rule
      */
@@ -192,6 +202,10 @@ export interface PolicyRuleProfileEnrollmentArgs {
      * A list of attributes to prompt the user during registration or progressive profiling
      */
     profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[]>;
+    /**
+     * Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+     */
+    progressiveProfilingAction?: pulumi.Input<string>;
     /**
      * The ID of a Group that this User should be added to
      */

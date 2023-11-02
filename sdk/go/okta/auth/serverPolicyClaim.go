@@ -91,6 +91,8 @@ type ServerPolicyClaim struct {
 	ScopeWhitelists pulumi.StringArrayOutput `pulumi:"scopeWhitelists"`
 	// The status of the Auth Server Policy Rule.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The rule is the system (default) rule for its associated policy.
+	System pulumi.BoolOutput `pulumi:"system"`
 	// The type of the Auth Server Policy Rule.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Specifies a set of Users to be excluded.
@@ -170,6 +172,8 @@ type serverPolicyClaimState struct {
 	ScopeWhitelists []string `pulumi:"scopeWhitelists"`
 	// The status of the Auth Server Policy Rule.
 	Status *string `pulumi:"status"`
+	// The rule is the system (default) rule for its associated policy.
+	System *bool `pulumi:"system"`
 	// The type of the Auth Server Policy Rule.
 	Type *string `pulumi:"type"`
 	// Specifies a set of Users to be excluded.
@@ -208,6 +212,8 @@ type ServerPolicyClaimState struct {
 	ScopeWhitelists pulumi.StringArrayInput
 	// The status of the Auth Server Policy Rule.
 	Status pulumi.StringPtrInput
+	// The rule is the system (default) rule for its associated policy.
+	System pulumi.BoolPtrInput
 	// The type of the Auth Server Policy Rule.
 	Type pulumi.StringPtrInput
 	// Specifies a set of Users to be excluded.
@@ -474,6 +480,11 @@ func (o ServerPolicyClaimOutput) ScopeWhitelists() pulumi.StringArrayOutput {
 // The status of the Auth Server Policy Rule.
 func (o ServerPolicyClaimOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The rule is the system (default) rule for its associated policy.
+func (o ServerPolicyClaimOutput) System() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ServerPolicyClaim) pulumi.BoolOutput { return v.System }).(pulumi.BoolOutput)
 }
 
 // The type of the Auth Server Policy Rule.
