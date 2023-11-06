@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get the brands belonging to an Okta organization.
@@ -79,12 +78,6 @@ func (o GetBrandsResultOutput) ToGetBrandsResultOutput() GetBrandsResultOutput {
 
 func (o GetBrandsResultOutput) ToGetBrandsResultOutputWithContext(ctx context.Context) GetBrandsResultOutput {
 	return o
-}
-
-func (o GetBrandsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrandsResult] {
-	return pulumix.Output[GetBrandsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of `Brand` belonging to the organization

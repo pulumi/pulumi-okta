@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a group rule from Okta.
@@ -114,12 +113,6 @@ func (o LookupRuleResultOutput) ToLookupRuleResultOutput() LookupRuleResultOutpu
 
 func (o LookupRuleResultOutput) ToLookupRuleResultOutputWithContext(ctx context.Context) LookupRuleResultOutput {
 	return o
-}
-
-func (o LookupRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRuleResult] {
-	return pulumix.Output[LookupRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The expression type to use to invoke the rule.

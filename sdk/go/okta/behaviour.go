@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Behaviour struct {
@@ -160,12 +159,6 @@ func (i *Behaviour) ToBehaviourOutputWithContext(ctx context.Context) BehaviourO
 	return pulumi.ToOutputWithContext(ctx, i).(BehaviourOutput)
 }
 
-func (i *Behaviour) ToOutput(ctx context.Context) pulumix.Output[*Behaviour] {
-	return pulumix.Output[*Behaviour]{
-		OutputState: i.ToBehaviourOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BehaviourArrayInput is an input type that accepts BehaviourArray and BehaviourArrayOutput values.
 // You can construct a concrete instance of `BehaviourArrayInput` via:
 //
@@ -189,12 +182,6 @@ func (i BehaviourArray) ToBehaviourArrayOutput() BehaviourArrayOutput {
 
 func (i BehaviourArray) ToBehaviourArrayOutputWithContext(ctx context.Context) BehaviourArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BehaviourArrayOutput)
-}
-
-func (i BehaviourArray) ToOutput(ctx context.Context) pulumix.Output[[]*Behaviour] {
-	return pulumix.Output[[]*Behaviour]{
-		OutputState: i.ToBehaviourArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BehaviourMapInput is an input type that accepts BehaviourMap and BehaviourMapOutput values.
@@ -222,12 +209,6 @@ func (i BehaviourMap) ToBehaviourMapOutputWithContext(ctx context.Context) Behav
 	return pulumi.ToOutputWithContext(ctx, i).(BehaviourMapOutput)
 }
 
-func (i BehaviourMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Behaviour] {
-	return pulumix.Output[map[string]*Behaviour]{
-		OutputState: i.ToBehaviourMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BehaviourOutput struct{ *pulumi.OutputState }
 
 func (BehaviourOutput) ElementType() reflect.Type {
@@ -240,12 +221,6 @@ func (o BehaviourOutput) ToBehaviourOutput() BehaviourOutput {
 
 func (o BehaviourOutput) ToBehaviourOutputWithContext(ctx context.Context) BehaviourOutput {
 	return o
-}
-
-func (o BehaviourOutput) ToOutput(ctx context.Context) pulumix.Output[*Behaviour] {
-	return pulumix.Output[*Behaviour]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines the method and level of detail used to evaluate the behavior.
@@ -297,12 +272,6 @@ func (o BehaviourArrayOutput) ToBehaviourArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o BehaviourArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Behaviour] {
-	return pulumix.Output[[]*Behaviour]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BehaviourArrayOutput) Index(i pulumi.IntInput) BehaviourOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Behaviour {
 		return vs[0].([]*Behaviour)[vs[1].(int)]
@@ -321,12 +290,6 @@ func (o BehaviourMapOutput) ToBehaviourMapOutput() BehaviourMapOutput {
 
 func (o BehaviourMapOutput) ToBehaviourMapOutputWithContext(ctx context.Context) BehaviourMapOutput {
 	return o
-}
-
-func (o BehaviourMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Behaviour] {
-	return pulumix.Output[map[string]*Behaviour]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BehaviourMapOutput) MapIndex(k pulumi.StringInput) BehaviourOutput {

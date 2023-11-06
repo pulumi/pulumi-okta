@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AuthServerDefault struct {
@@ -165,12 +164,6 @@ func (i *AuthServerDefault) ToAuthServerDefaultOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AuthServerDefaultOutput)
 }
 
-func (i *AuthServerDefault) ToOutput(ctx context.Context) pulumix.Output[*AuthServerDefault] {
-	return pulumix.Output[*AuthServerDefault]{
-		OutputState: i.ToAuthServerDefaultOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AuthServerDefaultArrayInput is an input type that accepts AuthServerDefaultArray and AuthServerDefaultArrayOutput values.
 // You can construct a concrete instance of `AuthServerDefaultArrayInput` via:
 //
@@ -194,12 +187,6 @@ func (i AuthServerDefaultArray) ToAuthServerDefaultArrayOutput() AuthServerDefau
 
 func (i AuthServerDefaultArray) ToAuthServerDefaultArrayOutputWithContext(ctx context.Context) AuthServerDefaultArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthServerDefaultArrayOutput)
-}
-
-func (i AuthServerDefaultArray) ToOutput(ctx context.Context) pulumix.Output[[]*AuthServerDefault] {
-	return pulumix.Output[[]*AuthServerDefault]{
-		OutputState: i.ToAuthServerDefaultArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AuthServerDefaultMapInput is an input type that accepts AuthServerDefaultMap and AuthServerDefaultMapOutput values.
@@ -227,12 +214,6 @@ func (i AuthServerDefaultMap) ToAuthServerDefaultMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AuthServerDefaultMapOutput)
 }
 
-func (i AuthServerDefaultMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthServerDefault] {
-	return pulumix.Output[map[string]*AuthServerDefault]{
-		OutputState: i.ToAuthServerDefaultMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AuthServerDefaultOutput struct{ *pulumi.OutputState }
 
 func (AuthServerDefaultOutput) ElementType() reflect.Type {
@@ -245,12 +226,6 @@ func (o AuthServerDefaultOutput) ToAuthServerDefaultOutput() AuthServerDefaultOu
 
 func (o AuthServerDefaultOutput) ToAuthServerDefaultOutputWithContext(ctx context.Context) AuthServerDefaultOutput {
 	return o
-}
-
-func (o AuthServerDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthServerDefault] {
-	return pulumix.Output[*AuthServerDefault]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Currently Okta only supports a single value here
@@ -316,12 +291,6 @@ func (o AuthServerDefaultArrayOutput) ToAuthServerDefaultArrayOutputWithContext(
 	return o
 }
 
-func (o AuthServerDefaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AuthServerDefault] {
-	return pulumix.Output[[]*AuthServerDefault]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AuthServerDefaultArrayOutput) Index(i pulumi.IntInput) AuthServerDefaultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthServerDefault {
 		return vs[0].([]*AuthServerDefault)[vs[1].(int)]
@@ -340,12 +309,6 @@ func (o AuthServerDefaultMapOutput) ToAuthServerDefaultMapOutput() AuthServerDef
 
 func (o AuthServerDefaultMapOutput) ToAuthServerDefaultMapOutputWithContext(ctx context.Context) AuthServerDefaultMapOutput {
 	return o
-}
-
-func (o AuthServerDefaultMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthServerDefault] {
-	return pulumix.Output[map[string]*AuthServerDefault]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AuthServerDefaultMapOutput) MapIndex(k pulumi.StringInput) AuthServerDefaultOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages assignment of an admin role to an OAuth application.
@@ -158,12 +157,6 @@ func (i *OauthRoleAssignment) ToOauthRoleAssignmentOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OauthRoleAssignmentOutput)
 }
 
-func (i *OauthRoleAssignment) ToOutput(ctx context.Context) pulumix.Output[*OauthRoleAssignment] {
-	return pulumix.Output[*OauthRoleAssignment]{
-		OutputState: i.ToOauthRoleAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OauthRoleAssignmentArrayInput is an input type that accepts OauthRoleAssignmentArray and OauthRoleAssignmentArrayOutput values.
 // You can construct a concrete instance of `OauthRoleAssignmentArrayInput` via:
 //
@@ -187,12 +180,6 @@ func (i OauthRoleAssignmentArray) ToOauthRoleAssignmentArrayOutput() OauthRoleAs
 
 func (i OauthRoleAssignmentArray) ToOauthRoleAssignmentArrayOutputWithContext(ctx context.Context) OauthRoleAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OauthRoleAssignmentArrayOutput)
-}
-
-func (i OauthRoleAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*OauthRoleAssignment] {
-	return pulumix.Output[[]*OauthRoleAssignment]{
-		OutputState: i.ToOauthRoleAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OauthRoleAssignmentMapInput is an input type that accepts OauthRoleAssignmentMap and OauthRoleAssignmentMapOutput values.
@@ -220,12 +207,6 @@ func (i OauthRoleAssignmentMap) ToOauthRoleAssignmentMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OauthRoleAssignmentMapOutput)
 }
 
-func (i OauthRoleAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OauthRoleAssignment] {
-	return pulumix.Output[map[string]*OauthRoleAssignment]{
-		OutputState: i.ToOauthRoleAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OauthRoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (OauthRoleAssignmentOutput) ElementType() reflect.Type {
@@ -238,12 +219,6 @@ func (o OauthRoleAssignmentOutput) ToOauthRoleAssignmentOutput() OauthRoleAssign
 
 func (o OauthRoleAssignmentOutput) ToOauthRoleAssignmentOutputWithContext(ctx context.Context) OauthRoleAssignmentOutput {
 	return o
-}
-
-func (o OauthRoleAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*OauthRoleAssignment] {
-	return pulumix.Output[*OauthRoleAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Client ID for the role to be assigned to
@@ -290,12 +265,6 @@ func (o OauthRoleAssignmentArrayOutput) ToOauthRoleAssignmentArrayOutputWithCont
 	return o
 }
 
-func (o OauthRoleAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OauthRoleAssignment] {
-	return pulumix.Output[[]*OauthRoleAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OauthRoleAssignmentArrayOutput) Index(i pulumi.IntInput) OauthRoleAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OauthRoleAssignment {
 		return vs[0].([]*OauthRoleAssignment)[vs[1].(int)]
@@ -314,12 +283,6 @@ func (o OauthRoleAssignmentMapOutput) ToOauthRoleAssignmentMapOutput() OauthRole
 
 func (o OauthRoleAssignmentMapOutput) ToOauthRoleAssignmentMapOutputWithContext(ctx context.Context) OauthRoleAssignmentMapOutput {
 	return o
-}
-
-func (o OauthRoleAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OauthRoleAssignment] {
-	return pulumix.Output[map[string]*OauthRoleAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OauthRoleAssignmentMapOutput) MapIndex(k pulumi.StringInput) OauthRoleAssignmentOutput {

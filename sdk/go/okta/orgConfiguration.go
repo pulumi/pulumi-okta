@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type OrgConfiguration struct {
@@ -252,12 +251,6 @@ func (i *OrgConfiguration) ToOrgConfigurationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(OrgConfigurationOutput)
 }
 
-func (i *OrgConfiguration) ToOutput(ctx context.Context) pulumix.Output[*OrgConfiguration] {
-	return pulumix.Output[*OrgConfiguration]{
-		OutputState: i.ToOrgConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrgConfigurationArrayInput is an input type that accepts OrgConfigurationArray and OrgConfigurationArrayOutput values.
 // You can construct a concrete instance of `OrgConfigurationArrayInput` via:
 //
@@ -281,12 +274,6 @@ func (i OrgConfigurationArray) ToOrgConfigurationArrayOutput() OrgConfigurationA
 
 func (i OrgConfigurationArray) ToOrgConfigurationArrayOutputWithContext(ctx context.Context) OrgConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrgConfigurationArrayOutput)
-}
-
-func (i OrgConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrgConfiguration] {
-	return pulumix.Output[[]*OrgConfiguration]{
-		OutputState: i.ToOrgConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OrgConfigurationMapInput is an input type that accepts OrgConfigurationMap and OrgConfigurationMapOutput values.
@@ -314,12 +301,6 @@ func (i OrgConfigurationMap) ToOrgConfigurationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(OrgConfigurationMapOutput)
 }
 
-func (i OrgConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrgConfiguration] {
-	return pulumix.Output[map[string]*OrgConfiguration]{
-		OutputState: i.ToOrgConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrgConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OrgConfigurationOutput) ElementType() reflect.Type {
@@ -332,12 +313,6 @@ func (o OrgConfigurationOutput) ToOrgConfigurationOutput() OrgConfigurationOutpu
 
 func (o OrgConfigurationOutput) ToOrgConfigurationOutputWithContext(ctx context.Context) OrgConfigurationOutput {
 	return o
-}
-
-func (o OrgConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*OrgConfiguration] {
-	return pulumix.Output[*OrgConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Primary address of org
@@ -439,12 +414,6 @@ func (o OrgConfigurationArrayOutput) ToOrgConfigurationArrayOutputWithContext(ct
 	return o
 }
 
-func (o OrgConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrgConfiguration] {
-	return pulumix.Output[[]*OrgConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OrgConfigurationArrayOutput) Index(i pulumi.IntInput) OrgConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrgConfiguration {
 		return vs[0].([]*OrgConfiguration)[vs[1].(int)]
@@ -463,12 +432,6 @@ func (o OrgConfigurationMapOutput) ToOrgConfigurationMapOutput() OrgConfiguratio
 
 func (o OrgConfigurationMapOutput) ToOrgConfigurationMapOutputWithContext(ctx context.Context) OrgConfigurationMapOutput {
 	return o
-}
-
-func (o OrgConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrgConfiguration] {
-	return pulumix.Output[map[string]*OrgConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrgConfigurationMapOutput) MapIndex(k pulumi.StringInput) OrgConfigurationOutput {

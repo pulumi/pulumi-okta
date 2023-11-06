@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type EmailCustomization struct {
@@ -179,12 +178,6 @@ func (i *EmailCustomization) ToEmailCustomizationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EmailCustomizationOutput)
 }
 
-func (i *EmailCustomization) ToOutput(ctx context.Context) pulumix.Output[*EmailCustomization] {
-	return pulumix.Output[*EmailCustomization]{
-		OutputState: i.ToEmailCustomizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EmailCustomizationArrayInput is an input type that accepts EmailCustomizationArray and EmailCustomizationArrayOutput values.
 // You can construct a concrete instance of `EmailCustomizationArrayInput` via:
 //
@@ -208,12 +201,6 @@ func (i EmailCustomizationArray) ToEmailCustomizationArrayOutput() EmailCustomiz
 
 func (i EmailCustomizationArray) ToEmailCustomizationArrayOutputWithContext(ctx context.Context) EmailCustomizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailCustomizationArrayOutput)
-}
-
-func (i EmailCustomizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailCustomization] {
-	return pulumix.Output[[]*EmailCustomization]{
-		OutputState: i.ToEmailCustomizationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EmailCustomizationMapInput is an input type that accepts EmailCustomizationMap and EmailCustomizationMapOutput values.
@@ -241,12 +228,6 @@ func (i EmailCustomizationMap) ToEmailCustomizationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EmailCustomizationMapOutput)
 }
 
-func (i EmailCustomizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailCustomization] {
-	return pulumix.Output[map[string]*EmailCustomization]{
-		OutputState: i.ToEmailCustomizationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailCustomizationOutput struct{ *pulumi.OutputState }
 
 func (EmailCustomizationOutput) ElementType() reflect.Type {
@@ -259,12 +240,6 @@ func (o EmailCustomizationOutput) ToEmailCustomizationOutput() EmailCustomizatio
 
 func (o EmailCustomizationOutput) ToEmailCustomizationOutputWithContext(ctx context.Context) EmailCustomizationOutput {
 	return o
-}
-
-func (o EmailCustomizationOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailCustomization] {
-	return pulumix.Output[*EmailCustomization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The body of the customization
@@ -323,12 +298,6 @@ func (o EmailCustomizationArrayOutput) ToEmailCustomizationArrayOutputWithContex
 	return o
 }
 
-func (o EmailCustomizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailCustomization] {
-	return pulumix.Output[[]*EmailCustomization]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EmailCustomizationArrayOutput) Index(i pulumi.IntInput) EmailCustomizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailCustomization {
 		return vs[0].([]*EmailCustomization)[vs[1].(int)]
@@ -347,12 +316,6 @@ func (o EmailCustomizationMapOutput) ToEmailCustomizationMapOutput() EmailCustom
 
 func (o EmailCustomizationMapOutput) ToEmailCustomizationMapOutputWithContext(ctx context.Context) EmailCustomizationMapOutput {
 	return o
-}
-
-func (o EmailCustomizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailCustomization] {
-	return pulumix.Output[map[string]*EmailCustomization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailCustomizationMapOutput) MapIndex(k pulumi.StringInput) EmailCustomizationOutput {

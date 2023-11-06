@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type UserType struct {
@@ -123,12 +122,6 @@ func (i *UserType) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(UserTypeOutput)
 }
 
-func (i *UserType) ToOutput(ctx context.Context) pulumix.Output[*UserType] {
-	return pulumix.Output[*UserType]{
-		OutputState: i.ToUserTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserTypeArrayInput is an input type that accepts UserTypeArray and UserTypeArrayOutput values.
 // You can construct a concrete instance of `UserTypeArrayInput` via:
 //
@@ -152,12 +145,6 @@ func (i UserTypeArray) ToUserTypeArrayOutput() UserTypeArrayOutput {
 
 func (i UserTypeArray) ToUserTypeArrayOutputWithContext(ctx context.Context) UserTypeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserTypeArrayOutput)
-}
-
-func (i UserTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserType] {
-	return pulumix.Output[[]*UserType]{
-		OutputState: i.ToUserTypeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserTypeMapInput is an input type that accepts UserTypeMap and UserTypeMapOutput values.
@@ -185,12 +172,6 @@ func (i UserTypeMap) ToUserTypeMapOutputWithContext(ctx context.Context) UserTyp
 	return pulumi.ToOutputWithContext(ctx, i).(UserTypeMapOutput)
 }
 
-func (i UserTypeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserType] {
-	return pulumix.Output[map[string]*UserType]{
-		OutputState: i.ToUserTypeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserTypeOutput struct{ *pulumi.OutputState }
 
 func (UserTypeOutput) ElementType() reflect.Type {
@@ -203,12 +184,6 @@ func (o UserTypeOutput) ToUserTypeOutput() UserTypeOutput {
 
 func (o UserTypeOutput) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
 	return o
-}
-
-func (o UserTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*UserType] {
-	return pulumix.Output[*UserType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A human-readable description of the User type
@@ -240,12 +215,6 @@ func (o UserTypeArrayOutput) ToUserTypeArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o UserTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserType] {
-	return pulumix.Output[[]*UserType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserTypeArrayOutput) Index(i pulumi.IntInput) UserTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserType {
 		return vs[0].([]*UserType)[vs[1].(int)]
@@ -264,12 +233,6 @@ func (o UserTypeMapOutput) ToUserTypeMapOutput() UserTypeMapOutput {
 
 func (o UserTypeMapOutput) ToUserTypeMapOutputWithContext(ctx context.Context) UserTypeMapOutput {
 	return o
-}
-
-func (o UserTypeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserType] {
-	return pulumix.Output[map[string]*UserType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserTypeMapOutput) MapIndex(k pulumi.StringInput) UserTypeOutput {

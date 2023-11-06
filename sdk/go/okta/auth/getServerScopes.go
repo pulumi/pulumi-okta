@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a list of authorization server scopes from Okta.
@@ -101,12 +100,6 @@ func (o GetServerScopesResultOutput) ToGetServerScopesResultOutput() GetServerSc
 
 func (o GetServerScopesResultOutput) ToGetServerScopesResultOutputWithContext(ctx context.Context) GetServerScopesResultOutput {
 	return o
-}
-
-func (o GetServerScopesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServerScopesResult] {
-	return pulumix.Output[GetServerScopesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Auth server ID

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AppGroupAssignments struct {
@@ -113,12 +112,6 @@ func (i *AppGroupAssignments) ToAppGroupAssignmentsOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AppGroupAssignmentsOutput)
 }
 
-func (i *AppGroupAssignments) ToOutput(ctx context.Context) pulumix.Output[*AppGroupAssignments] {
-	return pulumix.Output[*AppGroupAssignments]{
-		OutputState: i.ToAppGroupAssignmentsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppGroupAssignmentsArrayInput is an input type that accepts AppGroupAssignmentsArray and AppGroupAssignmentsArrayOutput values.
 // You can construct a concrete instance of `AppGroupAssignmentsArrayInput` via:
 //
@@ -142,12 +135,6 @@ func (i AppGroupAssignmentsArray) ToAppGroupAssignmentsArrayOutput() AppGroupAss
 
 func (i AppGroupAssignmentsArray) ToAppGroupAssignmentsArrayOutputWithContext(ctx context.Context) AppGroupAssignmentsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppGroupAssignmentsArrayOutput)
-}
-
-func (i AppGroupAssignmentsArray) ToOutput(ctx context.Context) pulumix.Output[[]*AppGroupAssignments] {
-	return pulumix.Output[[]*AppGroupAssignments]{
-		OutputState: i.ToAppGroupAssignmentsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AppGroupAssignmentsMapInput is an input type that accepts AppGroupAssignmentsMap and AppGroupAssignmentsMapOutput values.
@@ -175,12 +162,6 @@ func (i AppGroupAssignmentsMap) ToAppGroupAssignmentsMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AppGroupAssignmentsMapOutput)
 }
 
-func (i AppGroupAssignmentsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppGroupAssignments] {
-	return pulumix.Output[map[string]*AppGroupAssignments]{
-		OutputState: i.ToAppGroupAssignmentsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppGroupAssignmentsOutput struct{ *pulumi.OutputState }
 
 func (AppGroupAssignmentsOutput) ElementType() reflect.Type {
@@ -193,12 +174,6 @@ func (o AppGroupAssignmentsOutput) ToAppGroupAssignmentsOutput() AppGroupAssignm
 
 func (o AppGroupAssignmentsOutput) ToAppGroupAssignmentsOutputWithContext(ctx context.Context) AppGroupAssignmentsOutput {
 	return o
-}
-
-func (o AppGroupAssignmentsOutput) ToOutput(ctx context.Context) pulumix.Output[*AppGroupAssignments] {
-	return pulumix.Output[*AppGroupAssignments]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the application to assign a group to.
@@ -225,12 +200,6 @@ func (o AppGroupAssignmentsArrayOutput) ToAppGroupAssignmentsArrayOutputWithCont
 	return o
 }
 
-func (o AppGroupAssignmentsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AppGroupAssignments] {
-	return pulumix.Output[[]*AppGroupAssignments]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppGroupAssignmentsArrayOutput) Index(i pulumi.IntInput) AppGroupAssignmentsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppGroupAssignments {
 		return vs[0].([]*AppGroupAssignments)[vs[1].(int)]
@@ -249,12 +218,6 @@ func (o AppGroupAssignmentsMapOutput) ToAppGroupAssignmentsMapOutput() AppGroupA
 
 func (o AppGroupAssignmentsMapOutput) ToAppGroupAssignmentsMapOutputWithContext(ctx context.Context) AppGroupAssignmentsMapOutput {
 	return o
-}
-
-func (o AppGroupAssignmentsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppGroupAssignments] {
-	return pulumix.Output[map[string]*AppGroupAssignments]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppGroupAssignmentsMapOutput) MapIndex(k pulumi.StringInput) AppGroupAssignmentsOutput {

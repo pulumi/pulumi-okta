@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Social struct {
@@ -271,12 +270,6 @@ func (i *Social) ToSocialOutputWithContext(ctx context.Context) SocialOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SocialOutput)
 }
 
-func (i *Social) ToOutput(ctx context.Context) pulumix.Output[*Social] {
-	return pulumix.Output[*Social]{
-		OutputState: i.ToSocialOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SocialArrayInput is an input type that accepts SocialArray and SocialArrayOutput values.
 // You can construct a concrete instance of `SocialArrayInput` via:
 //
@@ -300,12 +293,6 @@ func (i SocialArray) ToSocialArrayOutput() SocialArrayOutput {
 
 func (i SocialArray) ToSocialArrayOutputWithContext(ctx context.Context) SocialArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SocialArrayOutput)
-}
-
-func (i SocialArray) ToOutput(ctx context.Context) pulumix.Output[[]*Social] {
-	return pulumix.Output[[]*Social]{
-		OutputState: i.ToSocialArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SocialMapInput is an input type that accepts SocialMap and SocialMapOutput values.
@@ -333,12 +320,6 @@ func (i SocialMap) ToSocialMapOutputWithContext(ctx context.Context) SocialMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SocialMapOutput)
 }
 
-func (i SocialMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Social] {
-	return pulumix.Output[map[string]*Social]{
-		OutputState: i.ToSocialMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SocialOutput struct{ *pulumi.OutputState }
 
 func (SocialOutput) ElementType() reflect.Type {
@@ -351,12 +332,6 @@ func (o SocialOutput) ToSocialOutput() SocialOutput {
 
 func (o SocialOutput) ToSocialOutputWithContext(ctx context.Context) SocialOutput {
 	return o
-}
-
-func (o SocialOutput) ToOutput(ctx context.Context) pulumix.Output[*Social] {
-	return pulumix.Output[*Social]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SocialOutput) AccountLinkAction() pulumi.StringPtrOutput {
@@ -495,12 +470,6 @@ func (o SocialArrayOutput) ToSocialArrayOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SocialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Social] {
-	return pulumix.Output[[]*Social]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SocialArrayOutput) Index(i pulumi.IntInput) SocialOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Social {
 		return vs[0].([]*Social)[vs[1].(int)]
@@ -519,12 +488,6 @@ func (o SocialMapOutput) ToSocialMapOutput() SocialMapOutput {
 
 func (o SocialMapOutput) ToSocialMapOutputWithContext(ctx context.Context) SocialMapOutput {
 	return o
-}
-
-func (o SocialMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Social] {
-	return pulumix.Output[map[string]*Social]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SocialMapOutput) MapIndex(k pulumi.StringInput) SocialOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get the email customization of an email template belonging to a brand in an Okta organization.
@@ -95,12 +94,6 @@ func (o LookupEmailCustomizationResultOutput) ToLookupEmailCustomizationResultOu
 
 func (o LookupEmailCustomizationResultOutput) ToLookupEmailCustomizationResultOutputWithContext(ctx context.Context) LookupEmailCustomizationResultOutput {
 	return o
-}
-
-func (o LookupEmailCustomizationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEmailCustomizationResult] {
-	return pulumix.Output[LookupEmailCustomizationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The body of the customization

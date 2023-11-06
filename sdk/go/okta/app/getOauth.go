@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a OIDC application from Okta.
@@ -200,12 +199,6 @@ func (o GetOauthResultOutput) ToGetOauthResultOutput() GetOauthResultOutput {
 
 func (o GetOauthResultOutput) ToGetOauthResultOutputWithContext(ctx context.Context) GetOauthResultOutput {
 	return o
-}
-
-func (o GetOauthResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOauthResult] {
-	return pulumix.Output[GetOauthResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Search only ACTIVE applications.
